@@ -9,4 +9,5 @@
 article_list_selector: "table tr"
 title_selector: "td:nth-child(2)"
 link_selector: "td:nth-child(3) a"
+date_selector: "time.sfl--article--date"
 link_filter: "^/nyhetsrum/.+"
