@@ -4,6 +4,9 @@
 # Upload this file to config/scrapers/spiris.yaml in the hvpkod/crops repo.
 # Referenced from sources.yaml via: scraper: spiris
 
-article_list_selector: "ol li"
-link_selector: "a"
-link_filter: "/nyhetsrum/.+"    # only keep article links, not nav/section links
+# only keep article links, not nav/section links
+
+article_list_selector: "table tr"
+title_selector: "td:nth-child(2)"
+link_selector: "td:nth-child(3) a"
+link_filter: "^/nyhetsrum/.+"
