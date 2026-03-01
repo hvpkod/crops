@@ -17,24 +17,10 @@ sources:
     fetch_frequency_mins: 30
     groups: [tech, english, news]
 
-  # Custom-scraped page — archive-style list (title comes from the article page itself)
+    # Custom-scraped page — config lives in config/scrapers/spiris.yaml
   - name: "Spiris Nyhetsrum"
     url: "https://www.spiris.se/nyhetsrum/arkiv"
     type: scraped
     fetch_frequency_mins: 60
     groups: [news, swedish, fintech]
-    scraper_config:
-      article_list_selector: "ol li"
-      link_selector: "a"
-      # No title_selector — titles are extracted from each article page via readability
-
-  # # Custom-scraped page example with title on the list page
-  #  - name: "Example News Site"
-  #    url: "https://example.com/news"
-  #    type: scraped
-  #    fetch_frequency_mins: 60
-  #    groups: [news, english]
-  #    scraper_config:
-  #      article_list_selector: ".article-list .item"
-  #      title_selector: "h2.title"
-  #      link_selector: "a.read-more"
+    scraper: spiris
