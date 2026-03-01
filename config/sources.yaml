@@ -1,0 +1,40 @@
+# config/sources.yaml — lives in your GitHub config repo.
+# Add RSS feeds or custom-scraped pages here.
+# Changes are picked up automatically on the next fetcher run (no restart needed).
+
+sources:
+  # RSS feed example
+  - name: "Hacker News"
+    url: "https://news.ycombinator.com/rss"
+    type: rss
+    fetch_frequency_mins: 20
+    groups: [tech, english, community]
+
+  # Another RSS feed
+  - name: "The Verge"
+    url: "https://www.theverge.com/rss/index.xml"
+    type: rss
+    fetch_frequency_mins: 30
+    groups: [tech, english, news]
+
+  # Custom-scraped page — archive-style list (title comes from the article page itself)
+  - name: "Spiris Nyhetsrum"
+    url: "https://www.spiris.se/nyhetsrum/arkiv"
+    type: scraped
+    fetch_frequency_mins: 60
+    groups: [news, swedish, fintech]
+    scraper_config:
+      article_list_selector: "ol li"
+      link_selector: "a"
+      # No title_selector — titles are extracted from each article page via readability
+
+  # # Custom-scraped page example with title on the list page
+  #  - name: "Example News Site"
+  #    url: "https://example.com/news"
+  #    type: scraped
+  #    fetch_frequency_mins: 60
+  #    groups: [news, english]
+  #    scraper_config:
+  #      article_list_selector: ".article-list .item"
+  #      title_selector: "h2.title"
+  #      link_selector: "a.read-more"
