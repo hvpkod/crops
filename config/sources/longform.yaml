@@ -1,0 +1,15 @@
+# config/sources.yaml — lives in your GitHub config repo.
+# Add RSS feeds or custom-scraped pages here.
+# Changes are picked up automatically on the next fetcher run (no restart needed).
+
+# config/sources/longform.yaml
+sources:
+  - name: "Works in Progress"
+    url: "https://worksinprogress.co/archive/"
+    type: scraped
+    fetch_frequency_mins: 1440
+    groups: [longform, english]
+    scraper_config:
+      article_list_selector: "a.author-link"
+      link_filter: "^/issue/"
+      author_from_item_text: true
