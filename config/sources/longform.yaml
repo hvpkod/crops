@@ -12,7 +12,7 @@ sources:
     scraper: worksinprogress
 
   - name: "Stratechery"
-    url: "https://worksinprogress.co/archive/"
+    url: "https://stratechery.com/category/articles/"
     type: scraped
     fetch_frequency_mins: 1440
     groups: [longform, english, business, tech, politics]
