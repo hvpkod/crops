@@ -8,8 +8,12 @@ sources:
     url: "https://worksinprogress.co/archive/"
     type: scraped
     fetch_frequency_mins: 1440
-    groups: [longform, english]
-    scraper_config:
-      article_list_selector: "a.author-link"
-      link_filter: "^/issue/"
-      author_from_item_text: true
+    groups: [longform, english, how-world-works]
+    scraper: worksinprogress
+
+  - name: "Stratechery"
+    url: "https://worksinprogress.co/archive/"
+    type: scraped
+    fetch_frequency_mins: 1440
+    groups: [longform, english, business, tech, politics]
+    scraper: stratecherycom

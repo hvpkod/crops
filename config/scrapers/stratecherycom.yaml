@@ -1,0 +1,6 @@
+article_list_selector: li.wp-block-post
+link_selector: h2 a
+title_selector: h2 a
+author_static: Ben Thompson
+date_selector: time
+page_date_selector: time
