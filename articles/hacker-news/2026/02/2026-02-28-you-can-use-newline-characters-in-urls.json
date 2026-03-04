@@ -1,0 +1,24 @@
+{
+  "id": 223,
+  "source": "Hacker News",
+  "title": "You can use newline characters in URLs",
+  "url": "https://lemire.me/blog/2026/02/28/you-can-use-newline-characters-in-urls/",
+  "published_at": "2026-02-28T23:24:57Z",
+  "fetched_at": "2026-03-04T13:23:42.526903+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47201598\">Comments</a>",
+  "full_text": "We locate web content using special addresses called URLs. We are all familiar with addresses like https://google.com. Sometimes, URLs can get long and they can become difficult to read. Thus, we might be tempted to format them\n\nlike so in HTML using newline and tab characters, like so:\n\n<a href=\"https://lemire.me/blog/2026/02/21/\n how-fast-do-browsers-correct-utf-16-strings/\">my blog post</a>\n\nIt will work.\n\nLet us refer to the WHATWG URL specification that browsers follow. It makes two statements in sequence.\n\nIf input contains any ASCII tab or newline, invalid-URL-unit validation error.\n\nRemove all ASCII tab or newline from input.\n\nNotice how it reports an error if there is a tab or newline character, but continues anyway? The specification says that A validation error does not mean that the parser terminates and it encourages systems to report errors somewhere. Effectively, the error is ignored although it might be logged. Thus our HTML is fine in practice.\n\nThe following is also fine:\n\n<a href=\"https://go\nogle.c\nom\" class=\"button\">Visit Google</a>\n\nYou can also use tabs. But you cannot arbitrarily insert any other whitespace.\n\nYet there are cases when you can use any ASCII whitespace character: data URLs. Data URLs (also called data URIs) embed small files—like images, text, or other content—directly inside a URL string, instead of linking to an external resource. Data URLs are a special kind of URL and they follow different rules.\n\nA typical data URL might look like data:image/png;base64,iVBORw0KGgoAAAANSUhEUg... where the string iVBORw0KGgoAAAANSUhEUg... is the binary data of the image that has been encoded with base64. Base64 is a text format that can represent any binary content: we use 64 ASCII characters so that each character encodes 6 bits. Your binary email attachments are base64 encoded.\n\nOn the web, when decoding a base64 string, you ignore all ASCII whitespaces (including the space character itself). Thus you can embed a PNG image in HTML as follows.\n\n<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA\n QAAAAECAIAAAAmkwkpAAAAEUl\n EQVR4nGP8z4AATEhsPBwAM9EB\n BzDn4UwAAAAASUVORK5CYII=\" />\n\nThis HTML code is valid and will insert a tiny image in your page.\n\nBut there is more. A data URL can also be used to insert an SVG image. SVG (Scalable Vector Graphics) is an XML-based vector image format that describes 2D graphics using mathematical paths, shapes, and text instead of pixels.\n\nThe following should draw a very simple sunset:\n\n<img src='data:image/svg+xml,\n<svg width=\"200\" height=\"200\" \n xmlns=\"http://www.w3.org/2000/svg\">\n <rect width=\"100%\" height=\"100%\" fill=\"blue\" /> \n <!-- the sky -->\n <circle cx=\"100\" cy=\"110\" r=\"50\" fill=\"yellow\" /> \n <!-- the sun -->\n <rect x=\"0\" y=\"120\" width=\"200\" height=\"80\" fill=\"brown\" /> \n <!-- the ground -->\n</svg>' />\n\nObserve how I was able to format the SVG code so that it is readable.\n\nFurther reading: Nizipli, Y., & Lemire, D. (2024). Parsing millions of URLs per second. Software: Practice and Experience, 54(5), 744-758.",
+  "tags": [
+    "500-words",
+    "ascii",
+    "data",
+    "error",
+    "format",
+    "html",
+    "image",
+    "insert",
+    "might",
+    "newline",
+    "urls"
+  ]
+}

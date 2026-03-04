@@ -1,0 +1,24 @@
+{
+  "id": 215,
+  "source": "Hacker News",
+  "title": "My spicy take on vibe coding for PMs",
+  "url": "https://www.ddmckinnon.com/2026/02/11/my-%f0%9f%8c%b6-take-on-vibe-coding-for-pms/",
+  "published_at": "2026-03-03T23:38:21Z",
+  "fetched_at": "2026-03-04T13:23:38.074944+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47240736\">Comments</a>",
+  "full_text": "I shared this internally at Meta in response to a deluge of clout-chasing posts celebrating PMs landing prod diffs. The response was positive and the message generalizes, so here we are on the open www.\n\nPMs shouldn’t waste time landing prod diffs at Meta scale\nIf the feature is actually important, fix the system for prioritization (your real job) rather than circumventing it.\nYou probably code like a slow E3 but cost the company an IC7 salary.\nIt is very easy to accumulate tech debt with random PM pet features. Remember that even diffs to intern tools can break prod!\nYou are friends with all the senior TLs, so can get them to review your code, but this is not a high-leverage use of time.\nPMs landing prod features is generally snacking and mistaking motion for progress (flex on LinkedIn but don’t land any real prod impact).\n\nWhy should PMs code?\nBetter communicate the idea/feature: showing is usually better than telling.\nUnderstand the systems: prioritizing and communicating with engineers is far easier if you have some sense of how your thing is built.\nRun more realistic experiments with human volunteers: mocks and UXR studies with static prototypes are dead.\nTemporally flex unique resources: leverage unique talent that you have as a PM, e.g. deeply understanding of an API built by your previous company.\nFun!!!!!\n\nWhat should all PMs do in AI independent of coding?",
+  "tags": [
+    "500-words",
+    "better",
+    "coding",
+    "diffs",
+    "landing",
+    "meta",
+    "prod",
+    "real",
+    "response",
+    "unique",
+    "vibe"
+  ]
+}

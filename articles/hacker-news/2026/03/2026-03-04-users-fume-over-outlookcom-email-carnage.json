@@ -1,0 +1,24 @@
+{
+  "id": 210,
+  "source": "Hacker News",
+  "title": "Users fume over Outlook.com email 'carnage'",
+  "url": "https://www.theregister.com/2026/03/04/users_fume_at_outlookcom_email/",
+  "published_at": "2026-03-04T11:33:46Z",
+  "fetched_at": "2026-03-04T13:23:34.164975+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47246044\">Comments</a>",
+  "full_text": "Microsoft spent last week rejecting emails to Outlook recipients after what appears to be either a fault or overzealous blocking rules, a situation a source described as \"carnage.\"\n\nThe problem affects certain IP addresses, whose emails are rejected due to falling foul of reputation rules or appearing on a block list.\n\nA Register reader told us, \"At the back end of January we noticed a sudden spike in customers static IPs being rejected by only Microsoft Outlook free / personal accounts.\"\n\n \n\nThe message returned was a 550, telling customers to contact their Internet Service Provider (ISP) \"since part of their network is on our block list.\"\n\n \n\n \n\nA block list is a good thing. It helps stem the flow of spam from networks or addresses associated with junk email. However, the confusing thing for our reader is that his company was not on Microsoft's naughty step for email. A look at Microsoft's Smart Network Data Service (SNDS) showed no issues with the IP.\n\n\"We're also a member of their JMRP (Junk Mail Reporting Program),\" our reader added, \"which is intended to inform us when people are reporting spam sent from our IPs - except, we never get any reports.\"\n\n \n\nThe problem worsened in February. On Microsoft's support forums, users began to complain about similar issues as the IP net presumably widened. One wrote: \"We are currently experiencing a critical and recurring email delivery issue affecting recipients at outlook.com, live.com, hotmail.com, and msn.com,\" and provided a copy of an error that suggested the mail server has been \"temporarily rate limited due to IP reputation.\"\n\nThe user drily noted, \"Although the error indicates rate limiting, in practice no emails are being delivered.\"\n\nA large number of users, ranging from the administrator of a server sending automated notifications on behalf of Estonian Public Libraries to an email provider for healthcare professionals, chimed in to confirm they too were having delivery problems and Microsoft support was not helpful.\n\n \n\nOur reader told us, \"We've seen customers struggling to send invoices, order delivery notifications, authentication codes - all sorts, which have been perfectly acceptable to Microsoft / Outlook for many years - now rejected, or blocked.\"\n\nThey pointed out that when a user sees a 550 error, they don't always realize the receiving mail server is refusing the message, instead assuming that their own ISP is blocking their outgoing email.\n\n\"Customers rarely read or understand [delivery service notifications] - they jump to blaming the ISP or sender, and then head off to find someone else.\"\n\nUnsurprisingly, our reader spoke on condition of anonymity - nobody wants to be the ISP that has to say, \"Yeah, we can deliver your email anywhere but Outlook.com\" to customers.\n\nWe asked Microsoft to comment, but other than acknowledging our questions, the company did not respond further.\n\nAnything that reduces the amount of junk cluttering up inboxes is to be applauded, however, if a vendor makes an error, customers need a rapid and transparent process for resolution.\n\nEvery failed delivery of an invoice or receipt due to overzealous or misapplied rules can chip away at a business's reputation, through no fault of the owner. ®",
+  "tags": [
+    "1000-words",
+    "block",
+    "customers",
+    "delivery",
+    "email",
+    "emails",
+    "mail",
+    "microsoft",
+    "outlook",
+    "reader",
+    "service"
+  ]
+}

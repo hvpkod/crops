@@ -1,0 +1,24 @@
+{
+  "id": 234,
+  "source": "The Verge",
+  "title": "Another Oracle outage is messing up US TikTok",
+  "url": "https://www.theverge.com/tech/888647/tiktok-us-oracle-outage-march-2026",
+  "published_at": "2026-03-03T20:26:21Z",
+  "fetched_at": "2026-03-04T13:23:46.956539+00:00",
+  "author": "Stevie Bonifield",
+  "summary": "<figure>\n\n<img alt=\"An image showing the TikTok logo on a black background\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/STK051_VRG_Illo_N_Barclay_7_tiktok.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">The US version of TikTok is once again experiencing issues due to an Oracle outage, just a month after coming back online from <a href=\"https://www.theverge.com/tech/872037/tiktok-usa-is-back\">a similar outage in February</a>. </p>\n<p class=\"has-text-align-none\">The <a href=\"https://ocistatus.oraclecloud.com/#/incidents/ocid1.oraclecloudincident.oc1.phx.amaaaaaavwew44aa6ucdwddpdoet46piglpgshbpz5hedvgbtryt4vrftxsa\">service disruption</a>, impacting Oracle's Ashburn, Virginia data center, began early Tuesday afternoon, with <a href=\"https://downdetector.com/status/tiktok/\">Downdetector</a> reports spiking around 1PM Eastern. TikTok USDS confirmed <a href=\"https://x.com/tiktokusdsjv/sta",
+  "full_text": "The US version of TikTok is once again experiencing issues due to an Oracle outage, just a month after coming back online from a similar outage in February.\n\nThe service disruption, impacting Oracle’s Ashburn, Virginia data center, began early Tuesday afternoon, with Downdetector reports spiking around 1PM Eastern. TikTok USDS confirmed in a post on X that US users “may temporarily experience lags in posting content while Oracle works to resolve the issue.”\n\nThis is the second service disruption the US version of TikTok has suffered after a deal in January that transferred majority ownership away from the platform’s original owner, Chinese company ByteDance. The previous round of issues happened shortly after a joint venture, TikTok USDS, which includes Oracle, took over the app in the US as part of that deal. According to TikTok USDS, that service disruption was caused by a power outage at an Oracle data center.",
+  "tags": [
+    "200-words",
+    "data",
+    "disruption",
+    "issues",
+    "messing",
+    "once",
+    "oracle",
+    "outage",
+    "service",
+    "tiktok",
+    "version"
+  ]
+}
