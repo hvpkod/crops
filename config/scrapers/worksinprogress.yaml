@@ -1,5 +1,0 @@
-article_list_selector: "a.author-link"
-link_filter: "^/issue/"
-author_from_item_text: true
-title_from_slug: true
-page_date_selector: ".article-header__head-date"
