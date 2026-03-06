@@ -2,7 +2,7 @@ sources:
   # Klarna custom
   # Custom-scraped page — config lives in config/scrapers/
   - name: "Klarna Newsroom"
-    url: "https://www.spiris.se/nyhetsrum/arkiv"
+    url: "https://www.klarna.com/international/press/"
     type: scraped
     fetch_frequency_mins: 60
     groups: [news, swedish, fintech, payment, newsroom, bnpl]
