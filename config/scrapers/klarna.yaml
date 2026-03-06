@@ -1,0 +1,4 @@
+article_list_selector: div.titleContainer
+link_selector: a
+title_from_slug: true
+page_date_selector: p:nth-child(3)
