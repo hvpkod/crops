@@ -1,0 +1,18 @@
+{
+  "id": 104,
+  "source": "Klarna Newsroom",
+  "title": "Why Klarna does not report BNPL payments to US credit bureaus",
+  "url": "https://www.klarna.com/international/press/why-klarna-does-not-report-bnpl-payments-to-us-credit-bureaus/",
+  "published_at": "2024-05-13",
+  "fetched_at": "2026-03-06T23:08:25.179750+00:00",
+  "author": null,
+  "summary": "",
+  "full_text": "Klarna supports the principle of sharing data with credit bureaus, and we do share data with bureaus in the UK. We are not sharing data in the US because the bureaus do not have proper models to responsibly process the data and ensure good consumer outcomes. \n\nWhy doesn’t Klarna Report to Bureaus? \n\nThe credit models used today were built decades ago and calculate data based on monthly payments, long-term loans, and open lines of credit. But BNPL does not fit into these categories. BNPL has a bi-weekly payment cycle, is a short-term (6 week) product, and since each transaction is underwritten - unlike a credit card - it is not an open line of credit. \n\nLogic would dictate that reporting positive repayment rates - like the 96% of Klarna BNPL users that pay on time - would improve a consumer's credit score, but the large credit bureaus continue to use outdated FICO and Vantage models that do not properly account for BNPL data. In fact, if on time BNPL payments were factored into credit scoring today, consumers could see a significant drop in their credit score.\n\nBut Apple is reporting BNPL data, right? \n\nRecently, Apple announced a partnership with Experian in which Apple will start providing their BNPL data to the bureau. Importantly, Experian is not going to incorporate that data into a consumer’s credit report because their models can’t properly account for that data. As there is little clarity on the potential long-term impacts to the consumer, we believe this approach is too risky with possible negative impacts to consumers’ credit score and financial health. \n\nIs Klarna encouraging “phantom debt” by not reporting to bureaus?\n\nNo, absolutely not, which is evident in our 99% repayment rate globally. We perform strict eligibility assessments each and every time someone wants to make a purchase and we take a new underwriting decision for every transaction. This means we only lend to people who can pay us back. \n\nWe provide a short term repayment plan with no ability to revolve and we restrict the use of our services if customers do not pay back. Using Klarna is not guaranteed and we don’t provide an open line of credit like predatory credit cards - we release a small amount - linked to a specific purchase - and if customers demonstrate they shop responsibly and repay, more is released next time.\n\nBefore making a new lending decision we look at a range of different data sources; this includes previous usage of our products, information from credit bureaus and in some cases open banking data, which allows customers to securely share income and spending data from their bank accounts. \n\nIn addition to the 99% global repayment rate, only 4% of Klarna’s BNPL consumers in the US in 2023 incurred a late fee. This data clearly demonstrates that consumers use our products responsibly to manage their finances and add flexibility to their spending.",
+  "tags": [
+    "bnpl",
+    "bureaus",
+    "credit",
+    "klarna",
+    "payments"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": 672,
+  "source": "Hacker News",
+  "title": "UUID package coming to Go standard library",
+  "url": "https://github.com/golang/go/issues/62026",
+  "published_at": "2026-03-07T02:03:21Z",
+  "fetched_at": "2026-03-07T03:20:06.024789+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47283665\">Comments</a>",
+  "full_text": "I would like to suggest the addition to the standard library of a package to generate and parse UUID identifiers, specifically versions 3, 4 and 5.\n\nThe main reason I see to include it is that the most popular 3rd-party package (github.com/google/uuid) is a staple import in every server/db based Go program, as confirmed by a quick Github code search.\n\nAdditionally:\n\nAddendum\n\nWould like to point out how Go is rather the exception than the norm with regards to including UUID support in its standard library.",
+  "tags": [
+    "200-words",
+    "addition",
+    "generate",
+    "github",
+    "issue",
+    "library",
+    "package",
+    "parse",
+    "standard",
+    "suggest",
+    "uuid"
+  ]
+}

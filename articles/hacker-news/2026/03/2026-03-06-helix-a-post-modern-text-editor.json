@@ -1,0 +1,25 @@
+{
+  "id": 679,
+  "source": "Hacker News",
+  "title": "Helix: A post-modern text editor",
+  "url": "https://helix-editor.com/",
+  "published_at": "2026-03-06T23:53:29Z",
+  "fetched_at": "2026-03-07T06:00:06.458993+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47282701\">Comments</a>",
+  "full_text": "Multiple selections\n\n Multiple cursors as a core editing primitive, inspired by\n Kakoune\n\n. Commands manipulate\n selections which allows concurrent code editing.\n \n \n \n\n \n\n \n\n Tree-sitter produces error tolerant and robust syntax trees,\n which enables better syntax highlighting, indent calculation\n and code navigation.\n \n\n \n\n \n\nPowerful code manipulation\n \n Navigate\n\n and select\n\n functions, classes, comments, etc and select syntax tree nodes instead of plain text.\n \n\n \n\n \n\n Language specific auto completion, goto definition, documentation,\n diagnostics and other IDE features with no additional configuration.\n \n\n \n\n \n\nBuilt in Rust, for the terminal\n No Electron. No VimScript. No JavaScript. Use it over ssh, tmux, or a plain\n terminal. Your laptop battery life will thank you.\n \n\n \n\n \n\nModern builtin features\n\n Fuzzy finder to jump to files and symbols, project wide search,\n beautiful themes\n\n,\n auto closing bracket pairs, \n surround\n\n integration and more.\n \n \n \n \n\n \n\nFrequent questions\n\n \n\nPost-modern?!\n \n\nIt's a joke. If Neovim is the modern Vim, then Helix is post-modern.\n\n \n\nIs it any good?\n Yes.\n\n \n\nAre there plans for a GUI frontend?\n \n\nEventually, yes! We'd like to prototype a WebGPU-based alternative frontend.\n See the discussion on GitHub.\n \n\n \n\nWhat about plugins?\n \n\nWhile there is currently no plugin system available, we do intend to eventually have one. But this will take some time (more discussion here).\n\n \n\nHow does it differ from Kakoune?\n \n\nMainly by having more things built-in. Kakoune is composable by design, relying on external tooling to manage splits and provide language server support. Helix instead chooses to integrate more. We also use tree-sitter for highlighting and code analysis.\n\n \n\nHow does it differ from Vim?\n \n\nBy starting from scratch we were able to learn from our experience with Vim and make some breaking changes. The result is a much smaller codebase and a modern set of defaults. It's easier to get started if you've never used a modal editor before, and there's much less fiddling with config files.\n\n \n \n\n \n\nSupport\n \n\nContribute code on GitHub.\n \n\nDiscuss the project on Matrix.\n \n\nSponsor development on OpenCollective.",
+  "tags": [
+    "500-words",
+    "code",
+    "helix",
+    "instead",
+    "kakoune",
+    "modern",
+    "multiple",
+    "plain",
+    "select",
+    "selections",
+    "syntax",
+    "vim"
+  ]
+}

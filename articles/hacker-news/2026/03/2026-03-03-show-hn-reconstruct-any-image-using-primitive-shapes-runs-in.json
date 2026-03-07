@@ -1,0 +1,25 @@
+{
+  "id": 593,
+  "source": "Hacker News",
+  "title": "Show HN: Reconstruct any image using primitive shapes, runs in-browser via WASM",
+  "url": "https://github.com/taiseiue/primitive-playground",
+  "published_at": "2026-03-03T13:55:11Z",
+  "fetched_at": "2026-03-06T23:10:01.129659+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47232339\">Comments</a>",
+  "full_text": "A web app that reconstructs any image using primitive shapes; port of fogleman/primitive\n\nEnglish | Japanese\n\nThis is a web application that converts any image into one expressed solely through geometric shapes. It runs on WebAssembly, with all processing performed entirely on the device.\n\nOriginal\nProcessed\n\nThe algorithm attempts to reproduce the input image using only predefined shapes, minimizing the error between the input image and the image being drawn. This process is iterative, adding one shape at a time. The progress of shapes being added can be observed.\n\nThis is a WASM port and Web UI for the idea by fogleman: fogleman/primitive. The original primitive is a Go-based CLI tool and not easy to use, so I made it available from a browser. Please consider starring fogleman/primitive.\n\nYou can use it by accessing primitive-playground.taiseiue.jp. Generation usually takes tens of seconds to several minutes.\n\nThe configurable values are as follows:\n\nShapes\nThe number of shapes to be generated. The default value is 100.\n\nMode\nThe shape of the figures to be generated. You can choose from Combo, Triangle, Rectangle, Ellipse, Circle, Rotated Rectangle, Beziers, Rotated Ellipse, and Polygon. The default value is Triangle.\n\nAlpha\nThe transparency of each shape, only when Combo is used in Mode. The default value is 128.\n\nInput size\nThe image will be scaled down to this size for processing. This can speed up the processing. The default value is 256px.\n\nOutput size\nThe size of the output image. The default value is 1024px.\n\nPreview interval\nHow many shapes to update the preview after. Setting a larger value can speed up processing, but it may appear to be frozen. The default value is 10 shapes.\n\nThis software is released under the The MIT License.\n\nCopyright (c) 2025 Taisei Uemura\n\nReleased under the MIT license",
+  "tags": [
+    "500-words",
+    "default",
+    "image",
+    "input",
+    "mode the",
+    "port",
+    "primitive",
+    "runs",
+    "shapes",
+    "size",
+    "value",
+    "wasm"
+  ]
+}

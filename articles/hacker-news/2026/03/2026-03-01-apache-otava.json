@@ -1,0 +1,24 @@
+{
+  "id": 574,
+  "source": "Hacker News",
+  "title": "Apache Otava",
+  "url": "https://otava.apache.org/",
+  "published_at": "2026-03-01T14:27:12Z",
+  "fetched_at": "2026-03-06T23:09:44.953083+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47206990\">Comments</a>",
+  "full_text": "Change Detection for Continuous Performance Engineering\n\nOtava performs statistical analysis of performance test results stored in CSV files, PostgreSQL, BigQuery, or Graphite database. It finds change-points and notifies about possible performance regressions.",
+  "tags": [
+    "200-words",
+    "analysis",
+    "apache",
+    "change",
+    "continuous",
+    "detection",
+    "engineering",
+    "otava",
+    "performance",
+    "performs",
+    "statistical"
+  ]
+}

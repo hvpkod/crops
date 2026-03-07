@@ -1,0 +1,28 @@
+{
+  "id": 674,
+  "source": "Hacker News",
+  "title": "A Modular Robot Dashboard",
+  "url": "https://github.com/transitiverobotics/transact",
+  "published_at": "2026-03-05T22:10:11Z",
+  "fetched_at": "2026-03-07T04:00:06.454035+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47267998\">Comments</a>",
+  "full_text": "An open-source robot fleet management dashboard\n\nby \n Transitive Robotics\n\nTransAct is an example of the kinds of robot fleet management dashboards/cloud portals/mission control centers/robot operating centers you can build using Transitive. It serves three purposes:\n\ndemonstrate how Transitive can be used to build web-based robot management systems,\n\ndemonstrate how to integrate Transitive Capabilities into your own web dashboards, and\n\nserve as a reference implementation that we invite you to fork and build on if you are just starting out building your own system.\n\nWe believe that robotics companies face a make-vs-buy dilemma and our mission is to solve this by offering a middle-ground: making it easy for them to build their own fleet management system that perfectly meets their needs.\n\nIn the standard configuration it embeds several capabilities:\n\nRemote Teleop, to control your robot with low-latency video from anywhere in the world,\n\nTerminal, for web-based shell access,\n\nROS Tool, for subscribing to ROS topics from the web, used to show robot pose, battery and charging status in our example, and make service calls,\n\nConfiguration Management, for editing config files on your fleet hierarchically (with fleet defaults and robot specific overwrites), and\n\nHealth Monitoring, for monitoring device diagnostics and aggregated fleet diagnostics.\n\nWe encourage you to fork this repository and use it as a starting point to build your own dashboard.\n\nAfter forking, clone transAct locally (replace SUPERBOTS with your github org)\n\ngit clone git@github.com:SUPERBOTS/transact.git\n\nOr you can just clone from this repo directly if you're just taking a look\n\ngit clone git@github.com:transitiverobotics/transact.git\n\nYour local transAct deployment will interface with a Transitive deployment to find robots and capabilities.\n\nGo to https://portal.transitiverobotics.com and create an account.\n\nIn your local transAct clone, copy sample.env file to .env and edit it:\n\nRun npm install to install all dependencies.\n\nRun npm run dev to start transAct locally in dev mode.\n\nNavigate to http://localhost:3000/.\n\nEnjoy!\n\nAt first you won't see any robots on your dashboard. This is because you haven't yet added any robots to your Transitive account on transitiverobotics.com. We'll do this next.\n\nFollow the instructions to add robots to your Transitive account. If you just want to see it working quickly you can use our example Docker image. Go to fleet page, down to the end of the Add devices section and you'll find a command you can grab to run a local Docker robot.\n\nFinally add some capabilities to the devices you've added from the fleet page\n\nOnce these robots show up in the Transitive Portal, they will also appear in your local transAct deployment.\n\nEdit src/client/config/config.ts to set the Transitive capabilities you have installed on your robots (e.g., webrtc-video) and the props you want to use for them (see the Embed in the Transitive Portal after you've configured a capability).\n\nThe code is yours! A good first step is to find and replace \"SuperBots\" in the entire project with the name of your own company and change the logo. After that you'll probably want to go through the sections in src/client/sections and edit the properties of the embedded Transitive capabilities to fit your needs, e.g., choose the right video sources (cameras, ROS topics, etc.) for webrtc-video and remote-teleop. The easiest way to do this is to go to your Transitive Portal page, open the capability there, configure it, and then get the pre-configured React code from the \"Embed\" modal.\n\nThis project uses ShadCn project for UI components and Tailwind CSS for styling.\nYou have a lot of beautiful components to choose from in the ShadCn collection, you can find instructions on how to use them there, but as an example, if you need a Slider component in your app you just need to:\n\nnpx shadcn@latest add slider\n\nOnce it's installed (it just gets copied in the client/components/ui folder) you can use it like this:\n\nimport { Slider } from \"@/components/ui/slider\"\n...\n<div>\n <Label htmlFor=\"password\" className=\"text-xl\"> Robot happiness </Label>\n <Slider id=\"robot-happiness\" defaultValue={[100]} max={100} step={1} />\n</div>\n\nNote that the className=\"text-xl\" is from tailwindcss.\n\nQuestions? Join our Slack and we'll try to help. For suggestions, please open issues or pull-requests.\n\nSuperBots Logo: Robot icons created by Freepik - Flaticon",
+  "tags": [
+    "1000-words",
+    "build",
+    "capabilities",
+    "clone",
+    "fleet",
+    "local",
+    "management",
+    "robot",
+    "robots",
+    "ros",
+    "slider",
+    "superbots",
+    "transact",
+    "transitive",
+    "transitive portal"
+  ]
+}

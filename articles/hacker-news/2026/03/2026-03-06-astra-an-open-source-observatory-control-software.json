@@ -1,0 +1,25 @@
+{
+  "id": 583,
+  "source": "Hacker News",
+  "title": "Astra: An open-source observatory control software",
+  "url": "https://github.com/ppp-one/astra",
+  "published_at": "2026-03-06T16:14:30Z",
+  "fetched_at": "2026-03-06T23:09:51.835609+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47276865\">Comments</a>",
+  "full_text": "Astra (Automated Survey observaTory Robotised with Alpaca) is an open-source observatory control software for automating and managing robotic observatories. It integrates seamlessly with ASCOM Alpaca for hardware control.\n\nFully Robotic — Schedule once, observe automatically with error and bad weather handling\n\nASCOM Alpaca — Compatible with your existing ASCOM equipment\n\nCross-Platform — Python based, runs on Windows, Linux, macOS\n\nWeb Interface — Manage your observatory from any browser, use cloudflared or similar to access outside your network\n\nComprehensive Docs — Setup, usage, and module reference\n\n \n \n \n \n\nObservatory overview\n \n \n \n \n\nSystem logs\n \n \n \n \n\nWeather monitoring\n \n \n \n \n\nControls tab\n \n \n\nContributions are welcome. See CONTRIBUTING.md or the contributing guide.\n\nReleased under the GNU GPL v3.\n\nIf you use Astra in published research, please cite it as:\n\n@software{Pedersen_Astra,\nauthor = {Pedersen, Peter P. and Degen, David and Garcia, Lionel and Zúñiga-Fernández, Sebastián and Sebastian, Daniel and Schroffenegger, Urs and Queloz, Didier},\nlicense = {GPL-3.0},\ntitle = {{Astra}},\nurl = {https://github.com/ppp-one/astra}\n}\n\nDOI 10.5281/zenodo.18890151",
+  "tags": [
+    "200-words",
+    "alpaca",
+    "ascom",
+    "ascom alpaca",
+    "astra",
+    "control",
+    "observatory",
+    "robotic",
+    "robotised",
+    "software",
+    "survey",
+    "weather"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": 671,
+  "source": "The Verge",
+  "title": "DJI will pay $30K to the man who accidentally hacked 7,000 Romo robovacs",
+  "url": "https://www.theverge.com/news/890982/dji-pay-sammy-azdoufal-robot-vacuum-hack-romo-security",
+  "published_at": "2026-03-07T02:59:32Z",
+  "fetched_at": "2026-03-07T03:20:04.526772+00:00",
+  "author": "Sean Hollister",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/07/romo.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tThe DJI Romo robot vacuums. | Image: DJI\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">On Valentine's Day, I brought you <a href=\"https://www.theverge.com/tech/879088/dji-romo-hack-vulnerability-remote-control-camera-access-mqtt\">a story that's since made headlines all around the world</a>: How one man, just trying to steer his DJI robot vacuum with a PlayStation gamepad, discovered an entire network of 7,000 remote-control DJI robots ready to let him peek into other people's homes.</p>\n<p class=\"has-text-align-none\">To be clear, DJI had already begun addressing some of the related vulnerabilities before the man, Sammy Azdoufal, showed <em>The Verge</em> just how much he could access. But it wasn't clear whether DJI would pay him for his discovery, particularly after <a href=\"https://www.theverge.com/2017/11/20/",
+  "full_text": "On Valentine’s Day, I brought you a story that’s since made headlines all around the world: How one man, just trying to steer his DJI robot vacuum with a PlayStation gamepad, discovered an entire network of 7,000 remote-control DJI robots ready to let him peek into other people’s homes.\n\nTo be clear, DJI had already begun addressing some of the related vulnerabilities before the man, Sammy Azdoufal, showed The Verge just how much he could access. But it wasn’t clear whether DJI would pay him for his discovery, particularly after how it treated security researcher Kevin Finisterre back in 2017 — or how soon DJI might fully patch the additional vulnerabilities that Azdoufal discovered.\n\nToday, we have some of the answers.\n\nDJI will pay Azdoufal $30,000 for one single discovery, according to an email he shared with The Verge, without specifying which discovery it’s paying him for. Though DJI is not naming Azdoufal, it confirms to The Verge it has “rewarded” an unnamed security researcher for their work.\n\nDJI would also not tell us which discovery it’s paying him for, but says it has already addressed the extra vulnerability Azdoufal found where someone can view a DJI Romo video stream without needing a security pin. “We can confirm that the PIN code security observation was addressed by late February,” reads a statement provided by DJI spokesperson Daisy Kong.\n\nYou might be wondering: What about the vulnerability that seemed so bad we refused to describe it in our original story? DJI tells me it’s working on that one too: “We have also started upgrading the entire system. This includes a series of updates, which we anticipate will be fully implemented within one month.”\n\nDJI has also published a public blog post today about strengthening the DJI Romo’s security, one where it continues to claim that it discovered the original issue itself, while also crediting “two independent security researchers” for finding the same problem.\n\nThere, DJI seems to be suggesting that everything’s already resolved with the Romo: “Updates have been deployed to fully resolve the issue.” But again, there wasn’t just one vulnerability, and DJI told The Verge that it could take as long as another month.\n\nIn the blog post, DJI also says that the Romo already has ETSI, EU, and UL certifications for security — which may raise questions about how useful those certifications really are if one guy with Claude Code could access an entire network full of robovacs! — and that it will continue to test, patch, and submit the Romo and its app to independent third-party security audits.\n\nDJI writes that it is “committed to deepening our engagement with the security research community, and we will soon introduce new ways for researchers to partner and collaborate with us.”",
+  "tags": [
+    "500-words",
+    "already",
+    "azdoufal",
+    "discovered",
+    "dji romo",
+    "entire",
+    "fully",
+    "network",
+    "romo",
+    "security",
+    "the verge",
+    "verge",
+    "vulnerabilities"
+  ]
+}

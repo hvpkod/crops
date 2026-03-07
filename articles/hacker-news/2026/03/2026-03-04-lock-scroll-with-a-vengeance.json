@@ -1,0 +1,27 @@
+{
+  "id": 689,
+  "source": "Hacker News",
+  "title": "Lock Scroll with a Vengeance",
+  "url": "https://unsung.aresluna.org/lock-scroll-with-a-vengeance/",
+  "published_at": "2026-03-04T03:42:17Z",
+  "fetched_at": "2026-03-07T09:45:57.328095+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47242775\">Comments</a>",
+  "full_text": "One of the most mysterious keys on the PC keyboard has always been Scroll Lock, joining Caps Lock and Num Lock to create the instantly recognizable LED triumvirate:\n \n\n \n\nScroll Lock was reportedly specifically added for spreadsheets, and it solved a very specific problem: before mice and trackpads, and before fast graphic cards, moving through a spreadsheet was a nightmare. Just like Caps Lock flipped the meaning of letter keys, and Num Lock that of the numeric keypad keys, Scroll Lock attempted to fix scrolling by changing the nature of the arrow keys.\n \n\nThis is normal arrow key usage in Lotus 1-2-3, doing what you’d expect, if likely a bit slower:\n \n\n \n\nAnd this is Lotus 1-2-3 with Scroll Lock enabled. Here, the arrows do not move the cursor, but move the spreadsheet:\n \n\n \n\n(You can play with it yourself!)\n \n\nIn time, scrollbars helped with the problem, then mice with wheels solved it in one direction, and then trackpads in both. (Although even though my 2025 Windows laptop doesn’t have a Scroll Lock key, its onscreen keyboard does, and the key still works in Excel.)\n \n\nBut, I grew to believe that UI problems never fully die, and often come back dressed up in new clothes.\n \n\nThis is the TV app on my Apple TV, doing movement as you’d expect: \n \n\n \n\nBut Netflix a while back picked a different approach – scrolling almost as if Scroll Lock was on:\n \n\n \n\nMore recently, I saw that approach spread to HBO Max and YouTube apps as well:\n \n\n \n\n \n\nIs this good? To me personally, the Scroll Lock-esque approach feels strange and claustrophobic. I see the (hypothetical) value of keeping the selection in one place, but the downsides are more pronounced: things feel lopsided, going back in this universe is flying blind, and the system creates strange situations at the edges, where Scroll Lock struggled as well. \n \n\nAnd yet, given I just dated myself by reminiscing Lotus 1-2-3, I’m curious how it feels to others.",
+  "tags": [
+    "500-words",
+    "approach",
+    "arrow",
+    "caps",
+    "caps lock",
+    "keyboard",
+    "lock",
+    "lotus",
+    "mice",
+    "num lock",
+    "scroll",
+    "scroll lock",
+    "scrolling",
+    "solved"
+  ]
+}
