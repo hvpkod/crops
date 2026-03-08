@@ -1,0 +1,31 @@
+{
+  "id": 774,
+  "source": "Stripe Dev",
+  "title": "2024.8.26Peeking under the hood of Stripe InvoicingSummary:Stripe Invoicing offers a no-code solution for sending invoices to customers. Because this option handles the complexity of all underlying API calls, developers sometimes struggle to understand the different phases a Stripe invoice goes through, which is problematic when attempting to debug payment failures.Author:David Edoh-BediTopics:WorkbenchInvoicingRead",
+  "url": "https://stripe.dev/blog/peeking-under-the-hood-of-stripe-invoicing",
+  "published_at": "2024.8.26",
+  "fetched_at": "2026-03-07T13:20:40.914858+00:00",
+  "author": "David Edoh-Bedi",
+  "summary": "",
+  "full_text": "David Edoh-Bedi\n\nAfter starting his Stripe journey as an integration engineer helping large users build and scale their payment solutions, David pivoted to his current developer advocate role. He began his professional career as an engineer at Microsoft, working on various aspects of the Windows operating system. He’s passionate about all things data and connecting with developers from around the world. Outside of tech, he’s a huge soccer fan, avid reader, travel addict, and amateur triathlete.",
+  "tags": [
+    "200-words",
+    "api",
+    "author david",
+    "complexity",
+    "edoh beditopics",
+    "handles",
+    "hood",
+    "invoices",
+    "invoicing",
+    "offers",
+    "option",
+    "peeking",
+    "sending",
+    "solution",
+    "stripe",
+    "stripe invoicing",
+    "stripe invoicingsummary",
+    "workbenchinvoicingread"
+  ]
+}

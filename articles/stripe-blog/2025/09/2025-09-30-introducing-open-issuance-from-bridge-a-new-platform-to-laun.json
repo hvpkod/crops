@@ -1,0 +1,30 @@
+{
+  "id": 814,
+  "source": "Stripe Blog",
+  "title": "Introducing Open Issuance from Bridge: A new platform to launch your own stablecoin",
+  "url": "https://stripe.com/blog/introducing-open-issuance-from-bridge",
+  "published_at": "2025-09-30",
+  "fetched_at": "2026-03-07T15:20:23.082761+00:00",
+  "author": null,
+  "summary": "",
+  "full_text": "Stablecoins are rapidly becoming one of the most transformative tools in global finance. Businesses are increasingly using stablecoins to get paid, store funds, and manage treasury operations—accelerating their ability to reach customers, launch borderless financial services, and manage costs.\n\nOne thing is holding businesses back: they’re building on top of stablecoins issued by an external provider. The market is currently dominated by a small group of issuers, and their scale, liquidity, and brand recognition have made their stablecoins easy to use. But building atop these stablecoins means businesses don’t get to participate in the economics, face unpredictable fees, and are ultimately beholden to the issuers’ roadmaps. \n\nToday, we’re fixing that. Open Issuance is a new platform that allows any business to launch and manage its own stablecoin. With its own stablecoin, a business can control its product experience, mint and burn without limits or unnecessary fees, and earn rewards from reserves. Businesses using Open Issuance plug into a shared liquidity network to reduce costs and get to market quickly—without depending on a handful of incumbent issuers.\n\nCompanies across industries and business models can create their own stablecoins, including:\n \n \nCrypto platforms wanting to control their economics and pass rewards to users\n \n \nFintechs exploring stablecoins as a store of value in addition to their fiat services \n \n \nEnterprises looking to optimize their global treasury operations with enhanced liquidity while still earning yield \n \n \nBanks exploring stablecoin strategies to bring efficiencies to multiple consumer and business product lines\n \n\nThis infrastructure is already powering its first real-world use case: Phantom, a crypto wallet with a community of more than 15 million users, is launching a new stablecoin, CASH, on the Open Issuance platform. CASH will form the foundation of Phantom’s native money movement features—users can spend CASH, send to friends, use it across DeFi, or convert it seamlessly to fiat and other stablecoins.\n\nIn addition to CASH, coins already issued by Bridge will move over to the new platform, including USDH, the Hyperliquid native stablecoin built by Native Markets, and coins from MetaMask, Dakota, Slash, Lava, and Takenos.\n\nCustomizing and managing your stablecoin\n\nOpen Issuance allows you to launch a stablecoin in just a few days. Bridge handles reserve management, security, liquidity, and GENIUS-ready compliance so you can focus on your end customers.\n\nWhile Open Issuance will come with a set of simple defaults, nearly every aspect of your stablecoin can be customized, including:\n \n \nWhich blockchains your coin supports\n \n \nWhat smart contracts functionality you want\n \n \nThe exact mix of reserves that back your stablecoin (allocations can be balanced between cash and treasuries through top-tier partners including BlackRock, Fidelity Investments, and Superstate)\n \n\nWe’re also building a whole suite of tools to help you increase adoption for your custom stablecoin with onramps, offramps, wallets, cards, and more from Bridge, Privy, and Stripe.\n\nA unified network of stablecoins for built-in liquidity \n\nIntroducing new stablecoins presents an obvious challenge: building liquidity. Open Issuance solves this by design: businesses can enable their stablecoin to be interoperable (a one-for-one swap) with other Open Issuance stablecoins. As new stablecoins launch, overall liquidity expands, strengthening the entire network. This means businesses can customize their stablecoin to fit their needs without building liquidity all on their own, while end customers can swap easily. The ability to swap between these stablecoins is live in the Bridge API today. \n\nFor example, say a user is holding $10 in Phantom CASH and wants to swap it with $10 of USDH. Previously, they would have to go to an exchange, offramp to USD, and then purchase USDH, incurring multiple fees and facing friction along the way. In the future, Phantom CASH users will be able to swap their funds with other Open Issuance stablecoins using an instant, permissionless transaction that is onchain—no intermediary required. \n\nWhat’s next\n\nIn the coming weeks, we will be announcing more stablecoin launches and share more on the platform design of Open Issuance. At Bridge, our mission is to equip builders with the tools they need to create better financial experiences. Open Issuance is a big step forward, empowering you to control your product vision and own your economics. If you’re thinking about launching your own stablecoin, contact the Bridge team.",
+  "tags": [
+    "1000-words",
+    "bridge",
+    "building",
+    "business",
+    "businesses",
+    "cash",
+    "fortnox world",
+    "introducing open",
+    "issuance",
+    "launch",
+    "liquidity",
+    "open",
+    "open issuance",
+    "phantom cash",
+    "stablecoin",
+    "stablecoins",
+    "usdh"
+  ]
+}

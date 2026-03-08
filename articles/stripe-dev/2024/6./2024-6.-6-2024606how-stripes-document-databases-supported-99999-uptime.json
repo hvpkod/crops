@@ -1,0 +1,30 @@
+{
+  "id": 780,
+  "source": "Stripe Dev",
+  "title": "2024.6.06How Stripe’s document databases supported 99.999% uptime with zero-downtime data migrationsSummary:In this blog post we’ll share an overview of Stripe’s database infrastructure and discuss the design and application of the Data Movement Platform.Authors:Jimmy MorzariaSuraj NarkhedeTopics:DatabasesInfrastructureReliabilityData MigrationEngineeringRead",
+  "url": "https://stripe.dev/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations",
+  "published_at": "2024.6.06",
+  "fetched_at": "2026-03-07T13:20:41.180690+00:00",
+  "author": "Jimmy Morzaria",
+  "summary": "",
+  "full_text": "Jimmy Morzaria\n\nJimmy Morzaria is an engineer at Stripe who works on Database Infrastructure\n\nSuraj Narkhede\n\nSuraj Narkhede is an engineer at Stripe who works on Database Infrastructure",
+  "tags": [
+    "200-words",
+    "data",
+    "data movement",
+    "database",
+    "databases",
+    "design",
+    "discuss",
+    "document",
+    "how stripe",
+    "infrastructure",
+    "jimmy morzariasuraj",
+    "migrationengineeringread",
+    "narkhedetopics databasesinfrastructurereliabilitydata",
+    "overview",
+    "platform authors",
+    "supported",
+    "uptime"
+  ]
+}

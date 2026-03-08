@@ -1,0 +1,30 @@
+{
+  "id": 813,
+  "source": "Stripe Blog",
+  "title": "Introducing our agentic commerce solutions",
+  "url": "https://stripe.com/blog/introducing-our-agentic-commerce-solutions",
+  "published_at": "2025-10-07",
+  "fetched_at": "2026-03-07T15:20:21.873490+00:00",
+  "author": null,
+  "summary": "",
+  "full_text": "Last week, we shared how we worked with OpenAI to develop the Agentic Commerce Protocol (ACP), a new open specification to help AI platforms embed commerce into their applications, and businesses sell through agentic channels without giving up trust or control. \n\nThe ACP specification is already powering its first real-world use case: Instant Checkout in ChatGPT. ChatGPT users in the US can now buy from US Etsy sellers—and soon from more than a million Shopify merchants, such as Glossier, Vuori, Spanx, and SKIMS—directly in chat.\n\nACP is just the beginning. Here are some of the additional steps Stripe is taking to build agentic commerce solutions for AI platforms and businesses.\n\nWhat we’re building for AI platforms \n\nAgentic commerce challenges many of the assumptions today’s permissioning and fraud systems rely on. In traditional commerce, possession of a credential (such as a card) is treated as a trust signal. But because AI agents act on behalf of users, trust can’t be inferred—it has to be explicitly granted, scoped, and enforced in code.\n\nTo support this shift, Stripe built Shared Payment Tokens (SPT), a new payment primitive for AI commerce. SPTs let agents initiate payments using a buyer’s permission and preferred payment method, without exposing credentials. \n\nSPTs are designed to meet the new requirements of agentic commerce:\n \n \nProgrammable by design: Tokens can be scoped to a specific business, limited by time or amount, revoked at any time, and monitored via webhook events.\n \n \nReusable and convenient: Buyers can use their existing saved payment methods—or add a new one—without needing to re-enter details.\n \n \nSecure and interoperable: Underlying credentials are not exposed, and SPTs are designed to be generally compatible with card networks’ agentic tokens.\n \n \nProtective against fraud: When used on Stripe, SPTs are powered by Stripe Radar and can relay the underlying risk signals using transaction and payment method details—including the likelihood of a fraudulent dispute, card testing, a stolen card, a card issuer decline, and other signals—that help differentiate between high-intent agents and low-trust automated bots. \n \n \nEasy to integrate: SPTs work directly with Stripe PaymentIntents, making integration simple for developers already using Stripe.\n \n\nBusinesses can accept purchases from AI platforms without major changes to their stack. Here’s how it works:\n \n \nA buyer either creates or reuses a saved payment method with the AI platform. \n \n \nOnce the buyer clicks “Buy,” the AI platform issues an SPT scoped to the business, with a usage limit tied to the checkout total.\n \n \nThe AI platform sends the SPT identifier to the business via an API request.\n \n \nThe business uses the SPT to create a PaymentIntent.\n \n \nStripe facilitates the transaction, applying fraud detection and enforcing token controls in real time.\n \n\n \n \n\nEven businesses that don’t process payments with Stripe can forward SPTs to their own vaults or other processors as secure credentials—with the same programmable trust and fraud protection.\n\nWhat we’re building for businesses\n\nThrough testing with users, businesses have told us they want more control in three areas:\n \n \nControls to structure their product catalog: We want to make it easy for businesses to share real-time product, price, and availability information while staying in control of their brand. To that end, we’re designing product feeds so businesses can define how their products show up, and even broadcast real-time pricing and availability via AI channels.\n \n \nControls over their brand at checkout: Businesses don’t want to be intermediated by AI agents; they want to keep their brand, their upsells, and their customer relationships. We’re building a new kind of extensible checkout for agentic commerce—one that can be embedded directly inside AI agents, while still letting businesses decide how it looks, what it includes, and how it connects to their systems.\n \n \nControls for customers to manage identity and trust: SPTs allow secure payment details to be passed between AI agents and businesses. We’re extending that same foundation to features customers can see and control through Link, a digital wallet built by Stripe. With Link, customers will have a wallet purpose-built for agentic commerce, preserving their identity and purchase history across AI surfaces, supporting accelerated checkouts, and offering controls such as spending limits or explicit permissions for agents. Stripe then validates business identity on one side and confirms buyer identity and authorization on the other.\n \n\nLooking ahead \n\nTo help businesses prepare for agentic commerce and test our solutions in real-world settings, we’re working with early partners such as Microsoft Copilot, Anthropic, Perplexity, Vercel, Lovable, Replit, Bolt, Manus, and global payments networks.\n\nTo get ready for Instant Checkout in ChatGPT or to sell through future AI agents, please contact our team. If you already process payments with Stripe, you will be able to enable agentic payments in your existing integration by updating as little as one line of code. If you currently process with another provider, you can still use Stripe for agentic payments. To learn more, read our docs.",
+  "tags": [
+    "1000-words",
+    "acp",
+    "agentic",
+    "ai",
+    "businesses",
+    "commerce",
+    "controls",
+    "fortnox world",
+    "instant checkout",
+    "introducing",
+    "payment",
+    "payments",
+    "platforms",
+    "spt",
+    "spts",
+    "stripe",
+    "trust"
+  ]
+}

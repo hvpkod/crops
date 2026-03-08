@@ -1,0 +1,27 @@
+{
+  "id": 723,
+  "source": "Stripe Dev",
+  "title": "2025.7.03Stay within limits: API rate-limit-friendly pattern for Stripe webhooksSummary:Learn how to build a resilient, rate-limit-friendly system for handling Stripe webhooks at scale. This guide explains the fetch-before-process pattern, its risks under high volume, and how to use Hookdeck to queue and throttle webhooks—ensuring reliable processing without exceeding Stripe API limits.Author:Phil LeggetterTopics:PartnersEvent DestinationsRead",
+  "url": "https://stripe.dev/blog/stay-within-limits-api-rate-limit-friendly-pattern-for-stripe-webhooks",
+  "published_at": "2025.7.03",
+  "fetched_at": "2026-03-07T13:20:21.437976+00:00",
+  "author": "Phil Leggetter",
+  "summary": "",
+  "full_text": "Phil Leggetter\n\nPhil Leggetter works across Engineering, Product, Developer Experience, Developer Relations, and PLG and has experience guiding startups through growth, acquisition, and accelerated growth at a publicly traded enterprise. Phil has spent all his career building software experiences to maximize developer productivity at companies such as Pusher (acquired by Message Bird), Nexmo (Acquired by Vonage), PostHog, Ably, and most recently, Hookdeck, an Event Gateway that enables engineering teams to build, test, deploy, maintain, and observe event-driven applications.",
+  "tags": [
+    "200-words",
+    "api",
+    "developer",
+    "experience",
+    "fortnox world",
+    "guiding",
+    "leggetter",
+    "pattern",
+    "phil",
+    "phil leggetter",
+    "stay",
+    "stripe",
+    "webhooks",
+    "works"
+  ]
+}

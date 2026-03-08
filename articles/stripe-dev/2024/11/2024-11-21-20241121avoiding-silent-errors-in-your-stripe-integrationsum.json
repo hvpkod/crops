@@ -1,0 +1,31 @@
+{
+  "id": 756,
+  "source": "Stripe Dev",
+  "title": "2024.11.21Avoiding silent errors in your Stripe integrationSummary:Once your Stripe integration is live, it’s easy to set it and forget it. You can move on and focus on other elements of your application. However, trouble may be brewing behind the scenes. Unless you’ve set up robust logging and alerting in your application you may not be aware of increasing Stripe API error rates which could impact your bottom lineAuthor:Abe HaskinsTopic:WorkbenchRead",
+  "url": "https://stripe.dev/blog/avoiding-silent-errors",
+  "published_at": "2024.11.21",
+  "fetched_at": "2026-03-07T13:20:40.023695+00:00",
+  "author": "Abe Haskins",
+  "summary": "",
+  "full_text": "Abe Haskins\n\nAbe is a Developer Advocate on the Developer Relations team at Stripe.",
+  "tags": [
+    "200-words",
+    "abe haskinstopic",
+    "avoiding",
+    "easy",
+    "elements",
+    "errors",
+    "focus",
+    "forget",
+    "integration",
+    "move",
+    "once",
+    "silent",
+    "stripe",
+    "stripe api",
+    "trouble",
+    "unless",
+    "workbenchread",
+    "you"
+  ]
+}

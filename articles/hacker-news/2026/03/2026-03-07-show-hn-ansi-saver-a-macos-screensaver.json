@@ -1,0 +1,30 @@
+{
+  "id": 822,
+  "source": "Hacker News",
+  "title": "Show HN: ANSI-Saver – A macOS Screensaver",
+  "url": "https://github.com/lardissone/ansi-saver",
+  "published_at": "2026-03-07T14:34:16Z",
+  "fetched_at": "2026-03-07T15:40:29.461886+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47288007\">Comments</a>",
+  "full_text": "A macOS screensaver that brings back the art of the BBS era.\n\nRemember dialing into BBSes at 14.4k, watching ANSI art fill your terminal line by line? The vibrant CP437 characters, the neon color palettes, the logos crafted pixel-by-pixel by scene artists — that whole world lives on at 16colo.rs, the largest ANSI/ASCII art archive on the internet.\n\nAnsiSaver pulls art directly from 16colo.rs packs and scrolls it across your screen, rendered with the same libansilove library the archive uses. It's like leaving your terminal connected to a BBS you never logged off from.\n\n \n\nDownloads ANSI art packs from 16colo.rs and caches them locally\n\nRenders .ANS, .ICE, .ASC, .BIN, .XB, .PCB, and .ADF files with authentic CP437 fonts\n\nScrolls art across your screen with smooth 60fps animation\n\nContinuous scroll mode: art files stack vertically into an endless stream, like a never-ending BBS file listing\n\nCrossfade transitions: smooth fade between pieces in standard mode\n\nOptional separator between files showing the filename — just like browsing a pack in ACiDView\n\nConfigurable scroll speed and render scale (2x–4x for sharp output on Retina displays)\n\nWorks with local folders too — point it at your personal ANSI art collection\n\nRequirements: Apple Silicon Mac, macOS Tahoe (26.0) or later.\n\nGrab the latest AnsiSaver.saver.zip from the Releases page.\n\nUnzip the file\n\nDouble-click AnsiSaver.saver\n\nmacOS will ask if you want to install it — click Install\n\nmacOS security notice: Since the screensaver is not signed with an Apple Developer certificate, macOS will block it on first launch. Go to System Settings > Privacy & Security, scroll down, and click Open Anyway next to the AnsiSaver message. You only need to do this once.\n\nIf you prefer to build it yourself, you need Homebrew and Xcode:\n\nbrew install libgd\ngit clone --recursive https://github.com/lardissone/ansi-saver.git\ncd ansi-saver\nxcodebuild -project AnsiSaver.xcodeproj -target AnsiSaver -configuration Release build\ncp -R build/Release/AnsiSaver.saver ~/Library/Screen\\ Savers/\n\nNote: Builds link statically against Homebrew's libgd (arm64). Requires Apple Silicon Mac with macOS Tahoe (26.0) or later.\n\nOpen System Settings > Screen Saver, select AnsiSaver, and click Options... to configure:\n\n \n\n16colo.rs Pack URLs — Add pack URLs to pull art from the archive. Browse packs at 16colo.rs and paste the URL:\n\nhttps://16colo.rs/pack/acid-100/\nhttps://16colo.rs/pack/mist0222/\nhttps://16colo.rs/pack/blocktronics-space/\n\nLocal Folder — Point to a directory on disk containing .ANS files. Great for your personal collection or artpacks you've downloaded.\n\nOption\nDescription\n\nTransition\nScroll Up, Scroll Down, or Crossfade between pieces\n\nScroll Speed\n10–200 px/s — how fast art scrolls across the screen\n\nRender Scale\n1x–4x — higher values produce sharper output on Retina displays\n\nContinuous Scroll\nStack all art into one endless vertical stream\n\nShow Separator\nDisplay a decorative divider with the filename between pieces (continuous mode)\n\nArt files are cached in ~/Library/Caches/AnsiSaver/. Hit Refetch Packs in the config panel to clear the cache and re-download everything.\n\n16colo.rs packs ──→ Download & cache ──→ libansilove ──→ Core Animation ──→ Screen\nLocal .ANS files ─────────────────────↗ (CP437 render) (60fps scroll)\n\nArt sources provide file paths (from network or disk)\n\nlibansilove renders each file to a PNG using authentic CP437 bitmap fonts — the same rendering 16colo.rs uses\n\nCore Animation displays and scrolls the rendered images at 60fps\n\nFiles are rendered one at a time on demand, so even packs with thousands of files use minimal memory\n\nA few packs to get you started:\n\nPack\nEra\nStyle\n\nACiD 100\n1995\nThe legendary ACiD Productions centennial pack\n\nMist 0222\n2022\nMistigris — still going strong after 28 years\n\nBlocktronics: Space\n2014\nCosmic ANSI art from the modern scene\n\niCE 9601\n1996\niCE Advertisements — peak 90s ANSI\n\nFire 01\n1996\nFire artpack from the golden era\n\nBrowse the full archive at 16colo.rs — there are thousands of packs spanning from 1990 to the present day.\n\nlibansilove by the Ansilove team — the definitive ANSI art rendering library\n\n16colo.rs — preserving the artscene since the early days\n\nThe BBS artscene — ACiD, iCE, Fire, Mistigris, Blocktronics, and every group and artist who kept the art alive\n\nMIT",
+  "tags": [
+    "1000-words",
+    "ansi",
+    "ansisaver",
+    "apple silicon",
+    "archive",
+    "bbs",
+    "files",
+    "github",
+    "libansilove",
+    "macos",
+    "pack",
+    "packs",
+    "screen",
+    "scroll",
+    "scrolls",
+    "silicon mac",
+    "system settings"
+  ]
+}

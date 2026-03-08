@@ -1,0 +1,24 @@
+{
+  "id": 835,
+  "source": "The Verge",
+  "title": "Sony appears to be testing dynamic pricing on PlayStation games",
+  "url": "https://www.theverge.com/games/891085/sony-dynamic-pricing-playstation-games",
+  "published_at": "2026-03-07T17:52:10Z",
+  "fetched_at": "2026-03-07T18:00:27.804927+00:00",
+  "author": "Terrence O’Brien",
+  "summary": "<figure>\n\n<img alt=\"Playstation logo over a collage of purple, black, and white.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23986616/acastro_STK097_02.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">A site called<a href=\"https://psprices.com/news/sony-ab-testing-prices/\"> <em>PSprices</em></a> has been tracking prices on Sony's digital game store and noticed something unusual: some games were being offered at<a href=\"https://www.polygon.com/playstation-store-dynamic-pricing-testing/\"> different prices</a> to different users. What's more, those offers are tracked in the PlayStation API with experiment identifiers like IPT_PILOT and IPT_OPR_TESTING.</p>\n<p class=\"has-text-align-none\"><a href=\"https://www.theverge.com/2024/2/28/24085656/wendys-dynamic-pricing-surge-pricing-response\">Dynamic</a> <a href=\"https://www.theverge.com/news/709556/delta-air-lines-ai-",
+  "full_text": "A site called PSprices has been tracking prices on Sony’s digital game store and noticed something unusual: some games were being offered at different prices to different users. What’s more, those offers are tracked in the PlayStation API with experiment identifiers like IPT_PILOT and IPT_OPR_TESTING.\n\nDynamic pricing is nothing new and is used across a number of industries. But it’s often met with backlash and isn’t typically found in online game stores. According to PSprices, Sony is running A/B testing on prices for over 150 games in 68 regions, though the US doesn’t currently appear to be part of the experiment. For now, at least, Sony isn’t toying with raising prices. Instead, the program appears to offer discounts to select users, ranging from 5 percent to 17.5 percent, on titles like Spider-Man 2, God of War, and Red Dead Redemption 2.\n\nStill, even if Sony’s version of dynamic pricing is focused on lowering costs for some users, it’s likely to draw ire. Customers receiving a 10 percent discount on Sid Meier’s Civilization VII probably won’t be thrilled when they find out their next-door neighbor was offered 25 percent off.\n\nWe reached out to Sony for comment, but have yet to receive a response.",
+  "tags": [
+    "500-words",
+    "appears",
+    "dynamic",
+    "game",
+    "games",
+    "offered",
+    "playstation",
+    "prices",
+    "pricing",
+    "sony",
+    "testing"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": 861,
+  "source": "Hacker News",
+  "title": "Ghostmd: Ghostty but for Markdown Notes",
+  "url": "https://mimoo.github.io/ghostmd/",
+  "published_at": "2026-03-08T00:07:49Z",
+  "fetched_at": "2026-03-08T00:40:07.543771+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47292841\">Comments</a>",
+  "full_text": "ghostmd\n \n\nYour notes are text files. That's it.\n \n\nnative macOS · free · open source\n \n\n↓\n\n \n\nThe opinions\n \n \nNotes are ~/Documents/ghostmd/*.md. Not a database. Not synced to our servers. Files on your disk, forever yours.\n \nMarkdown is already beautiful. We don't render it. We don't preview it. You read it raw, the way it was meant to be.\n \nNo images. If you need images, you need a different tool. This is for words.\n \nNo config files. No themes. No plugins. We made the choices so you can focus on making the words.\n \nDiary entries get a path: diary/2026/march/03/. You don't pick it. The date does.\n \nAI helps you think, not format. Titles, search, suggestions — never decoration.\n \nNative macOS, GPU-accelerated via Metal. Opens before your finger leaves the key. Quits without asking.\n \n\n \n\nThis is the whole app\n \n\n \n\n \n \n \n \n \n\n# Building ghostmd\n\n*A note-taking app that gets out of the way.*\n\n## Why plain markdown?\n\nEvery note app eventually dies. When it does, your notes\n\nshould survive. Plain .md files will outlive every app,\n\nevery company, every format war.\n\n- No database migrations\n\n- No export button needed\n\n- grep works. git works. Everything works.\n\n- **Your files. Your disk. Your rules.**\n\nSee [the repo](https://github.com/...) for more.\n \n \n \n\nRaw markdown. No preview pane. That's the point.\n\n \n\nWhat you'll never get\n \n\n No config\n No Electron\n No cloud\n No image support\n No preview pane\n No plugins\n No extensions\n No mobile app\n No export menu\n No WYSIWYG\n No telemetry\n No account\n \n \n\nEvery feature we didn't build is time you spend writing.\n\n \n\nWhat you get\n \n \nWorkspaces & split panes\n \nFuzzy file finder\n \nFull-text search across all notes\n \nAgentic AI search\n \nBranching undo tree — not just ctrl-z\n \nAuto-save on every keystroke\n \nAI-generated titles\n \nSession persistence — reopen exactly where you left off\n \nYour files, forever readable, even if we disappear tomorrow\n \n\n \n\nInstall\n \n\n $ curl -fsSL https://raw.githubusercontent.com/mimoo/ghostmd/main/scripts/install.sh | bash\n copied!\n \n \n\nclick to copy\n \n\nor grab a release from\n github.com/mimoo/ghostmd/releases",
+  "tags": [
+    "500-words",
+    "config",
+    "export",
+    "files",
+    "forever",
+    "ghostmd",
+    "native",
+    "notes",
+    "plain",
+    "preview",
+    "text"
+  ]
+}

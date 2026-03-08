@@ -1,0 +1,33 @@
+{
+  "id": 751,
+  "source": "Stripe Dev",
+  "title": "2024.12.09Enhance your monitoring by integrating Stripe events with AWS CloudWatch Log GroupsSummary:Integrating Stripe events with AWS CloudWatch Log Groups enhances monitoring by enabling real-time tracking and analysis of Stripe transactions. This setup allows for seamless transfer of Stripe data to CloudWatch via Amazon EventBridge, streamlining payment operations. It provides the tools to visualize, monitor, and respond to events efficiently, optimizing strategic decisions.Author:Andrew Rob",
+  "url": "https://stripe.dev/blog/enhance-your-monitoring-by-integrating-stripe-events-with-aws-cloudwatch-log-groups",
+  "published_at": "2024.12.09",
+  "fetched_at": "2026-03-07T13:20:39.783713+00:00",
+  "author": "Andrew Robinson",
+  "summary": "",
+  "full_text": "Andrew Robinson\n\nStripe Solutions Architect",
+  "tags": [
+    "200-words",
+    "amazon eventbridge",
+    "analysis",
+    "author andrew",
+    "aws cloudwatch",
+    "cloudwatch",
+    "cloudwatch log",
+    "enabling",
+    "enhance",
+    "enhances",
+    "events",
+    "groups",
+    "integrating",
+    "integrating stripe",
+    "log groups",
+    "log groupssummary",
+    "monitoring",
+    "rob",
+    "stripe",
+    "tracking"
+  ]
+}

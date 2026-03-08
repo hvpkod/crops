@@ -1,0 +1,21 @@
+{
+  "id": 716,
+  "source": "Stripe Dev",
+  "title": "2025.8.21Keeping product data aligned with Stripe as your systems scaleSummary:Learn how product data synchronization between internal databases and payment providers like Stripe evolves from simple scripts to complex architectural challenges as your business scales from hundreds to millions of products.Author:James BeswickTopic:Best PracticesRead",
+  "url": "https://stripe.dev/blog/database-reconciliation-growing-businesses-part-1",
+  "published_at": "2025.8.21",
+  "fetched_at": "2026-03-07T13:20:16.229466+00:00",
+  "author": "James Beswick",
+  "summary": "",
+  "full_text": null,
+  "tags": [
+    "200-words",
+    "aligned",
+    "data",
+    "keeping",
+    "product",
+    "scale",
+    "stripe",
+    "systems"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": 739,
+  "source": "Stripe Dev",
+  "title": "2025.3.04Importing sales data from Stripe into AWSSummary:This article focuses on how to process Stripe's data in your AWS account with minimal code. You'll learn how to query your business and customer data using SQL, assisted by an LLM (Large Language Model) for query generation. Additionally, it demonstrates how to enhance the security of your data integration by using the native Stripe-AWS integration, specifically the Stripe Event Destination to Amazon EventBridge feature.Author:Hidetaka Ok",
+  "url": "https://stripe.dev/blog/importing-sales-data-from-stripe-into-aws",
+  "published_at": "2025.3.04",
+  "fetched_at": "2026-03-07T13:20:32.103350+00:00",
+  "author": "Hidetaka Okamoto",
+  "summary": "",
+  "full_text": "Hidetaka Okamoto\n\nHide (ひで pronounced “Hee-Day”) is a former Developer Advocate at Stripe and maintainer of the Stripe Testing Tools MCP Server.",
+  "tags": [
+    "200-words",
+    "aws",
+    "data",
+    "developer",
+    "former",
+    "hide",
+    "hidetaka",
+    "importing",
+    "okamoto",
+    "pronounced",
+    "sales",
+    "stripe"
+  ]
+}

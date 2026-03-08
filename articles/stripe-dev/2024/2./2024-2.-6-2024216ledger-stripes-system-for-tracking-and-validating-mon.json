@@ -1,0 +1,29 @@
+{
+  "id": 783,
+  "source": "Stripe Dev",
+  "title": "2024.2.16Ledger: Stripe’s system for tracking and validating money movementSummary:Technical details on how Stripe built Ledger, a state-of-the-art money movement tracking system, including how teams at Stripe interact with the data quality metrics that underlie our payment processing network.Author:Ilya GanelinTopics:Distributed SystemsEngineeringRead",
+  "url": "https://stripe.dev/blog/ledger-stripe-system-for-tracking-and-validating-money-movement",
+  "published_at": "2024.2.16",
+  "fetched_at": "2026-03-07T13:20:41.345383+00:00",
+  "author": "Ilya Ganelin",
+  "summary": "",
+  "full_text": "Ilya Ganelin\n\nIlya Ganelin is an engineer at Stripe who works on Ledger Platform.",
+  "tags": [
+    "200-words",
+    "author ilya",
+    "built",
+    "details",
+    "ganelintopics distributed",
+    "including",
+    "ledger stripe",
+    "money",
+    "movement",
+    "stripe",
+    "system",
+    "systemsengineeringread",
+    "teams",
+    "technical",
+    "tracking",
+    "validating"
+  ]
+}

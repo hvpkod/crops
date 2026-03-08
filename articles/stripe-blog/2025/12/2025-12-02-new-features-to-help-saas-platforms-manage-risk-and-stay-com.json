@@ -1,0 +1,29 @@
+{
+  "id": 809,
+  "source": "Stripe Blog",
+  "title": "New features to help SaaS platforms manage risk and stay compliant",
+  "url": "https://stripe.com/blog/new-features-to-help-saas-platforms-manage-risk-and-stay-compliant",
+  "published_at": "2025-12-02",
+  "fetched_at": "2026-03-07T15:20:16.912518+00:00",
+  "author": null,
+  "summary": "",
+  "full_text": "Platforms tell us that managing risk and compliance often feels like choosing between speed and safety. You need to onboard businesses quickly so they can start using your product, but you also need to screen thoroughly for fraud. You want to expand globally, but each new market brings complex verification requirements. One misstep—whether it’s a fraudulent merchant, missed risk signals, or inadequate compliance—can result in millions of dollars lost or foregone.\n\nStripe has been steadily building solutions to help you manage this balance for years, and the work continues. We recently launched three new features that give you more control to fine-tune your risk and compliance strategy, allowing you to use more of Stripe’s data to inform your approach. Here’s what’s new.\n\nSet reserves on user funds with Radar for platforms \n\n \n \n\nPlatforms such as FreshBooks, Shopify, and Jobber use Radar for platforms to prevent, detect, and mitigate fraud and insolvency risk. With AI-powered risk scores trained on over $1.4 trillion in payments volume, a custom rules engine, and powerful actions to restrict fraudulent transactions and suspicious businesses, Radar for platforms allows you to use more of Stripe’s data to mitigate financial risk.\n\nNow we’re going further. Radar for platforms allows you to safeguard your business against potential losses by setting temporary reserves on user funds, either programmatically or via the Stripe Dashboard. You can customize how you place reserves to best mitigate risk for your business, choosing between fixed amounts or rolling reserves. \n\nFor example, you can write a rule to detect businesses with elevated risk scores then set ongoing reserves on those accounts, so you’re automatically protected if they experience a sudden spike in disputes. Or, if a business processes a large transaction with an unusually long delivery time, you could create a hold to reserve funds from that transaction and release them when the return window closes. \n\nAccess new risk and compliance controls for trusted platforms\n\n \n \n\nProgrammatically blocking bad actors with Radar for platforms is extremely effective, but you know your users best—and sometimes you need to be able to personalize risk thresholds based on that context.\n\nStripe Verified for platforms does exactly that by giving trusted platforms on Stripe specialized controls to customize our risk and compliance systems. Verified platforms can now extend due dates for eligible risk and compliance tasks their users encounter—directly from the Stripe Dashboard. This gives businesses more time to complete important requests and minimize potential disruptions.\n\nVerified platforms can also access benefits customized to their unique business model or industry. For example, we can offer platforms for property managers higher ACH limits, because we know that’s what landlords use to collect rent. This ensures that these platforms are able to smoothly process ACH payments during peak times, such as the first of the month, minimizing unnecessary failed transactions for their users.\n\nCustomize the information you collect during onboarding with our updated embedded component\n\n \n \n\nGlobal onboarding and verification workflows require significant engineering resources, as requirements vary by region and change with new regulations. This complexity can prevent platforms from capturing millions in potential international revenue.\n\nYou can now use our no-code account onboarding component to configure exactly what information you collect during onboarding. This flexibility allows you to create targeted onboarding and remediation workflows for complex requirements, such as proof of liveness in Singapore or document uploads in Canada. It also decreases time investment for engineering by 90%, reducing implementation work from a typical 40 weeks to fewer than 4, as these components automatically update.\n\nWhat’s next\n\nWe will continue expanding our risk signals beyond fraud, giving you greater insight into the financial exposure attributed to businesses on your platform. We plan to expand access to Verified for additional trusted platforms on Stripe, and give you more controls to customize the information you collect from your users during onboarding. \n\nContact us if you want to learn more about our risk and compliance solutions.",
+  "tags": [
+    "1000-words",
+    "businesses",
+    "canada",
+    "collect",
+    "compliance",
+    "customize",
+    "platforms",
+    "radar",
+    "reserves",
+    "risk",
+    "saas",
+    "singapore",
+    "stripe",
+    "stripe dashboard",
+    "verified",
+    "you"
+  ]
+}

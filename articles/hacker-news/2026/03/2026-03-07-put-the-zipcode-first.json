@@ -1,0 +1,28 @@
+{
+  "id": 857,
+  "source": "Hacker News",
+  "title": "Put the Zipcode First",
+  "url": "https://zipcodefirst.com",
+  "published_at": "2026-03-07T23:26:26Z",
+  "fetched_at": "2026-03-08T00:00:06.805669+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47292485\">Comments</a>",
+  "full_text": "Put the ZIP code first.\n\nA US ZIP code is 5 characters. From those 5 characters you can determine the city, the state, and the country. That's 3 fields. Autofilled. From one input.\n\nBut you don't do that, do you? No. You make me type my street address, then my city, then scroll through a dropdown of 50 states to find Illinois wedged between Idaho and Indiana, then type my ZIP, then — the pièce de résistance — scroll through 200+ countries to find United States, which half the time is filed under \"T\" because some dipshit thought \"The United States of America\" was the correct sort key.\n\nIt's 2026. What the fuck are we doing.\n\nIt's 5 keystrokes.\n\nI type 90210. You now know I'm in Beverly Hills, California, United States. You didn't need me to tell you that. You didn't need a dropdown. You didn't need me to scroll past Turkmenistan. You had the answer the entire time, in 5 digits, and you just... didn't use it.\n\nAnd here's the bonus: once you know the ZIP, your street address autocomplete is searching a few thousand addresses instead of 160 million. It's faster. It's more accurate. I type less. You get cleaner data. Everyone wins.\n\nThis is not new technology. Free APIs exist. It's like 4 lines of code. Look:\nconst res = await fetch(`https://api.zippopotam.us/us/${zip}`)\nconst data = await res.json()\ncity.value = data.places[0][\"place name\"]\nstate.value = data.places[0][\"state\"]\ncountry.value = \"United States\"\n\nThat's it. That's the whole thing. You could have shipped this instead of reading this website.\n\nDon't believe me? Try it.\n\nZIP Code\n\nCity\n\nState\n\nCountry\n\nStreet Address\n\nSee how that works? See how you typed 5 numbers and 3 fields filled themselves in? See how you're now typing your street address and it already knows what city you're in? That's not magic. That's a lookup table. We've had those since the 1960s.\n\nThe hall of shame.\n\nTier 1: ZIP at the bottom. Street, city, state, ZIP, country. You had the data to autofill 3 fields and you just... put it last. Amazon does this. Target does this. Walmart does this. Basically everyone does this. Billions of collective hours of human life, spent scrolling for \"Illinois.\"\n\nTier 2: No autofill at all. You collect the ZIP. You have the ZIP. You do nothing with it. The ZIP just sits there in your database, inert, like a fire extinguisher in a glass case that says \"do not break.\" What are you saving it for.\n\nTier 3: The scrollable country dropdown. 240 countries. No search. No type-ahead. Just pure, unfiltered, alphabetical scrolling. Bonus points if the US is under \"T.\" Extra bonus points if it's not even alphabetical. You absolute psychopaths.\n\nTier 4: The form that resets when you hit back. I filled out 14 fields. Your payment processor failed. I hit back. Everything is gone. My street. My city. My state. My will to live. All of it. Returned to the void. The developer responsible for this sleeps eight hours a night. That's the part that haunts me.\n\nSubmit to the wall of shame.\n\nFound a site that puts the ZIP code last? A country dropdown sorted by vibes? A form that makes you cry?\n\nSend it to us →\n\n🚧 Public wall of shame coming soon. 🚧\n\nSo fix your forms.\n\nPut the ZIP code first. Autofill the city. Autofill the state. Autofill the country. Let the user type their street address last, with autocomplete scoped to their ZIP.\n\nIt is a solved problem. The API is free. The code is 5 lines. There is genuinely no reason not to do this other than the mass institutional inertia of a million product managers copy-pasting the same address form template from 2009 and never once asking \"wait, why is the ZIP code at the bottom?\"\n\nWhy is the ZIP code at the bottom?\n\nPut it first, you animals.\n\nTweet this ·\nPost to HN ·\nCopy link\n\nShare this before you have to fill out another address form.",
+  "tags": [
+    "1000-words",
+    "address",
+    "autofill",
+    "code",
+    "country",
+    "dropdown",
+    "put",
+    "scroll",
+    "street",
+    "tier",
+    "type",
+    "united",
+    "united states",
+    "zip code",
+    "zip you"
+  ]
+}

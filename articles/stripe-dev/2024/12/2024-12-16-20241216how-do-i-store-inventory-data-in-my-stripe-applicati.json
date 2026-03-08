@@ -1,0 +1,19 @@
+{
+  "id": 749,
+  "source": "Stripe Dev",
+  "title": "2024.12.16How do I store inventory data in my Stripe applicationSummary:Explore the critical importance of managing real-time inventory updates for both online marketplaces and physical stores. This blog post details the development of an event-driven architecture designed to synchronize inventory levels with Stripe payment events using AWS cloud services. The demonstration centers around the DevRel Swag Store, showcasing a practical application used at the GOTO Chicago event, which integrates s",
+  "url": "https://stripe.dev/blog/how-do-i-store-inventory-data-in-my-stripe-application",
+  "published_at": "2024.12.16",
+  "fetched_at": "2026-03-07T13:20:38.618718+00:00",
+  "author": "Ben Smith",
+  "summary": "",
+  "full_text": null,
+  "tags": [
+    "200-words",
+    "application",
+    "data",
+    "inventory",
+    "store",
+    "stripe"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 759,
+  "source": "Stripe Dev",
+  "title": "2024.10.31Managing SaaS access control with Stripe’s Entitlements APISummary:This post introduces how to manage SaaS feature entitlements efficiently using the Stripe API. It explains why it's important to provide multiple plans to your customers and how to differentiate each plan through entitlement management. With the Stripe API, managing entitlements can become more straightforward, allowing you to focus on building and improving your core services.Author:Hidetaka OkamotoTopics:WorkbenchBill",
+  "url": "https://stripe.dev/blog/managing-saas-access-control-with-stripe-entitlements-api",
+  "published_at": "2024.10.31",
+  "fetched_at": "2026-03-07T13:20:40.176989+00:00",
+  "author": "Hidetaka Okamoto",
+  "summary": "",
+  "full_text": "Hidetaka Okamoto\n\nHide (ひで pronounced “Hee-Day”) is a former Developer Advocate at Stripe and maintainer of the Stripe Testing Tools MCP Server.",
+  "tags": [
+    "200-words",
+    "access",
+    "author hidetaka",
+    "control",
+    "efficiently",
+    "entitlements",
+    "entitlements apisummary",
+    "explains",
+    "feature",
+    "introduces",
+    "manage",
+    "managing saas",
+    "okamototopics workbenchbill",
+    "saas",
+    "stripe",
+    "stripe api"
+  ]
+}

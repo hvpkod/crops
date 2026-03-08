@@ -1,0 +1,25 @@
+{
+  "id": 725,
+  "source": "Stripe Dev",
+  "title": "2025.6.24Implementing scalable metered billing with Stripe: How Edgee handles billions of eventsSummary:Discover how Edgee built a scalable, usage-based billing system processing billions of requests across 100+ global edge locations. Learn how they leverage Stripe’s metering and billing APIs to ensure accurate, resilient invoicing in a complex distributed architecture, all while solving critical web analytics data loss challenges.Author:Alex CasalboniTopic:PartnersRead",
+  "url": "https://stripe.dev/blog/implementing-scalable-metered-billing-with-stripe-how-edgee-handles-billions-of-events",
+  "published_at": "2025.6.24",
+  "fetched_at": "2026-03-07T13:20:22.456111+00:00",
+  "author": "Alex Casalboni",
+  "summary": "",
+  "full_text": "Alex Casalboni\n\nAlex is a software engineer passionate about web technologies and music. He began working on web projects and sharing his experiences in 2011. His passion for programming spans different languages such as Python, JavaScript, and Rust, as well as the open-source and startup worlds. After spending 6 years helping developers and companies adopt cloud technologies, Alex returned to the startup life to help businesses adopt edge computing technologies powered by WebAssembly, focusing on product development and developer advocacy.",
+  "tags": [
+    "200-words",
+    "adopt",
+    "alex",
+    "billing",
+    "edgee",
+    "handles",
+    "implementing",
+    "metered",
+    "scalable",
+    "startup",
+    "stripe how",
+    "technologies"
+  ]
+}

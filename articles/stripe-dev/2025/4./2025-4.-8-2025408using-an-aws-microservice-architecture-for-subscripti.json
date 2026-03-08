@@ -1,0 +1,19 @@
+{
+  "id": 734,
+  "source": "Stripe Dev",
+  "title": "2025.4.08Using an AWS microservice architecture for subscription managementSummary:Explore the complexities of enterprise subscription management and discover how an AWS microservice architecture can streamline subscription lifecycles. This guide uses AWS services to create a scalable, reliable, and auditable subscription management system, addressing challenges like mid-cycle plan changes and usage-based billing adjustments.Author:James BeswickTopic:AWSRead",
+  "url": "https://stripe.dev/blog/aws-microservice-architecture-subscription-management",
+  "published_at": "2025.4.08",
+  "fetched_at": "2026-03-07T13:20:28.213518+00:00",
+  "author": "James Beswick",
+  "summary": "",
+  "full_text": null,
+  "tags": [
+    "200-words",
+    "architecture",
+    "aws",
+    "management",
+    "microservice",
+    "subscription"
+  ]
+}

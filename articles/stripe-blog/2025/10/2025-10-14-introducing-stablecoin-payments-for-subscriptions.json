@@ -1,0 +1,26 @@
+{
+  "id": 812,
+  "source": "Stripe Blog",
+  "title": "Introducing stablecoin payments for subscriptions",
+  "url": "https://stripe.com/blog/introducing-stablecoin-payments-for-subscriptions",
+  "published_at": "2025-10-14",
+  "fetched_at": "2026-03-07T15:20:20.682256+00:00",
+  "author": null,
+  "summary": "",
+  "full_text": "Since launching stablecoin payments a year ago, we’ve seen stablecoins enable the rapid global expansion of some of the fastest-growing companies today. The top 20 AI companies on Stripe—all but 1 based in the US—draw 60% of their revenue from outside the country. But cross-border payments can be expensive to accept, slow to settle, and often fail outright. That’s why some AI companies such as Shadeform have seen approximately 20% of their payment volume shift to stablecoins, which settle near-instantaneously and cost half as much per transaction to process. \n\nNow, to better support the 30% of businesses on Stripe with recurring business models—including the majority of AI companies—we’re launching subscription capabilities for stablecoin payments. With this launch, businesses can:\n \n \nLet customers use their crypto wallets to pay for subscriptions, which then settle directly in fiat\n \n \nManage fiat and stablecoin subscription payments together in the Stripe Dashboard\n \n \nIntegrate stablecoin-based subscriptions with Stripe’s Optimized Checkout Suite and Stripe Billing \n \n \nExtend the benefits of stablecoin-based payments across their entire product suite \n \n\nTo launch stablecoin subscriptions, we built a smart contract that resolves a fundamental limitation of blockchain-based payments: that wallet owners need to manually “sign” each transaction. The smart contract lets customers save their wallet as a payment method and authorize it to send recurring payments—without needing to re-sign each transaction. Customers can do this with more than 400 supported wallets, and it’s just like saving any other payment method on Stripe. \n\n \n \n\nWe’re incredibly excited about rolling out stablecoin subscription payments with Stripe. Stablecoin payments help us reduce our cost of revenue for payments from all around the globe, attract more tech-forward users, and reach folks who don’t have access to other payment methods.\n \n\n Alex Mashrabov, CEO, \n Higgsfield\n \n \n \n\nTo start, we’re rolling out stablecoin-based subscriptions in private preview to US-based businesses, and supporting subscription payments made in USDC over the Base and Polygon blockchains. \n\nTo turn on stablecoin payments, head to the payment methods section of the Stripe Dashboard. To enable stablecoin-based subscriptions, request access.",
+  "tags": [
+    "500-words",
+    "companies",
+    "customers",
+    "introducing",
+    "launching",
+    "payment",
+    "payments",
+    "seen",
+    "stablecoin",
+    "stripe",
+    "stripe dashboard",
+    "subscription",
+    "subscriptions"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 775,
+  "source": "Stripe Dev",
+  "title": "2024.8.23Observing immediate versus delayed payments with Stripe WorkbenchSummary:Immediate and delayed payments need to be handled differently within an integration. It’s important to understand what events to listen for and properties to inspect for relevant changes.Author:Cecil PhillipTopics:WorkbenchPayment MethodsRead",
+  "url": "https://stripe.dev/blog/observing-immediate-versus-delayed-payments-with-stripe-workbench",
+  "published_at": "2024.8.23",
+  "fetched_at": "2026-03-07T13:20:40.963287+00:00",
+  "author": "Cecil Phillip",
+  "summary": "",
+  "full_text": null,
+  "tags": [
+    "200-words",
+    "author cecil",
+    "delayed",
+    "differently",
+    "events",
+    "handled",
+    "immediate",
+    "important",
+    "methodsread",
+    "observing",
+    "payments",
+    "philliptopics workbenchpayment",
+    "stripe",
+    "stripe workbenchsummary",
+    "understand",
+    "versus"
+  ]
+}

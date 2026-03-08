@@ -1,0 +1,25 @@
+{
+  "id": 864,
+  "source": "Hacker News",
+  "title": "Lisp-style C++ template meta programming",
+  "url": "https://github.com/mistivia/lmp",
+  "published_at": "2026-03-07T22:21:57Z",
+  "fetched_at": "2026-03-08T00:40:11.686978+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47292029\">Comments</a>",
+  "full_text": "C++ template meta programming in a Lisp style.\n\nC++17 is needed.\n\nSee test.cc for examples.\n\nExample: Sieve of Eratosthenes\n\n#include <lmp.h>\n\nusing namespace lmp;\n\nmeta_fn(infinite_integers, int n) {\n // `let_lazy(name, expr)` is similar to `(define name (delay expr))` in scheme\n let_lazy(next, infinite_integers<n + 1>);\n meta_return (Cons<Int<n>, next>);\n};\n\nmeta_fn(filter_mod, class lst, int n) {\n let_lazy(tail, filter_mod<cdr<lst>, n>);\n meta_return (\n cond<equal<mod<car<lst>, Int<n>>, Int<0>>,\n tail,\n Cons<car<lst>, tail>>);\n};\n\nmeta_fn(prime_sieve, class lst) {\n static constexpr int n = car<lst>::value;\n let_lazy(tail, prime_sieve<filter_mod<cdr<lst>, n>>);\n meta_return (Cons<Int<n>, tail>);\n};\n\nusing primes = prime_sieve<infinite_integers<2>>;\n\nstatic_assert(nth<primes, 0>::value == 2);\nstatic_assert(nth<primes, 1>::value == 3);\nstatic_assert(nth<primes, 2>::value == 5);\nstatic_assert(nth<primes, 3>::value == 7);\nstatic_assert(nth<primes, 4>::value == 11);\nstatic_assert(nth<primes, 5>::value == 13);\n\nSimilar form in Scheme:\n\n(define (infinite-integers n)\n (define next (delay (infinite-integers (+ n 1))))\n (cons n next))\n\n(define (filter-mod lst n)\n (define tail (delay (filter-mod (force (cdr lst)) n)))\n (if (= (modulo (car lst) n) 0)\n (force tail)\n (cons (car lst) tail)))\n\n(define (prime-sieve lst)\n (define n (car lst))\n (define tail (delay (prime-sieve (filter-mod (force (cdr lst)) n))))\n (cons n tail))\n\n(define primes\n (prime-sieve (infinite-integers 2)))",
+  "tags": [
+    "200-words",
+    "class",
+    "cons int",
+    "github",
+    "lisp",
+    "meta",
+    "primes",
+    "programming",
+    "sieve",
+    "similar",
+    "tail",
+    "template"
+  ]
+}

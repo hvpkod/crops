@@ -1,0 +1,26 @@
+{
+  "id": 830,
+  "source": "Hacker News",
+  "title": "Show HN: µJS, a 5KB alternative to Htmx and Turbo with zero dependencies",
+  "url": "https://mujs.org",
+  "published_at": "2026-03-07T08:59:11Z",
+  "fetched_at": "2026-03-07T17:00:08.621424+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47285876\">Comments</a>",
+  "full_text": "Fast\n \n\nPrefetch on hover, no full page reload, built-in progress bar. Navigations feel instant.\n \n \n\n \n\nLightweight\n \n\nSingle file, ~5 KB gzipped, zero dependencies. No build step required.\n \n \n\n \n\nDrop-in\n \n\nWorks with any backend: PHP, Python, Ruby, Go, Node.js… No server changes needed.\n \n \n\n \n\nPatch mode\n \n\nUpdate multiple page fragments in a single request. Ideal for dashboards and complex layouts.\n \n \n\n \n\nTriggers\n \n\nAny element, any event. Live search, polling, focus actions — with built-in debounce.\n \n \n\n \n\nHTTP verbs\n \n\nGET, POST, PUT, PATCH, DELETE on links, buttons, and forms.\n \n \n\n \n\nSSE\n \n\nReal-time updates via Server-Sent Events. Combine with patch mode for multi-fragment streaming.\n \n \n\n \n\nModern\n \n\nView Transitions API, DOM morphing via idiomorph, built on the Fetch API.",
+  "tags": [
+    "200-words",
+    "ajax",
+    "fast",
+    "library",
+    "lightweight",
+    "lightweight ajax",
+    "mode",
+    "navigation",
+    "navigation library",
+    "page",
+    "patch",
+    "prefetch",
+    "single"
+  ]
+}

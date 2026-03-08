@@ -1,0 +1,29 @@
+{
+  "id": 777,
+  "source": "Stripe Dev",
+  "title": "2024.8.21Debugging your AWS/Stripe integration just got easierSummary:For developers building on AWS, you have various choices for processing payments within your application. Most developers choose a payment processing service to handle this part of their application flow, which involves integrating with a third-party vendor outside of the AWS environment.Author:James BeswickTopics:WorkbenchAWSRead",
+  "url": "https://stripe.dev/blog/debugging-your-aws-stripe-integration-just-got-easier",
+  "published_at": "2024.8.21",
+  "fetched_at": "2026-03-07T13:20:41.060420+00:00",
+  "author": "James Beswick",
+  "summary": "",
+  "full_text": null,
+  "tags": [
+    "200-words",
+    "author james",
+    "aws",
+    "aws stripe",
+    "beswicktopics workbenchawsread",
+    "building",
+    "choices",
+    "choose",
+    "debugging",
+    "developers",
+    "integration",
+    "payment",
+    "payments",
+    "processing",
+    "service",
+    "various"
+  ]
+}

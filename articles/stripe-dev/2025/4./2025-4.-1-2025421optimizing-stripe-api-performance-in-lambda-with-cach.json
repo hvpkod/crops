@@ -1,0 +1,22 @@
+{
+  "id": 732,
+  "source": "Stripe Dev",
+  "title": "2025.4.21Optimizing Stripe API performance in Lambda with caching strategiesSummary:Discover advanced caching strategies to optimize Stripe API performance in AWS Lambda using Amazon ElastiCache and DynamoDB. Learn how to manage API rate limits, reduce latency, and minimize costs while ensuring data consistency and scalability in high-volume applications.Author:James BeswickTopic:AWSRead",
+  "url": "https://stripe.dev/blog/optimizing-stripe-api-performance-lambda-caching-elasticache-dynamodb",
+  "published_at": "2025.4.21",
+  "fetched_at": "2026-03-07T13:20:26.983406+00:00",
+  "author": "James Beswick",
+  "summary": "",
+  "full_text": null,
+  "tags": [
+    "200-words",
+    "api",
+    "caching",
+    "lambda",
+    "optimizing",
+    "optimizing stripe",
+    "performance",
+    "strategies",
+    "stripe"
+  ]
+}
