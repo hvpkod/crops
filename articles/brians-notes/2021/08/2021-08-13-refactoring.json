@@ -1,0 +1,27 @@
+{
+  "id": 1895,
+  "source": "Brian's Notes",
+  "title": "Refactoring",
+  "url": "https://www.briansnotes.io/book/refactoring/",
+  "published_at": "2021-08-13T15:06:26Z",
+  "fetched_at": "2026-03-08T21:28:31.448701+00:00",
+  "author": null,
+  "summary": "Catalog of code readability and structure improvements",
+  "full_text": "Refactoring thrives on fast and tight feedback loops. Run a test, see it pass, refactor, rerun the test, over and over.\n\nAs the developer refactoring code, you always want to demonstrate functional stability as evidenced through tests.\n\nTo achieve fast feedback loops and functional stability, we benefit from fast automated testing. So as a technical leader, your job is to ensure the infrastructure around your developers is fast enough and reliable enough to facilitate the good behavior of automated testing and refactoring.",
+  "tags": [
+    "200-words",
+    "automated",
+    "book",
+    "brian",
+    "enough",
+    "fast",
+    "feedback",
+    "functional",
+    "ideas",
+    "notes",
+    "refactoring",
+    "refactoring book",
+    "summary",
+    "top ideas"
+  ]
+}

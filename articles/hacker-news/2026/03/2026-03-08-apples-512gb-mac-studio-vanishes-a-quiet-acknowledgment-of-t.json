@@ -1,0 +1,26 @@
+{
+  "id": 991,
+  "source": "Hacker News",
+  "title": "Apple's 512GB Mac Studio vanishes, a quiet acknowledgment of the RAM shortage",
+  "url": "https://arstechnica.com/gadgets/2026/03/apples-512gb-mac-studio-vanishes-a-quiet-acknowledgement-of-the-ram-shortage/",
+  "published_at": "2026-03-08T10:54:32Z",
+  "fetched_at": "2026-03-08T12:00:14.126410+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47296302\">Comments</a>",
+  "full_text": "If the only thing you had to go off was Apple’s string of product announcements this week, you’d have little reason to believe that there is a historic AI-driven memory and storage supply crunch going on. Some products saw RAM and storage increases at the same prices as the products they replaced; others had their prices increased a bit but came with more storage than before as compensation. And there’s the MacBook Neo, which at $599 was priced toward the low end of what Apple-watchers expected.\n\nBut even a company with Apple’s scale and buying power can’t totally defy gravity. At some point between March 4 and now, Apple quietly removed the 512GB RAM option from its top-tier M3 Ultra Mac Studio desktop. Pricing for the 256GB configuration has also increased, from $1,600 to $2,000. The Tech Specs page on Apple’s support site still acknowledges the existence of the 512GB configuration, but both the Apple Store page and the list of available configurations have removed any mention of it.\n\nWe’ve asked Apple to comment on the disappearance of the 512GB Mac Studio and will update this article if we receive a response.\n\nIt’s rare for Apple to pull any configurations of products it sells, aside from removing higher-capacity storage options for older iPhones after new ones come out. More commonly, the company will just increase its shipping estimates to reflect the supply chain backlog.\n\nThe 512GB Mac Studio was not a mass-market machine—adding that much RAM also required springing for the most expensive M3 Ultra model, which brought the system’s price to a whopping $9,499.",
+  "tags": [
+    "500-words",
+    "apple",
+    "company",
+    "mac studio",
+    "page",
+    "prices",
+    "products",
+    "ram",
+    "removed",
+    "storage",
+    "studio",
+    "supply",
+    "ultra"
+  ]
+}

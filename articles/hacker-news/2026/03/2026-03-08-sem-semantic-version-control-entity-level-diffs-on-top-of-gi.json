@@ -1,0 +1,29 @@
+{
+  "id": 988,
+  "source": "Hacker News",
+  "title": "Sem – Semantic version control. Entity-level diffs on top of Git",
+  "url": "https://github.com/ataraxy-labs/sem",
+  "published_at": "2026-03-08T06:01:26Z",
+  "fetched_at": "2026-03-08T10:41:52.411597+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47294924\">Comments</a>",
+  "full_text": "Semantic version control. Entity-level diffs on top of Git.\n\nInstead of line 43 changed, sem tells you function validateToken was added in src/auth.ts.\n\nsem diff\n\n┌─ src/auth/login.ts ──────────────────────────────────\n│\n│ ⊕ function validateToken [added]\n│ ∆ function authenticateUser [modified]\n│ ⊖ function legacyAuth [deleted]\n│\n└──────────────────────────────────────────────────────\n\n┌─ config/database.yml ─────────────────────────────────\n│\n│ ∆ property production.pool_size [modified]\n│ - 5\n│ + 20\n│\n└──────────────────────────────────────────────────────\n\nSummary: 1 added, 1 modified, 1 deleted across 2 files\n\nBuild from source (requires Rust):\n\ngit clone https://github.com/Ataraxy-Labs/sem\ncd sem/crates\ncargo install --path sem-cli\n\nOr grab a binary from GitHub Releases.\n\nWorks in any Git repo. No setup required.\n\n# Semantic diff of working changes\nsem diff\n\n# Staged changes only\nsem diff --staged\n\n# Specific commit\nsem diff --commit abc1234\n\n# Commit range\nsem diff --from HEAD~5 --to HEAD\n\n# JSON output (for AI agents, CI pipelines)\nsem diff --format json\n\n# Read file changes from stdin (no git repo needed)\necho '[{\"filePath\":\"src/main.rs\",\"status\":\"modified\",\"beforeContent\":\"...\",\"afterContent\":\"...\"}]' \\\n | sem diff --stdin --format json\n\n# Only specific file types\nsem diff --file-exts .py .rs\n\n# Entity dependency graph\nsem graph\n\n# Impact analysis (what breaks if this entity changes?)\nsem impact validateToken\n\n# Entity-level blame\nsem blame src/auth.ts\n\n13 programming languages with full entity extraction via tree-sitter:\n\nLanguage\nExtensions\nEntities\n\nTypeScript\n.ts .tsx\nfunctions, classes, interfaces, types, enums, exports\n\nJavaScript\n.js .jsx .mjs .cjs\nfunctions, classes, variables, exports\n\nPython\n.py\nfunctions, classes, decorated definitions\n\nGo\n.go\nfunctions, methods, types, vars, consts\n\nRust\n.rs\nfunctions, structs, enums, impls, traits, mods, consts\n\nJava\n.java\nclasses, methods, interfaces, enums, fields, constructors\n\nC\n.c .h\nfunctions, structs, enums, unions, typedefs\n\nC++\n.cpp .cc .hpp\nfunctions, classes, structs, enums, namespaces, templates\n\nC#\n.cs\nclasses, methods, interfaces, enums, structs, properties\n\nRuby\n.rb\nmethods, classes, modules\n\nPHP\n.php\nfunctions, classes, methods, interfaces, traits, enums\n\nFortran\n.f90 .f95 .f\nfunctions, subroutines, modules, programs\n\nPlus structured data formats:\n\nFormat\nExtensions\nEntities\n\nJSON\n.json\nproperties, objects (RFC 6901 paths)\n\nYAML\n.yml .yaml\nsections, properties (dot paths)\n\nTOML\n.toml\nsections, properties\n\nCSV\n.csv .tsv\nrows (first column as identity)\n\nMarkdown\n.md .mdx\nheading-based sections\n\nEverything else falls back to chunk-based diffing.\n\nThree-phase entity matching:\n\nExact ID match — same entity in before/after = modified or unchanged\n\nStructural hash match — same AST structure, different name = renamed or moved (ignores whitespace/comments)\n\nFuzzy similarity — >80% token overlap = probable rename\n\nThis means sem detects renames and moves, not just additions and deletions. Structural hashing also distinguishes cosmetic changes (whitespace, formatting) from real logic changes.\n\n{\n \"summary\": {\n \"fileCount\": 2,\n \"added\": 1,\n \"modified\": 1,\n \"deleted\": 1,\n \"total\": 3\n },\n \"changes\": [\n {\n \"entityId\": \"src/auth.ts::function::validateToken\",\n \"changeType\": \"added\",\n \"entityType\": \"function\",\n \"entityName\": \"validateToken\",\n \"filePath\": \"src/auth.ts\"\n }\n ]\n}\n\nsem-core can be used as a Rust library dependency:\n\n[dependencies]\nsem-core = { git = \"https://github.com/Ataraxy-Labs/sem\", version = \"0.3\" }\n\nUsed by weave (semantic merge driver) and inspect (entity-level code review).\n\ntree-sitter for code parsing (native Rust, not WASM)\n\ngit2 for Git operations\n\nrayon for parallel file processing\n\nxxhash for structural hashing\n\nPlugin system for adding new languages and formats\n\nMIT OR Apache-2.0",
+  "tags": [
+    "1000-words",
+    "ataraxy labs",
+    "changes",
+    "cli entity",
+    "diff",
+    "entity",
+    "extensions entities",
+    "function",
+    "github",
+    "impact",
+    "json",
+    "languages",
+    "rust",
+    "semantic",
+    "validatetoken",
+    "version"
+  ]
+}

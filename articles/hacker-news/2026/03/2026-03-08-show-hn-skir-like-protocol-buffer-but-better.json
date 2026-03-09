@@ -1,0 +1,27 @@
+{
+  "id": 1023,
+  "source": "Hacker News",
+  "title": "Show HN: Skir – like Protocol Buffer but better",
+  "url": "https://skir.build/",
+  "published_at": "2026-03-08T17:17:54Z",
+  "fetched_at": "2026-03-08T18:40:07.849696+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47299022\">Comments</a>",
+  "full_text": "v1.1Like Protocol Buffer, but better\n\nThe single source of truth\n for your data types\n\nSkir is a declarative language for defining data types, constants, and APIs. Write your schema once in a .skir file and generate idiomatic, type-safe code in TypeScript, Python, Java, C++, and more.",
+  "tags": [
+    "200-words",
+    "better",
+    "buffer",
+    "data",
+    "declarative",
+    "language",
+    "like protocol",
+    "protocol",
+    "protocol buffer",
+    "single",
+    "skir",
+    "source",
+    "truth",
+    "types"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": 1940,
+  "source": "Brian's Notes",
+  "title": "SQL Antipatterns",
+  "url": "https://www.briansnotes.io/book/sql-antipatterns/",
+  "published_at": "2021-03-18T19:47:29Z",
+  "fetched_at": "2026-03-08T21:28:52.472133+00:00",
+  "author": null,
+  "summary": "Database design pitfalls that you will make if you haven’t already",
+  "full_text": "In complex applications you often need to join many tables with complex logic. You write a giant query. That feels messy though, so you start refactoring it into subqueries or concatenated sections.\n\nEach day for a week, you report in standup that you’re still working on this monster query. It’s a beast.\n\nBy the end of the week, your query feels more modular, but you also have no real idea what’s happening. Reviewing the code six months from now will confirm this.\n\nAnother downside to having monster SQL queries is that splitting your application from monolith to microservices will be harder because data is being fetched across multiple problem domains.\n\nYour query may perform better, but it’s also possibly an unmaintainable mess and you should consider breaking this up into several distinct queries.",
+  "tags": [
+    "200-words",
+    "antipatterns",
+    "sql antipatterns"
+  ]
+}

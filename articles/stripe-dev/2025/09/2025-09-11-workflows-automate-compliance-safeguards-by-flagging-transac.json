@@ -1,0 +1,29 @@
+{
+  "id": 906,
+  "source": "Stripe Dev",
+  "title": "Workflows: Automate compliance safeguards by flagging transactions",
+  "url": "https://stripe.dev/blog/workflows-automate-compliance-safeguards",
+  "published_at": "2025-09-11",
+  "fetched_at": "2026-03-08T10:40:27.443663+00:00",
+  "author": "Ashley Ansari",
+  "summary": "",
+  "full_text": "\nMany industries require more specific or stricter compliance requirements. With Stripe Workflows, you can automate additional compliance requirements to align with your business needs. You can implement a workflow to automatically flag transactions based on criteria such as high order values, unfamiliar sales regions, or other potential fraud indicators. Creating a workflow to streamline compliance enhances risk management and boosts operational efficiency by prompting for further review before order processing. \n\nFor example, a new customer order exceeding a certain monetary threshold might indicate an accidental over-purchase or potential fraud. Similarly, an order from a region where you’ve never sold before requires additional scrutiny to verify the customer’s legitimacy. Additionally, transactions exhibiting behavioral patterns commonly associated with fraud can trigger alerts for your team’s assessment. \n\nIn this sample workflow pattern, we’ll trigger an email alert to a designated team member whenever an order surpasses the predefined threshold, enabling your team to address any issues with the order and earn customer trust.   \n\n![](/images/workflows-automate-compliance-safeguards/image1.png) \n\n## Building a workflow to flag transactions\n\nTo build a workflow when a customer order exceeds a monetary threshold: \n\n1. Add trigger: **Payment intent succeeded**.  \n2. Add a step: **Retrieve a customer,** for Customer ID choose **Payment intent | Customer ID**.  \n3. Add a condition.   \n4. Click the “If this condition is met” box and select **Retrieve a customer**, then select **Metadata**, then select **custom_status**. Select \"isn't equal to” and type “Approved.”   \n5. Click Add more.  \n6. Select **Payment intent succeeded**, select Amount. Select is “greater than” and type your threshold of $5,000.   \n7. Click Done.   \n8. Under the condition click Add step and Add action: Select **Email a team member**, select a team member or multiple team members from the list, type instructions in the email body field, and click Done. \n\n## What is Stripe Workflows? \n\n[Stripe Workflows](https://docs.stripe.com/workflows/define-workflows) provides a visual building interface in the Stripe dashboard, to help you automate tasks and processes by defining a series of actions that happen sequentially. Workflows is ideal for multi-step processes and is compatible across multiple Stripe products, allowing you to streamline processes, enforce business rules, and reduce manual effort. \n\nTo explore additional workflow patterns, see:\n\n* [Automatically customize an object with metadata](https://stripe.dev/blog/workflows-customize-objects-metadata)  \n* [Creating early fraud alerts for streamlined refunds](https://stripe.dev/blog/workflows-creating-early-fraud-alerts-for-streamlined-refunds) \n\nTo learn more about developing applications with Stripe, visit our [YouTube Channel](https://www.youtube.com/stripedevelopers).",
+  "tags": [
+    "500-words",
+    "add",
+    "additional",
+    "automate",
+    "compliance",
+    "customer",
+    "customer id",
+    "order",
+    "payment",
+    "select",
+    "stripe",
+    "stripe workflows",
+    "team",
+    "transactions",
+    "workflow",
+    "workflows automate"
+  ]
+}

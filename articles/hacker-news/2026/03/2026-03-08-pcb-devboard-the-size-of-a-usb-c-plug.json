@@ -1,0 +1,30 @@
+{
+  "id": 2095,
+  "source": "Hacker News",
+  "title": "PCB devboard the size of a USB-C plug",
+  "url": "https://github.com/Dieu-de-l-elec/AngstromIO-devboard",
+  "published_at": "2026-03-08T05:04:14Z",
+  "fetched_at": "2026-03-09T00:20:11.069067+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47294582\">Comments</a>",
+  "full_text": "AngstromIO is one of the smallest devboards out there, barely longer than a USB-C connector, based on the Attiny1616 MCU. 2 GPIOs as well as I2C lines are broken out.\nI made a dual CH340 programming board too, both for UPDI programming and debugging (one way Serial Communication).\nI also designed a breadboard friendly, experimentation board for the CH32V003, with a 4 by 5 charlieplexed LED matrix.\n\nWhile the AngstromIO is a tiny devboard, yet powerful, that could be embbeded in any space constrained projects, the CH32 devboard is more an experimentation board, for me to learn how to program this awesome chip on the MounriverStudio programming and how to program a charlieplexed matrix. The Programmer is an all in one module, that will make debugging with the Serial monitor while programming easy: one board for both.\n\nOne of the smallest devboards: 8.9mm by 9mm, USB-C included\n\nAttiny1616 MCU, 16Kb flash, low power, arduino compatible (for basic libraries at least)\n\nUSB-C for power, runs at 5V\n\n2x RGB addressable LEDs (SK6805-EC15)\n\nPins broken out: SCL, SDA, PB2 (TX), PA3, +5V, GND, and UPDI for programming\n\nDual CH340E setup:\n\nOne for programming (set as SerialUPDI programmer),\n\nOne for debugging (Serial Communication, USB to UART)\n\n2 USB-C for data transfer, only the USB-C for Serial provides 5V to the board\n\nOn board 3.3V LDO\n\n3.3V/5V operating voltage selection\n\nCH32 devboard Key features:\n\nBreadboard friendly devboard\n\ncheap 25cents CH32V003, Risc-V MCU, 26Kb flash\n\nUSB-C for power, the CH32 runs at 3.3V but PC6 and PC5 are 5V tolerant\n\nOn board 3.3V LDO\n\n4x5 charlieplexed LED matrix\n\nSWIO programming, proper programmer required (WCH linkE)\n\nArduino compatible, some libraries may not work, but some have been arranged/made by SpenceKonde like Wire (I2C) and tinyNeoPixel (for more information, see: https://github.com/SpenceKonde/megaTinyCore/tree/master/megaavr/libraries)\n\nProgrammed on the Mounriver studio IDE\n\nPCB designed in EasyEDA Pro, 2 layers, 1.0mm thick, Purple soldermask\nAll 3 designs panelized into one PCB.\n\n🚧 to be continued...\n\n🚧 coming soon...\n\n🚧 coming soon...\n\n🚧 coming soon...",
+  "tags": [
+    "500-words",
+    "angstromio",
+    "attiny mcu",
+    "based",
+    "board",
+    "charlieplexed",
+    "coming",
+    "debugging",
+    "devboard",
+    "dual",
+    "github dieu",
+    "mcu kb",
+    "programming",
+    "serial",
+    "serial communication",
+    "smallest",
+    "usb"
+  ]
+}

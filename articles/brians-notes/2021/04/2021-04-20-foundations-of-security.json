@@ -1,0 +1,16 @@
+{
+  "id": 1932,
+  "source": "Brian's Notes",
+  "title": "Foundations of Security",
+  "url": "https://www.briansnotes.io/book/foundations-of-security/",
+  "published_at": "2021-04-20T14:17:45Z",
+  "fetched_at": "2026-03-08T21:28:52.322841+00:00",
+  "author": null,
+  "summary": "Security threats programmers need to defend against",
+  "full_text": "This is the type of conceptual and principled content I was hoping to read more about in Foundations of Security, but I had to hunt for it.\n\nDevelopers also run operations (DevOps) and security at many small companies. That means your Lead Engineer is probably in charge of security by default and they probably need a framework for thinking about security issues.\n\nPrevention, Detection, Containment, and Recovery is a reasonable and useful categorization for developers thrown into security roles.\n\nPrevention = Physical security, Authentication, Access control, etc.\n\nDetection = Watchdogs, beacons, virus scanners, etc.\n\nContainment = Backups, intrusion tolerance, etc.\n\nRecovery = Failover, Auditing, Data Restoration, etc.",
+  "tags": [
+    "200-words",
+    "foundations",
+    "security"
+  ]
+}

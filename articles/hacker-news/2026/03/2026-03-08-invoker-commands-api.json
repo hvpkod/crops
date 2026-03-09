@@ -1,0 +1,26 @@
+{
+  "id": 892,
+  "source": "Hacker News",
+  "title": "Invoker Commands API",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API",
+  "published_at": "2026-03-08T08:16:53Z",
+  "fetched_at": "2026-03-08T09:20:12.819682+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47295559\">Comments</a>",
+  "full_text": "A common pattern on the web is to have <button> elements control various aspects of the page, such as opening and closing popovers or <dialog> elements, formatting text, and more.\n\nHistorically creating these kinds of controls has required JavaScript event listeners added to the button which can then call the APIs on the element they control. The commandForElement and command properties provide a way to do this declaratively for a limited set of actions. This can be advantageous for built-in commands as the user does not have to wait for JavaScript to download and execute to make these buttons interactive.\n \n\n \n \n\nhtml<button commandfor=\"mypopover\" command=\"toggle-popover\">\n Toggle the popover\n</button>\n<div id=\"mypopover\" popover>\n <button commandfor=\"mypopover\" command=\"hide-popover\">Close</button>\n Popover content\n</div>\n\n \n\n \n \n\nhtml<button commandfor=\"mydialog\" command=\"show-modal\">Show modal dialog</button>\n<dialog id=\"mydialog\">\n <button commandfor=\"mydialog\" command=\"close\">Close</button>\n Dialog Content\n</dialog>\n\n \n\n \n \n\nhtml<button commandfor=\"my-img\" command=\"--rotate-left\">Rotate left</button>\n<button commandfor=\"my-img\" command=\"--rotate-right\">Rotate right</button>\n<img id=\"my-img\" src=\"photo.jpg\" alt=\"[add appropriate alt text here]\" />\n\njsconst myImg = document.getElementById(\"my-img\");\n\nmyImg.addEventListener(\"command\", (event) => {\n if (event.command === \"--rotate-left\") {\n myImg.style.rotate = \"-90deg\";\n } else if (event.command === \"--rotate-right\") {\n myImg.style.rotate = \"90deg\";\n }\n});",
+  "tags": [
+    "200-words",
+    "api",
+    "commands",
+    "common",
+    "content",
+    "control",
+    "elements",
+    "invoker",
+    "invoker commands",
+    "javascript",
+    "pattern",
+    "popover",
+    "various"
+  ]
+}

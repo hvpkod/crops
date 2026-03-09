@@ -1,0 +1,29 @@
+{
+  "id": 878,
+  "source": "Hacker News",
+  "title": "MonoGame: A .NET framework for making cross-platform games",
+  "url": "https://github.com/MonoGame/MonoGame",
+  "published_at": "2026-03-08T02:16:02Z",
+  "fetched_at": "2026-03-08T04:40:09.597631+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47293682\">Comments</a>",
+  "full_text": "MonoGame is a simple and powerful .NET framework for creating games for desktop PCs, video game consoles, and mobile devices using the C# programming language. It has been successfully used to create games such as Streets of Rage 4, Carrion, Celeste, Stardew Valley, and many others.\n\nIt is an open-source re-implementation of the discontinued Microsoft's XNA Framework.\n\nWe support a growing list of platforms across the desktop, mobile, and console space. If there is a platform we do not support, please make a request or come help us add it.\n\nDesktop PCs\n\nWindows 10 (22H2+) and up (OpenGL1 & DirectX 102)\n\nLinux3 and up (OpenGL1)\n\nmacOS 13 \"Ventura\" and up (OpenGL1)\n\nMobile/Tablet Devices\n\nAndroid 6 (API 23) and up (OpenGL)\n\niOS/iPadOS 12.2 and up (OpenGL)\n\nConsoles (for registered developers)\n\nPlayStation 4\n\nPlayStation 5\n\nXbox (GDKX & XDK)\n\nNintendo Switch 1 & 2\n\nNote\n\nVulkan and DirectX12 graphics support is also being added in preview for 3.8.5 for supported platforms.\n\nCheck out the awesome game samples maintained by the MonoGame team:\n\nPlatformer 2D Sample\nNeonShooter\n\nSupported on all platforms\nSupported on all platforms\n\nThe Platformer 2D sample is a basic 2D platformer pulled from the original XNA samples and upgraded for MonoGame.\nNeon Shooter Is a graphically intensive twin-stick shooter with particle effects and save data from Michael Hoffman\n\nAuto Pong Sample\nShip Game 3D\n\nSupported on all platforms\nGL / DX / iOS / Android\n\nA short sample project showing you how to make the classic game of pong, with generated soundfx, in 300 lines of code.\n3D Ship Game (Descent clone) sample, pulled from the XNA archives and updated for MonoGame\n\nSupport and Contributions\n\nIf you think you have found a bug or have a feature request, use our issue tracker. Before opening a new issue, please search to see if your problem has already been reported. Try to be as detailed as possible in your issue reports.\n\nIf you need help using MonoGame or have other questions we suggest you post on GitHub discussions page or Discord server. Please do not use the issue tracker for personal support requests.\n\nIf you are interested in contributing fixes or features to MonoGame, please read our contributors guide first.\n\nIf you would like to help the project by supporting us financially, consider supporting us via a subscription for the price of a monthly coffee.\n\nMoney goes towards hosting, new hardware and if enough people subscribe a dedicated developer.\n\nThere are several options on our Donation Page.\n\nNote\n\nFor the prerequisites to build from source, please refer to the Requirements file.\n\nThe full source code is available here from GitHub:\n\nClone the source: git clone --recurse-submodules https://github.com/MonoGame/MonoGame.git (including resursive submodules).\n\nSet up the submodules: git submodule update --init\n\nOpen the solution for your target platform to build the game framework.\n\nOpen the Tools solution for your development platform to build the pipeline and content tools.\n\nA high level breakdown of the components of the framework:\n\nThe MonoGame project is under the Microsoft Public License except for a few portions of the code. See the LICENSE.txt file for more details. Third-party libraries used by MonoGame are under their own licenses. Please refer to those libraries for details on the license they use.",
+  "tags": [
+    "1000-words",
+    "game",
+    "github",
+    "help",
+    "monogame",
+    "monogame monogame",
+    "opengl",
+    "platform",
+    "platformer",
+    "platforms",
+    "please",
+    "sample",
+    "ship game",
+    "support",
+    "supported",
+    "xna"
+  ]
+}

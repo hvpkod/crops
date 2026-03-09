@@ -1,0 +1,17 @@
+{
+  "id": 1941,
+  "source": "Brian's Notes",
+  "title": "Hackers & Painters",
+  "url": "https://www.briansnotes.io/book/hackers-painters/",
+  "published_at": "2021-03-12T16:40:03Z",
+  "fetched_at": "2026-03-08T21:28:52.487357+00:00",
+  "author": null,
+  "summary": "The culture and languages of makers",
+  "full_text": "Graham writes about the design of powerful languages, those which hackers want to use. Notably, Graham strongly advocates for Lisp while also recognizing languages like Perl, Python, and Ruby.\n\nBut Graham’s ideas on language design are also applicable to library design.\n\njQuery immediately comes to mind – the library which younger programmers know as antiquated and older programmers remember as revolutionary.\n\njQuery was the first library I worked with where elegance and expressiveness was immediately obvious. What might require dozens or hundreds of lines of code in vanilla JavaScript could be accomplished in just a few lines of jQuery.",
+  "tags": [
+    "200-words",
+    "hackers",
+    "hackers painters",
+    "painters"
+  ]
+}

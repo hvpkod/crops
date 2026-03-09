@@ -1,0 +1,25 @@
+{
+  "id": 1899,
+  "source": "Brian's Notes",
+  "title": "System Design Interview",
+  "url": "https://www.briansnotes.io/book/system-design-interview/",
+  "published_at": "2021-07-22T14:17:58Z",
+  "fetched_at": "2026-03-08T21:28:34.320761+00:00",
+  "author": null,
+  "summary": "Real-world system design interview questions that also help you excel in your current role",
+  "full_text": "You’ll be tempted to start diving into the details. Don’t do that.\n\nGet buy-in on a high level design, then explore more details. By aligning on a high-level design you demonstrate your ability to manage stakeholders and shine light on assumptions.\n\nThe best way to use a high-level design is by walking through critical user flows. For instance, if you were designing YouTube, a critical user flow would be uploading video. Another would be serving video.",
+  "tags": [
+    "200-words",
+    "critical",
+    "design",
+    "diving",
+    "high",
+    "interview",
+    "level",
+    "start",
+    "system",
+    "system design",
+    "tempted",
+    "user"
+  ]
+}

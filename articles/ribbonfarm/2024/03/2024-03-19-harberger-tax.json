@@ -1,0 +1,28 @@
+{
+  "id": 1290,
+  "source": "Ribbonfarm",
+  "title": "Harberger Tax",
+  "url": "https://www.ribbonfarm.com/2024/03/18/harberger-tax/",
+  "published_at": "2024-03-19T02:54:55Z",
+  "fetched_at": "2026-03-08T21:07:35.786256+00:00",
+  "author": "Venkatesh Rao",
+  "summary": "It’s always nice to see trails of thought connect up. An idea I first encountered and really liked in a 2014 Steve Randy Waldman (interfluidity) post has apparently since acquired a name and a more extended provenance. Waldman’s post, Tax price, not value, presents the idea as a LVT/Georgism-flavored solution to NIMBYism enabled by artificially [&#8230;]",
+  "full_text": "It’s always nice to see trails of thought connect up. \n\nAn idea I first encountered and really liked in a 2014 Steve Randy Waldman (interfluidity) post has apparently since acquired a name and a more extended provenance. Waldman’s post, Tax price, not value, presents the idea as a LVT/Georgism-flavored solution to NIMBYism enabled by artificially depressed property tax rates like so:\n\n…There is, of course, a much easier way to gauge what a property would sell for: Solicit from its owner a price.\n\nThe price at which an owner would be willing to sell a thing has a particularly valuable characteristic. It limits the burden to alternative users of the exclusion in a property right. If the price is set low, a user harmed by exclusion can simply purchase the thing and have at. If the price is set high, alternative users may be seriously burdened yet be unable to buy access.\n\nSo, for the sorts of exclusion that do impose substantial burdens to alternative users, a natural policy intervention would be to require property owners to declare a price at which they commit to sell the property (for some period of time), and levy a tax of some legislatively determined percentage against that actual, actionable price, rather than a hypothetical market value. Property owners could pay as much or as little tax as they choose. When they set their price, they face a trade-off, between the risk of being undercompensated for losing the asset if the price is too low, and an exaggerated tax burden if they set a price so high that the risk of sale is negligible or the required overcompensation extreme. The owner is free to choose how much she values certainty of continued ownership, but she must pay for that.\n\nThe price set by the property owner might constitute an option to buy for all comers, or just for the state. (I’m not sure which would be best. What do you think?)\n\nPosner and Weyl talk about essentially the same scheme in Property is Only Another Name for Monopoly and trace it to a 1965 paper by Arnold Harberger (which has a Latin American context/motivation — something about LatAm seems to encourage economics experimentation; probably US economists operating under moral hazard in authoritarian labs?). They’ve since written a book about such ideas I’ve been meaning to read, Radical Markets. The idea seems to be becoming increasingly popular in the Ethereum world as a way to actually set real prices in meaningful markets.\n\nSchemes like this tend to be too simple, but in a good way. Starting incentive and mechanism design from a radical core can lead to meaningfully radical systems. A formula can beget revolutions. Vannevar Bush’s introduction of indirect cost support, the Black-Scholes formula, Vickrey (second-price) auctions come to mind. And if we’re lucky in the future, ranked-choice voting etc.\n\nBut for a scheme to have such potential there have to be mathematical rather than merely ideological reasons to prefer it. The Waldman idea stuck with me because it suddenly made Georgism make sense. Land-value taxation as such seems simply like non-property owners fighting an ideological battle with property owners. Tax income or wealth? Where you stand depends on where you sit. How much of each you have or expect to have. But Harberger tax? That elegantly threads the needle with a certain mathematical doomsday logic.\n\nFor the record, I’m not a pure Georgian/LVTist. The idea that all wealth derived from property stinks of mercantilist zero-sum thinking to me. I’m too Schumpeterian for that. I think wealth is a process not an asset. But Harberger tax… there’s a there there.\n\nA naked Harberger tax would probably have all sorts of unpleasant consequences, but as the kernel of a more complex scheme, hmmm. A good formula is like construction material. You still have to learn to build with it. What can you build with Harberger taxes? Here’s a website I just found that seems to have some ideas.",
+  "tags": [
+    "1000-words",
+    "alternative",
+    "but harberger",
+    "exclusion",
+    "harberger",
+    "harberger tax",
+    "idea",
+    "owner",
+    "owners",
+    "price",
+    "property",
+    "seems",
+    "sell",
+    "tax",
+    "waldman"
+  ]
+}

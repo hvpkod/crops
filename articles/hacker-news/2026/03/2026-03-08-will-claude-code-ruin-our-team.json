@@ -1,0 +1,29 @@
+{
+  "id": 872,
+  "source": "Hacker News",
+  "title": "Will Claude Code ruin our team?",
+  "url": "https://justinjackson.ca/claude-code-ruin",
+  "published_at": "2026-03-08T02:59:35Z",
+  "fetched_at": "2026-03-08T03:20:10.044151+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47293938\">Comments</a>",
+  "full_text": "The first time I sat down and used Claude Code's Opus 4.5 to build software, I couldn't believe how good it was.\n\nMy next thought was: this is going to change the dynamics inside software teams.\n\nThe standoff between roles\n\nMarc Andreessen recently described the moment as a “Mexican standoff:”\n\nEvery engineer now thinks they can be a PM and a designer.\n\nEvery PM thinks they can code and design.\n\nEvery designer thinks they can do the other two.\n\n \n \n\n \n\nThe risk is that many individual contributors believe they no longer need the others.\n\nIn the short term, this is going to be incredibly disruptive for team culture.\n\nWhen rare skills become more attainable, people feel pressure to move \"up the stack\" to prove their value.\n\nKent Beck expressed this sentiment on X: \n\n\"The value of 90% of my skills just dropped to $0. The leverage of my remaining 10% went up a thousand.\"\n\nMy worry is that everyone is recalibrating toward the same 10%. Individual contributors are all racing toward the same layer of leverage.\n\nIn Ben Werdmuller's piece, \"AI coding works now,\" he gives advice specifically to engineers. He comments, \"AI coding shifts the center of gravity from implementation to judgment,\" and recommends that engineers focus on these four skills:\n\nCrafting goals for the product\n\nUnderstanding what users actually want\n\nBeing crystal clear about the experience and value you're creating\n\nDesigning, building, and maintaining robust software architecture\n\nThe challenge to Ben's advice is that lots of people believe they own these skills.\n\nCompany Leadership wants to own goals and strategy. \n\nProduct Managers see themselves as uniquely qualified to understand what users want.\n\nDesigners want control over crafting the user experience.\n\nAnd Marketing and Sales want to define how value is expressed to the customer.\n\nEngineers own planning and implementing architecture. Performance, scalability, security; it all requires real expertise.\n\nWith AI, all of these roles become more fluid. As more people build software and cycle time compresses, they'll start to absorb lessons that it took their colleagues decades to learn. \n\nAnd ultimately, more individuals will want to own the highest-leverage identity: “In my role, I solve problems and provide value to users.”\n\n \n \n\n \n\nLeft unchecked, there will be jockeying for position. There might be more animosity (and jealousy) between team members.\n\nWhat I'm hearing from software teams\n\nI started asking my friends who run software teams what they're seeing.\n\nOne founder told me:\n\nI think you're correct here. We're already seeing it — mainly around PMs wanting to write code.\n\nAnother said:\n\nWe are feeling it on our team for sure. Everyone kinda feels like they can do everyone else's job.\n\nThe President of an established software company described a similar shift:\n\n“Our team is a Head of Product and 15 engineers. On smaller projects he's shipping a lot of PRs himself with no developer in the loop.”\n\nBut the biggest change wasn't just in who is doing the work. It was in who they’re hiring:\n\n“Where you really see the impact on jobs with us is in the people we're no longer hiring: specialists. In this new era, generalists win.”\n\nJohn O'Nolan, founder of Ghost, commented:\n\nIt’s a turbulent time, for sure — but overall I’m pretty optimistic. \n\nThe thing that hasn’t happened yet that I expect will happen in future is that, in addition to old roles being compressed, new roles emerge.\n\nAfter the standoff\n\nMy hope (once the dust settles) is that we come out the other side with more collaboration. Instead of competing for leverage, I'm hoping individual contributors find new ways to work together.\n\nFor example, what if Product Managers and Engineers did more AI-driven pair programming? The PM could focus on customer behavior and product goals. The engineer could evaluate architecture, security, and maintainability. They would iterate together in real time, using LLMs.\n\nMy friend Matt Stauffer, CEO of Tighten, commented that they're doing this right now:\n\nI demo work to my Biz Dev Manager (the product owner for this internal project), she asks for changes, and then we prompt the LLM live, together. I'm better at prompting and reviewing, she knows the domain better than me. This kind of pair programming is great, because I'm moving quickly and then she can jump off the call later when I'm reviewing, iterating, etc.\n\nBen Werdmuller's prescription would still be relevant: \"All code must have a human owner who will take responsibility for it.\" In my scenario, the PM and the engineer would co-own the pull request.\n\n37signals is famous for having two-person teams (one designer, one engineer). In an AI world, maybe a paradigm like that becomes the norm?\n\nOnce the turbulence has died down, folks will need a new vision for how to work together. How can we use AI and collaborate in ways that help us build better software?\n\nCheers,\nJustin Jackson\n\nDiscuss this on Hacker News\n\nConnect with me on:\n🦋 Bluesky\n💼 LinkedIn\n🐘 Mastodon\n🧵 Threads",
+  "tags": [
+    "1000-words",
+    "ai",
+    "believe",
+    "ben werdmuller",
+    "build",
+    "claude code",
+    "code",
+    "engineer",
+    "product",
+    "product managers",
+    "roles",
+    "software",
+    "team",
+    "thinks",
+    "value",
+    "will claude"
+  ]
+}

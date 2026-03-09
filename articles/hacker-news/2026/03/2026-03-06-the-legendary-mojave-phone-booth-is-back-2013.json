@@ -1,0 +1,28 @@
+{
+  "id": 2098,
+  "source": "Hacker News",
+  "title": "The legendary Mojave Phone Booth is back (2013)",
+  "url": "https://dailydot.com/mojave-phone-booth-back-number",
+  "published_at": "2026-03-06T22:13:41Z",
+  "fetched_at": "2026-03-09T01:00:07.078737+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47281827\">Comments</a>",
+  "full_text": "760-733-9969. Those 10 digits might signify nothing to the masses, but to the digerati, however, they tell one of the great stories of the Internet.\n\n In short, the Mojave Phone Booth is back.\n\n The booth was originally installed in the 1960s, no-one seems to know quite when, as a frontier phone line servicing volcanic cinder miners. It was at a dusty crossroads in the middle of the Mojave Desert, a day's drive away from the shining lights of Las Vegas. The site was and remains several miles from the nearest paved road.\n\n In 1997, an unnamed man on a rambling road trip spotted the unlikely phone icon on a map and decided to visit it. He wrote an article describing the Zen detour for an underground paper, and Godfrey Daniels, an early Internet adopter, read it and was inspired. He created a tribute website, still extant, and it struck a chord among a generation hopeful about the connective power of technology and its positive impact on society. A legend was born.\n\n People started phoning in. An empty gesture, perhaps, this reaching out into the void of the vast Mojave Desert, knowing there would be no-one there to answer your call. Then one day, someone answered.\n\n After that, there was no stopping them. People would drive out for the experience of being there, for the serendipity of the conversations with callers from all over the world. A Los Angeles Times reporter drove out to cover the story and ended up fielding conversations with people he would never have been aware of otherwise. For such a lonely monument, it was an incredible social networking platform and connectivity conduit.\n\n The Times article was the beginning of the end for the Mojave Phone Booth. It was less than a year later, in 2000, that Pacific Bell shut it down.\n\n Now it's ringing once more—sort of.\n\n Earlier this month, phone phreak and white-hat hacker Jered Morgan (a.k.a. Lucky225) announced obliquely on the Facebook page for Hacker Quarterly 2600 that he had resurrected the number. Go on, you know you want to.\n\n 760-733-9969.\n\n The number works and, better than ever: it's a conference call! Originally he'd set it up for phreaks—those more interested in sociology and social engineering than pure technological challenge—so you would have to input a certain tone. It asked you to insert a quarter, which any competent phreak can get around with a few special tones.\n\n Having since realized that this formed a barrier for most, Morgan removed that message. Now you go straight through to... whatever's there.\n\n The Daily Dot reached out to learn more.\n\n VIDEO\n\n Is there a limit to how many people can be in the call at one time? \n\n No limit with the exception of bandwidth, very few people have called at the same time so far so I don't know what that particular limit might be. \n\n How does it work? Do you have an actual single phone at the end of that line?\n\n I suppose by 'it' you mean the phone number? It's a VoIP DID [Voice over Internet Protocol direct inward dialiing] pointing to my asterisk server.\n\n Where did you get the idea? Any particular reason you launched it now?\n\n I (and others) have kept an eye on this number since the phone booth was removed in May of 2000, PacBell claimed their policy was to”permanently retire” the number. But given the nature of today's phone system, I knew it was only a matter of time before someone either social engineered the phone company for it (i.e asking for it as a vanity number, which if vacant they often give it to you for a fee and there's probably not any code preventing it other than notes history on the number), or it got ported out, either illegally or legally.\n\n In this case it was legally ported out to a CLEC [a competitive local exchange carrier] in March of this year. I was able to pull this information, which is public through a system called NPAC. I tried a few numbers in the same range (760-733-99xx) and they all belong to the same CLEC now. It appears AT&T sold this block of numbers off to the CLEC. I ordered the number from them, and we're in the process of obtaining the entire 99xx range as well. \n\n Did you ever call the old booth? Did you ever go there?\n\n Called it, yes, but never when anyone was there, sadly, as I didn't know ahead of time. Never got a chance to go there, my friends and I always wanted to, but at the time I was a junior in high school, so we never had a chance. \n\n How long has this been up and working? What do you intend to do with it?\n\n I acquired it on July 31. For now I think the conference is good enough. However, if anyone plans on going out to the old payphone site and setting up a phone booth temporarily while they're out there, I would have no problem courtesy-call-forwarding the number to the makeshift booth.\n\n Photo via Kevin Balluff/Flickr",
+  "tags": [
+    "1000-words",
+    "booth",
+    "called",
+    "clec",
+    "drive",
+    "internet",
+    "limit",
+    "might",
+    "mojave",
+    "mojave desert",
+    "mojave phone",
+    "originally",
+    "phone",
+    "phone booth",
+    "social"
+  ]
+}

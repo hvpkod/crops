@@ -1,0 +1,26 @@
+{
+  "id": 1017,
+  "source": "Hacker News",
+  "title": "Based on its own charter, OpenAI should surrender the race",
+  "url": "https://mlumiste.com/general/openai-charter/",
+  "published_at": "2026-03-08T17:16:38Z",
+  "fetched_at": "2026-03-08T18:00:07.059524+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47299009\">Comments</a>",
+  "full_text": "Back in 2018, OpenAI published a charter, which includes a self-sacrifice clause:\n\n \n\nWe are concerned about late-stage AGI development becoming a competitive race without time for adequate safety precautions. Therefore, if a value-aligned, safety-conscious project comes close to building AGI before we do, we commit to stop competing with and start assisting this project. We will work out specifics in case-by-case agreements, but a typical triggering condition might be “a better-than-even chance of success in the next two years.”\n\nInterestingly, this is still hosted at https://openai.com/charter/, meaning it remains the official company policy.\n\nAt the same time, explicitly stated AGI timelines by Sam Altman are the following:\n\n \n \n Date\n Predicted AGI Year\n Diff (years)\n Quote / Claim\n Source\n \n \n \n \n May 22, 2023\n ~2033\n ~10\n “Within the next ten years, AI systems will exceed expert skill level in most domains”\n OpenAI Blog — Governance of Superintelligence\n \n \n Dec 2023\n ~2030\n ~6\n “By the time the end of this decade rolls around, the world will be in an unbelievably better place”\n TIME\n \n \n Nov 4, 2024\n ~2029\n ~5\n “I think in 5 years […] people are like, man, the AGI moment came and went”\n 20VC Podcast\n \n \n Nov 8, 2024\n 2025\n ~1\n “What are you excited about in 2025? - AGI”\n Futurism\n \n \n Jan 2025\n ~2029\n ~4\n “AGI will probably get developed during Trump’s term”\n Bloomberg\n \n \n Sep 25, 2025\n 2030\n ~4\n “By 2030, if we don’t have extraordinarily capable models that do things we can’t, I’d be very surprised”\n TechSpot\n \n \n Oct 28, 2025\n 2028\n ~2\n “Automated AI research intern by Sep 2026, full AI researcher by Mar 2028”\n OfficeChai\n \n \n Dec 18, 2025\n 2025\n 0\n “AGI kinda went whooshing by… okay fine, we built AGIs”\n Windows Central\n \n \n Feb 3, 2026\n 2025\n ~-1\n “We basically have built AGI” (later: “a spiritual statement, not a literal one”)\n ALM Corp\n \n \n\nWe can see that the timeline of AGI (let’s assume this is the timeline for a better-than-even chance) has accelerated and the median prediction since 2025 is around 2 years. Notably, in the latest interviews it’s claimed that AGI has been achieved, and we’re now racing towards ASI.\n\nFinally, here’s a snapshot of the current overall Arena ranking of top 10 models.\n\n \n \n Model\n Overall\n Expert\n Hard Prompts\n Coding\n Math\n Creative Writing\n Instruction Following\n Longer Query\n \n \n \n \n claude-opus-4-6\n 1\n 1\n 2\n 2\n 3\n 4\n 2\n 2\n \n \n claude-opus-4-6-thinking\n 2\n 2\n 1\n 1\n 2\n 1\n 1\n 1\n \n \n gemini-3.1-pro-preview\n 3\n 3\n 3\n 3\n 1\n 5\n 3\n 3\n \n \n grok-4.20-beta1\n 4\n 14\n 4\n 5\n 20\n 2\n 8\n 12\n \n \n gemini-3-pro\n 5\n 7\n 5\n 9\n 5\n 3\n 9\n 5\n \n \n gpt-5.4-high\n 6\n 4\n 10\n 11\n 8\n 6\n 5\n 11\n \n \n gpt-5.2-chat-latest\n 7\n 10\n 7\n 6\n 4\n 9\n 10\n 15\n \n \n gemini-3-flash\n 8\n 9\n 9\n 18\n 7\n 8\n 13\n 13\n \n \n grok-4.1-thinking\n 9\n 17\n 13\n 19\n 21\n 19\n 28\n 27\n \n \n claude-opus-4-5-202…\n 10\n 6\n 6\n 4\n 13\n 7\n 4\n 4\n \n \n\nBased on these, the flagship GPT-5.4 model is clearly trailing behind competition. At least Anthropic’s and Google’s models are clearly safety-conscious, and probably value-aligned (whatever that means, but since the models are drop-in replacements to GPT, it should hold).\n\nIt can be debated whether arena.ai is a suitable metric for AGI, a strong case can probably be made for why it’s not. However, that’s irrelevant, as the spirit of the self-sacrifice clause is to avoid an arms race, and we are clearly in one.\n\nTherefore, one can only conclude, that we currently meet the stated example triggering condition of “a better-than-even chance of success in the next two years”. As per its charter, OpenAI should stop competing with the likes of Anthropic and Gemini, and join forces, however that might look like.\n\nWhile this will never happen, I think it’s illustrative of some great points for pondering:\n\n \nThe impotence of naive idealism in the face of economic incentives.\n \nThe discrepancy between marketing points and practical actions.\n \nThe changing goalposts of AGI and timelines. Notably, it’s common to now talk about ASI instead, implying we may have already achieved AGI, almost without noticing.",
+  "tags": [
+    "1000-words",
+    "agi",
+    "ai",
+    "based",
+    "clearly",
+    "competing",
+    "condition",
+    "models",
+    "openai",
+    "probably",
+    "race",
+    "stop",
+    "triggering"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 894,
+  "source": "Hacker News",
+  "title": "I'm Not Consulting an LLM",
+  "url": "https://lr0.org/blog/p/gpt/",
+  "published_at": "2026-03-08T08:43:29Z",
+  "fetched_at": "2026-03-08T10:00:08.473059+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47295670\">Comments</a>",
+  "full_text": "I'm not consulting an LLM\n\nHere's my problem with using GPT, or an LLM generally for anything, even if the LLM would do it 'effectively', I will speak specifically of looking for information as an example, and let's assume the following scenario; ever used the \"I'm feeling Lucky\" button in Google? This button usually gives the first result of the search without actually showing you the search results, let's assume that, you lived in a perfect world where in every Google search you have ever done, you clicked this button, and it was extremely, extremely, precise and efficient in finding the perfect fit for whatever you were looking for, that is to say, every search you have ever done in your life, was successful, from the first hit.\n\nNow, in such a world, do you think that your intellect would has grown the same amount in which you had to actually do proper research, encounter crazy people, cultures, controversies, jokes, people who wrote interesting enough stuff that you followed them, arguments you disagreed with but couldn’t quite dismiss, footnotes that led nowhere and everywhere at once, half-broken blogs, bad takes that forced you to sharpen your own, or sources that contradicted each other so hard you had to build a model of the world just to survive the tension?\n\nI guess not.\n\nBecause what would be missing isn’t information but the experience. And experience is where intellect actually gets trained.\n\n“I’m Feeling Lucky” intelligence is optimized for arrival, not for becoming. You get the answer but nothing else (keep in mind we are assuming that it's a good answer). You don’t learn how ideas fight, mutate, or die. You don’t develop a sense for epistemic smell or the ability to feel when something is off before you can formally prove it.\n\nNow back to reality, LLMs are never that good, they're never near that hypothetical \"I'm feeling lucky\", and this has to do with how they're fundamentally designed, I never so far asked GPT about something that I'm specialized at, and it gave me a sufficient answer that I would expect from someone who is as much as expert as me in that given field. People tend to think that GPT (and other LLMs) is doing so well, but only when it comes to things that they themselves do not understand that well (Gell-Mann Amnesia), even when it sounds confident, it may be approximating, averaging, exaggerate (Peters 2025) or confidently (Sun 2025) reproducing a mistake. There is no guarantee whatsoever that the answer it gives is the best one, the contested one, or even a correct one, only that it is a plausible one. And that distinction matters, because intellect isn’t built on plausibility but on understanding why something might be wrong, who disagrees with it, what assumptions are being smuggled in, and what breaks when those assumptions fail\n\nA tool can be efficient and still be intellectually corrosive, not because it lies all the time, but because it lies well enough. Its smoothness hides uncertainty, which is important unless you want intellect-rot. #Modus Vivendi #LLMs\n\nFootnotes\n\nReferences\nPeters, Uwe and Chin-Yee, Benjamin (2025). Generalization bias in large language model summarization\nof scientific research. The Royal Society. Link\nSun, Fengfei and Li, Ningke and Wang, Kailong and Goette,\nLorenz (2025). Large Language Models are overconfident and amplify human\nbias. arXiv. Link",
+  "tags": [
+    "1000-words",
+    "actually",
+    "ai",
+    "answer",
+    "consulting",
+    "ever",
+    "feeling",
+    "gpt",
+    "information",
+    "intellect",
+    "llm",
+    "llms",
+    "looking",
+    "search",
+    "something",
+    "you"
+  ]
+}

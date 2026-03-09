@@ -1,0 +1,16 @@
+{
+  "id": 1936,
+  "source": "Brian's Notes",
+  "title": "Working in Public",
+  "url": "https://www.briansnotes.io/book/working-in-public/",
+  "published_at": "2021-04-01T14:47:37Z",
+  "fetched_at": "2026-03-08T21:28:52.393953+00:00",
+  "author": null,
+  "summary": "Why developers create open source projects and how they are maintained at scaled",
+  "full_text": "Jacob Thornton, the co-creator of Bootstrap described it well – you know about free as in beer and free as in freedom, but he introduces free as in puppy.\n\nYou’re offered a free puppy and it’s super fun to have a puppy. You’re playing all the time and watching this puppy grow up. Then you realize your puppy is 70 pounds and is actually a dog now that needs real care and ongoing attention.\n\nA similar thing happens in open source. When open source projects gain traction, creators start receiving support requests. While some people request features, many are seeking for implementation help.\n\nMaintainers can be quickly overwhelmed, not with pull requests but with open tickets by users looking for hand-holding.\n\nAt this point, some creators go dark. Other maintainers bring on people just to manage issues. And finally some try doing it all themselves.\n\nI’m torn about this. On one hand you want to work with well supported libraries. But on the other hand, users of those libraries need to RTFM and do actual programming. Some of the examples provided illustrate the fact that many developers aren’t willing to do either.",
+  "tags": [
+    "200-words",
+    "public",
+    "working"
+  ]
+}

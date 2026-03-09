@@ -1,0 +1,26 @@
+{
+  "id": 1919,
+  "source": "Brian's Notes",
+  "title": "Working Effectively With Legacy Code",
+  "url": "https://www.briansnotes.io/book/working-effectively-with-legacy-code/",
+  "published_at": "2021-06-03T13:44:40Z",
+  "fetched_at": "2026-03-08T21:28:47.891895+00:00",
+  "author": null,
+  "summary": "Refactorings to increase the testability of legacy code",
+  "full_text": "Not having tests feels to me like the definition of legacy code, although the author doesn’t go that far.\n\nWithout tests, developers tread lightly and fear introducing regressions.\n\nI find that the payoff period for adding tests to code is extremely short, on the order of hours. That is to say the time required to add tests is made up for with increased productivity within a matter of hours.\n\nWe perceive a tradeoff between code quality and development speed, but in practice their relationship is synergistic.",
+  "tags": [
+    "200-words",
+    "although",
+    "author",
+    "code",
+    "definition",
+    "effectively",
+    "feels",
+    "having",
+    "legacy",
+    "tests",
+    "with legacy",
+    "working",
+    "working effectively"
+  ]
+}

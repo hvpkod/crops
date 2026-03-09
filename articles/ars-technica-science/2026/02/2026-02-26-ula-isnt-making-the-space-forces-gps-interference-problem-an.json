@@ -1,0 +1,29 @@
+{
+  "id": 1806,
+  "source": "Ars Technica Science",
+  "title": "ULA isn't making the Space Force's GPS interference problem any easier",
+  "url": "https://arstechnica.com/space/2026/02/ula-isnt-making-the-space-forces-gps-interference-problem-any-easier/",
+  "published_at": "2026-02-26T13:31:18Z",
+  "fetched_at": "2026-03-08T21:26:36.428081+00:00",
+  "author": "Stephen Clark",
+  "summary": "<p class=\"p1\"><span class=\"s1\">DENVER—</span>The Global Positioning System is one of the few space programs that touches nearly every human life, and the stewards of the satellite navigation network are eager to populate the fleet with the latest and greatest spacecraft.</p>\n<p>The US Space Force owns and operates the GPS constellation, providing civilian and military-grade positioning, navigation, and timing signals to cell phones, airliners, naval ships, precision munitions, and a whole lot more.</p>\n<p>One reason for routinely launching GPS satellites is simply \"constellation replenishment,\" said Col. Andrew Menschner, deputy commander of the Space Force's Space Systems Command. Old satellites degrade and die, and new ones need to go up and replace them. At least 24 GPS satellites are needed for global coverage, and having additional satellites in the fleet can improve navigation precision. Today, there are 31 GPS satellites in operational service, flying more than 12,000 miles (20,",
+  "full_text": "DENVER—The Global Positioning System is one of the few space programs that touches nearly every human life, and the stewards of the satellite navigation network are eager to populate the fleet with the latest and greatest spacecraft.\n\nThe US Space Force owns and operates the GPS constellation, providing civilian and military-grade positioning, navigation, and timing signals to cell phones, airliners, naval ships, precision munitions, and a whole lot more.\n\nOne reason for routinely launching GPS satellites is simply “constellation replenishment,” said Col. Andrew Menschner, deputy commander of the Space Force’s Space Systems Command. Old satellites degrade and die, and new ones need to go up and replace them. At least 24 GPS satellites are needed for global coverage, and having additional satellites in the fleet can improve navigation precision. Today, there are 31 GPS satellites in operational service, flying more than 12,000 miles (20,000 kilometers) above the Earth.\n\nAnother motivation is to replace the oldest active GPS satellites, some of which have been in space since the late 1990s, with newer satellites better suited for the modern world. Beginning in 2005, the military has deployed GPS spacecraft with additional civilian signals for aviation and interoperability with Europe’s Galileo navigation satellites. At the same time, the military introduced a new military-grade signal called M-code, designed for warfare.\n\nM-code is more resistant to jamming, and its encryption makes it more difficult to spoof, a kind of attack that makes receivers trust fake navigation signals over real ones. The upgrade also allows the military to deny an adversary access to GPS during conflict, while maintaining the ability for US and allied forces to use M-code.\n\nInterference with navigation signals is on the rise, especially in the Middle East, the eastern Mediterranean, and around Russia and Ukraine. US officials attribute much of the interference to Russia as its military struggles to defend against drone attacks.",
+  "tags": [
+    "500-words",
+    "civilian",
+    "fleet",
+    "global",
+    "gps",
+    "interference",
+    "military",
+    "navigation",
+    "replace",
+    "russia",
+    "satellites",
+    "signals",
+    "space",
+    "space force",
+    "ukraine",
+    "ula"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 916,
+  "source": "Stripe Dev",
+  "title": "Workflows: Creating early fraud alerts for streamlined refunds",
+  "url": "https://stripe.dev/blog/workflows-creating-early-fraud-alerts-for-streamlined-refunds",
+  "published_at": "2025-07-10",
+  "fetched_at": "2026-03-08T10:40:46.391888+00:00",
+  "author": "Ashley Ansari",
+  "summary": "",
+  "full_text": "\nDetecting potentially fraudulent transactions before they are processed can help you mitigate losses, reduce financial impact, and earn customer trust. \n\nUsing this Stripe Workflows pattern, you can automate refund operations, quickly issuing refunds when disputing a charge is more costly. This approach streamlines operations while increasing customer satisfaction by automatically refunding customers under the threshold before a formal dispute is filed, ensuring a smoother and more responsive transaction experience. \n\n![](/images/workflows-creating-early-fraud-alerts-for-streamlined-refunds/image1.png) \n\n## Building an early fraud warning workflow\n\nTo build an early fraud warning workflow:\n\n1. Select the trigger: **Early fraud warning is created in Radar**.  \n2. Add a step: Choose add action - **Retrieve a charge**.  \n3. Charge ID is required: Select **Radar early fraud warning | Charge ID** to pass through the Charge ID.   \n4. Add a condition.  \n5. Click the “If this condition is met” box and select **Charge | Amount**. Choose “is less than” and type in 15 and select USD. Click done.   \n6. Add a step: Add action - select **Create a refund**.\n\n*Optional email notification for manual review:* \n\n7. Click the “If the condition isn’t met,” then select Add action - Choose Email a team member. From the dropdown, select a team member and draft the email body text. \n\n## What is Stripe Workflows?\n\n[Stripe Workflows](https://docs.stripe.com/workflows/define-workflows) provides a visual builder in the Stripe dashboard, to help you automate tasks and processes by defining a series of actions that happen sequentially. Workflows is ideal for multi-step processes and is compatible across multiple Stripe products, allowing you to streamline processes, enforce business rules, and reduce manual effort.\n\nEach workflow consists of a trigger and a series of steps that run in order. A step is either an action or a condition.\n\nTo learn more, visit [Get started with Stripe Workflows](https://stripe.dev/blog/introducing-stripe-workflows). \n\n## What is Stripe Radar? \n\n[Stripe Radar](https://docs.stripe.com/radar) provides real-time fraud protection and requires no additional development time. [Radar for Fraud Teams](https://stripe.com/radar/fraud-teams) adds customization capabilities and deeper insights and trend analysis for your business. Radar for Platforms, currently in public preview, provides protection against both transaction and account risk.\n\nTo learn more about developing applications with Stripe, visit our [YouTube Channel](https://www.youtube.com/stripedevelopers).  ",
+  "tags": [
+    "500-words",
+    "action",
+    "add",
+    "charge",
+    "charge id",
+    "choose",
+    "early",
+    "email",
+    "fraud",
+    "provides",
+    "select",
+    "stripe",
+    "stripe radar",
+    "stripe workflows",
+    "warning",
+    "workflows creating"
+  ]
+}

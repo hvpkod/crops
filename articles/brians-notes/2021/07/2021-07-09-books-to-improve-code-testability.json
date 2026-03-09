@@ -1,0 +1,25 @@
+{
+  "id": 1908,
+  "source": "Brian's Notes",
+  "title": "Books to Improve Code Testability",
+  "url": "https://www.briansnotes.io/reading-list/books-to-improve-code-testability/",
+  "published_at": "2021-07-09T17:15:23Z",
+  "fetched_at": "2026-03-08T21:28:40.303613+00:00",
+  "author": null,
+  "summary": "How to write code that supports automated testing",
+  "full_text": "Working Effectively With Legacy Code provides detailed examples of refactoring existing code to increase testability. You’ll learn specific techniques and strategies for getting an untested codebase under control. Increasing the testability of your code using these patterns will increase the maintainability of the code and your confidence making changes.",
+  "tags": [
+    "200-words",
+    "books",
+    "code",
+    "detailed",
+    "effectively",
+    "improve",
+    "improve code",
+    "increase",
+    "legacy",
+    "provides",
+    "testability",
+    "working"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": 1009,
+  "source": "Hacker News",
+  "title": "Accessing inactive union members through char",
+  "url": "https://www.sandordargo.com/blog/2026/03/04/char-representation-and-UB",
+  "published_at": "2026-03-04T12:36:03Z",
+  "fetched_at": "2026-03-08T16:00:09.140137+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47246594\">Comments</a>",
+  "full_text": "I recently published an article on a new C++26 standard library facility, std::is_within_lifetime. As one of my readers, Andrey, pointed out, one of the examples contains code that seems like undefined behavior. But it’s also taken — almost directly — from the original proposal, so it’s probably not UB. And that’s correct, it’s not undefined behavior.\n\nLet’s first examine the example and the UB suspect, then dive into the fine print of C++ to explain why it’s not what it seems to be.\n\nThe suspect\n\nLet’s carefully examine the code below and focus on the else branch of the compile-time conditional.\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\nstruct OptBool {\n union { bool b; char c; };\n\n constexpr auto has_value() const -> bool {\n if consteval {\n return std::is_within_lifetime(&b);\n } else {\n return c != 2; // sentinel value\n }\n }\n\n constexpr bool value() const {\n return b;\n }\n};\n\nDid it raise your eyebrows?\n\nWhat happens if the active member of the union is b? We still make our comparison through c. But isn’t accessing an inactive member of a union always undefined behavior?\n\nThe fine print almost nobody knows about\n\nFrom my already referenced article, let’s jump back to the original proposal. It explicitly states that this is not UB, though it doesn’t explain it in depth. However, it does reference some details about type similarity and certain exceptions:\n\nIf a program attempts to access the stored value of an object through a glvalue whose type is not similar to one of the following types the behavior is undefined:\n\n(11.1) the dynamic type of the object,\n\n(11.2) a type that is the signed or unsigned type corresponding to the dynamic type of the object, or\n\n(11.3) a char, unsigned char, or std::byte type.\n\nThe rule states that accessing an object through a glvalue of an unrelated type is undefined behavior unless the glvalue type is the dynamic type, the signed/unsigned corresponding type, or a char, unsigned char, or std::byte.\n\nIn our case, the only exception that applies is the third one.\n\nLet’s consider the following case:\n\n1\n2\nOptBool ob(true); // active member is bool b\nob.has_value(); // reads c\n\nIn this example, we’re accessing the union storage through c, which is a char glvalue, while the active object is bool.\n\nWhile accessing an inactive union member would normally be undefined behavior, the aliasing rule quoted above provides an exception. It explicitly allows reading any object’s representation through a char (or unsigned char or std::byte). In other words, any object may be inspected via a char pointer or reference.\n\nA bool is represented as either 0 or 1, so comparing it to 2 — or any other char value — is perfectly valid and not UB.\n\nOn the other hand, reading b directly while c is the active member would be UB, because bool is not a character type listed in the exception above, and it’s not similar to char either.\n\nWhy character types matter\n\nBut why is talking about character types or bytes so important?\n\nThe morning after I wrote the first draft of this article, I stumbled upon an interesting section in Patrice Roy’s book Memory Management in C++. He explains that even though C++ tries to repurpose char as a representation of a character and uses std::byte to represent a byte, due to the language’s C roots, a “char* can alias any address in memory” — it’s really just a “pointer to a byte”.\n\nThat explains everything.\n\nConclusion\n\nWhen you see code that accesses an inactive union member through a char, your immediate reaction might be “that’s undefined behavior!” And you’d usually be right — except when you’re not.\n\nThe C++ standard contains a special exception to its strict aliasing rules. Character types (char, unsigned char, and std::byte) can alias any object in memory. This isn’t just a quirk of the language; it reflects the fundamental nature of these types as representations of raw bytes rather than semantic values.\n\nThis exception is what makes the OptBool example from the std::is_within_lifetime proposal work. At runtime, we can safely read the union storage through a char member even when bool is active, because we’re not interpreting the value — we’re just inspecting its raw representation.\n\nIt’s a small detail buried in the fine print of the standard. But it’s these kinds of details that separate code that merely looks correct from code that actually is correct according to the language rules.\n\nHave you encountered other surprising exceptions in the C++ aliasing rules?\n\nConnect deeper\n\nIf you liked this article, please",
+  "tags": [
+    "1000-words",
+    "accessing",
+    "bool",
+    "char",
+    "code",
+    "fortnox world",
+    "let",
+    "member",
+    "object",
+    "optbool",
+    "type",
+    "types",
+    "undefined",
+    "union"
+  ]
+}

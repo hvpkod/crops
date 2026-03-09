@@ -1,0 +1,28 @@
+{
+  "id": 1875,
+  "source": "Brian's Notes",
+  "title": "The Staff Engineer’s Path",
+  "url": "https://www.briansnotes.io/book/the-staff-engineers-path/",
+  "published_at": "2023-04-13T16:18:22Z",
+  "fetched_at": "2026-03-08T21:28:17.075166+00:00",
+  "author": null,
+  "summary": "What it takes to succeed as a Staff Engineer",
+  "full_text": "When I coach Senior Engineers on growing into Tech Lead and Staff Engineer roles, I like to emphasize the importance of always having milestones identified and driving alignment with the project team around those milestones.\n\nTanya Reilly expands upon this idea in The Staff Engineer’s Path by pointing out not just the importance of milestones and alignment, but that those milestones should also be usable and demonstrable in some way. That might be a demo, an internal beta, or a customer-facing release.\n\nSoftware Engineers often make the mistake of picking milestones that are purely technical, or ones that can not easily be demonstrated outside of engineering. This problem of non-usable milestones frequently occurs when the lead engineer organizes execution around layers rather than slices.\n\nWhy is working in slices better than layers? Let’s explore an example: you are building an employee directory for a human resources SaaS product. If you work in layers, you might build the API layer first including all the necessary API endpoints. Then you move onto the next layer, which is the web client. Then you move onto the next layer, the mobile client. The problem with working in this layered approach is that only at the end do you achieve anything usable. A layered approach not only prevents you from demonstrating progress but also prevents you from engaging in the iterative development approach we know as Build-Measure-Learn from The Lean Startup. Hard to learn from your customers (internal and external) until you have something usable.\n\nA better approach is to work in slices. Build the API endpoints necessary for just the employee list, then build the web client and mobile client interfaces to display that employee list. Ship it. Now you have both demonstrated progress and shipped something that you can gain user feedback ground. Your milestone was usable. Now you move onto the employee detail view, building the API endpoint, web client UI, and mobile client UI. That’s your next milestone. Continue iterating.",
+  "tags": [
+    "500-words",
+    "api",
+    "approach",
+    "build",
+    "client",
+    "employee",
+    "engineer",
+    "milestones",
+    "mobile",
+    "move",
+    "onto",
+    "path",
+    "staff",
+    "staff engineer",
+    "the staff"
+  ]
+}

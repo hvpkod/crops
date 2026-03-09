@@ -1,0 +1,20 @@
+{
+  "id": 1942,
+  "source": "Brian's Notes",
+  "title": "The Visual Display of Quantitative Information",
+  "url": "https://www.briansnotes.io/book/the-visual-display-of-quantitative-information/",
+  "published_at": "2021-03-05T14:47:41Z",
+  "fetched_at": "2026-03-08T21:28:52.505137+00:00",
+  "author": null,
+  "summary": "The guide to beautiful and useful graphics",
+  "full_text": "Chartjunk is graphical paraphernalia added (often automatically) to our visuals:\n\nExcessive grid lines\n\nClunky or unnecessary axis ticks\n\nBar and area fill patterns\n\nHowever, removing chartjunk is easier in theory than practice. As software engineers building apps with data graphs, we’re often relying on third party libraries like Chart.js and Highcharts because they get us 90% there with little fuss.\n\nBut to produce the kind of charts that Tufte would be proud of, we often need to drop down to D3 and also build some logic to handle scales and data variability within our graphs.\n\nExcel and Google Sheets practically invite you to add chartjunk and it’s your responsibility to remove it.",
+  "tags": [
+    "200-words",
+    "display",
+    "information",
+    "quantitative",
+    "quantitative information",
+    "the visual",
+    "visual"
+  ]
+}

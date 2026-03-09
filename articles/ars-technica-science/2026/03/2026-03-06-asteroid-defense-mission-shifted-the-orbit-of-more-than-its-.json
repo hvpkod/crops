@@ -1,0 +1,25 @@
+{
+  "id": 1794,
+  "source": "Ars Technica Science",
+  "title": "Asteroid defense mission shifted the orbit of more than its target",
+  "url": "https://arstechnica.com/science/2026/03/nasas-dart-mission-shifted-the-orbits-of-two-asteroids/",
+  "published_at": "2026-03-06T19:00:02Z",
+  "fetched_at": "2026-03-08T21:26:21.482797+00:00",
+  "author": "Jacek Krywko",
+  "summary": "<p>On September 26, 2022, NASA’s Double Asteroid Redirection Test (DART) spacecraft <a href=\"https://arstechnica.com/science/2023/07/hubble-is-able-to-spot-boulders-blasted-loose-by-the-dart-impact/\">crashed into a binary asteroid system</a>. By intentionally ramming a probe into the 160-meter-wide moonlet named Dimorphos, the smaller of the two asteroids, humanity demonstrated that the kinetic impact method of planetary defense actually works. The immediate result was that Dimorphos’ orbital period around Didymos, its larger parent body, was <a href=\"https://arstechnica.com/science/2022/10/dart-mission-successfully-shifted-its-targets-orbit/\">slashed by 33 minutes</a>.</p>\n<p>Of course, altering a moonlet’s local orbit doesn’t seem like enough to safeguard Earth from civilization-ending impacts. But now, as long-term observational data has come in, it seems we accomplished more than that. DART actually changed the trajectory of the entire Didymos binary system, altering its orbit arou",
+  "full_text": "Between October 2022 and March 2025, we captured 22 such stellar occultations of the Didymos system. Combined with a huge dataset publicly available at the Minor Planet Data Center that included nearly 6,000 ground-based astrometric measurements taken over 29 years, optical navigation data from the DART probe’s approach, and ground-based radar measurements, researchers finally had all they needed.\n\n“Once we had enough measurements before and after the DART impact, we could discern how Didymos’ orbit has changed,” Makadia said.\n\nWhen the vending-machine-sized DART probe crashed into Dimorphos at over 22,000 kilometers per hour, it decreased the along-track velocity of the entire Didymos system by roughly 11.7 micrometers per second. But the team thinks it’s still significant. “When you do it early enough, even a small impulse can accumulate over years and cause a meaningful shift,” Makadia explained.\n\nAlso, the DART impact itself was not the only force that changed Didymos’ orbit.\n\nThe ejecta engine\n\nThe pure kinetic energy of a 500-kilogram spacecraft hitting at hypersonic speeds is impressive, but on its own, it would not slow a huge asteroid that much. When DART struck Dimorphos, it blasted pulverized rock and dust out into the void. “The material kicked up off an asteroid surface acts like an extra rocket plume,” Makadia said.\n\nScientists call this effect the momentum enhancement factor, denoted by the Greek letter beta. If the spacecraft impact transferred exactly its own momentum and no debris was kicked up, beta would be exactly one.\n\nBecause Dimorphos orbits Didymos, some of the ejecta remained trapped in the system, where it altered the mutual orbit between the two rocks. But a crucial fraction of the ejecta achieved escape velocity from the entire binary system. The momentum carried away by the system-escaping debris is what ultimately contributed to shoving the center of mass of the whole Didymos-Dimorphos pair. “In our case, we found that the beta parameter due to DART impact was around two,” Makadia explained.",
+  "tags": [
+    "500-words",
+    "asteroid",
+    "dart",
+    "data",
+    "didymos",
+    "dimorphos",
+    "ejecta",
+    "huge",
+    "impact",
+    "makadia",
+    "momentum",
+    "orbit"
+  ]
+}

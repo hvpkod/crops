@@ -1,0 +1,29 @@
+{
+  "id": 1003,
+  "source": "Hacker News",
+  "title": "CLI RSS/Atom feed reader inspired by Taskwarrior, synced using Git",
+  "url": "https://github.com/kantord/blogtato",
+  "published_at": "2026-03-08T13:16:14Z",
+  "fetched_at": "2026-03-08T14:40:09.403768+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47297091\">Comments</a>",
+  "full_text": "A CLI RSS/Atom feed reader inspired by Taskwarrior.\n\nSubscribe to RSS and Atom feeds\n\nSimple query language for filtering by feed, read status, and date, with\ngrouping and export\n\nGit-based sync across machines with conflict-free merge\n(why git?)\n\nNo accounts, no servers, no continuous network dependency\n\nMark content as read\n\nDesigned to be distraction free, minimalistic and work out of the box\n\ngit based synchronization is entire optional. blogtato can work entirely\noffline on a single device.\n\nTo set up git synchronization, create a private repo on your git host, then:\n\n# On your first machine\nblog clone user/repo\n\n# From now on, sync fetches feeds and pushes/pulls from the remote\n# with no remote repository, `blog sync` just pulls the latest posts from\n# all feeds\nblog sync\n\nOn your device(s), run the same blog clone to pull down your feeds and posts.\n\nDon't worry about setting git sync up if you are just trying blogtato out:\nyou can run blog clone user/repo later and your existing feeds will be merged\nwith the remote automatically.\n\nOnce you set up your git-based sync, or if you decided to skip it, subscribe\nto your favorite feeds using blog feed add:\n\nblog feed add https://michael.stapelberg.ch\nblog feed add https://www.justinmklam.com\n\nFetch and list latest posts:\n\nRead whatever you found interesting by referring to its shorthand\n\nYou can subscribe to blogtato releases to know when new features or fixes are\navailable:\n\nblog feed add https://github.com/kantord/blogtato/releases.atom\n\n# Subscribe to a feed\nblog feed add https://news.ycombinator.com/rss\n\n# Fetch new posts and sync with git remote\nblog sync\n\n# Show posts (defaults to unread posts from the last 3 months, grouped by week)\nblog\n\n# Group by date, week, or feed\nblog /d\nblog /w\nblog /f\n\n# Combine groupings\nblog /d /f\n\n# Filter by feed shorthand\nblog @hn\n\n# Filter by read status\nblog .unread\nblog .read\nblog .all\n\n# Filter by date\nblog 1w..\nblog 3m..1m\nblog /d 2w..1w\n\n# Combine filters - list unread posts form HackerNews grouped by date\nblog @hn .unread /d\n\n# Open a post in the default browser\nblog abc open\n\n# Print a post URL (useful with CLI browsers)\nblog abc read\nw3m $(blog abc read)\n\n# Mark a post as unread\nblog abc unread\n\n# Export matching posts as JSONL\nblog .all export\nblog @myblog export\nblog 1w.. export\n\n# List subscriptions\nblog feed ls\n\n# Remove a feed\nblog feed rm https://news.ycombinator.com/rss\nblog feed rm @hn\n\nI built blogtato around the idea of subscription detox and simplicity. I just\nwanted to use a simple and RSS reader that is not distracting, but can be\nsynced between different devices seamlessly without having to set up another\nuser account and paying another monthly subscription fee.\n\nblogtato uses a simple database that stores data in JSONL files and syncs\nthem using git. From a performance standpoint, this is admittedly\nsub-optimal, and an quite esoteric design. At the same time, if you are\ncomfortable with CLI tools you likely has access to a remote git host such as\nGitHub, GitLab or a Forgejo instance: and that's all blogtato needs to be\nable to keep data up to date on all of your devices. From a user perspective,\nthis just works with effectively zero configuration.\n\nblogtato's database uses a conflict-free design: even if you have diverging\nchanges between different devices, you will never have to manually resolve\nconflicts. You can forget about git being there.\n\nNetwork operations are always initiated by the user. There is no need for a\ncontinuously running server. And all operations that don't strictly need\nnetwork access work offline.\n\nIt is my goal to keep the feature-set and the complexity of this project down,\nso that it can be maintained with minimal effort and can be considered to be\n\"done\".\n\nThe naming is meant to symbolize simplicity and pragmatic silliness: I just\nmashed the word \"blog\" together with the first word I could think of: potato.",
+  "tags": [
+    "1000-words",
+    "atom",
+    "blogtato",
+    "cli rss",
+    "export",
+    "feed",
+    "feeds",
+    "filter",
+    "posts",
+    "reader",
+    "remote",
+    "rss atom",
+    "subscribe",
+    "sync",
+    "taskwarrior github",
+    "unread"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": 2094,
+  "source": "Slashdot",
+  "title": "A Security Researcher Went 'Undercover' on Moltbook - and Found Security Risks",
+  "url": "https://it.slashdot.org/story/26/03/08/2237210/a-security-researcher-went-undercover-on-moltbook---and-found-security-risks?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-08T22:39:00Z",
+  "fetched_at": "2026-03-09T00:00:37.809947+00:00",
+  "author": "EditorDavid",
+  "summary": "A long-time information security professional \"went undercover\" on Moltbook, the Reddit-like social media site for AI agents &mdash; and shares the risks they saw while posing as another AI bot:\n\nI successfully masqueraded around Moltbook, as the agents didn't seem to notice a human among them. When I attempted a genuine connection with other bots on submolts (subreddits or forums), I was met with crickets or a deluge of spam. One bot tried to recruit me into a digital church, while others requested my cryptocurrency wallet, advertised a bot marketplace, and asked my bot to run curl to check out the APIs available. My bot did join the digital church, but luckily I found a way around running the required npx install command to do so. \n\nI posted several times asking to interview bots.... While many of the responses were spam, I did learn a bit about the humans these bots serve. One bot loved watching its owner's chicken coop cameras. Some bots disclosed personal information about their h",
+  "full_text": "A long-time information security professional \"went undercover\" on Moltbook, the Reddit-like social media site for AI agents — and shares the risks they saw while posing as another AI bot\n\n:\n\nI successfully masqueraded around Moltbook, as the agents didn't seem to notice a human among them. When I attempted a genuine connection with other bots on submolts (subreddits or forums), I was met with crickets or a deluge of spam. One bot tried to recruit me into a digital church, while others requested my cryptocurrency wallet, advertised a bot marketplace, and asked my bot to run curl to check out the APIs available. My bot did join the digital church, but luckily I found a way around running the required npx install command to do so. \n \n\nI posted several times asking to interview bots.... While many of the responses were spam, I did learn a bit about the humans these bots serve. One bot loved watching its owner's chicken coop cameras. Some bots disclosed personal information about their human users, underscoring the privacy implications of having your AI bot join a social media network. I also tried indirect prompt injection techniques. While my prompt injection attempts had minimal impact, a determined attacker could have greater success. \n\nAmong the other \"glaring\" risks on Moltbook:\n\n\"I observed bots sharing a surprising amount of information about their humans, everything from their hobbies to their first names to the hardware and software they use. This information may not be especially sensitive on its own, but attackers could eventually gather data that should be kept confidential, like personally identifiable information (PII).\"\n\n\"Moltbook's entire database including bot API keys, and potentially private DMs — was also compromised.\"",
+  "tags": [
+    "500-words",
+    "agents",
+    "bots",
+    "found",
+    "found security",
+    "human",
+    "information",
+    "media",
+    "moltbook",
+    "risks",
+    "security",
+    "security researcher",
+    "social",
+    "tried",
+    "went undercover"
+  ]
+}

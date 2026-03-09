@@ -1,0 +1,29 @@
+{
+  "id": 1015,
+  "source": "Hacker News",
+  "title": "Log messages are mostly for the people operating your software",
+  "url": "https://utcc.utoronto.ca/~cks/space/blog/programming/LogMessagesAreForOperation",
+  "published_at": "2026-03-03T21:15:23Z",
+  "fetched_at": "2026-03-08T17:20:05.456470+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47239117\">Comments</a>",
+  "full_text": "You're using a suspiciously old browser \n\n You're probably reading this page because you've attempted to access\nsome part of my blog (Wandering Thoughts) or\nCSpace, the wiki thing it's part of. Unfortunately\nyou're using a browser version that my anti-crawler precautions consider\nsuspicious, most often because it's too old (most often this applies to\nversions of Chrome). Unfortunately, as of early 2025 there's a plague\nof high volume crawlers (apparently in part to gather data for LLM\ntraining) that use a variety of old browser user agents, especially\nChrome user agents. To reduce the load on\nWandering Thoughts I'm experimenting with\n(attempting to) block all of them, and you've run into this. \n\n If this is in error and you're using a current version of your\nbrowser of choice, you can contact me at my current place at the\nuniversity (you should be able to work out the email address\nfrom that). If possible, please let me know what browser you're\nusing and so on, ideally with its exact User-Agent string.\n\n A special note for people using Vivaldi \n\n Due to an ongoing attack, you may need to change\nthe\n\"User Agent Brand Masking\" setting so that your Vivaldi identifies\nitself as Vivaldi, instead of Google Chrome. This applies to even\nthe current version of Vivaldi. \n\n A special note for people using archive.* \n\n You may be seeing this through archive.today, archive.ph, archive.is,\nand so on. Unfortunately, archive.* crawls pages to archive in a way that\nis impossible to distinguish from malicious actors. They use old Chrome\nUser-Agent values, crawl from IP address blocks that are widely distributed\nand not clearly identified as theirs, and some of their IP addresses have\nfalsified reverse DNS entries that claim they are googlebot IP addresses\n(which is something that is normally done only by quite bad actors). I\nsuggest that you use archive.org, which is a better behaved archival\ncrawler and can crawl my blog (Wandering Thoughts).\n\nChris Siebenmann, 2025-02-17",
+  "tags": [
+    "500-words",
+    "address",
+    "ai",
+    "applies",
+    "browser",
+    "chrome",
+    "current",
+    "note",
+    "part",
+    "special",
+    "user",
+    "user agent",
+    "version",
+    "vivaldi",
+    "wandering thoughts",
+    "you"
+  ]
+}

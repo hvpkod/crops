@@ -1,0 +1,32 @@
+{
+  "id": 1021,
+  "source": "Hacker News",
+  "title": "We Turned Our Wireshark Wizard into a Markdown File",
+  "url": "https://www.checklyhq.com/blog/building-an-ai-agent/",
+  "published_at": "2026-03-05T13:49:16Z",
+  "fetched_at": "2026-03-08T18:00:10.675329+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47261529\">Comments</a>",
+  "full_text": "Table of contents\n\nRocky AI — Checkly’s AI agent — is now Generally Available. We developed Rocky AI over the last ~6 to 8 months. This is an aeon in AI-years.\n\nDuring this period, we learned a ton. About AI, but mostly about how to fit them into an existing SaaS product, not just another chat widget. This is my ramble…\n\nLike almost everyone in SaaS-land, we were pondering doing “something with AI” at least since late 2024. We went with some hunches, looked at competitors, talked to customers, hacked on some prototypes. But it was hard to pinpoint a shippable MVP. We were probably going too broad and promising a bit too much.\n\nSo we did a hard reset on our AI ambitions. Instead of shipping the whole kitchen sink, what if we focus on one time consuming task in the critical path of our users? One repetitive, but critical taks that came to mind is triaging a failed Playwright Check test. Specifically, could we use LLMs to quickly create an analysis of a Playwright trace file?\n\nWe immediately bumped into two challenges:\nA Playwright trace file can easily be 100Mb+. We need to parse it, remove unneeded data and turn it into a plain text representation. Counterintuitively, giving MORE data to an LLM does doet always guarantee better results. Or it just blows up the input token limit.\nWhen the data wrangling done, how do we guide the LLM to make sense of the data? Sure, it can do some basic summary by itself, but we want to give it guidelines on what is important to look at, what things are typically related. We essentially want these ingrained triaging steps that (senior) engineers hold in their heads to made explicit.\n\nOver the months we expanded our AI analysis skills to cover all our check types (Playwright, HTTP, TCP, DNS, ICMP etc.). We took the same approach each time:\nLook at how we can use artifacts like logs, traces etc. to build up a body of evidence for a specific failure root cause. Data wrangle it into submission so an LLM can use it.\nCapture the skill of analyzing and interpreting said artefacts into a semi-structured markdown file.\n\nThis is now our Rocky AI Root Cause Analysis Agent. We did bump into some other learnings along the way, so I dumped them into a nice listicle. 👇\n\nAgain, this might be blatantly obvious, but we are using AI to just do things humans can do. Example: we literally codified the Wireshark ICMP and PCAP analysis skills of one our engineers into a markdown file that now powers our AI driven ICMP and PCAP analysis. This looks a bit like this:\n\n# ICMP Analysis Skill\n\n## Classifications\nThe root cause can only be classified using the following classifications:\n\n### INFRASTRUCTURE_ERROR\nExternal issues like network errors, packet loss, host unreachable, DNS failures, firewall blocks, or routing issues. Examples: 100% packet loss, DNS resolution failure, ICMP destination unreachable\n\n### CONFIGURATION_ERROR\netc.\n\n## Artifacts\n\n### ICMP_REQUEST\nDescription: ICMP request properties including hostname, target IP, IP family, and ping count. etc.\n\n## Common Failure Patterns\n\n### PACKET_LOSS\nSymptoms: High packet loss percentage, Packets sent but not received, Packet loss threshold exceeded\nCauses: Network congestion along the route, Firewall dropping ICMP packets, Target host overloaded or rate limiting ICMP, Intermittent network issues\nAnalysis: Check packet loss percentage vs configured thresholds, Examine individual ping results for patterns, Compare results across different monitoring locations\n\n### DNS_RESOLUTION_FAILURE\netc.\n\nEven with extended context windows and increased quota’s on input tokens, we still do a ton of data wrangling. As mentioned above, Playwright trace files easily go over 100Mb, a network PCAP file parsed to text can also be very large. These are all data sources want the LLM to take into account.\n\nCurrently, we solve this problem by pre-parsing, filtering and summarising these large assets in tool calls. The tool returns the key data from these assets back to the LLM.\n\nJust the last ~6 months, the upgrade from OpenAI GPT-4.1 to GPT-5.1 (let’s not mention the dreadful GPT-5) was night and day: better answers, more reliable tool calls, faster responses, less processing errors, better schema output. You can see similar patterns for the Opus 4.5 to Opus 4.6 and the Gemini upgrades.\n\nWhile building our Bring-Your-Own-Model (BYOM) feature, we allowed users to bring Gemini and Anthropic models next to our default OpenAI models. That was a mistake. Turns out that swapping models is quite hard right now if you want to keep some form of quality control and not have dedicated tests, fixtures and code paths.\n\nThis is even true with wrapper libraries like the Vercel AI SDK, which we use. In some way it reminds of how Terraform could in theory make your infra “multi cloud”. In practice, it really can’t.\n\nObviously, chat is the de-facto UI paradigm for LLMs and generative AI. However, in our RCA case, it would be silly to force a user to go to some chat UI and asked Rocky “please analyse this failing check”. We can ask that question for the user, even when they are sleeping and just ship the initial analysis to their inbox. Chat can be a follow up.\n\nWe are totally not done with expanding Rocky AI and adding more tools and features to its RCA skills. Watch this space.",
+  "tags": [
+    "1000-words",
+    "ai",
+    "analysis",
+    "chat",
+    "data",
+    "dns",
+    "file",
+    "fortnox world",
+    "icmp",
+    "llm",
+    "markdown",
+    "markdown file",
+    "network",
+    "packet",
+    "playwright",
+    "rocky",
+    "rocky ai",
+    "turned our",
+    "wireshark wizard"
+  ]
+}

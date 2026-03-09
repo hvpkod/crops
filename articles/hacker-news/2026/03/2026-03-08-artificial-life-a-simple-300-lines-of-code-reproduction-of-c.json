@@ -1,0 +1,31 @@
+{
+  "id": 2004,
+  "source": "Hacker News",
+  "title": "Artificial-life: A simple (300 lines of code) reproduction of Computational Life",
+  "url": "https://github.com/Rabrg/artificial-life",
+  "published_at": "2026-03-08T20:42:41Z",
+  "fetched_at": "2026-03-08T21:29:03.156327+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47301233\">Comments</a>",
+  "full_text": "A simple (300 lines of code) reproduction of Computational Life: How Well-formed, Self-replicating Programs Emerge from Simple Interaction.\n\nA 240x135 grid of 64 instruction-length Brainfuck-like programs are randomly initialized. Every iteration, neighboring programs are randomly paired, have their instruction tapes concattenated together, and are run for a maximum of $2^{13}$ steps. Once execution completes, the tapes are split back apart. The instructions are such that they can loop and mutate the instruction tapes (programs) themselves. As found in the paper, self-replicating programs that copy themselves over their neighbor's tape often spontaneously emerge, which soon spread to take over the entire grid.\n\nEvery pixel is an instruction; each instruction has a unique color, while black represents a value on the tape that is raw data storage / not an instruction. Every 8x8 section of pixels represents a single program.\n\nIn this run, a self-replicator emerges relatively early on into the run and soon takes over most of the grid, until a more efficient self-replicator evolves and takes over everything.",
+  "tags": [
+    "200-words",
+    "computational",
+    "computational life",
+    "emerge",
+    "github",
+    "github rabrg",
+    "how well",
+    "instruction",
+    "life how",
+    "lines",
+    "programs",
+    "programs emerge",
+    "randomly",
+    "reproduction",
+    "self",
+    "simple",
+    "simple interaction",
+    "tapes"
+  ]
+}

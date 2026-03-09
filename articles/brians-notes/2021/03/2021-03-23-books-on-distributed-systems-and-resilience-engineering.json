@@ -1,0 +1,21 @@
+{
+  "id": 1938,
+  "source": "Brian's Notes",
+  "title": "Books on Distributed Systems and Resilience Engineering",
+  "url": "https://www.briansnotes.io/reading-list/books-on-distributed-systems-and-resilience-engineering/",
+  "published_at": "2021-03-23T14:51:30Z",
+  "fetched_at": "2026-03-08T21:28:52.436170+00:00",
+  "author": null,
+  "summary": "Build systems to serve more users while increasing reliability and performance",
+  "full_text": "When asked to draw a systems diagram, many engineers instinctively focus on the components – our databases, servers, devices, and other tangible pieces.\n\nSystems thinking is about focusing on the lines between those components that represent the interactions.\n\nThinking in Systems is not directly about software engineering. The author uses metaphors from everyday life to explain core systems thinking ideas like stocks and flows. I found this abstraction useful because it prevented me from getting overly focused on software-specific details.",
+  "tags": [
+    "200-words",
+    "books",
+    "distributed",
+    "distributed systems",
+    "engineering",
+    "resilience",
+    "resilience engineering",
+    "systems"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1380,
+  "source": "The Pudding",
+  "title": "The Pour-igin of Species",
+  "url": "https://pudding.cool/2025/04/wine-animals",
+  "published_at": "2025-04-16T04:00:00Z",
+  "fetched_at": "2026-03-08T21:10:05.500812+00:00",
+  "author": null,
+  "summary": "We try to predict the price and quality of a bottle of wine based on the animal on the label.",
+  "full_text": "In the end, one bottle had to emerge victorious. When looking at the entire scatterplot, and focussing on the bottom-right corner, a few bottles stand out as great deals. Below $20, the highest-ranked wines scored 4.3 stars, but these were all dessert or sparkling wines.\n\nFor the best bet on a standard, dinner-ready, red or white wine, the crown goes to Mount Fishtail’s Sauvignon Blanc from New Zealand’s Marlborough region.\n\nNew Zealand wines are delicious and, ultimately, a better predictor of quality than any of the animals we looked at. Across all categories and variables, the only dataset that maintained its price as the quality increased was New Zealand wines. When in doubt, buy Kiwi.\n\nAfter years of searching for the perfect animal wine, it turned out it was being grown on a vineyard at the seat of Mount Fishtail, tucked away in the Marlborough Ranges, a short jaunt across the Cook Strait from Wellington, which is where I wrote this article.\n\nCheers to that coincidence, and cheers to Mount Fishtail. \n\nMethodology \n\nInitial test data was manually collected across several New Zealand supermarkets. With hypothesis in hand, we expanded to programmatic collection.\n\nTo get our initial list of wines, we queried a bunch of different filter combinations on the Vivino app, including details like wine types (Red, White, Rosé, etc.), price range ($0–$10000+), and average rating (0–5 stars), and removed duplicates. For each wine, we collected the following: Vivino ID, name, year, winery, country, region, type, rating, number of ratings, price, currency, and a url with the image of the label. All details were collected in March 2024 and may not reflect current price or rating, especially if those have changed dramatically.\n\nTo avoid over-prioritizing wines whose brands included animals, we limited each brand to one wine per type (Dessert, Fortified, Red, Rosé, Sparkling, White), choosing the wine with the most ratings as a proxy for which wine would be more well known.\n\nWe then fed the label images into the OpenAI API (gpt-4-vision-preview model). We tested several prompts including open-end questions like What’s on this image?, but ultimately the prompt that worked the best was This image is a wine label. Do you see any animals or humans on it? On a scale of 0-1, with 0 being 'not certain at all' and 1 being 'very certain', how sure are you?\n\nThis provided us with responses that looked something like this: I do not see any animals or humans on the wine label. The label contains text and a small emblem at the top, but there are no discernible figures of humans or animals. I am very certain about this assessment; so on the scale from 0 to 1, my confidence level is 1. Occasionally, Chat-GPT would respond with something like I'm sorry, I can't assist with these requests. In those cases we reran the prompt or manually reviewed the label. We ended up abandoning Chat-GPT’s certainty prediction because it wildly swung toward the poles: only 0.6% of the wines had confidence scores of something other than 0 or 1.\n\nWe then manually reviewed a subset of wines to check Chat-GPT’s accuracy. Chat-GPT was particularly bad with pachyderms. It also struggled when animals weren’t the focal point and with what counted as an “animal.” Sometimes anthropomorphic or mythical creatures and insects were included, sometimes not. Knowing these shortcomings, we paid more attention to manually reviewing these types of labels. There still may be a few labels that slipped through the cracks, but overall this should be a solid sample.\n\nWe ended up identifying 1,488 animal wines (the animal counts may not equal the total number of wines because multiple animals could appear on each label). We then manually grouped them into larger categories. Some animals rolled up, others did not. For example: \n\nWere rolled up \nlion big cat cat \nhawk raptor bird \nant walking insect bug \n\nStayed the same \nhorse horse horse \nbear bear bear \nfish fish fish \n\nThis opened up a lot of existential questions about what constitutes an animal, like “Is a duck a bird?” or “Is a zebra a horse?” We tried to strike a balance between common perception and scientific naming with binomial nomenclature (genus and species), often going back to the question “What would a kid call this animal?”\n\nWe limited our analysis to animal groupings with at least 20 wines, knocking out things like bats, monkeys, rodents, and marsupials. Our apologies to Yellow Tail, the lone kangaroo label in our dataset.\n\nTo calculate the percentage of wines in each animal group that were good deals, we found the percentage of wines at or below the overall median price ($29.99) and at or above the median rating (4 stars) for each animal group.\n\nFor the trend line, we calculated the best fit regression (logarithmic) and used Harry Stevens’ d3-regression package to draw the line.\n\nWe also bucketed the wine by price, rating, type, and country to compare each animal groups’ distribution to all wines. We then calculated a Z-score for each bucket to find animal wines with statistically more or statistically less wines per bucket than all wines.\n\nTo draw the 3D wine bottles we used Adobe Illustrator and Adobe Dimension, roughly following this tutorial from Silver Moon Design School. We exported 8 different views of each bottle from Dimension and combined them in an image sprite for the 360° rotation.",
+  "tags": [
+    "1000-words",
+    "ai",
+    "animal",
+    "animals",
+    "best",
+    "chat gpt",
+    "collected",
+    "fortnox world",
+    "manually",
+    "mount",
+    "mount fishtail",
+    "new zealand",
+    "price",
+    "species",
+    "the pour",
+    "wine",
+    "wines",
+    "zealand"
+  ]
+}

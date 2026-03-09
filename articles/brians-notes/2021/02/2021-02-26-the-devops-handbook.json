@@ -1,0 +1,17 @@
+{
+  "id": 1943,
+  "source": "Brian's Notes",
+  "title": "The DevOps Handbook",
+  "url": "https://www.briansnotes.io/book/the-devops-handbook/",
+  "published_at": "2021-02-26T15:51:40Z",
+  "fetched_at": "2026-03-08T21:28:52.527673+00:00",
+  "author": null,
+  "summary": "A pragmatic devops guide for SREs and developers",
+  "full_text": "Google has all their code in a single repo with billions of files. Randy Shoup, current VP of Engineering and Chief Architect at Ebay, formerly of Google, called Google’s monorepo “the most powerful mechanism for preventing failures.”\n\nAt my company, we still have multiple repos but after reading The DevOps Handbook, we’re starting to see the pain points that could be alleviated by consolidating our code into a single repository.\n\nFor instance, when fixing a bug ticket that spans both our API and mobile app, we currently need to touch multiple repos, create multiple pull requests, and perform fragmented code reviews. Consolidating repositories would improve our ability to view code changes as a single body of work.\n\nMoving toward a monorepo is about progress not perfection. You have the option of consolidating similar repositories first, for instance if you have multiple web apps those could go into the same repo. Work in a stepwise fashion toward the monorepo.",
+  "tags": [
+    "200-words",
+    "devops",
+    "handbook",
+    "the devops"
+  ]
+}

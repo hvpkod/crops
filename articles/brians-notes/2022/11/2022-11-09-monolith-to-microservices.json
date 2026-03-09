@@ -1,0 +1,24 @@
+{
+  "id": 1879,
+  "source": "Brian's Notes",
+  "title": "Monolith to Microservices",
+  "url": "https://www.briansnotes.io/book/monolith-to-microservices/",
+  "published_at": "2022-11-09T19:52:22Z",
+  "fetched_at": "2026-03-08T21:28:20.108738+00:00",
+  "author": null,
+  "summary": "The tradeoffs and implementation patterns of microservices",
+  "full_text": "Monolith is a dirty word for many engineers. However, monoliths are a valid architecture choice – particularly for startups who are still trying to figure out the domain and arrive at product market fit.\n\nIn these volatile environments where the product concept is still being figured out, a monolith will help the team move faster because code is easier to move around and there is less infrastructure to change.\n\nConversely if your startup spins up many microservices, you are likely to create the wrong boundaries because you don’t yet understand customer problems well enough. Your understanding of the domain is insufficient to be accurately reflected in your services structure.\n\nIn my experience, I’ve found that using the phrase “modular monolith” softens the blow for many engineers who have an adverse reaction to the term “monolith.”",
+  "tags": [
+    "200-words",
+    "architecture",
+    "dirty",
+    "domain",
+    "microservices",
+    "monolith",
+    "monoliths",
+    "move",
+    "product",
+    "valid",
+    "word"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": 882,
+  "source": "Hacker News",
+  "title": "How to run Qwen 3.5 locally",
+  "url": "https://unsloth.ai/docs/models/qwen3.5",
+  "published_at": "2026-03-07T23:32:17Z",
+  "fetched_at": "2026-03-08T06:00:06.726241+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47292522\">Comments</a>",
+  "full_text": "Copyimport json, subprocess, random\nfrom typing import Any\ndef add_number(a: float | str, b: float | str) -> float:\n return float(a) + float(b)\ndef multiply_number(a: float | str, b: float | str) -> float:\n return float(a) * float(b)\ndef substract_number(a: float | str, b: float | str) -> float:\n return float(a) - float(b)\ndef write_a_story() -> str:\n return random.choice([\n \"A long time ago in a galaxy far far away...\",\n \"There were 2 friends who loved sloths and code...\",\n \"The world was ending because every sloth evolved to have superhuman intelligence...\",\n \"Unbeknownst to one friend, the other accidentally coded a program to evolve sloths...\",\n ])\ndef terminal(command: str) -> str:\n if \"rm\" in command or \"sudo\" in command or \"dd\" in command or \"chmod\" in command:\n msg = \"Cannot execute 'rm, sudo, dd, chmod' commands since they are dangerous\"\n print(msg); return msg\n print(f\"Executing terminal command `{command}`\")\n try:\n return str(subprocess.run(command, capture_output = True, text = True, shell = True, check = True).stdout)\n except subprocess.CalledProcessError as e:\n return f\"Command failed: {e.stderr}\"\ndef python(code: str) -> str:\n data = {}\n exec(code, data)\n del data[\"__builtins__\"]\n return str(data)\nMAP_FN = {\n \"add_number\": add_number,\n \"multiply_number\": multiply_number,\n \"substract_number\": substract_number,\n \"write_a_story\": write_a_story,\n \"terminal\": terminal,\n \"python\": python,\n}\ntools = [\n {\n \"type\": \"function\",\n \"function\": {\n \"name\": \"add_number\",\n \"description\": \"Add two numbers.\",\n \"parameters\": {\n \"type\": \"object\",\n \"properties\": {\n \"a\": {\n \"type\": \"string\",\n \"description\": \"The first number.\",\n },\n \"b\": {\n \"type\": \"string\",\n \"description\": \"The second number.\",\n },\n },\n \"required\": [\"a\", \"b\"],\n },\n },\n },\n {\n \"type\": \"function\",\n \"function\": {\n \"name\": \"multiply_number\",\n \"description\": \"Multiply two numbers.\",\n \"parameters\": {\n \"type\": \"object\",\n \"properties\": {\n \"a\": {\n \"type\": \"string\",\n \"description\": \"The first number.\",\n },\n \"b\": {\n \"type\": \"string\",\n \"description\": \"The second number.\",\n },\n },\n \"required\": [\"a\", \"b\"],\n },\n },\n },\n {\n \"type\": \"function\",\n \"function\": {\n \"name\": \"substract_number\",\n \"description\": \"Substract two numbers.\",\n \"parameters\": {\n \"type\": \"object\",\n \"properties\": {\n \"a\": {\n \"type\": \"string\",\n \"description\": \"The first number.\",\n },\n \"b\": {\n \"type\": \"string\",\n \"description\": \"The second number.\",\n },\n },\n \"required\": [\"a\", \"b\"],\n },\n },\n },\n {\n \"type\": \"function\",\n \"function\": {\n \"name\": \"write_a_story\",\n \"description\": \"Writes a random story.\",\n \"parameters\": {\n \"type\": \"object\",\n \"properties\": {},\n \"required\": [],\n },\n },\n },\n {\n \"type\": \"function\",\n \"function\": {\n \"name\": \"terminal\",\n \"description\": \"Perform operations from the terminal.\",\n \"parameters\": {\n \"type\": \"object\",\n \"properties\": {\n \"command\": {\n \"type\": \"string\",\n \"description\": \"The command you wish to launch, e.g `ls`, `rm`, ...\",\n },\n },\n \"required\": [\"command\"],\n },\n },\n },\n {\n \"type\": \"function\",\n \"function\": {\n \"name\": \"python\",\n \"description\": \"Call a Python interpreter with some Python code that will be ran.\",\n \"parameters\": {\n \"type\": \"object\",\n \"properties\": {\n \"code\": {\n \"type\": \"string\",\n \"description\": \"The Python code to run\",\n },\n },\n \"required\": [\"code\"],\n },\n },\n },\n]",
+  "tags": [
+    "500-words",
+    "code",
+    "command",
+    "copyimport",
+    "float",
+    "fortnox world",
+    "guide",
+    "locally",
+    "python",
+    "qwen how",
+    "random",
+    "return",
+    "run locally",
+    "second",
+    "true"
+  ]
+}

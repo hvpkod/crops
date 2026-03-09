@@ -1,0 +1,30 @@
+{
+  "id": 1126,
+  "source": "To Summarise",
+  "title": "How Asia Works with causal diagrams",
+  "url": "https://www.tosummarise.com/how-asia-works-with-causal-diagrams/",
+  "published_at": "2025-09-22T14:19:47Z",
+  "fetched_at": "2026-03-08T21:02:09.524771+00:00",
+  "author": "To Summarise",
+  "summary": "<p>[Estimated time: 5 mins] Some people have pointed out that it&#8217;s hard to test the theory of development put forward by Joe [&#8230;]</p>\n<p>The post <a href=\"https://www.tosummarise.com/how-asia-works-with-causal-diagrams/\">How Asia Works with causal diagrams</a> appeared first on <a href=\"https://www.tosummarise.com\">To Summarise</a>.</p>",
+  "full_text": "[Estimated time: 5 mins]\n\nSome people have pointed out that it’s hard to test the theory of development put forward by Joe Studwell in How Asia Works because it’s a complex theory with many different pieces. This is entirely fair. But unfortunately I think development simply is very complex and involves many different factors. \n\nSo I had a go at distilling Studwell’s argument into causal diagrams because I think they can help understand us his arguments. Studwell sets out a 3-step formula, and I convert each of those steps into different diagrams before combining them all.\n\nHere’s the first piece:\n\nThis causal diagram shows how land reform can fund industrial policy. Of course, there may exist other ways to fund industrial policy, but the existence of other causal paths doesn’t preclude this one. Korea, for example, relied more on external borrowing and less on domestic savings than the other East Asian economies. \n\nStudwell also points out that lifting agricultural productivity in Korea was still important because it kept large numbers of people employed until manufacturing jobs were available, provided a rural domestic market for early manufacturers, and reduced Korea’s dependency on food imports. So while there are other benefits that come with agricultural productivity, my diagram just focuses on how it contributes to Industrial Policy as that’s the main argument in the book. \n\nSecond piece:\n\nThis I think is the most contentious piece of Studwell’s theory, because there are so many different forms of industrial policy and many of them do not result in successful technology acquisition. According to Studwell, export discipline is key, but I’m not sure how to show that on a diagram. Suffice to say that there are many ways in which the causal link between Industrial policy -> Technology acquisition can get disrupted.\n\nThird piece just adds an extra node in the first piece:\n\nIn other words, financial repression is the mechanism by which Domestic Savings get converted to funding for Industrial Policy. But, of course, there are other ways to fund industrial policy, such as land sales, income taxes, or foreign debt. \n\n(Technically the middle node should perhaps be called “State’s Financial Resources from Financial Repression”, rather than “Financial Repression” itself, as the current diagram seems to suggest that Domestic Savings cause Financial Repression. But in interests of brevity I’ve left it as is.)\n\nFinally, we can combine all three pieces into one giant chain:\n\nThis causal chain seems pretty plausible to me, though the link between Industrial policy (various forms) -> Technology acquisition is a crucial one that is by no means ironclad. There are also probably other things, such as relatively high state capacity or low corruption, that determine how strong that relationship is.\n\nIn fact, I suspect State Capacity and Responsiveness to Public is a big invisible confounder that affects multiple points in this chain:\n\nwhether Land Reform successfully lifts Agricultural Productivity;\n\nwhether Financial Repression funds Industrial Policy (or just elite consumption); and\n\nwhether Industrial Policy leads to successful Technology Acquisition.\n\nSo perhaps the diagram looks more like this:\n\nSo yes, this does seem very hard to test, especially as most of these nodes are not directly measurable and the causal relationships are not deterministic. But Studwell’s theory nonetheless seems plausible.\n\nIt’s kind of like baking a cake. You might be able to sub in an ingredient that proved crucial in one case with something entirely different in another, just as a baker might sub in applesauce and baking soda for eggs. In another case, you might have all the necessary ingredients in place, but still screw up in combining them. But development is far harder than that, because there are not that many examples to go off and circumstances are always changing. So it’s more like trying to bake a cake for the first time based off a handful of dubious secondhand accounts as the temperature, atmospheric pressure, and humidity all fluctuate, with a bunch of people telling you you’re doing it wrong, and some of them might even succeed in turning off your oven and shoving you out of the kitchen. \n\nAnd I’m still probably underselling how difficult development is.\n\nLet me know what you think of my diagrams in the comments below! Am I missing any important nodes?\n\nYou may also like:",
+  "tags": [
+    "1000-words",
+    "causal",
+    "development",
+    "diagram",
+    "diagrams",
+    "different",
+    "domestic",
+    "financial",
+    "financial repression",
+    "how asia",
+    "industrial",
+    "industrial policy",
+    "korea",
+    "policy",
+    "studwell",
+    "technology",
+    "works"
+  ]
+}

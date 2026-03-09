@@ -1,0 +1,25 @@
+{
+  "id": 876,
+  "source": "Hacker News",
+  "title": "\"Warn about PyPy being unmaintained\"",
+  "url": "https://github.com/astral-sh/uv/pull/17643",
+  "published_at": "2026-03-08T01:35:21Z",
+  "fetched_at": "2026-03-08T04:40:05.679401+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47293415\">Comments</a>",
+  "full_text": "It seems that PyPy is not being actively developed anymore and is phased out even by numpy (numpy/numpy#30416). There's no official statement from the project, but the numpy issue is from a PyPy developer. I added a warning to avoid users assuming PyPy properly supported and developed Python distribution.",
+  "tags": [
+    "200-words",
+    "developed",
+    "github",
+    "konstin",
+    "numpy",
+    "pull",
+    "pull request",
+    "pypy",
+    "request",
+    "seems",
+    "unmaintained",
+    "warn"
+  ]
+}

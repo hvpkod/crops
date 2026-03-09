@@ -1,0 +1,30 @@
+{
+  "id": 887,
+  "source": "Hacker News",
+  "title": "Show HN: Curiosity – DIY 6\" Newtonian Reflector Telescope",
+  "url": "https://curiosity-telescope.vercel.app/",
+  "published_at": "2026-03-08T07:16:15Z",
+  "fetched_at": "2026-03-08T08:40:06.349277+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47295279\">Comments</a>",
+  "full_text": "What is this? Why is this? How is this?\n \n\nThis section highlights all the information that we came across to deepen our understanding pre-during and post assembly of the telescope. The aim is to put up information that will be helpful as and when we get to learn about something new. Happy Learning!\n \n \n\n \n\nDOCUMENT_INDEX // CLICK_TO_JUMP\n \n \n\n \n\n>> How do I learn the sky?\n \n\n \n\n \n\n \n \n\nA planisphere is an astronomical tool that can help you navigate the night sky\n \n\n \n\n \n \n\nStellarium App - one of the best online free planetarium\n \n\n \n\n \n \n\nNASA, Spot the station app for IOS and Android\n \n \n \n \nRichard Berry in his book suggests, the best way to learn is via PLANISPHERE, wherein you can dial in the date and time and it will show you the sky at that instant.\n \nFollowing is a list of applications for IOS and Android that we came across, which should help you in navigating the skies\n \n \nIOS\n \n \nStellarium\n \nSkyGuide - notifies you about any transits and also the best objects to look at the sky based on your location\n \nSky Academy - for learning the constellations in the night sky\n \n \nAndroid\n \n \nStellarium\n \nSpot the Station - notifies you about the ISS transit from your location\n \nSky Academy - for learning the constellations in the night sky\n \nLook4Sat - for tracking the satellites - best for amateur radio astronomers\n \nHeavons-Above - for tracking the satellites - best for amateur radio astronomers\n \n \n \n \n\n \n\n>> What is Light Gathering Power (LGP)?\n \n\n The property of an optical system that tells you how much brighter things will appera than what the human eye can see.\n \n\nThe Light Gathering Power is defined as: $$LGP = \\frac{D^2}{d^2}$$\n \n\nIn our case, our primary mirror has a diameter of 150mm and considering if the average human eye lens has a diameter of 6mm in darkness, how much more light will the mirror gather than the human eye?\n \n\nAnswer: $$LGP = \\frac{150^2}{6^2} = 625$$ so 625 times more light. The telescope has much larger aperturer than the eye and allows more light which means even stars too faint to be detected by the eye can easily be brightened by the telescope so that they are easy to detect and study.\n \n\n \n \nBright stars in the sky: FIRST MAGNITUDE\n \nFaintest visible to naked eye: SIXTH MAGNITUDE\n \nFor a 6\" telescope having 625 LGP, it reaches stars of magnitude 13.5\n \nThe \"Aperture - Diameter of lens or mirror\" of the telescope is the most important factor, larger the aperture, more powerful is the telescope.\n \n \n \n\n \n\n \n \n\nWorking of Newtonian Reflecting Telescope vs Cassegran Reflecting Telescope\n \n\n \n\n \n \n\nShort Notes on Refracting Telescope\n \n\n \n\n \n \n\nShort Notes on Catadioptric Telescope with a touch on focal ratio\n \n \n \n\n \n\n>> What is Focal Ratio & Magnification of a telescope?\n \n\n $$FocalRatio = \\frac{Focal Length}{Aperture} = \\frac{900mm}{150mm} = 6$$\n \n \n\nA focal ratio of 6 is an f/6 mirror\n \n\n $$Magnification = \\frac{FocalLengthTelescope}{FocalLengthEyepiece}$$\n \n \n\nFor a 25mm eyepiece\n \n\n $$Magnification = \\frac{900mm}{25mm} = 36$$\n \n \n\nFor a 9mm eyepiece\n \n\n $$Magnification = \\frac{900mm}{9mm} = 100$$\n \n \n\n \n \nArea of sky visible through an eyepiece = FIELD OF VIEW\n \nArea of sky covered is = REAL FIELD OF VIEW\n \nAngle you see when you look into the eyepiece = APPARENT FIELD OF VIEW\n \n \n\n \n\n>> What is Diffraction & Airy Disk ?\n \n\n \n\n \n\n \n \n\nAiry disk is a diffraction pattern\n \n\n \n \n \n\nDiffraction: Bending of light near the edges of an obstacle similar to how water spreads out into waves when an obstruction is present in front of it. More on diffraction in telescope can be found >> Diffraction in Astronomy\n \n\nAiry Disk: A very bright, circular spot of light formed in the center of image which together with the series of concentric rings around is called Airy Pattern.\n \n\nTo deep dive more ...\n \n \n\n>> What is Dobsonian Mount & Equatorial Mount?\n \n\nDobsonian Mount\n \n\nThe first classic mount for any budding amateur astronomer that only requires screws, glue, plywood and that's it.\n \n\nThe name coming from a renowned amateur astronomer \"John Dobson\" is best known for promoting awareness regarding astronomy to the common people and thus guiding everyone with low cost & quick mount newtonian reflector telescope.\n \n\n>> Telescope Building with John Dobson, a must watch video series on building a dobsonian mount.\n \n \n\nEquatorial Mount\n \n\nWhen you don't want to move your telescope manually, you opt for an equatorial mount which is designed to follow the track the movement of the objects in the night sky. Comparing with a dobsonian mount, equatorial mount offers more sturdy and expensive mount.\n \n\nThe motorized tracking of equatorial mount whose axis align with the earth's rotational axis. The electronics involved gives the opportunity to the user to play around with the overall navigation of the deep sky objects. \n \n \n\n \n\n \n \n\nDobsonian Mount on Cloudy nights\n \n\n \n\n \n \n\nPrinciple of operation for equatorial mount\n \n\n \n\n \n \n\nAltaz Mount vs Equatorial Mount",
+  "tags": [
+    "1000-words",
+    "amateur",
+    "best",
+    "curiosity telescope",
+    "diffraction",
+    "dobsonian",
+    "dobsonian mount",
+    "equatorial",
+    "equatorial mount",
+    "eyepiece",
+    "field of",
+    "lgp",
+    "light",
+    "log",
+    "mount",
+    "night",
+    "telescope"
+  ]
+}

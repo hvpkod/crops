@@ -1,0 +1,25 @@
+{
+  "id": 1389,
+  "source": "Futility Closet",
+  "title": "Sliding Dominoes",
+  "url": "https://www.futilitycloset.com/2026/03/07/sliding-dominoes/",
+  "published_at": "2026-03-07T06:16:05Z",
+  "fetched_at": "2026-03-08T21:15:59.277874+00:00",
+  "author": "Greg Ross",
+  "summary": "<figure class=\"wp-caption aligncenter\" id=\"attachment_72862\" style=\"width: 400px;\"><img alt=\"https://commons.wikimedia.org/wiki/File:100_grid.svg\" class=\"size-full wp-image-72862\" height=\"400\" src=\"https://www.futilitycloset.com/wp-content/uploads/2026/03/2026-03-07-sliding-dominoes.png\" width=\"400\" /><figcaption class=\"wp-caption-text\" id=\"caption-attachment-72862\">Image: <a href=\"https://commons.wikimedia.org/wiki/File:100_grid.svg\">Wikimedia Commons</a></figcaption></figure>\n<p>The squares of a 9&#215;9 board are colored as shown, and then its surface is covered with 40 dominoes. Each domino covers two orthogonally adjacent squares, and the uncovered square is a black square on the boundary.</p>\n<p>A <em>move</em> shifts a domino along its length by one square, so that it covers one empty square and exposes another. Prove that, for each of the black squares on the board, there&#8217;s a sequence of moves that will uncover it.</p>\n\n<div class=\"easySpoilerWrapper\">\n<table align=\"cente",
+  "full_text": "Image: Wikimedia Commons\n\nThe squares of a 9×9 board are colored as shown, and then its surface is covered with 40 dominoes. Each domino covers two orthogonally adjacent squares, and the uncovered square is a black square on the boundary.\n\nA move shifts a domino along its length by one square, so that it covers one empty square and exposes another. Prove that, for each of the black squares on the board, there’s a sequence of moves that will uncover it.\n\nSelectClick for Answer\n\nThis solution is by Li Zhou of Polk Community College in Winter Haven, Florida. Draw an arrow on each domino that’s covering a black square, starting on the black square and continuing through the white square. Now every black square on the board (except for the one that was exposed at the start) is covered by the tail of an arrow, and each arrow points toward a neighboring black square.\n\nThis provides an answer. For any black square that’s covered at the start, the arrows now indicate a route leading to the uncovered black square. Shifting the dominoes along this route will uncover the chosen black square.\n\nWill every such route find its way to the uncovered square? Yes. The alternative would be some “loop” of arrows within the diagram. Any such loop would enclose an odd number of squares, and such an interior could not be tiled by dominoes. So we know it doesn’t exist.\n\nFrom the 1997 Russian Olympiad for high school students, via American Mathematical Monthly, April 2004 (Problem 10960). A solution using a graph model appears in the 1999 pamphlet Mathematical Olympiads 1997-1998: Problems and Solutions From Around the World, by T. Andreescu and K. Kedlaya.",
+  "tags": [
+    "500-words",
+    "black",
+    "board",
+    "covered",
+    "covers",
+    "domino",
+    "dominoes",
+    "route",
+    "sliding dominoes",
+    "square",
+    "squares",
+    "uncovered"
+  ]
+}

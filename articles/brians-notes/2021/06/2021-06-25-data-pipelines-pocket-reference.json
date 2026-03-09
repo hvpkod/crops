@@ -1,0 +1,26 @@
+{
+  "id": 1913,
+  "source": "Brian's Notes",
+  "title": "Data Pipelines Pocket Reference",
+  "url": "https://www.briansnotes.io/book/data-pipelines-pocket-reference/",
+  "published_at": "2021-06-25T14:14:16Z",
+  "fetched_at": "2026-03-08T21:28:43.666177+00:00",
+  "author": null,
+  "summary": "Using SQL and Python to create data pipelines",
+  "full_text": "Although the common data ingestion pattern has shifted from ETL to ELT, thereby deferring the Transformation component, if you identify a data quality issue and can address it early that is still the best approach. Don’t burden your analytics people with unnecessary transformations if you can cleanup the data earlier on.\n\nEncountering data quality issues at the end of the pipeline or during the analysis stage is a worst case scenario.",
+  "tags": [
+    "200-words",
+    "although",
+    "common",
+    "data",
+    "data pipelines",
+    "ingestion",
+    "pattern",
+    "pipelines",
+    "pocket",
+    "pocket reference",
+    "quality",
+    "reference",
+    "shifted"
+  ]
+}
