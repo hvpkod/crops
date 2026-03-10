@@ -1,0 +1,33 @@
+{
+  "id": 2133,
+  "source": "Hacker News",
+  "title": "Grammarly is offering ‘expert’ AI reviews from famous dead and living writers",
+  "url": "https://www.wired.com/story/grammarly-is-offering-expert-ai-reviews-from-your-favorite-authors-dead-or-alive/",
+  "published_at": "2026-03-05T09:04:16Z",
+  "fetched_at": "2026-03-09T09:40:59.946508+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47259366\">Comments</a>",
+  "full_text": "Do you have fond memories of being a teacher’s pet? Wish you could still get notes from your favorite college professor? Dream about some implacable voice of authority correcting your every word choice and punctuation mark? Well, great news: A certain software company has engineered a way to simulate criticism not just from bestselling authors and famous academics of our time, but also many who died decades ago—and the company evidently didn’t need permission from anybody to do it.\n\nOnce relied upon only to proofread for correct grammar and spelling, the writing tool Grammarly has added a host of generative AI features over the past several years. In October, CEO Shishir Mehrotra announced that the overall company was rebranding as Superhuman to reflect a new suite of AI-powered products. However, the AI writing “partner” remains called Grammarly. “When technology works everywhere, it starts to feel ordinary,” Mehrotra wrote in his press release. “And that usually means something extraordinary is happening under the hood.”\n\nThe expanded Grammarly platform now offers an AI solution for every imaginable need—and some you’ve probably never had. There’s an AI chatbot that will answer specific questions as you compose a draft, a “paraphraser” feature that suggests changes in style, a “humanizer” that revises according to a selected voice, an AI grader that predicts how your document would score as college coursework, and even tools for flagging and tweaking phrases commonly produced by large language models. (Sure, you’re using AI to do everything here, but you don’t want it to sound like that.)\n\nPerhaps most insidiously, however, Grammarly now has an “expert review” option that, instead of producing what looks like a generic critique from a nameless LLM, lists a number of real academics and authors available to weigh in on your text. To be clear: Those people have nothing to do with this process. As a disclaimer clarifies: “References to experts in this product are for informational purposes only and do not indicate any affiliation with Grammarly or endorsement by those individuals or entities.”\n\nAs advertised on a support page, Grammarly users can solicit tips from virtual versions of living writers and scholars such as Stephen King and Neil deGrasse Tyson (neither of whom responded to a request for comment) as well as the deceased, like the editor William Zinsser and astronomer Carl Sagan. Presumably, these different AI agents are trained on the oeuvres of the people they are meant to imitate, though the legality of this content-harvesting remains murky at best, and the subject of many, many copyright lawsuits.\n\n“Our Expert Review agent examines the writing a user is working on, whether it's a marketing brief or a student project on biodiversity, and leverages our underlying LLM to surface expert content that can help the document's author shape their work,” says Jen Dakin, senior communications manager at Superhuman. “The suggested experts depend on the substance of the writing being evaluated. The Expert Review agent doesn’t claim endorsement or direct participation from those experts; it provides suggestions inspired by works of experts and points users toward influential voices whose scholarship they can then explore more deeply.”\n\nSomeone like King may see the advance of AI as unstoppable, and there may be nobody left to defend Zinsser’s 1976 handbook On Writing Well from the big tech vultures, but what of the countless other luminaries who still want to keep their material from being compressed into an algorithm? Vanessa Heggie, an associate professor of the history of science and medicine at the University of Birmingham, recently took to LinkedIn to share an especially grim example of how the feature works, accusing Superhuman of “creating little LLMs” based on the “scraped work” of the living and dead alike, trading on “their names and reputations.” The screenshot she posted showed the availability of analysis from an AI agent modeled on David Abulafia, an English historian of the medieval and Renaissance periods who died in January. “Obscene,” Heggie wrote.",
+  "tags": [
+    "1000-words",
+    "academics",
+    "agent",
+    "ai",
+    "alive",
+    "authors",
+    "authors dead",
+    "college",
+    "company",
+    "expert",
+    "expert review",
+    "experts",
+    "favorite",
+    "grammarly",
+    "grammarly is",
+    "offering expert",
+    "reviews from",
+    "superhuman",
+    "writing",
+    "your favorite"
+  ]
+}

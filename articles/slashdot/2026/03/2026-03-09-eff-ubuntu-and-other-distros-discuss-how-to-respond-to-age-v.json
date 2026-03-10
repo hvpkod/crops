@@ -1,0 +1,31 @@
+{
+  "id": 2118,
+  "source": "Slashdot",
+  "title": "EFF, Ubuntu and Other Distros Discuss How to Respond to Age-Verification Laws",
+  "url": "https://linux.slashdot.org/story/26/03/09/0544224/eff-ubuntu-and-other-distros-discuss-how-to-respond-to-age-verification-laws?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-09T07:34:00Z",
+  "fetched_at": "2026-03-09T08:00:05.714102+00:00",
+  "author": "EditorDavid",
+  "summary": "System76 isn't the only one criticizing new age-verification laws. The blog 9to5Linux published an \"informal\" look at other discussions in various Linux communities.\n\nEarlier this week, Ubuntu developer Aaron Rainbolt proposed on the Ubuntu mailing list an optional D-Bus interface (org.freedesktop.AgeVerification1) that can be implemented by arbitrary applications as a distro sees fit, but Canonical responded that the company does not yet have a solution to announce for age declaration in Ubuntu. \"Canonical is aware of the legislation and is reviewing it internally with legal counsel, but there are currently no concrete plans on how, or even whether, Ubuntu will change in response,\" said Jon Seager, VP Engineering at Canonical. \"The recent mailing list post is an informal conversation among Ubuntu community members, not an announcement. While the discussion contains potentially useful ideas, none have been adopted or committed to by Canonical.\" \n\nSimilar talks are underway in the Fedor",
+  "full_text": "System76\n\n isn't the only one criticizing new age-verification laws. The blog 9to5Linux\n\n published an \"informal\" look at other discussions in various Linux communities.\n\nEarlier this week, Ubuntu developer Aaron Rainbolt proposed on the Ubuntu mailing list an optional D-Bus interface (org.freedesktop.AgeVerification1) that can be implemented by arbitrary applications as a distro sees fit, but Canonical responded that the company does not yet have a solution to announce for age declaration in Ubuntu. \"Canonical is aware of the legislation and is reviewing it internally with legal counsel, but there are currently no concrete plans on how, or even whether, Ubuntu will change in response,\" said Jon Seager, VP Engineering at Canonical. \"The recent mailing list post is an informal conversation among Ubuntu community members, not an announcement. While the discussion contains potentially useful ideas, none have been adopted or committed to by Canonical.\"\n \n\nSimilar talks are underway in the Fedora and Linux Mint communities about this issue in case the California Digital Age Assurance Act law and similar laws from other states and countries are to be enforced. At the same time, other OS developers, like MidnightBSD, have decided to exclude California from desktop use entirely. \n\nSlashdot contacted Hayley Tsukayama, Director of State Affairs at EFF, who says their organization \"has long warned against age-gating the internet. Such mandates strike at the foundation of the free and open internet.\" \n\nAnd there's another problem. \"Many of these mandates imagine technology that does not currently exist.\"\nSuch poorly thought-out mandates, in truth, cannot achieve the purported goal of age verification. Often, they are easy to circumvent and many also expose consumers to real data breach risk.\n \n\nThese burdens fall particularly heavily on developers who aren't at large, well-resourced companies, such as those developing open-source software. Not recognizing the diversity of software development when thinking about liability in these proposals effectively limits software choices — and at a time when computational power is being rapidly concentrated in the hands of the few. That harms users' and developers' right to free expression, their digital liberties, privacy, and ability to create and use open platforms...\n \n\nRather than creating age gates, a well-crafted privacy law that empowers all of us — young people and adults alike — to control how our data is collected and used would be a crucial step in the right direction.",
+  "tags": [
+    "500-words",
+    "age verification",
+    "california",
+    "canonical",
+    "currently",
+    "digital",
+    "discuss how",
+    "eff ubuntu",
+    "laws",
+    "linux",
+    "list",
+    "mailing",
+    "mandates",
+    "other distros",
+    "respond",
+    "security",
+    "similar",
+    "ubuntu"
+  ]
+}

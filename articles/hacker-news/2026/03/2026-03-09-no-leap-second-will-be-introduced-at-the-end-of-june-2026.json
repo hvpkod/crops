@@ -1,0 +1,30 @@
+{
+  "id": 2173,
+  "source": "Hacker News",
+  "title": "No leap second will be introduced at the end of June 2026",
+  "url": "https://lists.iana.org/hyperkitty/list/tz@iana.org/thread/P6D36VZSZBUSSTSMZKFXKF4T4IXWN23P/",
+  "published_at": "2026-03-09T12:15:07Z",
+  "fetched_at": "2026-03-09T15:40:21.534876+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47308059\">Comments</a>",
+  "full_text": "No leap second 2026-06-30, per below. See attached patch.\n\n--\nTim Parenti\n\n---------- Forwarded message ---------\nFrom: IERS EOP Product Center <iers.eoppc@obspm.fr>\nDate: Tue, 6 Jan 2026 at 06:50\nSubject: Bulletin C number 71\nTo: <bulc.iers@obspm.fr>\n\n INTERNATIONAL EARTH ROTATION AND REFERENCE SYSTEMS SERVICE (IERS)\n\nSERVICE INTERNATIONAL DE LA ROTATION TERRESTRE ET DES SYSTEMES DE REFERENCE\n\nSERVICE DE LA ROTATION TERRESTRE DE L'IERS\nOBSERVATOIRE DE PARIS\n61, Av. de l'Observatoire 75014 PARIS (France)\nTel. : +33 1 40 51 23 35\ne-mail : services.iers@obspm.fr\nhttp://hpiers.obspm.fr/eop-pc\n\n Paris, 06 January 2026\n\n Bulletin C 71\n\n To authorities responsible\n for the measurement and\n distribution of time\n\n INFORMATION ON UTC - TAI\n\n NO leap second will be introduced at the end of June 2026.\n The difference between Coordinated Universal Time UTC and the\n International Atomic Time TAI is :\n\n from 2017 January 1, 0h UTC, until further notice : UTC-TAI = -37 s\n\n Leap seconds can be introduced in UTC at the end of the months of December\n or June, depending on the evolution of UT1-TAI. Bulletin C is mailed every\n six months, either to announce a time step in UTC, or to confirm that there\n will be no time step at the next possible date.\n\n Christian BIZOUARD\n Director\n Earth Orientation Center of IERS\n Observatoire de Paris, France",
+  "tags": [
+    "500-words",
+    "bulletin",
+    "center",
+    "earth",
+    "france",
+    "fwd bulletin",
+    "iers",
+    "iers observatoire",
+    "international",
+    "leap",
+    "paris france",
+    "reference",
+    "rotation",
+    "rotation terrestre",
+    "second",
+    "service",
+    "utc"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": 2259,
+  "source": "Hacker News",
+  "title": "Velxio, Arduino Emulator",
+  "url": "https://velxio.dev/",
+  "published_at": "2026-03-08T05:02:38Z",
+  "fetched_at": "2026-03-09T20:20:19.578349+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47294568\">Comments</a>",
+  "full_text": "The free, open-source Arduino emulator that runs in your browser\n \n\nWrite Arduino code, compile it, and simulate it with real AVR8 CPU emulation and 48+ interactive electronic components — all running locally in your browser. No cloud, no latency, no account required.\n \n\nFeatures\n \n \nReal ATmega328p (AVR8) emulation at 16 MHz via avr8js\n \nRaspberry Pi Pico (RP2040) emulation via rp2040js\n \n48+ wokwi interactive electronic components (LEDs, resistors, buttons, sensors…)\n \nMonaco Code Editor with full C++ / Arduino syntax highlighting\n \narduino-cli compilation backend — produces real .hex / .uf2 files\n \nSerial Monitor with auto baud-rate detection and send\n \nLibrary Manager for Arduino libraries\n \nMulti-file workspace (.ino, .h, .cpp)\n \nWire system with orthogonal routing\n \nILI9341 TFT display simulation\n \nI2C, SPI, USART, ADC, PWM support\n \nDocker standalone image — deploy anywhere with one command\n \n \n\nSupported Boards\n \n \nArduino Uno (ATmega328p) — full AVR8 emulation\n \nRaspberry Pi Pico (RP2040) — RP2040 emulation\n \n \n\nGet Started\n \n\n Open the Editor — no installation needed.\n\n Self-host with Docker: docker run -d -p 3080:80 ghcr.io/davidmonterocrespo24/velxio:master\n \n \n\nFrequently Asked Questions\n \n Is Velxio free?\n Yes. Velxio is free and open-source under the GNU AGPLv3 license. A commercial license is available for proprietary integrations.\n Does Velxio work offline?\n The simulation engine runs entirely in the browser. Compilation requires the local arduino-cli backend. Self-hosted deployments work fully offline once running.\n Is Velxio a Wokwi alternative?\n Yes. Velxio is a free, self-hosted alternative to Wokwi. It uses the same avr8js and wokwi-elements open-source libraries but runs on your own machine.\n What boards are supported?\n Arduino Uno (ATmega328p / AVR8) and Raspberry Pi Pico (RP2040). More boards are planned.",
+  "tags": [
+    "500-words",
+    "arduino",
+    "arduino uno",
+    "avr",
+    "boards",
+    "emulation",
+    "emulator",
+    "free",
+    "local",
+    "local arduino",
+    "pico",
+    "pico rp",
+    "raspberry",
+    "raspberry pi",
+    "real",
+    "runs",
+    "velxio",
+    "velxio free"
+  ]
+}

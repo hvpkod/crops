@@ -1,0 +1,30 @@
+{
+  "id": 2210,
+  "source": "Slashdot",
+  "title": "AI Allows Hackers To Identify Anonymous Social Media Accounts, Study Finds",
+  "url": "https://tech.slashdot.org/story/26/03/09/0428241/ai-allows-hackers-to-identify-anonymous-social-media-accounts-study-finds?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-09T16:00:00Z",
+  "fetched_at": "2026-03-09T17:20:14.776113+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from the Guardian: AI has made it vastly easier for malicious hackers to identify anonymous social media accounts, a new study has warned. In most test scenarios, large language models (LLMs) -- the technology behind platforms such as ChatGPT -- successfully matched anonymous online users with their actual identities on other platforms, based on the information they posted. The AI researchers Simon Lermen and Daniel Paleka said LLMs make it cost effective to perform sophisticated privacy attacks, forcing a \"fundamental reassessment of what can be considered private online\".\n \nIn their experiment, the researchers fed anonymous accounts into an AI, and got it to scrape all the information it could. They gave a hypothetical example of a user talking about struggling at school, and walking their dog Biscuit through a \"Dolores park.\" In that hypothetical case, the AI then searched elsewhere for those details and matched @anon_user42 to the known identity ",
+  "full_text": "An anonymous reader quotes a report from the Guardian: AI has made it vastly easier for malicious hackers to identify anonymous social media accounts, a new study has warned. In most test scenarios, large language models (LLMs) -- the technology behind platforms such as ChatGPT -- successfully matched anonymous online users with their actual identities on other platforms, based on the information they posted. The AI researchers Simon Lermen and Daniel Paleka said LLMs make it cost effective to perform sophisticated privacy attacks, forcing a \"fundamental reassessment of what can be considered private online\".\n\n \n\nIn their experiment, the researchers fed anonymous accounts into an AI, and got it to scrape all the information it could. They gave a hypothetical example of a user talking about struggling at school, and walking their dog Biscuit through a \"Dolores park.\" In that hypothetical case, the AI then searched elsewhere for those details and matched @anon_user42 to the known identity with a high degree of confidence. While this example was fictional, the paper's authors highlighted scenarios in which governments use AI to surveil dissidents and activists posting anonymously, or hackers are able to launch \"highly personalized\" scams.",
+  "tags": [
+    "200-words",
+    "accounts study",
+    "ai",
+    "allows hackers",
+    "anonymous",
+    "finds",
+    "hackers",
+    "hypothetical",
+    "identify",
+    "identify anonymous",
+    "information",
+    "matched",
+    "media",
+    "researchers",
+    "social",
+    "social media",
+    "study"
+  ]
+}

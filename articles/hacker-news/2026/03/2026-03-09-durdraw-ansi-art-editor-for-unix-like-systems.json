@@ -1,0 +1,29 @@
+{
+  "id": 2257,
+  "source": "Hacker News",
+  "title": "Durdraw – ANSI art editor for Unix-like systems",
+  "url": "https://durdraw.org/",
+  "published_at": "2026-03-09T18:59:32Z",
+  "fetched_at": "2026-03-09T20:20:16.069044+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47313721\">Comments</a>",
+  "full_text": "▄▄▄▄▄▄▄ ▀ \n ▀██████▄▄▄▄ ▄▄▄▄ ▀████▀ ███▀▀▀█▓▓▓▌ ▄▓▌ \n ▒▄▄ ▄▄▄ ■ ▓▓▓▓ ▓▓▓▓▌ ▓▓▓▓ ▐▒▒▒▌ ▒▒▒▌ ▒▒▒▒▌ ▄▄ ▀▀ \n ▀▀ █████▄█▌ ░░░█ ▐░░░█ █░░░ ▐████ ▐██▌ ▄░░░▀ ▄███▓ \n ▓▓▓▓███ ▐███▌ ▐████ ▐░░░▌ ░░░░ ▐▒▒▒ ■░░▄▄ ■██▀▓▓▓ ▄▓■ \n ▄ ▄▄▄■▀▀▓▒▓▓ ▐▒▒▒▌ ▐▒▒▒▒ ▐▓▓▓▌ ▓▓▓▓ ▐▓▓▓ ▓▓▓▓▄▀▒▒▒▒▄▄▓▓▓▌ \n ▐░▒▌ ▄▓▓▓▓▀▓▓███░░▌ ████ ▄████▀_ ▀███▄▄███▀ ░ ███▌ ░ ████▌▐░░▒▒▒▀▀░▓ \n ▀▀ ▐▒▀█▓▒▀▀▀▀▓▓▒▒ ▐████▀▀▀▀ ▄▄▓▓▄▄ ▀▀▀▀ ▄▒▒▄▀▀▀▀ ▀.▀▀▀▀▀ ░▓█░░░▀▀ ■ \n ■ ▀▓▓▓▌▐███▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▀▀▒■▀ ▄▄▄▄▄▄▀■▐████▀ ■▓▓▀ ▄▄▄▄■ ▄▄ \n ■░▒▓▌ ████ ███▄ ███▌ ▀▀███▌ ▄██▀ ▀███▌ ████ ▄▄ ░ ▐███ ▓ ▐▒░▌ \n ▄▒▒░▒▌ ▓▓▓▓ ▐▓▓▓▌ ▐▓▓▓ ▐▓▓▓ ▓▓▓ ▓▓▓▓ ▐▓▓▓ ██▌ ▓▓▓▌ ▒░ ▀ \n _ ▐█░░░░░░ ▐▒▒▒▌ ▐▒▒▒▒ ▐▒▒▒ ▄▒▒▒▀ ▒▒▒▒ ■▄▒▒▒▒ ▐▒▒▒▌▐▒▒▒ ▐▒▒▒ ▐▒■▄▄ \n ▄▓▌ ▀█░░█▓█ ▐███▌░ ████ ███▌▀██▄▄ ▐██▌ ▐███▌ ███▌████▌███▌ ░░░░▒▌ \n ▀ ░▓▓█▀█▓▒▌▐░░░▌▒▒▐░░░░ ░░░▌ ░░░█ ▐░░█ ▒ ▐░░░▌ ░░░░░░ █░░▒▒ ▐▓▓▓▓▀ \n ▀▀ ▐▓ ▒░ ▒▒▒▒ ▒▒▒▒ ░ ▐▓▓▓ ▐▓▓▓▌▐▓▓▓ ░ ▐▓▓▓▌ ▐▓▓▓█▌ ▐▓▓▓▌ ▒▒▀ φlda \n ■ ░ ████▀▀▀▀ ▀▀▀ ▀▀▀ ▀▀ ▀▀▀▀ ▀▀▀ ▀▒ ▒▒ \n ░ ░ ■ \n \n \n \n\n \n\n \n \n\nAbout\n\n \n\nDurdraw is an ASCII, Unicode and ANSI art editor for UNIX-like systems (Linux, macOS, etc). It runs in modern Utf-8 terminals and supports high speed frame animation, 256 and 16 color modes, mouse drawing and paint brushes, MS-DOS ANSI art, CP437 and Unicode mixing and conversion, HTML and mIRC color output, custom themes, and many other interesting features.\n\n \n\nDurdraw is heavily inspired by classic ANSI editing software for MS-DOS and Windows, such as TheDraw, Aciddraw and Pablodraw, but with a modern Unix twist.\n\n \n\nDurdraw also includes Durfetch, an animated system information tool, and Durview, an ANSI art pack viewer with 16colo.rs integration.\n\n \n\nFor a full list of features, click here.\n\n \n\nIf you want to support this project, please consider making a donation. Thank you!\n\n \n \n \n\n \n \n\n Durdraw 0.28 editing 256-color Animated Unicode ANSI\n \n \n\n \n\n A quick introduction to Durdraw (0:44)\n \n\n \n\n \n \n\nDownload\n \n\n \n \n \n \n \n\nYou can download the latest version of Durdraw from Github, or from your OS package repositories.\n \n\nTo beta test the latest features (use at your own risk), you can try the development branch.\n \n\nOptional:\n \n\nAnimated GIF and PNG export requires Ansilove\n \n\nDurfetch requires Neofetch\n\n \n \n\nReviews\n \n\n \n \n\n \n \n\n \n \n \n\nGallery\n \n\n \n\n \n\n \n \n \n\n \n \n \n \n\n \n \n\nTutorials\n \n\n \n\n \n VIDEO\n \n \n\n \n VIDEO\n \n \n\n \n VIDEO\n \n \n\n \n \n\nDonate\n\nDurdraw is a passion project, and is given away for free with source code under a BSD 3-Clause License. Many hours of unpaid work have gone into creating this softwre.\n\nIf you find Durdraw useful, please consider making a financial contribution.\n\nContributions help cover essential costs like development time, domain registration, and web hosting.\n\nYou can donate to this project using any of these platforms:\n\nPaypal\n\nBuymeacoffee\n\nPatreon\n\nBitcoin address: bc1qagx3zqly4rd9rt2gw836wguf7633r5v8eervpq \n\n \n\nBTC QR code\n\nA sincere thank you to everyone who has contributed!\n\nOther ways to support Durdraw include reporting bugs, providing feedback, and contributing code. Please refer to the CONTRIBUTING.md file for information and guidelines.\n\nIf you need assistance or have questions about Durdraw, feel free to reach out to us on Github or Discord. We're happy to help!",
+  "tags": [
+    "500-words",
+    "animated",
+    "animation studio",
+    "ansi",
+    "ansi ascii",
+    "color",
+    "durdraw",
+    "editing",
+    "information",
+    "linux",
+    "modern",
+    "please",
+    "unicode",
+    "unicode art",
+    "video",
+    "video video"
+  ]
+}

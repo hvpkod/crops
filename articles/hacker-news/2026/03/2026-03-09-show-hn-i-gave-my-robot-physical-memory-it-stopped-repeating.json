@@ -1,0 +1,31 @@
+{
+  "id": 2227,
+  "source": "Hacker News",
+  "title": "Show HN: I gave my robot physical memory – it stopped repeating mistakes",
+  "url": "https://github.com/robotmem/robotmem",
+  "published_at": "2026-03-09T16:36:15Z",
+  "fetched_at": "2026-03-09T18:21:04.507310+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47311380\">Comments</a>",
+  "full_text": "中文版\n\nrobotmem — Let Robots Learn from Experience\n\nYour robot ran 1000 experiments, starting from scratch every time. robotmem stores episode experiences — parameters, trajectories, outcomes — and retrieves the most relevant ones to guide future decisions.\n\nFetchPush experiment: +25% success rate improvement (42% → 67%), CPU-only, reproducible in 5 minutes.\n\n \n\nfrom robotmem import learn, recall, save_perception, start_session, end_session\n\n# Start an episode\nsession = start_session(context='{\"robot_id\": \"arm-01\", \"task\": \"push\"}')\n\n# Record experience\nlearn(\n insight=\"grip_force=12.5N yields highest grasp success rate\",\n context='{\"params\": {\"grip_force\": {\"value\": 12.5, \"unit\": \"N\"}}, \"task\": {\"success\": true}}'\n)\n\n# Retrieve experiences (structured filtering + spatial nearest-neighbor)\nmemories = recall(\n query=\"grip force parameters\",\n context_filter='{\"task.success\": true}',\n spatial_sort='{\"field\": \"spatial.position\", \"target\": [1.3, 0.7, 0.42]}'\n)\n\n# Store perception data\nsave_perception(\n description=\"Grasp trajectory: 30 steps, success\",\n perception_type=\"procedural\",\n data='{\"sampled_actions\": [[0.1, -0.3, 0.05, 0.8], ...]}'\n)\n\n# End episode (auto-consolidation + proactive recall)\nend_session(session_id=session[\"session_id\"])\n\nAPI\nPurpose\n\nlearn\nRecord physical experiences (parameters / strategies / lessons)\n\nrecall\nRetrieve experiences — BM25 + vector hybrid search with context_filter and spatial_sort\n\nsave_perception\nStore perception / trajectory / force data (visual / tactile / proprioceptive / auditory / procedural)\n\nforget\nDelete incorrect memories\n\nupdate\nCorrect memory content\n\nstart_session\nBegin an episode\n\nend_session\nEnd an episode (auto-consolidation + proactive recall)\n\nStructured Experience Retrieval\n\nNot just vector search — robotmem understands the structure of robot experiences:\n\n# Retrieve only successful experiences\nrecall(query=\"push to target\", context_filter='{\"task.success\": true}')\n\n# Find spatially nearest scenarios\nrecall(query=\"grasp object\", spatial_sort='{\"field\": \"spatial.object_position\", \"target\": [1.3, 0.7, 0.42]}')\n\n# Combine: success + distance < 0.05m\nrecall(\n query=\"push\",\n context_filter='{\"task.success\": true, \"params.final_distance.value\": {\"$lt\": 0.05}}'\n)\n\nContext JSON — 4 Sections\n\n{\n \"params\": {\"grip_force\": {\"value\": 12.5, \"unit\": \"N\", \"type\": \"scalar\"}},\n \"spatial\": {\"object_position\": [1.3, 0.7, 0.42], \"target_position\": [1.25, 0.6, 0.42]},\n \"robot\": {\"id\": \"fetch-001\", \"type\": \"Fetch\", \"dof\": 7},\n \"task\": {\"name\": \"push_to_target\", \"success\": true, \"steps\": 38}\n}\n\nEach recalled memory automatically extracts params / spatial / robot / task as top-level fields.\n\nMemory Consolidation + Proactive Recall\n\nend_session automatically triggers:\n\nConsolidation: Merges similar memories with Jaccard similarity > 0.50 (protects constraint / postmortem / high-confidence entries)\n\nProactive Recall: Returns historically relevant memories for the next episode\n\ncd examples/fetch_push\npip install gymnasium-robotics\nPYTHONPATH=../../src python demo.py # 90 episodes, ~2 min\n\nThree-phase experiment: baseline → memory writing → memory utilization. Expected Phase C success rate 10-20% higher than Phase A.\n\nSQLite + FTS5 + vec0\n├── BM25 full-text search (jieba CJK tokenizer)\n├── Vector search (FastEmbed ONNX, CPU-only)\n├── RRF fusion ranking\n├── Structured filtering (context_filter)\n└── Spatial nearest-neighbor sorting (spatial_sort)\n\nCPU-only, no GPU required\n\nSingle-file database ~/.robotmem/memory.db\n\nMCP Server (7 tools) or direct Python import\n\nWeb management UI: robotmem web\n\nFeature\nMemoryVLA (Academic)\nMem0 (Product)\nrobotmem\n\nTarget users\nSpecific VLA models\nText AI\nRobotic AI\n\nMemory format\nVectors (opaque)\nText\nNatural language + perception + parameters\n\nStructured filtering\nNo\nNo\nYes (context_filter)\n\nSpatial retrieval\nNo\nNo\nYes (spatial_sort)\n\nPhysical parameters\nNo\nNo\nYes (params section)\n\nInstallation\nCompile from paper code\npip install\npip install\n\nDatabase\nEmbedded\nCloud\nLocal SQLite\n\nApache-2.0",
+  "tags": [
+    "500-words",
+    "cpu",
+    "episode",
+    "experience",
+    "experiences",
+    "github",
+    "mcp server",
+    "memories",
+    "memory",
+    "persistent",
+    "proactive",
+    "proactive recall",
+    "retrieve",
+    "robotmem",
+    "search",
+    "spatial",
+    "structured",
+    "success"
+  ]
+}

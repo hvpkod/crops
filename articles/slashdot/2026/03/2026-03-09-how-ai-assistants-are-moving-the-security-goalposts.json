@@ -1,0 +1,30 @@
+{
+  "id": 2271,
+  "source": "Slashdot",
+  "title": "How AI Assistants Are Moving the Security Goalposts",
+  "url": "https://it.slashdot.org/story/26/03/09/1912259/how-ai-assistants-are-moving-the-security-goalposts?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-09T21:00:00Z",
+  "fetched_at": "2026-03-09T21:20:11.204822+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from KrebsOnSecurity: AI-based assistants or \"agents\" -- autonomous programs that have access to the user's computer, files, online services and can automate virtually any task -- are growing in popularity with developers and IT workers. But as so many eyebrow-raising headlines over the past few weeks have shown, these powerful and assertive new tools are rapidly shifting the security priorities for organizations, while blurring the lines between data and code, trusted co-worker and insider threat, ninja hacker and novice code jockey.\n \nThe new hotness in AI-based assistants -- OpenClaw (formerly known as ClawdBot and Moltbot) -- has seen rapid adoption since its release in November 2025. OpenClaw is an open-source autonomous AI agent designed to run locally on your computer and proactively take actions on your behalf without needing to be prompted. If that sounds like a risky proposition or a dare, consider that OpenClaw is most useful when it has c",
+  "full_text": "An anonymous reader quotes a report from KrebsOnSecurity: AI-based assistants or \"agents\" -- autonomous programs that have access to the user's computer, files, online services and can automate virtually any task -- are growing in popularity with developers and IT workers. But as so many eyebrow-raising headlines over the past few weeks have shown, these powerful and assertive new tools are rapidly shifting the security priorities for organizations, while blurring the lines between data and code, trusted co-worker and insider threat, ninja hacker and novice code jockey.\n\n \n\nThe new hotness in AI-based assistants -- OpenClaw (formerly known as ClawdBot and Moltbot) -- has seen rapid adoption since its release in November 2025. OpenClaw is an open-source autonomous AI agent designed to run locally on your computer and proactively take actions on your behalf without needing to be prompted. If that sounds like a risky proposition or a dare, consider that OpenClaw is most useful when it has complete access to your entire digital life, where it can then manage your inbox and calendar, execute programs and tools, browse the Internet for information, and integrate with chat apps like Discord, Signal, Teams or WhatsApp.\n\n \n\nOther more established AI assistants like Anthropic's Claude and Microsoft's Copilot also can do these things, but OpenClaw isn't just a passive digital butler waiting for commands. Rather, it's designed to take the initiative on your behalf based on what it knows about your life and its understanding of what you want done. \"The testimonials are remarkable,\" the AI security firm Snyk observed. \"Developers building websites from their phones while putting babies to sleep; users running entire companies through a lobster-themed AI; engineers who've set up autonomous code loops that fix tests, capture errors through webhooks, and open pull requests, all while they're away from their desks.\" You can probably already see how this experimental technology could go sideways in a hurry. [...]\n\n Last month, Meta AI safety director Summer Yue said OpenClaw unexpectedly started mass-deleting messages\n\n in her email inbox, despite instructions to confirm those actions first. She wrote: \"Nothing humbles you like telling your OpenClaw 'confirm before acting' and watching it speedrun deleting your inbox. I couldn't stop it from my phone. I had to RUN to my Mac mini like I was defusing a bomb.\"\n \n\nKrebs also noted the many misconfigured OpenClaw installations users had set up, leaving their administrative dashboards publicly accessible online. According to pentester Jamieson O'Reilly\n\n, \"a cursory search revealed hundreds of such servers exposed online.\" When those exposed interfaces are accessed, attackers can retrieve the agent's configuration and sensitive credentials. O'Reilly warned attackers could access \"every credential the agent uses -- from API keys and bot tokens to OAuth secrets and signing keys.\"\n \n\n\"You can pull the full conversation history across every integrated platform, meaning months of private messages and file attachments, everything the agent has seen,\" O'Reilly added. And because you control the agent's perception layer, you can manipulate what the human sees. Filter out certain messages. Modify responses before they're displayed.\"",
+  "tags": [
+    "1000-words",
+    "access",
+    "actions",
+    "agent",
+    "ai",
+    "assistants",
+    "assistants are",
+    "autonomous",
+    "code",
+    "designed",
+    "how ai",
+    "moving",
+    "openclaw",
+    "programs",
+    "reilly",
+    "security",
+    "security goalposts"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 2266,
+  "source": "Hacker News",
+  "title": "Things I've Done with AI",
+  "url": "https://sjer.red/blog/2026/built-with-ai/",
+  "published_at": "2026-03-09T19:24:20Z",
+  "fetched_at": "2026-03-09T21:00:10.346418+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47314123\">Comments</a>",
+  "full_text": "Things I've done with AI Mon, Mar 9, 2026 | View comments on Hacker News \n\nI started programming in middle school. The first thing I remember writing is HTML for my neopets homepage. That morphed into writing static sites for Minecraft servers, and later on Java plugins for Minecraft.\n\nProgramming is so fun. I took it on as a hobby and it became an obvious career path, but I didn’t realize how well engineers were paid until my junior year in college. I had received an internship at AWS and was astonished. That led to a return offer and eventually to where I am today, with about seven years of professional experience and another seven of self-teaching/programming as a hobby.\n\nI felt I was a year or two ahead of the application-focused classes I took. The more theoretical courses helped round out my knowledge and was the foundation I needed to work at tech companies.\n\nIn college I programmed all of the time. I found problems to solve. I found libraries and languages to try. I always wanted to learn more — to make sure my code was well-architected, maintainable, “clean”. This led to me reading programming books for fun. Clean Code taught me how to write better Java. You Don’t Know JavaScript taught me that JavaScript is actually quite a good language. Category Theory for Programmers taught me that it’s really hard to find a job writing Haskell.\n\nI tend to qualify my statements before talking about AI. I write this to make it clear that I have a passion for programming. The money is quite nice but it’s incidental. I would be doing this if I were rich. I honestly cannot imagine my life without programming — it’s so satisfying to learn, solve problems, and build something others can use.\n\nI was initially quite hesitant on applying AI to programming. I avoided GitHib Copilot when it came out. I thought Cursor was overhyped. I didn’t understand why someone would use Claude Code (a CLI/TUI interface) over an IDE.\n\nI have spent years caring about architecture, type systems, maintainability. I am quite good at paying attention to every little detail. I wanted full control over my code. How could I have control if AI is writing everything? How could I be sure it wasn’t writing my project in a substandard way?\n\nEffectively using AI required fundamental shift in how I thought about my projects. Why did I care about types? Why do we have design patterns? Why does code need to be maintainable or “well written”. For hobby projects, it can be a source of pleasure to write and see beautiful code.\n\nThat’s not an acceptable reason for projects I’m paid to work on, though. At work, all that matters is that value is delivered to the business. Code needs to be maintainable so that new requirements can be met. Code follows design patterns, when appropriate, because they are known solutions to common problems, and thus are easy to talk about with others. Code has type systems and static analysis so that programmers make fewer mistakes.\n\nSpeaking in the context of solving a problem: does AI need to write beautiful code? No. It needs to write code that works. The code doesn’t need to be maintainable in the traditional sense. If you have sufficient tests, you can throw some LLMs at a pile of “bad” code and have them figure it out. Type systems and static analysis continue to be useful to LLMs, if not more so than humans.\n\nThis is all to say: if you care about solving a problem more than gaining satisfaction, LLMS fit the bill. I’ve discovered that, largely, I enjoy solving problems more than I care about writing code. I haven’t written code, for work or personal projects, since October 2025. I’ve only written prompts and reviewed (a lot of) LLM output. This has led to me making a massive number of projects.\n\nProjects\n\nPersonal\n\nI’ve done all of these in the last 9 months with the help of Cursor and Claude Code.\n\nWork\n\nWriting complex design docs to migrate projects or add features\n\nWriting bespoke tools for investigations, data analysis, etc.\n\nAutomating common tasks around operations, root causing, etc.\n\nQuickly adding new features or fixing bugs\n\nSmall requests from PMs or users are now essentially free to implement. The only work left is reviewing code and manual testing.\n\nFinal Thoughts\n\nI’ve accomplished so much with AI. I still am figuring out how to use it effectively. There is so much power in these tools — there has never been a better time to be a programmer who just wants to build things.\n\nAt the same time, it is a bit exhausting. Work in particular has been difficult as we slowly embrace these new tools. There are many problems to solve around testing, developer experience, and velocity.\n\nFor personal projects, testing and documentation has been become the bottleneck. I have to make sure that the LLM has produced the correct thing, and that the documentation it has written is truthful.\n\nAs an industry I think we have to invest a significant amount of effort into better tools for testing and generated documentation.\n\nI’ll continue use these tools with the hope that they don’t make me obsolete too quickly.",
+  "tags": [
+    "1000-words",
+    "ai",
+    "claude code",
+    "code",
+    "done",
+    "llms",
+    "problems",
+    "programming",
+    "quite",
+    "static",
+    "sure",
+    "things",
+    "tools",
+    "why",
+    "write",
+    "writing"
+  ]
+}

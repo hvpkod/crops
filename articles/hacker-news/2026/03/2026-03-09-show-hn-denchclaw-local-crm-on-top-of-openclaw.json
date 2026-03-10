@@ -1,0 +1,33 @@
+{
+  "id": 2214,
+  "source": "Hacker News",
+  "title": "Show HN: DenchClaw – Local CRM on Top of OpenClaw",
+  "url": "https://github.com/DenchHQ/DenchClaw",
+  "published_at": "2026-03-09T14:55:42Z",
+  "fetched_at": "2026-03-09T17:40:15.906213+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47309953\">Comments</a>",
+  "full_text": "Website · Discord · Skills Store · Demo Video\n\n \n \n \n \n\n Demo Video · Join our Discord Server\n\nNode 22+ required.\n\nOpens at localhost:3100 after completing onboarding wizard.\n\nnpx denchclaw # runs onboarding again for openclaw --profile dench\nnpx denchclaw update # updates denchclaw with current settings as is\nnpx denchclaw restart # restarts denchclaw web server\nnpx denchclaw start # starts denchclaw web server\nnpx denchclaw stop # stops denchclaw web server\n\n# some examples\nopenclaw --profile dench <any openclaw command>\nopenclaw --profile dench gateway restart\n\nopenclaw --profile dench config set gateway.port 19001\nopenclaw --profile dench gateway install --force --port 19001\nopenclaw --profile dench gateway restart\nopenclaw --profile dench uninstall\n\ngit clone https://github.com/DenchHQ/DenchClaw.git\ncd denchclaw\n\npnpm install\npnpm build\n\npnpm dev\n\nWeb UI development:\n\npnpm install\npnpm web:dev\n\nMIT Licensed. Fork it, extend it, make it yours.",
+  "tags": [
+    "200-words",
+    "automation",
+    "crm sales",
+    "demo video",
+    "dench",
+    "denchclaw",
+    "denchclaw fully",
+    "denchhq denchclaw",
+    "discord",
+    "framework",
+    "gateway",
+    "github",
+    "github denchhq",
+    "install",
+    "managed openclaw",
+    "openclaw",
+    "outreach",
+    "pnpm",
+    "restart",
+    "server"
+  ]
+}
