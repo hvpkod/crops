@@ -1,0 +1,26 @@
+{
+  "id": 2565,
+  "source": "Hacker News",
+  "title": "Tell HN: Apple development certificate server seems down?",
+  "url": "https://news.ycombinator.com/item?id=47328034",
+  "published_at": "2026-03-10T19:56:52Z",
+  "fetched_at": "2026-03-10T23:20:19.433992+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47328034\">Comments</a>",
+  "full_text": "Invalid certs according to what? Quoth Claude Code:\n\nOpenSSL can't validate the cert because it contains a critical extension it doesn't recognize — specifically 1.2.840.113635.100.6.27.3.2, which is an Apple-proprietary OID marked as critical. Per X.509 rules, if a client encounters an unrecognized critical extension, it must reject the cert.\n\nThat said, this is likely intentional on Apple's part — browsers and Apple's own TLS stack (SecureTransport/Network.framework) almost certainly know how to handle this extension. It's a private Apple CA (Apple Server Authentication CA) signing an Apple-internal service endpoint, so it's designed to work within Apple's ecosystem rather than with generic OpenSSL.\n\nIn practice:\n\n - Works fine in Apple clients (Safari, curl on macOS using the system TLS stack, iOS apps) \n - Fails with raw OpenSSL or other non-Apple TLS implementations \n - Not a misconfiguration — it's Apple intentionally using a proprietary critical extension on their private PKI",
+  "tags": [
+    "200-words",
+    "apple",
+    "certificate",
+    "critical",
+    "development",
+    "extension",
+    "openssl",
+    "private",
+    "seems",
+    "server",
+    "tell",
+    "tell hn",
+    "tls"
+  ]
+}

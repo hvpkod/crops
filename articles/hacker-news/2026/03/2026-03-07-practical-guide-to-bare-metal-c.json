@@ -1,0 +1,26 @@
+{
+  "id": 2364,
+  "source": "Hacker News",
+  "title": "Practical Guide to Bare Metal C++",
+  "url": "https://arobenko.github.io/bare_metal_cpp/#_abstract_classes",
+  "published_at": "2026-03-07T04:22:20Z",
+  "fetched_at": "2026-03-10T12:00:14.948923+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47284461\">Comments</a>",
+  "full_text": "_entry:\n ldr pc,reset_handler_ptr ;@ Processor Reset handler\n ldr pc,undefined_handler_ptr ;@ Undefined instruction handler\n ldr pc,swi_handler_ptr ;@ Software interrupt\n ldr pc,prefetch_handler_ptr ;@ Prefetch/abort handler.\n ldr pc,data_handler_ptr ;@ Data abort handler/\n ldr pc,unused_handler_ptr ;@\n ldr pc,irq_handler_ptr ;@ IRQ handler\n ldr pc,fiq_handler_ptr ;@ Fast interrupt handler.\n\n ;@ Set the branch addresses\n reset_handler_ptr: .word reset\n undefined_handler_ptr: .word hang\n swi_handler_ptr: .word hang\n prefetch_handler_ptr: .word hang\n data_handler_ptr: .word hang\n unused_handler_ptr: .word hang\n irq_handler_ptr: .word irq_handler\n fiq_handler_ptr: .word hang\n\nreset:\n ;@ Disable interrupts\n cpsid if\n\n ;@ Copy interrupt vector to its place\n ldr r0,=_entry\n mov r1,#0x0000\n\n ;@ Here we copy the branching instructions\n ldmia r0!,{r2,r3,r4,r5,r6,r7,r8,r9}\n stmia r1!,{r2,r3,r4,r5,r6,r7,r8,r9}\n\n ;@ Here we copy the branching addresses\n ldmia r0!,{r2,r3,r4,r5,r6,r7,r8,r9}\n stmia r1!,{r2,r3,r4,r5,r6,r7,r8,r9}",
+  "tags": [
+    "200-words",
+    "addresses",
+    "bare metal",
+    "branching",
+    "copy",
+    "handler",
+    "hang",
+    "interrupt",
+    "ldmia",
+    "practical",
+    "practical guide",
+    "reset",
+    "stmia"
+  ]
+}

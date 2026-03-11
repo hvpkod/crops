@@ -1,0 +1,25 @@
+{
+  "id": 2582,
+  "source": "Hacker News",
+  "title": "Ask HN: How are people doing AI evals these days?",
+  "url": "https://news.ycombinator.com/item?id=47319587",
+  "published_at": "2026-03-10T06:11:42Z",
+  "fetched_at": "2026-03-11T00:00:39.766839+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47319587\">Comments</a>",
+  "full_text": "Very, very heterogenous and fast moving space.\n\nDepending on how they're made up, different teams do vastly different things.\n\nNo evals at all, integration tests with no tooling, some use mixed observability tools like LangFuse in their CI/CD. Some other tools like arize phoenix, deepeval, braintrust, promptfoo, pydanticai throughout their development.\n\nIt's definitely an afterthought for most teams although we are starting to see increased interest.\n\nMy hope is that we can start thinking about evals as a common language for \"product\" across role families so I'm trying some advocacy [1] trying to keep it very simple including wrapping coding agents like Claude. Sandboxing and observability \"for the masses\" is still quite a hard concept but UX getting better with time.\n\nWhat are you doing for yourself/teams? If not much yet, i'd recommend to just start and figure out where the friction/value is for you.\n\n- [1] https://ai-evals.io/ (practical examples https://github.com/Alexhans/eval-ception)",
+  "tags": [
+    "200-words",
+    "ask hn",
+    "different",
+    "doing",
+    "evals",
+    "fast",
+    "heterogenous",
+    "observability",
+    "start",
+    "teams",
+    "tools",
+    "trying"
+  ]
+}

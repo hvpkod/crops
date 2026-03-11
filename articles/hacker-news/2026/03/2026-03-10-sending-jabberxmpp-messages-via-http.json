@@ -1,0 +1,30 @@
+{
+  "id": 2388,
+  "source": "Hacker News",
+  "title": "Sending Jabber/XMPP Messages via HTTP",
+  "url": "https://gultsch.de/posts/xmpp-via-http/",
+  "published_at": "2026-03-10T13:29:21Z",
+  "fetched_at": "2026-03-10T14:00:42.033903+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47322998\">Comments</a>",
+  "full_text": "The goal of this tutorial is to set up a simple REST API that allows you to send XMPP messages to an existing XMPP account. This can be easily integrated into monitoring solutions or other scripts that send out status information.\n\nWhile there are command-line tools like go-sendxmpp that send messages by connecting to an XMPP server directly, this guide is specifically about providing an HTTP interface.\n\ncurl \"https://ntfy.stdmsg.tech:5281/msg/user@example.com\" \\\n -u coffee@ntfy.stdmsg.tech:secret \\\n -H \"Content-Type: text/plain\" \\\n -d \"Your flat white is done\"\n\nHint: If you don’t have an XMPP account to receive these messages, you can create one on a public server from within Conversations (F-Droid, Google Play) or another XMPP client of your choosing.\n\nRequirements\n\nThis guide assumes you have a relatively clean install of Debian 13. However, using other Linux distributions or integrating this into an install with existing services will probably work as well. The only other requirement is that you have a domain. Any subdomain over which you control the A record will do. In this tutorial, we will use the domain ntfy.stdmsg.tech (be sure to replace it with your own).\n\nSetup\n\nInstallation\n\nWe are installing Prosody IM, the community modules and certbot (to get certificates).\n\napt install prosody prosody-modules lua-unbound liblua5.4-dev certbot\n\nThe Prosody community module we need doesn’t come with the prosody-modules Debian package. We are going to use the Prosody plugin installer instead.\n\nprosodyctl install --server=https://modules.prosody.im/rocks/ mod_post_msg\n\nConfiguration\n\nWe will be creating a mininal configuration file for Prosody, usually a regular XMPP server, that has everything disabled, except for the stuff that is required to provide the REST API.\n\nReplace /etc/prosody/prosody.cfg.lua with this configuration:\n\npidfile = \"/var/run/prosody/prosody.pid\"\n\nmodules_enabled = {\n \"tls\";\n \"dialback\";\n \"http\";\n \"admin_shell\";\n \"post_msg\";\n}\nmodules_disabled = {\n \"c2s\";\n \"offline\";\n}\n\nlog = {\n info = \"prosody.log\";\n error = \"prosody.err\";\n}\n\ncertificates = \"certs\"\n\nVirtualHost \"ntfy.stdmsg.tech\"\n\nGetting certificates\n\nWe are using certbot to retrieve Let’s Encrypt certificates. If you already have a certbot setup make sure to change the --standalone parameter to something more suitable.\n\ncertbot certonly --standalone -d ntfy.stdmsg.tech\nprosodyctl --root cert import /etc/letsencrypt/live/\n\nThis assumes you have the A record of your domain pointed to your server.\n\nCheck and first start\n\nYou can use prosodyctl check to check over the configuration file. Afterwards restart Prosody with the new configuration file.\n\nsystemctl restart prosody\n\nYou can use ss -ltnp to check if Prosody is running on port 5269 (XMPP S2S) and port 5281 (The HTTPS port used for the REST API).\n\nSend your first message\n\nCreating a user\n\nprosodyctl adduser coffee@ntfy.stdmsg.tech\n\nEnter a password of your choice when prompted. We pick “secret” in this example.\n\nUsing the REST API\n\ncurl \"https://ntfy.stdmsg.tech:5281/msg/user@example.com\" \\\n -u coffee@ntfy.stdmsg.tech:secret \\\n -H \"Content-Type: text/plain\" \\\n -d \"Your flat white is done\"\n\nThe user@example.com (part of the path) is the recipient. The -u part is the user you’ve just created and its password. It’s the sender of the XMPP message.\n\nYou can create multiple users depending on how much seperation of concern you want.\n\n \n\nA notification on Android from the app Conversations that shows the message ‘Your flat white is done’ coming from the user ‘coffee’\n \n\nAdditional reading\n\nThe module we are using is called mod_post_msg. Its documentation describes how it can take JSON payloads, if this is more appropriate for your use case.\n\nYou can also configure the built-in HTTP server and/or put it behind a reverse proxy.\n\nFor a more permanent setup, you might want to look into setting up a certbot hook that reimports fresh certificates into Prosody.",
+  "tags": [
+    "1000-words",
+    "certbot",
+    "check",
+    "configuration",
+    "content type",
+    "http",
+    "install",
+    "messages",
+    "prosody",
+    "prosodyctl",
+    "rest",
+    "rest api",
+    "send",
+    "sending jabber",
+    "xmpp",
+    "xmpp messages",
+    "you"
+  ]
+}

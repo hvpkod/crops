@@ -1,0 +1,32 @@
+{
+  "id": 2577,
+  "source": "Hacker News",
+  "title": "Networking with agents: Put them in the right conversations with Tailscale",
+  "url": "https://blog.firetiger.com/networking-with-agents-how-to-put-them-in-the-right-conversations/",
+  "published_at": "2026-03-10T18:38:44Z",
+  "fetched_at": "2026-03-11T00:00:26.942496+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47327163\">Comments</a>",
+  "full_text": "We briefly considered prompting our agents with the classic networking playbook: polish the profile, craft a compelling personal narrative, ask for warm intros, comment “Insightful perspective” on questionable posts about politics in the workplace. Sadly, this did not help them reach your private Postgres database.\n\nIn theory, Firetiger Database Agents can administrate your Postgres, MySQL, and Clickhouse on autopilot. In reality, your database likely lives on a private network, never to be touched by the outside world. Surely you are doomed to a life of database blind spots, pain and suffering, right?\n\nWrong! Because thanks to good tools like Tailscale, connecting two things on the Internet is finally a solved problem. And now, you can connect Firetiger to your Tailnet, allowing Firetiger DBAs and other Agents to securely observe and operate your privately networked infrastructure.\n\nWhy is this needed?\n\nMost interesting databases live on private networks. This creates a real problem for any system running on the Internet, Firetiger included, that needs to actually talk to those databases.\n\nThere are a few options to bridge the gap from agent on one network to database on another. VPC peering, but you'll hit overlapping CIDR blocks on the count of three. AWS PrivateLink, which works great if everyone is on AWS and you enjoy configuring Network Load Balancers for fun. Site-to-site VPNs, code for “six hours debugging IPsec tunnels”. Bastion hosts, which are lovely until someone forgets to rotate the SSH keys.\n\nEnter Firetiger Network Transports\n\nWe built Firetiger Network Transports as a way to connect agents to private network resources. A network transport is how Firetiger gets from our infrastructure to yours: the underlay for your connections. By default, we use the public internet. But now you can plug in other methods, with the first we're shipping Tailscale.\n\nTailscale makes connecting two things on the Internet very simple: You install it on both sides, and they can securely talk to each other with end-to-end encryption. It works no matter what cloud you're on, what NAT you're behind, or how your VPC is configured. \n\nWith our Tailscale transport, Firetiger joins your Tailnet as an ephemeral device, scoped to the permissions you define in Tailscale’s identity-based access controls. Your database stays off the public internet, without sacrificing secure access.\n\nHere’s how it works:\n\nGrant Firetiger access to your database within your Tailnet\n\nUpdate Tailscale ACLs accordingly. For example:{\n // create a new tag for firetiger devices\n \"tagOwners\": {\n \"tag:firetiger\": [\"autogroup:admin\"]\n },\n // Allow firetiger devices to connect to your postgres databases\n \"grants\": [\n {\n \"src\": [\"tag:firetiger\"],\n \"dst\": [\"*\"],\n \"ip\": [\"5432\"]\n }\n ]\n}\n\nCreate Tailscale Credentials for Firetiger\n\nYou’ll need to give it permission to write Auth Keys, for the tag you created earlier. This allows Firetiger to connect to your Tailnet using ephemeral devices\n\nCreate a Firetiger Tailscale Network Transport\n\nFiretiger Network Transports allow you to proxy connections to your infrastructure by various means, including Tailscale. Here we create Tailscale Network Transport, and plug in our Tailscale OAuth Credentials:\n\nCreate a Connection Using Your Tailscale Network Transport\n\nFinally, you can connect your database (or any other connection type) to Firetiger, and configure it to use the tailscale network transport.\n\nConfigure your agent\n\nSet up our preconfigured DBA (database agent) to make sure your database is healthy, or build custom agents with outcomes and objectives specific to your company. Thanks to Firetiger Network Transports, our agents can help you get to good outcomes even if your database is ensconced on a private network.\n\nThat’s it! \n\nFor a complete end-to-end example, check out this guide on how to connect your private database to Firetiger using Tailscale.\n\nYou can sign up for Firetiger today and give Network Transports a spin.",
+  "tags": [
+    "1000-words",
+    "agents",
+    "agents how",
+    "connect",
+    "create",
+    "database",
+    "firetiger",
+    "firetiger network",
+    "network",
+    "network transports",
+    "networking",
+    "private",
+    "put them",
+    "right conversations",
+    "tailnet",
+    "tailscale",
+    "tailscale network",
+    "transport",
+    "transports"
+  ]
+}

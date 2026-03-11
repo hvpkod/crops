@@ -1,0 +1,31 @@
+{
+  "id": 2372,
+  "source": "The Verge",
+  "title": "Google’s Gemini AI is getting a bigger role across Docs, Sheets, and Slides",
+  "url": "https://www.theverge.com/tech/890996/google-workspace-gemini-ai-docs-sheets-drive",
+  "published_at": "2026-03-10T13:00:00Z",
+  "fetched_at": "2026-03-10T13:20:31.321444+00:00",
+  "author": "Emma Roth",
+  "summary": "<figure>\n\n<img alt=\"The Gemini logo on a background of illustrated AI sparkles.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/STK255_Google_Gemini_B.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Google is <a href=\"https://blog.google/products-and-platforms/products/workspace/gemini-workspace-updates-march-2026\">embedding its Gemini AI assistant</a> even more deeply within its Workspace apps. The changes, <a href=\"https://workspace.google.com/blog/product-announcements/reimagining-content-creation?e=reset\">which are rolling out to Google Workspace</a> and AI plan subscribers, include a new Gemini chat window inside Google Docs, a way to generate entire spreadsheets with AI, and a new Gemini-powered search feature in Drive.</p>\n<p class=\"has-text-align-none\">While Google Docs already shows you a few AI writing options alongside your blinking cursor, now you'll see a Gemini chat windo",
+  "full_text": "Google is embedding its Gemini AI assistant even more deeply within its Workspace apps. The changes, which are rolling out to Google Workspace and AI plan subscribers, include a new Gemini chat window inside Google Docs, a way to generate entire spreadsheets with AI, and a new Gemini-powered search feature in Drive.\n\nWhile Google Docs already shows you a few AI writing options alongside your blinking cursor, now you’ll see a Gemini chat window at the bottom of your screen. There, you’ll get the option to describe to Gemini the kind of document you’d like to create, and the AI assistant will use information from the web, Drive, Gmail, and Chat to generate and fully format a draft. You can also ask Gemini to match an existing document’s format, which should save you some time editing the new doc’s style and structure.\n\nGoogle is making some tweaks to the Gemini-powered editing features in Docs as well. If you’re working on a document with other people, you can now highlight their text and select “Match writing style.” Gemini will then analyze the tone of your document and rewrite the text accordingly. It can also make changes throughout your document based on a prompt, while showing its suggestions in-line — similar to if someone else is editing your document. Google notes that these suggestions will be private until you approve them.\n\nWith this rollout, Yulie Kwon Kim, Google’s VP of product for Workspace, says Google aims to put Gemini “in the places where people work,” so users don’t have to navigate to a separate app or website. “When you are, for example, wanting to write a report, or write a customer brief, people are turning to Docs,” Kwon Kim says. “You can get the assistance from Gemini right where you are in your familiar place, where you’re doing your everyday work.”\n\nGemini can make changes throughout your document, even if you don’t select a specific section to refine. GIF: Google\n\nGemini is getting a bigger role in Sheets, too, as you can now ask Gemini to generate an entire spreadsheet — not just tables — by describing it. Gemini will use data across your files, emails, chats, and the web to create the spreadsheet. You can even have Gemini fill your tables using information from an existing spreadsheet or the web, which goes beyond the AI function that Google rolled out last year.\n\nDuring a briefing, Google showed how Gemini can search for and fill columns with the locations, revenue, and market capitalization of a list of companies inside a spreadsheet. Another feature coming to Sheets will help you solve “analytical tasks” by describing what you need in the app’s side panel. “For instance, you can ask Gemini to optimize your weekly employee scheduling to maximize profit while balancing staff availability and required skills,” Google says in its announcement.\n\nMeanwhile, a Gemini-powered upgrade heading to Slides allows you to ask the AI assistant to generate a slide for you. Gemini can automatically insert copy and format the slide to match the rest of your deck. You can even prompt Gemini to edit your slide, which means you won’t have to fiddle with manually formatting text or images if you don’t want to. Google plans to roll out the ability to generate an entire presentation based on a text prompt and your Workspace data “soon.”\n\nAnd, in case you’re having trouble managing all your files across Workspace, Google is trying to roll out a solution for that by transforming the app from a “passive storage container into an active knowledge base.” When you search for a file in Drive using natural language, Google now presents you with an AI Overview — similar to the one you see on Google Search. But instead of summing up results from the web, it will return a list of relevant documents, or answer your question with citations. You can also use a new “Ask Gemini in Drive” feature to ask the AI assistant about your stored files, or the information in Gmail, Calendar, and Chat. Google says you can “control which sources are included in your search,” as well as narrow your focus to a certain group of folders.\n\nThese new features will come with the same “enterprise-grade data protections as the rest of Workspace,” according to Google. This update is rolling out now in English to Google AI Pro and Ultra subscribers, as well as for Workspace customers with Gemini Alpha enabled.\n\nFollow topics and authors from this story to see more like this in your personalized homepage feed and to receive email updates.\nEmma Roth\n\nAI\n\nApps\n\nGoogle\n\nNews\n\nTech",
+  "tags": [
+    "1000-words",
+    "assistant",
+    "chat",
+    "docs sheets",
+    "document",
+    "entire",
+    "fortnox world",
+    "gemini",
+    "gemini ai",
+    "generate",
+    "google",
+    "google docs",
+    "kwon kim",
+    "search",
+    "slides",
+    "text",
+    "workspace",
+    "you"
+  ]
+}

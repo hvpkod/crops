@@ -1,0 +1,29 @@
+{
+  "id": 2563,
+  "source": "Hacker News",
+  "title": "Cloudflare Crawl Endpoint",
+  "url": "https://developers.cloudflare.com/changelog/post/2026-03-10-br-crawl-endpoint/",
+  "published_at": "2026-03-10T22:27:15Z",
+  "fetched_at": "2026-03-10T23:20:16.750783+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47329557\">Comments</a>",
+  "full_text": "You can now crawl an entire website with a single API call using Browser Rendering's new /crawl endpoint, available in open beta. Submit a starting URL, and pages are automatically discovered, rendered in a headless browser, and returned in multiple formats, including HTML, Markdown, and structured JSON. This is great for training models, building RAG pipelines, and researching or monitoring content across a site.\n\nCrawl jobs run asynchronously. You submit a URL, receive a job ID, and check back for results as pages are processed.\n\ncurl -X POST 'https://api.cloudflare.com/client/v4/accounts/{account_id}/browser-rendering/crawl' \\\n\n -H 'Authorization: Bearer <apiToken>' \\\n\n -H 'Content-Type: application/json' \\\n\n \"url\": \"https://blog.cloudflare.com/\"\n\ncurl -X GET 'https://api.cloudflare.com/client/v4/accounts/{account_id}/browser-rendering/crawl/{job_id}' \\\n\n -H 'Authorization: Bearer <apiToken>'\n\nKey features:\n\nMultiple output formats - Return crawled content as HTML, Markdown, and structured JSON (powered by Workers AI)\n\nCrawl scope controls - Configure crawl depth, page limits, and wildcard patterns to include or exclude specific URL paths\n\nAutomatic page discovery - Discovers URLs from sitemaps, page links, or both\n\nIncremental crawling - Use modifiedSince and maxAge to skip pages that haven't changed or were recently fetched, saving time and cost on repeated crawls\n\nStatic mode - Set render: false to fetch static HTML without spinning up a browser, for faster crawling of static sites\n\nWell-behaved bot - Honors robots.txt directives, including crawl-delay\n\nAvailable on both the Workers Free and Paid plans.\n\nTo get started, refer to the crawl endpoint documentation.\nIf you are setting up your own site to be crawled, review the robots.txt and sitemaps best practices.",
+  "tags": [
+    "500-words",
+    "api",
+    "authorization bearer",
+    "available",
+    "browser",
+    "browser rendering",
+    "call",
+    "crawl",
+    "entire",
+    "html markdown",
+    "page",
+    "pages",
+    "single",
+    "static",
+    "submit",
+    "url"
+  ]
+}

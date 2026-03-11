@@ -1,0 +1,25 @@
+{
+  "id": 2386,
+  "source": "Hacker News",
+  "title": "Rebasing in Magit",
+  "url": "https://entropicthoughts.com/rebasing-in-magit",
+  "published_at": "2026-03-10T13:38:39Z",
+  "fetched_at": "2026-03-10T14:00:37.185625+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47323105\">Comments</a>",
+  "full_text": "Here I have opened the git log1 I’m sorry about the mouse cursor – it’s an\nartifact of selecting the area to screenshot., by first opening Magit (which I\nhave bound to the F3 key), and then pressing lL. The first l is the prefix\nkey for dealing with the git log, and the second L is to to view the log for\nall local branches (and the remote branches they track.)\n\nHypothetically, if we wanted to run a more complicated log command, it is very\neasy to do that in Magit. When we press the first l and pause for a moment,\nMagit shows us unintrusive hints for all options that are available:\n\nThis means we don’t have to remember exactly which options there are because if\nwe need them, Magit will remind us. Some examples:\n\nTo limit to a particular author, we type -A and then Magit gives us a\nfuzzy-matching list of all repository authors. We can either browse that list,\nor type the name of the author we are interested in and press return to\nconfirm.\n\nTo limit the date range of the log, we type =u and then Magit gives us a\ncalendar view in which we can select a date, or type one manually.\n\nThen we want a graph view with colour and decorations and no merge commits.\nThis is already enabled by default in this configuration. (Indicated by bold\nand highlighted flag names.)\n\nWe want to see file diffstats, so we type -s.\n\nOh, and we only care about files in the tests subdirectory, so we type --\nto limit to files and then type tests and confirm with return.\n\nWith this configuration, we want to look at all branches, including remote ones.\nWe get that view by finally pressing b.\n\nThis is a high level of discoverability for git! I have always been that guy\nlisted in git.txt, but Magit’s discoverability still teaches me a lot of new\nways to use git. But it’s not only discoverable, it’s also quick. Here’s the\nfull sequence of keypresses, with ␍ standing for confirming with return:\n\nl-Akqr␍=u2025-06-01␍-s--tests␍b\n\nThat looks complicated, but remember how we built it: we looked at the hints and\nselected one option at a time. Now, if this is a log type we’ll use often, we\nare going to start to be able to write out that incantation without even looking\nat the hints. It’s both discoverable and efficient.\n\nThe corresponding git command in the shell would have been\n\nIn[1]:\n\n$ git log --branches --remote --author=kqr --until=2025-06-01 \\\n --graph --color --decorate --no-merges --stat -- tests\n\nHow do I know? Because it’s right there in the Magit log hints! If Magit\nhadn’t told me, I would have to spend a lot of time going back and forth between\nthe man page and the command line.\n\nPeople worry that if you use more interactive interfaces to git, you’ll get\nworse at managing the git command line. Not so with Magit. Magit is completely\ntransparent and encourages you to understand which git commands it is executing\nunder the hood.\n\nThis might seem like an excessive rant about the git log in an article\nostensibly about rebasing, but there’s a reason for that: the git log is how\nwe’ll understand the structure of our repo. And because in Magit, the git log is\ninteractive.",
+  "tags": [
+    "1000-words",
+    "branches",
+    "command",
+    "limit",
+    "magit",
+    "press",
+    "pressing",
+    "rebasing",
+    "remote",
+    "tests",
+    "type",
+    "view"
+  ]
+}

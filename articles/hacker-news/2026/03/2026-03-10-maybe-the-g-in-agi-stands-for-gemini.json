@@ -1,0 +1,27 @@
+{
+  "id": 2505,
+  "source": "Hacker News",
+  "title": "Maybe the G in AGI stands for Gemini",
+  "url": "https://www.robinsloan.com/lab/gemini-agi/",
+  "published_at": "2026-03-10T18:37:18Z",
+  "fetched_at": "2026-03-10T20:00:19.783753+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47327143\">Comments</a>",
+  "full_text": "This is a post from Robin Sloan’s lab blog & notebook. You can visit the blog’s homepage, or learn more about me.\n\nMarch 3, 2026\n\nNew Gemini model out today: 3.1 Flash-Lite, super­fast and very capable.\n\nThe Gemini models remain my favorites: for their speed, price, and versatility, espe­cially in visual tasks. Keep in mind that I am weaving these models pro­gram­mat­i­cally into other systems, rather than yap­ping with them — although I think Gemini is a fine yapper, too.\n\nAs Anthropic and OpenAI lean HARD into the coding agent thing — tuning their models heavily for the task — Google con­tinues to expand and refine a flexible … dare I say general … intelligence.\n\nP.S. Although, let me add, the quick dep­re­ca­tion of Gemini 3 Pro is annoying and irresponsible. This isn’t just a Google thing — although this model had a notably mayfly existence — and there is really no telling if or when any model you depend on will be yanked away. Even if the replace­ment is “better” according to many benchmarks, it might also con­tain unpre­dictable regres­sions along subtle dimensions. (You can browse the responses to Google’s dep­re­ca­tion announcement for examples.)\n\nThis issue is totally resolved with a self-hosted model, of course, but there aren’t yet any self-hosted models with Gemini’s visual acuity. I do expect that to change before too long!\nTo the blog home page\n\nI’m Robin Sloan, a writer, printer, & manufacturer. The best thing to do here is sign up for my email newsletter:\n\nThis web­site doesn’t col­lect any infor­ma­tion about you or your reading. It aspires to the speed and pri­vacy of the printed page.\n\nDon’t miss the colophon. Hony soyt qui mal pence",
+  "tags": [
+    "500-words",
+    "agi",
+    "ai",
+    "although",
+    "gemini",
+    "google",
+    "maybe",
+    "model",
+    "models",
+    "robin",
+    "robin sloan",
+    "stands",
+    "thing",
+    "visual"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": 2506,
+  "source": "Hacker News",
+  "title": "RISC-V Is Sloooow",
+  "url": "https://marcin.juszkiewicz.com.pl/2026/03/10/risc-v-is-sloooow/",
+  "published_at": "2026-03-10T20:11:54Z",
+  "fetched_at": "2026-03-10T20:40:13.239766+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47328214\">Comments</a>",
+  "full_text": "About 3 months ago I started working with RISC-V port of Fedora\nLinux.\nMany things happened during that time.\n\nTriaging\n\nI went through the Fedora RISC-V tracker\nentries, triaged most of them (at the moment 17 entries left in NEW) and tried\nto handle whatever possible.\n\nFedora packaging\n\nMy usual way of working involves fetching sources of a Fedora package (fedpkg\nclone -a) and then building it (fedpkg mockbuild -r fedora-43-riscv64). After\nsome time, I check did it built and if not then I go through build logs to find\nout why.\n\nEffect? At the moment,\n86 pull requests sent for Fedora packages.\nFrom heavy packages like the “llvm15” to simple ones like the “iyfct” (some\nsimple game). At the moment most of them were merged, and most of these got\nbuilt for the Fedora 43. Then we can build them as well as we follow\n‘f43-updates’ tag on the Fedora koji.\n\nSlowness\n\nWork on packages brings the hard, sometimes controversial, topic: speed. Or\nrather lack of it.\n\nYou see, the RISC-V hardware at the moment is slow. Which results in terrible\nbuild times — look at details of the binutils 2.45.1-4.fc43 package:\n\nArchitecture\nCores\nMemory\nBuild time\n\naarch64\n12\n46 GB\n36 minutes\n\ni686\n8\n29 GB\n25 minutes\n\nppc64le\n10\n37 GB\n46 minutes\n\nriscv64\n8\n16 GB\n143 minutes\n\ns390x\n3\n45 GB\n37 minutes\n\nx86_64\n8\n29 GB\n29 minutes\n\nAlso worth mentioning is that the current build of RISC-V Fedora port is done\nwith disabled LTO. To cut on memory usage and build times.\n\nRISC-V builders have four or eight cores with 8, 16 or 32 GB of RAM (depending\non a board). And those cores are usually compared to Arm Cortex-A55 ones. The\nlowest cpu cores in today’s Arm chips.\n\nThe UltraRISC UR-DP1000 SoC, present on the Milk-V Titan motherboard should\nimprove situation a bit (and can have 64 GB ram). Similar with SpacemiT K3-based\nsystems (but only 32 GB ram). Both will be an improvement, but not the final solution.\n\nWe need hardware capable of building above “binutils” package below one hour.\nWith LTO enabled system-wide etc. And it needs to be rackable and manageable\nlike any other boring server. Without it, we can not even plan for the RISC-V\n64-bit architecture to became one of official, primary architectures in Fedora Linux.\n\nI still use QEMU\n\nSuch long build times make my use of QEMU useful. You see, with 80 emulated\ncores, I can build the “llvm15” package in about 4 hours. Compare that to 10.5\nhours on a Banana Pi BPI-F3 builder (it may be quicker on a P550 one).\n\nbtop shows 80 cores being busy\n\nAnd LLVM packages make real use of both available cores and memory. I am\nwondering how fast would it go on 192/384 cores of Ampere One-based system.\n\nFuture plans\n\nWe plan to start building Fedora Linux 44. If things go well, we will use the\nsame kernel image on all of our builders (the current ones use a mix of kernel\nversions). LTO will still be disabled.\n\nWhen it comes to lack of speed… There are plans to bring new, faster builders.\nAnd probably assign some heavier packages to them.",
+  "tags": [
+    "1000-words",
+    "build",
+    "building",
+    "cores",
+    "fedora",
+    "fedora linux",
+    "lto",
+    "marcin juszkiewicz",
+    "minutes",
+    "moment",
+    "package",
+    "packages",
+    "port",
+    "risc",
+    "working"
+  ]
+}

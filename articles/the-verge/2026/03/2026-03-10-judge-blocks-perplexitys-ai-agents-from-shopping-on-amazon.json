@@ -1,0 +1,25 @@
+{
+  "id": 2482,
+  "source": "The Verge",
+  "title": "Judge blocks Perplexity’s AI agents from shopping on Amazon",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/892401/amazon-perplexity-ai-shopping-agent-court-order",
+  "published_at": "2026-03-10T18:11:43Z",
+  "fetched_at": "2026-03-10T18:40:39.723510+00:00",
+  "author": "Emma Roth",
+  "summary": "<figure>\n\n<img alt=\"Vector collage of the Perplexity logo.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25472498/STK271_PERPLEXITY_A.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">A federal judge has issued an order blocking Perplexity's web browser-based AI agents from placing Amazon orders on a user's behalf, as <a href=\"https://www.bloomberg.com/news/articles/2026-03-10/amazon-wins-court-order-blocking-perplexity-s-ai-shopping-bots\">reported earlier by <em>Bloomberg</em></a>. In <a href=\"https://www.documentcloud.org/documents/27822873-amazon-v-perplexity-injunction/\">a ruling on Monday</a>, US District Judge Maxine Chesney writes that Amazon has \"provided strong evidence\" that Perplexity's Comet browser accesses user accounts \"without authorization\" from the retail giant. </p>\n<p class=\"has-text-align-none\">Amazon sued Perplexity in November, <a href=\"h",
+  "full_text": "A federal judge has issued an order blocking Perplexity’s web browser-based AI agents from placing Amazon orders on a user’s behalf, as reported earlier by Bloomberg. In a ruling on Monday, US District Judge Maxine Chesney writes that Amazon has “provided strong evidence” that Perplexity’s Comet browser accesses user accounts “without authorization” from the retail giant.\n\nAmazon sued Perplexity in November, alleging that it “repeatedly requested” that the AI startup stop letting its agents buy products for customers. The company accused Perplexity of “intruding” into its marketplace and user accounts with Comet’s agentic shopping feature, in violation of computer fraud and abuse laws. Amazon also alleged that Perplexity attempted to “conceal” its agentic activities by “misrepresenting the Comet browser as Google Chrome.”\n\nUnder the preliminary injunction, Perplexity must not access Amazon using its AI agents and must destroy any data from Amazon that it may have obtained. The preliminary injunction will take effect in seven days to allow time for Perplexity to appeal.\n\nIn a statement to Bloomberg, Amazon spokesperson Lara Hendrickson says the ruling “will prevent Perplexity’s unauthorized access to the Amazon store,” adding that the company looks forward to “continuing to make our case in court.” Meanwhile, Perplexity spokesperson Jesse Dwyer tells The Verge that the startup “will continue to fight for the right of internet users to choose whatever AI they want.”",
+  "tags": [
+    "500-words",
+    "accounts",
+    "agents",
+    "amazon",
+    "browser",
+    "comet",
+    "fortnox world",
+    "judge",
+    "perplexity",
+    "ruling",
+    "shopping",
+    "user"
+  ]
+}

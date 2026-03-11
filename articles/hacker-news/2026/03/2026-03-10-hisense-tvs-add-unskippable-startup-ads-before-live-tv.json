@@ -1,0 +1,27 @@
+{
+  "id": 2389,
+  "source": "Hacker News",
+  "title": "Hisense TVs add unskippable startup ads before live TV",
+  "url": "https://www.guru3d.com/story/hisense-vidaa-tvs-reportedly-add-unskippable-startup-ads-before-live-tv/",
+  "published_at": "2026-03-10T13:26:47Z",
+  "fetched_at": "2026-03-10T14:00:43.486033+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47322966\">Comments</a>",
+  "full_text": "Hisense Smart TV owners are reporting a new ad placement that goes beyond the usual home-screen tiles and sponsored recommendations: a mandatory advertisement shown immediately after powering on the TV. According to user posts, the ad appears before viewers can reach live TV or the first channel, even when the goal is simply to watch traditional broadcast programming rather than launch a streaming app. Similar complaints also reference Toshiba and JVC-branded televisions that run the same VIDAA operating system, which suggests the behavior is linked to the platform layer rather than a single model.\n\nThe issue isn’t just that an ad exists—it’s how it’s delivered. Users describe the placement as unskippable, meaning the TV UI does not allow you to dismiss it or bypass it to reach channels or inputs. Instead, the startup flow is effectively paused until the ad completes. That’s a meaningful change in the baseline experience: advertising becomes part of the “power-on path,” not something you can ignore on a menu screen. For buyers who treat live TV access as a basic function, the idea that you must watch an ad before the tuner experience is what’s generating most of the backlash.\n\n \n \n\nThere’s also a broader context here around VIDAA’s advertising ambitions. Nexxen has publicly positioned itself as a programmatic partner for VIDAA-native Smart TV inventory, enabling advertisers to buy and serve ads dynamically through automated systems. Programmatic matters because it scales: once the operating system supports an ad slot, it can be consistently filled without relying on individual apps to carry the monetization burden.\n\nPrivacy concerns are now getting pulled into the discussion as well. \n\nSome users claim the startup ads appeared even after disabling data-consent options, which—whether it’s a settings mismatch, a firmware change, or a regional policy difference—creates a perception problem. VIDAA’s own data documentation outlines the categories of information a VIDAA Smart TV can generate, including device identifiers and region/location settings, network connectivity data such as WAN IP address, and viewing/usage entries that list TV turn on/off time and watching history as examples. With that level of platform visibility, it’s easy to see why users assume the OS can support increasingly granular ad delivery inside the UI.\n\nAt this point, Hisense hasn’t been tied (in the provided reports) to a clear, consumer-facing toggle that disables the startup placement entirely. If this is a controlled rollout, the next question for owners will be whether it becomes optional, region-limited, or expands across more parts of the interface. Because once forced ads show up before live TV, users tend to respond the same way: they look for ways to bypass the built-in platform, or they stop buying into it altogether.\n\nSource: Reddit",
+  "tags": [
+    "500-words",
+    "hisense",
+    "hisense vidaa",
+    "live",
+    "owners",
+    "placement",
+    "reach",
+    "smart",
+    "smart tv",
+    "startup",
+    "tvs",
+    "users",
+    "vidaa",
+    "watch"
+  ]
+}

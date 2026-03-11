@@ -1,0 +1,26 @@
+{
+  "id": 2494,
+  "source": "Hacker News",
+  "title": "FFmpeg-over-IP – Connect to remote FFmpeg servers",
+  "url": "https://github.com/steelbrain/ffmpeg-over-ip",
+  "published_at": "2026-03-10T18:26:39Z",
+  "fetched_at": "2026-03-10T19:20:14.577396+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47327015\">Comments</a>",
+  "full_text": "Use GPU-accelerated ffmpeg from anywhere — a Docker container, a VM, or a remote machine — without GPU passthrough or shared filesystems.\n\nGPU transcoding is powerful, but getting access to the GPU is painful:\n\nDocker containers need --runtime=nvidia, device mounts, and driver version alignment between host and container\n\nVirtual machines need PCIe passthrough or SR-IOV — complex setup that locks the GPU to one VM\n\nRemote machines need shared filesystems (NFS/SMB) with all the path mapping, mount maintenance, and permission headaches that come with them\n\nYou just want your media server to use the GPU for transcoding. You shouldn't need to restructure your infrastructure to make that happen.\n\nRun the ffmpeg-over-ip server on the host (or any machine with a GPU). Point your app at the client binary instead of ffmpeg. Done — your app gets GPU-accelerated transcoding without needing direct GPU access.\n\nThe client pretends to be ffmpeg. It forwards arguments to the server, which runs a patched ffmpeg that tunnels all file I/O back through the connection. Files are never stored on the server.\n\nCLIENT (has files, no GPU) SERVER (has GPU)\n======================== ===========================\n\nMedia server invokes \"ffmpeg\" Daemon listening on :5050\n | |\n ffmpeg-over-ip-client ffmpeg-over-ip-server\n | |\n +--------- TCP connection ------------>+\n | |\n Local filesystem patched ffmpeg\n (real files) (file I/O tunneled back to client)\n\nNo GPU passthrough. No shared filesystem. No NFS. No SMB. Just one TCP port.\n\nReleases include pre-built ffmpeg and ffprobe binaries with broad hardware acceleration support (NVENC, QSV, VAAPI, AMF, VideoToolbox, and more) — built on the jellyfin-ffmpeg pipeline. No need to install ffmpeg separately on either side.\n\nSee docs/quick-start.md to get up and running in a few minutes.\n\nSee docs/upgrading.md for migration guide and breaking changes.\n\nSee docs/configuration.md for full configuration reference (config file search paths, server/client options, rewrites, logging, address formats).\n\nSee docs/docker.md for Docker integration, Unix socket setup, and debugging tips.\n\nYour media server calls ffmpeg-over-ip-client with normal ffmpeg arguments\n\nThe client connects to the server and sends the command with HMAC authentication\n\nThe server launches its patched ffmpeg, which tunnels all file reads and writes back to the client\n\nstdout/stderr are forwarded in real-time; when ffmpeg exits, the client exits with the same code\n\nMultiple clients can connect to the same server simultaneously — each session gets its own ffmpeg process.\n\nClient\nServer + ffmpeg\n\nLinux x86_64\n✓\n✓\n\nLinux arm64\n✓\n✓\n\nmacOS arm64\n✓\n✓\n\nmacOS x86_64\n✓\n✓\n\nWindows x86_64\n✓\n✓\n\nSee docs/troubleshooting.md for common issues and debugging tips.\n\nSee CONTRIBUTING.md for build instructions, running tests, and project structure.\n\nAuthentication: HMAC-SHA256 with a shared secret. Every command is signed.\n\nSingle port: Only the server listens on a port. The client makes outbound connections only.\n\nSplit license — see LICENSE.md. The fio layer and ffmpeg patches (fio/, patches/) are GPL v3 (derived from ffmpeg). Everything else is MIT.",
+  "tags": [
+    "500-words",
+    "client",
+    "connect",
+    "docker",
+    "ffmpeg",
+    "file",
+    "github",
+    "gpu",
+    "media",
+    "patched",
+    "remote",
+    "server",
+    "shared"
+  ]
+}

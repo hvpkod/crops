@@ -1,0 +1,26 @@
+{
+  "id": 2445,
+  "source": "Hacker News",
+  "title": "MariaDB innovation: vector index performance",
+  "url": "http://smalldatum.blogspot.com/2026/02/mariadb-innovation-vector-index.html",
+  "published_at": "2026-03-07T20:22:48Z",
+  "fetched_at": "2026-03-10T18:00:13.600338+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47291124\">Comments</a>",
+  "full_text": "Last year I shared many posts documenting MariaDB performance for vector search using ann-benchmarks. Performance was great in MariaDB 11 and this blog post explains that it is even better in MariaDB 12. This work was done by Small Datum LLC and sponsored by the MariaDB Foundation. My previous posts were published in January and February 2025.\n\ntl;dr\n\nVector search recall vs precision in MariaDB 12.3 is better than in MariaDB 11.8\nVector search recall vs precision in Maria 11.8 is better than in Postgres 18.2 with pgvector 0.8.1\nThe improvements in MariaDB 12.3 are more significant for larger datasets\nMariaDB 12.3 has the best results because it use less CPU per query, This is confirmed by running vmstat in the background.Benchmark\n\nThis time I used the dbpedia-openai-X-angular tests for X in 100k, 500k and 1000k.\n\nFor hardware I used a larger server (Hetzner ax162-s) with 48 cores, 128G of RAM, Ubuntu 22.04 and HW RAID 10 using 2 NVMe devices. \n\nFor databases I used:\n\nMariaDB versions 11.8.5 and 12.3.0 with this config file. Both were compiled from source. \nPostgres 18.2 with pgvector 0.8.1 with this config file. These were compiled from source. For Postgres tests were run with and without halfvec (float16).\n\nI had ps and vmstat running during the benchmark and confirmed there weren't storage reads as the table and index were cached by MariaDB and Postgres.\n\nThe command lines to run the benchmark using my helper scripts\n\n are: bash rall.batch.sh v1 dbpedia-openai-100k-angular c32r128\n\n bash rall.batch.sh v1 dbpedia-openai-500k-angular c32r128\n\n bash rall.batch.sh v1 dbpedia-openai-1000k-angular c32r128\n\nResults: dbpedia-openai-100k-angular\n\nSummary\n\nMariaDB 12.3 has the best results\nthe difference between MariaDB 12.3 and 11.8 is smaller here than it is below for 500k and 1000k\n\nResults: dbpedia-openai-500k-angular\n\nSummary\n\nMariaDB 12.3 has the best results\nthe difference between MariaDB 12.3 and 11.8 is larger here than above for 100k\n\nResults: dbpedia-openai-1000k-angular\n\nSummary\n\nMariaDB 12.3 has the best results\nthe difference between MariaDB 12.3 and 11.8 is larger here than it is above for 100k and 500k",
+  "tags": [
+    "500-words",
+    "ai",
+    "bash",
+    "best",
+    "better",
+    "larger",
+    "mariadb",
+    "performance",
+    "postgres",
+    "results",
+    "search",
+    "summary mariadb",
+    "vector"
+  ]
+}

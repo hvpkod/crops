@@ -1,0 +1,33 @@
+{
+  "id": 2325,
+  "source": "Slashdot",
+  "title": "European Consortium Wants Open-Source Alternative To Google Play Integrity",
+  "url": "https://news.slashdot.org/story/26/03/09/2252215/european-consortium-wants-open-source-alternative-to-google-play-integrity?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-10T03:30:00Z",
+  "fetched_at": "2026-03-10T04:00:07.454032+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from Heise: Pay securely with an Android smartphone, completely without Google services: This is the plan being developed by the newly founded industry consortium led by the German Volla Systeme GmbH. It is an open-source alternative to Google Play Integrity. This proprietary interface decides on Android smartphones with Google Play services whether banking, government, or wallet apps are allowed to run on a smartphone.\n \nObstacles and tips for paying with an Android smartphone without official Google services have been highlighted by c't in a comprehensive article. The European industry consortium now wants to address some problems mentioned. To this end, the group, which includes Murena, which develops the hardened custom ROM /e/OS, Iode from France, and Apostrophy (Dot) from Switzerland, in addition to Volla, is developing a so-called \"UnifiedAttestation\" for Google-free mobile operating systems, primarily based on the Android Open-Source Project ",
+  "full_text": "An anonymous reader quotes a report from Heise: Pay securely with an Android smartphone, completely without Google services: This is the plan being developed by the newly founded industry consortium led by the German Volla Systeme GmbH. It is an open-source alternative to Google Play Integrity. This proprietary interface decides on Android smartphones with Google Play services whether banking, government, or wallet apps are allowed to run on a smartphone.\n\n \n\nObstacles and tips for paying with an Android smartphone without official Google services have been highlighted by c't in a comprehensive article. The European industry consortium now wants to address some problems mentioned. To this end, the group, which includes Murena, which develops the hardened custom ROM /e/OS, Iode from France, and Apostrophy (Dot) from Switzerland, in addition to Volla, is developing a so-called \"UnifiedAttestation\" for Google-free mobile operating systems, primarily based on the Android Open-Source Project (AOSP).\n\n \n\nAccording to Volla, a European manufacturer and a leading manufacturer from Asia, as well as European foundations such as the German UBports Foundation, have also expressed interest in supporting it. Furthermore, developers and publishers of government apps from Scandinavia are examining the use of the new procedure as \"first movers.\" In its announcement, Volla explains that Google provides app developers with an interface called Play Integrity, which checks whether an app is running on a device with specific security requirements. This primarily affects applications from \"sensitive areas such as identity verification, banking, or digital wallets -- including apps from governments and public administrations\".\n\n \n\nThe company criticizes that the certification is exclusively offered for Google's own proprietary \"Stock Android\" but not for Android versions without Google services, such as /e/OS or similar custom ROMs. \"Since this is closely intertwined with Google services and Google data centers, a structural dependency arises -- and for alternative operating systems, a de facto exclusion criterion,\" the company states. From the consortium's perspective, this also leads to a \"security paradox,\" because \"the check of trustworthiness is carried out by precisely that entity whose ecosystem is to be avoided at the same time\".\n\n The UnifiedAttestation system is built around three main components: an \"operating system service\" that apps can call to check whether the device's OS meets required security standards, a decentralized validation service that verifies the OS certificate on a device without relying on a single central authority, and an open test suite used to evaluate and certify that a particular operating system works securely on a specific device model.\n \n\n\"We don't want to centralize trust, but organize it transparently and publicly verifiable. When companies check competitors' products, we can strengthen that trust,\" says Dr. Jorg Wurzer, CEO of Volla Systeme GmbH and initiator of the consortium. The goal is to increase digital sovereignty and break free from the control of any one, single U.S. company, he says.",
+  "tags": [
+    "500-words",
+    "alternative",
+    "android",
+    "apps",
+    "consortium",
+    "european",
+    "european consortium",
+    "france",
+    "google",
+    "google play",
+    "integrity",
+    "open source",
+    "play",
+    "play integrity",
+    "services",
+    "source alternative",
+    "switzerland",
+    "volla",
+    "wants open",
+    "whether"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": 2551,
+  "source": "Slashdot",
+  "title": "Amazon Wins Court Order To Block Perplexity's AI Shopping Bots",
+  "url": "https://yro.slashdot.org/story/26/03/10/2012222/amazon-wins-court-order-to-block-perplexitys-ai-shopping-bots?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-10T22:00:00Z",
+  "fetched_at": "2026-03-10T22:40:23.217885+00:00",
+  "author": "BeauHD",
+  "summary": "Last November, Amazon sued Perplexity demanding that the AI search startup stop allowing its AI browser agent, Comet, to make purchases for users online. Today, a judge ruled in favor of the tech giant, granting it a temporary court injunction blocking the scraping of Amazon's website. According to court filings, the judge found strong evidence the tool accessed the retailer's systems \"without authorization.\" CNBC reports: In a ruling dated Monday, U.S. District Judge Maxine Chesney wrote that Amazon has provided \"strong evidence\" that Perplexity's Comet browser accessed its website at the user's direction, but \"without authorization\" from the e-commerce giant. Chesney said Amazon submitted \"essentially undisputed evidence\" that it spent more than $5,000 to respond to the issue, including \"numerous hours\" where its employees worked to develop tools to block Comet from accessing its private customer tools and to prevent the tool from \"future unauthorized access.\" \"Given such evidence, t",
+  "full_text": "Last November, Amazon sued\n\n Perplexity demanding that the AI search startup stop allowing its AI browser agent, Comet, to make purchases for users online. Today, a judge ruled in favor of the tech giant, granting it a temporary court injunction blocking the scraping of Amazon's website\n\n. According to court filings, the judge found strong evidence the tool accessed the retailer's systems \"without authorization.\" CNBC reports: In a ruling dated Monday, U.S. District Judge Maxine Chesney wrote that Amazon has provided \"strong evidence\" that Perplexity's Comet browser accessed its website at the user's direction, but \"without authorization\" from the e-commerce giant. Chesney said Amazon submitted \"essentially undisputed evidence\" that it spent more than $5,000 to respond to the issue, including \"numerous hours\" where its employees worked to develop tools to block Comet from accessing its private customer tools and to prevent the tool from \"future unauthorized access.\" \"Given such evidence, the Court finds Amazon has shown a likelihood of success on the merits of its claim,\" Chesney wrote.\n\n \n\nChesney's ruling includes a weeklong stay to allow Perplexity to appeal the order. Amazon wrote in its original complaint that Perplexity's agents posed security risks to customer data because they \"can act within protected computer systems, including private customer accounts requiring a password.\" The company also said Perplexity's agents created challenges for the company's advertising business, because when AI systems generate ad traffic, the impressions have to be detected and filtered out before advertisers can be billed. \"This requires modifications to Amazon's advertising systems, including developing new detection mechanisms to identify and exclude automated traffic,\" Amazon wrote in its complaint. \"These system adaptations are necessary to maintain contractual obligations with advertisers who pay only for legitimate human impressions.\"",
+  "tags": [
+    "500-words",
+    "amazon",
+    "amazon wins",
+    "block",
+    "block perplexity",
+    "browser",
+    "chesney",
+    "comet",
+    "court",
+    "court order",
+    "customer",
+    "fortnox world",
+    "including",
+    "judge",
+    "perplexity",
+    "shopping bots",
+    "wrote"
+  ]
+}

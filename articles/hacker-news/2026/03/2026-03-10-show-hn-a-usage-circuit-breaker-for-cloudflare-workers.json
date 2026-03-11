@@ -1,0 +1,28 @@
+{
+  "id": 2398,
+  "source": "Hacker News",
+  "title": "SHOW HN: A usage circuit breaker for Cloudflare Workers",
+  "url": "https://news.ycombinator.com/item?id=47322794",
+  "published_at": "2026-03-10T13:09:00Z",
+  "fetched_at": "2026-03-10T14:40:10.435832+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47322794\">Comments</a>",
+  "full_text": "I run 3mins.news (https://3mins.news), an AI news aggregator built entirely on Cloudflare Workers. The backend has 10+ cron triggers running every few minutes: RSS fetching, article clustering, LLM calls, email delivery.\n\nThe problem: Workers Paid Plan has hard monthly limits (10M requests, 1M KV writes, 1M queue ops, etc.). There's no built-in \"pause when you hit the limit\", CF just starts billing overages. KV writes cost $5/M over the cap, so a retry loop bug can get expensive fast.\n\nAWS has Budget Alerts, but those are passive notifications, by the time you read the email, the damage is done. I wanted active, application-level self-protection.\n\nSo I built a circuit breaker that faces inward, instead of protecting against downstream failures (the Hystrix pattern), it monitors my own resource consumption and gracefully degrades before hitting the ceiling.\n\nKey design decisions:\n\n- Per-resource thresholds: Workers Requests ($0.30/M overage) only warns at 80%. KV Writes ($5/M overage) can trip the breaker at 90%. Not all resources are equally dangerous, so some are configured as warn-only (trip=null).\n\n- Hysteresis: Trips at 90%, recovers at 85%. The 5% gap prevents oscillation, without it the system flaps between tripped and recovered every check cycle.\n\n- Fail-safe on monitoring failure: If the CF usage API is down, maintain last known state rather than assuming \"everything is fine.\" A monitoring outage shouldn't mask a usage spike.\n\n- Alert dedup: Per-resource, per-month. Without it you'd get ~8,600 identical emails for the rest of the month once a resource hits 80%.\n\nImplementation: every 5 minutes, queries CF's GraphQL API (requests, CPU, KV, queues) + Observability Telemetry API (logs/traces) in parallel, evaluates 8 resource dimensions, caches state to KV. Between checks it's a single KV read — essentially free.\n\nWhen tripped, all scheduled tasks are skipped. The cron trigger still fires (you can't stop that), but the first thing it does is check the breaker and bail out if tripped.\n\nIt's been running in production for two weeks. Caught a KV reads spike at 82% early in the month, got one warning email, investigated, fixed the root cause, never hit the trip threshold.\n\nThe pattern should apply to any metered serverless platform (Lambda, Vercel, Supabase) or any API with budget ceilings (OpenAI, Twilio). The core idea: treat your own resource budget as a health signal, just like you'd treat a downstream service's error rate.\n\nHappy to share code details if there's interest.\n\nFull writeup with implementation code and tests: https://yingjiezhao.com/en/articles/Usage-Circuit-Breaker-for-Cloudflare-Workers",
+  "tags": [
+    "500-words",
+    "ai",
+    "api",
+    "breaker",
+    "budget",
+    "built",
+    "circuit",
+    "cloudflare",
+    "cloudflare workers",
+    "cron",
+    "resource",
+    "running",
+    "show hn",
+    "usage",
+    "workers"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 2586,
+  "source": "Hacker News",
+  "title": "Mesh over Bluetooth LE, TCP, or Reticulum",
+  "url": "https://github.com/torlando-tech/columba",
+  "published_at": "2026-03-10T19:02:01Z",
+  "fetched_at": "2026-03-11T00:40:09.180943+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47327473\">Comments</a>",
+  "full_text": "Columba is a simple messaging and voice app for the Reticulum network on Android. Send LXMF messages and make LXST voice calls without relying on the internet, cell towers, or any central servers.\n\nBuilt with a native Android interface and Material Design 3, Columba brings mesh networking to your pocket in a familiar, easy-to-use package.\n\n \n\nMessage without infrastructure - Send messages even when the internet is down or unavailable\n\nConnect multiple ways - Use Bluetooth LE to connect to those around you anywhere, Wifi for those at home, LoRa radio via RNode for those at a distance, or use TCP to connect to any Reticulum server around the world\n\nStay private - End-to-end encryption with no accounts, no tracking, and no central servers\n\nShare location - Share your location securely with others, viewable from a dedicated map\n\nDownload maps for offline use - Download or import map files. Supports vector and raster, in MBTiles format\n\nBuild your network - Help relay traffic for others and expand the mesh\n\nKeep your identity - Generate your messaging identity right on your device\n\nManage multiple identities - Easily swap between multiple identities\n\nExport and import identities - Keep an external backup of your keys, or migrate to a new device. Import from other Reticulum clients like Sideband\n\nShare your identity via QR Code - Built in QR code scanner and generator for sharing your identity with others\n\nCustom Color Themes - Don't like the default colors? Rice to your heart's content!\n\nDownload the latest release from Releases and install on your Android device. See SECURITY.md for APK verification instructions.\n\nAlternatively, you can download the apk via NomadNet at 8d1788fdb4e9f85303cfdf7481e721c7:/page/index.mu\n\nReticulum is a networking stack that lets devices communicate directly with each other, forming resilient mesh networks. It is optimized for low bandwidth, high latency connections, and can communicate over nearly any medium. Columba uses LXMF (Lightweight Extensible Message Format) to send messages across the Reticulum network, and uses a native Android implementation of ble-reticulum to enable messaging over BLE with other Android and Linux devices.\n\nWant to learn more? Visit Reticulum's documentation.\n\nColumba, latin for \"dove,\" is a constellation in the southern sky depicting a dove. Doves are commonly a symbol of peace and hope, and have been used as messengers throughout history.",
+  "tags": [
+    "500-words",
+    "android",
+    "bluetooth le",
+    "columba",
+    "download",
+    "identity",
+    "lxmf",
+    "messages",
+    "messaging",
+    "native",
+    "native android",
+    "reticulum",
+    "reticulum github",
+    "rnode lora",
+    "send",
+    "tcp"
+  ]
+}

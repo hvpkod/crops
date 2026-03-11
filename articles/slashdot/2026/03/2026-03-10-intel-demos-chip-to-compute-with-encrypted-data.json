@@ -1,0 +1,30 @@
+{
+  "id": 2576,
+  "source": "Slashdot",
+  "title": "Intel Demos Chip To Compute With Encrypted Data",
+  "url": "https://it.slashdot.org/story/26/03/10/2022201/intel-demos-chip-to-compute-with-encrypted-data?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-10T23:00:00Z",
+  "fetched_at": "2026-03-11T00:00:24.127895+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from IEEE Spectrum: Worried that your latest ask to a cloud-based AI reveals a bit too much about you? Want to know your genetic risk of disease without revealing it to the services that compute the answer? There is a way to do computing on encrypted data without ever having it decrypted. It's called fully homomorphic encryption, or FHE. But there's a rather large catch. It can take thousands -- even tens of thousands -- of times longer to compute on today's CPUs and GPUs than simply working with the decrypted data. So universities, startups, and at least one processor giant have been working on specialized chips that could close that gap. Last month at the IEEE International Solid-State Circuits Conference (ISSCC) in San Francisco, Intel demonstrated its answer, Heracles, which sped up FHE computing tasks as much as 5,000-fold compared to a top-of the-line Intel server CPU.\n \nStartups are racing to beat Intel and each other to commercialization. But",
+  "full_text": "An anonymous reader quotes a report from IEEE Spectrum: Worried that your latest ask to a cloud-based AI reveals a bit too much about you? Want to know your genetic risk of disease without revealing it to the services that compute the answer? There is a way to do computing on encrypted data without ever having it decrypted. It's called fully homomorphic encryption, or FHE. But there's a rather large catch. It can take thousands -- even tens of thousands -- of times longer to compute on today's CPUs and GPUs than simply working with the decrypted data. So universities, startups, and at least one processor giant have been working on specialized chips that could close that gap. Last month at the IEEE International Solid-State Circuits Conference (ISSCC) in San Francisco, Intel demonstrated its answer, Heracles, which sped up FHE computing tasks as much as 5,000-fold compared to a top-of the-line Intel server CPU.\n\n \n\nStartups are racing to beat Intel and each other to commercialization. But Sanu Mathew, who leads security circuits research at Intel, believes the CPU giant has a big lead, because its chip can do more computing than any other FHE accelerator yet built. \"Heracles is the first hardware that works at scale,\" he says. The scale is measurable both physically and in compute performance. While other FHE research chips have been in the range of 10 square millimeters or less, Heracles is about 20 times that size and is built using Intel's most advanced, 3-nanometer FinFET technology. And it's flanked inside a liquid-cooled package by two 24-gigabyte high-bandwidth memory chips—a configuration usually seen only in GPUs for training AI.\n\n \n\nIn terms of scaling compute performance, Heracles showed muscle in live demonstrations at ISSCC. At its heart the demo was a simple private query to a secure server. It simulated a request by a voter to make sure that her ballot had been registered correctly. The state, in this case, has an encrypted database of voters and their votes. To maintain her privacy, the voter would not want to have her ballot information decrypted at any point; so using FHE, she encrypts her ID and vote and sends it to the government database. There, without decrypting it, the system determines if it is a match and returns an encrypted answer, which she then decrypts on her side. On an Intel Xeon server CPU, the process took 15 milliseconds. Heracles did it in 14 microseconds. While that difference isn't something a single human would notice, verifying 100 million voter ballots adds up to more than 17 days of CPU work versus a mere 23 minutes on Heracles.",
+  "tags": [
+    "500-words",
+    "chip",
+    "chip to",
+    "compute",
+    "compute with",
+    "computing",
+    "cpu",
+    "data",
+    "encrypted",
+    "encrypted data",
+    "fhe",
+    "heracles",
+    "ieee",
+    "intel",
+    "intel demos",
+    "thousands",
+    "voter"
+  ]
+}

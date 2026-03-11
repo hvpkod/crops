@@ -1,0 +1,25 @@
+{
+  "id": 2507,
+  "source": "Hacker News",
+  "title": "After outages, Amazon to make senior engineers sign off on AI-assisted changes",
+  "url": "https://arstechnica.com/ai/2026/03/after-outages-amazon-to-make-senior-engineers-sign-off-on-ai-assisted-changes/",
+  "published_at": "2026-03-10T13:31:17Z",
+  "fetched_at": "2026-03-10T20:40:14.465224+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47323017\">Comments</a>",
+  "full_text": "He asked staff to attend the meeting, which is normally optional.\n\nJunior and mid-level engineers will now require more senior engineers to sign off any AI-assisted changes, Treadwell added.\n\nAmazon said the review of website availability was “part of normal business” and it aims for continual improvement.\n\n“TWiST is our regular weekly operations meeting with a specific group of retail technology leaders and teams where we review operational performance across our store,” the company said.\n\nSeparately, the company’s cloud computing arm—Amazon Web Services—has suffered at least two incidents linked to the use of AI coding assistants, which the company has been actively rolling out to its staff.\n\nAWS suffered a 13-hour interruption to a cost calculator used by customers in mid-December after engineers allowed the group’s Kiro AI coding tool to make certain changes, and the AI tool opted to “delete and recreate the environment,” the FT previously reported.\n\nAmazon previously said the incident in December was an “extremely limited event” affecting only a single service in parts of mainland China. Amazon added that the second incident did not have an impact on a “customer facing AWS service.”\n\nThe FT previously reported multiple Amazon engineers said their business units had to deal with a higher number of “Sev2s”—incidents requiring a rapid response to avoid product outages—each day as a result of job cuts.\n\nAmazon has undertaken multiple rounds of lay-offs in recent years, most recently eliminating 16,000 corporate roles in January. The group has disputed the claim that headcount cuts were responsible for an increase in recent outages.\n\n© 2026 The Financial Times Ltd. All rights reserved. Not to be redistributed, copied, or modified in any way.",
+  "tags": [
+    "500-words",
+    "amazon",
+    "china",
+    "coding",
+    "company",
+    "engineers",
+    "group",
+    "previously",
+    "review",
+    "senior",
+    "sign",
+    "suffered"
+  ]
+}

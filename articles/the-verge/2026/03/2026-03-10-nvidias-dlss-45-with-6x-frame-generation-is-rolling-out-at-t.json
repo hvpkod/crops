@@ -1,0 +1,27 @@
+{
+  "id": 2413,
+  "source": "The Verge",
+  "title": "Nvidia’s DLSS 4.5 with 6x Frame Generation is rolling out at the end of March",
+  "url": "https://www.theverge.com/tech/892111/nvidia-dlss-4-5-6x-frame-generation-dynamic-frame-generation",
+  "published_at": "2026-03-10T15:30:00Z",
+  "fetched_at": "2026-03-10T16:00:09.095466+00:00",
+  "author": "Jay Peters",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/11/STK083_NVIDIA_2_A.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Nvidia's DLSS 4.5 with 6x Multi Frame Generation will be available starting March 31st for users with RTX 50-series GPUs, the company <a href=\"https://www.nvidia.com/en-us/geforce/news/gdc-2026-nvidia-geforce-rtx-announcements/#geforce-now\">announced on Tuesday</a>. With 6x Multi Frame Generation, Nvidia <a href=\"https://www.nvidia.com/en-us/geforce/news/dlss-4-5-dynamic-multi-frame-gen-6x-2nd-gen-transformer-super-res/\">claims that</a> DLSS 4.5 can generate \"five additional frames for every single natively rendered one, for a maximum 6X multiplier.\" It's an increase from the maximum of three additional frames possible with DLSS 4.</p>\n<p class=\"has-text-align-none\">On March 31st, Nvidia will also release Dynamic Frame Generation for 50-series GPUs, whi",
+  "full_text": "Nvidia’s DLSS 4.5 with 6x Multi Frame Generation will be available starting March 31st for users with RTX 50-series GPUs, the company announced on Tuesday. With 6x Multi Frame Generation, Nvidia claims that DLSS 4.5 can generate “five additional frames for every single natively rendered one, for a maximum 6X multiplier.” It’s an increase from the maximum of three additional frames possible with DLSS 4.\n\nOn March 31st, Nvidia will also release Dynamic Frame Generation for 50-series GPUs, which can automatically switch between Multi Frame Generation multipliers to hit your target framerate for a game or your display’s refresh rate.\n\nNvidia announced both Dynamic Frame Generation and 6x Multi Frame Generation alongside DLSS 4.5, but at the time, Nvidia only provided a spring launch window for the two features.\n\nNvidia is also announcing some upgrades to GeForce Now. You’ll be able to link your GeForce Now account with your GOG account in the “coming months.” If you’re using GeForce Now in a VR headset, the service will also support framerates of up to 90fps, an increase from the previous maximum of 60fps, starting March 19th (though you have to have an Ultimate subscription). And “select” Xbox games will be joining GeForce Now’s Install-to-Play library, including Brutal Legend and Contrast.",
+  "tags": [
+    "500-words",
+    "announced",
+    "dlss",
+    "frame",
+    "frame generation",
+    "geforce",
+    "geforce now",
+    "generation",
+    "march",
+    "maximum",
+    "multi",
+    "multi frame",
+    "nvidia",
+    "starting"
+  ]
+}

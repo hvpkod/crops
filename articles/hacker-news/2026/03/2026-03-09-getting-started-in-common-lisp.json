@@ -1,0 +1,28 @@
+{
+  "id": 2344,
+  "source": "Hacker News",
+  "title": "Getting Started in Common Lisp",
+  "url": "https://lisp-stat.dev/blog/2026/03/09/getting-started/",
+  "published_at": "2026-03-09T23:43:29Z",
+  "fetched_at": "2026-03-10T08:00:16.826011+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47317348\">Comments</a>",
+  "full_text": "Getting Started\n \n\nAn easy way to start with Lisp-Stat\n \n\n \n Monday, 09 March 2026\n \n \n \n\nIt’s never been easy for a developer to get started in Common Lisp. Emacs, though a powerful editor, isn’t considered an IDE by modern standards. Setting up a compiler, quicklisp, slime, swank, and then learning an entirely new programming paradigm has scared off many would-be entrants to the Common Lisp community.\n\nGiven the size of the Common Lisp community this is understandable. Making the new user experience smooth and frictionless as possible is hard work. It’s the kind of work that no one volunteers for; it’s the kind of work you have to be paid for.\n\nStill, it’s a pre-requisite for new users, so I’ve created ls-dev-image, a ‘batteries included’ OCI image for Lisp-Stat or just plain Common Lisp development. Assuming you have an OCI (e.g Docker) runtime installed, you can get started with:\n\ndocker run --rm -it --user vscode -w /home/vscode ghcr.io/lisp-stat/ls-dev:latest bash\n\nand from the shell you can type ’emacs’ followed by ‘M-x slime’ and start hacking Common Lisp.\n\nThis OCI image is configured with emacs, slime, quicklisp, lisp-stat and a few sample data sets and plots. A ls-server is also configured to start automatically on port 20202. If you open your browser and point it to https://localhost:20202 (or other port, depending on your OCI container configuration) you’ll see the web interface for displaying plots and viewing/editing data-frames. It also has a ‘refresh’ script so that you can stay synced with the upstream lisp-stat, which is being updated frequently.\n\nYou can also run a this image in GitHub codespaces.\n\nI’d like to point out that you can use this for any Common Lisp development, not just Lisp-Stat. Contributions and bug reports are welcome and encouraged.",
+  "tags": [
+    "500-words",
+    "common",
+    "common lisp",
+    "configured",
+    "easy",
+    "getting",
+    "getting started",
+    "image",
+    "kind",
+    "lisp",
+    "lisp stat",
+    "oci",
+    "point",
+    "start",
+    "started"
+  ]
+}

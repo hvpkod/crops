@@ -1,0 +1,30 @@
+{
+  "id": 2436,
+  "source": "Slashdot",
+  "title": "Claude AI Finds Bugs In Microsoft CTO's 40-Year-Old Apple II Code",
+  "url": "https://it.slashdot.org/story/26/03/10/0521258/claude-ai-finds-bugs-in-microsoft-ctos-40-year-old-apple-ii-code?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-10T17:00:00Z",
+  "fetched_at": "2026-03-10T17:20:13.620995+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from The Register: AI can reverse engineer machine code and find vulnerabilities in ancient legacy architectures, says Microsoft Azure CTO Mark Russinovich, who used his own Apple II code from 40 years ago as an example. Russinovich wrote: \"We are entering an era of automated, AI-accelerated vulnerability discovery that will be leveraged by both defenders and attackers.\"\n \nIn May 1986, Russinovich wrote a utility called Enhancer for the Apple II personal computer. The utility, written in 6502 machine language, added the ability to use a variable or BASIC expression for the destination of a GOTO, GOSUB, or RESTORE command, whereas without modification Applesoft BASIC would only accept a line number. Russinovich had Claude Opus 4.6, released early last month, look over the code. It decompiled the machine language and found several security issues, including a case of \"silent incorrect behavior\" where, if the destination line was not found, the program ",
+  "full_text": "An anonymous reader quotes a report from The Register: AI can reverse engineer machine code and find vulnerabilities in ancient legacy architectures, says Microsoft Azure CTO Mark Russinovich, who used his own Apple II code from 40 years ago as an example. Russinovich wrote: \"We are entering an era of automated, AI-accelerated vulnerability discovery that will be leveraged by both defenders and attackers.\"\n\n \n\nIn May 1986, Russinovich wrote a utility called Enhancer for the Apple II personal computer. The utility, written in 6502 machine language, added the ability to use a variable or BASIC expression for the destination of a GOTO, GOSUB, or RESTORE command, whereas without modification Applesoft BASIC would only accept a line number. Russinovich had Claude Opus 4.6, released early last month, look over the code. It decompiled the machine language and found several security issues, including a case of \"silent incorrect behavior\" where, if the destination line was not found, the program would set the pointer to the following line or past the end of the program, instead of reporting an error. The fix would be to check the carry flag, which is set if the line is not found, and branch to an error.\n\n \n\nThe existence of the vulnerability in Apple II type-in code has only amusement value, but the ability of AI to decompile embedded code and find vulnerabilities is a concern. \"Billions of legacy microcontrollers exist globally, many likely running fragile or poorly audited firmware like this,\" said one comment to Russinovich's post.",
+  "tags": [
+    "500-words",
+    "apple",
+    "apple ii",
+    "claude",
+    "claude ai",
+    "code",
+    "find",
+    "finds bugs",
+    "legacy",
+    "line",
+    "machine",
+    "microsoft",
+    "microsoft cto",
+    "russinovich",
+    "security",
+    "vulnerabilities",
+    "year old"
+  ]
+}

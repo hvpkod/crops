@@ -1,0 +1,28 @@
+{
+  "id": 2337,
+  "source": "Hacker News",
+  "title": "macOS Tahoe windows have different corner radiuses",
+  "url": "https://lapcatsoftware.com/articles/2026/3/1.html",
+  "published_at": "2026-03-06T19:20:18Z",
+  "fetched_at": "2026-03-10T07:20:06.350901+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47279761\">Comments</a>",
+  "full_text": "Previous: The myth and reality of Mac OS X Snow Leopard revisited\n\nArticles index\n\nmacOS Tahoe windows have different corner radiuses\n\nMarch 4 2026\n\nI’m sometimes late to notice new and terrible things about macOS 26 Tahoe, because I use it only for testing, on a secondary Mac. My main Mac remains on Sequoia, as enforced by Little Snitch. I was of course aware that app windows on Tahoe have exaggerated corner radiuses, but I was unaware until now that the window corner radius on Tahoe is not uniform: different windows can have different corner radiuses!\n\nBelow is a TextEdit window on Tahoe.\n\nAnd below is a Calculator window in front of the TextEdit window. Notice the corners of the TextEdit window sticking out!\n\nWhat accounts for the difference? A toolbar in the window.\n\nIn a new Mac app Xcode project, the main window has a less exaggerated corner radius by default, like TextEdit.\n\nWhen I add a toolbar to the window, the corner radius automatically becomes more exaggerated, like Calculator.\n\nThat’s it. Seriously.\n\nApparently the corner radius also changes on Tahoe for some other window elements, such as a sidebar.\n\nIf this isn’t the stupidest user interface “feature” ever invented, I don’t know what is. The Mac used to be famous for consistency; now it’s becoming infamous for inconsistency.\n\nBy the way, Tahoe’s UI changes are perplexing not only for Apple users but also for Apple engineers. Here’s a bug fix from the open source WebKit browser engine powering Safari: [macOS] Scroll bars of root scroller may be cutoff due to corner radii of window.\n\nArticles index\n\nPrevious: The myth and reality of Mac OS X Snow Leopard revisited",
+  "tags": [
+    "500-words",
+    "corner",
+    "different",
+    "fortnox world",
+    "mac os",
+    "macos",
+    "myth",
+    "previous the",
+    "radius",
+    "radiuses",
+    "snow leopard",
+    "tahoe",
+    "textedit",
+    "window",
+    "windows"
+  ]
+}

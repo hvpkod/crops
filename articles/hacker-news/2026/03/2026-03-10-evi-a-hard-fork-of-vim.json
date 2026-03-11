@@ -1,0 +1,32 @@
+{
+  "id": 2366,
+  "source": "Hacker News",
+  "title": "EVi, a Hard-Fork of Vim",
+  "url": "https://codeberg.org/NerdNextDoor/evi",
+  "published_at": "2026-03-10T09:51:24Z",
+  "fetched_at": "2026-03-10T12:40:12.009772+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47321085\">Comments</a>",
+  "full_text": "EVi\n\nIf you find a bug or want to discuss the best way to add a new feature, please\nopen an issue.\n\nWhat is EVi?\n\nEVi is a hard fork from Vim v9.1.2073 (Jan 2026) to build further upon the\nfoundations of Vim, while avoiding AI taint.\n\nVim, and by extension EVi, is a greatly improved version of the good old UNIX\neditor Vi. Many new features\nhave been added: multi-level undo, syntax highlighting, command line history,\non-line help, spell checking, filename completion, block operations, script\nlanguage, etc. There is also a Graphical User Interface (GUI) available.\nStill, Vi compatibility is maintained, those who have Vi \"in the fingers\" will\nfeel at home.\n\nDistribution\n\nEVi is at the time of writing only distributed from\nCodeberg.\n\nCompiling\n\nIf you somehow obtained a binary distribution you don't need to compile EVi. If\nyou obtained a source distribution, all the stuff for compiling EVi is in the\nsrc directory. See src/INSTALL for instructions.\n\nInstallation\n\nSee one of these files for system-specific instructions. Either in the\nREADMEdir directory (in the repository) or\nthe top directory (if you unpack an archive):\nREADME_ami.txt Amiga\nREADME_unix.txt Unix\nREADME_dos.txt MS-DOS and MS-Windows\nREADME_mac.txt Macintosh\nREADME_haiku.txt Haiku\nREADME_vms.txt VMS\n\nThere are other README_*.txt files, depending on the distribution you used.\n\nDocumentation\n\nThe tutor is a one hour training course for beginners. See :help tutor for\nmore information.\n\nThe best is to use :help in EVi. If you don't have an executable yet, read\nruntime/doc/help.txt.\nIt contains pointers to the other documentation files.\nThe User Manual reads like a book and is recommended to learn to use\nEVi. See :help user-manual.\n\nCopying\n\nThe original Vim is Charityware, and so is EVi. You can use and copy it as much as you like, but you are\nencouraged to make a donation to help orphans in Uganda. Please read the file\nruntime/doc/uganda.txt\nfor details (do :help uganda inside EVi).\n\nSummary of the license: There are no restrictions on using or distributing an\nunmodified copy of EVi. Parts of EVi may also be distributed, but the license\ntext must always be included. For modified versions, a few restrictions apply.\nThe license is GPL compatible, you may compile EVi with GPL libraries and\ndistribute it.\n\nThere is no framework for sponsoring at the time of writing.\n\nContributing\n\nIf you would like to help make EVi better, see the\nCONTRIBUTING.md file.\n\nMain author\n\nMost of the original Vim was created by Bram Moolenaar <Bram@vim.org>\nBram-Moolenaar\n\nThis is README.md for version 10.0 of EVi.",
+  "tags": [
+    "500-words",
+    "best",
+    "bram moolenaar",
+    "compile",
+    "compiling",
+    "directory",
+    "distribution",
+    "evi",
+    "evi if",
+    "jan",
+    "nerdnextdoor",
+    "obtained",
+    "please",
+    "readme",
+    "uganda",
+    "unix",
+    "user",
+    "version",
+    "vim"
+  ]
+}

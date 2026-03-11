@@ -1,0 +1,31 @@
+{
+  "id": 2515,
+  "source": "Slashdot",
+  "title": "Silicon Valley Is Buzzing About This New Idea: AI Compute As Compensation",
+  "url": "https://news.slashdot.org/story/26/03/10/200253/silicon-valley-is-buzzing-about-this-new-idea-ai-compute-as-compensation?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-10T21:00:00Z",
+  "fetched_at": "2026-03-10T21:20:07.269594+00:00",
+  "author": "BeauHD",
+  "summary": "sziring shares a report from Business Insider: Silicon Valley has long competed for talent with ever-richer pay packages built around salary, bonus, and equity. Now, a fourth line item is creeping into the mix: AI inference. As generative AI tools become embedded in software development, the cost of running the underlying models -- known as inference -- is emerging as a productivity driver and a budget line that finance chiefs can't ignore.\n \nSoftware engineers and AI researchers inside tech companies have already been jousting for access to GPUs, with this AI compute capacity being carefully parceled out based on which projects are most important. Now, some tech job candidates have begun asking about what AI compute budget they will have access to if they decide to join.\n \n\"I am increasingly asked during candidate interviews how much dedicated inference compute they will have to build with Codex,\" Thibault Sottiaux, engineering lead at OpenAI's Codex, the startup's AI coding service, ",
+  "full_text": "sziring\n\n shares a report from Business Insider: Silicon Valley has long competed for talent with ever-richer pay packages built around salary, bonus, and equity. Now, a fourth line item is creeping into the mix: AI inference. As generative AI tools become embedded in software development, the cost of running the underlying models -- known as inference -- is emerging as a productivity driver and a budget line that finance chiefs can't ignore.\n\n \n\nSoftware engineers and AI researchers inside tech companies have already been jousting for access to GPUs, with this AI compute capacity being carefully parceled out based on which projects are most important. Now, some tech job candidates have begun asking about what AI compute budget they will have access to if they decide to join.\n\n \n\n\"I am increasingly asked during candidate interviews how much dedicated inference compute they will have to build with Codex,\" Thibault Sottiaux, engineering lead at OpenAI's Codex, the startup's AI coding service, wrote on X recently. He added that usage per user is growing much faster than overall user growth, a sign that AI compute is becoming even scarcer and more valuable. That scarcity is reshaping how engineers think about their work and pay. \n\n \"The inference compute available to you is increasingly going to drive overall software productivity,\" said OpenAI President Greg Brockman.\n \n\nThe report cites a recent compensation submission from a software engineer that listed \"Copilot subscription\" as part of the pay and benefits. \"OpenAI and Anthropic should create recruitment sites where their clients can advertise roles, listing the token budget for the job alongside the salary range,\" said Peter Gostev, AI capability lead at Arena, a startup that measures the performance of models.\n \n\nTomasz Tunguz of Theory Ventures predicts AI inference will be the fourth component of engineering compensation, alongside salary, bonus, and equity. \"Will you be paid in tokens? In 2026, you likely will start to be,\" Tunguz said.",
+  "tags": [
+    "500-words",
+    "ai",
+    "budget",
+    "buzzing about",
+    "compensation",
+    "compute",
+    "compute as",
+    "engineers",
+    "fourth",
+    "idea ai",
+    "inference",
+    "line",
+    "openai",
+    "silicon",
+    "silicon valley",
+    "software",
+    "this new",
+    "valley"
+  ]
+}
