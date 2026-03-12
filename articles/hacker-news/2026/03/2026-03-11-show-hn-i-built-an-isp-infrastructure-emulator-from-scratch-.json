@@ -1,0 +1,27 @@
+{
+  "id": 2721,
+  "source": "Hacker News",
+  "title": "Show HN: I built an ISP infrastructure emulator from scratch with a custom vBNG",
+  "url": "https://aether.saphal.me/dashboard/default",
+  "published_at": "2026-03-11T13:38:17Z",
+  "fetched_at": "2026-03-11T16:40:48.266151+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47335431\">Comments</a>",
+  "full_text": "DEMO Environment\n\nThe lab resets every 6 hours or when triggered by a CI. The traffic simulation is configurable through simulator.config.json The lab can also be run locally in the VM using Vagrant.",
+  "tags": [
+    "200-words",
+    "configurable",
+    "demo",
+    "environment",
+    "hours",
+    "isp orchaestration",
+    "lab",
+    "locally",
+    "open source",
+    "orchaestration",
+    "resets",
+    "simulation",
+    "traffic",
+    "triggered"
+  ]
+}

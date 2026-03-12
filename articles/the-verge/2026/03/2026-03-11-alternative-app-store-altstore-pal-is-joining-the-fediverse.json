@@ -1,0 +1,20 @@
+{
+  "id": 2716,
+  "source": "The Verge",
+  "title": "Alternative app store AltStore PAL is joining the fediverse",
+  "url": "https://www.theverge.com/tech/893085/altstore-pal-alternative-app-store-fediverse",
+  "published_at": "2026-03-11T16:00:00Z",
+  "fetched_at": "2026-03-11T16:40:14.443743+00:00",
+  "author": "Emma Roth",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/STK472_ALTSTORE_B.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">AltStore PAL, the alternative iOS app store available in the European Union and Japan, is joining the social web. In <a href=\"https://fosstodon.org/@altstore/116211352248122697\">a post on Wednesday</a>, AltStore PAL announced that users across Mastodon, Threads, and Bluesky can now interact with apps that developers choose to federate on its <a href=\"https://explore.alt.store/public/local\">explore.alt.store website</a>.</p>\n<p class=\"has-text-align-none\">Any likes from the social web will appear on AltStore PAL, according to <a href=\"https://www.theverge.com/news/693512/apple-eu-dma-app-store-concessions\">creator Riley Testut, who shared last October</a> that \"you'll be able to comment on an app on Mastodon, like a news update on Threads, then open AltS",
+  "full_text": "AltStore PAL, the alternative iOS app store available in the European Union and Japan, is joining the social web. In a post on Wednesday, AltStore PAL announced that users across Mastodon, Threads, and Bluesky can now interact with apps that developers choose to federate on its explore.alt.store website.\n\nAny likes from the social web will appear on AltStore PAL, according to creator Riley Testut, who shared last October that “you’ll be able to comment on an app on Mastodon, like a news update on Threads, then open AltStore and view all these same interactions in-app.” Users can also now sign into the AltStore PAL with their Mastodon or Bluesky accounts.\n\n“Our aim with adding fediverse features to AltStore is to improve the discoverability of apps by making them shareable on the social web,” Testut tells The Verge. “In the future, we’d love for apps to have native support within ActivityPub and become a standard ActivityPub object like notes and articles, allowing them to appear like any other item in your feed.”\n\nAltStore PAL launched in the EU in 2024 after Apple began complying with the region’s Digital Markets Act (DMA), which requires the company to allow users to download third-party app stores. It later arrived in Japan after the country implemented similar laws, and it’s coming to Australia, Brazil, and the UK, too.\n\nAlong with this update, AltStore PAL is adding three fediverse-friendly apps to its store. That includes the open-source short-form video platform Loops, the video-sharing app PeerTube, and the Mastodon client iPhanpy. You can access these new apps from the store’s redesigned Sources page, which now features collections of apps in categories like “popular,” “indie gems,” and “fediverse favorites.”",
+  "tags": [
+    "200-words",
+    "alternative",
+    "altstore",
+    "altstore pal",
+    "fediverse",
+    "joining",
+    "store"
+  ]
+}

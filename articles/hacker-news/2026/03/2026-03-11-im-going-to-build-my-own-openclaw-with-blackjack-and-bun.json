@@ -1,0 +1,29 @@
+{
+  "id": 2611,
+  "source": "Hacker News",
+  "title": "I'm going to build my own OpenClaw, with blackjack and bun",
+  "url": "https://github.com/rcarmo/piclaw",
+  "published_at": "2026-03-11T07:36:18Z",
+  "fetched_at": "2026-03-11T08:00:09.492250+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47332649\">Comments</a>",
+  "full_text": "piclaw — A pi-based general-purpose agent\n\nPiClaw is a Docker-based sandbox for running the Pi Coding Agent in an isolated Debian environment. It bundles piclaw — a web-first orchestrator built on the Pi SDK with persistent sessions, a streaming web UI, and scheduled tasks. WhatsApp is optional. Inspired by agentbox and nanoclaw.\n\nStreaming web UI — real-time token-by-token updates over SSE, with Markdown, KaTeX, and Mermaid rendering\n\nWorkspace explorer — file tree sidebar with previews, file reference pills, and downloads\n\nDisk usage starburst — folder-size visualization with hover details and drill-down\n\nCode editor — built-in CodeMirror 6 with syntax highlighting for 12 languages, search/replace, and save\n\nPersistent storage — SQLite-backed messages, media, tasks, token usage, and encrypted keychain\n\nSkills — setup, debugging, Playwright, scheduling, charts, web search, and more\n\nPasskeys + TOTP authentication — optional WebAuthn passkeys with TOTP fallback (iOS/Android webapp support)\n\nWhatsApp — optional secondary channel\n\nmake build # Build the Docker image\nmake up # Start the container (supervisord launches piclaw)\n\nOpen http://localhost:8080 in your browser. To use pi interactively instead:\n\ndocker exec -u agent -it piclaw bash\ncd /workspace && pi\n\nProvision provider credentials via /shell <command> in the web UI or docker exec with pi /login. See docs/configuration.md for details.\n\nThe UI is single-user, mobile-friendly, and streams updates over SSE:\n\nThought/Draft panels — visible during streaming\n\nLive steering — send follow-ups while the agent is still responding\n\nFile attachments with download links\n\nLink previews via server-side OpenGraph fetch\n\nMulti-turn threading — subsequent turns are visually threaded under the first\n\nThemes + tinting — presets plus /theme and /tint commands (Solarized auto light/dark)\n\nMobile-first layout with webapp manifest\n\nThe sidebar shows a file tree of /workspace with auto-refresh. Click a file to preview it or add a file reference pill to the next prompt. Drag and drop files onto the tree to upload them. It also includes a folder-size starburst preview with hover details and drill-down.\n\nClick the pencil icon on any text file preview (up to 256 KB) to open the built-in editor. It appears as a resizable centre pane between the sidebar and the chat.\n\n12 languages — JS/TS (JSX/TSX), Python, Go, JSON, CSS, HTML, YAML, SQL, XML/SVG, Markdown, Shell\n\nSearch and replace — Cmd/Ctrl+F and Cmd/Ctrl+H\n\nSave — Cmd/Ctrl+S or the Save button; dirty state is tracked\n\nLine wrapping, line numbers, and active line highlight\n\nVendored bundle (~245 KB gzip) — no external CDN dependencies\n\nMount\nContainer path\nContents\n\nHome\n/config\nAgent home (.pi/, .gitconfig, .bashrc)\n\nWorkspace\n/workspace\nProjects, piclaw state, notes\n\nNever delete /workspace/.piclaw/store/messages.db — it holds all chat history, media, and tasks.\n\nKey environment variables:\n\nVariable\nDefault\nPurpose\n\nPICLAW_WEB_PORT\n8080\nWeb UI port\n\nPICLAW_WEB_TOTP_SECRET\n(empty)\nBase32 TOTP secret; enables login gate\n\nPICLAW_WEB_PASSKEY_MODE\ntotp-fallback\nPasskey mode: totp-fallback, passkey-only, or totp-only\n\nPICLAW_ASSISTANT_NAME\nPiClaw\nDisplay name in the UI\n\nPICLAW_KEYCHAIN_KEY\n(empty)\nMaster key for encrypted secret storage\n\nFor the full list (TLS, reverse proxies, timeouts, Pushover, WhatsApp, keychain, external workspaces), see docs/configuration.md.\n\nReverse proxies / tunnels\n\nIf piclaw is running behind a reverse proxy or tunnel (for example Cloudflare Tunnel, Caddy, or Nginx TLS termination), enable proxy trust so origin checks and absolute URL generation use the external host/proto:\n\nor in .piclaw/config.json:\n\n{\n \"web\": {\n \"trustProxy\": true\n }\n}\n\nYour proxy should forward either the standard Forwarded header or the usual X-Forwarded-Host / X-Forwarded-Proto headers.\n\nmake build-piclaw # Full build: vendor bundle + web assets + TypeScript\nmake vendor # Rebuild CodeMirror vendor bundle only\nmake lint # ESLint\nmake test # Run all tests\nmake local-install # Pack, install globally, and restart piclaw\n\nTests use the Bun runner (cd piclaw && bun test). Sequential mode is recommended for SQLite safety (--max-concurrency=1).\n\nPushing a version tag triggers .github/workflows/publish.yml — multi-arch builds (amd64 + arm64) published to GHCR.\n\nmake bump-patch # bump patch version, commit, and tag\nmake bump-minor # bump minor version, commit, and tag\nmake push # push commits + tag → triggers CI\n\nPiClaw works with any OCI-compliant runtime:\n\nDocker / Docker Desktop — primary target\n\nApple Containers (macOS 26+)\n\nPodman, nerdctl, etc.\n\nMIT",
+  "tags": [
+    "1000-words",
+    "agent",
+    "build",
+    "cmd ctrl",
+    "docker",
+    "file",
+    "github",
+    "openclaw",
+    "piclaw",
+    "piclaw web",
+    "save",
+    "sidebar",
+    "streaming",
+    "totp",
+    "tree",
+    "whatsapp"
+  ]
+}

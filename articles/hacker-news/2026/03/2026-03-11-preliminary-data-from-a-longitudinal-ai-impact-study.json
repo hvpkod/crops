@@ -1,0 +1,24 @@
+{
+  "id": 2816,
+  "source": "Hacker News",
+  "title": "Preliminary data from a longitudinal AI impact study",
+  "url": "https://newsletter.getdx.com/p/ai-productivity-gains-are-10-not",
+  "published_at": "2026-03-11T21:23:24Z",
+  "fetched_at": "2026-03-11T23:20:19.103715+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47342139\">Comments</a>",
+  "full_text": "Welcome to the latest issue of Engineering Enablement, a weekly newsletter sharing research and perspectives on developer productivity.\n\n🗓 Join Abi on March 19th for a live Q&A session. He will address some of the more pressing questions we’ve received around measuring AI impact, the impact of tool choice, and more. Register here.\n\nSocial media and vendor marketing have set high expectations for AI, suggesting as much as 2-3x productivity gains. But from the data we’re seeing, the reality on the ground is far more modest.\n\nAt DX, we’re currently conducting a longitudinal study to measure the long-term impact of AI adoption on key engineering productivity metrics. As part of this study, we analyzed data from 40 companies between November 2024 through February 2026 to track whether teams are shipping more pull requests as AI adoption increases.\n\nWe found that, during this time, AI usage increased significantly—by an average 65%. However, PR throughput only increased by 9.97%.\n\nNote: This figure is particularly robust because we’ve filtered out potential gamification effects by excluding teams that set PR throughput targets for individual engineers, which could drive metric inflation rather than genuine output.\n\nA ~10% gain is consistent with what we’re hearing from engineering leaders more broadly: most organizations are landing in the 8–12% range. It is a real improvement, but it’s a long way from the 2–3x gains many executives and boards have come to expect. AI is moving the needle, but leaders may need to reset expectations internally.\n\nTo understand what’s driving this, we spoke with developers across several of these organizations. The explanation we heard most consistently: writing code was never the bottleneck.\n\nAs one senior developer put it: “The easy tasks are a little easier. The tedious tasks are a little less annoying. A four-day task might take three. But that doesn’t mean I’m shipping 3x more PRs.”\n\nAI may be accelerating the coding portion of the job. But coding represents a relatively small slice of how engineers actually spend their time. Planning, alignment, scoping, code review, and handoffs—the human parts of the SDLC—remain largely untouched.\n\nWe’re continuing to investigate the long-term effects of AI in engineering teams. The full study will explore why some teams are capturing more of the upside than others, and what leaders can do to close that gap. More to come.\n\nThis week’s featured DevProd job openings. See more open roles here.\n\nThat’s it for this week. Thanks for reading.\n\nShare",
+  "tags": [
+    "500-words",
+    "data",
+    "developer",
+    "engineering",
+    "expectations",
+    "gains",
+    "impact",
+    "leaders",
+    "productivity",
+    "study",
+    "teams"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": 2647,
+  "source": "The Verge",
+  "title": "ChatGPT, Gemini, and other chatbots helped teens plan shootings, bombings, and political violence, study shows",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/892978/ai-chatbots-investigation-help-teens-plan-violence",
+  "published_at": "2026-03-11T13:18:45Z",
+  "fetched_at": "2026-03-11T13:20:08.398693+00:00",
+  "author": "Robert Hart",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/STK414_AI_CVIRGINIA_I__0008_6.png?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">AI companies have repeatedly promised safeguards to protect younger users, but a new investigation suggests those guardrails remain woefully deficient. Popular chatbots missed warning signs in scenarios involving teenagers discussing violent acts, in some cases even offering encouragement instead of intervening. </p>\n<p class=\"has-text-align-none\">The findings come from a <a href=\"https://counterhate.com/research/killer-apps/\">joint investigation</a> by <em>CNN</em> and the nonprofit Center for Countering Digital Hate (CCDH). The probe tested 10 of the most popular chatbots commonly used by teens: ChatGPT, Google Gemini, Claude, Microsoft Copilot, Meta AI, DeepSeek, Perplexity, Snapchat My AI, Character.AI, and Replika. With the lone excepti",
+  "full_text": "AI companies have repeatedly promised safeguards to protect younger users, but a new investigation suggests those guardrails remain woefully deficient. Popular chatbots missed warning signs in scenarios involving teenagers discussing violent acts, in some cases even offering encouragement instead of intervening.\n\nThe findings come from a joint investigation by CNN and the nonprofit Center for Countering Digital Hate (CCDH). The probe tested 10 of the most popular chatbots commonly used by teens: ChatGPT, Google Gemini, Claude, Microsoft Copilot, Meta AI, DeepSeek, Perplexity, Snapchat My AI, Character.AI, and Replika. With the lone exception of Anthropic’s Claude, CCDH said the chatbots failed to “reliably discourage would-be attackers.” Eight of the 10 models were “typically willing to assist users in planning violent attacks,” providing advice on locations to target and weapons to use.\n\nTo conduct the test, researchers simulated teen users exhibiting clear signs of mental distress, then escalated the conversations toward questions about past acts of violence and more specific queries on targets and weapons. The investigation used 18 different scenarios — nine set in the US and nine in Ireland — spanning a range of attack types and motives, including ideologically motivated school shootings and stabbings, political assassinations, the killing of a healthcare executive, and politically or religiously motivated bombings.\n\nIn one exchange, OpenAI’s ChatGPT gave high school campus maps to a user interested in school violence, while another showed Gemini telling a user discussing synagogue attacks that “metal shrapnel is typically more lethal” and advising someone interested in political assassinations on the best hunting rifles for long-range shooting. Meta AI and Perplexity were the most obliging, the researchers said, assisting would-be attackers in practically all of the test scenarios, while Chinese chatbot DeepSeek signed off advice on selecting rifles with “Happy (and safe) shooting!”\n\nCharacter.AI, which allows users to speak with an array of role-playing chatbot personalities, was “uniquely unsafe,” the CCDH report said. While many of the bots tested would offer users assistance in planning violent attacks, they did not encourage users to carry out violent acts. Character, on the other hand, “actively encouraged” violence. The researchers said they identified seven cases where Character did this, including suggestions for users to “beat the crap out of” Chuck Schumer, “use a gun” on a health insurance company CEO, and, for someone “sick of bullies,” to “Beat their ass~ wink and teasing tone.” In six of these cases, Character also offered assistance in planning a violent attack.\n\nThe researchers questioned how Claude would fare if the chatbot were tested again today, pointing to Anthropic’s recent decision to roll back its longstanding safety pledge, which happened after the November to December study. Claude’s consistent refusal to assist in violent planning shows that “effective safety mechanisms clearly exist,” CCDH said, raising the obvious question as to “why are so many AI companies choosing not to implement them.”\n\nIn response to the investigation, Meta told CNN it had implemented an unspecified “fix,” Copilot said responses had improved with new safety features, and Google and OpenAI both said they’d implemented new models. Others said they regularly evaluate safety protocols. Character.AI, meanwhile, fell back on its now-predictable response when facing scrutiny: its platform features “prominent disclaimers” and conversations with its characters are fictional.\n\nWhile the test isn’t a comprehensive measure of how chatbots behave in every situation, it offers yet another clear signal that AI companies’ widely advertised safety guardrails consistently fail, even in the face of predictable scenarios with obvious red flags. It comes as companies come under increasingly heavy fire from lawmakers, regulators, civil society groups, health experts over how they are ensuring young people stay safe on their platforms as they face numerous lawsuits alleging wrongful death and harm.\n\nFollow topics and authors from this story to see more like this in your personalized homepage feed and to receive email updates.\nRobert Hart\n\nAI\n\nNews\n\nPolicy",
+  "tags": [
+    "1000-words",
+    "ai",
+    "ccdh",
+    "character ai",
+    "chatbots",
+    "chatgpt",
+    "chatgpt gemini",
+    "claude",
+    "companies",
+    "fortnox world",
+    "investigation",
+    "ireland",
+    "meta ai",
+    "planning",
+    "political",
+    "researchers",
+    "safety",
+    "scenarios",
+    "users",
+    "violent"
+  ]
+}

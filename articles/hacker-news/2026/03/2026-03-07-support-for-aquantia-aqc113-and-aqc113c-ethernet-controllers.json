@@ -1,0 +1,32 @@
+{
+  "id": 2607,
+  "source": "Hacker News",
+  "title": "Support for Aquantia AQC113 and AQC113C Ethernet Controllers on FreeBSD",
+  "url": "https://github.com/Aquantia/aqtion-freebsd/issues/32",
+  "published_at": "2026-03-07T03:55:28Z",
+  "fetched_at": "2026-03-11T07:20:13.203950+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47284328\">Comments</a>",
+  "full_text": "Here’s the revised request formatted for a GitHub issue:\n\nDescription:\n\nThis is a feature request to add driver support for the Aquantia AQC113 and AQC113C Ethernet controllers in FreeBSD. These devices are widely used in modern high-performance networking scenarios, and adding support would enhance FreeBSD's hardware compatibility for servers, NAS systems, and workstations.\n\nCurrent Behavior:\n\nThe devices are detected by the system but show no driver attached when checked via pciconf or dmesg.\n\nThe aquantia-atlantic-kmod driver does not currently support the AQC113 family.\n\nExample pciconf -lv output:\n\nnone3@pci0:7:0:0: class=0x020000 rev=0x03 hdr=0x00 vendor=0x1d6a device=0x14c0 subvendor=0x1d6a subdevice=0x0001\n vendor = 'Aquantia Corp.'\n device = 'AQC113C NBase-T/IEEE 802.3an Ethernet Controller [Marvell Scalable mGig]'\n class = network\n subclass = ethernet\n\nExpected Behavior:\n\nThe AQC113 and AQC113C devices should be recognized and functional under FreeBSD, with support for the advanced features these controllers offer, such as NBase-T and 10GBase-T networking.\n\nAdditional Context:\n\nDevice Details:\n\nVendor: Aquantia Corp. (Marvell)\n\nPCI IDs:\n\nAQC113: 0x04c0\n\nAQC113C: 0x14c0\n\nFound in devices like the ASUS XG-C100C v2.\n\nRelevant Resources:\n\nOpenBSD’s aq driver supports AQC113 and AQC113C (source code).\n\nLinux’s atlantic driver includes support for these devices.\n\nUse Cases:\n\nDeployment in high-performance environments such as NAS systems, workstations, and enterprise servers.\n\nIncreasing adoption of AQC113-based hardware, particularly for 10G networking.\n\nFreeBSD’s Current Limitations:\n\nThe current aquantia-atlantic-kmod driver supports the AQC107 family but not the AQC113.\n\nRequest:\n\nPlease consider adding support for the AQC113 family to the aquantia-atlantic-kmod driver or create a new driver for these devices. If testing or hardware access is required, I am happy to assist in debugging and validation.\n\nLogs & System Details:\n\nFreeBSD Version: 14.1\n\nRelevant Commands:\n\npciconf -lv: See above example.\n\ndmesg | grep -i ethernet: Reports devices as detected but unsupported.\n\nThank you for your time and consideration. Adding support for the AQC113 family would be a significant enhancement to FreeBSD’s hardware compatibility.",
+  "tags": [
+    "500-words",
+    "adding",
+    "aquantia",
+    "aquantia aqc",
+    "aquantia corp",
+    "behavior the",
+    "controllers",
+    "current",
+    "devices",
+    "driver",
+    "ethernet",
+    "ethernet controllers",
+    "fortnox world",
+    "freebsd",
+    "freebsd issue",
+    "github",
+    "hardware",
+    "pciconf",
+    "support"
+  ]
+}

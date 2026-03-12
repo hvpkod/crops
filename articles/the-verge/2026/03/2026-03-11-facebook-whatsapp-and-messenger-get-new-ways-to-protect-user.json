@@ -1,0 +1,26 @@
+{
+  "id": 2631,
+  "source": "The Verge",
+  "title": "Facebook, WhatsApp, and Messenger get new ways to protect users from scams",
+  "url": "https://www.theverge.com/tech/892939/meta-facebook-whatsapp-messenger-scam-detection",
+  "published_at": "2026-03-11T11:00:00Z",
+  "fetched_at": "2026-03-11T11:20:10.251053+00:00",
+  "author": "Jess Weatherbed",
+  "summary": "<figure>\n\n<img alt=\"An illustration of various security-themed objects against a blue background.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Meta-scam-detection-features.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Meta is adding more scam detection tools to Facebook, Messenger, and WhatsApp that can help users protect their accounts. In its announcement, Meta says the new features aim to alert users about suspicious activities before they engage with them, such as unrecognized friend requests and device linking notifications, because \"we know that scammers try to avoid our detection and may not immediately use accounts maliciously.\"</p>\n<p class=\"has-text-align-none\">WhatsApp users will now receive a warning when red flags are detected in the behavioral signals for device linking requests, helping to prevent scammers from linking other WhatsApp accounts to their own device. Me",
+  "full_text": "Meta is adding more scam detection tools to Facebook, Messenger, and WhatsApp that can help users protect their accounts. In its announcement, Meta says the new features aim to alert users about suspicious activities before they engage with them, such as unrecognized friend requests and device linking notifications, because “we know that scammers try to avoid our detection and may not immediately use accounts maliciously.”\n\nWhatsApp users will now receive a warning when red flags are detected in the behavioral signals for device linking requests, helping to prevent scammers from linking other WhatsApp accounts to their own device. Meta says these alerts will show the WhatsApp user where the suspicious request is coming from, giving them the opportunity to reconsider the request before accepting.\n\n“For example, they may pose as a talent competition asking you to cast your vote by going to a website and entering your phone number, followed by a device linking code on your WhatsApp,” Meta said in the announcement. “They may also try to trick you into scanning a QR code under false pretenses, which would then link the scammer’s device to your account.”\n\nSimilar alerts are also being tested for suspicious friend requests on Facebook. The experimental warnings will appear when Facebook users send or receive a request from “an account that shows certain signs of suspicious activity,” according to Meta, such as having a lack of mutual friends or being located in other countries. The goal is to help Facebook users be better informed before deciding to accept, reject, or block suspicious requests.\n\nMeta is also expanding advanced scam detection on Messenger to additional countries (we have reached out to clarify exactly where). Built on tools for detecting suspicious chat activity that were introduced almost a decade ago, the expanded tool will prompt users to share recent chat messages for an AI scam review if it detects patterns of common scams in conversations with a new contact, such as suspicious job offers. If a potential scam is identified, the tool will encourage the user to block or report the account they’ve been chatting with.",
+  "tags": [
+    "500-words",
+    "detection",
+    "device",
+    "facebook",
+    "facebook whatsapp",
+    "linking",
+    "messenger",
+    "meta",
+    "request",
+    "scam",
+    "suspicious",
+    "users",
+    "whatsapp"
+  ]
+}

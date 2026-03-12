@@ -1,0 +1,27 @@
+{
+  "id": 2662,
+  "source": "Hacker News",
+  "title": "Swiss e-voting pilot can't count 2,048 ballots after decryption failure",
+  "url": "https://www.theregister.com/2026/03/11/swiss_evote_usb_snafu/",
+  "published_at": "2026-03-11T12:57:41Z",
+  "fetched_at": "2026-03-11T14:00:26.995085+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47334982\">Comments</a>",
+  "full_text": "A Swiss canton has suspended its pilot of electronic voting after failing to count 2,048 votes cast in national referendums held on March 8.\n\nBasel-Stadt announced the problem with its e-voting pilot, open to about 10,300 locals living abroad and 30 people with disabilities, last Friday afternoon. It encouraged participants to deliver a paper vote to the town hall or use a polling station but admitted this would not be possible for many.\n\nBy the close of polling on Sunday, its e-voting system had collected 2,048 votes, but Basel-Stadt officials were not able to decrypt them with the hardware provided, despite the involvement of IT experts.\n\n \n\n\"Three USB sticks were used, all with the correct code, but none of them worked,\" spokesperson Marco Greiner told the Swiss Broadcasting Corporation's Swissinfo service.\n\n \n\n \n\nThe canton has since commissioned an external analysis of the incident, adding that it deeply regrets the violation of affected voters' political rights.\n\nThe votes made up less than 4 percent of those cast in Basel-Stadt and would not have changed any results, but the canton is delaying confirmation of voting figures until March 21 and suspending its e-voting pilot until the end of December, while its public prosecutor's office has started criminal proceedings.\n\nThe country's Federal Chancellery said e-voting in three other cantons – Thurgau, Graubünden, and St Gallen – along with the nationally used Swiss Post e-voting system, had not been affected.\n\nSwitzerland is running small-scale e-voting pilots in four of its 26 cantons with the aim of helping citizens living abroad to vote, given the time it takes to receive and send postal votes. A previous attempt to set up e-voting was scrapped in 2019 after researchers found security flaws in software source code.\n\n \n\nTwo of Sunday's referendum questions focused on the availability of cash. Nearly three-quarters of voters approved a government proposal to enshrine the mandate of the Swiss National Bank to supply physical cash and stick with the Swiss franc in the country's constitution, while a similar proposal backed by campaigners was narrowly rejected.\n\nThis is despite Switzerland having one of the lowest levels of cash use in Europe with just 30 percent of physical transactions in 2024 involving notes or coins. ®",
+  "tags": [
+    "500-words",
+    "abroad",
+    "basel stadt",
+    "canton",
+    "cast",
+    "living",
+    "march",
+    "national",
+    "pilot",
+    "swiss",
+    "switzerland",
+    "the register",
+    "votes",
+    "voting"
+  ]
+}

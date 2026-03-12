@@ -1,0 +1,27 @@
+{
+  "id": 2681,
+  "source": "Hacker News",
+  "title": "Where did you think the training data was coming from?",
+  "url": "https://idiallo.com/blog/where-did-the-training-data-come-from-meta-ai-rayban-glasses",
+  "published_at": "2026-03-11T13:33:33Z",
+  "fetched_at": "2026-03-11T14:40:21.998889+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47335369\">Comments</a>",
+  "full_text": "When the news broke that Meta's smart glasses were feeding data directly into their Facebook servers, I wondered what all the fuss was about. Who thought AI glasses used to secretly record people would be private? Then again, I've grown cynical over the years.\n\nThe camera on your laptop is pointed at you right now. When activated, it can record everything you do. When Zuckerberg posted a selfie with his laptop visible in the background, people were quick to notice that both the webcam and the microphone had black tape over them. If the CEO of one of the largest tech companies in the world doesn't trust his own device, what are the rest of us supposed to do?\n\nOn my Windows 7 machine, I could at least assume the default behavior wasn't to secretly spy on me. With good security hygiene, my computer would stay safe. For Windows 10 and beyond, that assumption may no longer hold. Microsoft's incentives have shifted. They now require users to create an online account, which comes with pages of terms to agree to, and they are in the business of collecting data.\n\n \n\nAs part of our efforts to improve and develop our products, we may use your data to develop and train our AI models.\n\nThat's your local data being uploaded to their servers for their benefit. Under their licensing agreement (because you don't buy Windows, you only license it) you are contractually required to allow certain information to be sent back to Microsoft:\n\n \n\nBy accepting this agreement or using the software, you agree to all of these terms, and consent to the transmission of certain information during activation and during your use of the software as per the privacy statement described in Section 3. If you do not accept and comply with these terms, you may not use the software or its features.\n\nThe data transmitted includes telemetry, personalization, AI improvement, and advertising features.\n\nOn a Chromebook, there was never an option to use the device without a Google account. Google is in the advertising business, and reading their terms of service, even partially, it all revolves around data collection. Your data is used to build a profile both for advertising and AI training.\n\nNone of this is a secret. It's public information, buried in those terms of service agreements we blindly click through. Even Apple, which touts itself as privacy-first in every ad, was caught using user data without consent. Tesla employees were found sharing videos recorded inside customers' private homes.\n\nWhile some treat the Ray-Ban glasses story as an isolated incident, here is Yann LeCun, Meta's former chief AI scientist, describing transfer learning using billions of user images:\n\n \n\nWe do this at Facebook in production, right? We train large convolutional nets to predict hashtags that people type on Instagram, and we train on literally billions of images. Then we chop off the last layer and fine-tune on whatever task we want. That works really well.\n\nThat was seven years ago, and he was talking about pictures and videos people upload to Instagram. When you put your data on someone else's server, all you can do is trust that they use it as intended. Privacy policies are kept deliberately vague for exactly this reason. Today, Meta calls itself AI-first, meaning it's collecting even more to train its models.\n\nMeta's incentive to collect data exceeds even that of Google or Microsoft. Advertising is their primary revenue source. Last year, it accounted for 98% of their forecasted $189 billion in revenue.\n\nYes, Meta glasses record you in moments you expect to be private, and their workers process those videos at their discretion. We shouldn't expect privacy from a camera or a microphone, or any internet-connected device, that we don't control. That's the reality we have to accept.\n\nAI is not a magical technology that simply happens to know a great deal about us. It is trained on a pipeline of people's information: video, audio, text. That's how it works. If you buy the device, it will monitor you.",
+  "tags": [
+    "1000-words",
+    "advertising",
+    "data",
+    "facebook",
+    "glasses",
+    "google",
+    "meta",
+    "microsoft",
+    "privacy",
+    "record",
+    "terms",
+    "train",
+    "videos",
+    "windows"
+  ]
+}

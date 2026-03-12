@@ -1,0 +1,30 @@
+{
+  "id": 2638,
+  "source": "Futility Closet",
+  "title": "Charlie’s Birthday",
+  "url": "https://www.futilitycloset.com/2026/03/11/charlies-birthday/",
+  "published_at": "2026-03-11T06:08:09Z",
+  "fetched_at": "2026-03-11T12:20:12.270007+00:00",
+  "author": "Greg Ross",
+  "summary": "<p>A puzzle by National Security Agency mathematician Stephen C., from the agency&#8217;s <a href=\"https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/1627293/july-2015-puzzle-periodical/\">July 2015 Puzzle Periodical</a>:</p>\n<p>Charlie presents a list of 14 possible dates for his birthday to Albert, Bernard, and Cheryl.</p>\n<ul>\n<li>Apr 14, 1999</li>\n<li>Feb 19, 2000</li>\n<li>Mar 14, 2000</li>\n<li>Mar 15, 2000</li>\n<li>Apr 16, 2000</li>\n<li>Apr 15, 2000</li>\n<li>Feb 15, 2001</li>\n<li>Mar 15, 2001</li>\n<li>Apr 14, 2001</li>\n<li>Apr 16, 2001</li>\n<li>May 14, 2001</li>\n<li>May 16, 2001</li>\n<li>May 17, 2001</li>\n<li>Feb 17, 2002</li>\n</ul>\n<p>He then announces that he is going to tell Albert the month, Bernard the day, and Cheryl the year.</p>\n<p>After he tells them, Albert says, &#8220;I don&#8217;t know Charlie&#8217;s birthday, but neither does Bernard.&#8221;</p>\n<p>Bernard then says, &#8220;That is true, but Cheryl also does not know Charlie&#8217;s birthday.&#8221;</p>\n<",
+  "full_text": "A puzzle by National Security Agency mathematician Stephen C., from the agency’s July 2015 Puzzle Periodical:\n\nCharlie presents a list of 14 possible dates for his birthday to Albert, Bernard, and Cheryl.\n\nApr 14, 1999\n\nFeb 19, 2000\n\nMar 14, 2000\n\nMar 15, 2000\n\nApr 16, 2000\n\nApr 15, 2000\n\nFeb 15, 2001\n\nMar 15, 2001\n\nApr 14, 2001\n\nApr 16, 2001\n\nMay 14, 2001\n\nMay 16, 2001\n\nMay 17, 2001\n\nFeb 17, 2002\n\nHe then announces that he is going to tell Albert the month, Bernard the day, and Cheryl the year.\n\nAfter he tells them, Albert says, “I don’t know Charlie’s birthday, but neither does Bernard.”\n\nBernard then says, “That is true, but Cheryl also does not know Charlie’s birthday.”\n\nCheryl says, “Yes, and Albert still has not figured out Charlie’s birthday.”\n\nBernard then replies, “Well, now I know his birthday.”\n\nAt this point, Albert says, “Yes, we all know it now.”\n\nWhat is Charlie’s birthday?\n\nSelectClick for Answer\n\nWhen Albert claims that Bernard does not know Charlie’s birthday, he is saying that he knows that the correct day occurs more than once in the list. In other words, he is saying that Charlie’s birthday is not Feb 19, 2000, and the only way he could know that is that he knows that the month is not February.\n\nSo by making this claim Albert has reduced the list for everyone to:\n\nApr 14, 1999\n\nMar 14, 2000\n\nMar 15, 2000\n\nApr 16, 2000\n\nApr 15, 2000\n\nMar 15, 2001\n\nApr 14, 2001\n\nApr 16, 2001\n\nMay 14, 2001\n\nMay 16, 2001\n\nMay 17, 2001\n\nWhen Bernard says that it is true that he does not know Charlie’s birthday, it tells everyone that even with the restricted list the correct day occurs more than once in the list. So everyone can thus eliminate May 17, 2001.\n\nFurthermore, the claim that Cheryl also does not know Charlie’s birthday is a claim that Bernard knows that the year occurs more than once on the remaining list.\n\nThis rules out Apr 14, 1999, and since Bernard could only rule this out by knowing that the day was not 14, everyone can further reduce the list to:\n\nMar 15, 2000\n\nApr 16, 2000\n\nApr 15, 2000\n\nMar 15, 2001\n\nApr 16, 2001\n\nMay 16, 2001\n\nWhen Cheryl says that Albert still has not figured out Charlie’s birthday, she is telling everyone that given the new list the month occurs more than once and thus rules out May 16, 2001. This tells everyone that Cheryl knows that the year is not 2001 and the list can be reduced to:\n\nMar 15, 2000\n\nApr 16, 2000\n\nApr 15, 2000\n\nWhen Bernard then claims to know the date he is saying that the day occurs only once among the 3 remaining choices, thus telling everyone that Charlie’s birthday is Apr 16, 2000.",
+  "tags": [
+    "500-words",
+    "albert",
+    "apr apr",
+    "bernard",
+    "birthday",
+    "birthday futility",
+    "charlie",
+    "cheryl",
+    "closet",
+    "everyone",
+    "knows",
+    "list",
+    "mar apr",
+    "may may",
+    "occurs",
+    "once",
+    "tells"
+  ]
+}

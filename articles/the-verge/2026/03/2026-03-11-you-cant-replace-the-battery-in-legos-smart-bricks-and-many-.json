@@ -1,0 +1,28 @@
+{
+  "id": 2674,
+  "source": "The Verge",
+  "title": "You can’t replace the battery in Lego’s Smart Bricks — and many of its sensors aren’t available yet",
+  "url": "https://www.theverge.com/tech/892894/lego-smart-brick-battery-sensors-disposable",
+  "published_at": "2026-03-11T14:31:05Z",
+  "fetched_at": "2026-03-11T14:40:14.609645+00:00",
+  "author": "Sean Hollister",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/lego-smart-brick-sean-hollister-verge-331A1619.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">The first Lego Smart Brick sets, based on <em>Star Wars</em>, <a href=\"https://www.theverge.com/tech/891863/lego-smart-brick-play-review-star-wars-first-sets-throne-room-x-wing-tie\">aren't quite what my kids and I hoped</a>, and I suspect much of that's down to programming. But the Smart Bricks may also have some technical limitations out of the gate. The first sets don't ship with a number of their sensors enabled, including the sound-detecting microphone, the ambient light sensor, <a href=\"https://www.theverge.com/tech/859740/this-semi-secret-lego-smart-brick-feature-gives-it-even-more-potential\">fine distance measurement</a>, position, and orientation.</p>\n<p class=\"has-text-align-none\">\"There are more sensors that will b",
+  "full_text": "The first Lego Smart Brick sets, based on Star Wars, aren’t quite what my kids and I hoped, and I suspect much of that’s down to programming. But the Smart Bricks may also have some technical limitations out of the gate. The first sets don’t ship with a number of their sensors enabled, including the sound-detecting microphone, the ambient light sensor, fine distance measurement, position, and orientation.\n\n“There are more sensors that will be unlocked with future products,” Lego Smart Brick sound designer Elysha Zaide explained on a recent livestream, citing ambient light, position, and orientation as missing out of the gate. It’s possible these features will require a software update to unlock: Lego’s Smart Brick app explains that the brick’s built-in microphone is currently disabled and will need an update if that changes.\n\nThe Smart Bricks do have other working sensors. The NFC reader registers nearby Smart Tiles through as many as seven Lego plates (roughly 22mm), I tested, and almost every interaction uses motion sensing. The color sensor detects red, green, and blue objects held up to the side of the Smart Brick when it’s flashing its LED. There’s also one basic multi-brick interaction — when one starfighter or turret blasts, all others will register a “hit” and eventually “explode.”\n\nBut that’s the only multi-brick interaction for now, Lego comms manager Jack Rankin confirms to The Verge; even a two-brick lightsaber battle doesn’t currently sync up those two bricks. In the company’s demos at CES (one of which I saved for posterity), bricks could wirelessly connect to each other to share colors, sync up sounds, and play various games.\n\nThe other thing Lego’s app reveals is how carefully it protects the Smart Brick’s tiny battery from draining too fast. The Smart Brick only offers around 45 minutes of active play, and puts itself to sleep within three minutes if it’s idle. (You shake it to wake it again.) But it’ll also go into a deep sleep after 13 hours; you have to put it on its wireless charger, just for a moment, to pull it out of deep sleep.\n\nThe batteries are truly tiny — just 45mAh, compared to 4,000mAh in my Samsung Galaxy S25 phone — and they’re not user replaceable. As you can see in JerryRigEverything’s destructive teardown, it’s difficult to even get at the battery without going through thin, hair-like antennas. Lego’s instruction manuals recommend safely disposing of the entire brick, and not in your normal trash.\n\nFor another look inside the Smart Brick, check out these StoneWars X-rays. Also, Martin Ruszkiewicz has discovered it’s already possible to clone Lego’s NFC-based Smart Tags, and possibly let people create their own after the community analyzes their encryption, at this GitHub page.",
+  "tags": [
+    "500-words",
+    "ambient",
+    "battery",
+    "brick",
+    "bricks",
+    "interaction",
+    "lego",
+    "lego smart",
+    "possible",
+    "sensors",
+    "smart",
+    "smart brick",
+    "smart bricks",
+    "update",
+    "you"
+  ]
+}

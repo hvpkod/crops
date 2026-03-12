@@ -1,0 +1,27 @@
+{
+  "id": 2685,
+  "source": "The Verge",
+  "title": "Canva’s new editing tool adds layers to AI-generated designs",
+  "url": "https://www.theverge.com/tech/893124/canva-ai-magic-layers-feature-beta",
+  "published_at": "2026-03-11T15:02:02Z",
+  "fetched_at": "2026-03-11T15:20:07.821612+00:00",
+  "author": "Jess Weatherbed",
+  "summary": "<figure>\n\n<img alt=\"An illustration representing Canva’s Magic Layers tool.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/NAMR26003_S003_GRP01_PrImageSplit_16x9_V01.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Canva introduced a new feature that separates flat image files and AI-generated visuals into layered, fully editable designs. The <a href=\"https://www.canva.com/en_gb/help/editable-magic-layers/\">Magic Layers</a> tool is launching in public beta today in the US, UK, Canada, and Australia, allowing design components like objects, text boxes, and other graphics to be selected individually while preserving the original layout.</p>\n<p class=\"has-text-align-none\">\"After a breakthrough from our AI research team, we're introducing Magic Layers so anyone can take a flat image and turn it into a fully editable design inside Canva,\" Canva's chief product officer, Cameron Adams, <a hre",
+  "full_text": "Canva introduced a new feature that separates flat image files and AI-generated visuals into layered, fully editable designs. The Magic Layers tool is launching in public beta today in the US, UK, Canada, and Australia, allowing design components like objects, text boxes, and other graphics to be selected individually while preserving the original layout.\n\n“After a breakthrough from our AI research team, we’re introducing Magic Layers so anyone can take a flat image and turn it into a fully editable design inside Canva,” Canva’s chief product officer, Cameron Adams, said in the press release. “There’s no need to start over, or to figure out the right prompt. Generation is just the beginning - real creative freedom comes from being able to edit without losing momentum.”\n\nThe feature isn’t only designed to work with AI-generated works — Magic Layers currently supports any single-page PNG or JPEG file, with “expanded capabilities in development.” The focus on how it can be used on AI images isn’t surprising, however, given how aggressively Canva has been pushing its generative AI tools over the last couple of years. The aim here is to prevent Canva users from needing to reprompt an AI-generated image if only a small section needs to be adjusted.\n\nIt’s also a step above what’s being offered by other creative software providers. Generative AI tools in Adobe apps like Photoshop and Express will add generated elements to their own distinct layer that’s easy to separate from the main design, for example, but don’t currently provide a means to automatically break an entire image into layers.\n\nMagic Layers may give creators more manual control over how flat images are edited, at least compared to asking an AI assistant to make small tweaks, but it may also make AI-generated designs harder to distinguish from those made from scratch. Because image generators are (currently) limited to spitting out flat designs, showing element layers is one way that artists can prove that they made something without simply describing it to a machine.",
+  "tags": [
+    "500-words",
+    "australia",
+    "canada",
+    "canva",
+    "designs",
+    "editable",
+    "feature",
+    "flat",
+    "fully",
+    "image",
+    "layers",
+    "magic",
+    "magic layers",
+    "tool"
+  ]
+}

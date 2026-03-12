@@ -1,0 +1,28 @@
+{
+  "id": 2742,
+  "source": "Hacker News",
+  "title": "Show HN: Site Spy – Track webpage changes with diffs, element picking, and RSS",
+  "url": "https://sitespy.app",
+  "published_at": "2026-03-11T16:21:06Z",
+  "fetched_at": "2026-03-11T18:00:27.497449+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47337607\">Comments</a>",
+  "full_text": "What is Site Spy?\n\nSite Spy is a website monitoring tool that tracks pages for changes automatically. It checks on a schedule you set, detects content updates, and notifies you instantly. Use the web dashboard on any device, or add the browser extension for one-click tracking in Chrome and Firefox.How does website change detection work?\n\nSite Spy takes snapshots of the pages you track at your chosen interval (from minutes to weeks). When new content is detected, it highlights exactly what changed using a visual diff view — additions appear in green and removals in red. You can browse the full snapshot timeline to compare any two versions.Is Site Spy free to use?\n\nYes, Site Spy has a free plan that lets you track up to 5 websites with checks every hour. Browser push notifications are available on all plans. For more watches, faster check intervals (down to 1 minute), email notifications, and Telegram alerts, you can upgrade to Starter (€4/mo) or Pro (€8/mo).How can I access Site Spy?\n\nThe web dashboard works in any browser, including mobile. For desktop, you can also install the browser extension for Chrome or Firefox. Your watches sync across all devices when you sign in.Can I track specific parts of a page instead of the whole page?\n\nYes. Site Spy includes an element inspector that lets you click on any element on a webpage to monitor just that section. This is useful for tracking price changes, stock availability, news headlines, or any specific content block.Does Site Spy work with AI assistants?\n\nYes. Site Spy provides an MCP (Model Context Protocol) server that integrates with Claude, Cursor, and other MCP-compatible AI agents. Your AI assistant can monitor websites, compare snapshots, and summarize changes directly in your chat.",
+  "tags": [
+    "500-words",
+    "browser",
+    "change",
+    "changes",
+    "checks",
+    "content",
+    "dashboard",
+    "extension",
+    "pages",
+    "site spy",
+    "track",
+    "tracker",
+    "website",
+    "website change",
+    "yes site"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": 2652,
+  "source": "Hacker News",
+  "title": "PeppyOS: A simpler alternative to ROS 2 (now with containers support)",
+  "url": "https://peppy.bot/",
+  "published_at": "2026-03-08T10:46:56Z",
+  "fetched_at": "2026-03-11T13:20:27.362674+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47296255\">Comments</a>",
+  "full_text": "Input {\n // This is an AI brain that can plug to any hardware controller\n schema_version: 1,\n manifest: {\n name: \"robot_brain\",\n tag: \"0.1.0\",\n language: \"python\"\n },\n process: {\n add_cmd: [\"uv\", \"sync\"],\n start_cmd: [\"uv\", \"run\", \"src/main.py\"]\n },\n parameters: {},\n interfaces: {\n exposes: {},\n subscribes_to: {\n // The brain receives inputs from sensors\n topics: [\n {\n id: \"camera_stream\",\n node: \"uvc_camera\",\n name: \"video_stream\",\n tag: \"0.1.0\",\n },\n {\n id: \"lidar_sensor\",\n node: \"rplidar\",\n name: \"scan\",\n tag: \"0.1.0\",\n },\n ],\n // And emit actions to the controller\n actions: [\n {\n id: \"move_right_arm_action\",\n node: \"openarm01_controller\",\n name: \"move_right_arm\",\n tag: \"0.1.0\",\n },\n {\n id: \"move_left_arm_action\",\n node: \"openarm01_controller\",\n name: \"move_left_arm\",\n tag: \"0.1.0\",\n }\n ]\n },\n }\n} {\n // This is an AI brain that can plug to any hardware controller\n schema_version: 1,\n manifest: {\n name: \"robot_brain\",\n tag: \"0.1.0\",\n language: \"python\"\n },\n process: {\n add_cmd: [\"uv\", \"sync\"],\n start_cmd: [\"uv\", \"run\", \"src/main.py\"]\n },\n parameters: {},\n interfaces: {\n exposes: {},\n subscribes_to: {\n // The brain receives inputs from sensors\n topics: [\n {\n id: \"camera_stream\",\n node: \"uvc_camera\",\n name: \"video_stream\",\n tag: \"0.1.0\",\n },\n {\n id: \"lidar_sensor\",\n node: \"rplidar\",\n name: \"scan\",\n tag: \"0.1.0\",\n },\n ],\n // And emit actions to the controller\n actions: [\n {\n id: \"move_right_arm_action\",\n node: \"openarm01_controller\",\n name: \"move_right_arm\",\n tag: \"0.1.0\",\n },\n {\n id: \"move_left_arm_action\",\n node: \"openarm01_controller\",\n name: \"move_left_arm\",\n tag: \"0.1.0\",\n }\n ]\n },\n }\n}",
+  "tags": [
+    "500-words",
+    "actions",
+    "brain",
+    "controller",
+    "emit",
+    "framework",
+    "hardware",
+    "inputs",
+    "peppyos",
+    "peppyos open",
+    "plug",
+    "receives",
+    "sensors",
+    "source robotics"
+  ]
+}

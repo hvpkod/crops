@@ -1,0 +1,27 @@
+{
+  "id": 2649,
+  "source": "The Verge",
+  "title": "Intel announces Core Ultra 270K Plus and 250K Plus, its ‘fastest gaming desktop processors ever’",
+  "url": "https://www.theverge.com/tech/892838/intel-core-ultra-270k-plus-250k-plus-fastest-gaming-cpu-ever",
+  "published_at": "2026-03-11T13:00:00Z",
+  "fetched_at": "2026-03-11T13:20:17.114402+00:00",
+  "author": "Sean Hollister",
+  "summary": "<figure>\n\n<img alt=\"A slide for the Intel Core Ultra 200S Plus shows the company’s biggest brags, like the fastest desktop gaming processor it’s yet made.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/chrome_xrJv8xdOGt.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Intel hasn't made it easy to buy a flagship desktop chip. The company's 2022 and 2023 Raptor Lake chips ran hot, power-hungry, and <a href=\"https://www.theverge.com/2024/10/4/24262287/intel-13th-14th-gen-crash-raptor-lake-root-cause-fix\">had those infamous crashes</a>, while 2024's Arrow Lake-based Core Ultra 9 285K <a href=\"https://www.theverge.com/2024/10/24/24278407/intel-ultra-9-285k-benchmarks-performance-hands-on\">had lackluster gaming performance</a> that the company has <a href=\"https://www.theverge.com/2024/12/18/24324594/intel-performance-arrow-lake-core-ultra-200s-cpus\">tried to address</a> with <a href=\"https:",
+  "full_text": "Intel hasn’t made it easy to buy a flagship desktop chip. The company’s 2022 and 2023 Raptor Lake chips ran hot, power-hungry, and had those infamous crashes, while 2024’s Arrow Lake-based Core Ultra 9 285K had lackluster gaming performance that the company has tried to address with updates.\n\nNow, Intel claims it has finally surpassed both predecessors with “Intel’s fastest gaming desktop processors ever”: the Intel Core Ultra 7 270K Plus and 250K Plus, shipping March 26th.\n\nWhile we don’t have every detail today, the company claims the 24-core, 5.5GHz turbo Core Ultra 7 270K Plus can beat both the Raptor Lake i9-14900K and the Arrow Lake Ultra 9 285K in gaming performance — and with 24 cores, 24 threads and a $300 price, it could compete favorably in productivity against AMD’s Ryzen 7 9700X as well.\n\nThis is where enthusiasts will probably note that AMD’s 9700X is nowhere near the most potent gaming chip that AMD makes, and is also a year and a half old… but for $300 and nearly double the claimed multithreaded performance, the Intel chip may turn some heads when it comes to multithreaded workloads on a budget.\n\nThe 250K Plus may be a similar story at $200, with a claimed 103 percent better multicore performance on average than the similarly priced AMD 9600X.\n\nIntel’s slidedeck doesn’t actually show how much faster gaming performance might be compared to its previous flagship chips, let alone AMD’s chips — instead, Intel compares the 270K Plus and 250K Plus directly to their immediate predecessors, the 265K and 245K, respectively.\n\nTap to make these images larger.\n\nThere, gains can be quite modest at “up to 4 percent” in Assassin’s Creed Shadows, but also as much as 39 percent in Shadow of the Tomb Raider with a new Intel Binary Optimization Tool enabled, a “a first-of-its-kind binary translation layer optimization capability that can improve native performance in select games.”\n\nOther than the Binary Optimization Tool, Intel writes that the specific advancements here in Arrow Lake Refresh are four more efficiency cores, a 200MHz faster base clock on the P-cores and a 100MHz faster base-clock on the E-cores, a 900MHz faster link between the CPU and memory controller, support for DDR5 7200 MT/s memory, and “early support” for 4-rank CUDIMM memory modules, assuming your Intel 800-series motherboard supports those.\n\nBoth chips still run at 125W TDP like their immediate predecessors; the 270K now has a base clock of 4.1GHz on the P-cores and 3.4GHz on the E-cores, while the 250K’s clocks start at 4.4GHz and 3.7GHz respectively. The 250K has 30MB of Smart Cache, up from 24MB on the 245K, while the 270K still has 36MB.\n\n“Intel Core Ultra 200S Plus desktop processors will maintain compatibility with all 800-series chipset motherboards currently on the market. New 800-series chipset motherboard models will be coming to market throughout 2026, including models that enable early support for 4-Rank CUDIMM memory,” Intel’s press release reads, adding that there will be KF variants of the chips (without integrated graphics) as well.\n\nFollow topics and authors from this story to see more like this in your personalized homepage feed and to receive email updates.\nSean Hollister\n\nGaming\n\nIntel\n\nNews\n\nPC Gaming\n\nTech",
+  "tags": [
+    "1000-words",
+    "arrow lake",
+    "chips",
+    "core",
+    "core ultra",
+    "desktop",
+    "faster",
+    "gaming",
+    "intel",
+    "lake",
+    "performance",
+    "plus",
+    "raptor lake",
+    "ultra"
+  ]
+}

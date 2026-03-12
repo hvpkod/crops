@@ -1,0 +1,30 @@
+{
+  "id": 2729,
+  "source": "Slashdot",
+  "title": "YouTube Expands AI Deepfake Detection To Politicians, Government Officials, and Journalists",
+  "url": "https://news.slashdot.org/story/26/03/11/1653217/youtube-expands-ai-deepfake-detection-to-politicians-government-officials-and-journalists?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-11T17:00:00Z",
+  "fetched_at": "2026-03-11T17:40:13.968430+00:00",
+  "author": "BeauHD",
+  "summary": "YouTube is expanding its AI deepfake detection tools to a pilot group of politicians, government officials, and journalists, allowing them to identify and request removal of unauthorized AI-generated videos impersonating them. TechCrunch reports: The technology itself launched last year to roughly 4 million YouTube creators in the YouTube Partner Program, following earlier tests. Similar to YouTube's existing Content ID system, which detects copyright-protected material in users' uploaded videos, the likeness detection feature looks for simulated faces made with AI tools. These tools are sometimes used to try to spread misinformation and manipulate people's perception of reality, as they leverage the deepfaked personas of notable figures -- like politicians or other government officials -- to say and do things in these AI videos that they didn't in real life.\n \nWith the new pilot program, YouTube aims to balance users' free expression with the risks associated with AI technology that c",
+  "full_text": "YouTube is expanding\n\n its AI deepfake detection tools to a pilot group of politicians, government officials, and journalists, allowing them to identify and request removal of unauthorized AI-generated videos impersonating them\n\n. TechCrunch reports: The technology itself launched last year to roughly 4 million YouTube creators in the YouTube Partner Program, following earlier tests. Similar to YouTube's existing Content ID system, which detects copyright-protected material in users' uploaded videos, the likeness detection feature looks for simulated faces made with AI tools. These tools are sometimes used to try to spread misinformation and manipulate people's perception of reality, as they leverage the deepfaked personas of notable figures -- like politicians or other government officials -- to say and do things in these AI videos that they didn't in real life.\n\n \n\nWith the new pilot program, YouTube aims to balance users' free expression with the risks associated with AI technology that can generate a convincing likeness of a public figure. [...] [Leslie Miller, YouTube's vice president of Government Affairs and Public Policy] explained that not all of the detected matches would be removed when requested. Instead, YouTube would evaluate each request under its existing privacy policy guidelines to determine whether the content is parody or political critique, which are protected forms of free expression. The company noted it's advocating for these protections at a federal level, too, with its support for the NO FAKES Act in D.C., which would regulate the use of AI to create unauthorized recreations of an individual's voice and visual likeness.\n\n \n\nTo use the new tool, eligible pilot testers must first prove their identity by uploading a selfie and a government ID. They can then create a profile, view the matches that show up, and optionally request their removal. YouTube says it plans to eventually give people the ability to prevent uploads of violating content before they go live or, possibly, allow them to monetize those videos, similar to how its Content ID system works. The company would not confirm which politicians or officials would be among its initial testers, but said the goal is to make the technology broadly available over time.",
+  "tags": [
+    "500-words",
+    "content",
+    "content id",
+    "deepfake",
+    "deepfake detection",
+    "detection",
+    "government",
+    "journalists",
+    "officials",
+    "pilot",
+    "politicians government",
+    "request",
+    "technology",
+    "tools",
+    "unauthorized",
+    "youtube",
+    "youtube expands"
+  ]
+}
