@@ -1,0 +1,27 @@
+{
+  "id": 3010,
+  "source": "Hacker News",
+  "title": "NaN Is Weird",
+  "url": "https://brassnet.biz/blog/nan-is-weird.html",
+  "published_at": "2026-03-08T18:08:38Z",
+  "fetched_at": "2026-03-12T20:40:20.264769+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47299508\">Comments</a>",
+  "full_text": "NaN is weird.\n\nPublished March 02, 2026\n\nLast week in the Python Discord we had an unusual discussion about a Python oddity. Specifically concerning float('nan'). It turns\nout that (rather unsurprisingly when you think about it) float('nan') is hashable. \n\n>>> hash(float('nan'))\n274121555\n\nIf it is hashable you can put it in a set:\n\n>>> set(float('nan') for _ in range(10))\n{nan, nan, nan, nan, nan, nan, nan, nan, nan, nan}\n\nBut why are there 10 copies of nan in that set??? A set shouldn't contain duplicates but that set obviously does. This comes down to the\nsimple fact that no two instances of nan equal one another:\n\n>>> float('nan') == float('nan')\nFalse\n\nIn fact, the same nan doesn't even equal itself!\n\n>>> nan = float('nan')\n>>> nan == nan\nFalse\n>>> nan is nan\nTrue\n\nJust to make life even more fun, you can use nan as a key in a dictionary:\n\n>>> my_dict = {float('nan'): 1, float('nan'): 2}\n>>> my_dict\n{nan: 1, nan: 2}\n\nBut, of course, you can't actually get to those values by their keys:\n\n>>> my_dict[float('nan')]\nTraceback (most recent call last):\n File \"\", line 1, in \n my_dict[float('nan')]\n ~~~~~~~^^^^^^^^^^^^^^\nKeyError: nan\n\nThat is, unless you stored the specific instance of nan as a variable:\n\n>>> my_dict[nan] = 3\n>>> my_dict[nan]\n3\n\nYou can always get the keys from the dictionary and work that way, but who knows if you'll get the nan you're looking for:\n\n>>> my_keys = list(my_dict.keys())\n>>> my_dict[my_keys[0]]\n1\n\nAs a bonus, we can't even get an accurate count of how many times nan appears in an iterable...\n\n>>> from collections import Counter\n>>> Counter(float('nan') for _ in range(10))\nCounter({nan: 1, nan: 1, nan: 1, nan: 1, nan: 1, nan: 1, nan: 1, nan: 1, nan: 1, nan: 1})\n\nWhile I can't see myself ever, deliberately, using nan as a dictionary key, it is a fun little Python oddity.",
+  "tags": [
+    "500-words",
+    "counter",
+    "dan shernicoff",
+    "dictionary",
+    "discord",
+    "discussion",
+    "equal",
+    "false",
+    "march",
+    "musings",
+    "nan",
+    "published",
+    "python",
+    "unusual"
+  ]
+}

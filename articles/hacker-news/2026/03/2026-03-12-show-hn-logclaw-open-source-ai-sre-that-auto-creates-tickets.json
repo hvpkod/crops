@@ -1,0 +1,27 @@
+{
+  "id": 2969,
+  "source": "Hacker News",
+  "title": "Show HN: LogClaw – Open-source AI SRE that auto-creates tickets from logs",
+  "url": "https://logclaw.ai",
+  "published_at": "2026-03-12T17:06:42Z",
+  "fetched_at": "2026-03-12T17:20:33.522049+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47353981\">Comments</a>",
+  "full_text": "AI SRE · Deployed in Your VPC\n\nYour logs never leave your VPC. \nOur AI SRE watches 24/7.\n\nLogClaw deploys inside your AWS, Azure, or GCP account — monitors your logs around the clock, detects anomalies in real-time, and auto-creates incident tickets with root cause analysis. Your data never crosses a trust boundary.\n\nLogs stay in your VPCSOC 2 Type II readyOpen source · Apache 2.0",
+  "tags": [
+    "200-words",
+    "account",
+    "deployed",
+    "deploys",
+    "detects",
+    "inside",
+    "leave",
+    "logclaw",
+    "logs",
+    "monitors",
+    "sre",
+    "sre that",
+    "watches",
+    "your vpc"
+  ]
+}

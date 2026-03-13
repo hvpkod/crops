@@ -1,0 +1,29 @@
+{
+  "id": 2907,
+  "source": "Hacker News",
+  "title": "Show HN: Calyx – Ghostty-Based macOS Terminal with Liquid Glass UI",
+  "url": "https://github.com/yuuichieguchi/Calyx",
+  "published_at": "2026-03-12T13:13:02Z",
+  "fetched_at": "2026-03-12T14:00:16.061971+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47350108\">Comments</a>",
+  "full_text": "A macOS 26+ native terminal application built on libghostty with Liquid Glass UI.\n\nlibghostty terminal engine -- Metal GPU-accelerated rendering via Ghostty v1.3.0 submodule\n\nLiquid Glass UI -- native macOS 26 Tahoe design language\n\nTab Groups -- 10 color presets, collapsible sections, hierarchical organization\n\nSplit Panes -- horizontal and vertical splits with directional focus navigation\n\nCommand Palette -- search and execute all operations with Cmd+Shift+P\n\nSession Persistence -- tabs, splits, and working directories auto-saved and restored on restart\n\nDesktop Notifications -- OSC 9/99/777 support with rate limiting\n\nBrowser Integration -- WKWebView tabs alongside terminal tabs (http/https only, non-persistent storage, popup blocking)\n\nScrollback Search -- Cmd+F to search terminal scrollback with match highlighting, Cmd+G/Cmd+Shift+G to navigate matches\n\nNative Scrollbar -- system overlay scrollbar for terminal scrollback\n\nCursor Click-to-Move -- click on a prompt line to reposition cursor (requires shell integration)\n\nGit Source Control -- sidebar Changes view with working changes (staged/unstaged/untracked), commit graph with branch visualization, and inline diff viewer\n\nClaude Code IPC -- MCP server for communication between Claude Code instances across tabs and panes\n\nGhostty config compatibility -- reads ~/.config/ghostty/config\n\nGroup Operations (Ctrl+Shift)\n\nShortcut\nAction\n\nCtrl+Shift+]\nNext group\n\nCtrl+Shift+[\nPrevious group\n\nCtrl+Shift+N\nNew group\n\nCtrl+Shift+W\nClose group\n\nShortcut\nAction\n\nCmd+T\nNew tab\n\nCmd+W\nClose tab\n\nCmd+1--9\nSwitch to tab\n\nCmd+Shift+]\nNext tab\n\nCmd+Shift+[\nPrevious tab\n\nShortcut\nAction\n\nCmd+D\nSplit right\n\nCmd+Shift+D\nSplit down\n\nCmd+Option+Arrow\nFocus between splits\n\nShortcut\nAction\n\nCmd+F\nFind in terminal\n\nCmd+G\nNext match\n\nCmd+Shift+G\nPrevious match\n\nEscape\nClose search bar\n\nShortcut\nAction\n\nCmd+Shift+P\nCommand palette\n\nIPC (Inter-Pane Communication)\n\nMultiple Claude Code instances running in different Calyx tabs or panes can communicate with each other via a built-in MCP server.\n\nOpen the command palette (Cmd+Shift+P) and run Enable Claude Code IPC\n\nStart Claude Code in two or more terminal panes\n\nEach instance automatically registers as a peer and can send/receive messages\n\nAvailable MCP tools: register_peer, list_peers, send_message, broadcast, receive_messages, ack_messages, get_peer_status\n\nTo disable, open the command palette and run Disable Claude Code IPC.\n\nDownload Calyx.zip from the latest release\n\nUnzip the file\n\nDrag Calyx.app into /Applications\n\nmacOS 26+ (Tahoe)\n\nXcode 26+\n\nZig (version matching ghostty's build.zig.zon)\n\nXcodeGen (brew install xcodegen)\n\n# Clone with submodules\ngit clone --recursive https://github.com/yuuichieguchi/Calyx.git\ncd Calyx\n\n# Build libghostty xcframework\ncd ghostty\nzig build -Demit-xcframework=true -Dxcframework-target=native\ncd ..\n\n# Copy framework\ncp -R ghostty/macos/GhosttyKit.xcframework .\n\n# Generate Xcode project & build\nxcodegen generate\nxcodebuild -project Calyx.xcodeproj -scheme Calyx -configuration Debug build\n\nCalyx uses AppKit for window, tab, and focus management with SwiftUI for view rendering, bridged via NSHostingView.\n\nAll ghostty C API calls go through the GhosttyFFI enum\n\n@MainActor enforced on all UI and model code\n\nAction dispatch via NotificationCenter\n\nTech stack: Swift 6.2, AppKit, SwiftUI, libghostty (Metal), XcodeGen\n\nCursor click-to-move on full-width text -- cursor placement may be offset on Japanese/full-width text lines because Ghostty's cursor-click-to-move internally translates clicks into arrow-key steps over terminal cells.\n\nThis project is licensed under the MIT License.\n\nBuilt on libghostty by Mitchell Hashimoto (MIT License).",
+  "tags": [
+    "500-words",
+    "action",
+    "calyx",
+    "claude",
+    "claude code",
+    "cmd shift",
+    "code",
+    "ctrl shift",
+    "ghostty",
+    "github",
+    "group",
+    "libghostty",
+    "macos",
+    "native",
+    "shortcut",
+    "terminal"
+  ]
+}

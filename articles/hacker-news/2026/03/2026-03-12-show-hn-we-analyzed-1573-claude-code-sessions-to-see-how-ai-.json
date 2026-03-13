@@ -1,0 +1,29 @@
+{
+  "id": 2905,
+  "source": "Hacker News",
+  "title": "Show HN: We analyzed 1,573 Claude Code sessions to see how AI agents work",
+  "url": "https://github.com/obsessiondb/rudel",
+  "published_at": "2026-03-12T13:41:12Z",
+  "fetched_at": "2026-03-12T14:00:12.962823+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47350416\">Comments</a>",
+  "full_text": "Try the hosted version for free at rudel.ai\n\nAnalytics for Claude Code. Rudel gives you a dashboard with insights on your coding sessions — token usage, session duration, activity patterns, model usage, and more.\n\nCreate an account at app.rudel.ai\n\nInstall the CLI and connect it to your account:\n\nnpm install -g rudel\n\nrudel login # authenticate via your browser\nrudel enable # auto-upload sessions when Claude Code exits\n\nInvite teammates (optional): go to Settings → Organization in the dashboard, enter their email, and share the generated invite link with them.\n\nThat's it. Your Claude Code sessions will now be uploaded automatically.\n\nAlready have past sessions? Upload them in one go:\n\nrudel upload # interactive picker for batch upload\n\nSee the CLI documentation for all available commands.\n\nYou install the CLI and run rudel enable\n\nThis registers a Claude Code hook that runs when a session ends\n\nThe hook uploads the session transcript to Rudel\n\nTranscripts are stored in ClickHouse and processed into analytics\n\nEach uploaded session includes:\n\nSession ID & timestamps (start, last interaction)\n\nUser ID & organization ID\n\nProject path & package name\n\nGit context (repository, branch, SHA, remote)\n\nSession transcript (full prompt & response content)\n\nSub-agent usage\n\nSecurity & Privacy Disclaimer\n\nRudel is designed to ingest full coding-agent session data for analytics. That means uploaded transcripts and related metadata may contain sensitive material, including source code, prompts, tool output, file contents, command output, URLs, and secrets that appeared during a session.\n\nOnly enable Rudel on projects and environments where you are comfortable uploading that data. If you use the hosted service at app.rudel.ai, we do not have access to personal data contained in uploaded transcripts and cannot read that data. Review the Rudel Privacy Policy before enabling uploads for yourself or your team.\n\nSee CONTRIBUTING.md for local setup, development commands, and PR guidelines.\n\nFor self-hosting your own instance, see docs/self-hosting.md.\n\nTo report a vulnerability, see SECURITY.md. Do not open public issues for security concerns.\n\nMIT",
+  "tags": [
+    "500-words",
+    "analytics",
+    "claude",
+    "claude code",
+    "cli",
+    "code",
+    "enable",
+    "github",
+    "install",
+    "rudel",
+    "security",
+    "session",
+    "session analytics",
+    "sessions",
+    "upload",
+    "uploaded"
+  ]
+}

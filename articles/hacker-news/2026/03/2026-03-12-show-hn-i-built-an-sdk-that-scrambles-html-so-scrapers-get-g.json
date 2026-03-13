@@ -1,0 +1,24 @@
+{
+  "id": 2916,
+  "source": "Hacker News",
+  "title": "Show HN: I built an SDK that scrambles HTML so scrapers get garbage",
+  "url": "https://www.obscrd.dev/",
+  "published_at": "2026-03-12T13:27:53Z",
+  "fetched_at": "2026-03-12T14:40:33.319479+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47350252\">Comments</a>",
+  "full_text": "obscrd renders your content normally for real users through the browser, but transforms the underlying DOM so that scrapers, bots, and automated tools only see scrambled, meaningless data. The visual output is identical — the source code is not.",
+  "tags": [
+    "200-words",
+    "bots",
+    "content",
+    "normally",
+    "obscrd",
+    "protect",
+    "real",
+    "renders",
+    "scrapers",
+    "transforms",
+    "users"
+  ]
+}

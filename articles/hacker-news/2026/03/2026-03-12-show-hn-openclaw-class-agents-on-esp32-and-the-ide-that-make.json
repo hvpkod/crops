@@ -1,0 +1,25 @@
+{
+  "id": 3039,
+  "source": "Hacker News",
+  "title": "Show HN: OpenClaw-class agents on ESP32 (and the IDE that makes it possible)",
+  "url": "https://pycoclaw.com/",
+  "published_at": "2026-03-12T21:38:06Z",
+  "fetched_at": "2026-03-12T22:40:20.796903+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47357515\">Comments</a>",
+  "full_text": "One-Click Flash \n\nFlash your ESP32 from the browser. No toolchain, no terminal, no ESP-IDF. Just click and go. \n\n \n\nFull Agent Loop \n\nComplete OpenClaw reasoning engine: recursive tool calls, context compaction, dual-loop architecture. C-native SSE streaming for real-time token delivery. \n\n \n\nHardware Control \n\nControl LEDs, displays, sensors directly. LVGL touchscreen UI. GPIO, CAN, I2C — the agent controls the board. \n\n \n\nMulti-Channel Chat \n\nTalk via Telegram, Scripto Studio, or any future channel. Your agent is always listening. \n\n \n\nPersistent Memory \n\nHybrid TF-IDF + vector search. Remembers across reboots. SD card backed. Your agent knows you. \n\n \n\nScriptOs Skills \n\nInstall and run skills from ScriptoHub. The marketplace for embedded AI. The agent writes its own too.",
+  "tags": [
+    "200-words",
+    "agent",
+    "complete",
+    "control",
+    "embedded",
+    "flash",
+    "full",
+    "loop",
+    "openclaw",
+    "pycoclaw",
+    "pycoclaw openclaw",
+    "skills"
+  ]
+}

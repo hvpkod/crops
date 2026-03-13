@@ -1,0 +1,32 @@
+{
+  "id": 3007,
+  "source": "Slashdot",
+  "title": "Perplexity's 'Personal Computer' Lets AI Agents Access Your Local Files",
+  "url": "https://slashdot.org/story/26/03/12/191200/perplexitys-personal-computer-lets-ai-agents-access-your-local-files?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-12T20:00:00Z",
+  "fetched_at": "2026-03-12T20:20:23.308119+00:00",
+  "author": "BeauHD",
+  "summary": "Perplexity AI has introduced a \"Personal Computer\" agent system that can run on a local machine such as a Mac mini, giving its AI agents access to a user's files and applications to automate tasks. According to CEO Aravind Srinivas, the heavy AI processing runs on Perplexity's \"secure servers\" but sensitive actions will require user approval. There will also be activity logs and a kill switch available to help ease concerns. AppleInsider reports: Perplexity Computer is, effectively, an AI that is a go-between for other AIs. Instead of issuing specific instructions to multiple AIs, you provide the general outcome of the task to Perplexity Computer. Perplexity Computer then breaks down the task into subtasks, which it then provides to sub-agents to do the actual work. In effect, you're talking to a project manager, who then delegates the task to other AIs, before combining the results and presenting them to you.\n \nThe managing AI has a lot more freedom in how it orders its subordinates t",
+  "full_text": "Perplexity AI has introduced a \"Personal Computer\n\n\" agent system that can run on a local machine such as a Mac mini\n\n, giving its AI agents access to a user's files and applications to automate tasks\n\n. According to CEO Aravind Srinivas, the heavy AI processing runs on Perplexity's \"secure servers\" but sensitive actions will require user approval. There will also be activity logs and a kill switch available to help ease concerns. AppleInsider reports: Perplexity Computer is, effectively, an AI that is a go-between for other AIs. Instead of issuing specific instructions to multiple AIs, you provide the general outcome of the task to Perplexity Computer. Perplexity Computer then breaks down the task into subtasks, which it then provides to sub-agents to do the actual work. In effect, you're talking to a project manager, who then delegates the task to other AIs, before combining the results and presenting them to you.\n\n \n\nThe managing AI has a lot more freedom in how it orders its subordinates than users may think. While one may create documents while another gathers data, the manager may go as far as to order the creation of software to complete its tasks. Personal Computer is an extension of this, in that it is a locally run app that ideally runs on a Mac mini. The app gives always-on, local access to the Mac's files and apps, which Perplexity Computer and the Comet Assistant can use and alter if required.",
+  "tags": [
+    "500-words",
+    "access",
+    "agents",
+    "agents access",
+    "ais",
+    "computer",
+    "files",
+    "fortnox world",
+    "introduced",
+    "lets",
+    "lets ai",
+    "local",
+    "mac",
+    "perplexity",
+    "perplexity computer",
+    "personal computer",
+    "runs",
+    "task",
+    "your local"
+  ]
+}

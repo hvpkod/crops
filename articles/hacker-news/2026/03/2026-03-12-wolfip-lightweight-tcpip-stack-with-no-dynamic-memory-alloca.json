@@ -1,0 +1,31 @@
+{
+  "id": 2982,
+  "source": "Hacker News",
+  "title": "WolfIP: Lightweight TCP/IP stack with no dynamic memory allocations",
+  "url": "https://github.com/wolfssl/wolfip",
+  "published_at": "2026-03-12T15:39:50Z",
+  "fetched_at": "2026-03-12T18:00:52.707101+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47352385\">Comments</a>",
+  "full_text": "Description and project goals\n\nwolfIP is a TCP/IP stack with no dynamic memory allocations, designed to be\nused in resource-constrained embedded systems.\n\nEndpoint only mode is supported, which means that wolfip can be used to\nestablish network connections but it does not route traffic between different\nnetwork interfaces.\n\nA single network interface can be associated with the device.\n\nBSD-like, non blocking socket API, with custom callbacks\n\nNo dynamic memory allocation\n\nFixed number of concurrent sockets\n\nPre-allocated buffers for packet processing in static memory\n\nLayer\nProtocol\nFeatures\nRFC(s)\n\nData Link\nEthernet II\nFrame encapsulation\nIEEE 802.3\n\nData Link\nARP\nAddress resolution, request/reply\nRFC 826\n\nNetwork\nIPv4\nDatagram delivery, TTL handling\nRFC 791\n\nNetwork\nIPv4 Forwarding\nMulti-interface routing (optional)\nRFC 1812\n\nNetwork\nICMP\nEcho request/reply, TTL exceeded\nRFC 792\n\nNetwork\nIPsec\nESP Transport mode\nRFC 4303\n\nTransport\nUDP\nUnicast datagrams, checksum\nRFC 768\n\nTransport\nTCP\nConnection management, reliable delivery\nRFC 793, RFC 9293\n\nTransport\nTCP\nMaximum Segment Size negotiation\nRFC 793\n\nTransport\nTCP\nTCP Timestamps, RTT measurement, PAWS, Window Scaling\nRFC 7323\n\nTransport\nTCP\nRetransmission timeout (RTO) computation\nRFC 6298, RFC 5681\n\nTransport\nTCP\nTCP SACK\nRFC 2018, RFC 2883, RFC 6675\n\nTransport\nTCP\nCongestion Control: Slow start, congestion avoidance\nRFC 5681\n\nTransport\nTCP\nFast Retransmit, triple duplicate ACK detection\nRFC 5681\n\nApplication\nDHCP\nClient only (DORA)\nRFC 2131\n\nApplication\nDNS\nA and PTR record queries (client)\nRFC 1035\n\nApplication\nHTTP/HTTPS\nServer with wolfSSL TLS support\nRFC 9110\n\nFunctional tests with LD_PRELOAD\n\nThe POSIX shim builds libwolfip.so, which can be injected in front of\nhost tools so that calls to socket(2) and friends are redirected to the\nwolfIP stack and the TAP device (wtcp0). After running make:\n\nsudo LD_PRELOAD=$PWD/libwolfip.so nc 10.10.10.2 80\n\nThe example above mirrors the existing nc-driven demos: any TCP sockets\nopened by the intercepted process are serviced by wolfIP instead of the host\nkernel.\n\nICMP datagram sockets can be validated the same way. With the TAP interface\ncreated automatically by the shim and the host endpoint configured in\nconfig.h (HOST_STACK_IP defaults to 10.10.10.1), run:\n\nsudo LD_PRELOAD=$PWD/libwolfip.so ping -I wtcp0 -c5 10.10.10.1\n\nThe -I wtcp0 flag pins the test to the injected interface and -c5\ngenerates five echo requests. Successful replies confirm the ICMP\ndatagram socket support end-to-end through the tap device.\n\nwolfIP now includes a dedicated FreeRTOS wrapper port at:\n\nsrc/port/freeRTOS/bsd_socket.c\n\nsrc/port/freeRTOS/bsd_socket.h\n\nThis port follows the same model as the POSIX wrapper:\n\nOne background task loops on wolfIP_poll()\n\nSocket wrappers serialize stack access with a mutex\n\nBlocking operations wait on callback-driven wakeups (instead of busy polling)\n\nwolfIP is licensed under the GPLv3 license. See the LICENSE file for details.\nCopyright (c) 2025 wolfSSL Inc.",
+  "tags": [
+    "500-words",
+    "application",
+    "datagram",
+    "dynamic",
+    "github",
+    "icmp",
+    "interface",
+    "lightweight tcp",
+    "memory",
+    "network",
+    "rfc network",
+    "rfc transport",
+    "socket",
+    "sockets",
+    "stack",
+    "transport",
+    "transport tcp",
+    "wolfip"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 2990,
+  "source": "Hacker News",
+  "title": "Show HN: Aurion OS – A 32-bit GUI operating system written from scratch in C",
+  "url": "https://github.com/Luka12-dev/AurionOS",
+  "published_at": "2026-03-12T18:33:30Z",
+  "fetched_at": "2026-03-12T19:20:20.776015+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47355213\">Comments</a>",
+  "full_text": "The Horizon of Retro-Modern Computing\n\nAurionOS A 32-bit x86 operating system built\nfrom scratch in C and x86 Assembly.\nDeveloped as a solo learning project\nby a 13-year-old over the course\nof 14 days\n\nAurionOS is built for the tinkerers who want to see every byte move. By stripping away modern abstractions, we reveal the elegant logic of the CPU and the hardware. Every line of code serves a purpose, offering a bloat-free environment for learning and development.\n\nEnsure you have QEMU and NASM installed.\n\nRun the following command:\n\nWhy does this work?\nThe Makefile compiles the assembly bootloader and the C kernel, links them at 0x10000, and packages them into a bootable image. QEMU then loads this image, starting the execution at the BIOS handoff point.\n\n1. The Bootloader (src/bootload.asm)\n\nStarts in 16-bit Real Mode, enables the A20 gate, sets up the GDT, and transitions the CPU to 32-bit Protected Mode before jumping to the kernel.\n\n2. The Kernel Entry (src/kernel.asm)\n\nInitializes the stack and the Interrupt Descriptor Table (IDT), then calls the C kmain function to begin high-level initialization.\n\n3. Memory Management (src/memory.asm)\n\nUses a Memory Control Block (MCB) heap manager starting at the 1MB mark, providing kmalloc and kfree for dynamic memory allocation.\n\n4. VESA Graphics (src/vesa.asm & src/drivers/vbe_graphics.c)\n\nUtilizes VBE (VESA BIOS Extensions) for high-resolution linear frame buffers. The window manager handles Z-order, clipping, and redrawing.\n\n5. Networking (src/tcp_ip_stack.c)\n\nIncludes a custom implementation of Ethernet, ARP, IPv4, ICMP, and UDP, alongside a DHCP client for automatic IP configuration.\n\nUse WSL2 (Ubuntu) for the best experience:\n\nsudo apt update\nsudo apt install -y build-essential nasm gcc make binutils qemu-system-x86 genisoimage\nmake run\n\nsudo apt update\nsudo apt install -y build-essential nasm gcc make binutils qemu-system-x86 genisoimage\nmake run\n\nsudo pacman -S base-devel nasm gcc make qemu-desktop cdrtools\nmake run\n\nbrew install nasm qemu cdrtools make\nmake run\n\nBuild via make all\n\nRun with VMware or VirtualBox instead of QEMU.\n\nAurionOS provides kernel services via INT 0x80.\n\nSyscall ID\nName\nDescription\n\n0x01\nSYS_PRINT_STRING\nPrint a null-terminated string to console.\n\n0x02\nSYS_PRINT_CHAR\nPrint a single character.\n\n0x04\nSYS_READ_CHAR\nRead a character from keyboard (blocking).\n\n0x05\nSYS_CLEAR_SCREEN\nClear the terminal.\n\n0x08\nSYS_SET_COLOR\nSet terminal text attributes.\n\n0x50\nSYS_GET_TIME\nGet current CMOS time.\n\n0x51\nSYS_GET_DATE\nGet current CMOS date.\n\n0x52\nSYS_GET_TICKS\nGet timer ticks since boot.\n\n0x61\nSYS_READ_SECTOR\nRead raw disk sector.\n\n0x71\nSYS_SHUTDOWN\nPower off the system.\n\nAurionOS uses a custom sector-based filesystem (AurionFS) for persistent storage. It stores file metadata in reserved sectors (starting at LBA 500) and file contents in a dedicated data area (starting at LBA 700).\n\nIn-Memory Cache: The kernel maintains an fs_table for quick access to file metadata.\n\nPersistence: Changes are flushed to disk using fs_save_to_disk().\n\nLegacy Support: A FAT12 driver (src/filesys.asm) is also available for reading external media.\n\nThe Command Shell (src/shell.c)\n\nThe shell is the primary CLI interface, supporting over 100 commands. Commands are dispatched via a central table in src/commands.c.\n\nDIR: List files in the current directory.\n\nCAT <file>: View file contents.\n\nNANO <file>: Edit text files.\n\nNETSTART: Initialize networking and DHCP.\n\nGUIMODE: Switch to the graphical desktop.\n\nPYTHON: Launch the minimal Python interpreter.\n\nWriting Your First AurionOS Command\n\nTo add a new command to the OS, you don't need a separate binary - simply register it in the kernel:\n\nImplement the command in src/commands.c:\n\nstatic int cmd_demo(const char *args) {\n puts(\"Hello, AurionOS World!\\n\");\n return 0;\n}\n\nRegister it in the commands[] table at the end of src/commands.c:\n\nstatic const Command commands[] = {\n ...\n {\"DEMO\", cmd_demo},\n {NULL, NULL}\n};\n\nCompile and Run: Run make run and type DEMO in the shell.\n\nReal hardware boot is currently\nunstable (working on it!)\n\nBest experience: QEMU, VirtualBox,\nor VMware\n\nThis is a beta release - bugs\nare expected and being fixed\n\nAurionOS is licensed under the MIT License.\n\nAurionOS - Where Every Byte Matters\nBuilt with passion by Luka.\nMarch 2026.",
+  "tags": [
+    "1000-words",
+    "assembly features",
+    "aurionos",
+    "built",
+    "command",
+    "custom",
+    "developed",
+    "file",
+    "fortnox world",
+    "github luka",
+    "kernel",
+    "nasm",
+    "qemu",
+    "sudo",
+    "sys get",
+    "sys print",
+    "sys read",
+    "table",
+    "tcp ip"
+  ]
+}

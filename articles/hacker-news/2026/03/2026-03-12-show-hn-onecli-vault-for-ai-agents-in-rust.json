@@ -1,0 +1,29 @@
+{
+  "id": 2967,
+  "source": "Hacker News",
+  "title": "Show HN: OneCLI – Vault for AI Agents in Rust",
+  "url": "https://github.com/onecli/onecli",
+  "published_at": "2026-03-12T16:41:06Z",
+  "fetched_at": "2026-03-12T17:20:29.567284+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47353558\">Comments</a>",
+  "full_text": "The secret vault for AI agents.\n\n Store once. Inject anywhere. Agents never see the keys.\n\n Website ·\n Docs\n\n \n \n \n\nOneCLI is an open-source gateway that sits between your AI agents and the services they call. Instead of baking API keys into every agent, you store credentials once in OneCLI and the gateway injects them transparently. Agents never see the secrets.\n\nWhy we built it: AI agents need to call dozens of APIs, but giving each agent raw credentials is a security risk. OneCLI solves this with a single gateway that handles auth, so you get one place to manage access, rotate keys, and see what every agent is doing.\n\nHow it works: You store your real API credentials in OneCLI and give your agents placeholder keys (e.g. FAKE_KEY). When an agent makes an HTTP call through the gateway, the OneCLI proxy matches the request to the right credentials, swaps the FAKE_KEY for the REAL_KEY, decrypts them, and injects them into the outbound request. The agent never touches the real secrets. It just makes normal HTTP calls and the proxy handles the swap.\n\n \n \n \n\nRust Gateway: fast HTTP gateway that intercepts outbound requests and injects credentials. Agents authenticate with access tokens via Proxy-Authorization headers.\n\nWeb Dashboard: Next.js app for managing agents, secrets, and permissions. Provides the API the gateway uses to resolve which credentials to inject for each request.\n\nSecret Store: AES-256-GCM encrypted credential storage. Secrets are decrypted only at request time, matched by host and path patterns, and injected by the gateway as headers.\n\nThe fastest way to run OneCLI locally (no external database or config needed):\n\ndocker run --pull always -p 10254:10254 -p 10255:10255 -v onecli-data:/app/data ghcr.io/onecli/onecli\n\nOpen http://localhost:10254, create an agent, add your secrets, and point your agent's HTTP gateway to localhost:10255.\n\ngit clone https://github.com/onecli/onecli.git\ncd onecli/docker\ndocker compose up\n\nTransparent credential injection: agents make normal HTTP calls, the gateway handles auth\n\nEncrypted secret storage: AES-256-GCM encryption at rest, decrypted only at request time\n\nHost & path matching: route secrets to the right API endpoints with pattern matching\n\nMulti-agent support: each agent gets its own access token with scoped permissions\n\nNo external dependencies: runs with embedded PGlite (or bring your own PostgreSQL)\n\nTwo auth modes: single-user (no login) for local use, or Google OAuth for teams\n\nRust gateway: fast, memory-safe HTTP gateway with MITM interception for HTTPS\n\napps/\n web/ # Next.js app (dashboard + API, port 10254)\n proxy/ # Rust gateway (credential injection, port 10255)\npackages/\n db/ # Prisma ORM + migrations + PGlite\n ui/ # Shared UI components (shadcn/ui)\ndocker/\n Dockerfile # Single-container build (gateway + web + PGlite)\n docker-compose.yml\n\nmise (installs Node.js, pnpm, and other tools)\n\nRust (for the gateway)\n\nmise install\npnpm install\ncp .env.example .env\npnpm db:generate\npnpm db:init-dev\npnpm dev\n\nDashboard at http://localhost:10254, gateway at http://localhost:10255.\n\nCommand\nDescription\n\npnpm dev\nStart web + gateway in dev mode\n\npnpm build\nProduction build\n\npnpm check\nLint + types + format\n\npnpm db:generate\nGenerate Prisma client\n\npnpm db:migrate\nRun database migrations\n\npnpm db:studio\nOpen Prisma Studio\n\nAll environment variables are optional for local development:\n\nVariable\nDescription\nDefault\n\nDATABASE_URL\nPostgreSQL connection string\nEmbedded PGlite\n\nNEXTAUTH_SECRET\nEnables Google OAuth (multi-user)\nSingle-user mode\n\nGOOGLE_CLIENT_ID\nGoogle OAuth client ID\n—\n\nGOOGLE_CLIENT_SECRET\nGoogle OAuth client secret\n—\n\nSECRET_ENCRYPTION_KEY\nAES-256-GCM encryption key\nAuto-generated\n\nWe welcome contributions! Please read our Contributing Guide and Code of Conduct before getting started.\n\nApache-2.0",
+  "tags": [
+    "1000-words",
+    "aes gcm",
+    "agent",
+    "agents",
+    "credentials",
+    "fake key",
+    "gateway",
+    "github",
+    "google",
+    "google oauth",
+    "http",
+    "onecli",
+    "open",
+    "pnpm",
+    "rust",
+    "secret"
+  ]
+}

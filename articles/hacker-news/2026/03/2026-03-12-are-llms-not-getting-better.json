@@ -1,0 +1,27 @@
+{
+  "id": 2896,
+  "source": "Hacker News",
+  "title": "Are LLMs not getting better?",
+  "url": "https://entropicthoughts.com/no-swe-bench-improvement",
+  "published_at": "2026-03-12T11:49:05Z",
+  "fetched_at": "2026-03-12T12:40:22.252742+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47349334\">Comments</a>",
+  "full_text": "I was reading the metr article on how llm code passes test much more often\nthan it is of mergeable quality. They look at the performance of llms doing\nprogramming when the success criterion is “passes all tests” and compare it to\nwhen the success criterion is “would get approved by the maintainer”.\nUnsurprisingly, llm performance is much worse under the more stringent success\ncriterion. Their 50 % success horizon moves from 50 minutes down to 8 minutes.\n\nAs part of this they have included figures such as this one:\n\nBut there’s something about it that strikes me as odd. Let’s look only at the\nmore valuable data, the merge rates.\n\nWhat line best characterises this data? metr suggested something that slopes\nslightly upwards. But here’s what I see:\n\nAt some point toward the end of 2024 we may have had a step up in ability, but\nthis plot shows no evidence of any actual improvement in merge rates since\nearly 2025.\n\nFisher warns us against eyeballing plots, so let’s make it more formal. We’ll\nuse leave-one-out cross-validation and compare the linear slope suggested by\nmetr against the step function the plot hints at.\n\nModel\nBrier score\n\nGentle upward slope\n0.0129\n\nPiecewise constant\n0.0117\n\nThe Brier score is a form of squared error, thus lower is better. This means the\nstep function has more predictive power (“fits better”) than the linear slope.\nFor fun, we can also fit a function that is completely constant across the\nentire timespan. That happens to get the best Brier score.\n\nModel\nBrier score\n\nGentle upward slope\n0.0129\n\nPiecewise constant\n0.0117\n\nConstant function\n0.0100\n\nStop and think about what this means: the two models that predict constant merge\nrates over the latter half of the plot are more accurate than the linear growth\ntrend.1 And more accurate than a logistic trend, since linear in log-odds is\nnearly linear in probability for this range of values. This corroborates what\nwe eyeballed in the plots: the merge rate has not increased in the latter half\nof this plot.\n\nThis means llms have not improved in their programming abilities for over a\nyear. Isn’t that wild? Why is nobody talking about this?",
+  "tags": [
+    "500-words",
+    "ai",
+    "are llms",
+    "brier",
+    "constant",
+    "function",
+    "linear",
+    "llms",
+    "merge",
+    "metr",
+    "model brier",
+    "plot",
+    "step",
+    "success"
+  ]
+}

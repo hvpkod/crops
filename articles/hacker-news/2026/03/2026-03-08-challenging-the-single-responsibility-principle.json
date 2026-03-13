@@ -1,0 +1,28 @@
+{
+  "id": 2842,
+  "source": "Hacker News",
+  "title": "Challenging the Single-Responsibility Principle",
+  "url": "https://kiss-and-solid.com/blog/keep-it-simple",
+  "published_at": "2026-03-08T12:59:47Z",
+  "fetched_at": "2026-03-12T02:40:09.211763+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47296963\">Comments</a>",
+  "full_text": "As part of the SOLID principles, the single-responsibility principle (SRP) is one of the most prominent software engineering principles. Unfortunately, it is often used as a killer argument to chop up a software system beyond all recognition.\n\nThe problem with this argument is that no matter how small a component already is, the single-responsibility principle can still be applied: every line of code can be assigned its own responsibility. I've seen many teams building distributed monoliths and spaghetti code in pursuit of the SRP.\n\nMinimize code, maximize use cases\n\nWhen it comes to deciding where to place which code, I found a particular mantra very helpful: minimize code and maximize use cases. The idea is to have as many reusable software components as possible and to minimize the overall code within an organization.\n\nEven though you might not actually have a second project where you might want to reuse something, building for reusability leads to elegant and maintainable software architecture.\n\nThe blood group law\n\nA very concrete method on how to approach reusability can be found in Siedersleben's blood group law. This principle is part of the \"Quasar architecture style\" (see references below). In contrast to other vague guidelines, I find this very easy to apply in practice.\n\nAccording to this method, you can categorize components into different groups. The following explanations are partly mixed with my own interpretation.\n\nGroup 0: Generic components\n\nThis is the most generic group. This code is not polluted with technical details or with business logic. In the JavaScript world Lodash, bluebird, jsonpath, Luxon, etc. would be examples of group 0 components.\n\nThe big advantage of a group 0 component is that you can consume it within components from any other group (like blood type 0 can be received by any other type). Consuming a type 0 component from any other component will not reduce the reusability of the other component.\n\nGroup T: Technical components\n\nThese are technical components. Examples are: nconf, knex, metascraper, jsonwebtoken, passport, etc. These components also have value outside your company and are good candidates for open-sourcing.\n\nGroup A: Domain components\n\nAn A-component contains the domain logic. You should constantly scan your A components, try to generalize logic, and move code into Group 0 or Group T. Once you find such code, you can either replace it with an open-source solution or create an open-source solution. Most developers will be surprised how much 0/T code they find within A components. The goal should be to have as much code as possible in the 0/T group.\n\nGroup AT: The anti-pattern\n\nThis is a T component that calls or uses an A component. This type needs to be avoided.\n\nReferences",
+  "tags": [
+    "500-words",
+    "blood",
+    "challenging",
+    "code",
+    "component",
+    "components",
+    "find",
+    "fortnox world",
+    "group",
+    "minimize",
+    "principle",
+    "reusability",
+    "single responsibility",
+    "software",
+    "visa"
+  ]
+}

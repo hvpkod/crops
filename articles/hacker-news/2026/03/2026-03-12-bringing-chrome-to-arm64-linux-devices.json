@@ -1,0 +1,29 @@
+{
+  "id": 3011,
+  "source": "Hacker News",
+  "title": "Bringing Chrome to ARM64 Linux Devices",
+  "url": "https://blog.chromium.org/2026/03/bringing-chrome-to-arm64-linux-devices.html",
+  "published_at": "2026-03-12T20:13:15Z",
+  "fetched_at": "2026-03-12T20:40:20.907385+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47356392\">Comments</a>",
+  "full_text": "We’re excited to announce that Google will launch Chrome for ARM64 Linux devices in Q2 2026, following the successful expansion of Chrome to Arm-powered macOS devices in 2020 and Arm-powered Windows devices in 2024.\n\nLaunching Chrome for ARM64 Linux devices allows more users to enjoy the seamless integration of Google’s most helpful services into their browser. This move addresses the growing demand for a browsing experience that combines the benefits of the open-source Chromium project with the Google ecosystem of apps and features.\n\nThis release represents a significant undertaking to ensure that ARM64 Linux users receive the same secure, stable, and rich Chrome experience found on other platforms.\n\nGet the best of the Google ecosystem \n\nWith Chrome, you are able to leverage the full power of the Google ecosystem, providing a more cohesive and feature-rich environment designed for convenience and cross-device continuity. By signing into a Google Account, your bookmarks, browsing history, and open tabs follow you across devices. You can easily access the best extensions the Chrome Web Store has to offer, without needing to use specialized tools or alter developer settings. And you can effortlessly translate webpages with a single click. \n\nUse the browser that is secure by design \n\nChrome also offers the added benefit of Google’s strongest security protections. Enabling Enhanced Protection in Safe Browsing offers real-time protection against phishing and malware by leveraging AI alongside Google’s list of known threats. With the Google Pay integration you can easily and securely manage your payments, using Chrome autofill for an added level of convenience. And the Google Password Manager lets you securely store, generate, and sync complex passwords across all your devices, eliminating the need to memorize multiple logins. It goes beyond simple storage by actively monitoring your credentials for data breaches and providing \"Password Checkup\" alerts if any of your accounts are compromised.\n\nPartnering with the industry \n\nLast year, NVIDIA introduced the DGX Spark, an AI supercomputing device that packs its Grace Blackwell architecture into a compact, 1-liter form factor. Google is partnering with NVIDIA to make it easier for DGX Spark users to install Chrome via NVIDIA’s software package management service. Users with other Linux distributions can also install the ARM64 version of Chrome by visiting chrome.com/download.\n\nThis launch marks a major milestone in our commitment to the Linux community and the Arm ecosystem. We look forward to seeing how developers and power-users leverage Chrome on this next generation of high-performance devices.\n\nPosted by the Chrome team",
+  "tags": [
+    "500-words",
+    "arm linux",
+    "bringing chrome",
+    "browsing",
+    "chrome",
+    "devices",
+    "dgx spark",
+    "ecosystem",
+    "experience",
+    "google",
+    "integration",
+    "launch",
+    "linux",
+    "nvidia",
+    "security",
+    "users"
+  ]
+}

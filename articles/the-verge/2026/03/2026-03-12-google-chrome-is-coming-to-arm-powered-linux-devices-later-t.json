@@ -1,0 +1,28 @@
+{
+  "id": 3023,
+  "source": "The Verge",
+  "title": "Google Chrome is coming to Arm-powered Linux devices later this year",
+  "url": "https://www.theverge.com/tech/894095/google-chrome-for-arm-linux",
+  "published_at": "2026-03-12T21:33:04Z",
+  "fetched_at": "2026-03-12T22:00:38.289172+00:00",
+  "author": "Sean Hollister",
+  "summary": "<figure>\n\n<img alt=\"An image of the Chrome logo on a blue background\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/04/STK114_Google_Chrome_02.webp?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">You can download Chrome for Linux, and you can download Chrome for Arm devices - but if you've got a computer running Linux <em>on</em> Arm, <a href=\"https://support.google.com/chrome/thread/400832442/no-download-option-for-arm-devices-to-use-chrome-only-chromium-is-available?hl=en\">not so much</a>! Now, Google says it's finally bringing Chrome to ARM64 Linux machines in Q2 2026, following <a href=\"https://www.theverge.com/2020/11/17/21572418/google-chrome-run-natively-on-apples-arm-macs-m1\">Chrome for Arm Macs in 2020</a> and <a href=\"https://www.theverge.com/2024/3/26/24112273/chrome-native-windows-on-arm-qualcomm-snapdragon\">Chrome for Windows on Arm in 2024</a>.</p>\n<p class=\"has-text-align-none",
+  "full_text": "You can download Chrome for Linux, and you can download Chrome for Arm devices — but if you’ve got a computer running Linux on Arm, not so much! Now, Google says it’s finally bringing Chrome to ARM64 Linux machines in Q2 2026, following Chrome for Arm Macs in 2020 and Chrome for Windows on Arm in 2024.\n\nWhy Arm + Linux now? In a blog post, Google only says that it “addresses the growing demand for a browsing experience that combines the benefits of the open-source Chromium project with the Google ecosystem of apps and features.” What we’re left wondering is whether Google’s talking about existing demand, or demand yet to come.\n\nThere’s certainly a growing demand for Linux. Some Verge editors have begun to ditch Windows with varying degrees of success. But those are our x86 desktops — there isn’t a lot of consumer-facing Linux on Arm chips, unless you count all the Linux-based Android phones out there. You can buy Linux on laptops from Dell, Lenovo, Framework, and such, but again, they use x86 chips. (And if you’re not a consumer, there’s already Chromium.)\n\nBut three of the companies that actually build Arm processors — Qualcomm, Nvidia, and Mediatek — may look to Linux as they try to compete with the Windows/Intel/AMD incumbents. Qualcomm told me in January that it sees “a lot of interest on other operating systems” beyond Windows for its PC-grade Arm chips. Nvidia could reveal its N1 and N1X processors for Arm laptops as soon as next week at its GTC 2026 developer conference.\n\nWhile those Nvidia laptops might get announced with Windows, it wouldn’t be surprising if they targeted Linux too, once the basics like Chrome are sorted out. Google’s blog post specifically namedrops Nvidia’s DGX Spark as a target for Chrome — those $4,000+ beefy micro AI desktops, sold by a wide array of the company’s partners, also run Linux on Arm. Google says it’s putting Chrome into Nvidia’s package manager to make installation easier; everyone else will have to go to chrome.com/download when the browser arrives in Q2.",
+  "tags": [
+    "500-words",
+    "arm",
+    "arm linux",
+    "chrome",
+    "demand",
+    "devices",
+    "download",
+    "google",
+    "google chrome",
+    "growing",
+    "laptops",
+    "linux",
+    "nvidia",
+    "processors",
+    "windows"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 3026,
+  "source": "Hacker News",
+  "title": "Should hack-back be legal?",
+  "url": "https://speculumx.at/blogpost/should-hack-back-be-legal",
+  "published_at": "2026-03-11T12:30:19Z",
+  "fetched_at": "2026-03-12T22:00:49.824594+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47334722\">Comments</a>",
+  "full_text": "A Server Operator's Perspective\n\nBrowsing through server logs and fail2ban notifications is routine work. A significant portion of incoming requests are automated probes targeting .env and .git files: endpoints that, if exposed, would reveal database credentials, API keys, and internal configuration data.\n\nAt some point, the thought occurred to me: what if I played along? Serve a convincing .env or .git file, but pad it with a terabyte or more of junk data and let the scanner process that. After a bit of research, it became clear that the law sees things differently.\n\nThe Legal Reality of Hack-Back\n\nIn most jurisdictions, intentionally disrupting or damaging a third-party computer system is illegal, regardless of what that system was doing to yours first. Relevant statutes include:\n\n§ 303b StGB (Germany) and § 126b StGB (Austria): Both prohibit intentional disruption of computer systems, with penalties ranging up to several years imprisonment.\n\nComputer Fraud and Abuse Act (CFAA, USA): Prohibits the intentional transmission of data that causes damage to a protected computer, a definition broad enough to cover virtually any internet-connected system, regardless of geography.\n\nThe core principle across all three: the law protects systems, not their operators' intentions. The moment a defensive measure extends beyond protecting your own infrastructure and begins impairing someone else's system, you become liable, even if that system was actively probing yours.\n\nThe \"they started it\" defense doesn't hold. Legally, it's comparable to a booby trap: deliberate, premeditated, and designed to cause harm to whoever triggers it. Courts have consistently found that provoking a harmful automated response does not transfer culpability to the party that triggered it.\n\nAttribution complicates this further. Many malicious scans originate from compromised third-party systems, botnets running on servers or devices whose legitimate owners have no knowledge of the activity. A terabyte-sized trap would not harm the attacker; it would harm an innocent victim's infrastructure. That said, there is at least one unintended benefit: the download attempt would likely alert the compromised system's owner that something is wrong. The law accounts for the broader risk, which is part of why it is written so broadly.\n\nTarpitting and Its Limits\n\nThe legally sanctioned alternative most often recommended is tarpitting: deliberately throttling a connection to an extreme degree, say one byte per second, so the scanner's thread or socket remains occupied indefinitely without receiving anything useful. The scanner waits, consumes its own resources, and eventually times out.\n\nTarpitting works well against naive, high-volume bots, but several attack patterns reduce or eliminate its effectiveness. Distributed botnet scans rotate across thousands of IPs, so neutralizing one node has no meaningful impact on the operation as a whole. Many modern scanners are configured with aggressive timeouts and simply abandon slow connections within seconds. A persistent attacker who gets blocked will switch to new IP ranges and resume, making reactive banning inherently one step behind. Scanners that replicate legitimate browser headers or rotate user agents are also difficult to distinguish from genuine traffic, which limits how aggressively any single countermeasure can be applied.\n\nThese limitations point toward a layered approach rather than reliance on any single technique. Rate limiting at the network level (not just per IP), geo-blocking for regions with no legitimate user base, JS challenges or CAPTCHAs on sensitive endpoints, Web Application Firewalls (WAF) with scanner fingerprint detection, and proactive threat intelligence feeds for blocking known malicious ASNs collectively address the gaps that tarpitting and IP banning leave open. None of these measures eliminate the underlying problem, but in combination they raise the cost and complexity of sustained scanning significantly.\n\nAn Unresolved Legal Question\n\nThe current legal framework has a structural asymmetry worth examining. Legitimate use cases, including security research, web archiving, and search engine crawling, can be distinguished from credential scanning by scope and target: no valid automated process needs to probe arbitrary third-party servers for .env or .git files. A legal framework that defined this class of request precisely could, in principle, permit server operators to apply more assertive technical responses without exposing themselves to liability, while still protecting legitimate scanners and innocent compromised systems from indiscriminate countermeasures.\n\nThe question I find myself returning to is whether a more nuanced legal framework, one that permits narrowly scoped, proportionate technical responses under defined conditions, would meaningfully improve this situation. Some jurisdictions are beginning to explore active cyber defense provisions, though none have yet arrived at a workable standard. Until then, the structural advantages remain with the attacker: low cost, easy infrastructure rotation, and minimal accountability, while defenders are legally constrained to passive measures that address symptoms rather than causes.",
+  "tags": [
+    "1000-words",
+    "austria",
+    "automated",
+    "blogpost sub",
+    "compromised",
+    "computer",
+    "fortnox world",
+    "germany",
+    "harm",
+    "legal",
+    "legitimate",
+    "scanner",
+    "server",
+    "system",
+    "tarpitting",
+    "usa"
+  ]
+}

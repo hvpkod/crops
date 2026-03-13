@@ -1,0 +1,28 @@
+{
+  "id": 2870,
+  "source": "Hacker News",
+  "title": "Show HN: XLA-based array computing framework for R",
+  "url": "https://github.com/r-xla/anvil",
+  "published_at": "2026-03-09T06:04:24Z",
+  "fetched_at": "2026-03-12T08:40:07.707212+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47305357\">Comments</a>",
+  "full_text": "Composable code transformation framework for R, allowing you to run\nnumerical programs at the speed of light. It currently implements JIT\ncompilation for very fast execution and backward-mode automatic\ndifferentiation. Programs can run on various hardware backends,\nincluding CPU and GPU.\n\nIn order to install from source, you need a C++20 compiler, as well as\nlibprotobuf and the protobuf-compiler.\n\nYou can also install from\nr-universe, by adding the code\nbelow to your .Rprofile.\n\noptions(repos = c(\n rxla = \"https://r-xla.r-universe.dev\",\n CRAN = \"https://cloud.r-project.org/\"\n))\n\nYou can also use one of the prebuilt Docker\nimages.\n\nBelow, we create a standard R function. We cannot directly call this\nfunction, but first need to wrap it in a jit() call. If the resulting\nfunction is then called on AnvilTensors – the primary data type in\n{anvil} – it will be JIT compiled and subsequently executed.\n\nlibrary(anvil)\nf <- function(a, b, x) {\n a * x + b\n}\nf_jit <- jit(f)\n\na <- nv_scalar(1.0, \"f32\")\nb <- nv_scalar(-2.0, \"f32\")\nx <- nv_scalar(3.0, \"f32\")\n\nf_jit(a, b, x)\n#> AnvilTensor\n#> 1.0000\n#> [ CPUf32{} ]\n\nThrough automatic differentiation, we can also obtain the gradient of\nthe above function.\n\ng_jit <- jit(gradient(f, wrt = c(\"a\", \"b\")))\ng_jit(a, b, x)\n#> $a\n#> AnvilTensor\n#> 3.0000\n#> [ CPUf32{} ] \n#> \n#> $b\n#> AnvilTensor\n#> 1.0000\n#> [ CPUf32{} ]\n\nAutomatic Differentiation:\n\nGradients for functions with scalar outputs are supported.\n\nFast:\n\nCode is JIT compiled into a single kernel.\n\nRuns on different hardware backends, including CPU and GPU.\n\nExtendable:\n\nIt is possible to add new primitives, transformations, and (with\nsome effort) new backends.\n\nThe package is written almost entirely in R.\n\nWhen to use this package?\n\nWhile {anvil} allows to run certain types of programs extremely fast, it\nonly applies to a certain category of problems. Specifically, it is\nsuitable for numerical algorithms, such as optimizing bayesian models,\ntraining neural networks or more generally numerical optimization.\nAnother restriction is that {anvil} needs to re-compile the code for\neach new unique input shape. This has the advantage, that the compiler\ncan make memory optimizations, but the compilation overhead might be a\nproblem for fast running programs.\n\nThis work is supported by MaRDI.\n\nThe design of this package was inspired by and borrows from:\n\nFor JIT compilation, we leverage the OpenXLA\nproject.",
+  "tags": [
+    "500-words",
+    "ai",
+    "anviltensor",
+    "anviltensor cpuf",
+    "automatic",
+    "code",
+    "compilation",
+    "fast",
+    "framework",
+    "github",
+    "hardware",
+    "jit",
+    "numerical",
+    "programs",
+    "transformation"
+  ]
+}

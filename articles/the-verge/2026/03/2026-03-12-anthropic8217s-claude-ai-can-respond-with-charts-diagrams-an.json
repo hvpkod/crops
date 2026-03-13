@@ -1,0 +1,26 @@
+{
+  "id": 2956,
+  "source": "The Verge",
+  "title": "Anthropic&#8217;s Claude AI can respond with charts, diagrams, and other visuals now",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/893625/anthropic-claude-ai-charts-diagrams",
+  "published_at": "2026-03-12T16:00:00Z",
+  "fetched_at": "2026-03-12T16:40:22.044321+00:00",
+  "author": "Emma Roth",
+  "summary": "<figure>\n\n<img alt=\"The Claude logo on a beige background.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/08/STKB364_CLAUDE_D.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Anthropic's latest update to Claude will allow the AI chatbot to <a href=\"https://x.com/claudeai/status/2032124273587077133?s=20\">generate custom charts, diagrams, and other visualizations</a> during your conversation. If Claude determines a visual is useful based on the context of your chat, it will insert the image in-line, rather than in its side panel.</p>\n<p class=\"has-text-align-none\">As an example, Anthropic says a conversation about the periodic table could lead Claude to generate a visualization of it, featuring interactive elements that let you click inside the table for more information. Another example shows how Claude can generate a visual related to a question about how weight travels through a building",
+  "full_text": "Anthropic’s latest update to Claude will allow the AI chatbot to generate custom charts, diagrams, and other visualizations during your conversation. If Claude determines a visual is useful based on the context of your chat, it will insert the image in-line, rather than in its side panel.\n\nAs an example, Anthropic says a conversation about the periodic table could lead Claude to generate a visualization of it, featuring interactive elements that let you click inside the table for more information. Another example shows how Claude can generate a visual related to a question about how weight travels through a building.\n\nThough Claude will automatically determine whether it should generate a visualization in your chat, Anthropic notes that you can also ask the chatbot to generate a diagram, table, or chart directly. Earlier this week, OpenAI launched a new feature in ChatGPT that can generate interactive visualizations of math and science concepts, while Google Gemini can create educational images you can interact with, too.\n\nAnthropic already allows you to create charts, documents, tools, and apps through Claude’s “artifacts” feature, which opens in a side panel where you can interact, share, and download the AI-generated creation. But, as noted by Anthropic, artifacts are persistent, while the visualizations created within Claude’s conversations will change or disappear as the conversation progresses. You can also ask Claude to make changes to the visualizations it creates.\n\nClaude’s new visualizations are rolling out now to all users and will be turned on by default.",
+  "tags": [
+    "500-words",
+    "ai",
+    "anthropic",
+    "chatbot",
+    "claude",
+    "claude ai",
+    "conversation",
+    "generate",
+    "side",
+    "table",
+    "visual",
+    "visualization",
+    "visualizations"
+  ]
+}
