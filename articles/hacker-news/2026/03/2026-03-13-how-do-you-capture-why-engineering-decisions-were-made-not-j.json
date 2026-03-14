@@ -1,0 +1,26 @@
+{
+  "id": 3220,
+  "source": "Hacker News",
+  "title": "How do you capture WHY engineering decisions were made, not just what?",
+  "url": "https://news.ycombinator.com/item?id=47368874",
+  "published_at": "2026-03-13T19:48:03Z",
+  "fetched_at": "2026-03-13T20:40:10.494811+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47368874\">Comments</a>",
+  "full_text": "We onboarded a senior engineer recently strong, 8 years experience. \nHe spent 3 weeks playing code archaeologist just to understand WHY \nour codebase looks the way it does.\n\nNot what the code does. That was fast. But the reasoning behind decisions:\n\n- Why Redis over in-memory cache?\n- Why GraphQL for this one service but REST everywhere else?\n- Why that strange exception in the auth flow for enterprise users?\n\nAnswers were buried in closed PRs with no descriptions, 18-month-old \nSlack threads, and the heads of two engineers who left last year.\n\nWe tried ADRs. Lasted 6 weeks. Nobody maintained them.\nWe tried PR description templates. Ignored within a month.\nWe have a Notion architecture doc. Last updated 14 months ago.\n\nEvery solution requires someone to manually write something. Nobody does.\n\nCurious how teams at HN actually handle this:\n\n1. Do you have a system that actually works long-term?\n2. Has anyone automated any part of this?\n3. Or is everyone quietly suffering through this on every new hire?",
+  "tags": [
+    "200-words",
+    "actually",
+    "capture",
+    "code",
+    "decisions",
+    "engineer",
+    "engineering",
+    "fortnox world",
+    "nobody",
+    "onboarded",
+    "senior",
+    "tried",
+    "why"
+  ]
+}

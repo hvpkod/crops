@@ -1,0 +1,26 @@
+{
+  "id": 3182,
+  "source": "Ars Technica Science",
+  "title": "Magnetars drag spacetime to power superluminous supernovae",
+  "url": "https://arstechnica.com/science/2026/03/magnetars-drag-spacetime-to-power-superluminous-supernovae/",
+  "published_at": "2026-03-13T15:59:40Z",
+  "fetched_at": "2026-03-13T18:00:17.186182+00:00",
+  "author": "Jacek Krywko",
+  "summary": "<p>Some of the most extreme explosions in the universe are Type I superluminous supernovae. “They are one of the brightest explosions in the Universe,” says Joseph Farah, an astrophysicist at the University of California, Santa Barbara. For years, astrophysicists tried to understand what exactly makes superluminous supernovae so absurdly powerful. Now it seems like we may finally have some answers.</p>\n<p>Farah and his colleagues have found that these events are most likely powered by <a href=\"https://arstechnica.com/science/2022/06/behold-the-magnetar-natures-ultimate-superweapon/\">magnetars</a>, rapidly spinning neutron stars that warp the very space and time around them.</p>\n<h2>The power within</h2>\n<p>Magnetars have been a leading candidate for the engine behind superluminous supernovae. The theory says these insanely magnetized stars are born from the collapsing core of the original progenitor star and emit energy via magnetic dipole radiation. “This core is roughly a one solar m",
+  "full_text": "The flickering in the superluminous supernovae, Farah hypothesized, was caused by the extreme gravity of a newborn magnetar dragging the very spacetime around it along as it was spinning.\n\nTwisted space\n\nTo understand Farah’s Lense-Thirring solution, imagine a bowling ball spinning in a vat of molasses. As the ball rotates, friction drags the sticky fluid along, creating a swirling vortex. According to Einstein’s General Relativity, mass and energy can warp the fabric of spacetime, so if a sufficiently large mass is spinning rapidly, it drags the space-time along in a manner similar to the molasses. Around Earth, this effect is minuscule. But around a newborn magnetar, which is far more massive and spinning hundreds of times a second, spacetime is whipped into a violent, twisting frenzy.\n\nWhen the progenitor star exploded to create SN 2024afav, it didn’t eject all of its material perfectly. Some of the stellar guts failed to escape and fell back toward the newborn magnetar, forming a small accretion disk around it. Crucially, this disk was misaligned, tilted relative to the rotational axis of the magnetar. Because the disk was tilted in this aggressively twisted spacetime, the Lense-Thirring effect forced the entire disk to wobble, or precess, around the magnetar’s spin axis like a top that was spinning ever more slowly.\n\nAs this misaligned disk wobbled, it acted like a giant cosmic lampshade: it periodically blocked, reflected, or redirected the intense radiation and jets spewing from the central magnetar. The high-energy photons emitted by the magnetar had to fight their way through the expanding supernova ejecta, getting reprocessed into optical light and diffusing outward over a span of about 15 days. Observed through our telescopes on Earth, this wobbling disk created a rhythmic fluctuation in the superluminous supernova’s brightness.",
+  "tags": [
+    "500-words",
+    "ball",
+    "disk",
+    "drags",
+    "lense thirring",
+    "magnetar",
+    "magnetars",
+    "mass",
+    "newborn",
+    "spacetime",
+    "spinning",
+    "superluminous",
+    "twisted"
+  ]
+}

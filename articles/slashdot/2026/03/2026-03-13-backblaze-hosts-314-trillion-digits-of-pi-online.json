@@ -1,0 +1,27 @@
+{
+  "id": 3218,
+  "source": "Slashdot",
+  "title": "Backblaze Hosts 314 Trillion Digits of Pi Online",
+  "url": "https://science.slashdot.org/story/26/03/13/182207/backblaze-hosts-314-trillion-digits-of-pi-online?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-13T19:00:00Z",
+  "fetched_at": "2026-03-13T20:20:11.516141+00:00",
+  "author": "BeauHD",
+  "summary": "BrianFagioli shares a report from NERDS.xyz: Cloud storage company Backblaze has partnered with StorageReview to make a massive dataset containing 314 trillion digits of Pi publicly accessible. The digits were calculated by StorageReview in December 2025 after months of heavy computation designed to stress modern hardware. The dataset now hosted in the cloud weighs in at over 130TB, while the full working dataset used during the calculation reached about 2.1PB when intermediate checkpoints were included. The report notes that the Pi digits have been broken into roughly 200GB chunks to make it more practical for researchers or enthusiasts to download.\n \nHere's what StorageReview founder Brian Beeler said about the project: \"Pushing [Pi] to 314 trillion digits was far more than a headline number. It was a sustained, months-long computational challenge that stressed every layer of modern infrastructure, from high core-count CPUs to massive high-speed storage, and it gave us valuable insig",
+  "full_text": "BrianFagioli\n\n shares a report from NERDS.xyz: Cloud storage company Backblaze has partnered with StorageReview to make a massive dataset containing 314 trillion digits of Pi publicly accessible. The digits were calculated by StorageReview in December 2025 after months of heavy computation designed to stress modern hardware. The dataset now hosted in the cloud weighs in at over 130TB, while the full working dataset used during the calculation reached about 2.1PB when intermediate checkpoints were included. \n\n The report notes that the Pi digits have been broken into roughly 200GB chunks to make it more practical for researchers or enthusiasts to download.\n \n\nHere's what StorageReview founder Brian Beeler said about the project: \"Pushing [Pi] to 314 trillion digits was far more than a headline number. It was a sustained, months-long computational challenge that stressed every layer of modern infrastructure, from high core-count CPUs to massive high-speed storage, and it gave us valuable insight into how extreme, real-world workloads behave at scale. Making this dataset available in the Backblaze cloud takes the project a step further by opening access to one of the largest raw outputs ever generated in a single-system calculation. Hosting multi-petabyte files for the broader community is no small feat, and we appreciate Backblaze stepping up to ensure researchers, developers, and enthusiasts can explore and build on this record-setting achievement.\"",
+  "tags": [
+    "500-words",
+    "backblaze",
+    "backblaze hosts",
+    "cloud",
+    "dataset",
+    "digits",
+    "enthusiasts",
+    "hosts",
+    "massive",
+    "modern",
+    "online",
+    "storagereview",
+    "trillion",
+    "trillion digits"
+  ]
+}

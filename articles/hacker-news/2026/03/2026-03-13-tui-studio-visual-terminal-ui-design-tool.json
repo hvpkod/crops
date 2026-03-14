@@ -1,0 +1,27 @@
+{
+  "id": 3121,
+  "source": "Hacker News",
+  "title": "TUI Studio – visual terminal UI design tool",
+  "url": "https://tui.studio/",
+  "published_at": "2026-03-13T10:32:45Z",
+  "fetched_at": "2026-03-13T12:40:17.782271+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47362613\">Comments</a>",
+  "full_text": "With no code-signing configured, each platform behaves differently:\n \n\nmacOS\n\n Gatekeeper blocks the app immediately. You'll see either \"TUIStudio cannot be opened because it is from an unidentified developer\" or \"TUIStudio is damaged and can't be opened\" on newer macOS after quarantine flags the binary.\n\n To get past it: right-click the .app → Open → Open anyway — or go to System Settings → Privacy & Security → \"Open Anyway\".\n \n\nWindows\n\n SmartScreen shows \"Windows protected your PC\". Click More info → Run anyway. Less fatal than macOS, but still alarming to non-technical users.\n \n\nLinux\n\n No such gate. dpkg -i TUIStudio-amd64.deb or double-click in a file manager — just works.",
+  "tags": [
+    "200-words",
+    "behaves",
+    "blocks",
+    "design",
+    "design terminal",
+    "either",
+    "gatekeeper",
+    "macos",
+    "open",
+    "platform",
+    "terminal",
+    "tuistudio",
+    "uis visually",
+    "visually"
+  ]
+}

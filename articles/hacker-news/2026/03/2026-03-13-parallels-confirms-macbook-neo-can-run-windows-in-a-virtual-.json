@@ -1,0 +1,32 @@
+{
+  "id": 3150,
+  "source": "Hacker News",
+  "title": "Parallels Confirms MacBook Neo Can Run Windows in a Virtual Machine",
+  "url": "https://www.macrumors.com/2026/03/13/macbook-neo-runs-windows-11-vm/",
+  "published_at": "2026-03-13T14:11:36Z",
+  "fetched_at": "2026-03-13T15:20:13.813203+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47364729\">Comments</a>",
+  "full_text": "Parallels Desktop virtualization software is compatible with the new MacBook Neo, according to an update from the company – but Windows VM performance will depend on your intended use case.\n\nFrom Parallels' updated knowledge base article:\n\nParallels Desktop runs on MacBook Neo in basic usability testing. The Parallels Engineering team has completed initial testing and confirmed that Parallels Desktop installs and virtual machines operate stably on MacBook Neo. Full validation and performance testing is ongoing, and additional compatibility statement will follow if required.\n\nWhen Apple launched the $599 MacBook Neo this week, some asked whether its A18 Pro chip – which first debuted in the iPhone 16 Pro – would be capable of running Windows via Parallels Desktop. Fortunately, the A18 Pro is based on the same ARM architecture as Apple's M-series chips, which are made specifically for Macs, so the processor isn't an issue. \n\nWhat could be an issue is what you intend to do inside the virtual machine. The MacBook Neo comes with 8GB of RAM (Apple doesn't offer a memory upgrade option) and a Windows 11 VM requires a minimum of 4GB of RAM to function, which leaves only 4GB for macOS and Mac apps simultaneously.\n\nParallels states the context plainly: \"For light, occasional Windows use, like a legacy business tool, or a Windows-only utility, MacBook Neo may provide an acceptable experience. For CPU- or GPU-intensive Windows applications, this computer is not the right choice.\" \n\nThe \"right choice\" comes down to personal preference, but for those looking for a new machine, the next step up would be Apple's $1,099 MacBook Air with M5 chip, which comes with a minimum of 16GB RAM, with memory upgrade options available. Or for a cheaper option, refurbished base M4 MacBook Air models also come with 16GB RAM as standard.",
+  "tags": [
+    "500-words",
+    "apple",
+    "base",
+    "can run",
+    "comes",
+    "desktop",
+    "macbook",
+    "macbook neo",
+    "memory",
+    "parallels",
+    "parallels confirms",
+    "parallels desktop",
+    "performance",
+    "ram",
+    "testing",
+    "virtual",
+    "virtual machine",
+    "windows",
+    "windows vm"
+  ]
+}

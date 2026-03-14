@@ -1,0 +1,26 @@
+{
+  "id": 3120,
+  "source": "Hacker News",
+  "title": "Prompt-caching – auto-injects Anthropic cache breakpoints (90% token savings)",
+  "url": "https://prompt-caching.ai/",
+  "published_at": "2026-03-13T11:38:15Z",
+  "fetched_at": "2026-03-13T12:40:17.031435+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47363074\">Comments</a>",
+  "full_text": "⏳ Pending approval in the official Claude Code plugin marketplace. Install directly from GitHub in the meantime:\n \n\nRun these inside Claude Code — no npm, no config file, no restart needed:\n /plugin marketplace add https://github.com/flightlesstux/prompt-caching\n/plugin install prompt-caching@ercan-ermis\n \n\nClaude Code's plugin system handles everything automatically. The get_cache_stats tool is available immediately after install.",
+  "tags": [
+    "200-words",
+    "approval",
+    "claude",
+    "claude code",
+    "code",
+    "directly",
+    "install",
+    "official",
+    "pending",
+    "plugin",
+    "savings",
+    "token",
+    "token savings"
+  ]
+}

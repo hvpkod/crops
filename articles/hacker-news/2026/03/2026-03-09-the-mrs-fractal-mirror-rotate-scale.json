@@ -1,0 +1,28 @@
+{
+  "id": 3157,
+  "source": "Hacker News",
+  "title": "The Mrs Fractal: Mirror, Rotate, Scale",
+  "url": "https://www.4rknova.com//blog/2025/06/22/mrs-fractal",
+  "published_at": "2026-03-09T14:19:50Z",
+  "fetched_at": "2026-03-13T16:00:19.771172+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47309445\">Comments</a>",
+  "full_text": "Table of contents ▸ \n\nFractal rendering is usually introduced with Mandelbrot or Julia sets, but those are not the only way to generate rich self-similar structure. The MRS fractal is a small iterative system based on three geometric operations:\nMirror space across one or more planes.\nRotate the point around a fixed axis.\nScale and offset the point before the next iteration.\n\nThe name is literal; MRS stands for Mirror, Rotate, Scale.\n\nCore idea\n\nGiven a 3D point \\(p_0\\), we iterate:\n\n\\[p_{n+1} = s \\cdot R\\left(M\\left(p_n\\right)\\right) - o\\]\n\nwhere:\n\\(M\\) is a mirror operator.\n\\(R\\) is a rotation matrix.\n\\(s > 1\\) is a scalar growth factor.\n\\(o\\) is a constant offset vector.\n\nThis loop folds space back on itself, then expands it. Repeating that process creates nested structure at many scales.\n\nReference shader snippet\n\nuniform int uPalette;\nuniform int uIterations;\nuniform float uZoom;\nuniform float uRotSpeed;\nuniform float uMirrorStart;\nuniform float uScaleDecay;\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord) {\n vec2 uv = max(uZoom, 0.0001) * fragCoord.xy / iResolution.y;\n float t = iTime * uRotSpeed;\n float k = cos(t), l = sin(t);\n\n float s = uMirrorStart;\n int iters = clamp(uIterations, 1, 128);\n for (int i = 0; i < 128; ++i) {\n if (i >= iters) break;\n uv = abs(uv) - s; // mirror\n uv *= mat2(k, -l, l, k); // rotate\n s *= uScaleDecay; // scale decay\n }\n\n float x = 0.5 + 0.5 * cos(6.28318530718 * 40.0 * length(uv));\n vec3 col = vec3(x); // palette selection omitted for brevity\n fragColor = vec4(col, 1.0); // vignette/alpha applied in full shader\n}",
+  "tags": [
+    "500-words",
+    "float",
+    "fractal",
+    "fractal mirror",
+    "mirror",
+    "mirror rotate",
+    "offset",
+    "point",
+    "rotate",
+    "rotate scale",
+    "scale",
+    "shader",
+    "space",
+    "the mrs",
+    "uniform"
+  ]
+}

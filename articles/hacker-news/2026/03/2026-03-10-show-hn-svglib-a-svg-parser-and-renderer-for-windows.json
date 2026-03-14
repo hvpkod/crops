@@ -1,0 +1,30 @@
+{
+  "id": 3192,
+  "source": "Hacker News",
+  "title": "Show HN: Svglib a SVG parser and renderer for Windows",
+  "url": "https://github.com/bibhas2/svglib",
+  "published_at": "2026-03-10T15:04:35Z",
+  "fetched_at": "2026-03-13T18:40:22.845143+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47324256\">Comments</a>",
+  "full_text": "svglib is a SVG file parser and renderer library for Windows. It uses Direct2D for GPU assisted rendering and XMLLite for XML parsing. They are core components of Windows. You don't need to download any external libraries to compile and distribute applications that use svglib.\n\nThis is meant for Win32 applications and games to easily display SVG images. Just enough of the SVG spec is covered for the library to be useful in most situations.\n\nYou will need Visual Studio Community Edition with C++ language support.\n\nClone this repo.\n\ngit clone git@github.com:bibhas2/svglib.git\n\nClone mgui. This is used by some of the test applications only and not by svglib.\n\ngit clone git@github.com:bibhas2/mgui.git\n\nOpen the solution svglib/svglib.sln in Visual Studio Community Edition and build the solution.\n\nInclude the header file svglib.h. Link with the static library svglib.lib.\n\nYou will also need to link with Direct2D, Direct3D, DirectWrite etc. This is best done by adding these lines to one of the C++ files of your application.\n\n#pragma comment(lib, \"D3D11.lib\")\n#pragma comment(lib, \"d2d1.lib\")\n#pragma comment(lib, \"xmllite.lib\")\n#pragma comment(lib, \"dwrite.lib\")\n\nFinally, enable support for C++ 17 for your project.\n\nFor each HWND to be used to display a SVG, you need a SVGDevice.\n\nSVGDevice device;\nHWND m_wnd = ...;\n\n//Setup the device\nbool status = device.init(m_wnd);\n\n//Check status\n\nEach SVG image is reprsented by a SVGImage. We can load an image like this.\n\nSVGImage image;\n\nif (SVG::load(L\"file.svg\", device, image)) {\n //Force a WM_PAINT event\n device.redraw();\n}\nelse {\n //Show error message\n}\n\nRender the image from the WM_PAINT handler of the window.\n\nbool handle_event(UINT message, WPARAM wParam, LPARAM lParam) {\n switch (message) {\n case WM_PAINT:\n PAINTSTRUCT ps;\n\n //Call BeginPaint and EndPaint, or else we will get continuous\n //WM_PAINT messages.\n BeginPaint(m_wnd, &ps);\n\n //Clear the device with a white background\n SVG::clear(device);\n //Render the SVG\n SVG::render(device, image);\n\n EndPaint(m_wnd, &ps);\n break;\n case WM_SIZE:\n //Resize the device area\n device.resize();\n break;\n case WM_ERASEBKGND:\n //Handle background erase to avoid flickering \n //during resizing and move\n break;\n default:\n //...\n }\n\n return true;\n}\n\nDirect2D and DirectWrite pretty much map the SVG spec 1:1. This made writing svglib fairly trivial. The only exception is textPath. I have no plans to support textPath.\n\nclipPath is also not supported at this time. But, a support is planned in the future.\n\nSecurity and Vulnerability\n\nAlways make sure that the SVGDevice was initialized properly. Using a half initialized device can cause unpredicatble results. The library does not validate the device when it's used later to load and render images.\n\nThe SVG image files must be trusted. Please note:\n\nNo protection is provided by the library for depth limit for recursive XML structures.\n\nNo overflow check is done for the coordinate values in the SVG file.",
+  "tags": [
+    "500-words",
+    "applications",
+    "case",
+    "clone",
+    "community edition",
+    "device",
+    "direct",
+    "file",
+    "github",
+    "image",
+    "library",
+    "security",
+    "studio community",
+    "support",
+    "svg",
+    "svglib",
+    "visual studio"
+  ]
+}

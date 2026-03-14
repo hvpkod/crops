@@ -1,0 +1,24 @@
+{
+  "id": 3177,
+  "source": "Hacker News",
+  "title": "OVH forgot they donated documentation hosting to Pandas",
+  "url": "https://github.com/pandas-dev/pandas/issues/64584",
+  "published_at": "2026-03-13T16:40:27Z",
+  "fetched_at": "2026-03-13T17:20:08.129102+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47366664\">Comments</a>",
+  "full_text": "Pandas version checks\n\nLocation of the documentation\n\nhttps://pandas.pydata.org/docs/\n\nDocumentation problem\n\nDocumentation website does not load.\n\nSuggested fix for documentation\n\nJust creating this issue in case there was a configuration change done on the Pandas side, and bringing attention to this.",
+  "tags": [
+    "200-words",
+    "checks",
+    "documentation",
+    "github",
+    "http",
+    "issue",
+    "load",
+    "pandas",
+    "trying",
+    "version",
+    "website"
+  ]
+}

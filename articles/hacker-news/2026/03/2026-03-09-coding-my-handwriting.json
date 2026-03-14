@@ -1,0 +1,24 @@
+{
+  "id": 3285,
+  "source": "Hacker News",
+  "title": "Coding My Handwriting",
+  "url": "https://www.amygoodchild.com/blog/cursive-handwriting-in-javascript",
+  "published_at": "2026-03-09T16:01:23Z",
+  "fetched_at": "2026-03-14T00:40:19.527213+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47310815\">Comments</a>",
+  "full_text": "WHAT DOES IT WEIGH?\n\nThe letter class for the block print was 9.7kb. The letter class for the cursive handwriting (after being run through a minifier) is currently 26.1kb. \n\nThis one is larger because there are multiple paths for each letter as well as the function for adjust the points to meet the letter’s neighbours, but I have made some other savings. I’m sure further savings could be made - I am not a code golf wizard but I have a few ideas. \n\nFor example, currently the letters are designed around a default font size of 20 and then resized, meaning lots of the points are defined as e.g. x: 14.5, but if I switch this to a default size of 200, the point could be defined as 145, removing one character (the decimal place). I need to make this change carefully, so it’s on the To Do list for later.",
+  "tags": [
+    "200-words",
+    "block",
+    "class",
+    "coding",
+    "currently",
+    "default",
+    "defined",
+    "handwriting",
+    "letter",
+    "points",
+    "size"
+  ]
+}

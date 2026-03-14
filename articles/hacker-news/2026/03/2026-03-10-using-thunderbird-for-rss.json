@@ -1,0 +1,26 @@
+{
+  "id": 3216,
+  "source": "Hacker News",
+  "title": "Using Thunderbird for RSS",
+  "url": "https://rubenerd.com/using-thunderbird-for-rss/",
+  "published_at": "2026-03-10T07:38:59Z",
+  "fetched_at": "2026-03-13T20:00:54.554886+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47320158\">Comments</a>",
+  "full_text": "I’ve started using the Thunderbird email client for reading RSS feeds again, and it’s honestly quite great. As opposed to it not honestly being great, which if true, would kind of defeat the point of writing this post.\n\nI’ve gone through a bunch of self-hosted web RSS clients. They had the advantage of being accessible across multiple devices, including my various smartphones. But I try to avoid using phones thesedays if I can avoid it, and that includes scrolling RSS feeds.\n\nThunderbird runs locally on my personal machines, but it works. I already have my email, newsgroups, mailing lists, calendars, and notes in it, so having RSS feels like a natural extension. That said, it did require a bit of scaffolding.\n\nFirst, I like Dave Winer’s river of news idea, as opposed to treating RSS feeds like unread email. Even former “completionists” like me don’t bother reading every single social media post anymore, so why should it be the same for all RSS feeds? Fortunately, Thunderbird delivers RSS feed items the same way as email, so you can apply filters to mark them as “read”. Done!\n\nIt’s not immediately obvious from the UI, but you can also assign feeds to folders. If you create a “Feeds” account, then create the folders you want under this, you can then assign feeds to those folders.\n\nI’d still say NetNewsWire is the best RSS client available today, especially if you’re on the Mac. If you need something cross platform though, Thunderbird fits the bill great for me right now.",
+  "tags": [
+    "500-words",
+    "assign",
+    "avoid",
+    "client",
+    "create",
+    "feeds",
+    "honestly",
+    "opposed",
+    "reading",
+    "rss",
+    "started",
+    "thunderbird",
+    "using thunderbird"
+  ]
+}

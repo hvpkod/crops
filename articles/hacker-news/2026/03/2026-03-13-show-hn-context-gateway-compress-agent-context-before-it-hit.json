@@ -1,0 +1,28 @@
+{
+  "id": 3191,
+  "source": "Hacker News",
+  "title": "Show HN: Context Gateway – Compress agent context before it hits the LLM",
+  "url": "https://github.com/Compresr-ai/Context-Gateway",
+  "published_at": "2026-03-13T17:58:22Z",
+  "fetched_at": "2026-03-13T18:40:20.868717+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47367526\">Comments</a>",
+  "full_text": "Instant history compaction and context optimization for AI agents\n\n Website •\n Docs •\n Discord\n\nCompresr is a YC-backed company building LLM prompt compression and context optimization.\n\nContext Gateway sits between your AI agent (Claude Code, Cursor, etc.) and the LLM API. When your conversation gets too long, it compresses history in the background so you never wait for compaction.\n\n# Install gateway binary\ncurl -fsSL https://compresr.ai/api/install | sh\n\n# Then select an agent (opens interactive TUI wizard)\ncontext-gateway\n\nThe TUI wizard will help you:\n\nChoose an agent (claude_code, cursor, openclaw, or custom)\n\nCreate/edit configuration:\n\nSummarizer model and api key\n\nenable slack notifications if needed\n\nSet trigger threshold for compression (default: 75%)\n\nSupported agents:\n\nclaude_code: Claude Code IDE integration\n\ncursor: Cursor IDE integration\n\nopenclaw: Open-source Claude Code alternative\n\ncustom: Bring your own agent configuration\n\nNo more waiting when conversation hits context limits\n\nCompaction happens instantly (summary was pre-computed in background)\n\nCheck logs/history_compaction.jsonl to see what's happening\n\nWe welcome contributions! Please join our Discord to contribute.",
+  "tags": [
+    "200-words",
+    "agent",
+    "ai",
+    "claude code",
+    "compaction",
+    "compression",
+    "context",
+    "context gateway",
+    "discord",
+    "gateway",
+    "github",
+    "github compresr",
+    "history",
+    "instant",
+    "optimization"
+  ]
+}

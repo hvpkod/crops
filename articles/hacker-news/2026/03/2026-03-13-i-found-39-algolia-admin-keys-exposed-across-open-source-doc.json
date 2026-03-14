@@ -1,0 +1,32 @@
+{
+  "id": 3266,
+  "source": "Hacker News",
+  "title": "I Found 39 Algolia Admin Keys Exposed Across Open Source Documentation Sites",
+  "url": "https://benzimmermann.dev/blog/algolia-docsearch-admin-keys",
+  "published_at": "2026-03-13T22:52:05Z",
+  "fetched_at": "2026-03-13T23:20:09.632184+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47371064\">Comments</a>",
+  "full_text": "Last October I reported an exposed Algolia admin API key on vuejs.org. The key had full permissions: addObject, deleteObject, deleteIndex, editSettings, the works. Vue acknowledged it, added me to their Security Hall of Fame, and rotated the key.\n\nThat should have been the end of it. But it got me thinking: if Vue.js had this problem, how many other DocSearch sites do too?\n\nTurns out, a lot.\n\nHow Algolia DocSearch works\n\nAlgolia's DocSearch is a free search service for open source docs. They crawl your site, index it, and give you an API key to embed in your frontend. That key is supposed to be search-only, but some ship with full admin permissions.\n\nWhat I found\n\nMost keys came from frontend scraping. Algolia maintains a public (now archived) repo called docsearch-configs with a config for every site in the DocSearch program, over 3,500 of them. I used that as a starting target list and scraped roughly 15,000 documentation sites for embedded credentials. This catches keys that don't exist in any repo because they're injected at build time and only appear in the deployed site:\n\nAPP_RE = re.compile(r'[\"\\']([A-Z0-9]{10})[\"\\']')\nKEY_RE = re.compile(r'[\"\\']([\\da-f]{32})[\"\\']')\n\ndef extract(text, app_ids, api_keys):\n if not ALGOLIA_RE.search(text):\n return\n for a in APP_RE.findall(text):\n if valid_app(a):\n app_ids.add(a)\n api_keys.update(KEY_RE.findall(text))\n\nOn top of that I ran GitHub code search to find keys in doc framework configs, then cloned and ran TruffleHog on 500+ documentation site repos to catch keys that had been committed and later removed.\n\n35 of the 39 admin keys came from frontend scraping alone. The remaining 4 were found through git history. Every single one was active at the time of discovery.\n\nThe affected projects include some massive open source projects:\n\nHome Assistant alone has 85,000 GitHub stars and millions of active installations. KEDA is a CNCF project used in production Kubernetes clusters. vcluster, also Kubernetes infrastructure, had the largest search index of any affected site at over 100,000 records.\n\nWhat these keys can do\n\nNearly all 39 keys share the same permission set: search, addObject, deleteObject, deleteIndex, editSettings, listIndexes, and browse. A few have even broader access including analytics, logs, and NLU capabilities.\n\nIn practical terms, anyone with one of these keys can:\n\nAdd, modify, or delete any record in the search index\n\nDelete the entire index\n\nChange index settings and ranking configuration\n\nBrowse and export all indexed content\n\nSomeone could poison a project's search results with malicious links, redirect users to phishing pages, or just nuke the entire index and wipe out search for the site completely.\n\nDisclosure\n\nSUSE/Rancher acknowledged the report within two days and rotated the key. That key is now fully revoked. Home Assistant also responded and began remediation, though the original key remains active.\n\nI compiled the full list of affected keys and emailed Algolia directly a few weeks ago. No response. As of today, all remaining keys are still active.\n\nThe root cause\n\nThis isn't really about 39 individual misconfigurations. Algolia's DocSearch program provides search-only keys, but many sites run their own crawler and end up using their write or admin key in the frontend config instead. Algolia's own docs warn against this, but it clearly happens at scale.\n\nThe fix is straightforward: if you're running DocSearch, check what key is in your frontend config and make sure it's search-only. If I found 39 admin keys with a few scripts, the real number is almost certainly higher.",
+  "tags": [
+    "1000-words",
+    "admin",
+    "admin keys",
+    "algolia",
+    "app re",
+    "docsearch",
+    "documentation sites",
+    "exposed across",
+    "found",
+    "found algolia",
+    "frontend",
+    "home assistant",
+    "index",
+    "key re",
+    "keys",
+    "open",
+    "open source",
+    "search",
+    "sites"
+  ]
+}

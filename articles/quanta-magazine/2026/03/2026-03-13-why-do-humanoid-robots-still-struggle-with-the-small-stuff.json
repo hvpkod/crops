@@ -1,0 +1,32 @@
+{
+  "id": 3146,
+  "source": "Quanta Magazine",
+  "title": "Why Do Humanoid Robots Still Struggle With the Small Stuff?",
+  "url": "https://www.quantamagazine.org/why-do-humanoid-robots-still-struggle-with-the-small-stuff-20260313/",
+  "published_at": "2026-03-13T14:37:02Z",
+  "fetched_at": "2026-03-13T15:00:11.471683+00:00",
+  "author": "John Pavlus",
+  "summary": "<p>The last time I covered the science of humanoid robots, the state of the art looked downright Orwellian &mdash; by which I mean, &ldquo;four legs good, two legs bad.&rdquo; It was 2015. Boston Dynamics&rsquo; first &ldquo;Spot&rdquo; quadruped had taken YouTube by storm, confidently trotting up stairs and recovering from vicious kicks. Also popular at the time: humanoids falling down. Constantly. I felt sorrier for those tottering&#8230;</p>\n<p><a href=\"https://www.quantamagazine.org/why-do-humanoid-robots-still-struggle-with-the-small-stuff-20260313/\" rel=\"nofollow\">Source</a></p>",
+  "full_text": "That fluid gait, for example, comes from deep reinforcement learning. Roboticists once coordinated each movement with various hand-engineered algorithms, using equations to model the (simplified) physics of the robot. Now they train neural networks to act as “whole-body controllers” by running countless digital simulations of the humanoid. This process teaches the network a “policy” for how to translate feedback from its environment into actions.\n\n“We use reinforcement learning to build a policy that’s handling the body coordination, collision avoidance, balance, all that stuff,” Kuindersma said. There’s no longer any need to model a robot’s leg as a linear inverted pendulum, for example. “That’s just gone by the wayside,” he said.\n\nThis strategy was aided by the proprioceptive actuators pioneered by Sangbae Kim of the Massachusetts Institute of Technology in his Cheetah series of robots. “Reinforcement learning has existed for a long time, you know. People tried it before,” Kim said. “But if you use conventional [motors], the robot just breaks” every time it fails to perfectly execute a policy in the real world — or encounters an obstacle or disturbance.\n\n \n\n \n\n \n\nTo have robots which work like humans, I think we have to master physics.\n \n \n \n \n\nPulkit Agrawal\n \n \n\nKim’s actuators got around the problem with controllable “compliance,” or flexible springiness. Over the past decade, they’ve gotten cheaper and more widely accessible. “Reinforcement learning solved a lot of the [bipedal] locomotion problem, but the hardware was the enabler,” Kim said.\n\nIf reinforcement learning and compliant actuation were gifts to humanoid robotics, multimodal AI put a bow on it. In 2023, Google DeepMind introduced “vision-language-action” (VLA) models, which can take in video and natural language and produce movement commands as outputs.\n\n“If you say ‘I’m thirsty,’ it knows you probably want to drink, and it can [generate] the steps that [the robot] needs to take: Go find a thing, and then pick it up in this way,” said Carolina Parada, head of robotics at Google DeepMind. “This is something that, before three years ago, you would have to go hard-code.” In a stroke, VLAs united previously disparate approaches to robotic perception, planning, and control into one general-purpose pipeline.\n\nRobust embodiment, check. Generalizable intelligence, check. (A start, anyway.) So why don’t they add up to humanoids being scientifically “solved” — at least in principle?\n\nMay the Force Be With You\n\nPulkit Agrawal, who studies robot learning at the appropriately named Improbable AI Lab at MIT, had an answer when I reached him there last month. “To have robots which work like humans,” he said, “I think we have to master physics.”\n\nHe wasn’t referring to cosmic matters like general relativity or quantum gravity, nor to the virtual “world models” that currently excite leading AI researchers such as Yann LeCun. Instead, Agrawal is talking about mastering something a high school science student ought to be familiar with: force and inertia.",
+  "tags": [
+    "500-words",
+    "actuators",
+    "ai",
+    "google deepmind",
+    "humanoid",
+    "humanoid robots",
+    "kim",
+    "learning",
+    "master",
+    "model",
+    "movement",
+    "policy",
+    "pulkit agrawal",
+    "reinforcement",
+    "robot",
+    "robots",
+    "small stuff",
+    "still struggle",
+    "why do"
+  ]
+}

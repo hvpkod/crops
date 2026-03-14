@@ -1,0 +1,29 @@
+{
+  "id": 3279,
+  "source": "Hacker News",
+  "title": "MetaGenesis Core – offline verification for computational claims",
+  "url": "https://www.metagenesis-core.dev/",
+  "published_at": "2026-03-11T13:37:24Z",
+  "fetched_at": "2026-03-14T00:00:36.501109+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47335416\">Comments</a>",
+  "full_text": "ML_BENCH-01\n Your model claims 94% accuracy. Your client wants proof they can verify in 60 seconds — no model access, no GPU. We package your result into a tamper-evident bundle. mg.py verify --pack bundle.zip → PASS\n \n \n\n DATA-PIPE-01 · MTR series\n FDA 21 CFR Part 11 requires electronic records with audit trails. We package your ADMET predictions or calibration outputs into a verifiable bundle any regulator can check offline — no proprietary model access required.\n \n \n\n ML_BENCH-01 · DATA-PIPE-01\n Basel III/IV SR 11-7 requires independent model validation. We package your VaR or credit scoring outputs into a verifiable evidence bundle — your model validator gets proof without touching your proprietary code.\n \n \n\n MTR-1/2/3 · SYSID-01 · ML_BENCH-01\n Your reviewer can't reproduce your simulation without your exact environment. We package your result into a bundle they verify in 60 seconds on their laptop — no environment, no GPU, no trust required.\n \n \n\n DT-FEM-01 · MTR-1 · DRIFT-01\n Your ANSYS, FEniCS, or OpenFOAM output needs machine-verifiable proof against a physical reference. We package your displacement result as a tamper-evident bundle — rel_err ≤ 0.02 certified, verifiable offline by any engineering auditor.\n \n \n\n Custom claim\n Any computational output can be verified. Describe your result below — we'll assess which claim domain fits and build a bundle for it. If your domain isn't covered yet, we'll tell you honestly.",
+  "tags": [
+    "500-words",
+    "bench your",
+    "bundle",
+    "data pipe",
+    "metagenesis core",
+    "model",
+    "mtr",
+    "outputs",
+    "package",
+    "proof",
+    "requires",
+    "result",
+    "seconds",
+    "verifiable",
+    "verification protocol",
+    "verify"
+  ]
+}
