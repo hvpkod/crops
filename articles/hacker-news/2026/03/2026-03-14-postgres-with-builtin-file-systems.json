@@ -1,0 +1,24 @@
+{
+  "id": 3399,
+  "source": "Hacker News",
+  "title": "Postgres with Builtin File Systems",
+  "url": "https://db9.ai/",
+  "published_at": "2026-03-14T21:14:03Z",
+  "fetched_at": "2026-03-14T22:40:33.809652+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47381238\">Comments</a>",
+  "full_text": "Automation, reports & multi-agent runs \n\nOutputs in files. History in Postgres. \n\nReports, traces, and artifacts persist as files. Run history, status, and metadata live in Postgres — one workspace per agent run.",
+  "tags": [
+    "200-words",
+    "agents",
+    "artifacts",
+    "history",
+    "live",
+    "metadata",
+    "outputs",
+    "persist",
+    "postgres",
+    "reports",
+    "runs"
+  ]
+}

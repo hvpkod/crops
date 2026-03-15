@@ -1,0 +1,28 @@
+{
+  "id": 3314,
+  "source": "Hacker News",
+  "title": "Claude Code's binary reveals silent A/B tests on core features",
+  "url": "https://backnotprop.com/blog/do-not-ab-test-my-workflow/",
+  "published_at": "2026-03-14T11:46:29Z",
+  "fetched_at": "2026-03-14T12:00:10.481268+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47375682\">Comments</a>",
+  "full_text": "Anthropic is running silent A/B tests on Claude Code that actively degrade my workflow.\n\nEvidence Capture\n\nI pay $200/month for Claude Code. It’s a professional tool I use to do my job, and I need transparency into how it works and the ability to configure it. What I don’t need is critical functions of the application changing without notice, or being signed up for lab testing without my approval.\n\nAn AI safety company, yet with apparent roots in a product engineering culture derived from places like Meta, where silent experimentation on users was common practice. We need to be responsible with how we steer these tools (AI), and we need to be enabled to do so. Transparency is a critical part of that. Configurability is a critical part of that.\n\nEvery day, engineers complain about regressions in Claude Code. Half the time, the answer is: you’re probably in an A/B test and don’t know it.\n\nThe Proof\n\nI dug into the Claude Code binary. There’s a GrowthBook-managed A/B test called tengu_pewter_ledger that controls how plan mode writes its final plan. Four variants: null, trim, cut, cap. Each one progressively more restrictive than the last.\n\nThe default variant gives you a full context section, prose explanation, and a detailed verification section. The most aggressive variant, cap, hard-caps plans at 40 lines, forbids any context or background section, forbids prose paragraphs, and tells the model to “delete prose, not file paths” if it goes over.\n\nI got assigned cap. There was no question/answer phase. I entered plan mode, and it immediately launched a sub-agent, generated its own plan with zero discourse, and presented me a wall of terse bullet points. No back and forth. No steering. Just a fait accompli. Here’s what a plan looks like under cap:\n\nPlan rendered with Plannotator\n\nThere was no opt-in. No notification. No toggle. No way to know this was happening unless you decompiled the binary yourself.\n\nAt plan exit, the variant gets logged with telemetry:\nd(\"tengu_plan_exit\", {\n planLengthChars: R.length,\n outcome: Q,\n clearContext: !0,\n planStructureVariant: h // ← your variant (\"cap\")\n});\n\nThe code shows they collect data like plan length, plan approval or denial, and variant assignment. What metrics they’re using downstream isn’t clear from the binary alone. What is clear is that paying users are the experiment.\n\nI don’t think Anthropic is doing this to intentionally degrade anyone’s experience. They’re clearly trying to optimize. But it was disruptive enough that I felt the need to decompile the binary to figure out what was going on, and doing it silently on paying users is the wrong way to go about it.\n\nThis is the opposite of transparency and responsible AI deployment. AI tooling needs more transparency, not less. When you abstract away something like planning logic so users can’t see what’s steering the model, you take away the one thing that makes these tools useful: the ability to own my process and guide AI with a human in the loop.",
+  "tags": [
+    "500-words",
+    "ai",
+    "anthropic",
+    "binary",
+    "claude",
+    "claude code",
+    "code",
+    "critical",
+    "plan",
+    "test",
+    "test my",
+    "transparency",
+    "users",
+    "variant",
+    "workflow"
+  ]
+}

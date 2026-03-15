@@ -1,0 +1,25 @@
+{
+  "id": 3346,
+  "source": "Hacker News",
+  "title": "Show HN: Ink – Deploy full-stack apps from AI agents via MCP or Skills",
+  "url": "https://ml.ink/",
+  "published_at": "2026-03-11T15:39:03Z",
+  "fetched_at": "2026-03-14T16:00:28.178805+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47337028\">Comments</a>",
+  "full_text": "14:23:01INFOServer listening on port 3000\n\n14:23:01INFOConnected to database (2ms)\n\n14:23:05INFOGET /api/health 200 — 1ms\n\n14:23:12INFOGET /api/users 200 — 14ms\n\n14:23:15DEBUGCache hit: user:list (ttl: 58s)\n\n14:23:18INFOPOST /api/deploy 201 — 230ms\n\n14:23:22WARNSlow query: SELECT * FROM services (312ms)\n\n14:23:30ERRORConnection refused: upstream 10.0.1.42:8080\n\n14:23:31INFORetry 1/3 — reconnecting...\n\n14:23:33INFOUpstream reconnected successfully",
+  "tags": [
+    "200-words",
+    "agents",
+    "database",
+    "designed",
+    "infrastructure",
+    "infrastructure designed",
+    "listening",
+    "port",
+    "reconnected",
+    "select",
+    "services",
+    "upstream"
+  ]
+}

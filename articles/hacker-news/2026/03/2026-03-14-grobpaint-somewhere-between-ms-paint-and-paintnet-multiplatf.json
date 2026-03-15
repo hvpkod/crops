@@ -1,0 +1,33 @@
+{
+  "id": 3412,
+  "source": "Hacker News",
+  "title": "GrobPaint: Somewhere Between MS Paint and Paint.net. Multiplatform by Default",
+  "url": "https://github.com/groverburger/grobpaint",
+  "published_at": "2026-03-14T22:41:28Z",
+  "fetched_at": "2026-03-15T00:41:10.750034+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47382072\">Comments</a>",
+  "full_text": "Somewhere between MS Paint and Paint.NET. Multiplatform by default.\n\nPaint.NET doesn't run on macOS. GrobPaint fills that gap: a lightweight image editor with layers, blend modes, and selection tools, built with web technologies and a tiny Python backend. The goal isn't to clone Paint.NET or compete with Photoshop. It's to have the tools you actually need without the bloat.\n\n \n\nLayers - add, delete, duplicate, merge, reorder, per-layer opacity and blend modes (16 modes)\n\nTools - Pencil, Brush, Eraser, Fill, Eyedropper, Line, Rectangle, Ellipse, Text, Select, Magic Wand, Move, Rotate, Scale, Mirror\n\nSelection - rectangular and magic wand with configurable tolerance, copy/cut/paste, crop to selection\n\nColor - HSV picker, RGB/Hex input, alpha channel, palettes (Lospec 500, PICO-8), swap primary/secondary\n\nCanvas - zoom (scroll wheel, pinch, keyboard), pan (space+drag, middle-click, trackpad), fit-to-view, grid overlay\n\nFile I/O - PNG, JPEG, BMP, GIF; native .gbp project format preserves layers as a ZIP archive\n\nSprite sheets - split a sheet into layers, or export layers as a horizontal sheet\n\nImage operations - scale (nearest/bilinear/bicubic), canvas resize with anchor, flip, flatten\n\nMulti-document - tabbed interface, multiple images open at once\n\nClipboard - paste images directly from clipboard as new layers\n\nThis launches a native window using pywebview. If pywebview isn't installed, it falls back to your default browser.\n\nTo force browser mode:\n\npython grobpaint.py --browser\n\nDependencies:\n\nPython 3.9+\n\npywebview (optional, for native window) - pip install pywebview\n\nNo npm, no bundler, no build step. The frontend is vanilla JS with ES modules.\n\nProduces dist/GrobPaint.app (macOS) or dist/GrobPaint/GrobPaint (binary) via PyInstaller.\n\nYou can also open index.html directly or serve it with any static file server. File dialogs won't be available, but the editor falls back to browser file input and download for open/save.\n\nShortcut\nAction\n\nP B E F I L R O T S W M\nTool hotkeys\n\n[ / ]\nDecrease / increase brush size\n\nX\nSwap primary/secondary colors\n\n+ / -\nZoom in / out\n\nCtrl+0\nFit in view\n\nCtrl+1\nActual size (100%)\n\nCtrl+N\nNew image\n\nCtrl+O\nOpen file\n\nCtrl+S\nSave\n\nCtrl+Shift+S\nSave as\n\nCtrl+Z / Ctrl+Shift+Z\nUndo / redo\n\nCtrl+C / Ctrl+X / Ctrl+V\nCopy / cut / paste\n\nCtrl+A / Ctrl+D\nSelect all / deselect\n\nCtrl+G\nToggle grid\n\nDelete\nDelete selection\n\nSpace + drag\nPan canvas\n\n.gbp files are ZIP archives containing:\n\nmanifest.json # dimensions, layer metadata (name, opacity, visibility, blend mode)\nlayers/\n layer_0.png\n layer_1.png\n ...\n\nThe app is ~2500 lines of vanilla JavaScript split across four modules:\n\nFile\nRole\n\njs/core.js\nEventBus, Layer, History (swap-based undo/redo), PaintDocument, Selection\n\njs/renderer.js\nCompositing engine, checkerboard background, zoom/pan, grid overlay\n\njs/tools.js\nAll tools, flood fill, flood select, Bresenham line\n\njs/ui.js\nColor system, HSV picker, layers panel, document tabs, menus, dialogs\n\njs/app.js\nApp init, canvas events, keyboard shortcuts, file I/O\n\ngrobpaint.py\nPython HTTP server + pywebview launcher, native file dialogs\n\nNo frameworks, no dependencies beyond one CDN include (JSZip for browser-side .gbp support).\n\nGrobPaint was built with significant help from Claude by Anthropic.",
+  "tags": [
+    "500-words",
+    "ai",
+    "blend",
+    "canvas",
+    "ctrl shift",
+    "file",
+    "github",
+    "grid",
+    "grobpaint",
+    "image",
+    "layers",
+    "multiplatform",
+    "native",
+    "net multiplatform",
+    "paint",
+    "paint net",
+    "python",
+    "pywebview",
+    "selection",
+    "somewhere"
+  ]
+}

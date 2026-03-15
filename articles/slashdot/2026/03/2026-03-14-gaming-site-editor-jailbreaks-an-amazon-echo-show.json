@@ -1,0 +1,30 @@
+{
+  "id": 3388,
+  "source": "Slashdot",
+  "title": "Gaming Site Editor Jailbreaks an Amazon Echo Show",
+  "url": "https://news.slashdot.org/story/26/03/14/0458245/gaming-site-editor-jailbreaks-an-amazon-echo-show?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-14T20:34:00Z",
+  "fetched_at": "2026-03-14T21:40:15.639090+00:00",
+  "author": "EditorDavid",
+  "summary": "\"A few developers found a way, for now, to turn a few of these increasingly mediocre Amazon Show devices into friendly, useful, open computers,\" writes the co-founder of the gaming/tech news site Aftermath. For under $50 each, he bought some used versions of the devices and tested their instructions, partly to escape the full-screen ads Amazon began showing late last year, and also to overwrite Amazon's locked down Android fork \"Fire OS\" (and \"a similarly neutered version of Linux called Vega OS\")\n\n\n Customers who bought these devices and used them for several years were not used to them showing full screen ads, and now they do. People were justifiably pissed. So what do you do when an already evil device gets shittier...? I wiped Fire OS from the device and used ADB sideload to directly load two packages on the device: LineageOS and MindTheGapps. MindTheGapps lets you turn the device into something resembling a traditional Android device, for both good and bad.... It took a few times ",
+  "full_text": "\"A few developers found a way, for now, to turn a few of these increasingly mediocre Amazon Show devices into friendly, useful, open computers,\" writes the co-founder of the gaming/tech news site Aftermath\n\n. For under $50 each, he bought some used versions of the devices and tested their instructions\n\n, partly to escape the full-screen ads Amazon began showing late last year, and also to overwrite Amazon's locked down Android fork \"Fire OS\" (and \"a similarly neutered version of Linux called Vega OS\")\n\n Customers who bought these devices and used them for several years were not used to them showing full screen ads, and now they do. People were justifiably pissed. So what do you do when an already evil device gets shittier...? I wiped Fire OS from the device and used ADB sideload to directly load two packages on the device: LineageOS and MindTheGapps. MindTheGapps lets you turn the device into something resembling a traditional Android device, for both good and bad.... It took a few times of wiping the device, but after a few tries it finally worked as intended... I immediately installed the Home Assistant app...\n \n\nNot only can the hacked Echo Show 8 control my entire smart home, it now plays back my entire local music library as well as any internet radio channels like The Lot Radio and NTS. It can also synchronize with any additional Echo Show running LineageOS in my house using the SendSpin protocol... I would gladly take it any day of the week over most of the devices these companies offer, especially Amazon. It may not be as intuitive as out-of-the-box smart home products, but I don't need my devices to be intuitive, I need them to behave. I had finally found a smart display that wasn't a cop...\n \n\nThe hardware is old and creaky, and after the hack it can only use 1GB of the 2GB of ram. And yet it still manages to feel snappier than the stock hardware. \"The amount of telemetry, ads, and general bloat Amazon shoves down our throats definitely doesn't help performance,\" [XDA Devs Forum user] Rortiz2 told me. \"That's actually another reason why we did LineageOS, it kind of gives the device a second life. Even though it's still a bit buggy, it feels way better to use than the stock firmware....\" If you want a smart speaker with a display that just runs a stripped-down version of Android that you have full control over, you're going to have a hard time finding it outside of these three specific models unless you cobble something together yourself. It is a deceptively simple thing to desire — the kiosk computer from science fiction that isn't a narc — yet few companies really offer it. \n\n\"It should be against the law to not give an end user the ability to consensually load whatever OS or program they want on their device...\" the article concludes, arguing that \"If we budge on the inalienable right to modify our hardware then we forsake a key part about what makes computers special.\" \n\nAnd in the mean time, \"There are so many devices that could be put to use rotting in e-waste facilities and thrift stores...\"",
+  "tags": [
+    "1000-words",
+    "amazon",
+    "amazon echo",
+    "android",
+    "bought",
+    "device",
+    "devices",
+    "echo",
+    "echo show",
+    "editor jailbreaks",
+    "fire os",
+    "found",
+    "gaming site",
+    "lineageos",
+    "show",
+    "smart",
+    "turn"
+  ]
+}

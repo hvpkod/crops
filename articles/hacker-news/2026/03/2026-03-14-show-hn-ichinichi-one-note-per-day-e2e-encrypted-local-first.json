@@ -1,0 +1,26 @@
+{
+  "id": 3373,
+  "source": "Hacker News",
+  "title": "Show HN: Ichinichi – One note per day, E2E encrypted, local-first",
+  "url": "https://news.ycombinator.com/item?id=47379898",
+  "published_at": "2026-03-14T18:57:12Z",
+  "fetched_at": "2026-03-14T20:00:31.698341+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47379898\">Comments</a>",
+  "full_text": "Look, every journaling app out there wants you to organize things into folders and tags and templates. I just wanted to write something down every day.\n\nSo I built this. One note per day. That's the whole deal.\n\n- Can't edit yesterday. What's done is done. Keeps you from fussing over old entries instead of writing today's.\n\n- Year view with dots showing which days you actually wrote. It's a streak chart. Works better than it should.\n\n- No signup required. Opens right up, stores everything locally in your browser. Optional cloud sync if you want it\n\n- E2E encrypted with AES-GCM, zero-knowledge, the whole nine yards.\n\nTech-wise: React, TypeScript, Vite, Zustand, IndexedDB. Supabase for optional sync. Deployed on Cloudflare. PWA-capable.\n\nThe name means \"one day\" in Japanese (いちにち).\n\nThe read-only past turned out to be the thing that actually made me stick with it. Can't waste time perfecting yesterday if yesterday won't let you in.\n\nLive at https://ichinichi.app | Source: https://github.com/katspaugh/ichinichi",
+  "tags": [
+    "200-words",
+    "actually",
+    "ichinichi",
+    "ichinichi one",
+    "journaling",
+    "note",
+    "optional",
+    "organize",
+    "show",
+    "show hn",
+    "wants",
+    "whole",
+    "yesterday"
+  ]
+}

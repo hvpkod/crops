@@ -1,0 +1,31 @@
+{
+  "id": 3409,
+  "source": "Slashdot",
+  "title": "How a Raspberry Pi Saved the Super Nintendo's Infamously Inferior Version Of 'Doom'",
+  "url": "https://games.slashdot.org/story/26/03/14/2326222/how-a-raspberry-pi-saved-the-super-nintendos-infamously-inferior-version-of-doom?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-14T23:34:00Z",
+  "fetched_at": "2026-03-15T00:20:18.438087+00:00",
+  "author": "EditorDavid",
+  "summary": "\"Just the anachronism of seeing Doom, one of the poster children for the moral panic around violent video games, on a Nintendo console is novel,\" writes Kotaku &mdash; especially with the console's underpowered \"Super FX\" coprocessor\n\nHampered by a nearly unplayable framerate, especially in later levels, and mired by sacrifices, like altered levels, no floor or ceiling textures, and the entire fourth episode being cut, [1995's] Doom on the Super NES was not a good version of the game, but it was Doom running on the Super NES, and, for that alone, [programmer Randal] Linden's genius deserves recognition. \n\nBut then in 2022 when Audi Sorlie interviewed Linden on the YouTube show DF Retro, \"Not really knowing where fate was going to take us, I asked [Linden] a throwaway question regarding the source code for Doom.\"\n\nIf you ever worked on this again, Sorlie asked, would you make any improvements or do anything differently?\" \n\"Yeah,\" Linden replied. \"I have plenty of ideas if I could go bac",
+  "full_text": "\"Just the anachronism of seeing Doom\n\n, one of the poster children for the moral panic around violent video games, on a Nintendo console is novel,\" writes Kotaku\n\n — especially with the console's underpowered \"Super FX\" coprocessor\n\nHampered by a nearly unplayable framerate, especially in later levels, and mired by sacrifices, like altered levels, no floor or ceiling textures, and the entire fourth episode being cut, [1995's] Doom on the Super NES was not a good version of the game, but it was Doom running on the Super NES, and, for that alone, [programmer Randal] Linden's genius deserves recognition. \n\nBut then in 2022 when Audi Sorlie interviewed Linden on the YouTube show DF Retro\n\n, \"Not really knowing where fate was going to take us, I asked [Linden] a throwaway question regarding the source code for Doom\n\n.\"\n\nIf you ever worked on this again, Sorlie asked, would you make any improvements or do anything differently?\" \n \n\n\"Yeah,\" Linden replied. \"I have plenty of ideas if I could go back, but, you know, I don't think anyone's asking me to go back to Super Nintendo Doom and improve it.\" \n \n\nA few years passed, and Sorlie joined Limited Run Games as lead producer for their development department. When LRG asked him to run down his craziest ideas, a new, improved release of Randal Linden's Doom loomed large. Convincing Linden was easy, and Sorlie said even the folks at license holder Bethesda were more amused than anything. \n \n\n\"You want to go back and develop for Super Nintendo?\" they asked Sorlie. \"Like, for real...?\"\n \n\n\"The trick was actually pretty cool,\" Linden said. \"It's right here.\" He pointed to a chip on the prototype SNES cartridge, similar to the one Limited Run sent me to test out the game. \"It's a Raspberry Pi 2350.\" Super FX chips are no longer in production for obvious reasons, but with a clever bit of programming, Linden was able to load software onto the Raspberry Pi that fools the SNES into thinking the game has one. \"The Super Nintendo doesn't know that it's not talking to a Super FX,\" he explained. When he programs for it, he writes code almost identical to what he'd write for an authentic Super FX chip. \n \n\n\"I had to go back and reverse-engineer my own code from 30 years ago,\" Linden laughed. \"It's like, what was I doing here? And what was I doing there? Yeah, it was pretty tricky, some of the code. I was like, wow, I used to be very smart.\" The result of Linden's work? It's Doom, running right on a Super Nintendo, but it's smoother, packed with new content, and even includes rumble.",
+  "tags": [
+    "500-words",
+    "asked",
+    "code",
+    "doom",
+    "fortnox world",
+    "infamously inferior",
+    "linden",
+    "nintendo",
+    "raspberry",
+    "raspberry pi",
+    "saved",
+    "sorlie",
+    "super",
+    "super fx",
+    "super nintendo",
+    "version",
+    "version of",
+    "writes"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": 3386,
+  "source": "Hacker News",
+  "title": "Fedora 44 on the Raspberry Pi 5",
+  "url": "https://nullr0ute.com/2026/03/fedora-44-on-the-raspberry-pi-5/",
+  "published_at": "2026-03-14T19:56:38Z",
+  "fetched_at": "2026-03-14T21:20:20.419093+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47380512\">Comments</a>",
+  "full_text": "So where has the last six months gone? I was planning on getting images done for Fedora 44 Beta but I was unwell and busy and ran out of time. So what better time to get them out than Pi Day!.\n\nSo compared to the last image what do we have now? Quite a lot more and I have more in the pipeline which should be in place in before freeze, plus a possible secret 😉, I just wanted to get something out sooner rather than later for people to play with. So the things that are working and tested are now:\n\nAll Raspberry Pi 5B: both revC and revD SoC 1/2/4/8/16GB variants\n\nSerial console\n\nThe micro SD slot – the only supported OS disk ATM\n\nHDMI including accelerated graphics\n\nWired ethernet port\n\nWireless network interface\n\nUSB ports (NOT for OS disks)\n\nDesktops including images for KDE and GNOME\n\nSome other random bits\n\nOverall the devices are quire usable, but I will be working to improve it even more in the coming days.\n\nThe things that don’t work, but I’m hoping will be working RSN (pre 44) in no particular order:\n\nRaspberry Pi 500 series\n\nCM5 Series\n\nNVME\n\nThermal\n\nAudio\n\nA bunch of other stuff\n\nAutomatic CMA additions\n\nOne thing you do need to currently do manually once you’ve created an image is to add the following to the kernel command line (use the –args option to arm-image-installer): cma=256M@0M-1024M and without that accelerated graphics and some other things just won’t work, once you’re booted add it to /etc/kernel/cmdline so new kernels will get it too. I’ll hopefully have that issue fixed shortly, I know the problem, just still haven’t got the best solution!\n\nYou’ll also want to disable auto-suspend on the Desktop images.\n\nSo where can I get these images? Right here:\n\nThe Fedora 44 Minimal Image\n\nThe Fedora 44 KDE Image\n\nThe Fedora 44 GNOME Workstation Image\n\nHappy Pi Day everyone!",
+  "tags": [
+    "500-words",
+    "accelerated",
+    "fedora",
+    "gnome",
+    "graphics",
+    "image",
+    "image the",
+    "images",
+    "including",
+    "raspberry",
+    "raspberry pi",
+    "the fedora",
+    "things",
+    "working"
+  ]
+}

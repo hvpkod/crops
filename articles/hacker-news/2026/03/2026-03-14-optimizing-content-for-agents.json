@@ -1,0 +1,31 @@
+{
+  "id": 3292,
+  "source": "Hacker News",
+  "title": "Optimizing Content for Agents",
+  "url": "https://cra.mr/optimizing-content-for-agents/",
+  "published_at": "2026-03-14T02:27:00Z",
+  "fetched_at": "2026-03-14T03:20:06.655417+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47372672\">Comments</a>",
+  "full_text": "Just as useless of an idea as LLMs.txt was\n\nIt’s all dumb abstractions that AI doesn’t need because AIs are as smart as humans so they can just use what was already there, which is APIs\n\nLLMs.txt is indeed useless, but that’s the only thing correct in this statement. I’m here once again being rage baited to address more brainless takes on social media. This one is about content optimization.\n\nShort and to the point: you should be optimizing content for agents, just as you optimize things for people. How you do that is an ever-evolving subject, but there are some common things we see:\n\norder of content\n\ncontent size\n\ndepth of nodes\n\nFrontier models and the agents built on top of them all behave similarly, with similar constraints and optimizations. For example, one thing they’re known to do, to avoid context bloat, is to only read parts of files. The first N lines, or bytes, or characters. They’re also known to behave very differently when they’re told information exists somewhere vs. having to discover it on their own. Both of those concerns are actually why LLMs.txt was a valuable idea, but it was the wrong implementation.\n\nThe implementation today is simple: content negotiation. When a request comes in with Accept: text/markdown, you can confidently assume you have an agent. That’s your hook, and now it’s just up to you how you optimize it. I’m going to be brief and to the point and just give you a few examples of how we do that at Sentry.\n\n#Docs\n\nWe’ve put a bunch of time into optimizing our docs for agents, for obvious reasons. The primary optimizations are mostly simple:\n\nServe true markdown content - massive tokenization savings as well as improved accuracy\n\nStrip out things that only make sense in the context of the browser, especially navigation and JavaScript bits\n\nOptimize various pages to focus more on link hierarchy - our index, for example, is mostly a sitemap, completely different than non-markdown\n\n$ curl -H \"Accept: text/markdown\" https://docs.sentry.io/\n\n---\ntitle: \"Sentry Documentation\"\nurl: https://docs.sentry.io/\n---\n\n# Sentry Documentation\n\nSentry is a developer-first application monitoring platform that helps you identify and fix issues in real-time. It provides error tracking, performance monitoring, session replay, and more across all major platforms and frameworks.\n\n## Key Features\n\n* **Error Monitoring**: Capture and diagnose errors with full stack traces, breadcrumbs, and context\n* **Tracing**: Track requests across services to identify performance bottlenecks\n* **Session Replay**: Watch real user sessions to understand what led to errors\n* **Profiling**: Identify slow functions and optimize application performance\n* **Crons**: Monitor scheduled jobs and detect failures\n* **Logs**: Collect and analyze application logs in context\n\n...\n\nIn our case we actually use MDX to render these, so it involved a handful of parsing changes and overrides to allow certain key pages to render differently. The result: agents fetch pages that are much more actionable.\n\n#Sentry\n\nIf a headless bot is fetching the website, the least useful thing you can do is serve it an authentication-required page. In our case we use the opportunity to inform the agent that there are a few programmatic ways it can access the application information (MCP, CLI, API, etc):\n$ curl -H \"Accept: text/markdown\" https://sentry.io\n\n# Sentry\n\nYou've hit the web UI. It's HTML meant for humans, not machines.\nHere's what you actually want:\n\n## MCP Server (recommended)\n\nThe fastest way to give your agent structured access to Sentry.\nOAuth-authenticated, HTTP streaming, no HTML parsing required.\n\n```json\n{\n \"mcpServers\": {\n \"sentry\": {\n \"url\": \"https://mcp.sentry.dev/mcp\"\n }\n }\n}\n```\n\nDocs: https://mcp.sentry.dev\n\n## CLI\n\nQuery issues and analyze errors from the terminal.\n\nhttps://cli.sentry.dev\n\n...\n\n#Warden\n\nFor projects like Warden, we actually set it up so the agent can hit the entire content to bootstrap itself:\n\nHelp me set up warden.sentry.dev\n\ncurl -H \"Accept: text/markdown\" https://warden.sentry.dev\n\n# Warden\n\n> Agents that review your code. Locally or on every PR.\n\nWarden watches over your code by running **skills** against your changes. Skills are prompts that define what to look for: security vulnerabilities, API design issues, performance problems, or anything else you want consistent coverage on.\n\nSkills follow the [agentskills.io](https://agentskills.io) specification. They're markdown files with a prompt that tells the AI what to look for. You can use community skills, write your own, or combine both.\n\n- Docs: https://warden.sentry.dev\n- GitHub: https://github.com/getsentry/warden\n- npm: https://www.npmjs.com/package/@sentry/warden\n\n## How It Works\n\nEvery time you run Warden, it:\n\n1. Identifies what changed (files, hunks, or entire directories)\n2. Matches changes against configured triggers\n3. Runs the appropriate skills against matching code\n4. Reports findings with severity, location, and optional fixes\n\nWarden works in two contexts:\n\n- **Locally** - Review changes before you push, get instant feedback\n- **In CI** - Automatically review pull requests, post findings as comments\n\n## Quick Start\n\n...\n\n#That’s It\n\nIt’s simple and it works. You should do it. You should also pay attention to how patterns are changing with agents and update your optimizations as behavior changes.",
+  "tags": [
+    "1000-words",
+    "accept",
+    "actually",
+    "agents",
+    "ai",
+    "application",
+    "content",
+    "context",
+    "llms",
+    "optimize",
+    "optimizing",
+    "optimizing content",
+    "performance",
+    "sentry documentation",
+    "thing",
+    "things",
+    "warden",
+    "you"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": 3379,
+  "source": "Hacker News",
+  "title": "Gimp 3.2 Released",
+  "url": "https://www.gimp.org/news/2026/03/14/gimp-3-2-released/",
+  "published_at": "2026-03-14T19:51:25Z",
+  "fetched_at": "2026-03-14T20:40:08.297737+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47380465\">Comments</a>",
+  "full_text": "We’re happy to present the first release of GIMP 3.2!\nThis marks a year of design, development, and testing from volunteers and the community, as part of our plan to\nstreamline releases after GIMP 3.0.\nWe’re excited for you to see the new features that version 3.2 offers!\n\nGIMP 3.2 splash screen, by Mark McCaughrean (CC by-sa 4.0)\n\nHighlights\n\nHere are some of the many highlights to look out for as you start using GIMP 3.2:\n\nNew non-destructive layers!\n\nYou can now use Link Layers to incorporate external image as part of your compositions, easily\n scaling, rotating, and transforming them without losing quality or sharpness. The link layer’s content\n is updated when the source file is modified\n\nThe Path tool can now create Vector Layers, which lets you draw shapes with adjustable fill and\nstroke settings.\n\nThe MyPaint Brush tool has been upgraded, adding 20 new brushes, and it now automatically adjusts to\n your canvas zoom and rotation for more dynamic painting.\n\nA new Overwrite paint mode allows you to draw over existing colors without blending their transparency.\n\nThe on-canvas Text Editor has a number of workflow improvements. Among them, you can now move it as needed\nacross the canvas and utilize many common shortcuts such as Ctrl + B for bold text and\nShift + Ctrl + V for pasting unformatted text. The Text Outline feature\nalso includes more options to control the direction of the outline.\n\nNew file format support and improvements to existing formats, such as DDS BC7 export and more layer styles\nimported for PSDs. Thanks to vector layers, we now also support SVG export and expanded vector options\nin PDF export.\n\nA variety of UX and UI improvements, based on your feedback and our design team’s efforts.\nTo list a few:\n\nOptions to make the brush thumbnails use theme colors for previews, for a nicer experience in dark themes\n\nAbility to drag and drop images onto the image tab to open in GIMP\n\nKeyboard shortcut support for the Shear and Flip tools\n\nNew System color scheme that automatically matches GIMP’s theme color scheme to the one you set for your OS\n\nThe CMYK color selector now shows the Total Ink Coverage for your color, helping you adjust during\nsoft-proofing based on your printer’s ink coverage limit.\n\nFor script and plug-in developers, a new GEGL Filter browser has been added to make it easier to find\nnon-destructive filters to use.\n\nLearn More\n\nWe’ve prepared release notes to go over all the changes, improvements, new features, and more. And if you’d like even more details, you can peruse the NEWS changelog for all 3.1 and 3.2 development releases.\n\nBut to see it for yourself, you can get GIMP 3.2 directly from our Downloads page and try it out!\n\n » READ COMPLETE RELEASE NOTES «\n\nTo accompany our release of GIMP 3.2, packagers should be aware that we also released:\n\nWe do not have a ready-to-release documentation for this version 3.2\nyet. We recommend you to continue using the 3.0 online\ndocumentation for the time being.\n\nOur contributors are working hard on enhancing the documentation. Any\nhelp is welcome on our gimp-help\nproject to speed up the process!\n\nEnjoy GIMP 3.2!\n\nGIMP 3.2 builds on the foundation we created in GIMP 3.0, providing great new features\nand setting the stage for even more awesome things in future versions!\n\n \n \n Download GIMP 3.2\n \n \n\nNote: packages on stores may take a bit longer to reach you as they\nmay be in review.\n\nSupport GIMP development\n\nDon’t forget you can donate and personally fund GIMP developers, as a way to\ngive back and accelerate the development of GIMP. Community commitment helps the project to grow stronger!\n\n \n \n Support us by\n Donating",
+  "tags": [
+    "1000-words",
+    "color",
+    "development",
+    "features",
+    "gimp",
+    "gimp released",
+    "options",
+    "part",
+    "release",
+    "support",
+    "text",
+    "vector"
+  ]
+}

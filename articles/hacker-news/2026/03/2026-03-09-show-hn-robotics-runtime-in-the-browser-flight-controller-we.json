@@ -1,0 +1,26 @@
+{
+  "id": 3293,
+  "source": "Hacker News",
+  "title": "Show HN: Robotics runtime in the browser (flight controller, WebAssembly)",
+  "url": "https://cdn.copper-robotics.com/demo/flight-controller/index.html",
+  "published_at": "2026-03-09T15:46:11Z",
+  "fetched_at": "2026-03-14T04:00:11.246624+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47310591\">Comments</a>",
+  "full_text": "Star us on GitHub\n copper-project/copper-rs\n \n \n \n\n \n \n\n \n\n \n \n \n \n \n \n\n \n \n \n \n \n\n \n\n Focus\n Click to focus on either the Sim or the monitor.\n Left is the flight sim. Right is the live Copper monitor.\n \n\n \n\n Sim Controls\n Press Space to arm.\n \n Then throttle up. Use W A S D to move and\n Q / E for yaw.\n \n \n\n \n\n Monitor Controls\n Click tabs or press 1, 2, 3\n Use ← and → to scroll monitor views.",
+  "tags": [
+    "200-words",
+    "bevymon",
+    "controller",
+    "controller bevymon",
+    "controls",
+    "copper",
+    "copper flight",
+    "flight",
+    "focus",
+    "github",
+    "monitor",
+    "press",
+    "star"
+  ]
+}

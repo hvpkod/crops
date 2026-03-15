@@ -1,0 +1,27 @@
+{
+  "id": 3310,
+  "source": "Hacker News",
+  "title": "Megadev: A Development Kit for the Sega Mega Drive and Mega CD Hardware",
+  "url": "https://github.com/drojaazu/megadev",
+  "published_at": "2026-03-14T09:04:39Z",
+  "fetched_at": "2026-03-14T11:20:30.404525+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47374745\">Comments</a>",
+  "full_text": "AV INTELLIGENT TERMINAL WITH OPTICAL DISC DRIVE\n\nMegadev is a development kit for the Sega Mega Drive and Mega CD hardware. It is collection of utilities, headers, documentation, and examples to make development for these systems less painful than starting from scratch.\n\nMegadev is intended for those who already have some experience with C or M68k assembly programming and have at least a passing familiarity with embedded systems. It is less \"friendly\" than something like SGDK. This is due in large part to the focus on the Mega CD (which brings with it notably increased complexity) but also arises from a desire for a development system that is more flexible for skilled developers and less reliant on an abundance of external utilities.\n\nPlease refer to docs/manual.md for installation and usage information.\n\nSEGA, Mega Drive, Mega CD and all related names, logos, trademarks and other indicia are the sole property of SEGA CORPORATION and its parent organization SEGA SAMMY HOLDINGS INC. Any use of these names or marks is for purely illustrative purposes within the boundaries of common-sense fair use.\n\nMegadev is not affiliated with, endorsed by, or connected in any way with SEGA CORPORATION. The Megadev project is distributed free of charge under a permissive license and is developed as an unofficial, non-profit fan project.\n\nplutiedev, Chilly Willy, Nemesis and all the other gurus whose research has been integral to Megadev and the homebrew scene as a whole.\n\ninstantSonic for being the impetus that started this project. Happy New Year!\n\nUCC Black can coffee, without which my productivity would be near zero.",
+  "tags": [
+    "500-words",
+    "development",
+    "drive",
+    "framework",
+    "github",
+    "intelligent",
+    "less",
+    "mega",
+    "mega cd",
+    "mega drive",
+    "megadev",
+    "sega",
+    "sega mega",
+    "terminal"
+  ]
+}

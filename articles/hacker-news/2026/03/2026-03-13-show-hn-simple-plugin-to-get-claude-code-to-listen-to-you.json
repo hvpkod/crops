@@ -1,0 +1,25 @@
+{
+  "id": 3299,
+  "source": "Hacker News",
+  "title": "Show HN: Simple plugin to get Claude Code to listen to you",
+  "url": "https://www.gopeek.ai",
+  "published_at": "2026-03-13T23:15:22Z",
+  "fetched_at": "2026-03-14T06:00:22.940297+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47371284\">Comments</a>",
+  "full_text": "Make Claude Code listen to you.\n\nPeek steers Claude Code better than markdown files by learning your preferences automatically and injecting them at the right time.\n\nGet started in five lines\n\n>/plugin marketplace add Project-White-Rabbit/peek-claude-pluginClaude CodeClick to copy\n\n>/plugin install peekClaude CodeClick to copy\n\n>/exitClaude CodeClick to copy\n\n$claude --resumeTerminalClick to copy\n\n>/peek:loginClaude CodeClick to copy",
+  "tags": [
+    "200-words",
+    "better",
+    "claude",
+    "claude code",
+    "code",
+    "codeclick",
+    "copy",
+    "files",
+    "listen",
+    "markdown",
+    "peek",
+    "steers"
+  ]
+}
