@@ -1,0 +1,29 @@
+{
+  "id": 3511,
+  "source": "Hacker News",
+  "title": "Show HN: Lux – Drop-in Redis replacement in Rust. 5.6x faster, ~1MB Docker image",
+  "url": "https://github.com/lux-db/lux",
+  "published_at": "2026-03-15T21:12:37Z",
+  "fetched_at": "2026-03-15T22:40:38.262063+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47391982\">Comments</a>",
+  "full_text": "A drop-in Redis replacement. 3-5x faster.\n\n Multi-threaded. Written in Rust. MIT licensed forever.\n\n Lux Cloud ·\n Benchmarks ·\n Architecture\n\nRedis is single-threaded by design. Every command runs on one core. Lux takes the opposite approach: a sharded concurrent architecture built in Rust that safely uses all your cores. Change your connection string. Everything else stays the same.\n\nWorks with every Redis client -- ioredis, redis-py, go-redis, Jedis, redis-rb. Zero code changes.\n\nredis-benchmark, 50 clients, 1M requests per test. All competitors on the same machine.\n\nPipeline\nLux\nRedis 7\nValkey 9\nKeyDB\nLux vs Redis\n\n1\n106K\n110K\n108K\n68K\n0.97x\n\n16\n1.49M\n902K\n745K\n930K\n1.65x\n\n64\n4.65M\n1.50M\n1.16M\n1.41M\n3.10x\n\n128\n7.19M\n1.73M\n1.30M\n1.46M\n4.16x\n\n256\n10.5M\n1.88M\n1.41M\n1.35M\n5.59x\n\nAt pipeline depth 256, Lux hits 10.5 million SET ops/sec. That's 5.6x faster than Redis. The gap grows with core count and pipeline depth because Lux's shard batching and multi-threading scale with concurrency while Redis hits a single-core ceiling.\n\nDon't want to manage infrastructure? Lux Cloud is managed Lux hosting.\n\n$5/mo per instance, 1GB memory\n\n4x more memory than Redis Cloud at the same price\n\nDeploy in seconds, connect with any Redis client\n\nPersistence, monitoring, and web console included\n\n80+ Redis commands -- strings, lists, hashes, sets, pub/sub\n\nRESP protocol -- drop-in compatible with every Redis client\n\nMulti-threaded -- auto-tuned shards, parking_lot RwLocks, tokio async runtime\n\nZero-copy parser -- RESP arguments are byte slices into the read buffer\n\nPipeline batching -- commands grouped by shard, one lock acquisition per batch\n\nPersistence -- automatic snapshots, configurable interval\n\nAuth -- password authentication via LUX_PASSWORD\n\nPub/Sub -- SUBSCRIBE, UNSUBSCRIBE, PUBLISH\n\nTTL support -- EX, PX, EXPIRE, PEXPIRE, PERSIST, TTL, PTTL\n\n856KB Docker image -- the entire database fits in under 1MB. Redis is 30MB. Dragonfly is 180MB.\n\nMIT licensed -- no license rug-pulls, unlike Redis (RSALv2/SSPL)\n\ncargo build --release\n./target/release/lux\n\nLux starts on 0.0.0.0:6379 by default. Connect with any Redis client:\n\nredis-cli\n> SET hello world\nOK\n> GET hello\n\"world\"\n\ndocker run -d -p 6379:6379 ghcr.io/lux-db/lux:latest\n\nVariable\nDefault\nDescription\n\nLUX_PORT\n6379\nTCP port\n\nLUX_PASSWORD\n(none)\nEnable AUTH\n\nLUX_DATA_DIR\n.\nSnapshot directory\n\nLUX_SAVE_INTERVAL\n60\nSnapshot interval in seconds (0 to disable)\n\nLUX_SHARDS\nauto\nShard count (default: num_cpus * 16)\n\nLUX_RESTRICTED\n(none)\nSet to 1 to disable KEYS, FLUSHALL, FLUSHDB\n\nimport Redis from \"ioredis\"\n\nconst redis = new Redis(\"redis://localhost:6379\")\nawait redis.set(\"hello\", \"world\")\nconsole.log(await redis.get(\"hello\")) // \"world\"\n\nimport redis\n\nr = redis.Redis(host=\"localhost\", port=6379)\nr.set(\"hello\", \"world\")\nprint(r.get(\"hello\")) # b\"world\"\n\nimport \"github.com/redis/go-redis/v9\"\n\nrdb := redis.NewClient(&redis.Options{Addr: \"localhost:6379\"})\nrdb.Set(ctx, \"hello\", \"world\", 0)\n\nStrings: SET GET SETNX SETEX PSETEX GETSET MGET MSET STRLEN APPEND INCR DECR INCRBY DECRBY\n\nKeys: DEL EXISTS KEYS SCAN TYPE RENAME TTL PTTL EXPIRE PEXPIRE PERSIST DBSIZE FLUSHDB FLUSHALL\n\nLists: LPUSH RPUSH LPOP RPOP LLEN LRANGE LINDEX\n\nHashes: HSET HMSET HGET HMGET HDEL HGETALL HKEYS HVALS HLEN HEXISTS HINCRBY\n\nSets: SADD SREM SMEMBERS SISMEMBER SCARD SUNION SINTER SDIFF\n\nPub/Sub: PUBLISH SUBSCRIBE UNSUBSCRIBE\n\nServer: PING ECHO INFO SAVE BGSAVE LASTSAVE AUTH CONFIG CLIENT SELECT COMMAND DUMP RESTORE\n\nClient connections (tokio tasks)\n |\n Zero-Copy RESP Parser (byte slices, no allocations)\n |\n Pipeline Batching (group by shard, sort, batch execute)\n |\n Command Dispatch (byte-level matching, no string conversion)\n |\n Sharded Store (auto-tuned RwLock shards, hashbrown raw_entry)\n |\n FNV Hash -> Shard Selection (pre-computed, reused for HashMap lookup)\n\nRead the full deep dive at luxdb.dev/architecture.\n\nMIT",
+  "tags": [
+    "1000-words",
+    "auth",
+    "batching",
+    "client",
+    "cloud",
+    "command",
+    "github",
+    "import",
+    "lux cloud",
+    "lux password",
+    "pipeline",
+    "pub sub",
+    "redis",
+    "resp",
+    "set",
+    "shard"
+  ]
+}

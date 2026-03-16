@@ -1,0 +1,26 @@
+{
+  "id": 3447,
+  "source": "Hacker News",
+  "title": "$96 3D-printed rocket that recalculates its mid-air trajectory using a $5 sensor",
+  "url": "https://github.com/novatic14/MANPADS-System-Launcher-and-Rocket",
+  "published_at": "2026-03-15T10:15:47Z",
+  "fetched_at": "2026-03-15T11:20:22.934859+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47385935\">Comments</a>",
+  "full_text": "MANPADS Rocket & Launcher Prototype\n\n30 Second Overview\n\nFull System Overview (5 minutes)\n\nhttps://www.youtube.com/watch?v=DDO2EvXyncE&t=54s\n\nFull Development Media and Documentation\n\nhttps://drive.google.com/drive/folders/17zpks6_R59H0iXJaGkTrtp1SzIFFAQtY?usp=sharing\n\nThe Google Drive archive contains additional development media and documentation including:\n\nmechanical design and assembly\n\nsystem electronics and firmware testing\n\nlaunch tests and rocket motor development\n\nsystem flow diagram\n\nrocket specifications\n\nbill of materials and cost breakdown\n\nThis project is a proof-of-concept prototype of a low-cost rocket launcher and guided rocket system built using consumer electronics and 3D-printed components. The rocket uses folding fins and canard stabilization controlled by an onboard ESP32 flight computer and MPU6050 inertial measurement unit, while the launcher integrates sensors such as GPS, compass, and barometric modules for orientation and telemetry. The system was designed in Fusion 360, simulated using OpenRocket, and developed through iterative mechanical, electronics, and launch testing. The total hardware cost of the prototype is approximately $96.\n\nThis repository contains the core engineering components of the project:\n\nmechanical CAD files for the rocket and launcher\n\nfirmware source code for the rocket flight controller and launcher system\n\nOpenRocket simulation files used for aerodynamic stability analysis",
+  "tags": [
+    "200-words",
+    "development",
+    "documentation",
+    "full",
+    "github",
+    "launcher",
+    "manpads system",
+    "media",
+    "overview",
+    "prototype",
+    "rocket",
+    "rocket github",
+    "system"
+  ]
+}

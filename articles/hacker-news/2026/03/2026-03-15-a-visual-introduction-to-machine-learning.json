@@ -1,0 +1,29 @@
+{
+  "id": 3446,
+  "source": "Hacker News",
+  "title": "A Visual Introduction to Machine Learning",
+  "url": "https://r2d3.us/visual-intro-to-machine-learning-part-1/",
+  "published_at": "2026-03-15T10:47:35Z",
+  "fetched_at": "2026-03-15T11:20:22.319928+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47386116\">Comments</a>",
+  "full_text": "Finding better boundaries \n\nLet's revisit the 240-ft elevation boundary proposed previously to see how we can improve upon our intuition. \n\nClearly, this requires a different perspective. \n\nBy transforming our visualization into a histogram, we can better see how frequently homes appear at each elevation. \n\nWhile the highest home in New York is ~240 ft, the majority of them seem to have far lower elevations. \n\n \n\nYour first fork \n\nA decision tree uses if-then statements to define patterns in data. \n\nFor example, if a home's elevation is above some number, then the home is probably in San Francisco. \n\n \n\nIn machine learning, these statements are called forks, and they split the data into two branches based on some value. \n\nThat value between the branches is called a split point. Homes to the left of that point get categorized in one way, while those to the right are categorized in another. A split point is the decision tree's version of a boundary. \n\nTradeoffs \n\nPicking a split point has tradeoffs. Our initial split (~240 ft) incorrectly classifies some San Francisco homes as New York ones. \n\nLook at that large slice of green in the left pie chart, those are all the San Francisco homes that are misclassified. These are called false negatives. \n\nHowever, a split point meant to capture every San Francisco home will include many New York homes as well. These are called false positives. \n\nThe best split \n\nAt the best split, the results of each branch should be as homogeneous (or pure) as possible. There are several mathematical methods you can choose between to calculate the best split. \n\nAs we see here, even the best split on a single feature does not fully separate the San Francisco homes from the New York ones. \n\n \n\nRecursion \n\nTo add another split point, the algorithm repeats the process above on the subsets of data. This repetition is called recursion, and it is a concept that appears frequently in training models. \n\nThe histograms to the left show the distribution of each subset, repeated for each variable. \n\nThe best split will vary based which branch of the tree you are looking at. \n\nFor lower elevation homes, price per square foot, at X dollars per sqft, is the best variable for the next if-then statement. For higher elevation homes, it is price, at Y dollars.",
+  "tags": [
+    "500-words",
+    "ai",
+    "best",
+    "called",
+    "elevation",
+    "francisco",
+    "home",
+    "homes",
+    "left",
+    "machine learning",
+    "new york",
+    "point",
+    "san francisco",
+    "split",
+    "visual introduction",
+    "york"
+  ]
+}

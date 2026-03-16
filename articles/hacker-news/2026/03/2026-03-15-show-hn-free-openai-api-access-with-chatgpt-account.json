@@ -1,0 +1,31 @@
+{
+  "id": 3524,
+  "source": "Hacker News",
+  "title": "Show HN: Free OpenAI API Access with ChatGPT Account",
+  "url": "https://github.com/EvanZhouDev/openai-oauth",
+  "published_at": "2026-03-15T21:29:52Z",
+  "fetched_at": "2026-03-16T00:00:20.325139+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47392158\">Comments</a>",
+  "full_text": "NPM | Legal\n\nFree OpenAI API access with your ChatGPT account.\n\nJust run npx openai-oauth.\n\nYou can currently use openai-oauth in two different ways:\n\nThis package lets you create a localhost proxy to chatgpt.com/backend-api/codex/responses pre-authenticated with your Oauth tokens.\n\nUse directly:\n\nnpx openai-oauth\n\nOpenAI-compatible endpoint ready at http://127.0.0.1:10531/v1\nUse this as your OpenAI base URL. No API key is required.\nAvailable Models: gpt-5.4, gpt-5.3-codex, ...\n\nThis is a Vercel AI SDK Provider.\n\nimport { generateText } from \"ai\";\nimport { createOpenAIOAuth } from \"openai-oauth-provider\";\n\nconst openai = createOpenAIOAuth();\n\nconst result = await generateText({\n model: openai(\"gpt-5.4\"),\n prompt: \"write an essay about dogs\",\n});\n\nconsole.log(result.text);\n\nThe CLI and the provider share the same core OAuth transport settings.\n\nConfig\nCLI\nProvider\nDefault\nDescription\n\nHost binding\n--host\nN/A\n127.0.0.1\nHost interface the local proxy binds to.\n\nPort\n--port\nN/A\n10531\nPort the local proxy binds to.\n\nModel allowlist\n--models\nN/A\nAccount-specific Codex models discovered from ChatGPT\nComma-separated list of model ids exposed by /v1/models. When omitted, the CLI discovers the models your account has access to.\n\nCodex API version\n--codex-version\ncodexVersion\nLocal codex --version, then @openai/codex latest from npm, then 0.111.0\nOverride the Codex API client version used for model discovery.\n\nUpstream base URL\n--base-url\nbaseURL\nhttps://chatgpt.com/backend-api/codex\nOverride the upstream Codex base URL.\n\nOAuth client id\n--oauth-client-id\nclientId\napp_EMoamEEZ73f0CkXaXp7hrann\nOverride the OAuth client id used for refresh.\n\nOAuth token URL\n--oauth-token-url\ntokenUrl\nhttps://auth.openai.com/oauth/token\nOverride the OAuth token URL used for refresh.\n\nAuth file path\n--oauth-file\nauthFilePath\n--oauth-file path if provided, otherwise $CHATGPT_LOCAL_HOME/auth.json, $CODEX_HOME/auth.json, ~/.chatgpt-local/auth.json, ~/.codex/auth.json\nOverride where the local OAuth auth file is discovered.\n\nEnsure fresh tokens\nN/A\nensureFresh\ntrue\nControl whether access tokens are refreshed automatically.\n\nProvider name\nN/A\nname\nopenai\nOverride the provider name exposed to Vercel AI SDK internals.\n\nWhat currently works:\n\nWorking Endpoints:\n\n/v1/responses\n\n/v1/chat/completions\n\n/v1/models (account-aware by default, or overridden with --models)\n\nStreaming Responses\n\nToolcalls\n\nReasoning Traces\n\nWhat is intentionally not there yet:\n\nOnly LLMs supported by Codex are available. This lists updates over time and is dependent on your Codex plan.\n\nLogin flow is intentionally not bundled. Simply run npx @openai/codex login to create the auth file.\n\nThere is no stateful replay support on the CLI /v1/responses endpoint. The proxy is stateless and expects callers to send the full conversation history.\n\nOpenAI's Codex CLI uses a special endpoint at chatgpt.com/backend-api/codex/responses to let you use special OpenAI rate limits tied to your ChatGPT account.\n\nBy using the same Oauth tokens as Codex, we can effectively use OpenAI's API through Oauth instead of buying API credits.\n\npackages/openai-oauth-core\nPrivate shared transport, auth refresh, SSE helpers, and replay state.\n\npackages/openai-oauth-provider\nPublic Vercel AI SDK provider that talks directly to Codex using local auth files.\n\npackages/openai-oauth\nPublic CLI and localhost proxy package intended for npx openai-oauth.\n\nThis is an unofficial, community-maintained project and is not affiliated with, endorsed by, or sponsored by OpenAI, Inc.\n\nIt uses your local Codex/ChatGPT authentication cache (auth.json, e.g. ~/.codex/auth.json) and should be treated like password-equivalent credentials.\n\nUse only for personal, local experimentation on trusted machines; do not run as a hosted service, do not share access, and do not pool or redistribute tokens.\n\nYou are solely responsible for complying with OpenAI’s Terms, policies, and any applicable agreements; misuse may result in rate limits, suspension, or termination.\n\nProvided “as is” with no warranties; you assume all risk for data exposure, costs, and account actions.",
+  "tags": [
+    "1000-words",
+    "access",
+    "ai",
+    "api",
+    "auth",
+    "chatgpt",
+    "codex",
+    "evanzhoudev",
+    "free openai",
+    "github",
+    "local",
+    "oauth",
+    "openai",
+    "openai api",
+    "override",
+    "provider",
+    "proxy",
+    "vercel ai"
+  ]
+}

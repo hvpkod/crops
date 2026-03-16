@@ -1,0 +1,25 @@
+{
+  "id": 3439,
+  "source": "Hacker News",
+  "title": "Slicing Bezier Surfaces",
+  "url": "https://fatih-erikli-potato.github.io/blog/slicing-bezier-surfaces.html",
+  "published_at": "2026-03-12T12:51:15Z",
+  "fetched_at": "2026-03-15T10:00:11.343366+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47349871\">Comments</a>",
+  "full_text": "It is possible to split a bezier surface into two pieces. It helps us to slice a surface into several pieces without losing the original shape. In that way we are able to delete one piece of several slices of a whole surface.\n\nfunction splitBezier(t, p0, p1, p2, p3) {\n const p4 = lerp(t, p0, p1);\n const p5 = lerp(t, p1, p2);\n const p6 = lerp(t, p2, p3);\n const p7 = lerp(t, p4, p5);\n const p8 = lerp(t, p5, p6);\n const p9 = lerp(t, p7, p8);\n return [\n [{...p0}, p4, p7, p9],\n [{...p9}, p8, p6, {...p3}]\n ];\n}\n\nThis is a javascript code. I create the surface editing software in javascript. The function lerp is identical to Python one that I mentioned my blog post before. It takes the t value between 0 and 1, and returns two bezier curves, one is the half that splitted at t, the other one is other half. Two of them shapes the given bezier curve.\n\nThis slices a curve into two pieces. So I slice the main piece until it is one piece of slices I want while I create another surface with the each other half.\n\nlet sliceCurrent = 4;\nconst obj = {\n \"wide\": 10,\n \"fall\": 4,\n \"points\": [] \n}\nwhile (sliceCurrent > 1) {\n const t = (obj[\"wide\"] / sliceCurrent) * (sliceCurrent - 1) / obj[\"wide\"];\n const [halfa, enda] = splitBezier(t, obj.points[0], obj.points[1], obj.points[2], obj.points[3]);\n const [halfb, endb] = splitBezier(t, obj.points[4], obj.points[5], obj.points[6], obj.points[7]);\n const [halfc, endc] = splitBezier(t, obj.points[8], obj.points[9], obj.points[10], obj.points[11]);\n const [halfd, endd] = splitBezier(t, obj.points[12], obj.points[13], obj.points[14], obj.points[15]);\n obj.points[0] = halfa[0];\n obj.points[1] = halfa[1];\n obj.points[2] = halfa[2];\n obj.points[3] = halfa[3];\n obj.points[4] = halfb[0];\n obj.points[5] = halfb[1];\n obj.points[6] = halfb[2];\n obj.points[7] = halfb[3];\n obj.points[8] = halfc[0];\n obj.points[9] = halfc[1];\n obj.points[10] = halfc[2];\n obj.points[11] = halfc[3];\n obj.points[12] = halfd[0];\n obj.points[13] = halfd[1];\n obj.points[14] = halfd[2];\n obj.points[15] = halfd[3];\n const objNew = {\n \"id\": getNewId(),\n \"wide\": parseInt((1 - t) * obj[\"wide\"]),\n \"fall\": obj[\"fall\"],\n \"type\": \"plane\",\n \"points\": [\n enda[0], enda[1], enda[2], enda[3],\n endb[0], endb[1], endb[2], endb[3],\n endc[0], endc[1], endc[2], endc[3],\n endd[0], endd[1], endd[2], endd[3]\n ],\n };\n draft.push(objNew);\n obj[\"wide\"] *= t;\n sliceCurrentWide -= 1;\n}\nobj[\"wide\"] = int(obj[\"wide\"])\n\nThis slices the surface horizontally that it's segments set by \"wide\" parameter. The \"fall\" is for the vertical. Same method must be applied the surface if it needs to be sliced horizontally.\n\nGood luck playing with that.",
+  "tags": [
+    "500-words",
+    "bezier",
+    "const",
+    "create",
+    "fortnox world",
+    "function",
+    "piece",
+    "several",
+    "slice",
+    "slices",
+    "slicing",
+    "surface"
+  ]
+}

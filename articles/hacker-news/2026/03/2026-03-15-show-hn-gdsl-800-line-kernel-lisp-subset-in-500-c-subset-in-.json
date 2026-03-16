@@ -1,0 +1,24 @@
+{
+  "id": 3479,
+  "source": "Hacker News",
+  "title": "Show HN: GDSL – 800 line kernel: Lisp subset in 500, C subset in 1300",
+  "url": "https://firthemouse.github.io/",
+  "published_at": "2026-03-15T15:40:13Z",
+  "fetched_at": "2026-03-15T16:40:12.668018+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47388479\">Comments</a>",
+  "full_text": "Pages for posting about my work until I decide to tackle websites.\n\n2/14/26\n\nEarly GDSL\n\nSeeds 3/14/26\n\nCompilers are enormous these days, millions of lines spanning frontend to backend to turn text to process on a system. Any small compiler gets small by making tradeoffs, it constrains itself to a shape small enough that it fits, or simply doesn’t implement the features.\n\nThat’s what I would’ve believed before I wrote a subset of C in 1500 lines, with the only feature compromises being ‘I haven’t built that part yet but I could’. Then, on the same kernel with zero modification, wrote a Lisp compiler in 500 lines. They’re fast enough to be useful, they aren’t fragile stacks of tightly optimized assumptions ready to collapse at a breath. They’re just 3 weeks of work reconstructing what a language can mean.\nWhich made me ask: what are these other compilers doing that add the million lines?\n\nAnd this is the answer I’ve landed on so far.\n\nSeams\n\nLandscapes\n\nKludges\n\nSixteen months of digging at concrete, bending pipes, and living in lobbies to build a patch of dirt.\n\nit isn’t much if you look at it, it’s impressive just because it exists, but nobody lives on it.\n\nI gave it a name, a plaque proclaiming it exists, and today I plant the first seeds.\n\nModern GDSL",
+  "tags": [
+    "500-words",
+    "compiler",
+    "compilers",
+    "decide",
+    "enough",
+    "gdsl",
+    "pages",
+    "posting",
+    "small",
+    "until",
+    "wrote"
+  ]
+}

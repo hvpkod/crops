@@ -1,0 +1,26 @@
+{
+  "id": 3523,
+  "source": "Hacker News",
+  "title": "Show HN: Open-source playground to red-team AI agents with exploits published",
+  "url": "https://github.com/fabraix/playground",
+  "published_at": "2026-03-15T22:29:46Z",
+  "fetched_at": "2026-03-16T00:00:16.994755+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47392677\">Comments</a>",
+  "full_text": "AI agents are reshaping how we work. The repetitive, mechanical parts, the work that consumed human time without requiring human creativity, are increasingly handled by systems designed for exactly that. What's left is the work that matters most: the thinking, the judgment, the creative leaps that only people bring. We think this is one of the most exciting shifts in how software gets built and used, and it's only the beginning.\n\nThe ultimate enabler for all of it is trust. None of it scales until people can hand real tasks to an agent and know it will do what it should — and nothing it shouldn't. That trust can't be built by any single team behind closed doors. It has to be earned collectively, in the open, by a community of researchers, engineers, and the genuinely curious, all pressure-testing the same systems and sharing what they find.\n\nThe Playground exists to make that effort tangible. Every challenge deploys a live AI agent, not a toy scenario or a mocked-up document parser, but an agent with real capabilities, and opens it up for the community to break. System prompts are published. Challenge configs are versioned in the open. When someone finds a way through, the winning technique is documented for everyone to learn from. That published knowledge forces better defenses, which invite harder challenges, which produce deeper understanding.\n\nplayground.fabraix.com\n\nEach challenge puts a live AI agent in front of you with a specific persona, a set of tools (web search, browsing, and more), and something it's been instructed to protect. The system prompt is fully visible. Your job is to find a way past the guardrails anyway.\n\nThe community drives what gets tested:\n\nAnyone proposes a challenge — the scenario, the agent, the objective\n\nThe community votes\n\nThe top-voted challenge is considered for go live with a ticking clock\n\nThe fastest successful jailbreak wins\n\nThe winning technique gets published — approach, reasoning, everything\n\nThat last step matters most. Every technique we publish advances what the community collectively understands about how AI agents fail — and how to build ones that don't.\n\n/src — React frontend (TypeScript, Vite, Tailwind)\n\n/challenges — every challenge config and system prompt, versioned and open\n\nGuardrail evaluation runs server-side to prevent client-side tampering. The agent runtime is being open-sourced separately.\n\nConnects to the live API by default. To develop against a local backend:\n\nVITE_API_URL=http://localhost:8000/v1 npm run dev\n\nWe build runtime security for AI agents at Fabraix. The Playground is how we stress-test defenses in the open and how the broader community contributes to the shared understanding of AI security and failure modes. The more people probing these systems, the better the outcomes for everyone building with AI.",
+  "tags": [
+    "500-words",
+    "agent",
+    "agents",
+    "challenge",
+    "community",
+    "defenses",
+    "gets",
+    "github",
+    "human",
+    "live",
+    "system",
+    "technique",
+    "the playground"
+  ]
+}

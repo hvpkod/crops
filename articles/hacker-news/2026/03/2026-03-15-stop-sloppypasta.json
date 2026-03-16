@@ -1,0 +1,28 @@
+{
+  "id": 3512,
+  "source": "Hacker News",
+  "title": "Stop Sloppypasta",
+  "url": "https://stopsloppypasta.ai/",
+  "published_at": "2026-03-15T17:25:00Z",
+  "fetched_at": "2026-03-15T22:40:42.039305+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47389570\">Comments</a>",
+  "full_text": "Sharing raw AI output is like eating junk food: it's easy and may feel good, but it's not in your best interest.\nYou'll negatively influence your relationship with the recipient, and do yourself a disservice by reducing your own comprehension.\n\nBefore LLMs, writing took effort.\nAuthors spent time and effort considering and selecting their words with intention; time and effort that was balanced by that spent by the audience as they read.\nThis balance is broken with LLMs; the effort to produce text is effectively free, but the effort required to read the text hasn't changed.\nThe increasing verbosity of LLMs further increases the effort asymmetry.\nIn some circumstances (like pasting raw LLM output into a chat thread), the sloppypasta effectively becomes a filibuster, crowding out the existing conversation and blocking the viewport.\n\nWriting is thinking.\nThe writing process forces the author to work through their thoughts, building their comprehension and retention.\nMultiple studies have found that delegating tasks to LLMs creates cognitive debt.\nShortcutting thinking with LLMs ultimately reduces comprehension of and recall about the delegated subject.\n\nBefore LLMs, trust was the default.\nAuthors wrote from their personal expertise and perspective, and readers could judge an author's understanding of the subject based on the coherence of their writing.\nLLMs generate the most probable next token given an overarching goal to be helpful, which explains their propensity for hallucination (confabulation) and why many people feel that LLMs are bullshit generators.\nModern LLMs are typically provided tools to help them look up grounding information that reduces (but does not eradicate) their likelihood to outright make up facts during their responses.\nBut that still doesn't solve the trust problem; the reader still has no way to know what the sender checked and what they didn't.\nLLM responses, therefore, cannot be trusted by default and compound the effort asymmetry on the reader by adding a verification tax.\n\nBeyond accuracy, LLMs write authoritatively with the tone and confidence of an expert.\nThis adds further uncertainty to the reader's burden; they have no way to gauge the sender's actual level of expertise with the subject matter.\nThe result is a further erosion of trust, because the AI's voice removes signal that recipients previously used to distinguish expertise from plausible-sounding slop.\n\nFormerly, \"Trust but verify\" ruled.\nReaders would trust until that trust was broken; the author was trustworthy or they weren't.\nHowever, shared LLM output obfuscates the chain of trust.\nDid the prompter do the appropriate due diligence to validate the LLM response?\nIf problems or errors are discovered, who is to blame, the prompter or the AI?\nWas it an oversight, a missed verification step, or was verification skipped altogether?\nThe uncertainty means the recipient doesn't know what they can trust, what has or has not been verified; they must treat everything as untrusted.\nJust like the Boy Who Cried Wolf, once the trust is broken, the uncertainty spreads to all future messages from the sender.\n\nAssumptions of balanced effort and presumed trust are no longer guaranteed in a post-LLM world.\nSloppypasta creates a compounding negative feedback loop where the sender forfeits learning and credibility while the recipient burns effort and loses trust.\nReceiving raw AI output feels bad due to the cognitive dissonance of having these assumptions violated.",
+  "tags": [
+    "1000-words",
+    "ai",
+    "before llms",
+    "effort",
+    "expertise",
+    "further",
+    "llm",
+    "llms",
+    "output",
+    "sloppypasta",
+    "stop sloppypasta",
+    "trust",
+    "uncertainty",
+    "verification",
+    "writing"
+  ]
+}

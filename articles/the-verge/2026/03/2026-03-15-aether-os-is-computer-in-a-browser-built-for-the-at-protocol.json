@@ -1,0 +1,26 @@
+{
+  "id": 3502,
+  "source": "The Verge",
+  "title": "Aether OS is computer in a browser built for the AT Protocol",
+  "url": "https://www.theverge.com/tech/895083/aether-os-browser-at-protocol",
+  "published_at": "2026-03-15T19:35:57Z",
+  "fetched_at": "2026-03-15T20:00:07.549917+00:00",
+  "author": "Terrence O’Brien",
+  "summary": "<figure>\n\n<img alt=\"Aether OS desktop showing Deckard Bluesky client, text editor, and todo list.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Screenshot-2026-03-15-at-3.31.04%E2%80%AFPM.png?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\"><a href=\"https://www.aetheros.computer/\">Aether OS</a> puts a full-fledged desktop in your browser that ties directly into the <a href=\"https://docs.bsky.app/docs/advanced-guides/atproto\">AT Protocol</a>. That means it connects to your Bluesky account and other public records. It offers a pretty <a href=\"https://www.youtube.com/watch?v=DxXlStm_D1s\">full suite of apps</a>, 42 in total, covering text editing, task management, and social media. There's even a rudimentary tracker for making chiptunes, a DAW, and a video editor. </p>\n<p class=\"has-text-align-none\">Of course, part of the appeal is also the cyberpunk good looks that draw obvious inspiration f",
+  "full_text": "Aether OS puts a full-fledged desktop in your browser that ties directly into the AT Protocol. That means it connects to your Bluesky account and other public records. It offers a pretty full suite of apps, 42 in total, covering text editing, task management, and social media. There’s even a rudimentary tracker for making chiptunes, a DAW, and a video editor.\n\nOf course, part of the appeal is also the cyberpunk good looks that draw obvious inspiration from The Matrix.\n\nRight now, the project is in alpha, and there are a lot of rough edges. Documentation is also basically non-existent. So, if you get stuck trying to use an app, you’re kind of SOL. Oh, and nothing is encrypted or permissioned, so be careful what you store — it’s all publicly visible.",
+  "tags": [
+    "200-words",
+    "aether",
+    "aether os",
+    "browser",
+    "built",
+    "computer",
+    "desktop",
+    "directly",
+    "fortnox world",
+    "means",
+    "protocol",
+    "puts",
+    "ties"
+  ]
+}

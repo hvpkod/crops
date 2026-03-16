@@ -1,0 +1,26 @@
+{
+  "id": 3485,
+  "source": "Hacker News",
+  "title": "Zipp 2001 Restoration",
+  "url": "https://robot-daycare.com/posts/zipp-2001-restoration-part-1/",
+  "published_at": "2026-03-11T10:39:24Z",
+  "fetched_at": "2026-03-15T17:20:23.705101+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47333885\">Comments</a>",
+  "full_text": "I think the Zipp 2001 is one of the coolest bicycles ever made. These were only produced from 1992-1997, until the UCI banned bikes that weren’t the traditional “double-diamond” shape from professional racing. Probably because they were too fast.\n\nImage taken from this 1993 Zipp Catalog\n\nThe early 90’s was when frame builders started seriously using carbon fiber for its aerodynamic advantages. Some of the wacky 90’s aero bikes include the Lotus 108 and Lotus 110 (another looker), the Zipp 2001 and 3001 (the update to the 2001, with added boron fibers to increase stiffness), the Trek Y-Foil 77 (kind of ugly I think), and the Giant MCR\n\nI’ve been on the lookout for a 2001 frame or bike on Ebay and Craigslist for years, and finally found a reasonably priced one last spring. Normally they’re listed on Ebay for $5000, but never actually sell. One subtlety of finding a frame is that there are actually 8 (I think) different versions of the bike - large or small beams, 650b or 700c wheel sizes, and track or road configurations. I almost fell for a track frame that had road dropouts bolted on, but realized last minute that the track version of the frames doesn’t have internal cable routing channels like the road version. They all are visually different, and I think the one my size, large beam 700c, is the best looking one.\n\nThis one was in decent shape, but needed some paint work. Some of the frames (maybe only the later years?) originally shipped with a chain guide to prevent chain drops, but clearly this one didn’t have it. Some previous owner dropped the chain enough to scrape off all the paint down to (but not into, fortunately) the carbon around the bottom bracket.\n\nOne interesting detail about the 2001’s is that the rear dropouts just bolt on with 2 M6 flat-heads. This got me thinking - maybe it would be possible to make new dropouts for modern thru-axles, with modern spacing? Wouldn’t it be neat if I could build up the frame with modern components?\n\nI borrowed a wheel from a coworker since I didn’t own any thru axle wheels with road spacing, printed some dropouts and did a test fit. The new dropouts incorporate a disc caliper mount as well - it might sound a little sketchy to add disc brakes to a frame like this, but given how beefy the cantilevered chainstays are compared to something like a disc fork, I’m not too worried.\n\nRather than integrating the derailleur hanger into the dropout, I used a UDH hanger. It’s well documented and widely available, so if I ever bend a hanger I don’t have to get another one machined.\n\nTo be extra sure this would work, I machined a prototype dropout on the 5-axis:\n\nI wanted the parts anodized, so I made a few design tweaks and sent them to PCBWay for machining:\n\nFitting up the dropouts to a frame and wheel:\n\nThe new dropouts increase the hub spacing to fit a modern 11s or 12s hub:\n\nOn to painting.\n\nI like the original almost-sparkly dark blue the frame was painted in. I wanted to keep a similar look, but make the paint a bit more exciting - a ridiculous frame like this deserves some tastefully gaudy paint. I got some primer, dark grey base coat, and blue sparkle flake paint from Spray.bike for this, and sanded the paint down to the primer. I can’t find any pictures of the frame in this state - probably because sanding is gross and I didn’t want to touch my camera.\n\nI tested the paint on a cheap carbon fork I had lying around. The process was:\n\nI was happy enough with how the fork turned out, so I did the beam next:\n\nThe weather turned too cool and humid here for painting after I finished the beam, but the past few weekends have been warm, and I did a first base coat on the frame:\n\nNext up, machining a new seat clamp.",
+  "tags": [
+    "1000-words",
+    "carbon",
+    "chain",
+    "disc",
+    "dropouts",
+    "frame",
+    "modern",
+    "paint",
+    "part",
+    "road",
+    "track",
+    "zipp",
+    "zipp restoration"
+  ]
+}

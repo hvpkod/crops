@@ -1,0 +1,26 @@
+{
+  "id": 3522,
+  "source": "Hacker News",
+  "title": "Excel incorrectly assumes that the year 1900 is a leap year",
+  "url": "https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/excel/wrongly-assumes-1900-is-leap-year",
+  "published_at": "2026-03-15T23:34:35Z",
+  "fetched_at": "2026-03-16T00:00:16.365643+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47393225\">Comments</a>",
+  "full_text": "Symptoms\n\nMicrosoft Excel incorrectly assumes that the year 1900 is a leap year. This article explains why the year 1900 is treated as a leap year, and outlines the behaviors that may occur if this specific issue is corrected.\n\nMore Information\n\nWhen Lotus 1-2-3 was first released, the program assumed that the year 1900 was a leap year, even though it actually was not a leap year. This made it easier for the program to handle leap years and caused no harm to almost all date calculations in Lotus 1-2-3.\n\nWhen Microsoft Multiplan and Microsoft Excel were released, they also assumed that 1900 was a leap year. This assumption allowed Microsoft Multiplan and Microsoft Excel to use the same serial date system used by Lotus 1-2-3 and provide greater compatibility with Lotus 1-2-3. Treating 1900 as a leap year also made it easier for users to move worksheets from one program to the other.\n\nAlthough it is technically possible to correct this behavior so that current versions of Microsoft Excel do not assume that 1900 is a leap year, the disadvantages of doing so outweigh the advantages.\n\nIf this behavior were to be corrected, many problems would arise, including:\n\nAlmost all dates in current Microsoft Excel worksheets and other documents would be decreased by one day. Correcting this shift would take considerable time and effort, especially in formulas that use dates.\n\nSome functions, such as the WEEKDAY function, would return different values; this might cause formulas in worksheets to work incorrectly.\n\nCorrecting this behavior would break serial date compatibility between Microsoft Excel and other programs that use dates.\n\nIf the behavior remains uncorrected, only one problem occurs:\n\nThe WEEKDAY function returns incorrect values for dates before March 1, 1900. Because most users do not use dates before March 1, 1900, this problem is rare.\n\nNOTE: Microsoft Excel correctly handles all other leap years, including century years that are not leap years (for example, 2100). Only the year 1900 is incorrectly handled.\n\nReferences\n\nFor more information about determining whether a given year is a leap year, see Method to Determine Whether a Year Is a Leap Year.",
+  "tags": [
+    "500-words",
+    "behavior",
+    "date",
+    "dates",
+    "excel",
+    "incorrectly",
+    "leap",
+    "lotus",
+    "microsoft",
+    "microsoft excel",
+    "microsoft multiplan",
+    "program",
+    "worksheets"
+  ]
+}

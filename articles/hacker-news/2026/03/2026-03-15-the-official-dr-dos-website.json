@@ -1,0 +1,28 @@
+{
+  "id": 3477,
+  "source": "Hacker News",
+  "title": "The Official DR DOS Website",
+  "url": "https://www.dr-dos.com/",
+  "published_at": "2026-03-15T14:56:45Z",
+  "fetched_at": "2026-03-15T16:00:23.338234+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47387997\">Comments</a>",
+  "full_text": "The Official DR DOS Website\n\n DR DOS® carries forward the legacy of Gary Kildall's groundbreaking work in operating systems.\n Originally developed by Digital Research Inc. in 1988, DR DOS was a technically superior alternative\n to MS-DOS, offering better performance and compatibility.\n\n This is not just another DOS clone. DR DOS® 9.0 is a faithful clean-room reimplementation,\n built from scratch to honor Kildall's vision while creating a modern, legally unencumbered\n DOS for the next generation of enthusiasts, developers, and hackers.\n\n Latest Release: DR DOS 9.0 Revision 330\n\n Released March 14, 2026\n\nWhat's Included\n\nDR DOS 9.0 comes with a comprehensive set of commands and utilities:\n\n \nCore File Management: CD, COPY, DEL, DIR, MD, MOVE, REN, TYPE, and more\n \nEDIT Text Editor: Full-featured editor with colored display, menus, keyboard shortcuts, and clipboard support\n \nSystem Utilities: MEM (memory information), VER (version), DATE, CLS, MORE\n \nAdvanced Tools: HEXDUMP for debugging, MOUSE driver support, REBOOT utility\n \nLow-Level Access: PEEK, POKE, and JMP commands for direct memory manipulation and code execution - perfect for hackers and experimenters\n\n For Hackers: DR DOS 9.0 includes unique memory manipulation commands (PEEK, POKE, JMP)\n that allow direct access to system memory, making it an excellent platform for learning about operating systems,\n testing low-level code, and DOS development.\n\nWho Is This For?\n\nDR DOS 9.0 is ideal for:\n\n \nDOS enthusiasts and retrocomputing hobbyists\n \nDevelopers interested in operating system development and low-level programming\n \nEducational purposes and learning about operating systems\n \nTesting classic DOS software compatibility\n \nEmbedded systems requiring a minimal DOS environment\n \nAnyone curious about the heritage of PC operating systems",
+  "tags": [
+    "500-words",
+    "commands",
+    "direct",
+    "dos",
+    "learning",
+    "manipulation",
+    "memory",
+    "official",
+    "official dr",
+    "operating",
+    "peek poke",
+    "system",
+    "systems",
+    "the official",
+    "website"
+  ]
+}

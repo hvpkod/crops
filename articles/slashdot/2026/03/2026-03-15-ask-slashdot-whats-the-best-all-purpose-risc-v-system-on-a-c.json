@@ -1,0 +1,29 @@
+{
+  "id": 3515,
+  "source": "Slashdot",
+  "title": "Ask Slashdot:  What's the Best All-Purpose RISC-V System on a Chip Family?",
+  "url": "https://ask.slashdot.org/story/26/03/15/2124224/ask-slashdot-whats-the-best-all-purpose-risc-v-system-on-a-chip-family?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-15T21:51:00Z",
+  "fetched_at": "2026-03-15T23:00:11.380309+00:00",
+  "author": "EditorDavid",
+  "summary": "Slashdot reader SysEngineer does embedded/IoT work, but \"I want to pick a single system-on-a-chip architecture family and commit to it across multiple product lines &mdash; sensor nodes up through edge gateways... I've been on one platform for years and want to know what embedded engineers are actually running in production before I commit!\" \n\n\nAnd \"the family needs to scale &mdash; cheap and small at the low end, capable of running Linux on the bigger variants!\" \n\n\nTheir requirements?\n\n\nWiFi + BLE required\n\nLoRaWAN a nice-to-have.\n\nLow power modes that actually work in the field, not just on the datasheet.\n\nFull peripheral set &mdash; SPI, I2C, UART, ADC, timers, CAN.\n\nA toolchain and runtime support, support multi threads...\n\n\nSlashdot reader Gravis Zero is skeptical all the requirements can be met. \"If you want embedded, you get embedded. If you want to run a big OS, you get one that will run a big OS.\" \n\nBut Slashdot reader SysEngineer believes \"The obvious architecture candidates ",
+  "full_text": "Slashdot reader SysEngineer\n\n does embedded/IoT work, but \"I want to pick a single system-on-a-chip architecture family and commit to it across multiple product lines — sensor nodes up through edge gateways... I've been on one platform for years and want to know what embedded engineers are actually running in production before I commit!\" \n\nAnd \"the family needs to scale — cheap and small at the low end, capable of running Linux on the bigger variants!\" \n\nTheir requirements?\n\nWiFi + BLE required\n\nLoRaWAN a nice-to-have.\n\nLow power modes that actually work in the field, not just on the datasheet.\n\nFull peripheral set — SPI, I2C, UART, ADC, timers, CAN.\n\nA toolchain and runtime support, support multi threads...\n\nSlashdot reader Gravis Zero is skeptical all the requirements can be met. \"If you want embedded, you get embedded. If you want to run a big OS, you get one that will run a big OS.\"\n \n\nBut Slashdot reader SysEngineer believes \"The obvious architecture candidates are ARM, STM, and RISC-V\" — and specifically they want to hear your experiences with the RISC-V choices. \"What would you standardize on today if you were starting fresh? And how does real-world toolchain and community support hold up compared to the marketing?\" \n \n\nShare your own thoughts and experiences in the comments.\n \n\nWhat's the best all-purpose RISC-V system on a chip family?",
+  "tags": [
+    "500-words",
+    "actually",
+    "architecture",
+    "ask slashdot",
+    "best",
+    "best all",
+    "chip",
+    "chip family",
+    "family",
+    "purpose risc",
+    "reader",
+    "risc",
+    "running",
+    "slashdot",
+    "sysengineer",
+    "system"
+  ]
+}

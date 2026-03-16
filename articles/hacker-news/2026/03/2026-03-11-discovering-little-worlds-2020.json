@@ -1,0 +1,29 @@
+{
+  "id": 3449,
+  "source": "Hacker News",
+  "title": "Discovering Little Worlds (2020)",
+  "url": "https://dmitrybrant.com/2020/08/01/discovering-little-worlds",
+  "published_at": "2026-03-11T09:19:30Z",
+  "fetched_at": "2026-03-15T12:00:08.246718+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47333356\">Comments</a>",
+  "full_text": "Like so many other people during the COVID lockdown, I’ve been looking for additional hobbies that could be done from home, which would occupy my time and help keep my mind off the collapse of civilization as we know it, and maybe even ground my thoughts and keep them away from hyperbole and catastrophizing.\n\nWhile cleaning and organizing my basement I came across this small USB device. It’s barely larger than a flash drive, but it’s no flash drive at all – it’s a software-defined radio (SDR), namely an RTL-SDR V3 dongle.\n\nI don’t even recall how this device ended up in my possession; I think it was probably from one of my previous jobs: they were throwing away a bunch of equipment that was no longer useful, and allowed me to keep some of the items. Regardless, I had never actually used the SDR, and hadn’t really thought about what the SDR would be useful for. I had a vague understanding that the SDR can let me tune in to any random radio frequency, but how interesting can that be? Well, it turns out that playing around with this device led me into a rabbit hole of epic proportions.\n\nOnce I found the right software to work with the SDR device (SDRSharp for Windows, and CubicSDR for Mac), I was up and running. The first rather trivial thing to do was to tune in to the local FM radio stations. Here they are, as viewed through a spectrogram:\n\nBut that’s kind of boring. I wonder what lies outside of the FM radio band? Well, the next obvious destination is the local police frequencies, which are around 460 MHz to 490 MHz in my area. These are narrow-band FM (NFM) stations, so we adjust our software settings accordingly. In mere moments, I’m listening to police dispatchers communicating with units and telling them about robberies, car accidents, and the like:\n\nAnd of course there are a few local HAM radio repeaters nearby, which tells me that the HAM community is very much alive and well. Since I can’t transmit anything using my tiny SDR device, I can only listen in on the HAM conversations, but that’s okay since the conversation wasn’t particularly scintillating anyway, and I’m not sure that getting into the little world of HAM radio is really my goal here. As much as I salute the enthusiasts who keep HAM radio going, they can party on without me.\n\nMind you, all of this was using the cheap tiny antenna that came with the SDR itself. But then I discovered that the SDR can be used for something else entirely: receiving signals from satellites!\n\nArguably the easiest satellites to pick up signals are the NOAA 15/18/19 satellites, which are weather satellites that transmit images of cloud cover over the ground. By “easiest” I mean requiring the least amount of additional equipment: it only requires a rabbit-ear (V-dipole) antenna connected to your SDR, and a cloud-free day to get a good signal. Here is the signal at 137.9 MHz, and the resulting image, which is produced by special software that demodulates the “audio” data that was recorded:\n\nThe downside is that these satellites are in a sun-synchronous orbit, and will only pass by your location for ~15-minute intervals at the most, and can only be caught at very early or late hours of the day. The other downside is that the NOAA satellites are aging, and will probably be decommissioned in the coming years. And anyway, the images they transmit are not the highest quality. Time to step it up to the next level, namely the GOES satellites!\n\nThe GOES-16 satellite is a newer weather satellite that is geostationary, and is positioned permanently above the Americas. In fact its longitude is almost exactly over the East coast, which is perfect for my purposes, and its inclination from my location is about 45 degrees (because it orbits around the equator, as all geostationary satellites must do).\n\nBut because it’s geostationary it’s also much farther away, and therefore its signal is much weaker, and requires additional equipment:\n\nThe setup consists of an old WiFi grid antenna, which feeds into a SAW filter and amplifier, which then feeds into the SDR that’s now connected to a Raspberry Pi (the total cost was about $100). The Raspberry Pi is running a package called goestools which demodulates the signal from the satellite in real time, and translates the signal into images. The satellite transmits images of Earth in many different spectral bands, ranging from visible light to deep infrared.\n\nAnd so, the final little world I discovered on this adventure is this one:\n\nThe full resolution of these images is 10K, which is mind-blowing, and my next step is to create animations from these images, which are sent by the satellite every 15 minutes.\n\nI think I’ll leave this antenna setup as a permanent installation in my house, so that I can grab these signals anytime I like. Even though this imagery is available on the web if you know where to look, there is something profoundly awesome in knowing that you personally can receive selfies of our world, from 35,000 kilometers away, using about $100 worth of equipment. It’s been a very satisfying few weeks, in spite of everything else that’s happening this year.",
+  "tags": [
+    "1000-words",
+    "additional",
+    "device",
+    "discovering",
+    "ham",
+    "images",
+    "keep",
+    "little",
+    "mhz",
+    "radio",
+    "raspberry pi",
+    "satellite",
+    "satellites",
+    "sdr",
+    "signal",
+    "software"
+  ]
+}

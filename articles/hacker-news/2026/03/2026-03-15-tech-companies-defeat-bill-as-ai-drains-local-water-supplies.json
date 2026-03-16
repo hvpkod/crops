@@ -1,0 +1,25 @@
+{
+  "id": 3489,
+  "source": "Hacker News",
+  "title": "Tech companies defeat bill as AI drains local water supplies",
+  "url": "https://www.theolympus.net/13531/",
+  "published_at": "2026-03-15T17:49:54Z",
+  "fetched_at": "2026-03-15T18:00:07.089994+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47389858\">Comments</a>",
+  "full_text": "Washington state is home to about 126 artificial intelligence data centers. These data centers evaporate millions of gallons of freshwater each day to provide cooling, but at the cost of draining local resources.\n\nThe rapid expansion of these data centers strains regional drinking water supplies, as well as increasing blackout risk due to the high energy consumption. “Water used for AI computing is mostly ‘blue water.’ It is fresh water from rivers and lakes, which humans could use directly. Industries are growing, the global water cycle is out of balance, and we need to conserve more,” said Shaolei Ren, an electrical engineering professor at the University of California, Riverside.\n\nData centers generate significant heat and require very efficient cooling systems. Facilities usually pass hot air over water-soaked padding, causing the water to evaporate into the atmosphere and taking the heat with it. This water can travel a great distance from where it originally was, causing local water supplies to diminish.\n\nIn addition to draining local water supplies, modern AI models use drastically more electricity than a simple Google search. Data centers are predicted to become the single largest power consumers in the Pacific Northwest. This could allow tech companies to form a monopoly on cheap energy while simultaneously driving up utility costs for regular citizens.\n\nLawmakers tried to fix this issue with Washington House Bill 2515, which would have forced facilities to use clean energy and reduce power during high electricity demand. “These policies seek to protect ratepayers by ensuring new data centers are picking up the whole tab for new growth,” said State Rep. Beth Doglio.\n\nDespite efforts to enforce clean energy, the bill died in committee, mostly due to the tech industry lobbying. This defeat will leave residents vulnerable to rising utility costs and a high risk for electricity blackouts, while AI industries continue to benefit from cheap energy.",
+  "tags": [
+    "500-words",
+    "ai",
+    "bill",
+    "centers",
+    "companies",
+    "data",
+    "electricity",
+    "energy",
+    "high",
+    "local",
+    "tech",
+    "water"
+  ]
+}

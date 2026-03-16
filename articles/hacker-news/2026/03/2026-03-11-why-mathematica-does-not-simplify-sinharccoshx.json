@@ -1,0 +1,28 @@
+{
+  "id": 3432,
+  "source": "Hacker News",
+  "title": "Why Mathematica does not simplify sinh(arccosh(x))",
+  "url": "https://www.johndcook.com/blog/2026/03/10/sinh-arccosh/",
+  "published_at": "2026-03-11T13:30:31Z",
+  "fetched_at": "2026-03-15T07:20:06.333108+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47335325\">Comments</a>",
+  "full_text": "I’ve written several posts about applying trig functions to inverse trig functions. I intended to write two posts, one about the three basic trig functions and one about their hyperbolic counterparts. But there’s more to explore here than I thought at first. For example, the mistakes that I made in the first post lead to a couple more posts discussing error detection and proofs.\n\nI was curious about how Mathematica would handle these identities. Sometimes it doesn’t simplify expressions the way you expect, and for interesting reasons. It handled the circular functions as you might expect.\n\nSo, for example, if you enter Sin[ArcCos[x]] it returns √(1 − x²) as in the table above. Then I added an h on the end of all the function names to see whether it would reproduce the table of hyperbolic compositions.\n\nFor the most part it did, but not entirely. The results were as expected except when applying sinh or cosh to arccosh. But Sinh[ArcCosh[x]] returns\n\nand Tanh[ArcCosh[x]] returns\n\nWhy doesn’t Mathematica simplify as expected?\n\nWhy didn’t Sinh[ ArcCosh[x] ] just return √(x² − 1)? The expression it returned is equivalent to this: just square the (x + 1) term, bring it inside the radical, and simplify. That line of reasoning is correct for some values of x but not for others. For example, Sinh[ArcCosh[2]] returns −√3 but √(3² − 1) = √3. The expression Mathematica returns for Sinh[ArcCosh[x]] correctly evaluates to −√3.\n\nDefining ArcCosh\n\nTo understand what’s going on, we have to look closer at what arccosh(x) means. You might say it is a function that returns the number whose hyperbolic cosine equals x. But cosh is an even function: cosh(−x) = cosh(x), so we can’t say the value. OK, so we define arccosh(x) to be the positive number whose hyperbolic cosine equals x. That works for real values of x that are at least 1. But what do we mean by, for example, arccosh(1/2)? There is no real number y such that cosh(y) = 1/2.\n\nTo rigorously define inverse hyperbolic cosine, we need to make a branch cut. We cannot define arccosh as an analytic function over the entire complex plane. But if we remove (−∞, 1], we can. We define arccosh(x) for real x > 1 to be the positive real number y such that cosh(y) = x, and define it for the rest of the complex plane (with our branch cut (−∞, 1] removed) by analytic continuation.\n\nIf we look up ArcCosh in Mathematica’s documentation, it says “ArcCosh[z] has a branch cut discontinuity in the complex z plane running from −∞ to +1.” But what about values of x that lie on the branch cut? For example, we looked at ArcCosh[-2] above. We can extend arccosh to the entire complex plane, but we cannot extend it as an analytic function.\n\nSo how do we define arccosh(x) for x in (−∞, 1]? We could define it to be the limit of arccosh(z) as z approaches x for values of z not on the branch cut. But we have to make a choice: do we approach x from above or from below? That is, we can define arccosh(x) for real x ≤ 1 by\n\nor by\n\nbut we have to make a choice because the two limits are not the same. For example, Sinh[ArcCosh[-2 + 0.001 I]] returns 11.214 + 2.89845 I but Sinh[ArcCosh[-2 + 0.001 I]] returns 11.214 - 2.89845 I. By convention, we choose the limit from above.\n\nDefining square root\n\nWhere did we go wrong when we assumed Mathematica’s expression for sinh(arccosh(x))\n\ncould be simplified to √(x² − 1)? We implicitly assumed √(x + 1)² = (x + 1). And that’s true, if x ≥ − 1, but not for smaller x. Just as we have be careful about how we define arccosh, we have to be careful about how we define square root.\n\nThe process of defining the square root function for all complex numbers is analogous to the process of defining arccosh. First, we define square root to be what we expect for positive real numbers. Then we make a branch cut, in this case (−∞, 0]. Then we define it by analytic continuation for all values not on the cut. Then finally, we define it along the cut by continuity, taking the limit from above.\n\nOnce we’ve defined arccosh and square root carefully, we can see that the expressions Mathematica returns for sinh(arccosh(x)) and tanh(arccosh(x)) are correct for all complex inputs, while the simpler expressions in the table above implicitly assume we’re working with values of x for which arccosh(x) is real.\n\nMaking assumptions explicit\n\nIf we are only concerned with values of x ≥ − 1 we can tell Mathematica this, and it will simplify expressions accordingly. If we ask it for\n Simplify[Sinh[ArcCosh[x]], Assumptions -> {x >= -1}]\n\nit will return √(x² − 1).\n\nRelated posts",
+  "tags": [
+    "1000-words",
+    "arccosh",
+    "branch",
+    "complex",
+    "define",
+    "fortnox world",
+    "hyperbolic",
+    "mathematica",
+    "real",
+    "returns",
+    "sinh arccosh",
+    "square",
+    "values",
+    "why",
+    "why mathematica"
+  ]
+}

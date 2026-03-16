@@ -1,0 +1,26 @@
+{
+  "id": 3448,
+  "source": "Hacker News",
+  "title": "Examples for the tcpdump and dig man pages",
+  "url": "https://jvns.ca/blog/2026/03/10/examples-for-the-tcpdump-and-dig-man-pages/",
+  "published_at": "2026-03-11T12:24:09Z",
+  "fetched_at": "2026-03-15T11:20:24.858450+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47334668\">Comments</a>",
+  "full_text": "Hello! My big takeaway from last month’s musings about man pages\nwas that examples in man pages are really great, so I worked on adding (or\nimproving) examples to two of my favourite tools’ man pages.\n\nHere they are:\n\nThe goal here was really just to give the absolute most basic examples of how to\nuse the tool, for people who use tcpdump or dig infrequently (or have never used\nit before!) and don’t remember how it works.\n\nSo far saying “hey, I want to write an examples section for beginners and\ninfrequent users of this tools” has been working really well. It’s easy to\nexplain, I think it makes sense from everything I’ve heard from users about what\nthey want from a man page, and maintainers seem to find it compelling.\n\nThanks to Denis Ovsienko, Guy Harris, Ondřej Surý, and everyone else who\nreviewed the docs changes, it was a good experience and left me motivated to do\na little more work on man pages.\n\nI’m interested in working on tools’ official documentation right now\nbecause:\n\nMan pages can actually have close to 100% accurate information!\nGoing through a review process to make sure that the information is actually true has a lot of value.\n\nEven with basic questions “what are the most commonly used tcpdump flags”,\noften maintainers are aware of useful features that I’m not! For\nexample I learned by working on these tcpdump examples that if you’re saving\npackets to a file with tcpdump -w out.pcap, it’s useful to pass -v to print\na live summary of how many packets have been captured so far. That’s really\nuseful, I didn’t know it, and I don’t think I ever would have noticed it on\nmy own.\n\nIt’s kind of a weird place for me to be because honestly I always kind of assume\ndocumentation is going to be hard to read, and I usually just skip it and read\na blog post or Stack Overflow comment or ask a friend instead. But right now\nI’m feeling optimistic, like maybe the documentation doesn’t have to be bad?\nMaybe it could be just as good as reading a really great blog post, but with the\nbenefit of also being actually correct? I’ve been using the Django documentation\nrecently, and it’s really good! We’ll see.\n\nThe tcpdump project tool’s man page is\nwritten in the roff language,\nwhich is kind of hard to use and that I really did not feel like learning it.\n\nI handled this by writing a\nvery basic markdown-to-roff script to\nconvert Markdown to roff, using similar conventions to what the man page was\nalready using. I could maybe have just used pandoc, but the output pandoc\nproduced seemed pretty different, so I thought it might be better to write my\nown script instead. Who knows.\n\nI did think it was cool to be able to just use an existing Markdown library’s\nability to parse the Markdown AST and then implement my own code-emitting\nmethods to format things in a way that seemed to make sense in this context.\n\nI went on a whole rabbit hole learning about the history of roff, how it’s\nevolved since the 70s, and who’s working on it today, inspired by learning about\nthe mandoc project that BSD systems (and some Linux\nsystems, and I think Mac OS) use for formatting man pages. I won’t say more\nabout that today though, maybe another time.\n\nIn general it seems like there’s a technical and cultural divide in how\ndocumentation works on BSD and on Linux that I still haven’t really understood,\nbut I have been feeling curious about what’s going on in the BSD world.\n\nThe comments section is here.",
+  "tags": [
+    "1000-words",
+    "actually",
+    "basic",
+    "bsd",
+    "documentation",
+    "examples",
+    "kind",
+    "markdown",
+    "maybe",
+    "pages",
+    "really",
+    "tcpdump",
+    "working"
+  ]
+}
