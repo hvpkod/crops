@@ -1,0 +1,29 @@
+{
+  "id": 3697,
+  "source": "Hacker News",
+  "title": "Show HN: Oxyde – Pydantic-native async ORM with a Rust core",
+  "url": "https://github.com/mr-fatalyst/oxyde",
+  "published_at": "2026-03-13T13:35:12Z",
+  "fetched_at": "2026-03-16T22:00:22.883975+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47364260\">Comments</a>",
+  "full_text": "Oxyde ORM is a type-safe, Pydantic-centric asynchronous ORM with a high-performance Rust core designed for clarity, speed, and reliability. \n\n Inspired by the elegance of Django's ORM, Oxyde focuses on explicitness over magic, providing a modern developer-friendly workflow with predictable behavior and strong typing throughout. \n\n \n \n \n \n \n\nHeads up! Oxyde is a young project under active development. The API may evolve between minor versions. Feedback, bug reports, and ideas are very welcome. Feel free to open an issue!\n\nDjango-style API — Familiar Model.objects.filter() syntax\n\nPydantic v2 models — Full validation, type hints, serialization\n\nAsync-first — Built for modern async Python with asyncio\n\nRust performance — SQL generation and execution in native Rust\n\nMulti-database — PostgreSQL, SQLite, MySQL support\n\nTransactions — transaction.atomic() context manager with savepoints\n\nMigrations — Django-style makemigrations and migrate CLI\n\nBenchmarks vs popular Python ORMs (avg ops/sec, higher is better):\n\nDatabase\nOxyde\nTortoise\nPiccolo\nDjango\nSQLAlchemy\nSQLModel\nPeewee\n\nPostgreSQL\n1,475\n888\n932\n736\n445\n431\n80\n\nMySQL\n1,239\n794\n—\n714\n536\n505\n461\n\nSQLite\n2,525\n1,882\n469\n1,294\n588\n567\n548\n\nFull benchmark report: Documentation\n\nThis creates oxyde_config.py with your database settings and model paths.\n\n# models.py\nfrom oxyde import Model, Field\n\nclass User(Model):\n id: int | None = Field(default=None, db_pk=True)\n name: str\n email: str = Field(db_unique=True)\n age: int | None = Field(default=None)\n\n class Meta:\n is_table = True\n\noxyde makemigrations\noxyde migrate\n\nimport asyncio\nfrom oxyde import db\nfrom models import User\n\nasync def main():\n await db.init(default=\"sqlite:///app.db\")\n\n # Create\n user = await User.objects.create(name=\"Alice\", email=\"alice@example.com\", age=30)\n\n # Read\n users = await User.objects.filter(age__gte=18).all()\n user = await User.objects.get(id=1)\n\n # Update\n user.age = 31\n await user.save()\n\n # Delete\n await user.delete()\n\n await db.close()\n\nasyncio.run(main())\n\nfrom oxyde.db import transaction\n\nasync with transaction.atomic():\n user = await User.objects.create(name=\"Alice\", email=\"alice@example.com\")\n await Profile.objects.create(user_id=user.id)\n # Auto-commits on success, rolls back on exception\n\nfrom fastapi import FastAPI\nfrom oxyde import db\n\napp = FastAPI(\n lifespan=db.lifespan(\n default=\"postgresql://localhost/mydb\",\n )\n)\n\n@app.get(\"/users\")\nasync def get_users():\n return await User.objects.filter(is_active=True).all()\n\nDatabase\nMin Version\nStatus\nNotes\n\nPostgreSQL\n12+\nFull\nRETURNING, UPSERT, FOR UPDATE/SHARE, JSON, Arrays\n\nSQLite\n3.35+\nFull\nRETURNING, UPSERT, WAL mode by default\n\nMySQL\n8.0+\nFull\nUPSERT via ON DUPLICATE KEY, FOR UPDATE/SHARE\n\nConnection URLs:\n\npostgresql://user:password@localhost:5432/database\nsqlite:///path/to/database.db\nsqlite:///:memory:\nmysql://user:password@localhost:3306/database\n\nAuto-generated admin panel for Oxyde ORM with zero boilerplate.\n\nAutomatic CRUD, search, filters, export\n\nFastAPI, Litestar, Sanic, Quart, Falcon\n\nTheming, authentication, bulk operations\n\nGitHub →\n\nFull documentation: https://oxyde.fatalyst.dev/\n\nIf you have suggestions or find a bug, please open an issue or create a pull request on GitHub.\n\nThis project is licensed under the terms of the MIT license.",
+  "tags": [
+    "500-words",
+    "async",
+    "await",
+    "database",
+    "fortnox world",
+    "full",
+    "github",
+    "import",
+    "mysql",
+    "none field",
+    "oxyde",
+    "oxyde orm",
+    "pydantic",
+    "rust",
+    "sqlite full",
+    "user"
+  ]
+}

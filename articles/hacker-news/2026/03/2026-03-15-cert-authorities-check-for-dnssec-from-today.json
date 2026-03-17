@@ -1,0 +1,26 @@
+{
+  "id": 3636,
+  "source": "Hacker News",
+  "title": "Cert Authorities Check for DNSSEC from Today",
+  "url": "https://www.grepular.com/Cert_Authorities_Check_for_DNSSEC_From_Today",
+  "published_at": "2026-03-15T22:10:47Z",
+  "fetched_at": "2026-03-16T16:40:28.566835+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47392510\">Comments</a>",
+  "full_text": "About 14 years ago I set up DNSSEC.\nI've been running it on all of my domains ever since, without issue. First using\nbind9 and then later using\nPowerDNS.\n\nFrom today, all Certificate Authorities (CAs)\nmust validate DNSSEC\nwhen a domain has it enabled.\n\nSo from today, when a CA looks up my CAA\nrecord to see if they are allowed to issue a cert for one of my domains, they\nmust validate that the response they received is valid. And during the\nACME\ndance, they have to validate those DNS records too.\n\nI assume that all CA's had implemented this requirement prior to today,\nif only so they could test it before the deadline was reached. But now it is\nmandatory, and I expect that any evidence that they are not doing it will be\ntreated harshly.\n\nYou might not want to learn about DNSSEC. You probably don't host your own\nDNS zone. There's a reasonable chance you own your own domain name though if\nyou're here reading this. Why not go find out if your registrar supports\nDNSSEC for your domains? It might be a one click operation to turn it on...\n\nRelated Articles\n← Read more",
+  "tags": [
+    "200-words",
+    "authorities",
+    "cert",
+    "cert authorities",
+    "check",
+    "dnssec",
+    "dnssec from",
+    "domain",
+    "domains",
+    "might",
+    "must",
+    "running",
+    "validate"
+  ]
+}

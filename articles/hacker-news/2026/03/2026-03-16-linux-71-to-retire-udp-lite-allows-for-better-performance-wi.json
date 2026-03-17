@@ -1,0 +1,32 @@
+{
+  "id": 3568,
+  "source": "Hacker News",
+  "title": "Linux 7.1 to Retire UDP-Lite – Allows for Better Performance with Cleansed Code",
+  "url": "https://www.phoronix.com/news/Linux-7.1-Retiring-UDP-Lite",
+  "published_at": "2026-03-16T10:41:01Z",
+  "fetched_at": "2026-03-16T11:20:18.653095+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47397291\">Comments</a>",
+  "full_text": "The upcoming Linux 7.1 kernel cycle is set to retire UDP-Lite support. The UDP-Lite protocol allowed for partial checksums where potentially damaged/corrupted packets are still delivered to the application. Since the Linux 2.6.20 days there has been UDP-Lite support but the kernel is now set to retire it given breakage that has persisted for years and cleaning up the networking code can yield a performance advantage for non-UDP-Lite users.\n\nKuniyuki Iwashima of Amazon/AWS took to retiring the UDP-Lite code. He explained of the issues that went unchecked for years and the performance benefit to removing UDP-Lite from the kernel:\n\n\"In 2023, syzbot found a null-ptr-deref bug triggered when UDP-Lite attempted to charge an skb after the total memory usage for UDP-Lite _and_ UDP exceeded a system-wide threshold, net.ipv4.udp_mem.\n\nSince this threshold is shared with UDP, the bug would have been easy to trigger if any real-world applications were using UDP-Lite; however, only syzbot ever stumbled upon it.\n\nThe bug had persisted since 2016, suggesting that UDP-Lite had remained unused for 7 years at that point.\n\nThe bug was fixed in commit ad42a35bdfc6 (\"udplite: Fix NULL pointer dereference in __sk_mem_raise_allocated().\"), and we added another commit be28c14ac8bb (\"udplite: Print deprecation notice.\") to announce the deprecation plan.\n\nSince then, no one has complained, so it is time to officially retire UDP-Lite.\n\nThis series first removes IPv6 and IPv4 UDP-Lite sockets, then gradually cleans up the remaining dead/unnecessary code within the UDP stack.\n\nBy removing a bunch of conditionals for UDP-Lite from the fast path, udp_rr with 20,000 flows sees a 10% increase in pps (13.3 Mpps -> 14.7 Mpps) on an AMD EPYC 7B12 (Zen 2) 64-Core Processor platform.\n\n[ With FDO, the baseline is much higher and the delta was ~3%, 20.1 Mpps -> 20.7 Mpps ]\"\n\nSo per that messaging, the UDP-Lite code really hasn't been used in years and doing away with it can net some measurable (+3~10% packets per second) for other UDP workloads.\n\nIt was back in 2023 that a deprecation notice was put in place for UDP-Lite calling for its removal in 2025. With no complaints and now into 2026 (and past the Linux 6.18 LTS of 2025), it's time for removal.\n\nThis merge\n\n now in net-next is retiring UDP-Lite with the plan to merge it for Linux 7.1.",
+  "tags": [
+    "500-words",
+    "cleansed code",
+    "code",
+    "deprecation",
+    "for better",
+    "kernel",
+    "linux",
+    "linux to",
+    "lite allows",
+    "mpps",
+    "mpps mpps",
+    "packets",
+    "performance",
+    "performance with",
+    "persisted",
+    "retire",
+    "retire udp",
+    "retiring",
+    "udp lite"
+  ]
+}

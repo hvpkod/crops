@@ -1,0 +1,31 @@
+{
+  "id": 3635,
+  "source": "Hacker News",
+  "title": "Launch HN: Voygr (YC W26) – A better maps API for agents and AI apps",
+  "url": "https://news.ycombinator.com/item?id=47401042",
+  "published_at": "2026-03-16T16:21:07Z",
+  "fetched_at": "2026-03-16T16:40:25.757478+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47401042\">Comments</a>",
+  "full_text": "Hi HN, we’re Yarik and Vlad from VOYGR (https://voygr.tech/\n\n), working on better real-world place intelligence for app developers and agents. Here’s a demo: https://www.youtube.com/watch?v=cNIpcWIE0n4\n\n.\n\nGoogle Maps can tell you a restaurant is \"4.2 stars, open till 10.\" Their API can't tell you the chef left last month, wait times doubled, and locals moved on. Maps APIs today just give you a fixed snapshot. We're building an infinite, queryable place profile that combines accurate place data with fresh web context like news, articles, and events.\n\nVlad worked on the Google Maps APIs as well as in ridesharing and travel. Yarik led ML/Search infrastructure at Apple, Google, and Meta powering products used by hundreds of millions of users daily. We realized nobody was treating place data freshness as infrastructure, so we're building it.\n\nWe started with one of the hardest parts - knowing whether a place is even real. Our Business Validation API (https://github.com/voygr-tech/dev-tools) tells you whether a business is actually operating, closed, rebranded, or invalid. We aggregate multiple data sources, detect conflicting signals, and return a structured verdict. Think of it as continuous integration, but for the physical world.\n\nThe problem: ~40% of Google searches and up to 20% of LLM prompts involve local context. 25-30% of places churn every year. The world doesn't emit structured \"I closed\" events - you have to actively detect it. As agents start searching, booking, and shopping in the real world, this problem gets 10x bigger - and nobody's building the infrastructure for it. We recently benchmarked how well LLMs handle local place queries (https://news.ycombinator.com/item?id=47366423) - the results were bad: even the best gets 1 in 12 local queries wrong\n\nWe're processing tens of thousands of places per day for enterprise customers, including leading mapping and tech companies. Today we're opening API access to the developer community. Please find details here: https://github.com/voygr-tech/dev-tools\n\nWe'd love honest feedback - whether it's about the problem, our approach, or where you think we're wrong. If you're dealing with stale place data in your own products, we'd especially love to hear what breaks. We're here all day, AMA.",
+  "tags": [
+    "500-words",
+    "agents",
+    "ai",
+    "api",
+    "better",
+    "building",
+    "data",
+    "fortnox world",
+    "google",
+    "google maps",
+    "launch hn",
+    "local",
+    "maps",
+    "maps apis",
+    "place",
+    "voygr",
+    "voygr yc",
+    "whether"
+  ]
+}

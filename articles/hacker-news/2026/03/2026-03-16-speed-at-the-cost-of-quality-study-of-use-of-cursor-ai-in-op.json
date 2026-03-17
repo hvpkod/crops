@@ -1,0 +1,32 @@
+{
+  "id": 3647,
+  "source": "Hacker News",
+  "title": "Speed at the cost of quality: Study of use of Cursor AI in open source projects",
+  "url": "https://arxiv.org/abs/2511.04427",
+  "published_at": "2026-03-16T17:07:37Z",
+  "fetched_at": "2026-03-16T18:00:17.262785+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47401734\">Comments</a>",
+  "full_text": "[Submitted on 6 Nov 2025 (v1\n\n), last revised 26 Jan 2026 (this version, v3)]\n \n\nTitle:Speed at the Cost of Quality: How Cursor AI Increases Short-Term Velocity and Long-Term Complexity in Open-Source Projects\n \n\nView a PDF of the paper titled Speed at the Cost of Quality: How Cursor AI Increases Short-Term Velocity and Long-Term Complexity in Open-Source Projects, by Hao He and 4 other authors\n View PDF\n HTML (experimental)\n\n \n\n Abstract:Large language models (LLMs) have demonstrated the promise to revolutionize the field of software engineering. Among other things, LLM agents are rapidly gaining momentum in software development, with practitioners reporting a multifold increase in productivity after adoption. Yet, empirical evidence is lacking around these claims. In this paper, we estimate the causal effect of adopting a widely popular LLM agent assistant, namely Cursor, on development velocity and software quality. The estimation is enabled by a state-of-the-art difference-in-differences design comparing Cursor-adopting GitHub projects with a matched control group of similar GitHub projects that do not use Cursor. We find that the adoption of Cursor leads to a statistically significant, large, but transient increase in project-level development velocity, along with a substantial and persistent increase in static analysis warnings and code complexity. Further panel generalized-method-of-moments estimation reveals that increases in static analysis warnings and code complexity are major factors driving long-term velocity slowdown. Our study identifies quality assurance as a major bottleneck for early Cursor adopters and calls for it to be a first-class citizen in the design of agentic AI coding tools and AI-driven workflows.\n \n\n \n \n \n\n \n\n \n\nSubmission history\n\n From: Hao He [view email\n\n] [v1]\n\n Thu, 6 Nov 2025 15:00:51 UTC (265 KB)\n [v2]\n\n Thu, 13 Nov 2025 15:51:45 UTC (265 KB)\n [v3]\n\n Mon, 26 Jan 2026 03:02:33 UTC (309 KB)",
+  "tags": [
+    "500-words",
+    "ai",
+    "complexity",
+    "cost",
+    "cursor",
+    "cursor ai",
+    "development",
+    "how cursor",
+    "increase",
+    "increases",
+    "increases short",
+    "long term",
+    "open source",
+    "projects",
+    "software",
+    "term",
+    "term velocity",
+    "velocity",
+    "view"
+  ]
+}

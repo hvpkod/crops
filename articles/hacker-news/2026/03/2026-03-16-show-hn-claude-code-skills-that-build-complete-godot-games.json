@@ -1,0 +1,30 @@
+{
+  "id": 3679,
+  "source": "Hacker News",
+  "title": "Show HN: Claude Code skills that build complete Godot games",
+  "url": "https://github.com/htdt/godogen",
+  "published_at": "2026-03-16T16:07:29Z",
+  "fetched_at": "2026-03-16T20:00:07.067132+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47400868\">Comments</a>",
+  "full_text": "Godogen: Claude Code skills that build complete Godot 4 projects\n\nWatch the demos · Prompts\n\nYou describe what you want. An AI pipeline designs the architecture, generates the art, writes every line of code, captures screenshots from the running engine, and fixes what doesn't look right. The output is a real Godot 4 project with organized scenes, readable scripts, and proper game architecture. Handles 2D and 3D, runs on commodity hardware.\n\nTwo Claude Code skills orchestrate the entire pipeline — one plans, one executes. Each task runs in a fresh context to stay focused.\n\nGodot 4 output — real projects with proper scene trees, scripts, and asset organization.\n\nAsset generation — Gemini creates 2D art and textures; Tripo3D converts selected images to 3D models. Budget-aware: maximizes visual impact per cent spent.\n\nGDScript expertise — custom-built language reference and lazy-loaded API docs for all 850+ Godot classes compensate for LLMs' thin training data on GDScript.\n\nVisual QA closes the loop — captures actual screenshots from the running game and analyzes them with Gemini Flash vision. Catches z-fighting, missing textures, broken physics.\n\nRuns on commodity hardware — any PC with Godot and Claude Code works.\n\nGodot 4 (headless or editor) on PATH\n\nClaude Code installed\n\nAPI keys as environment variables:\n\nGOOGLE_API_KEY — Gemini, used for image generation and visual QA\n\nTRIPO3D_API_KEY — Tripo3D, used for image-to-3D model conversion (only needed for 3D games)\n\nPython 3 with pip (asset tools install their own deps)\n\nTested on Ubuntu and Debian. macOS is untested — screenshot capture depends on X11/xvfb/Vulkan and will need a native capture path to work.\n\nThis repo is the skill development source. To start making a game, run publish.sh to set up a new project folder with all skills installed:\n\n./publish.sh ~/my-game # uses teleforge.md as CLAUDE.md\n./publish.sh ~/my-game local.md # uses a custom CLAUDE.md instead\n\nThis creates the target directory with .claude/skills/ and a CLAUDE.md, then initializes a git repo. Open Claude Code in that folder and tell it what game to make — the /godogen skill handles everything from there.\n\nA single generation run can take several hours. Running on a cloud VM keeps your local machine free and gives the pipeline a GPU for Godot's screenshot capture. A basic GCE instance with a T4 or L4 GPU works well.\n\nThe default CLAUDE.md (teleforge.md) is set up for Teleforge — a lightweight Telegram bridge that lets you monitor progress and send messages to the running session from your phone. If you don't use Teleforge, pass your own CLAUDE.md to publish.sh or edit the generated one after publishing.\n\nIs Claude Code the only option?\n\nThe skills were tested across different setups. Claude Code with Opus 4.6 delivers the best outcome. Sonnet 4.6 works but requires more guidance from the user. OpenCode was quite nice and porting the skills is straightforward — I'd recommend it if you're looking for an alternative.\n\nMigrate image generation to grok-imagine-image (cheaper per image)\n\nMigrate spritesheets to grok-imagine-video (animated sprites from video)\n\nAdd recipes for game builds (Android export)\n\nPublish a full game end-to-end as a public demo\n\nFollow progress: @alex_erm",
+  "tags": [
+    "1000-words",
+    "ai",
+    "api key",
+    "claude",
+    "claude code",
+    "code",
+    "game",
+    "gemini",
+    "generation",
+    "github",
+    "godot",
+    "pipeline",
+    "projects",
+    "running",
+    "runs",
+    "skills",
+    "tripo"
+  ]
+}

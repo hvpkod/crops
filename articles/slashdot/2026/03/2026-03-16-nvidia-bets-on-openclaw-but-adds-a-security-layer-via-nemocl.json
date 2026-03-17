@@ -1,0 +1,29 @@
+{
+  "id": 3704,
+  "source": "Slashdot",
+  "title": "Nvidia Bets On OpenClaw, But Adds a Security Layer Via NemoClaw",
+  "url": "https://news.slashdot.org/story/26/03/16/2116252/nvidia-bets-on-openclaw-but-adds-a-security-layer-via-nemoclaw?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-16T22:00:00Z",
+  "fetched_at": "2026-03-16T23:00:22.091517+00:00",
+  "author": "BeauHD",
+  "summary": "During today's Nvidia GTC keynote, the company introduced NemoClaw, a security-focused stack designed to make the autonomous AI agent platform OpenClaw safer. ZDNet explains how it works: NemoClaw installs Nvidia's OpenShell, a new open-source runtime that keeps agents safer to use by enforcing an organization's policy-based guardrails. OpenShell keeps models sandboxed, adds data privacy protections and additional security for agents, and makes them more scalable. \"This provides the missing infrastructure layer beneath claws to give them the access they need to be productive, while enforcing policy-based security, network, and privacy guardrails,\" Nvidia said in the announcement. The company built OpenShell with security companies like CrowdStrike, Cisco, and Microsoft Security to ensure it is compatible with other cybersecurity tools.\n \nNvidia said NemoClaw can be installed in a single command, runs on any platform, and can use any coding agent, including Nvidia's own Nemotron open mo",
+  "full_text": "During today's Nvidia GTC keynote, the company introduced\n\n NemoClaw, a security-focused stack designed to make the autonomous AI agent platform OpenClaw safer\n\n. ZDNet explains how it works: NemoClaw installs Nvidia's OpenShell, a new open-source runtime that keeps agents safer to use by enforcing an organization's policy-based guardrails. OpenShell keeps models sandboxed, adds data privacy protections and additional security for agents, and makes them more scalable. \"This provides the missing infrastructure layer beneath claws to give them the access they need to be productive, while enforcing policy-based security, network, and privacy guardrails,\" Nvidia said in the announcement. The company built OpenShell with security companies like CrowdStrike, Cisco, and Microsoft Security to ensure it is compatible with other cybersecurity tools.\n\n \n\nNvidia said NemoClaw can be installed in a single command, runs on any platform, and can use any coding agent, including Nvidia's own Nemotron open model family, on a local system. Through a privacy router, it allows agents to access frontier models in the cloud, which unites local and cloud models to help teach agents how to complete tasks within privacy guardrails, Nvidia explained. Nvidia seems to be hoping that the additional security can make OpenClaw agents more popular and accessible, with less risk than they currently carry. The bigger picture here is how NemoClaw could give companies the added peace of mind to let AI agents complete actions for their employees, where they wouldn't have previously. \n\n Nvidia did not specify when NemoClaw would be available.",
+  "tags": [
+    "500-words",
+    "adds",
+    "agents",
+    "company",
+    "layer",
+    "models",
+    "nemoclaw",
+    "nvidia",
+    "nvidia bets",
+    "openclaw",
+    "openclaw but",
+    "openshell",
+    "privacy",
+    "security",
+    "security layer",
+    "via nemoclaw"
+  ]
+}

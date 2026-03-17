@@ -1,0 +1,27 @@
+{
+  "id": 3675,
+  "source": "Hacker News",
+  "title": "Show HN: Hecate – Call an AI from Signal",
+  "url": "https://github.com/rhodey/hecate",
+  "published_at": "2026-03-16T14:41:17Z",
+  "fetched_at": "2026-03-16T19:20:10.975256+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47399689\">Comments</a>",
+  "full_text": "AI Assistant you can video call.\n\nWorks great on Linux! Works poorly on Mac. You can help!\n\n \n\nYou need Signal on your phone and also in an emulator:\n\njust build\njust emulator\njust signal\n\ncp example.env .env\njust loop\n\nCall phone number ✅\n\nSay \"Whats your favorite Pirates Of The Caribbean movie?\"\n\nI got video calls working using only docker + chrome but CPU was too high. OBS Studio is open source and cross-platform and used by many streamers. Download and install then proceed:\n\njust stop\njust video\n(OBS Studio > Sources > \"+\" > Browser > http://localhost:5173)\n(\"Start Virtual Camera\")\njust camera >> .env\njust emulator\njust loop\n\nVideo call phone number ✅\n\nSay \"Is this call secure?\"\n\nstt_model = whisper-large-v3-turbo, voxtral-small-24b\n\nllm_model = llama3-3-70b, kimi-k2-5, deepseek-r1-0528\n\nvoice = azelma, fantine, eponine\n\navatar = avatar1, avatar2, avatar3\n\nalso use prompt.txt to override default\n\nalso FAQ\n\nOpen Signal on your phone and localhost:8000 for the emulator. Your message thread has a \"safety number\" which you can review. If the safety number changes you will be warned on your phone before the next call is allowed. The emulator is answering all calls without a filter and this is high priority to improve but the AI has no memory between calls so if someone finds your 2nd phone number its not critical.\n\nmike@rhodey.org\n\nMIT",
+  "tags": [
+    "500-words",
+    "ai",
+    "assistant",
+    "call",
+    "calls",
+    "emulator",
+    "github",
+    "loop",
+    "obs studio",
+    "phone",
+    "signal",
+    "studio",
+    "video",
+    "works"
+  ]
+}

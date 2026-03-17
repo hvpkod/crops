@@ -1,0 +1,27 @@
+{
+  "id": 3673,
+  "source": "Hacker News",
+  "title": "Agent Skills – Open Security Database",
+  "url": "https://index.tego.security/skills/",
+  "published_at": "2026-03-16T17:35:58Z",
+  "fetched_at": "2026-03-16T19:20:09.422665+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47402118\">Comments</a>",
+  "full_text": "About the Index\n \n \n\n The Skills Security Index is a centralized\n repository providing security risk analysis for agentic AI skill\n definitions. As AI agents increasingly rely on modular skills to\n perform tasks, the instructions used to define these skills\n become a critical attack surface. This index helps security\n engineers and developers understand the potential \"blast radius\"\n of any given skill before deployment.\n \n \n\n \n\n \n\n \n\n Inside the Lab\n \n \n\n Each entry in the index represents a unique skill found across\n major platform registries in GitHub. We perform a\n deep scan of the skill's identity, its instructions, and\n associated code to build a comprehensive security profile.\n \n \n \n\n \n\n Assessment Method\n \n \n\n Analyses are performed against a standardized security schema\n and focuse on instructional risk. Such as identifying\n when a skill's prompts encourage an agent to bypass guardrails\n or perform sensitive operations without oversight.\n \n \n \n\n \n\n \n\n Risk Ranking Framework\n \n \n\n Risk is calculated dynamically across three dimensions. A skill\n is assigned the highest (most severe) level\n detected among:\n \n \n \n\n Pass: No significant risks detected in\n instructions or tools.\n \n \n\n Low: Minor capability risk with appropriate\n scoping context.\n \n \n\n Medium: Potentially risky tool use or\n instructions that lack clear restrictions.\n \n \n\n High: Direct instructions for sensitive\n operations (e.g., broad file system write or unencrypted\n network use).\n \n \n\n Critical: Encouragement of malicious actions,\n data exfiltration, or explicit bypasses.\n \n \n \n\n \n\n \n\n Capabilities\n \n \n\n We classify instructions into several buckets: Tools, Code\n Execution, Web Access, File System, Data Access, Authentication,\n Network, and System. \"Detected\" means the skill explicitly\n encourages the agent to utilize these modalities.\n \n\n \n\n Findings\n \n \n\n Findings report specific deviations from security best\n practices, such as Prompt Injection vulnerabilities,\n Credential Exposure, or Excessive Permissions.\n \n\n \n\n Permissions\n \n \n\n Permissions are the underlying resource requests implied by the\n skill. We evaluate whether each request is justified by the\n skill's stated purpose.",
+  "tags": [
+    "500-words",
+    "agent",
+    "code",
+    "index",
+    "instructions",
+    "perform",
+    "permissions permissions",
+    "risk",
+    "security",
+    "security index",
+    "sensitive",
+    "skill",
+    "skills",
+    "skills security"
+  ]
+}

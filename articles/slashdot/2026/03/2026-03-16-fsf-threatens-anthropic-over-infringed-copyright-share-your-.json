@@ -1,0 +1,33 @@
+{
+  "id": 3554,
+  "source": "Slashdot",
+  "title": "FSF Threatens Anthropic Over Infringed Copyright:  Share Your LLMs Freely",
+  "url": "https://news.slashdot.org/story/26/03/16/0539240/fsf-threatens-anthropic-over-infringed-copyright-share-your-llms-freely?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-16T05:43:00Z",
+  "fetched_at": "2026-03-16T07:00:19.261295+00:00",
+  "author": "EditorDavid",
+  "summary": "In 2024 Anthropic was sued over claims it infringed copyrights when training LLMs. \nBut as they try to settle, they may have a problem. The Free Software Foundation announced Friday that Anthropic's training data apparently even included the book \"Free as in Freedom: Richard Stallman's Crusade for Free Software\" &mdash; for which the Free Software Foundation holds a copyright.\n\nIt was published by O'Reilly and by the FSF under the GNU Free Documentation License (GNU FDL). This is a free license allowing use of the work for any purpose without payment. \n\nObviously, the right thing to do is protect computing freedom: share complete training inputs with every user of the LLM, together with the complete model, training configuration settings, and the accompanying software source code. Therefore, we urge Anthropic and other LLM developers that train models using huge datasets downloaded from the Internet to provide these LLMs to their users in freedom. \n\nWe are a small organization with lim",
+  "full_text": "In 2024 Anthropic was sued over claims it infringed copyrights when training LLMs\n\n. \n\nBut as they try to settle\n\n, they may have a problem. The Free Software Foundation announced Friday\n\n that Anthropic's training data apparently even included the book \"Free as in Freedom: Richard Stallman's Crusade for Free Software\n\n\" — for which the Free Software Foundation holds a copyright.\n\nIt was published by O'Reilly and by the FSF under the GNU Free Documentation License (GNU FDL). This is a free license allowing use of the work for any purpose without payment. \n \n\nObviously, the right thing to do is protect computing freedom: share complete training inputs with every user of the LLM, together with the complete model, training configuration settings, and the accompanying software source code. Therefore, we urge Anthropic and other LLM developers that train models using huge datasets downloaded from the Internet to provide these LLMs to their users in freedom. \n \n\nWe are a small organization with limited resources and we have to pick our battles, but if the FSF were to participate in a lawsuit such as Bartz v. Anthropic and find our copyright and license violated, we would certainly request user freedom as compensation. \n\n\"The FSF doesn't usually sue for copyright infringement,\" reads the headline on the FSF's announcement\n\n, \"but when we do, we settle for freedom.\"",
+  "tags": [
+    "500-words",
+    "ai",
+    "anthropic",
+    "anthropic over",
+    "complete",
+    "foundation",
+    "free",
+    "free software",
+    "fsf",
+    "fsf threatens",
+    "infringed",
+    "infringed copyright",
+    "license",
+    "llms",
+    "llms freely",
+    "settle",
+    "share your",
+    "software",
+    "software foundation",
+    "training"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 3559,
+  "source": "Hacker News",
+  "title": "Starlink Mini as a Failover",
+  "url": "https://www.jackpearce.co.uk/posts/starlink-failover/",
+  "published_at": "2026-03-16T08:07:29Z",
+  "fetched_at": "2026-03-16T09:20:10.131785+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47396264\">Comments</a>",
+  "full_text": "Here's how to get it working with UniFi gear:\n\nInitial Configuration#\n\nNavigate to your WAN settings (Settings → Internet → Primary WAN):\n\nSet 'Advanced' to 'Manual'\n\nEnable IPv6\n\nSet IPv6 Connection to SLAAC (this is critical - SLAAC must be used, not DHCPv6)\n\nUncheck 'Auto' on Prefix Delegation\n\nSet 'Prefix Delegation Size' to 56\n\nApply the settings and you should see an IPv6 address appear in the 'Internet' field. Now enable IPv6 on your LAN networks using SLAAC for address assignment.\n\nAt this point you might think everything is working, but if you try to access IPv6 resources from your LAN clients, you'll find they can't route properly. This is because of a bug in UniFi.\n\nThe UniFi IPv6 Routing Bug#\n\nUniFi has a problem where it doesn't automatically assign the default IPv6 route. You'll need to fix this manually via SSH.\n\nStep 1: SSH into your UniFi device (UDM, UDM Pro, etc.)\n\nIf you need to set SSH keys first, go to Control Plane → Console → SSH and configure them. The username is root and the password is what you set in the console settings.\n\nStep 2: Check if the default route is missing\nip -6 route show default\n\nThis will likely return blank, confirming the problem.\n\nStep 3: Wait for a Router Advertisement\n\nRun a TCP dump to capture the Router Advertisement from Starlink:\ntcpdump -i eth7 -vvv icmp6\n\nWait for an RA (Router Advertisement) packet. It'll look something like this:\n10:51:39.297010 IP6 fe80::200:6edd:3e00:101 > ff02::1: ICMP6, router advertisement, length 104\n\nThe important bit is the IPv6 link-local address at the start (fe80::200:6edd:3e00:101 in this example). This is your default gateway.\n\nStep 4: Add the default route manually\n\nReplace the IPv6 address and interface with your own values:\nip -6 route add default via fe80::200:6edd:3e00:101 dev eth7\n\nNote: eth7 is typically the WAN interface on a UDM Pro. For other UniFi devices it might be different (e.g., eth4 on a standard UDM).\n\nStep 5: Test from your LAN clients\n\nTry pinging an IPv6 address or visiting an IPv6-only website. It should work now.\n\nImportant Warning#\n\nThis fix is not persistent across UniFi firmware updates. If you update your UniFi device, there's a chance the default route will be removed and you'll need to add it again.\n\nYou can either:\n\nManually re-run the command after each update\n\nCreate a boot script that checks for and adds the route automatically\n\nFor a persistent solution, you could create a script at /data/on_boot.d/20-ipv6-route.sh:\n#!/bin/sh\n\n# Check if default IPv6 route exists\nif ! ip -6 route show default | grep -q default; then\n # Wait for RA and add route\n # Replace with your gateway and interface\n ip -6 route add default via fe80::200:6edd:3e00:101 dev eth7\nfi\n\nMake it executable: chmod +x /data/on_boot.d/20-ipv6-route.sh\n\nThings to bear in mind#\n\nStarlink's IPv6 addresses are dynamic - they can change, so don't rely on them being static\n\nThe default route fix needs to be re-applied after firmware updates (unless you use a boot script)\n\nTest from multiple devices to ensure IPv6 is working properly across your network\n\nCredit to the r/Starlink community for documenting this workaround",
+  "tags": [
+    "1000-words",
+    "address",
+    "default",
+    "interface",
+    "ipv",
+    "manually",
+    "prefix delegation",
+    "route",
+    "router",
+    "router advertisement",
+    "slaac",
+    "starlink mini",
+    "step",
+    "udm pro",
+    "unifi",
+    "wait"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 3724,
+  "source": "Slashdot",
+  "title": "'Pokemon Go' Players Unknowingly Trained Delivery Robots With 30 Billion Images",
+  "url": "https://hardware.slashdot.org/story/26/03/16/2136229/pokemon-go-players-unknowingly-trained-delivery-robots-with-30-billion-images?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-16T23:00:00Z",
+  "fetched_at": "2026-03-17T00:20:10.202502+00:00",
+  "author": "BeauHD",
+  "summary": "More than 30 billion images captured by Pokemon Go players have helped train a visual mapping system developed by Niantic. The technology is now being used to guide delivery robots from Coco Robotics through city streets where GPS often struggles. Popular Science reports: This week, Niantic Spatial, part of the team behind Pokemon Go, announced a partnership with Coco Robotics, a company that makes short-distance delivery robots for food and groceries. Soon, those robot couriers will scoot around sidewalks using Niantic's Visual Positioning System (VPS)-- a navigation tool that can reportedly pinpoint location down to a few centimeters just by looking at nearby buildings and landmarks. Niantic trained that VPS model on more than 30 billion images captured by Pokemon Go users, and claims it will help robots operate in areas where GPS falls short. [...]\n \nInstead of helping users navigate the way that GPS does, VPS determines where someone is based on their surroundings. That makes Pokem",
+  "full_text": "More than 30 billion images captured by Pokemon Go players have helped train a visual mapping system developed by Niantic. The technology is now being used to guide delivery robots from Coco Robotics through city streets\n\n where GPS often struggles. Popular Science reports: This week, Niantic Spatial, part of the team behind Pokemon Go, announced a partnership with Coco Robotics, a company that makes short-distance delivery robots for food and groceries. Soon, those robot couriers will scoot around sidewalks using Niantic's Visual Positioning System (VPS)-- a navigation tool that can reportedly pinpoint location down to a few centimeters just by looking at nearby buildings and landmarks. Niantic trained that VPS model on more than 30 billion images captured by Pokemon Go users, and claims it will help robots operate in areas where GPS falls short. [...]\n\n \n\nInstead of helping users navigate the way that GPS does, VPS determines where someone is based on their surroundings. That makes Pokemon Go particularly useful as a data source, because players had to physically travel to specific locations and point their phones at various angles. That mapping effort got a significant boost in 2020, when the app added what it called \"Field Research,\" a feature prompting players to scan real-world statues and landmarks with their cameras in exchange for in-game rewards. A portion of the data also reportedly came from areas known as \"Pokemon battle arenas.\" Whether players knew it or not, those scans were creating 3D models of the real world that would eventually power the Niantic model. More data means better accuracy, and because Niantic was collecting images of the same locations from many different users, it could capture the same spots across varying weather conditions, lighting, angles, and heights. [...]\n\n \n\nThe idea is that Coco's robots can use VPS and four cameras mounted around the machine to get a far more precise read on their surroundings. In turn, the well-equipped robot will deliver food on time. On a broader level, Niantic says its partnership with Coco Robotics is part of a longer-term effort to build a \"living map\" of the world that updates as new data becomes available. Once VPS-equipped delivery robots hit the streets, they will collect even more info that can be fed back into the model to bolster its accuracy further. This kind of continuous, real-world data collection is already central to how self-driving vehicle companies like Waymo and Tesla operate, and is a large part of why that technology has improved so significantly in recent years.",
+  "tags": [
+    "500-words",
+    "billion",
+    "billion images",
+    "coco",
+    "coco robotics",
+    "data",
+    "delivery",
+    "gps",
+    "images",
+    "niantic",
+    "part",
+    "players",
+    "players unknowingly",
+    "pokemon",
+    "pokemon go",
+    "robots",
+    "robots with",
+    "trained delivery",
+    "vps"
+  ]
+}

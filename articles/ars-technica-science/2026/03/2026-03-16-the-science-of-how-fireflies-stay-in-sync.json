@@ -1,0 +1,26 @@
+{
+  "id": 3611,
+  "source": "Ars Technica Science",
+  "title": "The science of how fireflies stay in sync",
+  "url": "https://arstechnica.com/science/2026/03/the-science-of-how-fireflies-stay-in-sync/",
+  "published_at": "2026-03-16T12:25:31Z",
+  "fetched_at": "2026-03-16T15:20:13.303109+00:00",
+  "author": "Jennifer Ouellette",
+  "summary": "<p>Scientists have discovered that male fireflies in a South Carolina swamp follow local interaction rules to synchronize their flashing mating displays. The research is being presented at <a href=\"https://summit.aps.org/events/VIR-A06/1\">a meeting</a> of the American Physical Society in Denver. (<a href=\"https://www.biorxiv.org/content/10.64898/2026.01.19.700439v1.abstract\">A preprint</a> is also available on the biorxiv.) Such work could one day lead to insights into how the body's cells sync to its internal circadian rhythm, or how neurons fire together in the brain, as well as the design of drone swarms communicating through synchronized flashes.</p>\n<p>As <a href=\"https://arstechnica.com/science/2021/01/birds-of-a-feather-flock-together-but-patterns-change-with-the-mission/\">previously reported</a>, research into swarming and flocking was largely relegated to observational biologists for decades. But in the 1980s, a computer graphics specialist named Craig Reynolds developed the s",
+  "full_text": "The team found that even a small number of interacting males can synchronize their flashes, but the periodic bursts only happen in groups larger than 15. And the flashes are correlated over several meters, evidence of long-range interactions typical of emergent collective behavior. But Peleg et al. also noted some individual trajectories, suggesting that there could be other competitive mechanisms at play, too—e.g., early flashing fireflies seemed to be more mobile and flashed longer than later ones.\n\nVIDEO\n\n \n\n \n\n Collective display of Photinus carolinus fireflies recorded in Great Smoky Mountains National Park in early June 2019.\n\n \n \n\nPeleg’s lab has since built on that earlier research. The latest findings are the result of field work conducted each May for four years (2021–2025) at Congaree National Park in South Carolina. Once again, they pitched a pop-up tent isolated from external light sources. Then they exposed captured fireflies to a dim LED light that mimicked a firefly flash, blinking between once every second to once every 300 milliseconds.\n\nThe results: The fireflies were most likely to change their own flashing rhythm in response when the LED blinked almost, but not quite, at the same time as the fireflies. The males would speed up their next flash if the LED blinked just before and waited a bit longer for their next flash when the LED blinked right after. The authors compared it to one audience member in a crowded concert hall trying to clap along with the beat in synchronization with everyone else.\n\n“For a whole season, I spent pretty much every night in the dark watching lights blink at a fixed frequency,” former graduate student (and co-author on the preprint) Owen Martin said of the field observations. “Then, occasionally, I’d get this magical experience where I’d see the firefly just start syncing with the light. I would wonder if I was just seeing things.” But the ensuing mathematical analysis confirmed the patterns: the individual flash dynamics were essentially following a phase-response curve, which the authors then used to develop an “integrate and fire” model that accurately reproduced the observed synchronized flashing patterns.\n\nDOI: bioRxiv, 2026. 10.64898/2026.01.19.700439 (About DOIs).",
+  "tags": [
+    "500-words",
+    "blinked",
+    "collective",
+    "early",
+    "fireflies",
+    "flash",
+    "flashing",
+    "individual",
+    "led",
+    "longer",
+    "males",
+    "national park",
+    "once"
+  ]
+}

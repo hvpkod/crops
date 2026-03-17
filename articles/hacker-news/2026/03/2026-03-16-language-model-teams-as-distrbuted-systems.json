@@ -1,0 +1,29 @@
+{
+  "id": 3652,
+  "source": "Hacker News",
+  "title": "Language Model Teams as Distrbuted Systems",
+  "url": "https://arxiv.org/abs/2603.12229",
+  "published_at": "2026-03-16T17:19:13Z",
+  "fetched_at": "2026-03-16T18:40:14.581748+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47401901\">Comments</a>",
+  "full_text": "[Submitted on 12 Mar 2026]\n \n\nTitle:Language Model Teams as Distributed Systems\n \n\nView a PDF of the paper titled Language Model Teams as Distributed Systems, by Elizabeth Mieczkowski and 4 other authors\n View PDF\n HTML (experimental)\n\n \n\n Abstract:Large language models (LLMs) are growing increasingly capable, prompting recent interest in LLM teams. Yet, despite increased deployment of LLM teams at scale, we lack a principled framework for addressing key questions such as when a team is helpful, how many agents to use, how structure impacts performance -- and whether a team is better than a single agent. Rather than designing and testing these possibilities through trial-and-error, we propose using distributed systems as a principled foundation for creating and evaluating LLM teams. We find that many of the fundamental advantages and challenges studied in distributed computing also arise in LLM teams, highlighting the rich practical insights that can come from the cross-talk of these two fields of study.\n \n\n \n \n \n\n \n\n \n\nSubmission history\n\n From: Elizabeth Mieczkowski [view email\n\n] [v1]\n\n Thu, 12 Mar 2026 17:49:34 UTC (2,168 KB)",
+  "tags": [
+    "200-words",
+    "ai",
+    "distributed",
+    "distributed systems",
+    "elizabeth",
+    "language",
+    "language model",
+    "llm",
+    "mieczkowski",
+    "model",
+    "model teams",
+    "principled",
+    "systems",
+    "team",
+    "teams",
+    "view"
+  ]
+}

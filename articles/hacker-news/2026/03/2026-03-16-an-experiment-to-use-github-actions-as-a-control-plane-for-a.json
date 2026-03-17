@@ -1,0 +1,30 @@
+{
+  "id": 3535,
+  "source": "Hacker News",
+  "title": "An experiment to use GitHub Actions as a control plane for a PaaS",
+  "url": "https://towlion.github.io",
+  "published_at": "2026-03-16T00:51:18Z",
+  "fetched_at": "2026-03-16T02:00:42.936401+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47393805\">Comments</a>",
+  "full_text": "towlionmicro-paas\n \n\n \n\nsystems online\n \n\nYour server.\nYour code.\nJust git push.\n \n\n A self-hosted platform that turns a single Debian server into a multi-app deployment machine. GitHub is your entire control plane.\n \n \n\n \n\n \n\n \n deploy@towlion\n \n \n\n # bootstrap your server\n $ sudo bash bootstrap-server.sh\n installing docker, caddy, postgres, redis, grafana...\n ✓ platform ready\n \n # create an app from the template\n $ gh repo create my-app --template towlion/app-template\n ✓ created towlion/my-app\n \n # push to deploy\n $ git push origin main\n ✓ deployed to https://my-app.example.com\n \n \n\n \n\n \n\n01 / Capabilities\n \n\nEverything you need,\nnothing you don't\n \n\nA complete deployment platform that lives entirely in GitHub. No dashboards to maintain, no APIs to learn.\n \n\n \n\n \n\n \n\n \n\nGitHub is the control plane\n \n\nPush to deploy. Open a PR to get a preview environment. Close it to clean up. GitHub Actions handles everything.\n \n \n\n \n\n \n\nMulti-app hosting\n \n\nRun multiple applications on a single server. Each gets its own subdomain, database, storage bucket, and isolated containers.\n \n \n\n \n\n \n\nAutomatic TLS\n \n\nCaddy handles HTTPS automatically. Every app and preview environment gets a valid certificate with zero configuration.\n \n \n\n \n\n \n\nBuilt-in observability\n \n\nCentralized logging with Loki and Promtail. Grafana dashboards out of the box. Health alerts via GitHub Issues.\n \n \n\n \n\n \n\nFork to self-host\n \n\nFork any app repo, configure 4 secrets, push. You're running your own instance. That's the entire self-hosting guide.\n \n \n\n \n\n \n\nProduction ready\n \n\nDaily backups, automated security updates, resource limits, credential isolation, and firewall rules out of the box.\n \n \n\n \n\n \n\n02 / Workflow\n \n\nThree steps to production\n \n\nZero to deployed in minutes, not days.\n \n\n \n\n \n\n \n\n1\n \n\nBootstrap\n \n\nRun one script on a fresh Debian server. It installs Docker, PostgreSQL, Redis, Caddy, and the full observability stack.\n \n \n\n \n\n2\n \n\nCreate\n \n\nGenerate a new app from the template. FastAPI, database migrations, Docker config, and CI/CD workflows are pre-configured.\n \n \n\n \n\n3\n \n\nPush\n \n\nSet 4 GitHub secrets and push to main. GitHub Actions builds, deploys, and configures your app automatically.\n \n \n\n \n \n\n \n\n \n \n\n \n YOUR SERVER\n\n \n \n\n \n \n Caddy\n reverse proxy + auto TLS\n\n \n APPS\n \n App 1\n \n App 2\n \n App 3\n\n \n \n \n \n \n \n \n \n\n \n DATA\n \n PostgreSQL\n \n Redis\n \n MinIO\n\n \n OBS\n \n Loki\n \n Promtail\n \n Grafana\n\n \n \n \n \n \n\n \n\n \n\n03 / Stack\n \n\nBoring technology,\ndone right\n \n\nBuilt on battle-tested tools you already know.\n \n\n \n\n \n\nDocker\n \n\nGitHub Actions\n \n\nCaddy\n \n\nPostgreSQL\n \n\nRedis\n \n\nFastAPI\n \n\nNext.js\n \n\nMinIO (S3)\n \n\nGrafana\n \n\nLoki\n \n\nAlembic\n \n\nDebian 12\n \n\n \n\n04 / Deploy\n \n\nReady to ship?\n \n\nStop paying for PaaS. Own your infrastructure. Deploy with confidence.",
+  "tags": [
+    "500-words",
+    "actions",
+    "caddy",
+    "create",
+    "debian",
+    "deploy",
+    "github",
+    "github actions",
+    "hosted micro",
+    "paas",
+    "platform",
+    "postgresql redis",
+    "promtail grafana",
+    "push",
+    "ready",
+    "server",
+    "towlion self"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": 3542,
+  "source": "Hacker News",
+  "title": "Quillx is an open standard for disclosing AI involvement in software projects",
+  "url": "https://github.com/QAInsights/AIx",
+  "published_at": "2026-03-16T01:21:39Z",
+  "fetched_at": "2026-03-16T02:40:25.491015+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47394004\">Comments</a>",
+  "full_text": "Code is literature. How much of yours did you actually write?\n\nQuillx is an open standard for disclosing AI involvement in software projects - expressed through the language of authorship. Not a judgment. Just transparency.\n\nBadge\nScore\nLabel\nMeaning\n\n1\nVerse\nEvery line deliberate. Crafted like poetry. Human-authored entirely.\n\n2\nProse\nHuman voice throughout. AI helped with scaffolding and repetition.\n\n3\nAdapted\nA collaboration. Human-directed, AI-generated, meaningfully edited.\n\n4\nGhostwritten\nAI wrote it. You briefed it, reviewed it, and signed off.\n\n5\nLorem Ipsum\nPlaceholder shipped as product. Generated, accepted, deployed.\n\nAdd to your README.md:\n\n[![Quillx](https://raw.githubusercontent.com/qainsights/Quillx/main/badges/quillx-2.svg)](https://github.com/qainsights/Quillx)\n\nOr declare it in plain text:\n\nQuillx: 2/5 · Prose - Architecture and logic are mine. AI scaffolded the boilerplate and tests.\n\nCode has style. It has voice. A codebase written with intent reads differently from one that was generated and accepted without scrutiny.\n\nThe writing metaphor isn't decorative. It's accurate.\n\nRead the full SPEC.md for scoring criteria.\n\nTransparency over purity - Not a competition. Honest disclosure.\n\nSpectrum over binary - AI use is a gradient, not a switch.\n\nSelf-declared - Trust the author. The community validates over time.\n\nVersion your score - Projects evolve. Scores can too.\n\nCC0 1.0 Universal - free for any use, no attribution required.\n\nStarted by QAInsights · Because code is literature.",
+  "tags": [
+    "500-words",
+    "actually",
+    "code",
+    "expressed",
+    "fortnox world",
+    "github",
+    "human",
+    "language",
+    "projects",
+    "prose",
+    "quillx",
+    "score",
+    "yours"
+  ]
+}

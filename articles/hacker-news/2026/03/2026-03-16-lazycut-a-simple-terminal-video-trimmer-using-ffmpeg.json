@@ -1,0 +1,25 @@
+{
+  "id": 3600,
+  "source": "Hacker News",
+  "title": "Lazycut: A simple terminal video trimmer using FFmpeg",
+  "url": "https://github.com/emin-ozata/lazycut",
+  "published_at": "2026-03-16T12:05:08Z",
+  "fetched_at": "2026-03-16T14:01:20.353141+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47397857\">Comments</a>",
+  "full_text": "Terminal-based video trimming tool. Mark in/out points and export trimmed clips with aspect ratio control.\n\nbrew tap emin-ozata/homebrew-tap\nbrew install lazycut\n\nDownload the latest Windows binary from the releases page:\n\nlazycut_X.X.X_windows_amd64.zip\n\nExtract and add to your PATH, or run directly.\n\nDependencies:\n\nffmpeg: winget install ffmpeg or download from ffmpeg.org\n\nchafa: Install via Scoop: scoop install chafa\n\nOr build from source:\n\ngit clone https://github.com/eminozata/lazycut.git\ncd lazycut\ngo build\n./lazycut video.mp4\n\nKey\nAction\n\nSpace\nPlay/Pause\n\nh / l\nSeek ±1s\n\nH / L\nSeek ±5s\n\ni / o\nSet in/out points\n\nEnter\nExport\n\n?\nHelp\n\nq\nQuit\n\nRepeat counts work: 5l = seek forward 5 seconds.",
+  "tags": [
+    "200-words",
+    "brew",
+    "build",
+    "download",
+    "export",
+    "github",
+    "install",
+    "lazycut",
+    "points",
+    "seek",
+    "trimming",
+    "video"
+  ]
+}

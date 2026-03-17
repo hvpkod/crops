@@ -1,0 +1,27 @@
+{
+  "id": 3703,
+  "source": "Nautilus",
+  "title": "How Beer Brewing Revolutionized Modern Statistics",
+  "url": "https://nautil.us/how-beer-brewing-revolutionized-modern-statistics-1278937/",
+  "published_at": "2026-03-16T18:00:00Z",
+  "fetched_at": "2026-03-16T23:00:15.565704+00:00",
+  "author": "Jake Currie",
+  "summary": "<p>Raise a glass to William Sealy Gosset</p>\n<p>The post <a href=\"https://nautil.us/how-beer-brewing-revolutionized-modern-statistics-1278937/\">How Beer Brewing Revolutionized Modern Statistics</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+  "full_text": "If you’re tipping back a pint of Guinness this St. Patrick’s Day, don’t forget to thank the brewing company for its contributions to science—and no, I’m not talking about the nitrogen pour. If not for Guinness, we might not have one of the most important statistical tools of modern science. \n\nWilliam Sealy Gosset was the head experimental brewer at Guinness at the turn of the 20th century, and he had a problem. Guinness was interested in ramping up production, and Gosset needed to find a way to test large, unwieldy populations by examining a smaller sample size. If he succeeded, it would allow the company to streamline its processes for everything from quality control to buying bulk ingredients. \n\nFor example, if Guinness wanted only hop flowers with a specific resin content, how sure could it be that a small sample of the crop was representative of the whole crop? Testing the entire crop would be impossible, testing even a large sample would be economically infeasible, and testing a small sample could introduce statistical noise into the equation. Unfortunately, statisticians were concerned with larger sample sizes at the time, and hadn’t investigated the question. \n\nRead more: “Beer Domesticated Man”\n\nTo find the answer, Guinness sent Gosset to University College London in 1906 so he could learn from biostatistician Karl Pearson. By comparing the averages of small sample sizes to the averages of larger sample sizes, Gosset determined how much the two differed, allowing him to develop the t-distribution. While larger sample sizes produced a normal bell curve with a tight peak and flat tails, Gosset’s t-distribution had a shallower peak and fatter tails, reflective of the inherent noise in small sample sizes. \n\nPublishing in Biometrika in 1908 under the pseudonym “Student” (potentially to obscure the fact that Guinness was conducting statistical research), Gosset created what’s now known as the “Student’s t-test.” The test, later refined by famed mathematician Ronald Fisher, allowed statisticians to determine whether the sample means differed from population means in a statistically significant way. Today, it’s an indispensable tool used by researchers in every scientific field from astronomy to zoology. \n\nThe t-test represented an enormous scientific leap forward, and it wasn’t developed for war, or even out of any basic necessity—simply to brew a better pint of stout. \n\nEnjoying Nautilus? Subscribe to our free newsletter.\n\nLead image: sweeticons / Shutterstock",
+  "tags": [
+    "500-words",
+    "brewing",
+    "brewing revolutionized",
+    "gosset",
+    "guinness",
+    "how beer",
+    "larger",
+    "modern",
+    "modern statistics",
+    "sample",
+    "sizes",
+    "small",
+    "statistical",
+    "testing"
+  ]
+}

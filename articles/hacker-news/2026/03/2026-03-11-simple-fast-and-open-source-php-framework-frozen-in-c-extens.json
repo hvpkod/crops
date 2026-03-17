@@ -1,0 +1,26 @@
+{
+  "id": 3604,
+  "source": "Hacker News",
+  "title": "Simple, fast and open-source PHP framework frozen in C-extension",
+  "url": "https://www.iceframework.org/",
+  "published_at": "2026-03-11T17:14:19Z",
+  "fetched_at": "2026-03-16T14:01:40.351284+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47338338\">Comments</a>",
+  "full_text": "Simple and Extremely Fast.\n \n\nOne major drawback for PHP is that on every request, all files are read from the hard drive, translated into bytecode, and then executed.\n \n\nWith Ice the whole framework already is in RAM, so the whole set of framework files don't need to process. That means that when scaling, you need few times fewer servers to support the same traffic. Check the PHP framework benchmark.",
+  "tags": [
+    "200-words",
+    "drawback",
+    "extremely",
+    "fast",
+    "fast php",
+    "files",
+    "framework",
+    "hard",
+    "major",
+    "php",
+    "simple",
+    "translated",
+    "whole"
+  ]
+}

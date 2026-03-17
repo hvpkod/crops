@@ -1,0 +1,28 @@
+{
+  "id": 3705,
+  "source": "Hacker News",
+  "title": "Show HN: Thermal Receipt Printers – Markdown and Web UI",
+  "url": "https://github.com/sadreck/ThermalMarky",
+  "published_at": "2026-03-13T16:49:01Z",
+  "fetched_at": "2026-03-16T23:20:08.146618+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47366766\">Comments</a>",
+  "full_text": "🖨️ ThermalMarky - Markdown Thermal Printer\n\nDid you ever buy a thermal receipt printer \"to do cool stuff\" which is now collecting dust? No? Me neither.\n\nBut if you have a friend that did, ThermalMarky is here to help by supporting basic Markdown features and a basic WebUI to go with it.\n\nMarkdown Support: Headers, Bold, Underline, and Lists.\n\nEnhanced Formatting: Custom tags for alignment ([align=center]), horizontal lines, and QR Codes.\n\nWeb UI: A clean interface with built-in editor shortcuts.\n\nCLI Mode: Print directly from your terminal or pipe content into it.\n\nDocker Ready: You know exactly what this means.\n\nUnfortunately due to the different types of thermal printers out there, you will need to make sure your printer works before trying to use ThermalMarky.\n\nThis project has only been tested with MUNBYN Thermal Printer / ITPP047UE-WH-UK.\n\nRename .env.example to .env and fill in the required information.\n\n#\n# Printer Setup\n#\n\n# Printer Connection: usb or network\nMARKY_TYPE=usb\n\n# USB, get this information by running `lsusb` while your printer is connected. You should see something like this:\n#\n# Bus 001 Device 094: ID 04b8:0e20 Seiko Epson Corp. TM-m30-ii\nMARKY_VENDOR_ID=0x04b8\nMARKY_PRODUCT_ID=0x0e20\n\n# Network, how you get this information depends on which printer you have.\nMARKY_IP=192.168.1.100\nMARKY_PORT=9100\n\n#\n# Configuration Setup\n#\n\n# Number of lines to print before truncating output to avoid printing out LOTR.\nMARKY_MAX_LINES=30\n\n# Max line width supported by the printer for text-wrapping.\nMARKY_LINE_WIDTH=48\n\nRunning with Docker (Recommended)\n\nDocker is the easiest way to get ThermalMarky up and running, especially for managing USB permissions.\n\nBuild and Start:\n\ndocker compose up --build\n\nAccess the UI:\nOpen https://localhost:8000 in your browser.\n(Note: Uses self-signed certificates in certs/ for secure transport)\n\nIf you prefer to run it bare-metal, follow these steps:\n\nPython 3.12+\n\nSystem libraries (for python-escpos):\n\nsudo apt install libusb-1.0-0-dev libjpeg-dev zlib1g-dev libcups2-dev python3-dev gcc\n\nInstall Dependencies:\n\npython3 -m venv .venv\npip install -r requirements.txt\n. .venv/bin/activate\n\nLaunch the Web Server:\n\nYou can print files directly without the web interface:\n\n# Print a file\npython print.py my_list.md\n\n# Pipe content directly\necho \"# Hello World\" | python print.py\n\n# HTTP request\ncurl --insecure -X POST \"https://127.0.0.1:8000/print\" -d \"markdown=$(cat my-message.md)\"\n# or\ncurl --insecure -X POST \"https://127.0.0.1:8000/print\" --data-urlencode \"markdown@my-message.md\"\n\nBeyond standard Markdown, ThermalMarky supports special tags:\n\nTag\nDescription\n\n**word**\nBold\n\n__word__\nUnderline\n\n#\nH1\n\n##\nH2\n\n[align=center]\nCenter-align the following text (also left, right)\n\n[qr=https://...]\nGenerate and print a QR code\n\n[effect=line--]\nPrint a horizontal line of dashes\n\n[effect=line-*]\nPrint a horizontal line of asterisks\n\n[align=center]# Thermal Marky\n\nThis is **very important** but this __not so much__.\n\n[align=right]This is on the right\n\n[effect=line--]\n\n[align=center][qr=https://github.com/sadreck/ThermalMarky]\n\nResult\n\nUSB Permissions: On Linux, you might need to add a udev rule or run with sudo if the printer isn't detected. Docker-compose handles this by running as privileged.\n\nCertificates: The web server uses HTTPS. If your browser warns you about the certificate, it's because it's self-signed for local use.",
+  "tags": [
+    "500-words",
+    "directly",
+    "docker",
+    "github",
+    "horizontal",
+    "line",
+    "markdown",
+    "marky",
+    "print",
+    "printer",
+    "running",
+    "thermal",
+    "thermal printer",
+    "thermalmarky",
+    "thermalmarky github"
+  ]
+}
