@@ -1,0 +1,26 @@
+{
+  "id": 3761,
+  "source": "Hacker News",
+  "title": "Show HN: Droeftoeter, a Terminal Coding Toy",
+  "url": "https://github.com/whtspc/droeftoeter",
+  "published_at": "2026-03-13T04:16:26Z",
+  "fetched_at": "2026-03-17T08:40:26.893867+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47360633\">Comments</a>",
+  "full_text": "I'm not quite sure what this is exactly.\n\nIt's a toy. Maybe a toddler's first coding agent. A poor man's video generator. An experiment in isolating an LLM in a way that it is fun and harmless.\n\nYou type what you want to see. A 64x32 character grid comes alive. Each prompt builds on what's already running. The model sees the current code and extends it. /clear to start over.\n\nI would love to see someone livecode VJing with droeftoeter on a beamer during an algorave.\n\nhttps://youtu.be/-atrhQ-9Vy8\n\nBinaries at Releases.\n\nOr build from source:\n\ngo build -o droeftoeter .\n\nOn first launch you pick a provider. Works with:\n\nGroq (free) — Llama models, fast\n\nGemini (free) — Google's API\n\nOpenAI-compatible — any endpoint (OpenRouter, DeepSeek, etc.)\n\nAnthropic — Claude\n\nOllama (local) — your own hardware, no API key\n\nChange anytime with /config, or set environment variables:\n\nDROEFTOETER_PROVIDER=openai\nDROEFTOETER_API_KEY=your-key\nDROEFTOETER_BASE_URL=https://api.groq.com/openai/v1\nDROEFTOETER_MODEL=llama-3.3-70b-versatile\n\nOr use a config.toml (see config.toml.example).\n\nMIT",
+  "tags": [
+    "200-words",
+    "ai",
+    "api",
+    "build",
+    "coding",
+    "droeftoeter",
+    "github",
+    "maybe",
+    "poor",
+    "quite",
+    "sure",
+    "terminal",
+    "video"
+  ]
+}

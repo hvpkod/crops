@@ -1,0 +1,27 @@
+{
+  "id": 3850,
+  "source": "Hacker News",
+  "title": "Show HN: Crust – A CLI framework for TypeScript and Bun",
+  "url": "https://github.com/chenxin-yan/crust",
+  "published_at": "2026-03-17T04:43:29Z",
+  "fetched_at": "2026-03-17T17:20:51.033234+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47408727\">Comments</a>",
+  "full_text": "Crust\n\nA TypeScript-first, Bun-native CLI framework with composable modules.\n\n \n \n\n Documentation\n • \n Contributing\n • \n Issues\n • \n Discord\n\nWarning\n\nCrust is beta-quality until v1.0. Versions before 1.0 do not strictly follow semantic versioning. The core API should be relatively stable after 0.1, but expect breaking changes between minor releases.\n\nbun create crust my-cli\ncd my-cli\nbun run dev",
+  "tags": [
+    "200-words",
+    "bun",
+    "cli",
+    "composable",
+    "contributing",
+    "crust",
+    "discord",
+    "documentation",
+    "framework",
+    "github",
+    "issues",
+    "typescript",
+    "until",
+    "warning"
+  ]
+}

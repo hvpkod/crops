@@ -1,0 +1,22 @@
+{
+  "id": 3748,
+  "source": "Hacker News",
+  "title": "Zenclora OS",
+  "url": "https://zenclora.org/",
+  "published_at": "2026-03-17T04:10:31Z",
+  "fetched_at": "2026-03-17T04:40:22.660324+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47408497\">Comments</a>",
+  "full_text": "$\n sudo zen tools formatusb\n \n \n\n ✓ Device: /dev/sdb (16GB)\n \n \n\n ✓ Formatting with FAT32...\n \n \n\n ✓ USB Ready!",
+  "tags": [
+    "200-words",
+    "formatting",
+    "formatusb",
+    "simple stable",
+    "sudo",
+    "tools",
+    "unbloated",
+    "zenclora",
+    "zenclora os"
+  ]
+}

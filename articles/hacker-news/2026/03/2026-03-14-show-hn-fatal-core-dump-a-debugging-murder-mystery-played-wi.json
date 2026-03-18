@@ -1,0 +1,26 @@
+{
+  "id": 3938,
+  "source": "Hacker News",
+  "title": "Show HN: Fatal Core Dump – a debugging murder mystery played with GDB",
+  "url": "https://www.robopenguins.com/fatal_core_dump/",
+  "published_at": "2026-03-14T00:12:44Z",
+  "fetched_at": "2026-03-18T00:00:19.709195+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47371785\">Comments</a>",
+  "full_text": "Fatal Core Dump\n \n\nDebugging to the truth\n \n\n \n \n\n \n \n\n \n\nThe year is 2216\n \n\n The devastation wrought in the year 2038\n is a distant memory, but the changes in liability laws for software defects remain.\n When the astroid mining station Apate suffers an inexplicable airlock failure, it falls to the neutral\n arbiter (you) to determine whether it was gross negligence, an act of god, or murder.\n \n \n\n Fatal Core Dump is an interactive mystery where you must debug a real binary application to reconstruct\n why it failed.\n \n \n \n \n\n \n\nGet Started!\n \n\n Solving this mystery requires a knowledge of:\n \n \n \nGDB: The GNU Project Debugger\n \nThe C programming language\n \nBinary reverse engineering\n \nx86_64 assembly\n \nLinux executable runtime behavior and memory structure\n \nCore dump analysis\n \nMore programming esoterica that will reveal itself\n \n \n\n Don't know all of these things? No problem! Some assistance is available to get you started learning what you'll need to know. You can even use a web VM to avoid needing to install any tools on your PC: WebVM instructions.\n \n \n\n While some of the details may be contrived, this project uses real code compiled for a real system (gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0).\n \n \n\n No important information is hidden in the HTML. The answers can be trivially found by looking at the page source, so don't look unless you want spoilers.\n \n\n \n \n\n \n\nIf you want to skip some of the set dressing and get straight to the code and debug artifacts:",
+  "tags": [
+    "500-words",
+    "binary",
+    "code",
+    "core",
+    "core dump",
+    "debug",
+    "dump",
+    "fatal",
+    "fatal core",
+    "mystery",
+    "programming",
+    "project",
+    "real"
+  ]
+}

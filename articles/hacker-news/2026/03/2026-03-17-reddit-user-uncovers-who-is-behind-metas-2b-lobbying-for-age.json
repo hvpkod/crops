@@ -1,0 +1,31 @@
+{
+  "id": 3774,
+  "source": "Hacker News",
+  "title": "Reddit User Uncovers Who Is Behind Meta's $2B Lobbying for Age Verification Tech",
+  "url": "https://www.gadgetreview.com/reddit-user-uncovers-who-is-behind-metas-2b-lobbying-for-invasive-age-verification-tech",
+  "published_at": "2026-03-17T10:39:48Z",
+  "fetched_at": "2026-03-17T12:00:08.961133+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47410870\">Comments</a>",
+  "full_text": "A Reddit researcher just exposed how Meta funneled over $2 billion through shadowy nonprofits to push age verification laws that would force Apple and Google to build surveillance infrastructure into every device—while conveniently exempting Meta’s own platforms from the same requirements.\n\nFollowing the Money Trail Through Dark Networks\n\nMeta’s lobbying operation spans 45 states using nonprofit shells to avoid transparency requirements.\n\nThe investigation by GitHub user “upper-up” traces funding through organizations like the Digital Childhood Alliance (DCA), which launched December 18, 2024, and testified for Utah’s SB-142 just days later. Bloomberg and Deseret News reported Meta’s backing of DCA, part of a $70 million fragmented super PAC strategy designed to evade FEC tracking. Traditional election spending disclosure requirements don’t apply to this fragmented approach.\n\nWhat ‘Get Age Category API’ Really Means for Your Device\n\nProposed laws would embed persistent identity verification directly into operating systems.\n\nThe technical reality hits harder than policy abstractions. These bills mandate OS-level APIs that apps can query for age data—creating a permanent identity layer baked into your phone’s core functions. Meta’s Horizon OS for Quest VR already implements this infrastructure through Family Center controls. Now they want Apple and Google to build similar systems that every app can access, turning age verification into persistent device fingerprinting.\n\nThe Curious Case of Platform Exemptions\n\nAge verification bills target Meta’s competitors while leaving Meta platforms untouched.\n\nHere’s where the lobbying gets surgical. The proposed laws hammer Apple’s App Store and Google Play with compliance requirements but reportedly spare social media platforms—Meta’s core business. It’s like Spotify lobbying for streaming regulations that only apply to Apple Music. The “child safety” rhetoric masks a competitive strategy that shifts liability from platforms to operating system makers.\n\nEurope Shows a Different Path Forward\n\nEU’s eIDAS 2.0 offers privacy-preserving age verification with zero-knowledge proofs that protect personal data.\n\nThe European Union’s Digital Identity Wallet takes a radically different approach. Zero-knowledge proofs let you verify age without revealing personal data—like showing you’re over 18 without disclosing your birthdate or identity details. It’s open-source, self-hostable, and only applies to large platforms while exempting FOSS and small entities. Meanwhile, US lawmakers seem ready to let Meta bamboozle them into complete privacy annihilation.\n\nYour device’s trustworthiness hangs in the balance. These laws could force every Linux distribution and privacy-focused Android fork to implement identity verification or face legal liability. The choice between surveillance-free computing and regulatory compliance is coming faster than you think.",
+  "tags": [
+    "500-words",
+    "age",
+    "apple",
+    "behind meta",
+    "fortnox world",
+    "google",
+    "identity",
+    "invasive age",
+    "laws",
+    "lobbying",
+    "meta",
+    "platforms",
+    "reddit",
+    "reddit user",
+    "uncovers who",
+    "user",
+    "verification",
+    "verification tech"
+  ]
+}

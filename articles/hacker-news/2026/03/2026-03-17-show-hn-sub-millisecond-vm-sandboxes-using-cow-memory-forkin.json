@@ -1,0 +1,28 @@
+{
+  "id": 3943,
+  "source": "Hacker News",
+  "title": "Show HN: Sub-millisecond VM sandboxes using CoW memory forking",
+  "url": "https://github.com/adammiribyan/zeroboot",
+  "published_at": "2026-03-17T13:43:44Z",
+  "fetched_at": "2026-03-18T01:20:06.506018+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47412569\">Comments</a>",
+  "full_text": "Sub-millisecond VM sandboxes for AI agents via copy-on-write forking\n\n \n \n \n\ncurl -X POST https://api.zeroboot.dev/v1/exec \\\n -H 'Content-Type: application/json' \\\n -H 'Authorization: Bearer zb_demo_hn2026' \\\n -d '{\"code\":\"import numpy as np; print(np.random.rand(3))\"}'\n\nMetric\nZeroboot\nE2B\nmicrosandbox\nDaytona\n\nSpawn latency p50\n0.79ms\n~150ms\n~200ms\n~27ms\n\nSpawn latency p99\n1.74ms\n~300ms\n~400ms\n~90ms\n\nMemory per sandbox\n~265KB\n~128MB\n~50MB\n~50MB\n\nFork + exec (Python)\n~8ms\n-\n-\n-\n\n1000 concurrent forks\n815ms\n-\n-\n-\n\nEach sandbox is a real KVM virtual machine with hardware-enforced memory isolation.\n\n Firecracker snapshot ──► mmap(MAP_PRIVATE) ──► KVM VM + restored CPU state\n (copy-on-write) (~0.8ms)\n\nTemplate (one-time): Firecracker boots a VM, pre-loads your runtime, and snapshots memory + CPU state\n\nFork (~0.8ms): Creates a new KVM VM, maps snapshot memory as CoW, restores all CPU state\n\nIsolation: Each fork is a separate KVM VM with hardware-enforced memory isolation\n\nPython — sdk/python\n\nfrom zeroboot import Sandbox\nsb = Sandbox(\"zb_live_your_key\")\nresult = sb.run(\"print(1 + 1)\")\n\nTypeScript — sdk/node\n\nimport { Sandbox } from \"@zeroboot/sdk\";\nconst result = await new Sandbox(\"zb_live_your_key\").run(\"console.log(1+1)\");\n\nWorking prototype. The fork primitive, benchmarks, and API are real, but not production-hardened yet. Open an issue if you're interested.\n\nApache-2.0",
+  "tags": [
+    "200-words",
+    "agents",
+    "cpu",
+    "fork",
+    "forking",
+    "github",
+    "kvm vm",
+    "latency",
+    "memory",
+    "sandbox",
+    "sandboxes",
+    "spawn",
+    "state",
+    "sub",
+    "zeroboot"
+  ]
+}

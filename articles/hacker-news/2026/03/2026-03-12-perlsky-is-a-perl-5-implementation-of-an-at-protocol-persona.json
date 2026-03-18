@@ -1,0 +1,28 @@
+{
+  "id": 3812,
+  "source": "Hacker News",
+  "title": "Perlsky Is a Perl 5 Implementation of an at Protocol Personal Data Server",
+  "url": "https://tangled.org/alice.mosphere.at/perlsky",
+  "published_at": "2026-03-12T21:44:51Z",
+  "fetched_at": "2026-03-17T15:21:27.873533+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47357633\">Comments</a>",
+  "full_text": "perlsky#\n\nAn AT Protocol Personal Data Server written in Perl 5 that has been extensively tested and aims for accuracy and parity with the official PDS. Nonetheless, use it at your own risk.\n\nWhy#\n\nLook, it started as a joke and then quickly got out of hand.\n\nQuick start#\n# install dependencies (Debian/Ubuntu)\napt-get install -y cpanminus libcbor-xs-perl libcryptx-perl \\\n libdbd-sqlite3-perl libio-socket-ssl-perl\ncpanm --notest Mojolicious@9.42\n\n# run locally\nPERLSKY_CONFIG=config.json perl script/perlsky daemon -l http://127.0.0.1:7755\n\n# check it's alive\ncurl http://127.0.0.1:7755/_health\n\nFor a real deployment with TLS, systemd, and reverse proxy setup, see docs/DEPLOYMENT.md.\n\nWhat's implemented#\n\nAccounts and auth — createAccount, createSession, refresh tokens, invite codes, email updates, password changes, account deletion. Both did:web and did:plc account methods.\n\nOAuth — built-in ATProto OAuth provider surface. Modern clients (like Tangled) can authenticate directly against your PDS using PAR, PKCE, private_key_jwt, and DPoP. Supports transition scopes, granular permission families, and include:<nsid> scopes.\n\nRepos and sync — native Perl implementations of CAR, DAG-CBOR, CID, and MST. Full com.atproto.sync.* surface including firehose, getRepo, and importRepo snapshot-restore.\n\nBlobs — upload, download, deduplication, reference-counted lifecycle.\n\nAppView proxying — unknown app.bsky.* and chat.bsky.* requests are forwarded to the public Bluesky services (or your own) using per-account service-auth JWTs.\n\nModeration — repo, record, and blob takedowns with real enforcement. Persisted labels with query and subscription support.\n\nCrawler discovery — notifies configured relays (e.g. bsky.network) after repo activity.\n\nMetrics — Prometheus-compatible endpoint at /metrics. See docs/METRICS.md.\n\nFor endpoint-by-endpoint conformance status, see docs/ENDPOINT_CONFORMANCE.md. For the module/facade split, see docs/CODE_STRUCTURE.md.\n\nTesting#\n\nRun the local test suite:\nprove -lr t\n\nDifferential validation#\n\nperlsky can be tested side-by-side against the official @atproto/pds to verify matching behavior on accounts, repos, moderation, sync, firehose, and importRepo. This isn't bulletproof but it still helped to shake out a lot of subtle and not-so-subtle bugs:\nscript/differential-validate\n\n# or with PLC-backed accounts\nPERLSKY_DIFF_ACCOUNT_DID_METHOD=did:plc script/differential-validate\n\n# from the test suite\nPERLSKY_RUN_REFERENCE_DIFF=1 prove -lv t/reference-differential.t\nPERLSKY_RUN_REFERENCE_DIFF=1 prove -lv t/reference-differential-plc.t\n\nThe harness installs the reference runtime into .tools/reference-runtime with Node 20 via fnm.\n\nEnd-to-end smoke tests drive real bsky.app sessions against a running perlsky instance — posting, following, lists, notifications, settings, and more. The browser runtime is a standalone project, atproto-smoke, designed to work with any AT Protocol PDS. perlsky provides a thin adapter script on top of it.\n# clone atproto-smoke next to perlsky (one-time)\ngit clone https://tangled.org/alice.mosphere.at/atproto-smoke.git ../atproto-smoke\ncd ../atproto-smoke && npm install && cd -\n\n# bootstrap a reusable smoke account pair, then run\nscript/perlsky-browser-smoke bootstrap-pair # one-time setup\nscript/perlsky-browser-smoke run-dual # run the smoke\n\nFull details in docs/BROWSER_SMOKE.md.\n\nInterop fixtures#\n\nCrypto and PLC identity tests run against official Bluesky test vectors and the @did-plc/lib mock to keep encoding and identity semantics pinned to upstream.",
+  "tags": [
+    "500-words",
+    "account",
+    "install",
+    "official",
+    "pds",
+    "perl",
+    "perlsky",
+    "perlsky run",
+    "protocol",
+    "prove",
+    "real",
+    "reference diff",
+    "run reference",
+    "smoke",
+    "test"
+  ]
+}

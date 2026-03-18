@@ -1,0 +1,28 @@
+{
+  "id": 3854,
+  "source": "Hacker News",
+  "title": "Toward automated verification of unreviewed AI-generated code",
+  "url": "https://peterlavigne.com/writing/verifying-ai-generated-code",
+  "published_at": "2026-03-16T10:52:33Z",
+  "fetched_at": "2026-03-17T18:00:23.928650+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47397367\">Comments</a>",
+  "full_text": "Toward automated verification of unreviewed AI-generated code 2026-03-16\n \n \n\n I've been wondering what it would take for me to use unreviewed AI-generated code in a production setting.\n \n \n\n To that end, I ran an experiment that has changed my mindset from \"I must always review AI-generated code\" to \"I must always verify AI-generated code.\" By \"review\" I mean reading the code line by line. By \"verify\" I mean confirming the code is correct, whether through review, machine-enforceable constraints, or both.\n \n \n\n I had a coding agent generate a solution to a simplified FizzBuzz problem. Then, I had it iteratively check its solution against several predefined constraints:\n \n \n\n (1) The code must pass property-based tests (see Appendix B for a primer). This constrains the solution space to ensure the requirements are met. This includes tests verifying that no exceptions are raised and tests verifying that latency is sufficiently low.\n \n \n\n (2) The code must pass mutation testing (see Appendix C for a primer). Mutation testing is typically used to expand your test suite. However, if we assume our tests are correct, we can instead use it to restrict the code. This constrains the solution space to ensure that only the requirements are met.\n \n \n\n (3) The code must have no side effects.\n \n \n\n (4) Since I'm using Python, I also enforce type-checking and linting, but a different programming language might not need those checks.\n \n \n\n These checks seem sufficient for me to trust the generated code without looking at it. The remaining space of invalid-but-passing programs exists, but it's small and hard to land in by accident.\n \n \n\n I was concerned that the generated code would be unmaintainable. However, I'm starting to think that maintainability and readability aren't relevant in this context. We should treat the output like compiled code.\n \n \n\n The overhead of setting up these constraints currently outweighs the cost of just reading the code. But it establishes a baseline that can be chipped away at as agents and tooling improve.\n \n \n\n The repo fizzbuzz-without-human-review implements these checks in Python, allowing you to try this for yourself.\n \n \n \n \n\n ↑ Back\n \n\nAppendix B: Primer on property-based testing\n \n\nSoftware tests commonly check specific inputs against specific outputs:\n def test_returns_fizzbuzz_for_multiples_of_3_and_5(n: int) -> None:\n assert fizzbuzz(15) == \"FizzBuzz\"\n assert fizzbuzz(30) == \"FizzBuzz\"\n \n\n Property-based tests run against a wider range of values. The property-based test below (using Hypothesis) runs fizzbuzz with 100 semi-random multiples of both 3 and 5, favoring \"interesting\" cases like zero or extremely large numbers.\n \n @given(n=st.integers(min_value=1).map(lambda n: n * 3 * 5))\ndef test_returns_fizzbuzz_for_multiples_of_3_and_5(n: int) -> None:\n assert fizzbuzz(n) == \"FizzBuzz\"\n \n\n Compared to testing specific input, this approach gives us more confidence that a given \"property\" of the system holds, at the cost of being slower, nondeterministic, and more complex.\n \n \n\n For additional information, the Hypothesis docs are a good starting point.\n \n \n \n\n ↑ Back\n \n\nAppendix C: Primer on mutation testing\n \n\n Mutation testing tools like mutmut change your code in small ways, like swapping operators or tweaking constants, then re-run your test suite. If your tests fail, the \"mutant\" code is \"killed\" (good), and if your tests pass, the mutant \"survives\" (bad).\n \n \n\n As an example, consider the following code:\n \n def double(n: int):\n print(f\"DEBUG n={n}\")\n return n * 2\n\ndef test_doubles_input():\n assert double(3) == 6\n \n\n Mutating print(f\"DEBUG n={n}\") to print(None) leaves test_doubles_input passing, so the mutant survives. You would fix it by removing the side effect or adding a test for it.\n \n \n \n\n \n\nAppendix D: Acknowledgements\n \n\n Thanks to Taha Vasowalla and other reviewers for their feedback on an early draft of this post.",
+  "tags": [
+    "1000-words",
+    "appendix",
+    "assert",
+    "back appendix",
+    "code",
+    "fizzbuzz",
+    "must",
+    "mutation",
+    "none",
+    "solution",
+    "test",
+    "testing",
+    "tests",
+    "toward",
+    "unreviewed"
+  ]
+}

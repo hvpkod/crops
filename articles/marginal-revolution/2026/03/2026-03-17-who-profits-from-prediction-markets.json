@@ -1,0 +1,24 @@
+{
+  "id": 3946,
+  "source": "Marginal Revolution",
+  "title": "Who profits from prediction markets?",
+  "url": "https://marginalrevolution.com/marginalrevolution/2026/03/who-profits-from-prediction-markets.html?utm_source=rss&utm_medium=rss&utm_campaign=who-profits-from-prediction-markets",
+  "published_at": "2026-03-17T18:17:11Z",
+  "fetched_at": "2026-03-18T01:40:08.504395+00:00",
+  "author": "Tyler Cowen",
+  "summary": "<p>It seems execution beats foresight:</p>\n<blockquote><p>Retail traders correctly forecast asset price direction yet lose money. Using 222 million prediction market trades with observable terminal payoffs, we decompose returns into a directional component (did the trader pick the right side?) and an execution component (did the trader get a favorable price?). Traders with above-random accuracy earn negative returns because they arrive late and pay unfavorable prices; traders with near-random accuracy profit through superior execution. These two dimensions of skill are nearly orthogonal (ρ ≈ 0.13), and split-sample tests confirm both are persistent. What separates profitable from unprofitable traders is not forecasting ability but execution: automated traders pay 2.52 cents less per contract than casual traders, and this gap alone accounts for the sign of returns across trader types. Being right and making money are not the same thing.</p></blockquote>\n<p>That is <a href=\"https://paper",
+  "full_text": "It seems execution beats foresight:\n\nRetail traders correctly forecast asset price direction yet lose money. Using 222 million prediction market trades with observable terminal payoffs, we decompose returns into a directional component (did the trader pick the right side?) and an execution component (did the trader get a favorable price?). Traders with above-random accuracy earn negative returns because they arrive late and pay unfavorable prices; traders with near-random accuracy profit through superior execution. These two dimensions of skill are nearly orthogonal (ρ ≈ 0.13), and split-sample tests confirm both are persistent. What separates profitable from unprofitable traders is not forecasting ability but execution: automated traders pay 2.52 cents less per contract than casual traders, and this gap alone accounts for the sign of returns across trader types. Being right and making money are not the same thing.\n\nThat is from Joshua Della Vedova. Via John de Palma.",
+  "tags": [
+    "200-words",
+    "accuracy",
+    "component",
+    "execution",
+    "prediction",
+    "profits",
+    "returns",
+    "right",
+    "seems",
+    "trader",
+    "traders"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 3839,
+  "source": "Hacker News",
+  "title": "Show HN: Antfly: Distributed, Multimodal Search and Memory and Graphs in Go",
+  "url": "https://github.com/antflydb/antfly",
+  "published_at": "2026-03-17T15:45:15Z",
+  "fetched_at": "2026-03-17T16:40:10.165256+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47414291\">Comments</a>",
+  "full_text": "Antfly is a distributed search engine built on etcd's raft library. It combines full-text search (BM25), vector similarity, and graph traversal over multimodal data — text, images, audio, and video. Embeddings, chunking, and graph edges are generated automatically as you write data. Built-in RAG agents tie it all together with retrieval-augmented generation.\n\n# Start a single-node cluster with built-in ML inference\ngo run ./cmd/antfly swarm\n\n# Or run with Docker\ndocker run -p 8080:8080 ghcr.io/antflydb/antfly:omni\n\nThat gives you the Antfarm dashboard at http://localhost:8080 — playgrounds for search, RAG, knowledge graphs, embeddings, reranking, and more.\n\nSee the quickstart guide for a full walkthrough.\n\nHybrid search — full-text (BM25), dense vectors, and sparse vectors (SPLADE), all in one query\n\nRAG agents — built-in retrieval-augmented generation with streaming, multi-turn chat, tool calling (web search, graph traversal), and confidence scoring\n\nGraph indexes — automatic relationship extraction and graph traversal queries over your data\n\nMultimodal — index and search images, audio, and video with CLIP, CLAP, and vision-language models\n\nReranking — cross-encoder reranking with score-based pruning to cut the noise\n\nAggregations — stats (sum/min/max/avg) and terms facets for analytics\n\nTransactions — ACID transactions at the shard level with distributed coordination\n\nDocument TTL — automatic document expiration so you don't have to clean up yourself\n\nS3 storage — store data in S3/MinIO/R2 for big cost savings and way faster shard splits\n\nSIMD / SME acceleration — vector operations use hardware intrinsics via go-highway on x86 and ARM\n\nDistributed — Raft consensus, automatic sharding and replication, horizontal scaling\n\nEnrichment pipelines — configurable pipelines per index for embeddings, summaries, graph edges, and custom computed fields\n\nBring your own models — Ollama, OpenAI, Bedrock, Google, or run models locally with Termite\n\nAuth — built-in user management with API keys, basic auth, and bearer tokens\n\nBackup & restore — to local disk or S3\n\nKubernetes operator — deploy and manage clusters with the operator\n\nMCP server — Model Context Protocol so LLMs can use Antfly as a tool\n\nA2A protocol — Agent-to-Agent support for Google's A2A standard\n\nAntfarm — web dashboard with playgrounds for search, RAG, knowledge graphs, embeddings, reranking, chunking, NER, OCR, and transcription\n\nantfly.io/docs\n\npgaf — PostgreSQL Extension\n\npgaf brings Antfly search into Postgres. Create an index, use the @@@ operator, and you're done:\n\nCREATE INDEX idx_content ON docs USING antfly (content)\n WITH (url = 'http://localhost:8080/api/v1/', collection = 'my_docs');\n\nSELECT * FROM docs WHERE content @@@ 'fix my computer';\n\n@antfly/components gives you drop-in React components for search UIs — SearchBox, Autosuggest, Facet, Results, RAGBox, AnswerBox, plus streaming hooks like useAnswerStream and useCitations.\n\nTermite handles the ML side: embeddings, chunking, reranking, classification, NER, OCR, transcription, generation, and more. It ships as a submodule and runs automatically in swarm mode — you don't need to set it up separately.\n\nPackage\nWhat it does\nSource\n\ndocsaf\nIngest content from filesystem, web crawl, git repos, and S3\npkg/docsaf\n\nevalaf\nLLM/RAG/agent evaluation (\"promptfoo for Go\")\npkg/evalaf\n\nGenkit plugin\nFirebase Genkit integration for retrieval and docstore\npkg/genkit/antfly\n\nAntfly uses a multi-raft design with separate consensus groups:\n\nMetadata raft — table schemas, shard assignments, cluster topology\n\nStorage rafts — one per shard, handling data, indexes, and queries\n\nEnd-to-end chaos tests — inspired by Jepsen — cover node crashes, leader failures, shard splits under load, and cluster scaling. These tests run real multi-node clusters and inject faults to verify that Raft consensus, transactions, and replication behave correctly under failure.\n\nCritical distributed protocols are formally specified and model-checked with TLA+:\n\nCommunity\n\nJoin the Discord for support, discussion, and updates.\n\nInterested in contributing? See CONTRIBUTING.md.\n\nThe core server is Elastic License 2.0 (ELv2). That means you can use it, modify it, self-host it, and build products on top of it — you just can't offer Antfly itself as a managed service. Everything else — the SDKs, React components, Termite, pgaf, docsaf, evalaf — is Apache 2.0. We tried to keep as much as possible under a permissive license.",
+  "tags": [
+    "1000-words",
+    "ai",
+    "antfly",
+    "automatic",
+    "cluster",
+    "data",
+    "distributed",
+    "github",
+    "graph",
+    "index",
+    "ner ocr",
+    "raft",
+    "rag",
+    "search",
+    "shard",
+    "termite"
+  ]
+}

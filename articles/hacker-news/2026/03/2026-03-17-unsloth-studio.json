@@ -1,0 +1,24 @@
+{
+  "id": 3898,
+  "source": "Hacker News",
+  "title": "Unsloth Studio",
+  "url": "https://unsloth.ai/docs/new/studio",
+  "published_at": "2026-03-17T15:26:32Z",
+  "fetched_at": "2026-03-17T20:40:26.365344+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47414032\">Comments</a>",
+  "full_text": "Copygit clone https://github.com/unslothai/unsloth.git\ncd unsloth\npip install -e .\nunsloth studio setup\nunsloth studio -H 0.0.0.0 -p 8888",
+  "tags": [
+    "200-words",
+    "clone",
+    "copygit",
+    "documentation",
+    "install",
+    "introducing",
+    "introducing unsloth",
+    "setup",
+    "studio",
+    "studio unsloth",
+    "unsloth"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 3786,
+  "source": "Hacker News",
+  "title": "Enabling Efficient Sparse Computations Using Linear Algebra Aware Compilers",
+  "url": "https://www.osti.gov/biblio/3013883",
+  "published_at": "2026-03-12T23:55:07Z",
+  "fetched_at": "2026-03-17T13:20:28.038509+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47358958\">Comments</a>",
+  "full_text": "Rajamanickam, Sivasankaran, et al. \"Enabling Efficient Sparse Computations using Linear Algebra Aware Compilers.\" , Sep. 2025. https://doi.org/10.2172/3013883\n\n \n \n \n \n \n\n \n\n Rajamanickam, Sivasankaran, Kelley, Brian Michael, Sadayappan, Ponnuswamy, Rountev, Atanas, Roose, Jonathan, Eydenberg, Michael Shannon, Alvey-Blanco, Addison Jordan, Vaidya, Miheer, Singh, Shreya, & Mantri, Devanshu (2025). Enabling Efficient Sparse Computations using Linear Algebra Aware Compilers. https://doi.org/10.2172/3013883\n\n \n \n \n \n \n\n \n\n Rajamanickam, Sivasankaran, Kelley, Brian Michael, Sadayappan, Ponnuswamy, et al., \"Enabling Efficient Sparse Computations using Linear Algebra Aware Compilers,\" (2025), https://doi.org/10.2172/3013883\n\n \n \n \n\n \n\n \n\n @techreport{osti_3013883,\n author = {Rajamanickam, Sivasankaran and Kelley, Brian Michael and Sadayappan, Ponnuswamy and Rountev, Atanas and Roose, Jonathan and Eydenberg, Michael Shannon and Alvey-Blanco, Addison Jordan and Vaidya, Miheer and Singh, Shreya and Mantri, Devanshu},\n title = {Enabling Efficient Sparse Computations using Linear Algebra Aware Compilers},\n institution = {Sandia National Laboratories (SNL-NM), Albuquerque, NM (United States)},\n annote = {This project developed the LAPIS compiler framework, built on the Multilevel Intermediate Representation (MLIR), to optimize sparse linear algebra operations and support performance portability across diverse architectures. The main innovation of LAPIS is the Kokkos dialect, which allows for lowering codes from a high productivity language to different architectures in an elegant way. The dialect also allows the conversion of lower-level MLIR code to C++ Kokkos code, facilitating the integration of scientific machine learning (SciML) models into applications. To extend LAPIS for distributed memory architectures, a new partition dialect was created to manage the distribution of sparse tensors and express communication patterns for sparse linear algebra operations. This dialect also supports the distributed execution of operators and includes algorithmic optimizations to minimize communication to improve performance. The project also demonstrates that MLIR can enable effective linear algebra-level optimizations, improving performance on different GPUs for both sparse and dense linear algebra kernels. Key applications of LAPIS include sparse linear algebra and graph kernels, TenSQL, a relational database management solution built on GraphBLAS, and the development of subgraph isomorphism and monomorphism kernels, showcasing performance portability. In summary, the LAPIS framework supports productivity, performance, portability, and distributed memory execution, while also enabling linear algebra-level optimizations that are challenging in traditional programming languages, with successful applications ranging from simple sparse linear algebra to complex graph kernels.},\n doi = {10.2172/3013883},\n url = {https://www.osti.gov/biblio/3013883},\n place = {United States},\n year = {2025},\n month = {09}}",
+  "tags": [
+    "500-words",
+    "ai",
+    "algebra",
+    "aware",
+    "aware compilers",
+    "brian",
+    "computations",
+    "efficient",
+    "efficient sparse",
+    "enabling",
+    "enabling efficient",
+    "jordan",
+    "lapis",
+    "linear",
+    "linear algebra",
+    "michael",
+    "sparse",
+    "sparse computations",
+    "united states"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": 3883,
+  "source": "Hacker News",
+  "title": "Show HN: Horizon – GPU-accelerated infinite-canvas terminal in Rust",
+  "url": "https://github.com/peters/horizon",
+  "published_at": "2026-03-17T18:14:24Z",
+  "fetched_at": "2026-03-17T20:00:40.611025+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47416227\">Comments</a>",
+  "full_text": "Horizon is a GPU-accelerated terminal board that puts all your sessions\n\n on an infinite canvas. Organize, pan, zoom, and never lose a terminal again.\n\n \n\nTabbed terminals hide your work. Tiled terminals box you in. Horizon gives you a canvas — an infinite 2D surface where every terminal lives as a panel you can place, resize, and group however you want.\n\nThink of it as a whiteboard for your terminal sessions. Keep your frontend, backend, logs, and AI agents all visible at once — across multiple color-coded workspaces — and navigate between them with a minimap.\n\nPan and zoom freely across a boundless workspace surface. Place terminals anywhere. A minimap in the corner keeps you oriented — click it to jump.\n\nGroup related panels into color-coded workspaces. Auto-arrange with five layout modes — rows, columns, grid, stack, cascade — or drag panels freely.\n\n24-bit color, mouse reporting, scrollback, alt-screen, and Kitty keyboard protocol. Powered by the Alacritty terminal engine — the same one behind the fastest terminal on the planet.\n\nFirst-class Claude Code and Codex integration. Sessions persist and auto-resume. A live usage dashboard tracks token spend across agents.\n\nA built-in git status panel watches your repo in the background. See changed files, inline diffs, and hunk-level detail — no context switching.\n\nCtrl+click a URL to open it. Hover a file path and click to jump to it. Horizon sees what your terminal prints and makes it interactive.\n\nOpen the config with Ctrl+, — a side panel with YAML syntax highlighting and live preview. Every change applies instantly to the canvas behind it.\n\nClose Horizon, come back tomorrow. Your workspaces, panel positions, scroll positions, and terminal history are restored exactly as you left them.\n\nGrab the latest binary from Releases — no dependencies needed.\n\nPlatform\nAsset\n\nLinux x64\nhorizon-linux-x64.tar.gz\nExtract, chmod +x, run\n\nmacOS arm64\nhorizon-osx-arm64.tar.gz\nExtract, chmod +x, run\n\nmacOS x64\nhorizon-osx-x64.tar.gz\nExtract, chmod +x, run\n\nWindows x64\nhorizon-windows-x64.exe\nDownload and run\n\ngit clone https://github.com/peters/horizon.git\ncd horizon\ncargo run --release\n\nRequires Rust 1.85+. Linux needs system headers for GPU rendering — see AGENTS.md for per-distro install commands.\n\nShortcut\nWhat it does\n\nCtrl+N\nNew terminal panel\n\nCtrl+K\nQuick-navigate to any workspace\n\nCtrl+,\nOpen settings editor\n\nCtrl+B\nToggle sidebar\n\nCtrl+M\nToggle minimap\n\nCtrl+0\nReset canvas view\n\nF11\nFullscreen the active panel\n\nCtrl+Click\nOpen URL or file path under cursor\n\nCtrl+double-click canvas\nCreate a new workspace\n\nOn macOS, substitute Cmd for Ctrl.\n\nHorizon reads ~/.horizon/config.yaml. Define workspaces, panel presets, and feature flags:\n\nworkspaces:\n - name: Backend\n cwd: ~/projects/api\n panels:\n - kind: shell\n - kind: claude\n - kind: git_changes\n\n - name: Frontend\n cwd: ~/projects/web\n panels:\n - kind: shell\n - kind: shell\n\npresets:\n - name: Shell\n alias: sh\n kind: shell\n - name: Claude Code\n alias: cc\n kind: claude\n - name: Git Changes\n alias: gc\n kind: git_changes\n\nfeatures:\n attention_feed: true\n\nSee AGENTS.md for development setup, architecture, coding standards, and CI requirements.\n\ncargo fmt --all -- --check\ncargo test --workspace\ncargo clippy --all-targets --all-features -- -D warnings\n\n MIT License",
+  "tags": [
+    "500-words",
+    "canvas",
+    "cargo",
+    "claude",
+    "claude code",
+    "ctrl",
+    "extract",
+    "github",
+    "horizon",
+    "infinite",
+    "open",
+    "panel",
+    "shell",
+    "terminal",
+    "terminals"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 3830,
+  "source": "The Verge",
+  "title": "Intel announces Core Ultra 200HX Plus CPUs for high-end gaming laptops",
+  "url": "https://www.theverge.com/tech/895921/intel-core-ultra-290hx-270hx-flagship-gaming-laptop-cpu",
+  "published_at": "2026-03-17T15:50:45Z",
+  "fetched_at": "2026-03-17T16:00:51.541994+00:00",
+  "author": "Antonio G. Di Benedetto",
+  "summary": "<figure>\n\n<img alt=\"A slide for the Intel Core Ultra 200HX Plus laptop chips, showing the key specs of the Core Ultra 9 290HX Plus and Core Ultra 7 270HX Plus CPUs.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/intel-core-ultra-200hx-plus-slide-crop.png?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Intel has a pair of new flagship CPUs coming to a variety of pricey gaming laptops: the Core Ultra 9 290 HX Plus and Core Ultra 7 270HX Plus. The Arrow Lake Refresh chips sport 24 cores / 24 threads and 20 cores / 20 threads, respectively. Like Intel's <a href=\"https://www.theverge.com/tech/892838/intel-core-ultra-270k-plus-250k-plus-fastest-gaming-cpu-ever\">recently announced desktop CPUs</a>, the new Plus models for laptops are \"pushed further for enthusiasts,\" and also feature the Intel Binary Optimization Tool that can improve native performance \"in select games.\"</p>\n<div class=\"image-s",
+  "full_text": "Intel has a pair of new flagship CPUs coming to a variety of pricey gaming laptops: the Core Ultra 9 290 HX Plus and Core Ultra 7 270HX Plus. The Arrow Lake Refresh chips sport 24 cores / 24 threads and 20 cores / 20 threads, respectively. Like Intel’s recently announced desktop CPUs, the new Plus models for laptops are “pushed further for enthusiasts,” and also feature the Intel Binary Optimization Tool that can improve native performance “in select games.”\n\nIntel’s Josh Newman states that the new chips “deliver meaningful, real‑world performance gains so users can experience smoother gameplay, faster creation workflows, and more responsive workstation performance.”\n\nThere aren’t a ton of details so far in Intel’s reference materials (like the performance of the 270HX Plus) but with what Intel claims is an 8 percent increase in gaming performance, it’s only a modest gain for the flagship 290HX Plus over the last-gen Core Ultra 9 285HX. For someone with a four-year-old processor like the “Alder Lake” Core i9-12900HX (16 cores / 24 threads), Intel claims a 62 percent uplift in 1080p gaming on high settings.\n\nIt’s a similar story with creative apps: Intel’s slide deck and charts claim the 290HX Plus scores 7 percent higher than the 285HX on Cinebench 2026 single thread performance, and 30 percent higher than the i9-12900HX.\n\nIntel doesn’t have any equivalent tests or claims for the Core Ultra 7 270HX Plus.\n\nThe 290HX Plus charts show test results on an MSI Titan 18, a gaming laptop costing nearly $6,000. I reviewed the Titan 18 with Intel’s 285HX chip and an RTX 5090 Laptop GPU, and it was a formidable (if also gigantic and outlandishly expensive) laptop for 4K gaming.\n\nThe new Arrow Lake Refresh chips will also have “up to 900MHz boost to the die-to-die frequency” for reducing system latency by increasing the speed of the CPU / memory controller link. There’s no word on when new laptops with the 290HX Plus and 270HX Plus chips will launch, but Intel defers to OEMs like Asus, Acer, MSI Alienware, Lenovo, HP, and Razer to launch new models soon.",
+  "tags": [
+    "500-words",
+    "chips",
+    "claims",
+    "core",
+    "core ultra",
+    "cores",
+    "cpus",
+    "gaming",
+    "intel",
+    "laptops",
+    "performance",
+    "plus",
+    "plus cpus",
+    "plus the",
+    "ultra",
+    "ultra hx"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": 3936,
+  "source": "Hacker News",
+  "title": "Show HN: I built an interactive 3D three-body problem simulator in the browser",
+  "url": "https://structuredlabs.github.io/threebodyproblem/",
+  "published_at": "2026-03-14T00:43:27Z",
+  "fetched_at": "2026-03-17T23:20:06.572375+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47372020\">Comments</a>",
+  "full_text": "Pause\n Reset\n \n\n Presets:\n Figure-8\n Helix\n 4-body\n Random 3D\n \n \n\n Data:\n Export\n Import\n \n \n\n Speed:\n \n 1×\n \n \n\n \n \n\n Integrator:\n RK4\n Euler\n Verlet\n \n \n\n Collisions: Off",
+  "tags": [
+    "200-words",
+    "euler",
+    "export",
+    "helix",
+    "import",
+    "pause",
+    "problem",
+    "random",
+    "reset",
+    "three body",
+    "verlet"
+  ]
+}

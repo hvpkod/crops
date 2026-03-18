@@ -1,0 +1,28 @@
+{
+  "id": 3833,
+  "source": "Hacker News",
+  "title": "Microsoft's 'unhackable' Xbox One has been hacked by 'Bliss'",
+  "url": "https://www.tomshardware.com/video-games/console-gaming/microsofts-unhackable-xbox-one-has-been-hacked-by-bliss-the-2013-console-finally-fell-to-voltage-glitching-allowing-the-loading-of-unsigned-code-at-every-level",
+  "published_at": "2026-03-17T15:16:29Z",
+  "fetched_at": "2026-03-17T16:01:01.586429+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47413876\">Comments</a>",
+  "full_text": "A groundbreaking hack for Microsoft’s ‘unhackable’ Xbox One was revealed at the recent RE//verse 2026 conference. This console has remained a fortress since its launch in 2013, but now Markus ‘Doom’ Gaasedelen has showcased the ‘Bliss’ double glitch. Just as the Xbox 360 famously fell to the Reset Glitch Hack (RGH), the Xbox One has now fallen to Voltage Glitch Hacking (VGH).\n\nRE//verse 2026: Hacking the Xbox One - YouTube\n\nWatch On \n\nGo deeper with TH Premium: CPU\n\n(Image credit: Tom's Hardware)\n\n“In 2013 some kind of iron curtain came down on security, of the Xbox ecosystem, and the Xbox One never got hacked,” noted Gaasedelen in his introduction. The same is true of the Xbox One’s successors, and Microsoft was rightly proud. Seven years after its launch, Microsoft engineers would still assert that the Xbox One was “the most secure product Microsoft has ever produced.”\n\n(Image credit: Markus ‘Doom’ Gaasedelen video presentation)\n\nWhat made the Xbox One so secure, so special? Gaasedelen referenced prior work and presentations to convey this information. I’ve shared a summary slide about this, too, but let’s fast forward to the demo of the new Bliss hack, which takes place from about 46 minutes into the presentation.Article continues below \n\nSince reset glitching wasn’t possible, Gaasedelen thought some voltage glitching could do the trick. So, instead of tinkering with the system rest pin(s) the hacker targeted the momentary collapse of the CPU voltage rail. This was quite a feat, as Gaasedelen couldn’t ‘see’ into the Xbox One, so had to develop new hardware introspection tools.\n\nEventually, the Bliss exploit was formulated, where two precise voltage glitches were made to land in succession. One skipped the loop where the ARM Cortex memory protection was setup. Then the Memcpy operation was targeted during the header read, allowing him to jump to the attacker-controlled data.\n\nAs a hardware attack against the boot ROM in silicon, Gaasedelen says the attack in unpatchable. Thus it is a complete compromise of the console allowing for loading unsigned code at every level, including the Hypervisor and OS. Moreover, Bliss allows access to the security processor so games, firmware, and so on can be decrypted.\n\nWhat happens next with this technique remains to be seen. Digital archivists should enjoy new levels of access to Xbox One firmware, OS, games. There could be subsequent emulation breakthroughs thanks to this effort. We also now have a route to making a Bliss-a-like mod chip to automate the precise electrical glitching required.\n\nGet Tom's Hardware's best news and in-depth reviews, straight to your inbox.\n\nWhether PC users, our core readership, will be interested in actually emulating Xbox One, looks unlikely. The 2013 system’s game library is largely overlapped in better quality on the PC platform.\n\nFollow Tom's Hardware on Google News, or add us as a preferred source, to get our latest news, analysis, & reviews in your feeds.",
+  "tags": [
+    "500-words",
+    "allowing",
+    "bliss",
+    "console",
+    "doom gaasedelen",
+    "fell",
+    "gaasedelen",
+    "glitching",
+    "hardware",
+    "markus doom",
+    "microsoft",
+    "tom",
+    "voltage",
+    "xbox",
+    "xbox one"
+  ]
+}

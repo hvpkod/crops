@@ -1,0 +1,29 @@
+{
+  "id": 3741,
+  "source": "Hacker News",
+  "title": "Pyodide: a Python distribution based on WebAssembly",
+  "url": "https://github.com/pyodide/pyodide",
+  "published_at": "2026-03-13T17:34:45Z",
+  "fetched_at": "2026-03-17T03:20:12.552390+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47367298\">Comments</a>",
+  "full_text": "Pyodide is a Python distribution for the browser and Node.js based on WebAssembly.\n\nPyodide is a port of CPython to WebAssembly/Emscripten.\n\nPyodide makes it possible to install and run Python packages in the browser with\nmicropip. Any pure Python package with a wheel\navailable on PyPi is supported. Many packages with C, C++, and Rust extensions\nhave also been ported for use with Pyodide. These include many general-purpose\npackages such as regex, PyYAML, and cryptography, and scientific Python packages\nincluding NumPy, pandas, SciPy, Matplotlib, and scikit-learn.\n\nPyodide comes with a robust Javascript ⟺ Python foreign function interface so\nthat you can freely mix these two languages in your code with minimal friction.\nThis includes full support for error handling, async/await, and much more.\n\nWhen used inside a browser, Python has full access to the Web APIs.\n\nTry Pyodide (no installation needed)\n\nTry Pyodide in a\nREPL directly in\nyour browser. For further information, see the\ndocumentation.\n\nThe Components of the Pyodide Project\n\nThe Pyodide project consists of the following components:\n\nA build of CPython with a few patches (https://github.com/pyodide/pyodide/tree/main/cpython/)\n\nA JS/Python foreign function interface\n(https://github.com/pyodide/pyodide/tree/main/src/core and\nhttps://github.com/pyodide/pyodide/tree/main/src/py)\n\nJavaScript code for creating and managing Pyodide interpreters\n(https://github.com/pyodide/pyodide/tree/main/src/js)\n\nA choice of Emscripten platform, which consists of a version + ABI-sensitive\nflags + static libraries to link. This is described\nhere and implemented in\n(https://github.com/pyodide/pyodide/tree/main/Makefile.envs)\n\nA toolchain for cross compiling\ntesting and\ninstalling packages for Pyodide.\n\nPyodide was created in 2018 by Michael Droettboom\nat Mozilla as part of the Iodide\nproject. Iodide is an experimental\nweb-based notebook environment for literate scientific computing and\ncommunication.\n\nIodide is no longer maintained. If you want to use Pyodide in an interactive\nclient-side notebook, see Pyodide notebook\nenvironments.\n\nPlease view the contributing\nguide for tips\non filing issues, making changes, and submitting pull requests. Pyodide is an\nindependent and community-driven open-source project. The decision-making\nprocess is outlined in the Project\ngovernance.\n\nSponsors\n\nFor a full list of current and historical sponsors, please see the Funding section of our About page.\n\nPyodide also has a large number of small donors. If you’re interested in supporting Pyodide, check out our OpenCollective and GitHub Sponsors pages.\n\nPyodide uses the Mozilla Public License Version\n2.0.",
+  "tags": [
+    "500-words",
+    "based",
+    "browser",
+    "distribution",
+    "fortnox world",
+    "full",
+    "github",
+    "iodide",
+    "node",
+    "packages",
+    "project",
+    "pyodide",
+    "python",
+    "try pyodide",
+    "webassembly",
+    "webassembly github"
+  ]
+}

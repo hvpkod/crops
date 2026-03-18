@@ -1,0 +1,26 @@
+{
+  "id": 3801,
+  "source": "Hacker News",
+  "title": "How long does it take to get last liquid drops from kitchen containers?",
+  "url": "https://www.brown.edu/news/2026-03-04/kitchen-fluid-dynamics",
+  "published_at": "2026-03-12T22:51:04Z",
+  "fetched_at": "2026-03-17T14:40:58.816582+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47358335\">Comments</a>",
+  "full_text": "PROVIDENCE, R.I. [Brown University] — At some point, most people have found themselves holding a tilted carton of milk or bottle of cooking oil, patiently waiting for the last drops to drip out. Now, physicists at Brown University have done the math to show just how long you might have to wait.\n\nIn a study published in Physics of Fluids, the researchers used the Navier-Stokes equations — the bedrock math of fluid flows — and a few experiments to investigate the behavior of thin liquid films that commonly crop up in the kitchen, including the time needed to get the last gravity-defying drops from a container.\n\nThe wait time, the researchers found, can vary widely depending on the viscosity of the liquid. For relatively low-viscosity liquids like milk, it takes roughly 30 seconds to drain 90% of a thin liquid film from a container tilted at a 45-degree angle. For more viscous fluids like olive oil, it takes a lot longer — over nine minutes for 90% recovery.\n\nThe research by Ph.D. candidate Thomas Dutta and physics professor Jay Tang grew out of the regular work that Tang does in his lab at Brown. He studies the biophysics of bacteria — how single-celled organisms move and how swarms of bacteria expand on moist surfaces. The work requires a detailed understanding of fluid mechanics, which Dutta needed to learn. To develop that, the pair decided to think about more everyday physics rather than focusing specifically on lab applications.\n\nThey settled on two questions from their own experiences in the kitchen. Dutta remembered his grandmother obsessively trying to get the last drops out of containers. Tang had a question of his own — how to get rid of residual water after washing a cast iron wok.\n\n“In both cases, the relevant physics involves the flow of thin layers of fluid on a surface,” Dutta said. “This physics is everywhere in our regular research as well, so we decided that this would be a nice training exercise.”\n\nFor the study, Dutta used the “viscous regime” of the Navier Stokes equations, which describes the movement of liquids whose internal friction dominates their movement. He used the equations to make predictions about how long it would take fluids of varying viscosities to make their way along a tilted surface. He combined theoretical calculations with experiments that involved fluids flowing down a plate held at a 45-degree angle. By weighing the liquid as it flowed off the plate, he could determine when 90% of it had decanted.\n\nThe experiments broadly confirmed the theoretical calculations, and enabled Dutta to estimate the decanting times for liquids of varying viscosities. Water, for example, decanted to the 90% level in just a few seconds. Cold maple syrup, on the other hand, could take up to a few hours.\n\nThe wok problem\n\nDutta used similar calculations on Tang’s wok problem. After washing a wok, Tang avoids drying it with a cloth because that could wipe away some of the oil seasoning that keeps food from sticking. But he also doesn’t want it to stay wet because it could rust. So he has developed his own system for dealing with the problem.\n\n“After I dump out the water from washing, there’s always going to be a film of residual water,” Tang explained. “So I usually wait a few minutes to let that film of water collect in the bottom, then just dump it again.”\n\nThe key is waiting long enough for the water to pool before dumping but not waiting so long that the water promotes rust in the wok as it slowly evaporates.\n\nDutta developed a computer simulation using the fluid mechanics equations to estimate the optimal wait time, which turned out to be around 15 minutes.\n\n“I was surprised and actually a little disappointed,” Tang said. “I usually wait only about one or two minutes, but it turns out that I need to be a lot more patient.”\n\nIn addition to learning exactly how long to wait before draining his wok, the work was an important training exercise that has important implications for his lab’s work.\n\n“This was a really nice scientific conversation for Thomas and me to have,” Tang said. “But besides the training side, this physics is everywhere in our main research. It just happens to also be the everyday fluid physics of the kitchen. So there is also just the pure joy of doing physics in a way that connects with the public.”",
+  "tags": [
+    "1000-words",
+    "brown university",
+    "drops",
+    "dutta",
+    "fluid",
+    "liquid",
+    "navier stokes",
+    "physics",
+    "tang",
+    "tilted",
+    "wait",
+    "waiting",
+    "water"
+  ]
+}
