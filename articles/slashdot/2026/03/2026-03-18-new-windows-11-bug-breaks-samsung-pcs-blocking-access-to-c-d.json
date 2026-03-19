@@ -1,0 +1,28 @@
+{
+  "id": 4112,
+  "source": "Slashdot",
+  "title": "New Windows 11 Bug Breaks Samsung PCs, Blocking Access To C: Drive",
+  "url": "https://it.slashdot.org/story/26/03/18/2020255/new-windows-11-bug-breaks-samsung-pcs-blocking-access-to-c-drive?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-18T21:00:00Z",
+  "fetched_at": "2026-03-18T21:40:16.755095+00:00",
+  "author": "BeauHD",
+  "summary": "Longtime Slashdot reader UnknowingFool writes: Users of Samsung PCs are reporting the inability to access the C: drive after the Windows 11 February update. The bug seems to be in connection with the Samsung Galaxy Connect app, which allows Samsung phones and tablets to connect to Windows machines. [A previous stable version of the app has been re-released to prevent this problem from spreading.] This parody explains the situation with humor. The issue stems from update KB5077181 and is impacting Samsung PCs running Windows 11 25H2 or 24H2. Microsoft and Samsung have confirmed the issue and published a workaround, but as PCWorld notes, it will take some time. The workaround \"requires removing the Samsung application, then asking Windows to repair the drive permissions and assigning a new owner, then restoring the Windows default permissions, including patching in some custom code that Microsoft wrote.\"<p><div class=\"share_submission\">\n<a class=\"slashpop\" href=\"http://twitter.com/home?s",
+  "full_text": "Longtime Slashdot reader UnknowingFool\n\n writes: Users of Samsung PCs are reporting the inability to access the C: drive after the Windows 11 February update. The bug seems to be in connection with the Samsung Galaxy Connect app, which allows Samsung phones and tablets to connect to Windows machines. [A previous stable version of the app has been re-released to prevent this problem from spreading.] This parody explains the situation with humor.\n\n The issue stems from update KB5077181\n\n and is impacting Samsung PCs running Windows 11 25H2 or 24H2. Microsoft and Samsung have confirmed\n\n the issue and published a workaround\n\n, but as PCWorld notes, it will take some time. The workaround \"requires removing the Samsung application, then asking Windows to repair the drive permissions and assigning a new owner, then restoring the Windows default permissions, including patching in some custom code that Microsoft wrote.\"",
+  "tags": [
+    "200-words",
+    "access",
+    "blocking",
+    "blocking access",
+    "breaks",
+    "bug breaks",
+    "connect",
+    "drive",
+    "issue",
+    "microsoft",
+    "new windows",
+    "samsung",
+    "samsung pcs",
+    "windows",
+    "workaround"
+  ]
+}

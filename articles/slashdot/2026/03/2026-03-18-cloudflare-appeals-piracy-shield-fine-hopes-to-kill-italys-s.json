@@ -1,0 +1,32 @@
+{
+  "id": 4153,
+  "source": "Slashdot",
+  "title": "Cloudflare Appeals Piracy Shield Fine, Hopes To Kill Italy's Site-Blocking Law",
+  "url": "https://yro.slashdot.org/story/26/03/18/2059236/cloudflare-appeals-piracy-shield-fine-hopes-to-kill-italys-site-blocking-law?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-18T23:00:00Z",
+  "fetched_at": "2026-03-19T00:20:23.433523+00:00",
+  "author": "BeauHD",
+  "summary": "Cloudflare is appealing a 14.2 million-euro fine from Italy for refusing to comply with its \"Piracy Shield\" law, which requires blocking access to websites on its 1.1.1.1 DNS service within 30 minutes. The company argues the system lacks oversight, risks widespread overblocking, and could undermine core Internet infrastructure. Ars Technica's Jon Brodkin reports: Piracy Shield is \"a misguided Italian regulatory scheme designed to protect large rightsholder interests at the expense of the broader Internet,\" Cloudflare said in a blog post this week. \"After Cloudflare resisted registering for Piracy Shield and challenged it in court, the Italian communications regulator, AGCOM, fined Cloudflare... We appealed that fine on March 8, and we continue to challenge the legality of Piracy Shield itself.\" Cloudflare called the fine of 14.2 million euros ($16.4 million) \"staggering.\" AGCOM issued the penalty in January 2026, saying Cloudflare flouted requirements to disable DNS resolution of domai",
+  "full_text": "Cloudflare is appealing a 14.2 million-euro fine\n\n from Italy for refusing to comply with its \"Piracy Shield\" law, which requires blocking access to websites on its 1.1.1.1 DNS service within 30 minutes. The company argues the system lacks oversight, risks widespread overblocking, and could undermine core Internet infrastructure\n\n. Ars Technica's Jon Brodkin reports: Piracy Shield is \"a misguided Italian regulatory scheme designed to protect large rightsholder interests at the expense of the broader Internet,\" Cloudflare said in a blog post this week. \"After Cloudflare resisted registering for Piracy Shield and challenged it in court, the Italian communications regulator, AGCOM, fined Cloudflare... We appealed that fine on March 8, and we continue to challenge the legality of Piracy Shield itself.\" Cloudflare called the fine of 14.2 million euros ($16.4 million) \"staggering.\" AGCOM issued the penalty in January 2026, saying Cloudflare flouted requirements to disable DNS resolution of domain names and routing of traffic to IP addresses reported by copyright holders.\n\n \n\nCloudflare had previously resisted a blocking order it received in February 2025, arguing that it would require installing a filter on DNS requests that would raise latency and negatively affect DNS resolution for sites that aren't subject to the dispute over piracy. Cloudflare co-founder and CEO Matthew Prince said that censoring the 1.1.1.1 DNS resolver would force the firm \"not just to censor the content in Italy but globally.\"\n\n \n\nPiracy Shield was designed to combat pirated streams of live sports events, requiring network operators to block domain names and IP addresses within 30 minutes of receiving a copyright notification. Cloudflare said the fine should have been capped at 140,000 euros ($161,000), or 2 percent of its Italian earnings, but that \"AGCOM calculated the fine based on our global revenue, resulting in a penalty nearly 100 times higher than the legal limit.\"\n\n \n\nDespite its complaints about the size of the fine, Cloudflare said the principles at stake \"are even larger\" than the financial penalty. \"Piracy Shield is an unsupervised electronic portal through which an unidentified set of Italian media companies can submit websites and IP addresses that online service providers registered with Piracy Shield are then required to block within 30 minutes,\" Cloudflare said. \n\n Cloudflare is pushing for the law to be struck down, arguing that it is \"incompatible with EU law, most notably the Digital Services Act (DSA), which requires that any content restriction be proportionate and subject to strict procedural safeguards.\"\n \n\nIn addition to appealing the fine, Cloudflare says it will continue to challenge Piracy Shield in Italian courts, engage with EU officials, and seek full access to AGCOM's Piracy Shield records.",
+  "tags": [
+    "500-words",
+    "addresses",
+    "agcom",
+    "appealing",
+    "blocking",
+    "cloudflare",
+    "cloudflare appeals",
+    "dns",
+    "fine",
+    "fine hopes",
+    "italian",
+    "italy",
+    "kill italy",
+    "law",
+    "piracy",
+    "piracy shield",
+    "requires",
+    "shield",
+    "site blocking"
+  ]
+}

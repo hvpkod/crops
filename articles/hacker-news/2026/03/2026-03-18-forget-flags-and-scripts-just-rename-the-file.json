@@ -1,0 +1,29 @@
+{
+  "id": 3963,
+  "source": "Hacker News",
+  "title": "Forget Flags and Scripts: Just Rename the File",
+  "url": "https://robertsdotpm.github.io/software_engineering/program_names_as_input.html",
+  "published_at": "2026-03-18T04:11:20Z",
+  "fetched_at": "2026-03-18T05:20:11.996523+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47421513\">Comments</a>",
+  "full_text": "Forget Flags and Scripts: Just Rename the File\n\nPrograms usually get input from flags or scripts. But there’s another way: a program can read its own filename. That means the entire configuration can live in the file name itself, making programs self-contained, portable, and instantly shareable.\n\nWhy not just flags or scripts?\n\nFlags are ephemeral – you have to share the command line or wrap it in a script. Scripts depend on environment, which can break portability. Filenames solve both: the program describes itself, requires zero setup, and any configuration can be shared by simply renaming the file.\n\nExample 1: Reusable installers\n\nImagine install_PY3_MODULE_NAME.exe. It reads the filename, extracts the Python module name, downloads dependencies, sets up Python if needed, and creates a launcher. Rename it, and you have a new installer for a different project. Icons, mirrors, or other metadata can also live in the file as resources – all self-contained, all shareable.\n\nSee my exploration: here\n\nExample 2: AI experiment runners\n\nML experiments usually require scripts, configs, and data setup. Imagine a single executable:\n\ntrain---resnet50---lr0.001---batch32---cifar10.exe\n\nIt parses its filename, downloads datasets, sets hyperparameters, installs dependencies, and runs automatically. Rename it for a new model, dataset, or parameters.\n\nShare the file, reproduce instantly.\n\nExample 3: Ephemeral utilities\n\nSmall ad-hoc tasks can also be encoded in filenames:\n\ncompress---photos---high.exe\nbackup---home---encrypt-aes256.exe\nfetch---api.github.com---repos/owner/project---q=stars>100---o=json.exe\n\nEach file does its job immediately. Rename to perform a new task. Share it. No setup, no instructions. Everything is self-contained in the name.\n\nExample 4: P2P VPN tunnels\n\nVPNs between friends are usually tricky to set up. Imagine:\n\nlounge-room---friends-machine---t25565---minecraft.exe\n\nFirst two parts: machine names, automatically registered with a server using ECDSA keys.\n\nThird part: ports to open.\n\nOptional: description.\n\nRun the file to open one side of the tunnel. Rename for new endpoints or ports. Send to a friend, they open their side, tunnel is connected, game on. No config, no editing, zero friction.\n\nClosing thoughts\n\nThis approach collapses configuration, portability, and reproducibility into a single artifact. It challenges conventional assumptions: using filenames as the interface. For installers, AI experiments, utilities, or even VPNs, renaming the file is all it takes to change behavior.",
+  "tags": [
+    "500-words",
+    "configuration",
+    "example",
+    "file",
+    "flags",
+    "forget",
+    "forget flags",
+    "fortnox world",
+    "imagine",
+    "just rename",
+    "live",
+    "program",
+    "programs",
+    "rename",
+    "scripts just",
+    "usually"
+  ]
+}

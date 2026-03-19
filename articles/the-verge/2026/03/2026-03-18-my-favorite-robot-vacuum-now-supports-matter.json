@@ -1,0 +1,26 @@
+{
+  "id": 4071,
+  "source": "The Verge",
+  "title": "My favorite robot vacuum now supports Matter",
+  "url": "https://www.theverge.com/tech/896775/matic-robot-vacuum-apple-home-matter",
+  "published_at": "2026-03-18T17:30:07Z",
+  "fetched_at": "2026-03-18T18:00:08.104331+00:00",
+  "author": "Jennifer Pattison Tuohy",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/258028_Matic_Robot_Vacuum_JTuohy_0013.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tThe Matic robot vacuum finally adds smart home control. | Photo by Jennifer Pattison Tuohy / The Verge\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\"><a href=\"https://maticrobots.com/\">Matic</a>, my current <a href=\"https://www.theverge.com/22997597/best-robot-vacuum-cleaner\">top pick</a> for the best robot vacuum, just got a big update. The unique-looking floor bot now <a href=\"https://maticrobots.com/blog/matic-release-notes#:~:text=Introducing%20enhanced%20smart%20home%20compatibility%3A%20Connect%20and%20control%20Matic%20across%20Apple%20Home%20and%20Google%20Home%2C%20enabling%20automations%2C%20and%20seamless%20control%20alongside%20your%20existing%20smart%20home%20setup.%20Found%20in%20Settings%20under%20Connectivity.\">works with Google Home and Apple Home</a>, with suppor",
+  "full_text": "Matic, my current top pick for the best robot vacuum, just got a big update. The unique-looking floor bot now works with Google Home and Apple Home, with support coming through the smart home standard Matter.\n\nThis enables voice control and smart home integrations, features that have been missing from the robot since launch. Now you can set up automations such as “Run Matic when everyone leaves home,” “Dock the robot when I arrive home,” or “Stop Matic when the door unlocks.”\n\nThe Matter integration isn’t yet certified and doesn’t work with all the platforms, but it’s a good start. However, as it’s still unofficial, there are some rough edges.\n\nThe company notes in a Reddit post that while the Google Home and Home Assistant integrations are both “solid experiences,” Apple Home and Siri still “feel clunky.” There’s no Alexa support yet, but Matic says that will come with full certification.\n\nMatic is a US-based robot vacuum manufacturer that was founded by two former Google Nest engineers. Its sole product, the Matic, stands out in the sea of robot vacuums for a few reasons: it rarely gets stuck, it cleans really well, it’s cute, but, annoyingly, it can’t get under your bed. The biggest plus for many people is that Matic can run entirely locally — there’s no internet connection required to clean your floors. All processing and mapping is done on the device.\n\nThis is one reason why the company took so long to integrate smart home control. Matter allows for full local control, but isn’t as straightforward to implement as connecting to cloud APIs, as most other integrations require.\n\nAccording to a Reddit post from Matic, “Building it the right way took longer than we wanted, especially since everything about Matic runs on-device, locally, and privately. Making that play nicely with external ecosystems without giving up what makes Matic special wasn’t easy.” The company also says that only basic data, such as room names and operational state, is shared with the smart home platforms – no maps or personal info.\n\nMy experience so far has been positive. Setup was quick; I just tapped on a new “Connect to Smart Home App” option in the Matic app’s Settings, then selected the “Entering Pairing Mode” prompt.\n\nThe app directed me to open the Apple Home or Google Home app and set up a new device. I went with Apple, using its onboarding flow to scan the Matter setup code displayed on the vacuum’s small screen. It worked the first time, and added the vacuum to Apple Home, where I can start, stop, and pause a clean, direct it to vacuum or mop, and enable automations such as “When the last person leaves, start Matic.” I’m also able to control the robot with voice, using Siri to tell it to start, stop, and pause.\n\nI particularly like the voice upgrade as a way of controlling the Matic. When I first started testing the robot, the only way to start it outside of scheduling it was through the app. They have since enabled the button on the robot to start a full clean, but voice control adds another option. Unfortunately, I haven’t been able to get it to respond to a voice command to clean a specific room yet; that must be some of the “clunky” the Matic team is still working on.\n\nI was a big fan of Matic even without smart home support or voice control, and this update makes it even easier to use — and the fact that it all still runs locally is a big win.",
+  "tags": [
+    "1000-words",
+    "apple",
+    "apple home",
+    "google",
+    "google home",
+    "home",
+    "matic",
+    "matter",
+    "robot",
+    "smart",
+    "support",
+    "vacuum",
+    "voice"
+  ]
+}

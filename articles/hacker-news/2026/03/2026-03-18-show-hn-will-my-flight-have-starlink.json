@@ -1,0 +1,30 @@
+{
+  "id": 4073,
+  "source": "Hacker News",
+  "title": "Show HN: Will my flight have Starlink?",
+  "url": "https://news.ycombinator.com/item?id=47428650",
+  "published_at": "2026-03-18T17:29:21Z",
+  "fetched_at": "2026-03-18T18:00:18.222159+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47428650\">Comments</a>",
+  "full_text": "Hey HN, If you’ve been lucky enough to be on a flight with Starlink, you understand the hype. It actually works!\n\nHowever, its availability on flights is patchy and hard to predict. So we built a database of all airlines that have rolled out Starlink (beyond just a trial), and a flight search tool to predict it. Plug in a flight number and date, and we'll estimate the likelihood of Starlink on-board based on aircraft type and tail number.\n\nIf you don’t have any trips coming up, you can also look up specific routes to see what flights offer Starlink. You can find it here: https://stardrift.ai/starlink .\n\n-\n\nI wanted to add a few notes on how this works too. There are three things we check, in order, when we answer a query:\n\n- Does this airline have Starlink?\n\n- Does this aircraft body have Starlink?\n\n- Does this specific aircraft have Starlink?\n\nOnly a few airlines at all have Starlink right now: United, Hawaiian, Alaskan, Air France, Qatar, JSX, and a handful of others. So if an aircraft is operated by any other airline, we can issue a blanket no immediately.\n\nThen, we check the actual body that's flying on the plane. Airlines usually publish equipment assignments in advance, and they're also rolling out Starlink body-by-body. So we know, for instance, that all JSX E145s have Starlink and that none of Air France's A320s have Starlink. (You can see a summary of our data at https://stardrift.ai/starlink/fleet-summary, though the live logic has a few rules not encoded there.)\n\nIf there's a complete match at the body type level, we can confidently tell you your flight will have Starlink. However, in most cases, the airline has only rolled out a partial upgrade to that aircraft type. In that case, we need to drill down a little more and figure out exactly which plane is flying on your route.\n\nWe can do this by looking up the 'tail number' (think of it as a license plate for the plane). Unfortunately, the tail number is usually only assigned a few days before a flight. So, before that, the best we can do is calculate the probability that your plane will be assigned an aircraft with Starlink enabled.\n\nTo do this, we had to build a mapping of aircraft tails to Starlink status. Here, I have to thank online airline enthusiasts who maintain meticulous spreadsheets and forum threads to track this data! As I understand it, they usually get this data from airline staff who are enthusiastic about Starlink rollouts, so it's a reliable, frequently updated source. Most of our work was finding each source, normalizing their formats, building a reliable & responsible system to pull them in, and then tying them together with our other data sources.\n\nBasically, it's a data normalization problem! I used to work on financial data systems and I was surprised how similar this problem was.\n\n-\n\nStarlink itself is also a pretty cool technology. I also wrote a blog post (https://stardrift.ai/blog/why-is-starlink-so-good) on why it's so much better than all the other aircraft wifi options out there. At a high level, it's only possible because rocket launches are so cheap nowadays, which is incredibly cool.\n\nThe performance is great, so it's well worth planning your flights around it where possible. Right now, your best bet in the US is on United regional flights and JSX/Hawaiian. Internationally, Qatar is the best option (though obviously not right now), with Air France a distance second. This will change throughout the year as more airlines roll it out though, and we'll keep our database updated!",
+  "tags": [
+    "1000-words",
+    "air france",
+    "aircraft",
+    "airline",
+    "airlines",
+    "body",
+    "data",
+    "flight",
+    "flights",
+    "france",
+    "jsx",
+    "right",
+    "show hn",
+    "starlink",
+    "starlink does",
+    "starlink you",
+    "usually"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": 4065,
+  "source": "The Verge",
+  "title": "PSA: Hackers can raid iOS 18 with an infected link",
+  "url": "https://www.theverge.com/tech/896841/iphone-ios-18-attack-darksword",
+  "published_at": "2026-03-18T16:45:45Z",
+  "fetched_at": "2026-03-18T17:20:37.681638+00:00",
+  "author": "Emma Roth",
+  "summary": "<figure>\n\n<img alt=\"iPhone Air surrounded by glass domes\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/DSC02117.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">If you've been putting off an update to iOS 26, now might be the time to do it. On Wednesday, security researchers published findings on a new hacking tool that targets iPhones running iOS 18.4 to 18.6.2, <a href=\"https://www.wired.com/story/hundreds-of-millions-of-iphones-can-be-hacked-with-a-new-tool-found-in-the-wild/\">as reported earlier by <em>Wired</em></a>. The \"DarkSword\" exploit allows bad actors to scoop up the personal information on iPhones that visit malicious links, and has already been used by Russian hackers.</p>\n<p class=\"has-text-align-none\">The <a href=\"https://cloud.google.com/blog/topics/threat-intelligence/darksword-ios-exploit-chain\">Google Threat Intelligence Group</a> worked with the cybersecurity firm",
+  "full_text": "If you’ve been putting off an update to iOS 26, now might be the time to do it. On Wednesday, security researchers published findings on a new hacking tool that targets iPhones running iOS 18.4 to 18.6.2, as reported earlier by Wired. The “DarkSword” exploit allows bad actors to scoop up the personal information on iPhones that visit malicious links, and has already been used by Russian hackers.\n\nThe Google Threat Intelligence Group worked with the cybersecurity firms Lookout and iVerify to analyze the attack, which could affect up to 270 million devices still running the impacted versions of iOS 18. When a user accesses a compromised website, Google says DarkSword uses “six different vulnerabilities” to carry out an attack targeting Safari, giving bad actors the ability to collect text messages, contacts, saved credentials, iCloud files, photos, cryptocurrency wallets, call logs, location history, and more.\n\nGoogle says it reported the vulnerability to Apple in late 2025. In an emailed statement to The Verge, Apple spokesperson Sarah O’Rourke confirmed that Apple had patched all “underlying vulnerabilities” in iOS last year before issuing an “emergency software update last week for older devices that were unable to update to more recent versions of iOS.”\n\nDarkSword uses a “hit-and-run” design that allows attackers to “extract high-value data and disappear before traditional detection methods can respond,” according to Lookout. Google says suspected Russian state-sponsored hackers used DarkSword to target users in Ukraine, Saudi Arabia, Malaysia, and Turkey. These hackers were also discovered using an iOS exploit kit called Coruna, which Google highlighted in a report earlier this month. iVerify notes that the Russia-linked hackers left the DarkSword code “unobfuscated, unprotected and easily accessible,” making it easy for other bad actors to access and potentially redeploy.\n\nGoogle, Lookout, and iVerify found that the attack doesn’t impact users in Lockdown Mode, an “extreme” security feature for the iPhone that protects journalists, activists, and politicians from targeted attacks. Apple and Google have also blocked the malicious links used in DarkSword attacks in Safari and Chrome.\n\n“Keeping software up to date remains the single most important thing users can do to maintain the high security of their Apple devices as these updates include the latest security fixes and protections,” O’Rourke says.",
+  "tags": [
+    "500-words",
+    "actors",
+    "apple",
+    "darksword",
+    "devices",
+    "google",
+    "hackers",
+    "iverify",
+    "lookout",
+    "malaysia",
+    "psa hackers",
+    "russia",
+    "saudi arabia",
+    "security",
+    "turkey",
+    "ukraine",
+    "update",
+    "users"
+  ]
+}

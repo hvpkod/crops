@@ -1,0 +1,26 @@
+{
+  "id": 4041,
+  "source": "Hacker News",
+  "title": "A tiny, decentralised tool to explore the small web",
+  "url": "https://codeberg.org/susam/wander",
+  "published_at": "2026-03-18T15:57:48Z",
+  "fetched_at": "2026-03-18T16:40:13.583380+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47427388\">Comments</a>",
+  "full_text": "Wander the Small Web\n\nWander is a small, decentralised, self-hosted web console that lets\nyour visitors explore random pages from a community of personal\nwebsites.\n\nEach Wander console loads personal websites and pages recommended by\nthe Wander community. Further, each Wander console can link to other\nWander consoles, forming a lightweight, decentralised network for\nbrowsing the small web of personal websites.\n\nVisit https://susam.net/wander/ to see an example of Wander console.\n\nHow It Works\n\nA Wander console does two things:\n\nWander pages: It loads a random page from a list of websites\nand pages recommended by the community.\n\nWander consoles: It can send the visitor to another Wander\nconsole on a different website, where they can continue wandering\nthe Web using the new Wander console.\n\nA Wander console is just a directory on your web server with two files:\n\nindex.html - This is the HTML tool that implements the Wander console.\n\nwander.js - This is where you define the list of\nwebsites and pages you recommend and the other Wander consoles you\nwant your console to link to.\n\nThe most interesting aspect of Wander console is that everything\nhappens on the client-side, on the user's web browser. As a website\nowner, you do not need to set up any server-side components. The only\nthing you need to do is place the above two files somewhere on your\nwebserver, preferrably, at the directory /wander/.\n\nWandering the Web\n\nA visitor begins at a Wander console. This might be your own console\nor someone else's. For example, you could start at\nhttps://susam.net/wander/ right now.\n\nOnce on a Wander console, the visitor can click the Wander button\nat the top left to visit websites and pages recommended by the\ncommunity.\n\nThe first time you wander, the recommendation comes from the current\nconsole. The second time you wander, it comes from another console\nlinked by the first. The third time you wander, it comes from a\nconsole linked by the second, and so on. In each hop, a console is\nchosen at random from those linked by the previous one. A website\nrecommendation is then chosen at random from that console. In this\nway, each hop takes you deeper and deeper into the Wander network.\n\nSetup\n\nDownload this bundle:\nhttps://codeberg.org/susam/wander/archive/main.zip\n\nExtract the following files:\n\nPlace them on your website, for example:\nwander\n├── index.html\n└── wander.js\n\nOpen wander.js and edit the following JavaScript object:\nwindow.wander = {\n consoles: [\n ],\n pages: [\n ],\n}\n\nThe value for the pages property is a list of websites and pages\nyou recommend to the community.\n\nThe vlaue for the consoles property is a list of consoles your\nconsole should link to.\n\nPlease see https://susam.net/wander/wander.js for an example.\n\nOnce your console is live, share it with others in the following\ncommunity thread:\n\n#1\n\nHopefully, someone will link to your console and then visitors to\ntheir console may receive recommendations from your wander.js.\n\nLicence\n\nThis is free and open source software. You can use, copy, modify,\nmerge, publish, distribute, sublicence and/or sell copies of it, under\nthe terms of the MIT Licence. See LICENCE.md for details.\n\nThis software is provided \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nexpress or implied. See LICENCE.md for details.",
+  "tags": [
+    "1000-words",
+    "console",
+    "link",
+    "list",
+    "pages",
+    "personal",
+    "random",
+    "recommended",
+    "see licence",
+    "small",
+    "wander",
+    "web",
+    "websites"
+  ]
+}

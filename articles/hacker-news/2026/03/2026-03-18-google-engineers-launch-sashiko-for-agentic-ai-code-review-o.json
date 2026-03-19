@@ -1,0 +1,32 @@
+{
+  "id": 4067,
+  "source": "Hacker News",
+  "title": "Google Engineers Launch \"Sashiko\" for Agentic AI Code Review of the Linux Kernel",
+  "url": "https://www.phoronix.com/news/Sashiko-Linux-AI-Code-Review",
+  "published_at": "2026-03-18T16:17:44Z",
+  "fetched_at": "2026-03-18T17:21:02.767520+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47427647\">Comments</a>",
+  "full_text": "Google engineers have been spending the past number of months developing Sashiko as an agentic AI code review system for the Linux kernel. It's now open-source and publicly available and will continue to do upstream Linux kernel code review thanks to funding from Google.\n\nRoman Gushchin of Google's Linux kernel team announced yesterday as this new agentic AI code review system. They have been using it internally at Google for some time to uncover issues and it's now publicly available and covering all submissions to the Linux kernel mailing list. Roman reports that Sashiko was able to find around 53% of bugs based on an unfiltered set of 1,000 recent upstream Linux kernel issues with \"Fixes: \" tag.\n\n\"In my measurement, Sashiko was able to find 53% of bugs based on a completely unfiltered set of 1000 recent upstream issues based on \"Fixes:\" tags (using Gemini 3.1 Pro). Some might say that 53% is not that impressive, but 100% of these issues were missed by human reviewers.\"\n\nRoman's announcement can be read on LinkedIn\n\n. Sashiko was designed for Google Gemini Pro 3.1 but should work work with Claude and likely other LLMs too.\n\nGoogle is funding the Sashiko token budget and infrastructure while the project hosting is being moved to the Linux Foundation. The code itself is open-source on GitHub\n\n.\n\nThose wanting to check out the web interface to Sashiko for this upstream agentic code review of Linux kernel patches can find it at Sashiko.dev\n\n.",
+  "tags": [
+    "500-words",
+    "agentic",
+    "ai",
+    "code",
+    "code review",
+    "find",
+    "for agentic",
+    "gemini pro",
+    "google",
+    "google engineers",
+    "issues",
+    "kernel",
+    "launch sashiko",
+    "linux",
+    "review",
+    "roman",
+    "sashiko",
+    "the linux",
+    "upstream"
+  ]
+}

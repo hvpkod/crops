@@ -1,0 +1,29 @@
+{
+  "id": 4103,
+  "source": "Hacker News",
+  "title": "FBI is buying location data to track US citizens, director confirms",
+  "url": "https://techcrunch.com/2026/03/18/fbi-is-buying-location-data-to-track-us-citizens-kash-patel-wyden/",
+  "published_at": "2026-03-18T20:09:52Z",
+  "fetched_at": "2026-03-18T20:40:08.568218+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47430797\">Comments</a>",
+  "full_text": "The FBI has resumed purchasing reams of Americans’ data and location histories to aid federal investigations, the agency’s director, Kash Patel, testified to lawmakers on Wednesday.\n\nThis is the first time since 2023 that the FBI has confirmed it was buying access to people’s data collected from data brokers, who source much of their information — including location data — from ordinary consumer phone apps and games, per Politico. At the time, then-FBI director Christopher Wray told senators that the agency had bought access to people’s location data in the past but that it was not actively purchasing it.\n\nWhen asked by U.S. Senator Ron Wyden, Democrat of Oregon, if the FBI would commit to not buying Americans’ location data, Patel said that the agency “uses all tools … to do our mission.”\n\n“We do purchase commercially available information that is consistent with the Constitution and the laws under the Electronic Communications Privacy Act — and it has led to some valuable intelligence for us,” Patel testified Wednesday.\n\nWyden said buying information on Americans without obtaining a warrant was an “outrageous end-run around the Fourth Amendment,” referring to the constitutional law that protects people in America from device searches and data seizures.\n\nWhen reached by TechCrunch, a spokesperson for the FBI declined to comment beyond Patel’s remarks, and did not provide answers to questions about the agency’s purchase of commercial data, including how often the FBI obtained location data and from which brokers.\n\nGovernment agencies typically have to convince a judge to authorize a search warrant based on some evidence of a crime before they can demand private information about a person from a tech or phone company. But in recent years, U.S. agencies have skirted this legal step by purchasing commercially available data from companies that amass large amounts of people’s location data originally derived from phone apps or other commercial tracking technology.\n\nFor example, U.S. Customs and Border Protection purchased a tranche of data sourced from real-time bidding, or RTB, services, according to a document obtained by 404 Media. These technologies are central to the mobile and web advertising industry, and they collect information such as location and other identifiable data used to target people viewing ads. Surveillance firms can observe this process and gather information about a user’s location, and then potentially sell that data to brokers or federal agencies looking to circumvent the warrant process.\n\nThe FBI claims it does not need a warrant to use this information for federal investigations; though this legal theory has not yet been tested in court.\n\nLast week, Wyden and several other lawmakers introduced a bipartisan, bicameral bill called the Government Surveillance Reform Act, which among other things would require a court-authorized warrant before federal agencies can buy Americans’ information from data brokers.\n\nUpdated with response from the FBI.",
+  "tags": [
+    "500-words",
+    "agencies",
+    "americans",
+    "buying",
+    "data",
+    "director",
+    "fbi",
+    "federal",
+    "information",
+    "location",
+    "patel",
+    "phone",
+    "purchasing",
+    "the fbi",
+    "warrant",
+    "wyden"
+  ]
+}

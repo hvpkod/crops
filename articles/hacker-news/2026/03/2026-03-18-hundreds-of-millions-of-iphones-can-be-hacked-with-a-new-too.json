@@ -1,0 +1,33 @@
+{
+  "id": 4033,
+  "source": "Hacker News",
+  "title": "Hundreds of Millions of iPhones Can Be Hacked With a New Tool Found in the Wild",
+  "url": "https://www.wired.com/story/hundreds-of-millions-of-iphones-can-be-hacked-with-a-new-tool-found-in-the-wild/",
+  "published_at": "2026-03-18T14:28:40Z",
+  "fetched_at": "2026-03-18T15:21:58.949267+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47426246\">Comments</a>",
+  "full_text": "iPhone hacking techniques have sometimes been described almost like rare and elusive animals: Hackers have used them so stealthily and carefully against such a small number of hand-picked targets that they're only rarely seen in the wild. Now a recent spate of espionage and cybercriminal campaigns has instead deployed those same phone-takeover tools, embedded in infected websites, to indiscriminately hack phones by the thousands. And one new technique in particular—capable of taking over any of hundreds of millions of iOS devices—has appeared on the web in an easily reusable form, putting a significant fraction of the world's iPhone users at risk.\n\nResearchers at Google and cybersecurity firms iVerify and Lookout on Wednesday jointly revealed the discovery of a sophisticated iPhone hacking technique known as DarkSword that they've seen in use on infected websites, capable of instantly and silently hacking iOS devices that visit those sites. While the technique doesn't affect the latest, updated versions of iOS, it does work against iOS devices running versions of Apple's previous operating system release, iOS 18, which as of last month still accounted for close to a quarter of iPhones, according to Apple's own count.\n\n“A vast number of iOS users could have all of their personal data stolen simply for visiting a popular website,” says Rocky Cole, iVerify's cofounder and CEO. “Hundreds of millions of people who are still using older Apple devices or older operating system versions remain vulnerable.”\n\nThe iPhone-hacking campaign that used DarkSword has come to light just two weeks after the revelation of another, even more sophisticated and fully featured hacking toolkit known as Coruna was found in use by what Google describes as a Russian state-sponsored espionage group and other hacker groups. Although DarkSword appears to have been created by different developers from Coruna, the researchers found that it was used by those same Russian spies. Like Coruna, it too was embedded in components of otherwise legitimate Ukrainian websites, including online news outlets and a government agency site, to harvest data from visitors' phones.\n\nYet just as concerning, says iVerify cofounder and researcher Matthias Frielingsdorf, is that the hackers who carried out that espionage campaign left the full, unobscured DarkSword code—complete with explanatory comments in English that describe each component and include the “DarkSword\" name for the tool—available on those sites for anyone to access and reuse. That carelessness, he says, practically invites other hacker groups to adopt it and target other iPhone users. “Anyone who manually grabbed all the different parts of the exploit could put them onto their own web server and start infecting phones. It's as simple as that,” says Frielingsdorf. “It's all nicely documented, also. It's really too easy.”\n\nWIRED reached out to Apple for comment on the researchers' findings, but the company didn't provide comment. Google declined to comment beyond the blog post it released about its DarkSword findings.\n\nAccording to Lookout, DarkSword is designed to steal data from vulnerable iPhones that include passwords and photos; logs from iMessage, WhatsApp, and Telegram; browser history; Calendar and Notes data; and even data from Apple's Health app. Despite the apparent espionage focus of the hacking campaign, DarkSword also steals users' cryptocurrency wallet credentials, suggesting the hackers may have carried out a possible side business in for-profit cybercrime.\n\nRather than install spyware that persists on users' phones, DarkSword uses stealthier techniques that are more often seen in “fileless” malware that typically target Windows devices, hijacking the legitimate processes in an iPhone's operating system to steal data. “Instead of using a spyware payload to brute force your way through the file system—which leaves tons of artifacts of exploitation that are pretty easy to detect—this just uses system processes the way they're meant to be used,” iVerify's Cole says. “And it leaves far fewer traces.”",
+  "tags": [
+    "1000-words",
+    "apple",
+    "can be",
+    "coruna",
+    "darksword",
+    "data",
+    "espionage",
+    "found",
+    "google",
+    "hacked with",
+    "hackers",
+    "hacking",
+    "hundreds",
+    "iphone",
+    "millions",
+    "new tool",
+    "security",
+    "seen",
+    "system",
+    "wild"
+  ]
+}

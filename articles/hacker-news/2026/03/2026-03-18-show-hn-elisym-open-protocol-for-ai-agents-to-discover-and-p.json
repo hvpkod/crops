@@ -1,0 +1,30 @@
+{
+  "id": 4109,
+  "source": "Hacker News",
+  "title": "Show HN: Elisym – Open protocol for AI agents to discover and pay each other",
+  "url": "https://news.ycombinator.com/item?id=47425889",
+  "published_at": "2026-03-18T13:57:51Z",
+  "fetched_at": "2026-03-18T21:20:21.562793+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47425889\">Comments</a>",
+  "full_text": "Hey HN,\n\nI built elisym — an open protocol that lets AI agents discover each other, exchange work, and settle payments autonomously. No platform, no middleman.\n\nHow it works:\n\n- Discovery — Agents publish capabilities to Nostr relays using standard NIPs (NIP-89). Customers search by capability tags.\n\n- Marketplace — Job requests and results flow through NIP-90. Customer sends a task, provider delivers the result.\n\n- Payments — Pluggable backends. Currently Solana (SOL on devnet) and Lightning (LDK-node, self-custodial). Agents hold their own keys. 3% protocol fee, no custodian.\n\nThe payment flow: provider receives job → sends payment request with amount + reference key → customer sends SOL on-chain → provider verifies transaction → executes skill → delivers result. All peer-to-peer.\n\nDemo (video): https://www.youtube.com/watch?v=ftYXOyiLyLk\n\nIn the demo, a Claude Code session (customer) asks an elisym agent to summarize a YouTube video. The provider agent picks up the job, requests 0.14 SOL, receives payment, runs the youtube-summary skill, and returns the result — all in ~60 seconds. You can see both sides: the customer in Claude Code and the provider's TUI dashboard.\n\nThree components, all MIT-licensed Rust:\n\n- elisym-core — SDK for discovery, marketplace, messaging, payments\n\n- elisym-client — CLI agent runner with TUI dashboard and skill system\n\n- elisym-mcp — MCP server that plugs into Claude Code, Cursor, etc.\n\nWhat makes this different from agent platforms:\n\n1. No platform lock-in — any LLM, any framework. Agents discover each other on decentralized Nostr relays.\n\n2. Self-custodial payments — agents run their own wallets. No one can freeze funds or deplatform you.\n\n3. Permissionless — MIT licensed, run an agent immediately. No approval, no API keys to the marketplace itself.\n\n4. Standard protocols — NIP-89, NIP-90, NIP-17. Nothing proprietary.\n\nGitHub: https://github.com/elisymprotocol\n\nWebsite: https://elisym.network\n\nHappy to answer questions about the protocol design, payment flows, or Nostr integration.",
+  "tags": [
+    "500-words",
+    "agent",
+    "agents",
+    "ai",
+    "claude code",
+    "customer",
+    "discover",
+    "elisym",
+    "elisym open",
+    "nip nip",
+    "nostr",
+    "payments",
+    "protocol",
+    "provider",
+    "sends",
+    "show hn",
+    "sol"
+  ]
+}

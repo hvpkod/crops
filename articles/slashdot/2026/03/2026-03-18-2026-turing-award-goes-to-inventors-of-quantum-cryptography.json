@@ -1,0 +1,29 @@
+{
+  "id": 4069,
+  "source": "Slashdot",
+  "title": "2026 Turing Award Goes To Inventors of Quantum Cryptography",
+  "url": "https://slashdot.org/story/26/03/18/1620247/2026-turing-award-goes-to-inventors-of-quantum-cryptography?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-18T17:00:00Z",
+  "fetched_at": "2026-03-18T17:40:13.417940+00:00",
+  "author": "BeauHD",
+  "summary": "Dave Knott shares a report from the New York Times: On Wednesday, the Association for Computing Machinery, the world's largest society of computing professionals, said Drs. Charles Bennett and Gilles Brassard had won this year's Turing Award for their work on quantum cryptography and related technologies. The Turing Award, which was introduced in 1966, is often called the Nobel Prize of computing, and it includes a $1 million prize, which the two scientists will share.\n \n[...] The two met in 1979 while swimming in the Atlantic just off the north shore of Puerto Rico. They were taking a break while attending an academic conference in San Juan. Dr. Bennett swam up to Dr. Brassard and suggested they use quantum mechanics to create a bank note that could never be forged. Collaborating between Montreal and New York, they applied Dr. Bennett's idea to subway tokens rather than bank notes. In a research paper published in 1983, they showed that their quantum subway tokens could never be forge",
+  "full_text": "Dave Knott\n\n shares a report from the New York Times: On Wednesday, the Association for Computing Machinery, the world's largest society of computing professionals, said Drs. Charles Bennett and Gilles Brassard had won this year's Turing Award for their work on quantum cryptography and related technologies. The Turing Award, which was introduced in 1966, is often called the Nobel Prize of computing, and it includes a $1 million prize, which the two scientists will share.\n\n \n\n[...] The two met in 1979 while swimming in the Atlantic just off the north shore of Puerto Rico. They were taking a break while attending an academic conference in San Juan. Dr. Bennett swam up to Dr. Brassard and suggested they use quantum mechanics to create a bank note that could never be forged. Collaborating between Montreal and New York, they applied Dr. Bennett's idea to subway tokens rather than bank notes. In a research paper published in 1983, they showed that their quantum subway tokens could never be forged, even if someone managed to steal the subway turnstile housing the elaborate hardware needed to read them.\n\n \n\nThis led to quantum cryptography. After describing their new form of encryption in a research paper published in 1984, they demonstrated the technology with a physical experiment five years later. Called BB84, their system used photons -- particles of light -- to create encryption keys used to lock and unlock digital data. Thanks to the laws of quantum mechanics, the behavior of a photon changes if someone looks at it. This means that if anyone tries to steal the keys, he or she will leave a telltale sign of the attempted theft -- a bit like breaking the seal on an aspirin bottle.",
+  "tags": [
+    "500-words",
+    "award",
+    "bennett",
+    "brassard",
+    "called",
+    "computing",
+    "create",
+    "cryptography",
+    "goes to",
+    "inventors",
+    "new york",
+    "quantum",
+    "quantum cryptography",
+    "subway",
+    "turing",
+    "turing award"
+  ]
+}

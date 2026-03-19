@@ -1,0 +1,33 @@
+{
+  "id": 3960,
+  "source": "Slashdot",
+  "title": "AI Job Loss Research Ignores How AI Is Utterly Destroying the Internet",
+  "url": "https://tech.slashdot.org/story/26/03/17/2243219/ai-job-loss-research-ignores-how-ai-is-utterly-destroying-the-internet?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-18T03:30:00Z",
+  "fetched_at": "2026-03-18T04:20:11.412344+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from 404 Media, written by Jason Koebler: Over the last few months, various academics and AI companies have attempted to predict how artificial intelligence is going to impact the labor market. These studies, including a high-profile paper published by Anthropic earlier this month, largely try to take the things AI is good at, or could be good at, and match them to existing job categories and job tasks. But the papers ignore some of the most impactful and most common uses of AI today: AI porn and AI slop.\n \nAnthropic's paper, called \"Labor market impacts of AI: A new measure and early evidence,\" essentially attempts to find 1:1 correlations between tasks that people do today at their jobs and things people are using Claude for. The researchers also try to predict if a job's tasks \"are theoretically possible with AI,\" which resulted in this chart, which has gone somewhat viral and was included in a newsletter by MSNOW's Phillip Bump and threaded about",
+  "full_text": "An anonymous reader quotes a report from 404 Media, written by Jason Koebler: Over the last few months, various academics and AI companies have attempted to predict how artificial intelligence is going to impact the labor market. These studies, including a high-profile paper published by Anthropic earlier this month, largely try to take the things AI is good at, or could be good at, and match them to existing job categories and job tasks. But the papers ignore some of the most impactful and most common uses of AI today: AI porn and AI slop.\n\n \n\nAnthropic's paper, called \"Labor market impacts of AI: A new measure and early evidence,\" essentially attempts to find 1:1 correlations between tasks that people do today at their jobs and things people are using Claude for. The researchers also try to predict if a job's tasks \"are theoretically possible with AI,\" which resulted in this chart, which has gone somewhat viral and was included in a newsletter by MSNOW's Phillip Bump and threaded about by tech journalist Christopher Mims. (Because everything is terrible, the research is now also feeding into a gambling website where you can see the apparent odds of having your job replaced by AI.) In his thread, Mims makes the case that the \"theoretical capability\" of AI to do different jobs in different sectors is totally made up, and that this chart basically means nothing. Mims makes a good and fair observation: The nature of the many, many studies that attempt to predict which people are going to lose their jobs to AI are all flawed because the inputs must be guessed, to some degree.\n\n \n\nBut I believe most of these studies are flawed in a deeper way: They do not take into account how people are actually actually using AI, though Anthropic claims that that is exactly what it is doing. \"We introduce a new measure of AI displacement risk, observed exposure, that combines theoretical LLM capability and real-world usage data, weighting automated (rather than augmentative) and work-related uses more heavily,\" the researchers write. This is based in part on the \"Anthropic Economic Index,\" which was introduced in an extremely long paper published in January that tries to catalog all the high-minded uses of AI in specific work-related contexts. These uses include \"Complete humanities and social science academic assignments across multiple disciplines,\" \"Draft and revise professional workplace correspondence and business communications,\" and \"Build, debug, and customize web applications and websites.\" Not included in any of Anthropic's research are extremely popular uses of AI such as \"create AI porn\" and \"create AI slop and spam.\" These uses are destroying discoverability on the internet, cause cascading societal and economic harms.\n\n \"Anthropic's research continues a time-honored tradition by AI companies who want to highlight the 'good' uses of AI that show up in their marketing materials while ignoring the world-destroying applications that people actually use it for,\" argues Koebler. \"Meanwhile, as we have repeatedly shown, huge parts of social media websites and Google search results have been overtaken by AI slop\n\n. Chatbots themselves have killed traffic to lots of websites that were once able to rely on ad revenue\n\n to employ people, so on and so forth...\"\n \n\n\"This is all to say that these studies about the economic impacts of AI are ignoring a hugely important piece of context: AI is eating and breaking the internet and social media,\" writes Koebler, in closing. \"We are moving from a many-to-many publishing environment that created untold millions of jobs and businesses towards a system where AI tools can easily overwhelm human-created websites, businesses, art, writing, videos, and human activity on the internet. What's happening may be too chaotic, messy, and unpleasant for AI companies to want to reckon with, but to ignore it entirely is malpractice.\"",
+  "tags": [
+    "1000-words",
+    "actually",
+    "ai",
+    "anthropic",
+    "companies",
+    "destroying",
+    "economic",
+    "how ai",
+    "internet",
+    "job loss",
+    "jobs",
+    "koebler",
+    "mims",
+    "predict",
+    "research",
+    "research ignores",
+    "social",
+    "studies",
+    "uses",
+    "utterly destroying"
+  ]
+}

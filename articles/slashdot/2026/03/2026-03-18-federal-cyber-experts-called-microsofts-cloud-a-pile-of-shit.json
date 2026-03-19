@@ -1,0 +1,32 @@
+{
+  "id": 4038,
+  "source": "Slashdot",
+  "title": "Federal Cyber Experts Called Microsoft's Cloud 'a Pile of Shit', Yet Approved It Anyway",
+  "url": "https://yro.slashdot.org/story/26/03/18/1452232/federal-cyber-experts-called-microsofts-cloud-a-pile-of-shit-yet-approved-it-anyway?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-18T16:00:00Z",
+  "fetched_at": "2026-03-18T16:20:11.983812+00:00",
+  "author": "BeauHD",
+  "summary": "ProPublica reports that federal cybersecurity reviewers had serious, yearslong concerns about Microsoft's GCC High cloud offering, yet they approved it anyway because the product was already deeply embedded across government. As one member of the team put it: \"The package is a pile of shit.\" From the report: In late 2024, the federal government's cybersecurity evaluators rendered a troubling verdict on one of Microsoft's biggest cloud computing offerings. The tech giant's \"lack of proper detailed security documentation\" left reviewers with a \"lack of confidence in assessing the system's overall security posture,\" according to an internal government report reviewed by ProPublica. For years, reviewers said, Microsoft had tried and failed to fully explain how it protects sensitive information in the cloud as it hops from server to server across the digital terrain. Given that and other unknowns, government experts couldn't vouch for the technology's security.\n \nSuch judgments would be dam",
+  "full_text": "ProPublica reports that federal cybersecurity reviewers had serious, yearslong concerns about Microsoft's GCC High cloud offering\n\n, yet they approved it anyway because the product was already deeply embedded across government. As one member of the team put it: \"The package is a pile of shit.\" From the report: In late 2024, the federal government's cybersecurity evaluators rendered a troubling verdict on one of Microsoft's biggest cloud computing offerings. The tech giant's \"lack of proper detailed security documentation\" left reviewers with a \"lack of confidence in assessing the system's overall security posture,\" according to an internal government report reviewed by ProPublica. For years, reviewers said, Microsoft had tried and failed to fully explain how it protects sensitive information in the cloud as it hops from server to server across the digital terrain. Given that and other unknowns, government experts couldn't vouch for the technology's security.\n\n \n\nSuch judgments would be damning for any company seeking to sell its wares to the U.S. government, but it should have been particularly devastating for Microsoft. The tech giant's products had been at the heart of two major cybersecurity attacks against the U.S. in three years. In one, Russian hackers exploited a weakness to steal sensitive data from a number of federal agencies, including the National Nuclear Security Administration. In the other, Chinese hackers infiltrated the email accounts of a Cabinet member and other senior government officials. The federal government could be further exposed if it couldn't verify the cybersecurity of Microsoft's Government Community Cloud High, a suite of cloud-based services intended to safeguard some of the nation's most sensitive information.\n\n \n\nYet, in a highly unusual move that still reverberates across Washington, the Federal Risk and Authorization Management Program, or FedRAMP, authorized the product anyway, bestowing what amounts to the federal government's cybersecurity seal of approval. FedRAMP's ruling -- which included a kind of \"buyer beware\" notice to any federal agency considering GCC High -- helped Microsoft expand a government business empire worth billions of dollars. \"BOOM SHAKA LAKA,\" Richard Wakeman, one of the company's chief security architects, boasted in an online forum, celebrating the milestone with a meme of Leonardo DiCaprio in \"The Wolf of Wall Street.\"\n\n \n\nIt was not the type of outcome that federal policymakers envisioned a decade and a half ago when they embraced the cloud revolution and created FedRAMP to help safeguard the government's cybersecurity. The program's layers of review, which included an assessment by outside experts, were supposed to ensure that service providers like Microsoft could be entrusted with the government's secrets. But ProPublica's investigation -- drawn from internal FedRAMP memos, logs, emails, meeting minutes, and interviews with seven former and current government employees and contractors -- found breakdowns at every juncture of that process. It also found a remarkable deference to Microsoft, even as the company's products and practices were central to two of the most damaging cyberattacks ever carried out against the government.",
+  "tags": [
+    "500-words",
+    "anyway",
+    "approved it",
+    "cloud",
+    "cybersecurity",
+    "experts",
+    "experts called",
+    "federal",
+    "federal cyber",
+    "fedramp",
+    "gcc high",
+    "government",
+    "microsoft",
+    "pile",
+    "propublica",
+    "reviewers",
+    "security",
+    "sensitive",
+    "shit yet"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": 4084,
+  "source": "Hacker News",
+  "title": "Show HN: Tmux-IDE, OSS agent-first terminal IDE",
+  "url": "https://tmux.thijsverreck.com",
+  "published_at": "2026-03-18T17:46:25Z",
+  "fetched_at": "2026-03-18T18:40:27.268645+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47428868\">Comments</a>",
+  "full_text": "$ cd ~/Developer/my-project\n\n$ tmux-ide init --template agent-team\n\n→ Created ide.yml with agent team layout.\n\n$ tmux-ide\n\n→ Launching IDE session with lead and teammate-ready panes...\n\n$ tmux-ide restart\n\n→ Restarted with updated layout.",
+  "tags": [
+    "200-words",
+    "agent",
+    "claude",
+    "created",
+    "init",
+    "launching",
+    "layouts",
+    "lead",
+    "prepare",
+    "prepare claude",
+    "session",
+    "team"
+  ]
+}

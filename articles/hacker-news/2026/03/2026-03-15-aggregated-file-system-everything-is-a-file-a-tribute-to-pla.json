@@ -1,0 +1,31 @@
+{
+  "id": 3979,
+  "source": "Hacker News",
+  "title": "Aggregated File System – Everything is a file. A tribute to Plan9",
+  "url": "https://github.com/c4pt0r/agfs",
+  "published_at": "2026-03-15T06:00:34Z",
+  "fetched_at": "2026-03-18T08:20:55.963097+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47384715\">Comments</a>",
+  "full_text": "Aggregated File System (Agent FS) - Everything is a file, in RESTful APIs. A tribute to Plan9.\n\nWhen coordinating multiple AI Agents in a distributed environment, agents need access to various backend services: message queues, databases, object storage, KV stores, and more. The traditional approach requires writing specialized API calls for each service, meaning agents must understand many different interfaces.\n\nThe core idea of AGFS is simple: unify all services as file system operations.\n\nTraditional approach AGFS approach\n------------------------------------------------------------------\nredis.set(\"key\", \"value\") -> echo \"value\" > /kvfs/keys/mykey\nsqs.send_message(queue, msg) -> echo \"msg\" > /queuefs/q/enqueue\ns3.put_object(bucket, key, data) -> cp file /s3fs/bucket/key\nmysql.execute(\"SELECT ...\") -> echo \"SELECT ...\" > /sqlfs2/.../query\n\nThe benefits:\n\nAI understands file operations natively - Any LLM knows how to use cat, echo, and ls. No API documentation needed.\n\nUnified interface - Operate all backends the same way, reducing cognitive overhead.\n\nComposability - Combine services using pipes, redirections, and other shell features.\n\nEasy debugging - Use ls and cat to inspect system state.\n\nInstall:\n\ncurl -fsSL https://raw.githubusercontent.com/c4pt0r/agfs/master/install.sh | sh\n\nOr via Docker:\n\ndocker pull c4pt0r/agfs:latest\n\n# Run the server (HTTP API only)\ndocker run -p 8080:8080 -e SKIP_FUSE_MOUNT=true c4pt0r/agfs:latest\n\n# On Linux, you can enable FUSE mounting with additional privileges\ndocker run -p 8080:8080 \\\n --device /dev/fuse \\\n --cap-add SYS_ADMIN \\\n --security-opt apparmor:unconfined \\\n c4pt0r/agfs:latest\n\n# Note: FUSE mounting in Docker is not supported on macOS\n\nConnect using agfs-shell:\n\n$ agfs\nagfs:/> ls\nqueuefs/ kvfs/ s3fs/ sqlfs/ heartbeatfs/ memfs/ ...\n\nAGFS can be mounted as a native filesystem on Linux using FUSE. This allows any program to interact with AGFS services using standard file operations, not just the agfs-shell.\n\n# Mount AGFS to /mnt/agfs\nagfs-fuse --agfs-server-url http://localhost:8080 --mount /mnt/agfs\n\n# Now use standard tools\nls /mnt/agfs/kvfs/keys/\necho \"hello\" > /mnt/agfs/kvfs/keys/mykey\ncat /mnt/agfs/queuefs/tasks/dequeue\n\nThis makes AGFS accessible to any application, script, or programming language that can read and write files.\n\nSee agfs-fuse/README.md for installation and usage.\n\nThe simplest key-value storage. Filename is the key, content is the value:\n\nagfs:/> echo \"world\" > /kvfs/keys/hello # write\nagfs:/> cat /kvfs/keys/hello # read -> \"world\"\nagfs:/> ls /kvfs/keys/ # list all keys\nhello\nagfs:/> rm /kvfs/keys/hello # delete\n\nA message queue is abstracted as a directory containing control files:\n\nagfs:/> mkdir /queuefs/tasks # create queue\nagfs:/> ls /queuefs/tasks\nenqueue dequeue peek size clear\n\nagfs:/> echo \"job1\" > /queuefs/tasks/enqueue # enqueue\n019aa869-1a20-7ca6-a77a-b081e24c0593\n\nagfs:/> cat /queuefs/tasks/size # check queue length\n1\n\nagfs:/> cat /queuefs/tasks/dequeue # dequeue\n{\"id\":\"019aa869-...\",\"data\":\"job1\",\"timestamp\":\"2025-11-21T13:54:11Z\"}\n\nThis pattern is ideal for AI Agent task distribution: one agent writes tasks to the queue, another agent reads and executes them.\n\nQuery databases through a Plan 9 style session interface:\n\nagfs:/> cat /sqlfs2/mydb/users/schema # view table structure\nagfs:/> cat /sqlfs2/mydb/users/count # get row count\n\n# Create session, execute query, read result\nagfs:/> sid=$(cat /sqlfs2/mydb/users/ctl)\nagfs:/> echo \"SELECT * FROM users LIMIT 2\" > /sqlfs2/mydb/users/$sid/query\nagfs:/> cat /sqlfs2/mydb/users/$sid/result\n[{\"id\": 1, \"name\": \"alice\"}, {\"id\": 2, \"name\": \"bob\"}]\n\nManage the liveness state of distributed agents:\n\nagfs:/> mkdir /heartbeatfs/agent-1 # register agent\nagfs:/> touch /heartbeatfs/agent-1/keepalive # send heartbeat\n\nagfs:/> cat /heartbeatfs/agent-1/ctl # check status\nlast_heartbeat_ts: 2025-11-21T13:55:45-08:00\ntimeout: 30\nstatus: alive\n\n# After 30 seconds without a new heartbeat, the agent directory is automatically removed\n\nDifferent filesystems can operate with each other:\n\nagfs:/> cp local:/tmp/data.txt /s3fs/mybucket/ # upload local file to S3\nagfs:/> cp /s3fs/mybucket/config.json /memfs/ # copy S3 file to memory\n\nAGFS shell supports scripting with .as files. Scripts use familiar shell syntax and can be executed directly.\n\ntask_worker.as - A simple task queue worker:\n\n#!/usr/bin/env agfs\n\nQUEUE_PATH=/queuefs/tasks\nPOLL_INTERVAL=2\n\n# Initialize queue\nmkdir $QUEUE_PATH\n\nwhile true; do\n size=$(cat $QUEUE_PATH/size)\n\n if [ \"$size\" = \"0\" ]; then\n echo \"Queue empty, waiting...\"\n sleep $POLL_INTERVAL\n continue\n fi\n\n # Dequeue and process task\n task=$(cat $QUEUE_PATH/dequeue)\n echo \"Processing: $task\"\n\n # Your task logic here\ndone\n\nenqueue_task.as - Enqueue a task:\n\n#!/usr/bin/env agfs\n\nmkdir /queuefs/tasks\necho \"$1\" > /queuefs/tasks/enqueue\necho \"Task enqueued. Queue size: $(cat /queuefs/tasks/size)\"\n\nRun scripts directly:\n\n./task_worker.as &\n./enqueue_task.as \"process report.pdf\"\n\nSee more examples in agfs-shell/examples.\n\nUse Case: AI Agent Task Loop\n\nA typical agent coordination pattern: multiple agents fetch tasks from the same queue and execute them.\n\nwhile True:\n task = agfs.cat(\"/queuefs/tasks/dequeue\")\n if task:\n result = execute_task(task)\n agfs.write(f\"/kvfs/keys/result_{task.id}\", result)\n\nSee task_loop.py for a complete example.",
+  "tags": [
+    "1000-words",
+    "agent",
+    "agents",
+    "agfs",
+    "aggregated file",
+    "ai",
+    "docker",
+    "echo",
+    "file",
+    "file system",
+    "fuse",
+    "mkdir",
+    "plan github",
+    "queue",
+    "queue path",
+    "system",
+    "system agfs",
+    "task"
+  ]
+}

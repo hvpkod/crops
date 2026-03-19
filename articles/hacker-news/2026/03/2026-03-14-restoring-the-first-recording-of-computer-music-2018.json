@@ -1,0 +1,29 @@
+{
+  "id": 4034,
+  "source": "Hacker News",
+  "title": "Restoring the first recording of computer music (2018)",
+  "url": "https://www.bl.uk/stories/blogs/posts/restoring-the-first-recording-of-computer-music",
+  "published_at": "2026-03-14T08:28:16Z",
+  "fetched_at": "2026-03-18T15:22:03.605366+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47374519\">Comments</a>",
+  "full_text": "Alan Turing's pioneering work, in the late 1940s, on transforming the computer into a musical instrument has largely been overlooked: it's an urban myth of the music world that the first computer-generated musical notes were heard in 1957, at Bell Labs in America.(1) The recent Oxford Handbook of Computer Music staked out a counterclaim, saying that the first computer to play notes was located in Sydney, Australia.(2) However, the Sydney computer was not operational until the end of 1950, whereas computer-generated notes were emerging from a loudspeaker in Turing's computing lab as early as the autumn of 1948.\n\nThe Manchester computer had a special instruction that caused the loudspeaker—Turing called it the 'hooter'—to emit a short pulse of sound, lasting a tiny fraction of a second. Turing said this sounded like 'something between a tap, a click, and a thump'. Executing the instruction over and over again resulted in this 'click' being produced repeatedly, on every fourth tick of the computer's internal clock: tick tick tick click, tick tick tick click. Repeating the instruction enough times like this caused the human ear to hear not discrete clicks but a steady note, in fact the note C6, two octaves above middle C.\n\nTuring realized that if the 'hoot' instruction were repeated not simply over and over again, but in different patterns, then the ear would hear different musical notes: for example, the repeated pattern tick tick tick click, tick tick tick tick, tick tick tick click, tick tick tick tick produced the note of C5 (an octave above middle C), while repeating the different pattern tick tick tick click, tick tick tick click, tick tick tick tick, tick tick tick click, tick tick tick click, tick tick tick tick produced the note of F4, four notes above above middle C—and so on. It was a wonderful discovery.\n\nTuring was not very interested in programming the computer to play conventional pieces of music: he used the different notes to indicate what was going on in the computer—one note for 'job finished', others for 'digits overflowing in memory', 'error when transferring data from the magnetic drum', and so on. Running one of Turing's programs must have been a noisy business, with different musical notes and rhythms of clicks enabling the user to 'listen in' (as he put it) to what the computer was doing. He left it to someone else, though, to program the first complete piece of music.\n\nA young schoolteacher named Christopher Strachey got hold of a copy of Turing's Programmers' Handbook for Manchester Electronic Computer Mark II (the Mark II computer had replaced the prototype Mark I, which also played notes, early in 1951).(3) This was in fact the world’s first computer programming manual. Strachey, a talented pianist, studied the Handbook and appreciated the potential of Turing's terse directions on how to program musical notes. Soon to become one of Britain's top computer scientists, Strachey turned up at Turing's Manchester lab with what was at the time the longest computer program ever to be attempted. Turing knew the precocious Strachey well enough to let him use the computer for a night. 'Turing came in and gave me a typical high-speed, high-pitched description of how to use the machine', Strachey recounted; and then Turing departed, leaving him alone at the computer's console until the following morning.(4)",
+  "tags": [
+    "1000-words",
+    "above",
+    "australia",
+    "computer",
+    "different",
+    "handbook",
+    "instruction",
+    "manchester",
+    "mark ii",
+    "musical",
+    "note",
+    "notes",
+    "restoring",
+    "strachey",
+    "tick",
+    "turing"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 3992,
+  "source": "Hacker News",
+  "title": "Kagi is contemplating the removal of the assistant from its professional tier",
+  "url": "https://kagifeedback.org/d/10116-kagi-assistant-standalone-subscription",
+  "published_at": "2026-03-18T09:56:48Z",
+  "fetched_at": "2026-03-18T11:00:15.828654+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47423624\">Comments</a>",
+  "full_text": "Pleonasm I edited the original to disambiguate. \n\nDoes the free trial provide a \"fixed usage cap\" that resets at the start of each monthly billing cycle? What occurs if the customer is on an annual plan? An annual \"Duo\" plan?\n\nWhat is the amount of the \"fixed usage cap\" for each plan type?\n\nThe fixed usage cap wouldn't reset, it would be a one time allowance. We haven't worked out the details yet; I'm just communicating the direction, and options we are considering.\n\nIn practice, this means a Kagi Search subscription (Starter or Professional) would grant the same rights as signing up for a Kagi Assistant trial account.\n\nTo clarify another few other things from the thread:\n\na/ Kagi Assistant's web tool uses Kagi Search, and that has nothing to do with this subscription plans discussion, we're not changing anything there. The same applies to LLM-powered features in Kagi Search, like Quick Answer. \n\nThis discussion is specifically about two things: (1) Kagi Assistant getting its own paid subscription, and (2) how we're considering shaping its trial plan, which will be what Starter and Professional Search subscribers have access to\n\nb/ When we added Kagi Assistant to Search plans, we limited it: it doesn't have our best Assistants (Research) or access to top models. Now that we're working toward launching a standalone Kagi Assistant subscription, we're rethinking that approach - a 1x allowance would let Search subscribers use all Assistant features, and if they find them useful, they can upgrade to Ultimate.\n\nProfessional subscribers who are happy with the current limited offering won't see much benefit from this change. But for others it provides an opportunity to decide whether Assistant is a tool worth paying for.\n\nc/ An important objective is to have simple pricing: an individual can purchase a Search subscription or an Assistant subscription, depending on what they care about. If they want the full Kagi ecosystem, there's the Ultimate plan. Each product has a standalone trial and a paid tier (Search has two paid tiers), and Ultimate serves as our bundle. We believe this will make Kagi's offering much easier to understand.\n\nPricing changes are always some of the most painful things to do. We want to minimise confusion for existing users, and create an upgrade path for heavy users.",
+  "tags": [
+    "500-words",
+    "ai",
+    "annual",
+    "assistant",
+    "kagi",
+    "kagi assistant",
+    "kagi search",
+    "paid",
+    "professional",
+    "search",
+    "standalone",
+    "subscribers",
+    "subscription",
+    "trial",
+    "ultimate",
+    "usage"
+  ]
+}

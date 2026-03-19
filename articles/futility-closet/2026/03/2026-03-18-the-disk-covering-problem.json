@@ -1,0 +1,26 @@
+{
+  "id": 3981,
+  "source": "Futility Closet",
+  "title": "The Disk Covering Problem",
+  "url": "https://www.futilitycloset.com/2026/03/18/the-disk-covering-problem/",
+  "published_at": "2026-03-18T06:37:34Z",
+  "fetched_at": "2026-03-18T09:00:16.296805+00:00",
+  "author": "Greg Ross",
+  "summary": "<figure class=\"wp-caption aligncenter\" id=\"attachment_72936\" style=\"width: 250px;\"><img alt=\"https://commons.wikimedia.org/wiki/File:DiscCoveringExample.svg\" class=\"size-full wp-image-72936\" height=\"292\" src=\"https://www.futilitycloset.com/wp-content/uploads/2026/03/2026-03-18-the-disk-covering-problem.png\" width=\"250\" /><figcaption class=\"wp-caption-text\" id=\"caption-attachment-72936\">Image: <a href=\"https://commons.wikimedia.org/wiki/File:DiscCoveringExample.svg\">Wikimedia Commons</a></figcaption></figure>\n<p>The dashed disk here has radius 1. Suppose we want to cover it entirely with <em>n</em> smaller disks. How small can those disks be?</p>\n<p>Pleasingly, no one has yet found a general answer to this question. If we have only a single covering disk, then obviously it will need to be fully as large as the target. But if we&#8217;re allowed six discs, they can do the job even if each has a radius of only 0.555905&#8230;, as shown here.</p>\n<p>Similar configurations work up to <em>n<",
+  "full_text": "Image: Wikimedia Commons\n\nThe dashed disk here has radius 1. Suppose we want to cover it entirely with n smaller disks. How small can those disks be?\n\nPleasingly, no one has yet found a general answer to this question. If we have only a single covering disk, then obviously it will need to be fully as large as the target. But if we’re allowed six discs, they can do the job even if each has a radius of only 0.555905…, as shown here.\n\nSimilar configurations work up to n = 10. But if we’re allowed 11 disks then some creative thinking again becomes necessary to find the best solution. No one has yet found a general strategy that reliably finds the minimum successful size.",
+  "tags": [
+    "200-words",
+    "allowed",
+    "commons",
+    "covering",
+    "covering problem",
+    "disk",
+    "disks",
+    "found",
+    "general",
+    "problem",
+    "radius",
+    "the disk",
+    "wikimedia"
+  ]
+}

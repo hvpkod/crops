@@ -1,0 +1,25 @@
+{
+  "id": 3994,
+  "source": "Hacker News",
+  "title": "Ask HN: What breaks first when your team grows from 10 to 50 people?",
+  "url": "https://news.ycombinator.com/item?id=47386284",
+  "published_at": "2026-03-15T11:16:05Z",
+  "fetched_at": "2026-03-18T11:40:15.706274+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47386284\">Comments</a>",
+  "full_text": "Growing companies from ~10 to ~200+ has been my bread and butter for almost 20yrs now. A few relatively universal observations:\n\n1. As sloaken said, your documentation of processes and procedures is NOT adequate. This applies to everything. From your code commit process to how to book vacation days. Document everything early. Notion is your friend.\n\n2. Like it or not, your work culture is going to change. New people obviously means new personalities but it also means new ways of working, some good, some bad. It really is worth spending some time with the first 15 people that helped get your company to where it is today and define some operating principles (otherwise known as 'company values'). This blog post (not mine) is an incredible insight into why this stuff actually matters at your stage of growth: https://lowercaseopinions.com/post/useful-values\n\n3. Hiring gets expensive and laborious. You're reaching a point where it just isn't practical for you to be involved in every hiring decision. That being said, don't let go of it until you are confident that everyone involved in hiring for your company is aligned on what 'good' looks like both in terms of candidates and hiring process.\n\n4. More people means more individual questions, problems, and ultimately admin. More people getting paid means more payroll issues and questions and adjustments. More people interacting with each other means more disagreements, arguments, and issues. Someone needs to be able to handle all of these issues. Usually the challenges are distributed across different teams but again, without some rigour around how you want your company to approach these issues means that different managers/teams will take different approaches which in turn will amplify the problems rather than solve them.\n\n5. Reconsider the financial impact of hiring experienced people. Bringing in strong leaders early can enormously mitigate the operational costs of scaling. Hiring a highly experienced person at your stage will have a big impact on your budget but long-term, that investment will pay dividends both in terms of the quality of work but also in sharing the burden of handling these scaling challenges.",
+  "tags": [
+    "500-words",
+    "ask hn",
+    "company",
+    "different",
+    "experienced",
+    "hiring",
+    "impact",
+    "involved",
+    "issues",
+    "means",
+    "stage",
+    "terms"
+  ]
+}

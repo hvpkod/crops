@@ -1,0 +1,28 @@
+{
+  "id": 4005,
+  "source": "Hacker News",
+  "title": "Tech hobbyist makes shoulder-mounted guided missile prototype with $96 in parts",
+  "url": "https://www.tomshardware.com/3d-printing/tech-hobbyist-makes-shoulder-mounted-guided-missile-prototype-with-usd96-in-parts-and-a-3d-printer-diy-manpads-includes-wi-fi-guidance-ballistics-calculations-optional-camera-for-tracking",
+  "published_at": "2026-03-18T13:04:15Z",
+  "fetched_at": "2026-03-18T13:20:14.582497+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47425297\">Comments</a>",
+  "full_text": "The democratization and subsequent ubiquity of 3D printers have enabled almost any home enthusiast to produce utilities and products previously only attainable to large factories with big equipment. \"You can 3D print those nowadays\" has become a common utterance. Even still, it's safe to say that our bingo cards did not predict a techie making a shoulder-mounted, 3D printed guided missile system for all of $96.\n\nIn a five-minute YouTube video, Alisher Khojayev goes over the basics of this Stinger-like creation, comprising the launcher, the actual missile, and even an optional camera node tracking system for added tracking capabilities. Most of the missile's major parts are 3D printed, while the electronics bits are cheap, widely available microprocessors and sensors. All the gear is tied down and wired with off-the-shelf hardware store parts, too.\n\nWhen a user inserts a missile into the launcher and hits the first switch, they activate a Wi-Fi network between the launcher and a control computer. The computer takes in all the rocket's telemetry and starts performing ballistic calculations to relay to the launcher, and then to the missile.Article continues below \n\nOnce the second switch is hit, the connection extends to the rocket itself, and at that moment, orientation angles start being calculated for the missile's canards to use (the movable wings that jut out of the missile to orient it).\n\nThe launcher contains an ESP32 microprocessor along with a GPS, barometer, and compass. The missile itself contains another ESP32, coupled with an MPU6050 inertial measurement unit for calculating orientation and velocity, and move the canards as mentioned.\n\nKhojayev points out that although the 'MANPADS' ought to function well enough on its own, he proposes that it'd be at its best as part of a camera-and-GPS mesh node, for which he conveniently also made a prototype with commonly available parts.\n\n(Image credit: Aisher Khojayev)\n\nBoth projects and their documentation are freely available, and links are in the video description and comments. Despite the tech-cool factor of the project, Tom's Hardware does not condone making your own weapons system at home.\n\nGet Tom's Hardware's best news and in-depth reviews, straight to your inbox.\n\nAs points of comparison, Ynetnews points out that the well-known Stinger MANPADS goes for up to a cool $480,000, and that even the U.S. Air Force's CAMP low-cost missile program is currently targeting half a million per launch. While these are literally military-grade units with high reliability, and Khojayev's just-launched prototype has no effectiveness track record, at $96, it is roughly 5,000 times cheaper to make.\n\nSome may see this latest development as predictable in the grand scheme of things. The effectiveness of improvised explosives in Middle Eastern war theaters and the ingenuity of Ukrainian drone engineers have adeptly proven that necessity is the mother of invention. Couple that with 3D printers being ever more capable of producing strong, weapons-grade parts, and it's clearly displayed that the proverbial \"three guys in a shed\" can be far more effective than the military procurement machine.\n\nFollow Tom's Hardware on Google News, or add us as a preferred source, to get our latest news, analysis, & reviews in your feeds.",
+  "tags": [
+    "1000-words",
+    "diy manpads",
+    "guided",
+    "hardware",
+    "khojayev",
+    "launcher",
+    "manpads",
+    "missile",
+    "parts",
+    "points",
+    "prototype",
+    "system",
+    "tech",
+    "tom",
+    "tracking"
+  ]
+}
