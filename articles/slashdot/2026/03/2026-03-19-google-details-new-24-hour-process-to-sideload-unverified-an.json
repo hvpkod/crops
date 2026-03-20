@@ -1,0 +1,30 @@
+{
+  "id": 4399,
+  "source": "Slashdot",
+  "title": "Google Details New 24-Hour Process To Sideload Unverified Android Apps",
+  "url": "https://developers.slashdot.org/story/26/03/19/1832217/google-details-new-24-hour-process-to-sideload-unverified-android-apps?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-19T19:00:00Z",
+  "fetched_at": "2026-03-19T20:20:11.565176+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from Ars Technica: Google is planning big changes for Android in 2026 aimed at combating malware across the entire device ecosystem. Starting in September, Google will begin restricting application sideloading with its developer verification program, but not everyone is on board. Android Ecosystem President Sameer Samat tells Ars that the company has been listening to feedback, and the result is the newly unveiled advanced flow, which will allow power users to skip app verification. With its new limits on sideloading, Android phones will only install apps that come from verified developers. To verify, devs releasing apps outside of Google Play will have to provide identification, upload a copy of their signing keys, and pay a $25 fee. It all seems rather onerous for people who just want to make apps without Google's intervention.\n \nApps that come from unverified developers won't be installable on Android phones -- unless you use the new advanced flow",
+  "full_text": "An anonymous reader quotes a report from Ars Technica: Google is planning big changes for Android in 2026 aimed at combating malware across the entire device ecosystem. Starting in September, Google will begin restricting application sideloading with its developer verification program, but not everyone is on board. Android Ecosystem President Sameer Samat tells Ars that the company has been listening to feedback, and the result is the newly unveiled advanced flow, which will allow power users to skip app verification. With its new limits on sideloading, Android phones will only install apps that come from verified developers. To verify, devs releasing apps outside of Google Play will have to provide identification, upload a copy of their signing keys, and pay a $25 fee. It all seems rather onerous for people who just want to make apps without Google's intervention.\n\n \n\nApps that come from unverified developers won't be installable on Android phones -- unless you use the new advanced flow, which will be buried in the developer settings. When sideloading apps today, Android phones alert the user to the \"unknown sources\" toggle in the settings, and there's a flow to help you turn it on. The verification bypass is different and will not be revealed to users. You have to know where this is and proactively turn it on yourself, and it's not a quick process. [...] The actual legwork to activate this feature only takes a few seconds, but the 24-hour countdown makes it something you cannot do spur of the moment.\n\n \n\nBut why 24 hours? According to Samat, this is designed to combat the rising use of high-pressure social engineering attacks, in which the scammer convinces the victim they have to install an app immediately to avoid severe consequences. \"In that 24-hour period, we think it becomes much harder for attackers to persist their attack,\" said Samat. \"In that time, you can probably find out that your loved one isn't really being held in jail or that your bank account isn't really under attack.\" But for people who are sure they don't want Google's verification system to get in the way of sideloading any old APK they come across, they don't have to wait until they encounter an unverified app to get started. You only have to select the \"indefinitely\" option once on a phone, and you can turn dev options off again afterward. \n\n \"For a lot of people in the world, their phone is their only computer, and it stores some of their most private information,\" Samat said. \"Over the years, we've evolved the platform to keep it open while also keeping it safe. And I want to emphasize, if the platform isn't safe, people aren't going to use it, and that's a lose-lose situation for everyone, including developers.\"",
+  "tags": [
+    "500-words",
+    "android",
+    "android apps",
+    "apps",
+    "developer",
+    "google",
+    "google details",
+    "new hour",
+    "phones",
+    "process to",
+    "samat",
+    "security",
+    "sideload unverified",
+    "sideloading",
+    "turn",
+    "unverified",
+    "verification"
+  ]
+}

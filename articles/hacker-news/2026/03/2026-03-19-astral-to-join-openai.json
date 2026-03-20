@@ -1,0 +1,26 @@
+{
+  "id": 4286,
+  "source": "Hacker News",
+  "title": "Astral to Join OpenAI",
+  "url": "https://astral.sh/blog/openai",
+  "published_at": "2026-03-19T13:05:50Z",
+  "fetched_at": "2026-03-19T13:40:13.516932+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47438723\">Comments</a>",
+  "full_text": "I started Astral to make programming more productive.\n\nFrom the beginning, our goal has been to build tools that radically change what it feels like to\nwork with Python – tools that feel fast, robust, intuitive, and integrated.\n\nToday, we're taking a step forward in that mission by announcing that we've entered into an\nagreement to join OpenAI as part of the Codex\nteam.\n\nOver the past few years, our tools have grown from zero to hundreds of millions of downloads per\nmonth across Ruff, uv, and\nty. The Astral toolchain has become foundational to modern Python\ndevelopment. The numbers – and the impact – went far beyond my most ambitious expectations at every\nstep of the way.\n\nOpen source is at the heart of that impact and the heart of that story; it sits at the center of\neverything we do. In line with our philosophy and\nOpenAI's own announcement, OpenAI will\ncontinue supporting our open source tools after the deal closes. We'll keep building in the open,\nalongside our community – and for the broader Python ecosystem – just as we have from the start.\n\nI view building tools as an incredibly high-leverage endeavor. As I wrote in our\nlaunch post three years ago: \"If you could make\nthe Python ecosystem even 1% more productive, imagine how that impact would compound?\"\n\nToday, AI is rapidly changing the way we build software, and the pace of that change is only\naccelerating. If our goal is to make programming more productive, then building at the frontier of\nAI and software feels like the highest-leverage thing we can do.\n\nIt is increasingly clear to me that Codex is that frontier. And by\nbringing Astral's tooling and expertise to OpenAI, we're putting ourselves in a position to push it\nforward. After joining the Codex team, we'll continue building our open source tools, explore ways\nthey can work more seamlessly with Codex, and expand our reach to think more broadly about the\nfuture of software development.\n\nThrough it all, though, our goal remains the same: to make programming more productive. To build\ntools that radically change what it feels like to build software.\n\nOn a personal note, I want to say thank you, first, to the Astral team, who have always put our\nusers first and shipped some of the most beloved software in the world. You've pushed me to be a\nbetter leader and a better programmer. I am so excited to keep building with you.\n\nSecond, to our investors, especially\nCasey Aylward from Accel, who led our Seed and\nSeries A, and Jennifer Li from Andreessen Horowitz, who led\nour Series B. As a first-time, technical, solo founder, you showed far more belief in me than I ever\nshowed in myself, and I will never forget that.\n\nAnd third, to our users. Our tools exist because of you. Thank you for your trust. We won't let you\ndown.",
+  "tags": [
+    "500-words",
+    "ai",
+    "astral",
+    "build",
+    "building",
+    "change",
+    "codex",
+    "feels",
+    "goal",
+    "openai",
+    "programming",
+    "python",
+    "tools"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": 4395,
+  "source": "Hacker News",
+  "title": "Google details new 24-hour process to sideload unverified Android apps",
+  "url": "https://arstechnica.com/gadgets/2026/03/google-details-new-24-hour-process-to-sideload-unverified-android-apps/",
+  "published_at": "2026-03-19T17:16:04Z",
+  "fetched_at": "2026-03-19T19:40:13.523356+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47442690\">Comments</a>",
+  "full_text": "The actual legwork to activate this feature only takes a few seconds, but the 24-hour countdown makes it something you cannot do spur of the moment. But why 24 hours? According to Samat, this is designed to combat the rising use of high-pressure social engineering attacks, in which the scammer convinces the victim they have to install an app immediately to avoid severe consequences.\n\n \n\n \n\n \n\n \n \n \n \n\n You’ll have to wait 24 hours to bypass verification.\n \n\n Credit:\n Google\n \n \n \n \n \n \n\n \n\n \n\n \n\n You’ll have to wait 24 hours to bypass verification.\n\n \n Credit:\n\n \n Google\n\n \n \n \n \n \n\n“In that 24-hour period, we think it becomes much harder for attackers to persist their attack,” said Samat. “In that time, you can probably find out that your loved one isn’t really being held in jail or that your bank account isn’t really under attack.”\n\nBut for people who are sure they don’t want Google’s verification system to get in the way of sideloading any old APK they come across, they don’t have to wait until they encounter an unverified app to get started. You only have to select the “indefinitely” option once on a phone, and you can turn dev options off again afterward.\n\nChoice vs. security\n\nAccording to Samat, Google feels a responsibility to Android users worldwide, and things are different than they used to be with more than 3 billion active devices out there.\n\n“For a lot of people in the world, their phone is their only computer, and it stores some of their most private information,” Samat said. “Over the years, we’ve evolved the platform to keep it open while also keeping it safe. And I want to emphasize, if the platform isn’t safe, people aren’t going to use it, and that’s a lose-lose situation for everyone, including developers.”",
+  "tags": [
+    "500-words",
+    "android",
+    "bypass",
+    "credit google",
+    "details",
+    "google",
+    "hours",
+    "platform",
+    "process",
+    "really",
+    "samat",
+    "unverified",
+    "wait",
+    "you"
+  ]
+}

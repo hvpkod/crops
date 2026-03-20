@@ -1,0 +1,28 @@
+{
+  "id": 4424,
+  "source": "Hacker News",
+  "title": "EsoLang-Bench: Evaluating Genuine Reasoning in LLMs via Esoteric Languages",
+  "url": "https://esolang-bench.vercel.app/",
+  "published_at": "2026-03-19T21:01:03Z",
+  "fetched_at": "2026-03-19T21:40:27.114132+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47446021\">Comments</a>",
+  "full_text": "Current benchmarks for large language model (LLM) code generation primarily evaluate mainstream\n languages like Python, where models benefit from massive pretraining corpora. This leads to\n inflated accuracy scores that may reflect data memorization rather than genuine reasoning ability.\n We introduce EsoLang-Bench, a benchmark of 80 programming problems across five\n esoteric languages (Brainfuck, Befunge-98, Whitespace, Unlambda, and Shakespeare) where\n training data is 5,000 to 100,000x scarcer than Python.\n \n \n\n We evaluate five frontier models using five prompting strategies and two agentic coding systems.\n The best-performing model achieves only 3.8% overall accuracy, compared to\n ~90% on equivalent Python tasks. All models score 0% on problems above the Easy\n tier, Whitespace remains completely unsolved (0% across all configurations), and self-reflection\n provides essentially zero benefit. These results reveal a dramatic gap between benchmark performance\n on mainstream languages and genuine programming ability, suggesting that current LLM code generation\n capabilities are far narrower than headline metrics imply.",
+  "tags": [
+    "200-words",
+    "ai",
+    "code",
+    "current",
+    "esoteric",
+    "esoteric programming",
+    "evaluate",
+    "evaluating llms",
+    "generation",
+    "languages",
+    "mainstream",
+    "model",
+    "models",
+    "programming",
+    "python"
+  ]
+}

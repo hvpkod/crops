@@ -1,0 +1,27 @@
+{
+  "id": 4396,
+  "source": "Hacker News",
+  "title": "Show HN: I built a P2P network where AI agents publish formally verified science",
+  "url": "https://news.ycombinator.com/item?id=47444212",
+  "published_at": "2026-03-19T19:00:43Z",
+  "fetched_at": "2026-03-19T19:40:16.373472+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47444212\">Comments</a>",
+  "full_text": "I am Francisco, a researcher from Spain. My English is not great so please be patient with me.\n\nOne year ago I had a simple frustration: every AI agent works alone. When one agent solves a problem, the next agent has to solve it again from zero. There is no way for agents to find each other, share results, or build on each other's work. I decided to build the missing layer.\n\nP2PCLAW is a peer-to-peer network where AI agents and human researchers can find each other, publish scientific results, and validate claims using formal mathematical proof. Not opinion. Not LLM review. Real Lean 4 proof. A result is accepted only if it passes a mathematical operator we call the nucleus. R(x) = x. The type checker decides. It does not care about your institution or your credentials.\n\nThe network uses GUN.js and IPFS. Agents join without accounts. They just call GET /silicon and they are in. Published papers go into a queue called mempool. After validation by independent nodes they enter La Rueda, which is our permanent IPFS archive. Nobody can delete it or change it.\n\nWe also built a security layer called AgentHALO. It uses post-quantum cryptography (ML-KEM-768 and ML-DSA-65, FIPS 203 and 204), a privacy network called Nym so agents in restricted countries can participate safely, and proofs that let anyone verify what an agent did without seeing its private data.\n\nThe formal verification part is called HeytingLean. It is Lean 4. 3325 source files. More than 760000 lines of mathematics. Zero sorry. Zero admit. The security proofs are machine checked, not just claimed.\n\nThe system is live now. You can try it as an agent:\nGET https://p2pclaw.com/agent-briefing\n\nOr as a researcher: https://app.p2pclaw.com\n\nWe have no money and no company behind us. Just a small international team of researchers and doctors who think that scientific knowledge should be public and verifiable.\n\nI want feedback from HN specifically about three technical decisions: why we chose GUN.js instead of libp2p, whether our Lean 4 nucleus operator formalization has gaps, and whether 347 MCP tools is too many for an agent to navigate.\n\nCode: https://github.com/Agnuxo1/OpenCLAW-P2P\n\nDocs: https://www.apoth3osis.io/projects\n\nPaper: https://www.researchgate.net/publication/401449080_OpenCLAW-...",
+  "tags": [
+    "500-words",
+    "agent",
+    "agents",
+    "ai",
+    "build",
+    "built",
+    "called",
+    "find",
+    "lean",
+    "network",
+    "publish",
+    "researchers",
+    "show hn",
+    "spain"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": 4319,
+  "source": "Hacker News",
+  "title": "Hyper-optimized reverse geocoding API",
+  "url": "https://github.com/traccar/traccar-geocoder",
+  "published_at": "2026-03-19T14:38:51Z",
+  "fetched_at": "2026-03-19T15:40:33.355946+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47440309\">Comments</a>",
+  "full_text": "A fast, self-hosted reverse geocoding service built from OpenStreetMap data. Given latitude and longitude coordinates, it returns the nearest street address including house number, street name, city, state, county, postcode, and country.\n\nPart of the Traccar open source GPS tracking platform. Also available as a hosted service.\n\nStreet-level reverse geocoding from OSM data\n\nAddress point, street name, and address interpolation lookup\n\nAdministrative boundary resolution (country, state, county, city, postcode)\n\nSub-millisecond query latency with memory-mapped index files\n\nAutomatic HTTPS with Let's Encrypt\n\nDocker support with automatic PBF download and indexing\n\nservices:\n geocoder:\n image: traccar/traccar-geocoder\n environment:\n - PBF_URLS=https://download.geofabrik.de/europe/monaco-latest.osm.pbf\n ports:\n - \"3000:3000\"\n volumes:\n - geocoder-data:/data\n\nvolumes:\n geocoder-data:\n\n# All-in-one: download, build index, and serve\ndocker run -e PBF_URLS=\"https://download.geofabrik.de/europe-latest.osm.pbf\" \\\n -v geocoder-data:/data -p 3000:3000 traccar/traccar-geocoder\n\n# Build index only\ndocker run -e PBF_URLS=\"https://download.geofabrik.de/europe-latest.osm.pbf\" \\\n -v geocoder-data:/data traccar/traccar-geocoder build\n\n# Serve only (from pre-built index)\ndocker run -v geocoder-data:/data -p 3000:3000 traccar/traccar-geocoder serve\n\n# Multiple PBF files\ndocker run -e PBF_URLS=\"https://download.geofabrik.de/europe/france-latest.osm.pbf https://download.geofabrik.de/europe/germany-latest.osm.pbf\" \\\n -v geocoder-data:/data -p 3000:3000 traccar/traccar-geocoder\n\n# With automatic HTTPS\ndocker run -e PBF_URLS=\"https://download.geofabrik.de/planet-latest.osm.pbf\" \\\n -e DOMAIN=geocoder.example.com \\\n -v geocoder-data:/data -p 443:443 traccar/traccar-geocoder\n\nPBF files can be downloaded from Geofabrik.\n\nQuery parameters:\n\nlat - latitude (required)\n\nlon - longitude (required)\n\nResponse follows Nominatim format:\n\n{\n \"display_name\": \"Avenue de la Costa 42, 98000 Monaco, Monaco\",\n \"address\": {\n \"house_number\": \"42\",\n \"road\": \"Avenue de la Costa\",\n \"city\": \"Monaco\",\n \"state\": \"Monaco\",\n \"county\": \"Monaco\",\n \"postcode\": \"98000\",\n \"country\": \"Monaco\",\n \"country_code\": \"MC\"\n }\n}\n\nFields are omitted when not available.\n\nThe project consists of two components:\n\nBuilder (C++) - Parses OSM PBF files and creates a compact binary index using S2 geometry cells for spatial lookup.\n\nServer (Rust) - Memory-maps the index files and serves queries via HTTP/HTTPS with sub-millisecond latency.\n\nThe builder produces 14 binary files:\n\nFile\nDescription\n\ngeo_cells.bin\nMerged S2 cell index for streets, addresses, and interpolations\n\nstreet_entries.bin\nStreet way IDs per cell\n\nstreet_ways.bin\nStreet way headers (node offset, name)\n\nstreet_nodes.bin\nStreet node coordinates\n\naddr_entries.bin\nAddress point IDs per cell\n\naddr_points.bin\nAddress point data (coordinates, house number, street)\n\ninterp_entries.bin\nInterpolation way IDs per cell\n\ninterp_ways.bin\nInterpolation way headers\n\ninterp_nodes.bin\nInterpolation node coordinates\n\nadmin_cells.bin\nS2 cell index for admin boundaries\n\nadmin_entries.bin\nAdmin polygon IDs per cell\n\nadmin_polygons.bin\nAdmin polygon metadata\n\nadmin_vertices.bin\nAdmin polygon vertices\n\nstrings.bin\nDeduplicated string pool\n\nBuilder (C++):\n\nCMake 3.16+\n\nC++17 compiler\n\nlibosmium, protozero, s2geometry, zlib, bzip2, expat\n\nServer (Rust):\n\n# Build the indexer\nmkdir build && cd build && cmake ../builder && make\n\n# Build the server\ncargo build --release --manifest-path server/Cargo.toml\n\n# Create index from PBF file\n./build/build-index output-dir input.osm.pbf [input2.osm.pbf ...]\n\n# Start the server\n./server/target/release/query-server output-dir [bind-address]\n\n# Start with automatic HTTPS\n./server/target/release/query-server output-dir --domain geocoder.example.com\n\nEnvironment Variables (Docker)\n\nVariable\nDescription\nDefault\n\nPBF_URLS\nSpace-separated list of PBF download URLs\n(required for auto/build)\n\nDOMAIN\nDomain name for automatic HTTPS via Let's Encrypt\n(disabled)\n\nBIND_ADDR\nHTTP bind address\n0.0.0.0:3000\n\nDATA_DIR\nData directory for PBF files and index\n/data\n\nCACHE_DIR\nACME certificate cache directory\nacme-cache\n\nApache License, Version 2.0\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.",
+  "tags": [
+    "1000-words",
+    "address",
+    "apache license",
+    "automatic",
+    "build",
+    "cell",
+    "docker",
+    "files",
+    "fortnox world",
+    "france",
+    "germany",
+    "github",
+    "https",
+    "index",
+    "interpolation",
+    "monaco",
+    "pbf urls",
+    "server rust",
+    "street",
+    "traccar"
+  ]
+}

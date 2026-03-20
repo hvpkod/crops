@@ -1,0 +1,26 @@
+{
+  "id": 4375,
+  "source": "Hacker News",
+  "title": "Android: Balancing Openness and Choice with Safety",
+  "url": "https://android-developers.googleblog.com/2026/03/android-developer-verification.html",
+  "published_at": "2026-03-19T17:16:04Z",
+  "fetched_at": "2026-03-19T18:20:20.342290+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47442690\">Comments</a>",
+  "full_text": "Posted by Matthew Forsythe, Director Product Management, Android App Safety\n\nAndroid proves you don't have to choose between an open ecosystem and a secure one. Since announcing updated verification requirements, we've worked with the community to ensure these protections are robust yet respectful of platform freedom. We've heard from power users that they want to take educated risks to install software from unverified developers. Today, we're sharing details on a new advanced flow that provides this option.\n\nAdvanced flow safeguards against coercion\n\nAndroid is built on choice. That is why we’ve developed the advanced flow – an approach that allows power users to maintain the ability to sideload apps from unverified developers.\n\nThis flow is a one-time process for power users – but it was designed carefully to prevent those in the midst of a scam attempt from being coerced by high pressure tactics to install malicious software. In these scenarios, scammers exploit fear – using threats of financial ruin, legal trouble, or harm to a loved one – to create a sense of extreme urgency. They stay on the phone with victims, coaching them to bypass security warnings and disable security settings before the victim has a chance to think or seek help. According to a 2025 report from the Global Anti-Scam Alliance (GASA), 57% of surveyed adults experienced a scam in the past year, resulting in a global consumer loss of $442 billion. Because the consequences of these scams that use sophisticated social engineering tactics are so severe, we have carefully engineered the advanced flow to provide the critical time and space needed to break the cycle of coercion.\n\nHow the advanced flow works for users\n\nEnable developer mode in system settings: Activating this is simple. This prevents accidental triggers or \"one-tap\" bypasses often used in high-pressure scams.\n\nConfirm you aren't being coached: There is a quick check to make sure that no one is talking you into turning off your security. While power users know how to vet apps, scammers often pressure victims into disabling protections.\n\nRestart your phone and reauthenticate: This cuts off any remote access or active phone calls a scammer might be using to watch what you’re doing.\n\nCome back after the protective waiting period and verify: There is a one-time, one-day wait and then you can confirm that this is really you who’s making this change with our biometric authentication (fingerprint or face unlock) or device PIN. Scammers rely on manufactured urgency, so this breaks their spell and gives you time to think.\n\nInstall apps: Once you confirm you understand the risks, you’re all set to install apps from unverified developers, with the option of enabling for 7 days or indefinitely. For safety, you’ll still see a warning that the app is from an unverified developer, but you can just tap “Install Anyway.”\n\nA secure Android for every developer\n\nWe know a \"one size fits all\" approach doesn't work for our diverse ecosystem. We want to ensure that identity verification isn't a barrier to entry, so we’re providing different paths to fit your specific needs. \n\nIn addition to the advanced flow we’re building free, limited distribution accounts for students and hobbyists. This allows you to share apps with a small group (up to 20 devices) without needing to provide a government-issued ID or pay a registration fee. This ensures Android remains an open platform for learning and experimentation while maintaining robust protections for the broader community. \n\nLimited distribution accounts and advanced flow for users will be available in August before the new developer verification requirements take effect.\n\nVisit our website for more details. We look forward to sharing more in the coming days and weeks.",
+  "tags": [
+    "1000-words",
+    "advanced",
+    "android",
+    "apps",
+    "balancing",
+    "developer",
+    "flow",
+    "fortnox world",
+    "install",
+    "power",
+    "unverified",
+    "users",
+    "verification"
+  ]
+}

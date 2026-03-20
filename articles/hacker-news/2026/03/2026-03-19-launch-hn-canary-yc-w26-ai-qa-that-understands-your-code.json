@@ -1,0 +1,29 @@
+{
+  "id": 4353,
+  "source": "Hacker News",
+  "title": "Launch HN: Canary (YC W26) – AI QA that understands your code",
+  "url": "https://news.ycombinator.com/item?id=47441629",
+  "published_at": "2026-03-19T16:01:30Z",
+  "fetched_at": "2026-03-19T17:00:48.320677+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47441629\">Comments</a>",
+  "full_text": "Hey HN! We're Aakash and Viswesh, and we're building Canary (https://www.runcanary.ai\n\n). We build AI agents that read your codebase, figure out what a pull request actually changed, and generate and execute tests for every affected user workflow.\n\nAakash and I previously built AI coding tools at Windsurf, Cognition, and Google. AI tools were making every team faster at shipping, but nobody was testing real user behavior before merge. PRs got bigger, reviews still happened in file diffs, and changes that looked clean broke checkout, auth, and billing in production. We saw it firsthand. We started Canary to close that gap. Here's how it works:\n\nCanary starts by connecting to your codebase and understands how your app is built: routes, controllers, validation logic. You push a PR and Canary reads the diff, understands the intent behind the changes, then generates and runs tests against your preview app checking real user flows end to end. It comments directly on the PR with test results and recordings showing what changed and flagging anything that doesn't behave as expected. You can also trigger specific user workflow tests via a PR comment.\n\nBeyond PR testing, tests generated from the PR can be moved into regression suites. You can also create tests by just prompting what you want tested in plain English. Canary generates a full test suite from your codebase, schedules it, and runs it continuously. One of our construction tech customers had an invoicing flow where the amount due drifted from the original proposal total by ~$1,600. Canary caught the regression in their invoice flow before release.\n\nThis isn't something a single family of foundation models can do on its own. QA spans across many modalities like source code, DOM/ARIA, device emulators, visual verifications, analyzing screen recordings, network/console logs, live browser state etc. for any single model to be specialized in. You also need custom browser fleets, user sessions, ephemeral environments, on-device farms and data seeding to run the tests reliably. On top of that, catching second-order effects of code changes requires a specialized harness that breaks the application in multiple possible ways across different types of users that a normal happy path testing flow wouldn't.\n\nTo measure how well our purpose built QA agent works, we published QA-Bench v0, the first benchmark for code verification. Given a real PR, can an AI model identify every affected user workflow and produce relevant tests? We tested our purpose-built QA agent against GPT 5.4, Claude Code (Opus 4.6), and Sonnet 4.6 across 35 real PRs on Grafana, Mattermost, Cal.com, and Apache Superset on three dimensions: Relevance, Coverage, and Coherence. Coverage is where the gap was largest. Canary leads by 11 points over GPT 5.4, 18 over Claude Code, and 26 over Sonnet 4.6. For full methodology and per-repo breakdowns give our benchmark report a read: https://www.runcanary.ai/blog/qa-bench-v0\n\nYou can check out the product demo here: https://youtu.be/NeD9g1do_BU\n\nWe'd love feedback from anyone working on code verification or thinking about how to measure this differently.",
+  "tags": [
+    "500-words",
+    "aakash",
+    "affected",
+    "ai",
+    "built",
+    "canary",
+    "canary yc",
+    "claude code",
+    "code",
+    "flow",
+    "launch hn",
+    "real",
+    "tests",
+    "understands",
+    "user",
+    "you"
+  ]
+}

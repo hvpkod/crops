@@ -1,0 +1,28 @@
+{
+  "id": 4307,
+  "source": "The Verge",
+  "title": "Tesla&#8217;s Full Self-Driving is on the cusp of a recall",
+  "url": "https://www.theverge.com/transportation/897303/tesla-full-self-driving-nhtsa-probe-march-2026",
+  "published_at": "2026-03-19T14:15:04Z",
+  "fetched_at": "2026-03-19T14:40:48.446057+00:00",
+  "author": "Stevie Bonifield",
+  "summary": "<figure>\n\n<img alt=\"A picture of a Tesla Model Y.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25434354/Screenshot_2024_05_05_at_10.54.59_AM.png?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Tesla's Full Self-Driving system is facing an expanded investigation by the National Highway Traffic Safety Administration over its safety during poor road visibility conditions, as previously reported by <a href=\"https://www.reuters.com/business/autos-transportation/us-auto-safety-regulator-opens-probe-into-tesla-vehicles-with-fsd-2026-03-19/\"><em>Reuters</em></a>. Tesla vehicles with Full Self-Driving (FSD) have a \"degradation detection\" system that's supposed to alert drivers to take over when the vehicle's cameras can't see the road clearly enough to safely use FSD, like during poor weather. </p>\n<p class=\"has-text-align-none\">NHTSA's Office of Defects Investigation (O",
+  "full_text": "Tesla’s Full Self-Driving system is facing an expanded investigation by the National Highway Traffic Safety Administration over its safety during poor road visibility conditions, as previously reported by Reuters. Tesla vehicles with Full Self-Driving (FSD) have a “degradation detection” system that’s supposed to alert drivers to take over when the vehicle’s cameras can’t see the road clearly enough to safely use FSD, like during poor weather.\n\nNHTSA’s Office of Defects Investigation (ODI) is now conducting an engineering analysis, which is the second and final phase of an investigation before a possible recall, to investigate whether the degradation detection system performs as advertised following numerous safety incidents.\n\nAccording to a March 18th NHTSA filing, the degradation detection system “fails to detect and/or warn the driver appropriately under degraded visibility conditions such as glare and airborne obscurants. In the crashes that ODI has reviewed, the system did not detect common roadway conditions that impaired camera visibility and/or provide alerts when camera performance had deteriorated until immediately before the crash occurred.”\n\nTesla began developing an update for the degradation detection system in 2024 after a fatal 2023 incident, but Wednesday’s NHTSA filing states that the ODI doesn’t know which vehicles have received the update. However, the update may have been able to prevent some of the safety incidents the ODI is investigating.\n\nThis investigation follows a similar probe in 2024 over crashes that happened during poor visibility while drivers were using Tesla’s FSD system. The last time an NHTSA probe developed into an engineering analysis, it resulted in two waves of recalls and updates impacting nearly every vehicle Tesla had ever sold in the US up to that point. Tesla CEO Elon Musk has made bold promises about fully unsupervised FSD in Tesla vehicles, a goal that could face setbacks if NHTSA files another recall related to FSD.",
+  "tags": [
+    "500-words",
+    "degradation",
+    "detection",
+    "driving",
+    "fsd",
+    "full",
+    "full self",
+    "investigation",
+    "nhtsa",
+    "poor",
+    "safety",
+    "self driving",
+    "system",
+    "tesla",
+    "visibility"
+  ]
+}

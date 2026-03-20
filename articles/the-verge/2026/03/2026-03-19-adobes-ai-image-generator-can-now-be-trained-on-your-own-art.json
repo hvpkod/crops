@@ -1,0 +1,24 @@
+{
+  "id": 4285,
+  "source": "The Verge",
+  "title": "Adobe’s AI image generator can now be trained on your own art",
+  "url": "https://www.theverge.com/tech/897243/adobe-firefly-ai-custom-models-image-public-beta",
+  "published_at": "2026-03-19T13:00:00Z",
+  "fetched_at": "2026-03-19T13:21:13.338340+00:00",
+  "author": "Jess Weatherbed",
+  "summary": "<figure>\n\n<img alt=\"An illustrated image representing Adobe’s Custom Firefly AI Model public beta.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Firefly-Custom-Models-Hero-Image.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tJust feed your images into the bot and it’ll try to mimic specific styles and aesthetics. | Image: Adobe\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Adobe is launching customizable AI image generators that can mimic specific artistic styles and character designs. The Firefly Custom Models are available in public beta starting today, allowing creators and brands to train a model on their own assets to ensure generated images follow a consistent aesthetic for characters, illustrations, and photography.</p>\n<p class=\"has-text-align-none\">The tool aims to streamline workflows for teams and creators that need to produce high volumes of content, providing a reusable foundation that preserves visual consistency a",
+  "full_text": "Adobe is launching customizable AI image generators that can mimic specific artistic styles and character designs. The Firefly Custom Models are available in public beta starting today, allowing creators and brands to train a model on their own assets to ensure generated images follow a consistent aesthetic for characters, illustrations, and photography.\n\nThe tool aims to streamline workflows for teams and creators that need to produce high volumes of content, providing a reusable foundation that preserves visual consistency across multiple projects, instead of having to start from scratch each time. Adobe says that custom models can help preserve details like stroke weight, color palettes, lighting, and character features across generations. The custom models are also private by default, so images used to train them won’t be used to train Adobe’s general Firefly models.\n\n“To grow a brand, you need a steady stream of assets that consistently express who you are. Those assets should be yours and yours alone,” Adobe said in its press release. “Once trained, your custom model becomes part of your workflow. You can generate new ideas aligned to your aesthetic, reuse the model across projects, briefs and campaigns and produce at scale without losing what makes your work distinctive.”\n\nFirefly custom models were previously announced as a private beta at Adobe Max last year, but now anyone can try them. Adobe has long promoted its Firefly models — which are trained using a mix of licenced and public domain content — as an ethical and commercially safe alternative to rival services that likely scraped protected works.\n\nGiving creative professionals more control over how the models they use are trained feels like a natural expansion, but Adobe doesn’t say it’ll prevent users from training custom models on work they don’t own. According to Adobe’s help page, users will be prompted before training a custom model to confirm they have the necessary rights and permissions and “that your use of custom models won’t infringe on the copyright, IP, likeness, or privacy rights of others.” We’ve reached out to ask Adobe if there are any measures in place to prevent custom models from training on a creator’s work without permission.",
+  "tags": [
+    "500-words",
+    "adobe",
+    "assets",
+    "custom",
+    "firefly",
+    "image",
+    "model",
+    "models",
+    "train",
+    "trained",
+    "training"
+  ]
+}

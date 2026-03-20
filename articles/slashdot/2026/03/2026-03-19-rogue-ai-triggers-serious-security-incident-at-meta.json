@@ -1,0 +1,29 @@
+{
+  "id": 4421,
+  "source": "Slashdot",
+  "title": "Rogue AI Triggers Serious Security Incident At Meta",
+  "url": "https://yro.slashdot.org/story/26/03/19/1936250/rogue-ai-triggers-serious-security-incident-at-meta?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-19T21:00:00Z",
+  "fetched_at": "2026-03-19T21:40:07.527057+00:00",
+  "author": "BeauHD",
+  "summary": "For the second time in the past month, an AI agent went rogue at Meta -- this time giving an engineer incorrect advice that briefly exposed sensitive data. The Verge reports: A Meta engineer was using an internal AI agent, which Clayton described as \"similar in nature to OpenClaw within a secure development environment,\" to analyze a technical question another employee posted on an internal company forum. But the agent also independently publicly replied to the question after analyzing it, without getting approval first. The reply was only meant to be shown to the employee who requested it, not posted publicly. An employee then acted on the AI's advice, which \"provided inaccurate information\" that led to a \"SEV1\" level security incident, the second-highest severity rating Meta uses. The incident temporarily allowed employees to access sensitive data they were not authorized to view, but the issue has since been resolved.\n \nAccording to Clayton, the AI agent involved didn't take any tec",
+  "full_text": "For the second time in the past month, an AI agent went rogue\n\n at Meta -- this time giving an engineer incorrect advice that briefly exposed sensitive data\n\n. The Verge reports: A Meta engineer was using an internal AI agent, which Clayton described as \"similar in nature to OpenClaw within a secure development environment,\" to analyze a technical question another employee posted on an internal company forum. But the agent also independently publicly replied to the question after analyzing it, without getting approval first. The reply was only meant to be shown to the employee who requested it, not posted publicly. An employee then acted on the AI's advice, which \"provided inaccurate information\" that led to a \"SEV1\" level security incident, the second-highest severity rating Meta uses. The incident temporarily allowed employees to access sensitive data they were not authorized to view, but the issue has since been resolved.\n\n \n\nAccording to Clayton, the AI agent involved didn't take any technical action itself, beyond posting inaccurate technical advice, something a human could have also done. A human, however, might have done further testing and made a more complete judgment call before sharing the information -- and it's not clear whether the employee who originally prompted the answer planned to post it publicly. \"The employee interacting with the system was fully aware that they were communicating with an automated bot. This was indicated by a disclaimer noted in the footer and by the employee's own reply on that thread,\" Clayton commented to The Verge. \"The agent took no action aside from providing a response to a question. Had the engineer that acted on that known better, or did other checks, this would have been avoided.\"",
+  "tags": [
+    "500-words",
+    "agent",
+    "clayton",
+    "data",
+    "employee",
+    "engineer",
+    "incident",
+    "meta",
+    "rogue",
+    "rogue ai",
+    "security",
+    "security incident",
+    "sensitive",
+    "technical",
+    "the verge",
+    "triggers serious"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 4187,
+  "source": "Hacker News",
+  "title": "Cook: A simple CLI for orchestrating Claude Code",
+  "url": "https://rjcorwin.github.io/cook/",
+  "published_at": "2026-03-19T02:20:34Z",
+  "fetched_at": "2026-03-19T03:20:06.518473+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47434024\">Comments</a>",
+  "full_text": "~*~ ~*~ ~*~\n \n\ncook.\n \n\n Workflow loops for Claude Code, Codex, and OpenCode.\n \n \ncook \"Implement dark mode\" review\n\ncook \"Implement dark mode\" x3\n\ncook \"Implement dark mode\" v3 \"least code\"\n\ncook \"Auth with JWT\" vs \"Auth with sessions\" pick \"best security\"\n\ncook \"Work on next task in plan.md\" review \\\n ralph 5 \"DONE if all tasks complete, else NEXT\"\n\ncook \"Implement dark mode\" review v3 \"cleanest result\"\n \n\nTwo ways to get it:\n \n\nnpm install -g @let-it-cook/cli\n \n\nAdd the /cook skill to Claude Code:\n \n\nmkdir -p .claude/skills && \\\n cp -r $(npm root -g)/@let-it-cook/cli/skill .claude/skills/cook\n \n\n GitHub ·\n npm\n \n \n\n \n\n \n\n* Primitives\n \n\n \n\nCook parses three categories of tokens:\n\n \n\n \n\n \n\n* Work\n \n\nA prompt. One agent call. The core unit.\n \n \n\n \n\n* Loop operators\n \n\nWrap work with iteration: xN, review, ralph.\n \n \n\n \n\n* Composition\n \n\nRun parallel branches and resolve: vN, vs, pick.\n \n \n\n \n\nOperators compose left to right. Each wraps everything to its left.\n\n cook \"work\" x3 review \ncook \"work\" review x3 \ncook \"work\" review v3 pick \n \n\n \n\n* Loop Operators\n \n\n \n\nrepeat (xN)\n \n\nxN runs work N times sequentially, each pass seeing the previous output.\n\n cook \"Add dark mode\" x3 \ncook \"Add dark mode\" repeat 3 \ncook \"Add dark mode\" x3 review \ncook \"Add dark mode\" review x3 \n\n \n\nreview\n \n\nreview adds a review→gate loop. After work, a reviewer checks quality and a gate decides DONE or ITERATE. On ITERATE, the iterate step runs, then review→gate repeats.\n\n \n\n work\n ->\n review\n ->\n gate\n ->\n iterate\n <<\n \n\n cook \"Add dark mode\" review \ncook \"Add dark mode\" review 5 \n\n \n\nProvide custom prompts after review, or use positional shorthand:\n\n \ncook \"Add dark mode\" review \\\n \"Review for accessibility\" \\\n \"DONE if WCAG AA, else ITERATE\"\n\ncook \"Add dark mode\" \\\n \"Review for accessibility\" \\\n \"DONE if WCAG AA, else ITERATE\"\n\ncook \"Add dark mode\" \\\n \"Review for accessibility\" \\\n \"DONE if WCAG AA, else ITERATE\" \\\n \"Fix the issues\" 5\n\n \n\nUse different agents or models per step:\n\n cook \"Add dark mode\" review \\\n --work-agent codex --work-model gpt-5-codex \\\n --review-agent claude --review-model opus\n\n \n\nralph\n \n\nRalph wraps a cook with an outer gate for task-list progression. The work prompt is self-directing — it reads project state to find the current task each time.\n\n cook \"Work on next task in plan.md\" \\\n ralph 5 \"DONE if all tasks complete, else NEXT\"\n\ncook \"Work on next task in plan.md\" \\\n review \"Code review\" \"DONE if no High issues, else ITERATE\" \\\n ralph 5 \"DONE if all tasks complete, else NEXT\"\n\n \n\nThe review gate decides DONE (pass to ralph) or ITERATE (fix and retry). The ralph gate decides DONE (exit) or NEXT (advance to next task, reset iterations).\n \n\n \n\n* Composition Operators\n \n\n \n\nComposition operators run multiple cooks in parallel isolated git worktrees, then combine the results with a resolver.\n\n \n\nversions (vN / race N)\n \n\nvN runs N identical cooks in parallel worktrees. pick is the default resolver.\n\n cook \"Add dark mode\" v3 \ncook \"Add dark mode\" v3 \"least code wins\" \ncook \"Add dark mode\" race 3 \"least code wins\" \n\ncook \"Add dark mode\" review v3 \"cleanest\" \ncook \"Add dark mode\" x3 v3 \"most complete\" \n\n \n\nvs\n \n\nvs runs two different cooks in parallel worktrees. Each branch is a full cook — it can have its own loop operators.\n\n cook \"Implement auth with JWT\" \\\n vs \\\n \"Implement auth with sessions\" \\\n pick \"best security\"\n\ncook \"Build with React\" review \"Check accessibility\" \"DONE if WCAG AA\" 3 \\\n vs \\\n \"Build with Vue\" review \"Check bundle size\" \"DONE if under 50kb\" 5 \\\n merge \"best developer experience\"\n\n \n\nResolvers\n\n \n \n \n Resolver\n Behavior\n \n \n \n \n pick [\"criteria\"]\n Pick one winner. Merge that branch. Default.\n \n \n merge [\"criteria\"]\n Synthesize all results into a fresh implementation.\n \n \n compare\n Write a comparison doc to .cook/compare-<session>.md. No merge.\n \n \n \n \n\n \n\n* Configuration\n \n\n \n\nRun cook init in your project root to scaffold configuration files:\n\n cook init\n\n \n\nThis creates:\n \n \nCOOK.md — project instructions and agent prompt template\n \n.cook/config.json — agent/model/sandbox defaults and per-step overrides\n \n.cook/Dockerfile — project dependencies for Docker sandbox mode\n \n.cook/logs/ — session logs (gitignored)\n \n\n \n\nExample .cook/config.json:\n {\n \"agent\": \"claude\",\n \"sandbox\": \"agent\",\n \"steps\": {\n \"work\": { \"agent\": \"codex\", \"model\": \"gpt-5-codex\" },\n \"review\": { \"agent\": \"claude\", \"model\": \"opus\" }\n },\n \"env\": [\"CLAUDE_CODE_OAUTH_TOKEN\"]\n}\n\n \n\nSandbox Modes\n\n \n \n \n Mode\n Flag\n Description\n \n \n \n \n Agent (default)\n --sandbox agent\n Agents use their own OS-level sandboxes. No Docker required.\n \n \n Docker\n --sandbox docker\n Agents run in a Docker container with restricted network access.\n \n \n \n\n \n\n \n\nNote: OpenCode is only supported in Docker mode.",
+  "tags": [
+    "1000-words",
+    "add",
+    "ai",
+    "claude",
+    "claude code",
+    "code codex",
+    "codex",
+    "cook",
+    "dark",
+    "docker",
+    "done",
+    "else",
+    "gate",
+    "opencode",
+    "operators",
+    "pick",
+    "ralph",
+    "review",
+    "wcag aa"
+  ]
+}

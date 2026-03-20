@@ -1,0 +1,24 @@
+{
+  "id": 4300,
+  "source": "Hacker News",
+  "title": "OpenBSD: PF queues break the 4 Gbps barrier",
+  "url": "https://undeadly.org/cgi?action=article;sid=20260319125859",
+  "published_at": "2026-03-19T13:43:26Z",
+  "fetched_at": "2026-03-19T14:21:01.660322+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47439320\">Comments</a>",
+  "full_text": "Contributed by\nPeter N. M. Hansteen\non 2026-03-19\nfrom the queueing for Terabitia dept.\n\nOpenBSD\n\n's\nPF\n\npacket filter has long supported HFSC\n\n traffic shaping\nwith the queue\n\nrules in\npf.conf(5)\n\n.\nHowever, an internal 32-bit limitation in the HFSC\n\nservice curve structure (struct hfsc_sc\n\n) meant that bandwidth values\nwere silently capped at approximately 4.29 Gbps\n\n,\n” the maximum value of a u_int \"\n\n.\n\nWith 10G, 25G, and 100G\nnetwork interfaces now commonplace,\nOpenBSD devs making huge progress unlocking the kernel for SMP,\nand adding drivers for cards supporting some of these speeds,\nthis limitation started to get in the way.\nConfiguring bandwidth 10G on a queue would silently wrap around,\nproducing incorrect and unpredictable scheduling behaviour.\n\nA new patch\nwidens the bandwidth fields in the kernel's HFSC scheduler\nfrom 32-bit to 64-bit integers, removing this bottleneck entirely.\nThe diff also fixes a pre-existing display bug in\npftop(1)\nwhere bandwidth values above 4 Gbps would be shown incorrectly.\n\nFor end users, the practical impact is: PF queue bandwidth\nconfiguration now works correctly for modern high-speed interfaces.\nThe familiar syntax just does what you'd expect:\n\nqueue rootq on em0 bandwidth 10G\nqueue defq parent rootq bandwidth 8G default\n\nValues up to 999G are supported, more than enough for interfaces\ntoday and the future. Existing configurations using values\nbelow 4G continue to work - no changes are needed.\n\nAs always, testing of -current snapshots and\ndonations to the OpenBSD Foundation are encouraged.\n\nThe editors note that the thread titled\nPF Queue bandwidth now 64bit for >4Gbps queues\non tech@ has the patch and a brief discussion with the\nconclusion that the code is ready to commit by Friday, March 20th, 2026.",
+  "tags": [
+    "500-words",
+    "bandwidth",
+    "gbps",
+    "hfsc",
+    "interfaces",
+    "limitation",
+    "openbsd",
+    "queue",
+    "queues",
+    "silently",
+    "values"
+  ]
+}

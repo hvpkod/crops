@@ -1,0 +1,26 @@
+{
+  "id": 4400,
+  "source": "Hacker News",
+  "title": "Anthropic takes legal action against OpenCode",
+  "url": "https://github.com/anomalyco/opencode/pull/18186",
+  "published_at": "2026-03-19T19:37:26Z",
+  "fetched_at": "2026-03-19T20:20:19.623672+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47444748\">Comments</a>",
+  "full_text": "%%{init: {'theme': 'neutral'}}%%\nflowchart TD\n A[LLM.stream called] --> B{providerID starts with 'opencode'?}\n B -- Yes --> C[Add x-opencode-project/session/request/client headers]\n B -- No --> D[No extra headers added]\n C --> E[Merge model.headers]\n D --> E\n E --> F[Merge plugin chat.headers]\n F --> G[streamText call]\n\n subgraph \"Before PR (removed path)\"\n H{providerID !== 'anthropic'?}\n H -- Yes --> I[\"Add User-Agent: opencode/VERSION\"]\n H -- No --> J[undefined — no headers]\n end\n\n style D fill:#f99,stroke:#c00\n style I fill:#9f9,stroke:#090\n style J fill:#ccc,stroke:#999",
+  "tags": [
+    "200-words",
+    "ai",
+    "anthropic",
+    "flowchart",
+    "github",
+    "legal",
+    "pull",
+    "pull request",
+    "request",
+    "requests",
+    "starts",
+    "style",
+    "thdxr"
+  ]
+}

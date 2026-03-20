@@ -1,0 +1,29 @@
+{
+  "id": 4422,
+  "source": "Hacker News",
+  "title": "Waymo Safety Impact",
+  "url": "https://waymo.com/safety/impact/",
+  "published_at": "2026-03-19T20:13:35Z",
+  "fetched_at": "2026-03-19T21:40:10.813161+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47445246\">Comments</a>",
+  "full_text": "A crashed vehicle rate or vehicle-level rate is computed by counting the number of vehicles involved in crashes at a certain outcome level and dividing by the population-level VMT. For the Waymo crashes, the crashed vehicle rate is computed as the number of Waymo vehicles in crashes with a given outcome level divided by the total Rider-Only (RO) miles traveled by Waymo. For the benchmark, it is the total number of vehicles involved in crashes of a certain outcome in police report data divided by the total population VMT. \n\nAnother metric available is a crash-level rate (i.e., number of crashes per population VMT). To illustrate why using a crash-level benchmark to compare to vehicle-level rate of an Automated Driving System (ADS) fleet creates a unit mismatch that could lead to incorrect conclusions, it’s useful to use a hypothetical, and simple, example. Consider a benchmark population that contains two vehicles that both drive 100 miles before crashing with each other (2 crashed vehicles, 1 crash, 200 population VMT). The crash-level rate is 0.5 crash per 100 miles (1 crash / 200 miles), while the vehicle-level rate is 1 crashed vehicle per 100 miles (2 crashed vehicles / 200 miles). This is akin to deriving benchmarks from police report crash data, where on average there are 1.8 vehicles involved in each crash and VMT data where VMT is estimated among all vehicles. Now consider a second ADS population that has 1 vehicle that also travels 100 miles before being involved in a crash with a vehicle that is not in the population. This situation is akin to how data is collected for ADS fleets. The total ADS fleet VMT is recorded, along with crashes involving an ADS vehicle. For the ADS fleet, the crashed vehicle (vehicle-level) rate is 1 crashed vehicle per 100 miles. If an analysis incorrectly compares the crash-level benchmark rate of 0.5 crashes per 100 miles to the ADS vehicle-level rate of 1 crashed vehicle per 100 miles, the conclusion would be that the ADS fleet crashes at a rate that is 2 times higher than the benchmark. The reality is that in this example, the ADS crash rate of 1 crashed vehicle per 100 miles is no different than the benchmark crashed vehicle rate, in which an individual driver of a vehicle was involved in 1 crash per 100 miles traveled.\n\nThis mistake of comparing a crash-level rate to a vehicle-level rate is easy to do when using aggregate statistics because summary statistics provided by research agencies often list the number of crashes instead of the number of vehicles involved in crashes. For example, Scanlon et al. (2024) reported that nationally there were 5,930,496 police-reported crashes in 2022, involving 10,528,849 crashed vehicles. The total national VMT for 2022 was 3.2 trillion miles. This means that the crash-level rate for the US is 1.9 crashes per million miles while the vehicle-level rate is 3.3 crashed vehicles per million miles. \n\nAnother common metric used in traffic safety is injured people per VMT (i.e., a person-level rate). As a population level measure of the burden of crashes, a person-level rate has merit. There are several practical and interpretation issues that make a person-level rate not an ideal metric when comparing one population to another like is done in the Safety Impact Data Hub. A person-level rate for an ADS fleet operating in mixed traffic will appear to decrease as fleet size (or penetration) increases, even if crash involvement rate stays the same. Because crashes often involve multiple vehicles, the larger the fleet size the more likely it would be that multiple ADS vehicles are involved in a crash, which would decrease the person-level rate (same number of people involved in the crash, more VMT). This means that early in testing, the person-level rate of the ADS fleet would appear higher than the benchmark even if the ADS was involved in a similar number of crashes as the benchmark population. To address this bias, one could compute a fractional person-level rate defined as the total people involved in a crash at a given outcome divided by the number of vehicles in the crash. Although this fractional person-level rate addresses the bias in multiple vehicles, it creates a different bias in the interpretation of the results. The fraction person-level crash rate weights crashes involving fewer vehicles more than crashes that happen to involve multiple vehicles. There is also a practical limitation in that the NHTSA Standing General Order, the most comprehensive source of ADS crashes, reports only the maximum injury severity in the crash and not the number of injured occupants at given severity levels. So, it is not possible to compute a person-level rate from the SGO data today. This limitation also applies to some state crash databases, where only maximum severity is reported. Because of the potential biases in interpretation and reporting limitations, a vehicle-level rate is preferable to a person-level rate when comparing ADS and benchmark crash rates.",
+  "tags": [
+    "1000-words",
+    "ads",
+    "benchmark",
+    "crash",
+    "crashed",
+    "crashes",
+    "fortnox world",
+    "involved",
+    "miles",
+    "population",
+    "rate",
+    "safety impact",
+    "vehicle",
+    "vehicles",
+    "vmt",
+    "waymo"
+  ]
+}

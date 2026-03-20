@@ -1,0 +1,28 @@
+{
+  "id": 4207,
+  "source": "Hacker News",
+  "title": "Why Cloudflare rule order matters?",
+  "url": "https://www.brzozowski.io/web-applications/2025/03/11/why-cloudflare-rule-order-matters.html",
+  "published_at": "2026-03-16T09:51:18Z",
+  "fetched_at": "2026-03-19T08:40:08.313441+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47396973\">Comments</a>",
+  "full_text": "Before jumping into this article please take a look at the following Cloudflare ruleset and think for a while what is wrong with it?\n\nI set up above rules and thought they would work like the following:\n\nFrom the first glance it seems perfectly fine. Website administrator wants to challenge users opening the website to prevent bot traffic. Additionally he specifies a rule that blocks access to /metrics endpoint to prevent unauthorized access to Prometheus metrics. I was surprised when I enabled both rules and the this happened:\n\nWhat is going on here?! The Block rule was never executed and anyone could access my precious /metrics endpoint! Let me explain what is going on. Cloudflare rules language consists of several Actions. Action is a result of a matching rule. As for now, for custom security rules the following actions are allowed:\n\nInteractive Challenge\n\nJS Challenge\n\nManaged Challenge\n\nBlock\n\nSkip\n\nLog\n\nExecute\n\nRewrite\n\nRedirect\n\nRoute\n\nSet Configuration\n\nCompress Response\n\nSet Cache Settings\n\nServe Error\n\nLog custom field\n\nSome actions however are Terminating Actions. Terminating action will stop the evaluation of the remaining rules. This means that any rules, that are ordered AFTER a terminating action, will not be evaluated if the Terminating Action is executed. Cloudflare recognizes the following Terminating Actions:\n\nInteractive Challenge\n\nJS Challenge\n\nManaged Challenge\n\nBlock\n\nRedirect\n\nServe Error\n\nLog custom field\n\nThis behavior is especially important when configuring Block rules that have real security impact. If a rule that restricts access to a resource is placed AFTER i.e. JS Challenge action, it can be easily bypassed when a client completes the challenge and gets cf_clearance cookie assigned. With this cookie, Cloudflare automatically clears request of any challenge rules meaning rule evaluation will be terminated.\n\nTo sum up, to securely configure Cloudflare custom security rules, they should be grouped by resulting action and placed in the following order:\n\nSkip - Whitelist trusted IPs/services,\n\nBlock - Most restrictive rules, cannot be bypassed,\n\nLog - Capture traffic before modifications,\n\nRedirect - URL redirections,\n\nServe Error - Custom error pages,\n\nExecute - Transformation rules,\n\nRewrite - Transformation rules,\n\nRoute - Transformation rules,\n\nSet Configuration - Configuration rules,\n\nCompress Response - Performance rules,\n\nSet Cache Settings - Caching rules,\n\nLog custom field - Custom logging,\n\nInteractive Challenge - Challenge suspicious traffic,\n\nJS Challenge - Challenge suspicious traffic,\n\nManaged Challenge - Challenge suspicious traffic\n\nExploitability\n\nAnd what about exploitability? Unfortunatelly, I was not able to confirm that this issue is exploitable at scale which can mean two things. Either my testing methodology (fuzzing with cf_clearance cookie) was badly adjusted for this research, or this type of misconfigurations are very uncommon, and hard to detect in blackbox scenario.\n\nIn other way this seems to be intended behavior even though Cloudflare dashboard is straight lying to you by saying that Block rule will execute after Challenge action:\n\n Above statement is not true, as the rule will never be evaluated after “Force bot detection” rule.\n\nIt was also funny to discover this exact issue discussed on serverfault.com forum some years ago. Looks like people had already problems understanding Cloudflare security rules a while ago.\n\nReferences:\n\nhttps://developers.cloudflare.com/ruleset-engine/rules-language/actions/ https://serverfault.com/questions/1059124/how-does-cloudflare-firwall-rules-order-work",
+  "tags": [
+    "1000-words",
+    "access",
+    "action",
+    "block",
+    "challenge",
+    "cloudflare",
+    "custom",
+    "following",
+    "interactive challenge",
+    "managed challenge",
+    "rule",
+    "rules",
+    "serve error",
+    "terminating",
+    "why cloudflare"
+  ]
+}

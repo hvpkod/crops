@@ -1,0 +1,24 @@
+{
+  "id": 4403,
+  "source": "Hacker News",
+  "title": "Cockpit is a web-based graphical interface for servers",
+  "url": "https://github.com/cockpit-project/cockpit",
+  "published_at": "2026-03-19T20:33:02Z",
+  "fetched_at": "2026-03-19T21:00:09.529944+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47445599\">Comments</a>",
+  "full_text": "A sysadmin login session in a web browser\n\ncockpit-project.org\n\nCockpit is an interactive server admin interface. It is easy to use and very lightweight.\nCockpit interacts directly with the operating system from a real Linux session in a browser.\n\nYou can install Cockpit on many Linux operating\nsystems including Debian, Fedora and RHEL.\n\nCockpit makes Linux discoverable, allowing sysadmins to easily perform tasks such as starting\ncontainers, storage administration, network configuration, inspecting logs and so on.\n\nJumping between the terminal and the web tool is no problem. A service started via Cockpit\ncan be stopped via the terminal. Likewise, if an error occurs in the terminal, it can be seen\nin the Cockpit journal interface.\n\nYou can also easily add other machines that have Cockpit installed and are accessible via SSH and jump\nbetween these hosts.",
+  "tags": [
+    "200-words",
+    "cockpit",
+    "easily",
+    "github",
+    "graphical",
+    "interface",
+    "linux",
+    "login",
+    "operating",
+    "session",
+    "sysadmin"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": 4356,
+  "source": "Hacker News",
+  "title": "Show HN: Mavera – Predict audience response with GANs, not LLM sentiment",
+  "url": "https://docs.mavera.io/introduction",
+  "published_at": "2026-03-16T20:54:14Z",
+  "fetched_at": "2026-03-19T17:00:50.412480+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47404726\">Comments</a>",
+  "full_text": "from openai import OpenAI\n\nclient = OpenAI(\n api_key=\"mvra_live_your_key_here\",\n base_url=\"https://app.mavera.io/api/v1\",\n)\n\nresponse = client.chat.completions.create(\n model=\"mavera-1\",\n messages=[\n {\"role\": \"user\", \"content\": \"How do millennials feel about remote work?\"}\n ],\n extra_body={\"persona_id\": \"YOUR_PERSONA_ID\"},\n)\n\nprint(response.choices[0].message.content)\nprint(f\"Credits used: {response.usage.credits_used}\")",
+  "tags": [
+    "200-words",
+    "ai",
+    "client",
+    "feel",
+    "import",
+    "introduction",
+    "introduction mavera",
+    "mavera",
+    "millennials",
+    "openai",
+    "remote",
+    "response"
+  ]
+}

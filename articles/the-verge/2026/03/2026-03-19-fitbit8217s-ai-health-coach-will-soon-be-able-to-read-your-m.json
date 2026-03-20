@@ -1,0 +1,26 @@
+{
+  "id": 4229,
+  "source": "The Verge",
+  "title": "Fitbit&#8217;s AI health coach will soon be able to read your medical records",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/897250/fitbits-ai-health-coach-reads-medical-records",
+  "published_at": "2026-03-19T12:27:23Z",
+  "fetched_at": "2026-03-19T12:40:22.277704+00:00",
+  "author": "Robert Hart",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Fitbit_STK151_01.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Would you share your medical records with a personal trainer? How about a virtual one? Google, which this week <a href=\"https://blog.google/products-and-platforms/devices/fitbit/fitbit-personal-health-coach-updates-2026/\">announced</a> it is giving <a href=\"https://www.theverge.com/hands-on/761965/fitbits-ai-health-coach-is-the-first-i-might-actually-be-interested-in\">Fitbit's AI health coach</a> the ability to read your medical records, is hoping the answer is yes, following rivals like <a href=\"https://www.theverge.com/ai-artificial-intelligence/892532/amazon-is-expanding-access-to-its-health-ai-agent\">Amazon</a>, <a href=\"https://www.theverge.com/ai-artificial-intelligence/857640/openai-launches-chatgpt-health-connect-medical-records\">OpenAI</a>, and ",
+  "full_text": "Would you share your medical records with a personal trainer? How about a virtual one? Google, which this week announced it is giving Fitbit’s AI health coach the ability to read your medical records, is hoping the answer is yes, following rivals like Amazon, OpenAI, and Microsoft in betting that users are willing to trade their most sensitive data in exchange for more personalized health advice.\n\nStarting next month in preview, US Fitbit users will be able to link their medical records to the Fitbit app. That medical data — such as lab results, medications, and visit history — will, alongside wearable data, help Fitbit’s AI-powered health coach provide “safer, more relevant and more personalized” advice, Google health intelligence product management director Florence Thng said in a blog post.\n\n“Instead of getting a generic answer about cholesterol, you can ask, “How can I improve my cholesterol?” The coach can then summarize your cholesterol labs, highlighting notable values and trends, and provide personalized wellness information based on your medical history and wearable data.”\n\nIn the coming months, Thng said users will be able to “securely share” their records and AI summaries with family or health providers using a link or QR code. As with other health data in Fitbit, Thng said medical records are not used for ads and stressed that users will have control over their data and how it is used, shared, or deleted.\n\nIn a small disclaimer at the end of the blog, Google said its demonstrations are “illustrative” and that “Fitbit is not intended to use your medical records to diagnose, treat, cure, prevent, or monitor any disease or condition,” urging users to consult a professional “before making changes concerning your health.”\n\nFitbit’s sleep tracking is also getting a boost in what Google described as “our most significant update yet.” The company said Fitbit’s sleep tracking will now be 15 percent more accurate and better at telling apart times you’re sleeping or just trying to sleep. The tracking update will be rolling out in preview “over the next few days,” with an improved sleep score to follow in the coming weeks.\n\nThe push to integrate medical records with Fitbit’s AI health coach recognizes that one of the most popular consumer uses of AI is in health and wellness. It comes as tech, wellness, and fitness companies are leveraging the technology to expand their offerings and deliver more granular insights into our lives. Wearables companies, such as smart ring-maker Oura and fitness tracker Woop, use dedicated chatbots to personalize advice, for example, and both Anthropic and OpenAI both explicitly encourage users to share their data with Claude and ChatGPT to discuss their health, something Google, whose Gemini powers Fitbit’s AI coach, has not yet pursued publicly for its chatbot.\n\nCompanies, which claim their products are not intended to diagnose or treat no matter how they respond, are potentially treading a fine line with regulators like the FDA, and face strict scrutiny over how they treat the sensitive data they are handling. Many AI-based health-focused products aren’t yet available in areas with stringent privacy laws like Europe, for example, and experts warn that users should be careful with what they share. That goes doubly for things like reproductive data in America.",
+  "tags": [
+    "1000-words",
+    "able",
+    "ai",
+    "coach",
+    "data",
+    "fitbit",
+    "google",
+    "health",
+    "medical",
+    "records",
+    "sleep",
+    "thng",
+    "users"
+  ]
+}

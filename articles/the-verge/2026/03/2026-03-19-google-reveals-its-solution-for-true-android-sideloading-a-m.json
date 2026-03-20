@@ -1,0 +1,26 @@
+{
+  "id": 4358,
+  "source": "The Verge",
+  "title": "Google reveals its solution for true Android sideloading: a mandatory waiting period",
+  "url": "https://www.theverge.com/tech/897420/android-sideloading-unverified-developers-process",
+  "published_at": "2026-03-19T17:00:33Z",
+  "fetched_at": "2026-03-19T17:20:13.153497+00:00",
+  "author": "Dominic Preston",
+  "summary": "<figure>\n\n<img alt=\"The Android logo on a black backdrop, surrounded by red shapes that resemble the Android mascot.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/24007893/acastro_STK112_android_02.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Google has revealed the <a href=\"https://www.theverge.com/news/819835/google-android-sideloading-experienced-users-developer-verification\">\"advanced flow\"</a> that will be required to install certain Android apps once the company introduces mandatory developer verification later this year. The company had initially announced that it would no longer be possible to install apps from unverified developers, and the process announced today is its concession to critics who accused it of killing off app sideloading and making Android less open.</p>\n<p class=\"has-text-align-none\">The good news is the new advanced flow is a on",
+  "full_text": "Enable developer mode in system settings: Activating this is simple. This prevents accidental triggers or “one-tap” bypasses often used in high-pressure scams.\n\nConfirm you aren’t being coached: There is a quick check to make sure that no one is talking you into turning off your security. While power users know how to vet apps, scammers often pressure victims into disabling protections.\n\nRestart your phone and reauthenticate: This cuts off any remote access or active phone calls a scammer might be using to watch what you’re doing.\n\nCome back after the protective waiting period and verify: There is a one-time, one-day wait and then you can confirm that this is really you who’s making this change with our biometric authentication (fingerprint or face unlock) or device PIN. Scammers rely on manufactured urgency, so this breaks their spell and gives you time to think.\n\nInstall apps: Once you confirm you understand the risks, you’re all set to install apps from unverified developers, with the option of enabling for 7 days or indefinitely. For safety, you’ll still see a warning that the app is from an unverified developer, but you can just tap “Install Anyway.”",
+  "tags": [
+    "200-words",
+    "android",
+    "confirm",
+    "fortnox world",
+    "google",
+    "includes",
+    "install",
+    "period",
+    "phone",
+    "scammers",
+    "sideloading",
+    "unverified",
+    "waiting"
+  ]
+}

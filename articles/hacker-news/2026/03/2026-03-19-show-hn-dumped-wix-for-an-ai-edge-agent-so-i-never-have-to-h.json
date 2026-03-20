@@ -1,0 +1,27 @@
+{
+  "id": 4376,
+  "source": "Hacker News",
+  "title": "Show HN: Dumped Wix for an AI Edge agent so I never have to hire junior staff",
+  "url": "https://news.ycombinator.com/item?id=47441587",
+  "published_at": "2026-03-19T15:59:04Z",
+  "fetched_at": "2026-03-19T18:20:24.942188+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47441587\">Comments</a>",
+  "full_text": "I run a building design consultancy. I got tired of paying Wix $40/month for a brochure that couldn’t answer simple service questions, and me wasting hours on the same FAQs.\n\nSo I killed it all and spent 4 months building a 'talker': https://axoworks.com\n\nThe stack is completely duct-taped: Netlify’s 10s serverless timeout forced me to split the agent into three pieces: Brain (Edge), Hands (Browser), and Voice (Edge). I haven’t coded in 30 years. This was 3 steps forward, 2 steps back, heavily guided by AI.\n\nThe fight that proved it worked: 2 weeks ago, a licensed architect attacked the bot, trying to prove my business model harms the profession. The AI (DeepSeek-R3) completely dismantled his arguments. It was hilariously caustic.\n\nLog: https://logs.axoworks.com/chat-architect-vs-concierge-v147.h...\n\nA few battle scars:\n\n* Web Speech API works fine, right up until someone speaks Chinese without toggling the language mode. Then it forcefully spits out English phonetic gibberish. Still a headache.\n\n* Liability is the killer. Hallucinate a building code clause? We’re dead. Insurance won’t touch us.\n\n* We publish the audit logs to keep ourselves honest and make sure the system stays hardened.\n\nAudit: https://logs.axoworks.com/audit-2026-02-19-v148.html\n\nThe hardest part was getting the intent right: making one LLM pivot seamlessly from a warm principal’s tone with a homeowner, to a defensive bulldog when attacked by a peer. That took 2.5 months of tuning.\n\nWe burn through tokens with an 'Eager RAG' hack (pre-fetching guesses) just to improve responsiveness. I also ripped out the “essential” persistent DBs—less than 5% of visitors ever return, so why bother? If a client drops mid-query, their session vanishes. No server-side queues.\n\nThe point: To let me operate with a network of seasoned pros, and trim the fat.\n\nTry to break it. I’ll be in the comments. Kee",
+  "tags": [
+    "500-words",
+    "agent",
+    "ai",
+    "attacked",
+    "building",
+    "completely",
+    "dumped",
+    "dumped wix",
+    "edge",
+    "hire",
+    "months",
+    "show",
+    "show hn",
+    "steps"
+  ]
+}
