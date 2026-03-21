@@ -1,0 +1,26 @@
+{
+  "id": 4600,
+  "source": "The Verge",
+  "title": "Microsoft is ending the Windows Update nightmare — and letting you pause them indefinitely",
+  "url": "https://www.theverge.com/tech/898082/microsoft-promises-to-end-forced-windows-updates-still-automatic",
+  "published_at": "2026-03-20T19:00:00Z",
+  "fetched_at": "2026-03-20T19:20:09.125144+00:00",
+  "author": "Sean Hollister",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/acastro_STK109_microsoft.webp?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">In 2015, Microsoft decided that you shouldn't be in control of updating your PC anymore. <a href=\"https://www.theverge.com/2015/7/17/8987549/microsoft-windows-10-automatic-updates\">At first, it seemed like a good idea </a> to keep malware at bay - but soon, users discovered their computers were <a href=\"https://www.cnet.com/tech/computing/microsoft-windows-10-forced-updates-auto-restarts-are-the-worst/\">automatically shutting down and erasing work</a> in the middle of the day. Then, Microsoft abused its power to install <a href=\"https://www.theverge.com/2020/10/17/21520315/microsoft-install-office-pwa-web-app-without-permission-update-word-powerpoint-excel\">shovelware apps</a> and <a href=\"https://www.theverge.com/21310611/microsoft-edge-browser",
+  "full_text": "In 2015, Microsoft decided that you shouldn’t be in control of updating your PC anymore. At first, it seemed like a good idea to keep malware at bay — but soon, users discovered their computers were automatically shutting down and erasing work in the middle of the day. Then, Microsoft abused its power to install shovelware apps and force-feed us a new web browser.\n\nNow, each new update might add unwanted Copilot AI buttons or prevent our PCs from properly booting. My colleague Tom Warren wrote about Microsoft’s many buggy Windows updates in this story.\n\nBut today, as Microsoft commits to fix Windows 11, it’s also signaling that our long Windows Update nightmare is finally over.\n\nWhile Microsoft isn’t doing away with automatic updates entirely, Windows boss Pavan Davuluri is promising that in future, you’ll be able to pause them “for as long as you need.” You’ll be able to reboot or shut down your computer “without being forced to install them.” To be fair to Microsoft, I’ve seen an option to reboot or shutdown without updating for a while now.\n\nEven if you fail to pause them, you’ll only have to reboot your computer once a month, Microsoft promises — though its says you’ll be able to get updates faster if you wish. If you’re the kind of user who wants new features so quickly that you’re part of the Windows Insider Program, Microsoft says it’ll make that easier and make it clearer what you’ll get.\n\nAnd as part of those updates, Microsoft says that this year, it will improve performance, responsiveness and stability, reduce memory consumption, make File Explorer and other apps launch and run faster, reduce crashes, improve drivers, make devices wake up more reliably, and much, much more.\n\nIt feels like Microsoft has also taken our feedback about the recent ridiculous hour-plus setup process for some Windows handhelds and laptops to heart. Davuluri writes that we’ll have “the ability to skip updates during device setup to get to the desktop faster.” And even if you sit through, there should be “fewer pages and reboots to getting started is simpler.” Plus, Microsoft will finally let you use gamepad controls to create your PIN during setup, instead of making you smudge the touchscreen.\n\nBravo, Microsoft, if this is all true, and if you can implement it in a reasonable length of time.\n\nDavuluri writes that his team has spent months analyzing the feedback of Windows users, and “What came through was the voice of people who care deeply about Windows and want it to be better.”\n\nI don’t know if that means Microsoft has truly turned over a new leaf, because the company is not committing today to end its campaign of pulling cheap tricks to make you use Microsoft Edge instead of Google Chrome.\n\nBut my fond hope is that it’s no longer listening to the “voice of people” who see Windows only as a vehicle for selling Microsoft’s other products. If Windows does away with forced updates and “unnecessary” Copilot buttons in its apps, as Davuluri’s now promising to do, that’s a great start.",
+  "tags": [
+    "1000-words",
+    "able",
+    "davuluri",
+    "microsoft",
+    "nightmare",
+    "pause",
+    "reboot",
+    "security",
+    "update",
+    "updates",
+    "updating",
+    "windows",
+    "windows update"
+  ]
+}

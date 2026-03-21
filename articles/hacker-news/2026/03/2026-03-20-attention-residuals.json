@@ -1,0 +1,30 @@
+{
+  "id": 4603,
+  "source": "Hacker News",
+  "title": "Attention Residuals",
+  "url": "https://github.com/MoonshotAI/Attention-Residuals",
+  "published_at": "2026-03-20T18:23:41Z",
+  "fetched_at": "2026-03-20T19:20:26.725002+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47458595\">Comments</a>",
+  "full_text": "━━━━━━━━━━━━━━━━━━━━━━━━━━━\n \n\n Attention Residuals\n \n\n ━━━━━━━━━━━━━━━━━━━━━━━━━━━\n \n\n \n\n Paper | \n arXiv | \n Overview | \n Results | \n Citation\n\n \n\n (a) Standard residuals with uniform additive accumulation.\n (b) Full AttnRes: each layer attends over all previous outputs.\n (c) Block AttnRes: layers are grouped into blocks, reducing memory from O(Ld) to O(Nd).\n\nThis is the official repository for Attention Residuals (AttnRes), a drop-in replacement for standard residual connections in Transformers that enables each layer to selectively aggregate earlier representations via learned, input-dependent attention over depth.\n\nStandard residual connections accumulate all layer outputs with fixed unit weights. As depth grows, this uniform aggregation dilutes each layer's contribution and causes hidden-state magnitudes to grow unboundedly — a well-known problem with PreNorm.\n\nAttnRes replaces this fixed accumulation with softmax attention over preceding layer outputs:\n\n$$\\mathbf{h}_l = \\sum_{i=0}^{l-1} \\alpha_{i \\to l} \\cdot \\mathbf{v}_i$$\n\nwhere the weights $\\alpha_{i \\to l}$ are computed via a single learned pseudo-query $\\mathbf{w}_l \\in \\mathbb{R}^d$ per layer. This gives every layer selective, content-aware access to all earlier representations.\n\nFull AttnRes is straightforward but requires O(Ld) memory at scale. Block AttnRes partitions layers into N blocks, accumulates within each block via standard residuals, and applies attention only over block-level representations. With ~8 blocks, it recovers most of Full AttnRes's gains while serving as a practical drop-in replacement with marginal overhead.\n\nPyTorch-style pseudocode\n\ndef block_attn_res(blocks: list[Tensor], partial_block: Tensor, proj: Linear, norm: RMSNorm) -> Tensor:\n \"\"\"\n Inter-block attention: attend over block reps + partial sum.\n blocks:\n N tensors of shape [B, T, D]: completed block representations for each previous block\n partial_block:\n [B, T, D]: intra-block partial sum (b_n^i)\n \"\"\"\n V = torch.stack(blocks + [partial_block]) # [N+1, B, T, D]\n K = norm(V)\n logits = torch.einsum('d, n b t d -> n b t', proj.weight.squeeze(), K)\n h = torch.einsum('n b t, n b t d -> b t d', logits.softmax(0), V)\n return h\n\ndef forward(self, blocks: list[Tensor], hidden_states: Tensor) -> tuple[list[Tensor], Tensor]:\n partial_block = hidden_states\n # apply block attnres before attn\n # blocks already include token embedding\n h = block_attn_res(blocks, partial_block, self.attn_res_proj, self.attn_res_norm)\n\n # if reaches block boundary, start new block\n # block_size counts ATTN + MLP; each transformer layer has 2\n if self.layer_number % (self.block_size // 2) == 0:\n blocks.append(partial_block)\n partial_block = None\n\n # self-attention layer\n attn_out = self.attn(self.attn_norm(h))\n partial_block = partial_block + attn_out if partial_block is not None else attn_out\n\n # apply block attnres before MLP\n h = block_attn_res(blocks, partial_block, self.mlp_res_proj, self.mlp_res_norm)\n\n # MLP layer\n mlp_out = self.mlp(self.mlp_norm(h))\n partial_block = partial_block + mlp_out\n\n return blocks, partial_block\n\nAttnRes consistently outperforms the baseline across all compute budgets. Block AttnRes matches the loss of a baseline trained with 1.25x more compute.\n\n \n\nDownstream Performance (Kimi Linear 48B / 3B activated, 1.4T tokens)\n\nCategory\nBenchmark\nBaseline\nAttnRes\n\nGeneral\nMMLU\n73.5\n74.6\n\nGPQA-Diamond\n36.9\n44.4\n\nBBH\n76.3\n78.0\n\nTriviaQA\n69.9\n71.8\n\nMath & Code\nMath\n53.5\n57.1\n\nHumanEval\n59.1\n62.2\n\nMBPP\n72.0\n73.9\n\nChinese\nCMMLU\n82.0\n82.9\n\nC-Eval\n79.6\n82.5\n\nAttnRes improves across the board, with the largest gains on multi-step reasoning (+7.5 on GPQA-Diamond) and code generation (+3.1 on HumanEval).\n\nAttnRes mitigates PreNorm dilution: output magnitudes remain bounded across depth and gradient norms distribute more uniformly across layers.\n\n \n\nIf you found our work useful, please cite\n\n@misc{chen2026attnres,\n title = {Attention Residuals},\n author = {Kimi Team and Chen, Guangyu and Zhang, Yu and Su, Jianlin and Xu, Weixin and Pan, Siyuan and Wang, Yaoyu and Wang, Yucheng and Chen, Guanduo and Yin, Bohong and Chen, Yutian and Yan, Junjie and Wei, Ming and Zhang, Y. and Meng, Fanqing and Hong, Chao and Xie, Xiaotong and Liu, Shaowei and Lu, Enzhe and Tai, Yunpeng and Chen, Yanru and Men, Xin and Guo, Haiqing and Charles, Y. and Lu, Haoyu and Sui, Lin and Zhu, Jinguo and Zhou, Zaida and He, Weiran and Huang, Weixiao and Xu, Xinran and Wang, Yuzhi and Lai, Guokun and Du, Yulun and Wu, Yuxin and Yang, Zhilin and Zhou, Xinyu},\n year = {2026},\n archiveprefix = {arXiv},\n eprint = {2603.15031},\n primaryclass = {cs.CL}\n}",
+  "tags": [
+    "1000-words",
+    "attention",
+    "attention residuals",
+    "attnres",
+    "baseline",
+    "block",
+    "block attnres",
+    "chen",
+    "full",
+    "full attnres",
+    "github",
+    "github moonshotai",
+    "layer",
+    "residuals",
+    "standard",
+    "tensor",
+    "uniform"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": 4633,
+  "source": "Slashdot",
+  "title": "Microsoft Says It Is Fixing Windows 11",
+  "url": "https://tech.slashdot.org/story/26/03/20/2043213/microsoft-says-it-is-fixing-windows-11?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-20T22:00:00Z",
+  "fetched_at": "2026-03-20T22:40:13.529235+00:00",
+  "author": "BeauHD",
+  "summary": "BrianFagioli writes: Microsoft says it is finally listening to user complaints about Windows 11, promising a series of changes focused on performance, reliability, and reducing everyday annoyances. In a message to Windows Insiders, the company outlined plans to bring back long requested features like taskbar repositioning, cut down on intrusive AI integrations, and give users more control over updates. File Explorer is also getting attention, with promised improvements to speed, stability, and general responsiveness.\n \nThe bigger picture here is less about new features and more about fixing what already exists. Microsoft is talking about fewer forced restarts, quieter notifications, and a more predictable experience overall, along with improvements to Windows Subsystem for Linux for developers. While the roadmap sounds reasonable, users have heard similar promises before, so the real test will be whether these changes actually show up in day to day use.<p><div class=\"share_submission\">",
+  "full_text": "Just wonder who'll be left once it's all done? I can understand them developing something new and failing, like it was back in the day w/ Windows ME and Vista, but what they've been doing since Windows 8 has been downright asinine - making user experience, which was almost perfect in Windows 7, absolutely horrible. In fact, the user experience in Windows 11 itself might have been just like Windows 10, until they started doing things like getting rid of Wordpad, changing Notepad and Paint and infecting them w/ AI, changing Outlook a dozen times and nagging one if one chose the old look,....\n\nWhat they need to do is in the Personalization area, aside from giving people choices of wallpapers and icons, give people the choice of generational themes, where one can make the OS look like anything from Windows NT 3.1 to Windows 11. Also give users the option of which built-in apps they want during either installation or staging: have certain apps like Notepad, Paint,... checked by default, but give users the option of unchecking them. Doesn't look like it'll take a lot of engineering resources, but it should allow for a more tolerable user experience\n\nOnce all that's done, the only thing that the Windows team should be doing is the security updates for Windows Defender. If that sounds too limiting, expand the scope to cover past OSs, going back to 7, and if that's not enough, go all the way back to 3.1",
+  "tags": [
+    "200-words",
+    "alexandre",
+    "dumas",
+    "fixing",
+    "fixing windows",
+    "microsoft",
+    "microsoft says",
+    "prefer",
+    "rogues",
+    "sometimes",
+    "windows"
+  ]
+}

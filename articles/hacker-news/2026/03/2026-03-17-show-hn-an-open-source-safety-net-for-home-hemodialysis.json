@@ -1,0 +1,27 @@
+{
+  "id": 4587,
+  "source": "Hacker News",
+  "title": "Show HN: An open-source safety net for home hemodialysis",
+  "url": "https://safehemo.com/",
+  "published_at": "2026-03-17T00:48:15Z",
+  "fetched_at": "2026-03-20T18:40:24.073061+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47407184\">Comments</a>",
+  "full_text": "Safety Notice:\n Safehemo is a Pre-Alpha Demonstration. It is NOT a medical device and does not connect to emergency services. In an emergency, call 911 immediately.\n \n Learn more\n \n \n\n \n \n \n\n \n\n \n \n \n\n \n\n \n \n We can't find the internet\n \n \n\n Attempting to reconnect\n \n \n \n \n \n\n \n\n \n\n \n \n Something went wrong!\n \n \n\n Hang in there while we get back on track\n \n \n \n \n \n\n \n\n \n\n \n\n \n \n\n Home dialysis offers freedom, but the isolation can be risky. Ankaa bridges the gap between patient independence and clinical\n safety.\n \n \n\n We connect Patients, Clinics, and Communities into a\n single, secure ecosystem. From real-time simulations to clinical rosters, everyone stays in the loop.\n \n * Automated EMS calls disabled in Preview\n \n \n \n \n \n \n \n\n \n\n \n\n \n\nCore Platform Features\n \n\n We are building the operating system for modern home dialysis. Here is what is live in the Pre-Alpha preview.\n \n \n\n \n\n \n\n \n \n\nPatient Hub\n \n\n The central command center for the patient. Invite family, friends, and doctors to join your secure circle and\n view your realtime status.\n \n \n\n \n\n \n \n\nClinical Workspace\n \n\n A dedicated dashboard for Clinics. Doctors and Nurses can view a Roster of all their\n patients, tracking adherence and active alerts in one view.\n \n \n\n \n\n \n \n\nCommunity Hubs\n \n\n Connect with your local clinic or support group. Access pinned resources, announcements, and educational\n content curated by your care team.\n \n \n\n \n\n \n \n\nInstant Alerts\n \n\n Automated detection of critical events (like low BP or leak detection) triggers immediate notifications to\n your entire Care Network.\n \n \n\n \n\n \n \n\nDevice Simulation\n \n\n Includes a Mock IoT Server to simulate real-world dialysis data streams, allowing you to test the safety\n pipeline without connecting physical hardware.\n \n \n\n \n\n \n \n\nHealth Tracking\n \n\n Continuous monitoring of simulated vital signs. We track trends over time to help providers optimize treatment\n plans before emergencies happen.\n \n \n\n \n \n\n \n\n \n\n \n\nHow It Works\n \n\n Join the ecosystem in three simple steps.\n \n \n\n \n\n \n\n \n\n \n \n\n \n\nChoose Your Role\n \n\n Are you a Patient needing a safety net? Or a Doctor starting a clinic?\n Create an account and select the workspace that fits your needs.\n \n \n \n\n \n Sign up with Email and Secure Password\n \n \n\n \n Accept HIPAA Compliance Terms\n \n \n \n \n\n \n\n \n\n \n \n\n \n\nBuild Your Network\n \n\n If you are a Patient, invite your family and doctors. If you are a Clinic, create your organization and\n invite patients to your Roster.\n \n \n \n\n \n Granular permission controls (Owner, Admin, Viewer)\n \n \n\n \n Instant invites via email\n \n \n \n \n\n \n\n \n \n\n \n\nStart The Simulation\n \n\n Connect the Mock IoT Device to see data stream into your dashboard. Watch as alerts trigger real-time\n updates across the entire network.\n \n \n \n\n \n Real-time charts and status updates\n \n \n\n \n Test the \"First Responder\" alert pipeline\n \n \n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n Safehemo\n \n \n\n Building the open-source digital safety net for home hemodialysis patients.\n \n Pre-Alpha v0.1\n \n \n \n \n\n \n\n \n\n \n\n \n\nSupport\n \n\n This project is maintained by volunteers. Your support helps keep the servers running.\n \n \n \n \n \n Buy me a Coffee\n \n \n \n\n \n\n \n\n \n\n© 2026 Safehemo / Qwelian Tanner. Open Source under BUSL License.\n \n\n DISCLAIMER: This application is for educational and simulation\n purposes only. It is not a medical device and does not provide medical advice. In an emergency, dial 911.",
+  "tags": [
+    "500-words",
+    "clinical",
+    "connect",
+    "device",
+    "home",
+    "home safehemo",
+    "invite",
+    "medical",
+    "mock iot",
+    "patient",
+    "pre alpha",
+    "safehemo",
+    "safety",
+    "secure"
+  ]
+}

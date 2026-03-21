@@ -1,0 +1,29 @@
+{
+  "id": 4508,
+  "source": "Hacker News",
+  "title": "Show HN: Sonar – A tiny CLI to see and kill whatever's running on localhost",
+  "url": "https://github.com/RasKrebs/sonar",
+  "published_at": "2026-03-20T09:59:56Z",
+  "fetched_at": "2026-03-20T12:40:31.863828+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47452515\">Comments</a>",
+  "full_text": "███████╗ ██████╗ ███╗ ██╗ █████╗ ██████╗\n██╔════╝██╔═══██╗████╗ ██║██╔══██╗██╔══██╗\n███████╗██║ ██║██╔██╗ ██║███████║██████╔╝\n╚════██║██║ ██║██║╚██╗██║██╔══██║██╔══██╗\n███████║╚██████╔╝██║ ╚████║██║ ██║██║ ██║\n╚══════╝ ╚═════╝ ╚═╝ ╚═══╝╚═╝ ╚═╝╚═╝ ╚═╝\n\nKnow what's running on your machine.\n\nI got tired of running lsof -iTCP -sTCP:LISTEN | grep ... every time a port was already taken, then spending another minute figuring out if it was a Docker container or some orphaned dev server from another worktree. So I built sonar.\n\nIt shows everything listening on localhost, with Docker container names, Compose projects, resource usage, and clickable URLs. You can kill processes, tail logs, shell into containers, and more — all by port number.\n\n$ sonar list\nPORT PROCESS CONTAINER IMAGE CPORT URL\n1780 proxy (traefik:3.0) my-app-proxy-1 traefik:3.0 80 http://localhost:1780\n3000 next-server (v16.1.6) http://localhost:3000\n5432 db (postgres:17) my-app-db-1 postgres:17 5432 http://localhost:5432\n6873 frontend (frontend:latest) my-app-frontend-1 frontend:latest 5173 http://localhost:6873\n9700 backend (backend:latest) my-app-backend-1 backend:latest 8000 http://localhost:9700\n\n5 ports (4 docker, 1 user)\n\ncurl -sfL https://raw.githubusercontent.com/raskrebs/sonar/main/install.sh | bash\n\nDownloads the latest binary to ~/.local/bin and adds it to your PATH if needed. Restart your terminal or source ~/.zshrc.\n\nCustom install location:\n\ncurl -sfL https://raw.githubusercontent.com/raskrebs/sonar/main/install.sh | SONAR_INSTALL_DIR=/usr/local/bin bash\n\nShell completions (tab-complete port numbers):\n\nsonar completion zsh > \"${fpath[1]}/_sonar\" # zsh\nsonar completion bash > /etc/bash_completion.d/sonar # bash\nsonar completion fish | source # fish\n\nsonar list # show all ports\nsonar list --stats # include CPU, memory, state, uptime\nsonar list --filter docker # only Docker ports\nsonar list --sort name # sort by process name\nsonar list --json # JSON output\nsonar list -a # include desktop apps\nsonar list -c port,cpu,mem,uptime,state # custom columns\nsonar list --health # run HTTP health checks\nsonar list --host user@server # scan a remote machine via SSH\n\nBy default, sonar hides desktop apps and system services that listen on TCP ports but aren't relevant to development — things like Figma, Discord, Spotify, ControlCenter, AirPlay, and other macOS .app bundles and /System/Library/ daemons. Use -a to include them.\n\nAvailable columns: port, process, pid, type, url, cpu, mem, threads, uptime, state, connections, health, latency, container, image, containerport, compose, project, user, bind, ip\n\nShows everything about a port: full command, user, bind address, CPU/memory/threads, uptime, health check result, and Docker details if applicable.\n\nsonar kill 3000 # SIGTERM\nsonar kill 3000 -f # SIGKILL\nsonar kill-all --filter docker # stop all Docker containers\nsonar kill-all --project my-app # stop a Compose project\nsonar kill-all --filter user -y # skip confirmation\n\nDocker containers are stopped with docker stop instead of sending signals.\n\nFor Docker containers, runs docker logs -f. For native processes, discovers log files via lsof and tails them. Falls back to macOS log stream or Linux /proc/<pid>/fd.\n\nsonar attach 3000 # shell into Docker container, or TCP connect\nsonar attach 3000 --shell bash # specific shell\n\nsonar watch # poll every 2s, show diffs\nsonar watch --stats # live resource stats (like docker stats)\nsonar watch -i 500ms # faster polling\nsonar watch --notify # desktop notifications when ports go up/down\nsonar watch --host user@server # watch a remote machine\n\nsonar graph # show which services talk to each other\nsonar graph --json # structured output\nsonar graph --dot # Graphviz DOT format\n\nShows established connections between listening ports (e.g. your backend connecting to postgres).\n\nSave a set of expected ports for a project, then check if they're all up or tear them down:\n\nsonar profile create my-app # snapshot current ports\nsonar profile list # list saved profiles\nsonar profile show my-app # show profile details\nsonar up my-app # check which expected ports are running\nsonar down my-app # stop all ports in the profile\n\nProxies traffic so the service on port 6873 is also available on port 3002.\n\nsonar open 3000 # open in browser\nsonar tray # menu bar app with live stats (macOS)\nsonar --no-color # disable colors (also respects NO_COLOR env)\n\nThe --stats flag fetches per-process and per-container resource usage. For Docker containers, it uses the Docker Engine API for accurate per-container metrics. Without --stats, sonar returns instantly.\n\nmacOS (uses lsof)\n\nLinux (uses ss)",
+  "tags": [
+    "1000-words",
+    "bash",
+    "cli",
+    "docker",
+    "for docker",
+    "fortnox world",
+    "github",
+    "list",
+    "port",
+    "ports",
+    "profile",
+    "raskrebs",
+    "shell",
+    "show",
+    "sonar",
+    "watch"
+  ]
+}

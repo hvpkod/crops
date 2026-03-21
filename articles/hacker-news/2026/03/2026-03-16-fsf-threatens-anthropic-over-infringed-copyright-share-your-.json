@@ -1,0 +1,28 @@
+{
+  "id": 4485,
+  "source": "Hacker News",
+  "title": "FSF Threatens Anthropic over Infringed Copyright: Share Your LLMs Freel",
+  "url": "https://www.fsf.org/blogs/licensing/2026-anthropic-settlement",
+  "published_at": "2026-03-16T19:49:20Z",
+  "fetched_at": "2026-03-20T07:00:06.393985+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47403905\">Comments</a>",
+  "full_text": "The Free Software Foundation (FSF), like many others, received a notice regarding settlement in the copyright infringement lawsuit Bartz v. Anthropic. It is a class action lawsuit claiming that Anthropic infringed copyright by downloading works in Library Genesis and Pirate Library Mirror datasets for purposes of training large language models (LLMs). According to the notice, the district court ruled that using the books to train LLMs was fair use but left for trial the question of whether downloading them for this purpose was legal. Apparently, the parties agreed to settle instead of waiting for the trial and they are now reaching out to potential copyright holders to offer money in lieu of potential damages.\n\nThe FSF holds copyrights to many programs in the GNU Project, as well as to several books. We publish all works that we hold copyrights to under free (as in freedom) licenses. Among the works we hold copyrights over is Sam Williams and Richard Stallman's Free as in freedom: Richard Stallman's crusade for free software, which was found in datasets used by Anthropic as training inputs for their LLMs. It was published by O'Reilly and by the FSF under the GNU Free Documentation License (GNU FDL). This is a free license allowing use of the work for any purpose without payment.\n\nObviously, the right thing to do is protect computing freedom: share complete training inputs with every user of the LLM, together with the complete model, training configuration settings, and the accompanying software source code. Therefore, we urge Anthropic and other LLM developers that train models using huge datasets downloaded from the Internet to provide these LLMs to their users in freedom. We are a small organization with limited resources and we have to pick our battles, but if the FSF were to participate in a lawsuit such as Bartz v. Anthropic and find our copyright and license violated, we would certainly request user freedom as compensation.",
+  "tags": [
+    "500-words",
+    "ai",
+    "anthropic",
+    "copyright",
+    "copyrights",
+    "datasets",
+    "free",
+    "lawsuit",
+    "license",
+    "llms",
+    "richard stallman",
+    "settle",
+    "the fsf",
+    "training",
+    "works"
+  ]
+}

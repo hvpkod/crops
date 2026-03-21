@@ -1,0 +1,26 @@
+{
+  "id": 4496,
+  "source": "Hacker News",
+  "title": "Essex police pause facial recognition camera use after study finds racial bias",
+  "url": "https://www.theguardian.com/technology/2026/mar/19/essex-police-pause-facial-recognition-camera-use-study-racial-bias",
+  "published_at": "2026-03-20T09:17:44Z",
+  "fetched_at": "2026-03-20T10:40:48.305139+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47452248\">Comments</a>",
+  "full_text": "Essex police have paused the use of live facial recognition (LFR) technology after a study found cameras were significantly more likely to target black people than people of other ethnicities.\n\nThe move to suspend use of the AI-enabled systems was revealed by the Information Commissioner’s Office (ICO), which regulates the use of the technology deployed so far by at least 13 police forces in London, south and north Wales, Leicestershire, Northamptonshire, Hampshire, Bedfordshire, Suffolk, Greater Manchester, West Yorkshire, Surrey and Sussex.\n\nThe ICO said Essex police had paused LFR deployments “after identifying potential accuracy and bias risks” and warned other forces to have mitigations in place. LFR systems are either mounted to fixed locations or deployed in vans. In January, the home secretary, Shabana Mahmood, announced the number of LFR vans would increase five-fold, with 50 available to every police force in England and Wales.\n\nEssex commissioned University of Cambridge academics to conduct a study, which involved 188 actors walking past cameras being actively deployed from marked police vans in Chelmsford. The results were published last week and showed about half of the people on a watchlist were correctly identified and incorrect identifications were extremely rare, but the system was more likely to correctly identify men than women and it was “statistically significantly more likely to correctly identify black participants than participants from other ethnic groups”.\n\nLive facial recognition vans are being made available more widely to police forces across England and Wales. Photograph: Andrew Matthews/PA\n\nThis “raises questions about fairness that require continued monitoring”, the report concluded. One of its authors, Dr Matt Bland, a criminologist, told the Guardian and Liberty Investigates: “If you’re an offender passing facial recognition cameras which are set up as they have been in Essex, the chances of being identified as being on a police watchlist are greater if you’re black. To me, that warrants further investigation.”\n\nThe problem differs from the more common public concern about the technology which is that it identifies innocent people. Last month it emerged that police arrested a man for a burglary in a city he had never visited 100 miles away after retrospective face scanning software confused him with another person of south Asian heritage.\n\nPossible reasons for the latest issue with LFR include overtraining of the algorithm on the faces of black people. Experts believe it could be rectified by adjusting system settings. A separate study of the same technology by the government’s National Physical Laboratory found black men were most likely to be correctly matched by the system and white men least likely, but the effect was not statistically significant.\n\nThe Home Office has said LFR cameras deployed in London from January 2024 to September 2025, led to more than 1,300 arrests of people wanted for crimes including rape, domestic abuse, burglary and grievous bodily harm. But opponents of facial recognition technology said the latest research showed warnings about bias in LFR technology were being borne out.\n\n“Police across the country must take note of this fiasco,” said Jake Hurfurt, the head of research and investigations at Big Brother Watch. “AI surveillance that is experimental, untested, inaccurate or potentially biased has no place on our streets.”\n\nEssex police were contacted for comment.",
+  "tags": [
+    "1000-words",
+    "black",
+    "cameras",
+    "correctly",
+    "deployed",
+    "essex",
+    "facial",
+    "lfr",
+    "likely",
+    "police",
+    "recognition",
+    "technology",
+    "wales"
+  ]
+}

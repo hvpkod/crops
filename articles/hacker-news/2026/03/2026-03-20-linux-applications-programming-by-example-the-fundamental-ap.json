@@ -1,0 +1,25 @@
+{
+  "id": 4670,
+  "source": "Hacker News",
+  "title": "Linux Applications Programming by Example: The Fundamental APIs (2nd Edition)",
+  "url": "https://github.com/arnoldrobbins/LinuxByExample-2e",
+  "published_at": "2026-03-20T23:57:22Z",
+  "fetched_at": "2026-03-21T00:40:24.181133+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47462483\">Comments</a>",
+  "full_text": "This repository holds the code from Linux Application Development By Example - The Fundamental APIs by Arnold Robbins.\n\nCopyright (c) 2004, 2026, Pearson Education.\n\nISBN-13: 978-0-13-532552-0\nISBN-10: 0-13-532552-8\n\nThe Documents directory holds documents of interest,\nincluding the license for code written by the author.\n\nAny errata will be added to Documents/errata.txt\nas they are discovered.\n\nThe other directories hold the example programs from the respective\nchapters in the book.\n\nIssues / mistakes in the book can be reported by opening an issue.\n\nLast Updated: Fri Oct 10 04:07:26 PM IDT 2025",
+  "tags": [
+    "200-words",
+    "application",
+    "code",
+    "development",
+    "documents",
+    "example",
+    "fundamental",
+    "github",
+    "holds",
+    "linux",
+    "linuxbyexample",
+    "repository"
+  ]
+}

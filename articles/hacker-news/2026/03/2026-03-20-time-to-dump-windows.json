@@ -1,0 +1,27 @@
+{
+  "id": 4622,
+  "source": "Hacker News",
+  "title": "Time to Dump Windows?",
+  "url": "https://dennisforbes.ca/blog/microblog/2026/02/time_to_dump_windows/",
+  "published_at": "2026-03-20T20:10:33Z",
+  "fetched_at": "2026-03-20T20:40:49.642773+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47459969\">Comments</a>",
+  "full_text": "I primarily use Apple Macs — while Tahoe was a regression and Apple is an extremely greedy company, the hardware is superb and the chips remain simply the best all around — but a lot of my work entails CUDA-related activities. For that I RDP and ssh to a Windows desktop and a respective WSL2 session on a very beefy Windows machine.\n\nDeployment-wise 100% of what I deploy to are Linux boxes on the business and commercial side, like pretty much all the industry.\n\nI realized today that nothing ties me to Windows, and that it benefits me in no ways. Almost all of my work on that platform has to happen in WSL2 because of FlashAttention / Triton. The former is partly supported in Windows, but it’s a mess. It’s just way better to just eschew it and use Linux.\n\nSo for years I’ve used WSL (then WSL2) to achieve this when doing CUDA work.\n\nAlong the way there was always some Windows-specific tie-in thing that coupled me with that platform. Some app or communications platform that was best on Windows. Today I reevaluated and this just isn’t the case anymore.\n\nI basically use a fat Windows layer to host a Linux machine. Irony.\n\nRecently saw someone declare it the year Linux takes over the desktop, to yield the cynical reply “We’ve been hearing that for years”. And it’s true, it has been prophesized for well over a decade. But at the same time, change happens gradually, then suddenly. I imagine a lot of people would find that absolutely nothing ties them to Windows anymore, even gamers with things like Steam Proton often find their needs met.\n\nInteresting times. There was a time when Windows was the centre of my professional and personal life. Even obtained my MCSE, MCSD, along with a number of other Microsoft certs. I subscribed to MSDN (and even wrote for their magazine), Technet, and every beta program I could get my hands on. I watched for every move of that company as invariably the industry shifted in whatever direction they moved.\n\nNow? Eh. Microsoft just doesn’t matter to my life. I subscribe to zero Microsoft products. My Xboxes sit unplugged. Azure is the one cloud provider that I have zero deployments on, versus lots on OCI, GCE, AWS, and so on. My once beloved Hotmail account is basically a spam collection vehicle.\n\nEDIT: Realized after writing this that I do use one Microsoft product: Github. It is completely fungible to me, however, and the slightest nuisance and I would just move elsewhere.\n\nNone of this is like some angry spiel about Microsoft, and I think they brought a lot to tech world over the years and given that they’re a $3T company they’re doing okay. It was just a shocking realization when I noticed that it just doesn’t have relevance to me anymore.\n\nObviously other people’s experiences differ.\n\nAnd honestly if Apple didn’t have excellent hardware I would be probably making a switch there as well.",
+  "tags": [
+    "1000-words",
+    "apple",
+    "best",
+    "dump windows",
+    "hardware",
+    "linux",
+    "microsoft",
+    "nothing",
+    "platform",
+    "realized",
+    "ties",
+    "time to",
+    "windows",
+    "wsl"
+  ]
+}

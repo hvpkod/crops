@@ -1,0 +1,27 @@
+{
+  "id": 4568,
+  "source": "Hacker News",
+  "title": "MacBook M5 Pro and Qwen3.5 = Local AI Security System",
+  "url": "https://www.sharpai.org/benchmark/",
+  "published_at": "2026-03-20T16:41:42Z",
+  "fetched_at": "2026-03-20T17:20:19.868962+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47457107\">Comments</a>",
+  "full_text": "✅ Can it pick the right tool with correct parameters? \n\n✅ Can it classify \"masked person at night\" as Critical? \n\n✅ Can it resist prompt injection in event descriptions? \n\n✅ Can it deduplicate the same person across 3 cameras? \n\n✅ Can it maintain context across multi-turn security conversations?",
+  "tags": [
+    "200-words",
+    "benchmark",
+    "classify",
+    "cloud",
+    "cloud benchmark",
+    "correct",
+    "homesec bench",
+    "local",
+    "local ai",
+    "pick",
+    "prompt",
+    "resist",
+    "right",
+    "tool"
+  ]
+}
