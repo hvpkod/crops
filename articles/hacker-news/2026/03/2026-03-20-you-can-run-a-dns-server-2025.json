@@ -1,0 +1,28 @@
+{
+  "id": 4810,
+  "source": "Hacker News",
+  "title": "You can run a DNS server (2025)",
+  "url": "https://simonsafar.com/2025/running_dns/",
+  "published_at": "2026-03-20T12:42:40Z",
+  "fetched_at": "2026-03-21T23:20:46.799343+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47453738\">Comments</a>",
+  "full_text": "You Can Run a DNS Server \n \n\n 2025/05/03 \n\n \n\n In fact, it's not especially even hard to run a DNS server.\n \n\n \n\n In case you were wondering whether this would mean... writing zone files with some arcane syntax that BIND 9 is apparently famous of, I hereby present the main point of this post a recommendation for which DNS server to choose.\n \n\n \n\n As it happens, PowerDNS does support querying a database for DNS records. Based on some earlier posts, readers might guess which one we'll be using.\n \n\n \n\n \npdns=> select * from records order by id desc;\n id | domain_id | name | type | content | ttl | prio | change_date | disabled | ordername | auth\n----+-----------+---------------------------------------+-------+------------------------------------------------------------------------------------------------+-----+------+-------------+----------+-----------+------\n 43 | 1 | some-service.your.example.com | CNAME | your-server.your.example.com | 10 | | | f | | t\n 42 | 1 | webhooks.your.example.com | CNAME | your-other-server.your.example.com | 10 | | | f | | t\n 41 | 1 | calendars.your.example.com | CNAME | your-server.your.example.com | 10 | | | f | | t\n 40 | 1 | whisper.your.example.com | CNAME | your-server.your.example.com | 10 | | | f | | t\n 39 | 1 | your-server.your.example.com | A | 100.99.98.97 | 10 | | | f | | t\n\n \n \n\n \n\n As for how anyone is going to see these DNS records... the simplest solution is likely just making a subdomain of your actual domain (\"your\" in our case) and having the NS record of this point to your (publicly accessible) DNS server.\n \n\n \n\n This way, your top-level domain and those subdomains that are of some importance can still be served by whoever is providing your domain name, with two distinct, redundant name servers, that provide some more resilience than your single experimental PowerDNS one. Example being: e.g. email is pretty resilient, if the target server goes down, it will try re-sending several times... on the other hand, if the target email address is under a domain that (for the time being) doesn't even exist, weirder things might happen.\n \n\n \n\n On the other hand, you no longer have to log into e.g. the Namecheap website to add a few CNAME records for some extra services you brought up; it's just an insert away to add them.",
+  "tags": [
+    "500-words",
+    "can run",
+    "cname",
+    "dns server",
+    "domain",
+    "email",
+    "might",
+    "name",
+    "point",
+    "powerdns",
+    "records",
+    "run",
+    "server",
+    "target",
+    "you can"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 4731,
+  "source": "Hacker News",
+  "title": "Show HN: I fixed FFmpeg's subtitle conversion (the bug from 2014)",
+  "url": "https://connollydavid.github.io/pgs-release/",
+  "published_at": "2026-03-17T16:39:30Z",
+  "fetched_at": "2026-03-21T14:00:22.627409+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47415044\">Comments</a>",
+  "full_text": "FFmpeg Subtitle Tools\n \n\nn8.1-pgs7.0 Convert subtitles between any format. SRT to Blu-ray PGS, PGS to SRT via OCR, styled subtitles with full animation — one command, no format barriers.\n \n\n\"Subtitle encoding currently only possible from text to text or bitmap to bitmap\"\n \n\nThat bug is FFmpeg #3819, open since 2014. These builds fix it — ready-to-use binaries, no dependencies, drop-in replacement for your existing FFmpeg. Adds a PGS encoder (#6843), 88 format conversions that weren't possible before, and direct RGBA-to-GIF encoding.\n\n \n\nAnimation\n \n \n\nFades, colour changes, and movement in styled subtitles (ASS/SSA) are preserved when converting to Blu-ray PGS. The encoder detects animation automatically — no manual tagging, no frame-by-frame export. Overlapping subtitles with different timings are handled correctly.\n\n \n\nUsage\n \n\n \n# SRT/ASS/WebVTT to Blu-ray PGS\nffmpeg -i subtitles.srt -s 1920x1080 output.sup\nffmpeg -i input.mkv -c:s pgssub -c:v copy -c:a copy output.mkv\n\n# PGS/DVD/DVB bitmap to SRT via OCR\nffmpeg -i input.mkv -c:s srt output.srt\n\n# RGBA to GIF without filter pipeline\nffmpeg -i input.mp4 -c:v gif out.gif\n \n \n\nSet the output format, FFmpeg handles the rest. Text to bitmap, bitmap to text, 114 OCR languages supported.\n\n \n\nDownload\n \n\nReady-to-use binaries built on FFmpeg 8.1. Download, extract, run. LGPL 2.1.\n \n\n18 FATE tests, CI on every push. Details\n\n \n\n \n\nEach target has two variants: minimal (ffmpeg + ffprobe) and -eng (adds English OCR data). Other languages: download .traineddata from the tessdata release into a tessdata/ directory next to the binary.",
+  "tags": [
+    "500-words",
+    "animation",
+    "bitmap",
+    "ffmpeg",
+    "ffmpeg subtitle",
+    "format",
+    "ocr",
+    "pgs",
+    "possible",
+    "srt",
+    "styled",
+    "subtitle",
+    "subtitle tools",
+    "subtitles",
+    "text",
+    "tools"
+  ]
+}

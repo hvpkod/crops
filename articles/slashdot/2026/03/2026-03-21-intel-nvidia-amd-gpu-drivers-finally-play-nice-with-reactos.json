@@ -1,0 +1,31 @@
+{
+  "id": 4764,
+  "source": "Slashdot",
+  "title": "Intel, NVIDIA, AMD GPU Drivers Finally Play Nice With ReactOS",
+  "url": "https://tech.slashdot.org/story/26/03/21/1712201/intel-nvidia-amd-gpu-drivers-finally-play-nice-with-reactos?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-21T18:34:00Z",
+  "fetched_at": "2026-03-21T18:40:11.259754+00:00",
+  "author": "EditorDavid",
+  "summary": "ReactOS aims to be compatible with programs and drivers developed for Windows Server 2003 and later versions of Microsoft Windows.\n\nAnd Slashdot reader jeditobe reports that the project has now \"announced significant progress in achieving compatibility with proprietary graphics drivers.\"\n\n\n\n\nReactOS now supports roughly 90% of GPU drivers for Windows XP and Windows Server 2003, thanks to a series of fixes and the implementation of the KMDF (Kernel-Mode Driver Framework) and WDDM (Windows Display Driver Model) subsystems. Prior to these changes, many proprietary drivers either failed to launch or exhibited unstable behavior. In the latest nightly builds of the 0.4.16 branch, drivers from a variety of manufacturers &mdash; including Intel, NVIDIA, and AMD &mdash; are running reliably.\n\n The project demonstrated ReactOS running on real hardware, including booting with installed drivers for graphics cards such as Intel GMA 945, NVIDIA GeForce 8800 GTS and GTX 750 Ti, and AMD Radeon HD 7530",
+  "full_text": "ReactOS aims to be compatible with programs and drivers developed for Windows Server 2003 and later versions of Microsoft Windows.\n\nAnd Slashdot reader jeditobe\n\n reports that the project has now \"announced significant progress\n\n in achieving compatibility with proprietary graphics drivers.\"\n\nReactOS now supports roughly 90% of GPU drivers for Windows XP and Windows Server 2003, thanks to a series of fixes and the implementation of the KMDF (Kernel-Mode Driver Framework) and WDDM (Windows Display Driver Model) subsystems. Prior to these changes, many proprietary drivers either failed to launch or exhibited unstable behavior. In the latest nightly builds of the 0.4.16 branch, drivers from a variety of manufacturers — including Intel, NVIDIA, and AMD — are running reliably.\n\n \nThe project demonstrated ReactOS running on real hardware, including booting with installed drivers for graphics cards such as Intel GMA 945, NVIDIA GeForce 8800 GTS and GTX 750 Ti, and AMD Radeon HD 7530G. They also highlighted successful operation on mobile GPUs like the NVIDIA Quadro 1000M, with 2D/3D acceleration, audio, and network connectivity all functioning correctly. Further tests confirmed support on less common or older configurations, including a laptop with a Radeon Xpress 1100, as well as high-performance cards like the NVIDIA GTX Titan X.\n\n \nA key contribution came from a patch merged into the main branch for the memory management subsystem, which improved driver stability and reduced crashes during graphics adapter initialization.",
+  "tags": [
+    "500-words",
+    "amd",
+    "amd gpu",
+    "driver",
+    "drivers",
+    "drivers finally",
+    "graphics",
+    "including",
+    "intel nvidia",
+    "nvidia",
+    "play nice",
+    "project",
+    "proprietary",
+    "reactos",
+    "server",
+    "windows",
+    "windows server",
+    "with reactos"
+  ]
+}

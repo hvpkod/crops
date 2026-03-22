@@ -1,0 +1,25 @@
+{
+  "id": 4806,
+  "source": "Hacker News",
+  "title": "Attempts to post the latest Trivy security incident have been marked [dead]",
+  "url": "https://news.ycombinator.com/from?site=github.com%2Faquasecurity",
+  "published_at": "2026-03-21T21:49:56Z",
+  "fetched_at": "2026-03-21T23:20:14.346407+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47471805\">Comments</a>",
+  "full_text": "Use Manifesto to store and query metadata for container images (github.com/aquasecurity)1 point by ekiauhce on Oct 13, 2023 | past\n\nCIS Software Supply Chain Security Guide [pdf] (github.com/aquasecurity)2 points by mooreds on July 19, 2022 | past\n\nTfsec is a static analysis security scanner for your Terraform code (github.com/aquasecurity)1 point by sidcool on March 29, 2022 | past\n\nTrivy: A scanner for vulnerabilities in containers, file systems, and Git repos (github.com/aquasecurity)41 points by gojiberries on Nov 10, 2021 | past | 6 comments\n\nTracee: Container and system event tracing using eBPF (github.com/aquasecurity)1 point by kiyanwang on Aug 23, 2020 | past\n\nStarboard kubectl plugin for security scans of clusters and workloads (github.com/aquasecurity)3 points by kronin on June 15, 2020 | past | 2 comments\n\nKube-hunter hunts for security weaknesses in Kubernetes clusters (github.com/aquasecurity)3 points by vuln on May 6, 2019 | past\n\nKube-bench: checks deployment according to security best practices (github.com/aquasecurity)3 points by based2 on Feb 2, 2019 | past\n\nGuidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact",
+  "tags": [
+    "200-words",
+    "clusters",
+    "comments",
+    "container",
+    "hacker",
+    "hacker news",
+    "past",
+    "point",
+    "points",
+    "scanner",
+    "security",
+    "submissions"
+  ]
+}

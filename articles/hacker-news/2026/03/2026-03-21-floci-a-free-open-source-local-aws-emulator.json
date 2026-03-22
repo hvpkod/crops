@@ -1,0 +1,30 @@
+{
+  "id": 4807,
+  "source": "Hacker News",
+  "title": "Floci – A free, open-source local AWS emulator",
+  "url": "https://github.com/hectorvent/floci",
+  "published_at": "2026-03-21T21:49:15Z",
+  "fetched_at": "2026-03-21T23:20:15.691398+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47471801\">Comments</a>",
+  "full_text": "🍿☁️ Light, fluffy, and always free\n\n Named after floccus — the cloud formation that looks exactly like popcorn.\n\n A free, open-source local AWS emulator. No account. No feature gates. No CI restrictions. Just docker compose up.\n\nLocalStack's community edition sunset in March 2026 — requiring auth tokens, dropping CI support, and freezing security updates. Floci is the no-strings-attached alternative.\n\nFloci\nLocalStack Community\n\nAuth token required\nNo\nYes (since March 2026)\n\nCI/CD support\nUnlimited\nRequires paid plan\n\nSecurity updates\nYes\nFrozen\n\nStartup time\n~24 ms\n~3.3 s\n\nIdle memory\n~13 MiB\n~143 MiB\n\nDocker image size\n~90 MB\n~1.0 GB\n\nLicense\nMIT\nRestricted\n\nAPI Gateway v2 / HTTP API\n✅\n❌\n\nCognito\n✅\n❌\n\nElastiCache (Redis + IAM auth)\n✅\n❌\n\nRDS (PostgreSQL + MySQL + IAM auth)\n✅\n❌\n\nS3 Object Lock (COMPLIANCE / GOVERNANCE)\n✅\n⚠️ Partial\n\nDynamoDB Streams\n✅\n⚠️ Partial\n\nIAM (users, roles, policies, groups)\n✅\n⚠️ Partial\n\nSTS (all 7 operations)\n✅\n⚠️ Partial\n\nKinesis (streams, shards, fan-out)\n✅\n⚠️ Partial\n\nKMS (sign, verify, re-encrypt)\n✅\n⚠️ Partial\n\nNative binary\n✅ ~40 MB\n❌\n\n20+ services. 408/408 SDK tests passing. Free forever.\n\n# docker-compose.yml\nservices:\n floci:\n image: hectorvent/floci:latest\n ports:\n - \"4566:4566\"\n volumes:\n - ./data:/app/data\n\nAll services are available at http://localhost:4566. Use any AWS region — credentials can be anything.\n\nexport AWS_ENDPOINT_URL=http://localhost:4566\nexport AWS_DEFAULT_REGION=us-east-1\nexport AWS_ACCESS_KEY_ID=test\nexport AWS_SECRET_ACCESS_KEY=test\n\n# Try it\naws s3 mb s3://my-bucket\naws sqs create-queue --queue-name my-queue\naws dynamodb list-tables\n\nPoint your existing AWS SDK at http://localhost:4566 — no other changes needed.\n\n// Java (AWS SDK v2)\nDynamoDbClient client = DynamoDbClient.builder()\n .endpointOverride(URI.create(\"http://localhost:4566\"))\n .region(Region.US_EAST_1)\n .credentialsProvider(StaticCredentialsProvider.create(\n AwsBasicCredentials.create(\"test\", \"test\")))\n .build();\n\n# Python (boto3)\nimport boto3\nclient = boto3.client(\"s3\",\n endpoint_url=\"http://localhost:4566\",\n region_name=\"us-east-1\",\n aws_access_key_id=\"test\",\n aws_secret_access_key=\"test\")\n\n// Node.js (AWS SDK v3)\nimport { S3Client } from \"@aws-sdk/client-s3\";\n\nconst client = new S3Client({\n endpoint: \"http://localhost:4566\",\n region: \"us-east-1\",\n credentials: { accessKeyId: \"test\", secretAccessKey: \"test\" },\n forcePathStyle: true,\n});\n\nTag\nDescription\n\nlatest\nNative image — sub-second startup (recommended)\n\nlatest-jvm\nJVM image — broadest platform compatibility\n\nx.y.z / x.y.z-jvm\nPinned releases\n\nAll settings are overridable via environment variables (FLOCI_ prefix).\n\nVariable\nDefault\nDescription\n\nQUARKUS_HTTP_PORT\n4566\nHTTP port\n\nFLOCI_DEFAULT_REGION\nus-east-1\nDefault AWS region\n\nFLOCI_DEFAULT_ACCOUNT_ID\n000000000000\nDefault AWS account ID\n\nFLOCI_STORAGE_MODE\nhybrid\nmemory · persistent · hybrid · wal\n\nFLOCI_STORAGE_PERSISTENT_PATH\n./data\nData directory\n\n→ Full reference: configuration docs\n→ Per-service storage overrides: storage docs\n\nMIT — use it however you want.",
+  "tags": [
+    "500-words",
+    "access key",
+    "aws local",
+    "aws sdk",
+    "client",
+    "community",
+    "default",
+    "default region",
+    "docker",
+    "emulator github",
+    "export",
+    "floci",
+    "free",
+    "image",
+    "local",
+    "march",
+    "partial"
+  ]
+}

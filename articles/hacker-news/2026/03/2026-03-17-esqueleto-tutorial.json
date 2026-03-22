@@ -1,0 +1,30 @@
+{
+  "id": 4804,
+  "source": "Hacker News",
+  "title": "Esqueleto Tutorial",
+  "url": "https://entropicthoughts.com/esqueleto-tutorial",
+  "published_at": "2026-03-17T14:48:51Z",
+  "fetched_at": "2026-03-21T22:40:16.970185+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47413486\">Comments</a>",
+  "full_text": "Let’s say we want to know the track title and album name for the shortest tracks\nthat belong to an album in our database.\n\nIn[31]:\n\nprintResults \"select t.name, a.title from tracks t inner join albums a on a.albumid = t.albumid order by t.milliseconds limit 5;\" $\n select $ do\n (t :& a) <- from $\n innerJoin (table @Track) . on (table @Album) $ \\(t :& a) ->\n t^.TrackAlbumId ==. just (a^.AlbumId)\n limit 5\n orderBy [asc (t^.TrackMilliseconds)]\n pure (t^.TrackName, a^.AlbumTitle)\n\n# select t.name, a.title from tracks t inner join albums a on a.albumid = t.albumid order by t.milliseconds limit 5;\n 1. (Value \"\\201 Uma Partida De Futebol\", Value \"O Samba Pocon\\233\")\n 2. (Value \"Now Sports\", Value \"Body Count\")\n 3. (Value \"A Statistic\", Value \"Body Count\")\n 4. (Value \"Oprah\", Value \"Body Count\")\n 5. (Value \"Commercial 1\", Value \"House of Pain\")\n\nAt this point, we finally see why we have been giving our tables short\nidentifiers (t, c, i, a etc.) in both sql and Haskell code. When we\nare juggling multiple tables at once in a join, we can access fields from either\ntable by choosing the right prefix, and it’s clear where the data is coming from.\n\nThe new part in this query is the join. I’ve written it this way:\n\nIn[32]:\n\n(t :& a) <- from $\n innerJoin (table @Track) . on (table @Album) $ \\(t :& a) ->\n t^.TrackAlbumId ==. just (a^.AlbumId)\n\nThe way you’ll find it written by other people is using infix backticks.\n\nIn[33]:\n\n(t :& a) <- from $\n table @Track\n `innerJoin` table @Album\n `on` (\\(t :& a) -> t^.TrackAlbumId ==. just (a^.AlbumId))\n\nHowever such a from clause is written, its innermost expression is going to be a\nfunction that produces a sql conditional expression indicating how to join\nrows from both tables with each other. In our case, the function is\n\nIn[34]:\n\nlet\n joinRowsOn (t :& a) =\n t^.TrackAlbumId ==. just (a^.AlbumId)\nin\n -- ...\n\nThe :& data constructor serves practically the same purpuse as a tuple – it\nbinds together two table objects that are joined in a query, and by\ndeconstructing that pair we can access each table object individually, as we do\nhere when asserting equivalence between album ids.11 Note also the just\nfunction, required because TrackAlbumId is nullable.\n\nThis function is paired up with the second table we are joining using the on\nfunction, as in\n\nIn[35]:\n\nlet\n joinRowsOn (t :& a) =\n t^.TrackAlbumId ==. just (a^.AlbumId)\n hasOnClause =\n on (table @Album) joinRowsOn\nin\n -- ...\n\nThen the innerJoin function takes the first table and the result of the\non function and produces an object that can be passed to the Esqueleto from\nfunction.\n\nIn[36]:\n\nlet\n joinRowsOn (t :& a) =\n t^.TrackAlbumId ==. just (a^.AlbumId)\n hasOnClause =\n on (table @Album) joinRowsOn\n completeJoinExpression =\n innerJoin (table @Track) hasOnClause\nin\n select $ do\n joinedTables <- from completeJoinExpression\n -- ...\n\nThis will get translated to an inner join sql query.\n\nTo get the identifiers of the individual tables out of the joinedTables\nvariable, we can add a pattern match on it, since it is one of those :& pairs\nthat we can deconstruct.\n\nIn[37]:\n\nlet\n joinRowsOn (t :& a) =\n t^.TrackAlbumId ==. just (a^.AlbumId)\n hasOnClause =\n on (table @Album) joinRowsOn\n completeJoinExpression =\n innerJoin (table @Track) hasOnClause\nin\n select $ do\n joinedTables <- from completeJoinExpression\n case joinedTables of\n t :& a -> do\n -- ...\n\nGoing backwards again, we can now inline the pattern match:\n\nIn[38]:\n\nlet\n joinRowsOn (t :& a) =\n t^.TrackAlbumId ==. just (a^.AlbumId)\n hasOnClause =\n on (table @Album) joinRowsOn\n completeJoinExpression =\n innerJoin (table @Track) hasOnClause\nin\n select $ do\n (t :& a) <- from completeJoinExpression\n\nand then inline the completeJoinExpression.\n\nIn[39]:\n\nlet\n joinRowsOn (t :& a) =\n t^.TrackAlbumId ==. just (a^.AlbumId)\n hasOnClause =\n on (table @Album) joinRowsOn\nin\n select $ do\n (t :& a) <- from $\n innerJoin (table @Track) hasOnClause\n\nFrom here, we continue to inline the hasOnClause variable.\n\nIn[40]:\n\nlet\n joinRowsOn (t :& a) =\n t^.TrackAlbumId ==. just (a^.AlbumId)\nin\n select $ do\n (t :& a) <- from $\n innerJoin (table @Track)\n . on (table @Album)\n $ joinRowsOn\n\nWe inline the last variable too.\n\nIn[41]:\n\nselect $ do\n (t :& a) <- from $\n innerJoin (table @Track)\n . on (table @Album)\n $ \\(t :& a) -> t^.TrackAlbumId ==. just (a^.AlbumId)\n\nNow we’re back at the query we started with. Hopefully that gives a sense of how\nthese joins are constructed.",
+  "tags": [
+    "1000-words",
+    "albumid",
+    "body count",
+    "completejoinexpression",
+    "count value",
+    "esqueleto tutorial",
+    "function",
+    "hasonclause",
+    "innerjoin",
+    "join",
+    "joinrowson",
+    "select",
+    "table",
+    "tables",
+    "trackalbumid",
+    "value",
+    "value body"
+  ]
+}

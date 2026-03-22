@@ -1,0 +1,32 @@
+{
+  "id": 4746,
+  "source": "Hacker News",
+  "title": "Grafeo – A fast, lean, embeddable graph database built in Rust",
+  "url": "https://grafeo.dev/",
+  "published_at": "2026-03-21T14:50:18Z",
+  "fetched_at": "2026-03-21T16:00:14.152754+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47467567\">Comments</a>",
+  "full_text": "Why Grafeo? \n\n \n \n\n High Performance \n\nFastest graph database tested on the LDBC Social Network Benchmark, both embedded and as a server, with a lower memory footprint than other in-memory databases. Built in Rust with vectorized execution, adaptive chunking and SIMD-optimized operations. \n \n\n Multi-Language Queries \n\nGQL, Cypher, Gremlin, GraphQL, SPARQL and SQL/PGQ. Choose the query language that fits the project and expertise level. \n \n\n LPG & RDF Support \n\nDual data model support for both Labeled Property Graphs and RDF triples. Choose the model that fits the domain. \n \n\n Vector Search \n\nHNSW-based similarity search with quantization (Scalar, Binary, Product). Combine graph traversal with semantic similarity. \n \n\n Embedded or Standalone \n\nEmbed directly into applications with zero external dependencies, or run as a standalone server with REST API and web UI. From edge devices to production clusters. \n \n\n Rust Core \n\nCore database engine written in Rust with no required C dependencies. Optional allocators (jemalloc/mimalloc) and TLS use C libraries for performance. Memory-safe by design with fearless concurrency. \n \n\n ACID Transactions \n\nFull ACID compliance with MVCC-based snapshot isolation. Reliable transactions for production workloads. \n \n\n Multi-Language Bindings \n\nPython (PyO3), Node.js/TypeScript (napi-rs), Go (CGO), C (FFI), C# (.NET 8 P/Invoke), Dart (dart:ffi) and WebAssembly (wasm-bindgen). Use Grafeo from the language of choice. \n \n\n Ecosystem \n\nAI integrations (LangChain, LlamaIndex, MCP), interactive notebook widgets, browser-based graphs via WebAssembly, standalone server with web UI and benchmarking tools. \n\nQuick Start \n\nPythonRust \n\n \n\n \n\nimport grafeo\n\n# Create an in-memory database\ndb = grafeo.GrafeoDB()\n\n# Create nodes and edges\ndb.execute(\"\"\"\n INSERT (:Person {name: 'Alix', age: 30})\n INSERT (:Person {name: 'Gus', age: 25})\n\"\"\")\n\ndb.execute(\"\"\"\n MATCH (a:Person {name: 'Alix'}), (b:Person {name: 'Gus'})\n INSERT (a)-[:KNOWS {since: 2024}]->(b)\n\"\"\")\n\n# Query the graph\nresult = db.execute(\"\"\"\n MATCH (p:Person)-[:KNOWS]->(friend)\n RETURN p.name, friend.name\n\"\"\")\n\nfor row in result:\n print(f\"{row['p.name']} knows {row['friend.name']}\")\n \n\n \n\nuse grafeo::GrafeoDB;\n\nfn main() -> Result<(), grafeo_common::utils::error::Error> {\n // Create an in-memory database\n let db = GrafeoDB::new_in_memory();\n\n // Create a session and execute queries\n let mut session = db.session();\n\n session.execute(r#\"\n INSERT (:Person {name: 'Alix', age: 30})\n INSERT (:Person {name: 'Gus', age: 25})\n \"#)?;\n\n session.execute(r#\"\n MATCH (a:Person {name: 'Alix'}), (b:Person {name: 'Gus'})\n INSERT (a)-[:KNOWS {since: 2024}]->(b)\n \"#)?;\n\n // Query the graph\n let result = session.execute(r#\"\n MATCH (p:Person)-[:KNOWS]->(friend)\n RETURN p.name, friend.name\n \"#)?;\n\n for row in result.rows {\n println!(\"{:?}\", row);\n }\n\n Ok(())\n}\n \n\nFeatures \n\nDual Data Model Support \n\nGrafeo supports both major graph data models with optimized storage for each: \n\nQuery Languages \n\nChoose the query language that fits the project: Language Data Model Style GQL (default) LPG ISO standard, declarative pattern matching Cypher LPG Neo4j-compatible, ASCII-art patterns Gremlin LPG Apache TinkerPop, traversal-based GraphQL LPG, RDF Schema-driven, familiar to web developers SPARQL RDF W3C standard for RDF queries SQL/PGQ LPG SQL:2023 GRAPH_TABLE for SQL-native graph queries \n\nArchitecture Highlights \nPush-based execution engine with morsel-driven parallelism \nColumnar storage with type-specific compression \nCost-based query optimizer with cardinality estimation \nMVCC transactions with snapshot isolation \nZone maps for intelligent data skipping \n\nInstallation \n\nLicense \n\nGrafeo is licensed under the Apache-2.0 License.",
+  "tags": [
+    "500-words",
+    "create",
+    "data",
+    "database",
+    "database grafeo",
+    "fortnox world",
+    "grafeo",
+    "grafeo high",
+    "graph",
+    "high performance",
+    "insert",
+    "insert person",
+    "language",
+    "lpg",
+    "model",
+    "performance graph",
+    "queries",
+    "query",
+    "rdf"
+  ]
+}

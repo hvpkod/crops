@@ -1,0 +1,32 @@
+{
+  "id": 4711,
+  "source": "Hacker News",
+  "title": "Why One Key Shouldn't Rule Them All: Threshold Signatures for the Rest of Us",
+  "url": "https://eric.mann.blog/why-one-key-shouldnt-rule-them-all-threshold-signatures-for-the-rest-of-us/",
+  "published_at": "2026-03-18T17:33:26Z",
+  "fetched_at": "2026-03-21T10:00:20.693642+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47428698\">Comments</a>",
+  "full_text": "I’ve spent a lot of time thinking about private keys.\n\nNot in the abstract, academic sense. In the “I manage production systems and if this key leaks we’re finished” sense. Over the years I’ve rotated secrets, built key management policies, and watched colleagues accidentally commit credentials to public repositories. Every one of those experiences reinforced the same uncomfortable truth.\n\nA private key is a single point of failure.\n\nCryptographic Signatures\n\nIf you’ve worked with ECDSA signatures — the kind that secure Bitcoin transactions, TLS certificates, and JWTs — you know the drill. One private key generates a signature. One private key, if compromised, invalidates everything that signature protects.\n\nFor most of us, the mitigation strategy is operational. We store keys in HSMs. We rotate them on schedules. We build access control policies and hope everyone follows them.\n\nBut what if the cryptography itself could eliminate the single point of failure?\n\nThat’s what threshold signatures do.\n\nThe Core Idea\n\nA threshold signature scheme splits a private key across multiple parties so that no single party ever holds the complete secret. To produce a valid signature, a minimum number of those parties — the “threshold” — must cooperate.\n\nThe beautiful part: the resulting ECDSA signature is indistinguishable from a normal one. Verifiers don’t need to know or care that multiple parties were involved. The math just works.\n\nThis isn’t theoretical. Coinbase, Visa, and dozens of crypto wallet providers already use threshold ECDSA in production. The only question is practical: which protocol do we use?\n\nEnter DKLS23\n\nThe protocol that’s been getting the most attention lately is DKLS23, named after its authors — Doerner, Kondi, Lee, and Shelat. Published in 2023 and presented at IEEE Oakland 2024, it represents a significant step forward from earlier approaches.\n\nHere’s why it matters, in concrete terms.\n\nOlder threshold ECDSA protocols like GG18 and GG20 relied on homomorphic encryption — computationally expensive operations that required six or more rounds of communication between parties. DKLS23 replaces that with oblivious transfer, a simpler primitive that achieves the same goal in just three rounds.\n\nFewer rounds means less latency. Less latency means the protocol is practical even on mobile devices with unstable connections. The reduced complexity means fewer places for implementation bugs to hide. For a security protocol, that’s more than worth the tradeoff.\n\nHow It Works (Without the PhD)\n\nLet me walk through a simplified 2-of-2 signing ceremony — the most common configuration.\n\nKey generation: Party A and Party B each generate a random secret. Neither shares their secret with the other. Instead, they use a Diffie-Hellman-style exchange to compute a shared public key — a “phantom” key that corresponds to the sum of their secrets. No single party can reconstruct the private key from their share alone.\n\nSigning: When it’s time to sign a message, each party generates a random nonce (a one-time random value). Through a clever sequence of oblivious transfers and what’s called multiplicative-to-additive share conversion, they each compute a partial signature. These partial signatures combine into a standard ECDSA signature — one that verifies against the phantom public key.\n\nVerification: Anyone with the public key can verify the signature using standard ECDSA verification. OpenSSL, Go’s `crypto/ecdsa`, your browser’s TLS stack — they all work. The threshold ceremony is invisible to the verifier.\n\nThat’s the magic. Two parties, neither of whom holds the full key, can produce a signature that looks exactly like it came from a single signer.\n\nWhy Developers Should Care\n\nIf you’re building anything that manages private keys — authentication services, signing infrastructure, wallet software, certificate management — threshold signatures change your threat model.\n\nA compromised server no longer means a compromised key. A stolen device doesn’t give an attacker signing authority. Even an insider with access to one key share can’t forge a signature alone.\n\nWith DKLS23 specifically, the performance overhead is low enough that you can run this on consumer hardware. The protocol works over secp256k1 (the same curve used by Bitcoin and Ethereum), so integration with existing ecosystems is straightforward.\n\nI’ve been building a tool to make all of this visible — a terminal animation that walks through every step of a DKLS23 ceremony in real time, with real cryptographic values. More on that next time.\n\nFor now, the takeaway is simple: if your security model depends on keeping a single secret perfectly safe, there’s a better way.\n\nTo learn more about the low-level implementation of DKLS23, take a look at Silence Laboratories’ open source implementation. It’s written in Rust and fully audited by Trail of Bits – it’s ready for production use today!",
+  "tags": [
+    "1000-words",
+    "ai",
+    "all threshold",
+    "dkls",
+    "ecdsa",
+    "key shouldn",
+    "means",
+    "party",
+    "private",
+    "protocol",
+    "public",
+    "rest",
+    "rule them",
+    "signature",
+    "signatures",
+    "single",
+    "threshold",
+    "visa",
+    "why one"
+  ]
+}

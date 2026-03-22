@@ -1,0 +1,24 @@
+{
+  "id": 4693,
+  "source": "Hacker News",
+  "title": "purl: a curl-esque CLI for making HTTP requests that require payment",
+  "url": "https://www.purl.dev/",
+  "published_at": "2026-03-21T02:09:08Z",
+  "fetched_at": "2026-03-21T04:40:09.009264+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47463354\">Comments</a>",
+  "full_text": "Description\n\nA curl-esque CLI for making HTTP requests that require payment. Designed for humans and agents alike.\n\npayments + curl = purl\n Install\n\n# Homebrew\n\n$ brew install stripe/purl/purl\n\n# or via shell script\n\n$ curl -fsSl https://www.purl.dev/install.sh | bash\n\nUsage\n\n# Setup your wallet\n\n$ purl wallet add\n# Test a free endpoint\n\n$ purl https://www.purl.dev/test/free\n# Test a paid endpoint (0.01 USDC)\n\n$ purl https://www.purl.dev/test/paid",
+  "tags": [
+    "200-words",
+    "curl",
+    "description",
+    "endpoint",
+    "http",
+    "install",
+    "making",
+    "purl",
+    "requests",
+    "test",
+    "wallet"
+  ]
+}

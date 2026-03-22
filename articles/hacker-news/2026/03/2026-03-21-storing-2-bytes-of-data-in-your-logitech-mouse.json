@@ -1,0 +1,27 @@
+{
+  "id": 4813,
+  "source": "Hacker News",
+  "title": "Storing 2 bytes of data in your Logitech mouse",
+  "url": "https://www.timwehrle.de/blog/what-if-i-stored-data-in-my-mouse/",
+  "published_at": "2026-03-21T23:26:53Z",
+  "fetched_at": "2026-03-22T00:00:21.242993+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47472630\">Comments</a>",
+  "full_text": "It started with a dumb idea. \n\nI have a Logitech MX Vertical, which travels between my home machine, work laptop and other devices constantly. At some point I looked at it and thought: this thing has a flash memory. It has to, otherwise how does it remember the DPI setting between plugs. So what if I stored something in it?\n\nYea, I was bored.\n\nThe plan was to treat the mouse like a tiny USB drive. Since it physically travels between computers, it could technically carry data with it. 2 bytes on a 64GB stick is embarrassing. 2 bytes in your mouse is art.\n\nLogitech mice communicate over something called HID++, a protocol they built on top of standard USB HID. It's partially documented by Logitech, partially reverse engineered by the open source community. I wrote a Rust tool to enumerate every feature the mouse exposes. Turns out it has 33 of them.\n\nHID++ 2.0 works like this: every device has a feature table. Each entry maps a stable feature ID to a device-specific index. The ID is consistent across all Logitech devices. The index varies per model. So you first ask the device \"where is feature 0x2201?\" and it tells you \"index 0x12 on this mouse\". Then you use that index for all subsequent calls. Every call is a short packet: report ID, device index, feature index, function ID, and up to 3 bytes of params. The response comes back in the same shape.\n\nMost are undocumented. Some have names like EnableHiddenFeatures and TemplateBytesNVS. That last one sounds exactly like what I wanted: non-volatile storage, index 0x1eb0.\n\nI spent a while on 0x1c00 first. Six slots, read/write flags, the whole thing. Turns out macOS's IOHIDManager silently blocks the longer HID++ report format you need to actually write to it. The OS just drops the packets. No error, no explanation, nothing. I found this out after writing a pile of probe code and staring at empty responses for longer than I'd like to admit. There are ways around IOHIDManager, like talking directly to the USB device via IOKit, but that's a different story.\n\nThe device name register looked promising too. The write calls were accepted. The mouse kept saying \"MX Vertical\" regardless of what I sent. It was just ghosting me.\n\nWhat actually worked was the DPI register.\n\nI mean, it's pretty obvious since the DPIs have to be stored somewhere. And it turns out that it accepts any u16 value you throw at it. No rounding, no validation, not a \"that's not a real DPI\" error. Write 0x6869, unplug the mouse, plug it into a different computer, read it back.\n\nStill “hi”.\n\nThat's it. That's the whole thing. 2 bytes of persistent cross-computer storage, living in the DPI register of a Logitech mouse.\n\nI've been thinking about why this kind of project is worth doing at all. The result is objectively useless. 2 bytes is nothing. You could store more data by changing your hostname.\n\nBut the investigation was the point. I learned how HID++ works. I learned how macOS manages HID devices at kernel level and where it draws lines. I learned that \"feature table\" and \"feature index\" are different things and that the IFeatureSet reverse lookup is apparently broken on this device. I learned that the device name register will politely accept your writes and then completely ignore them, which is a deeply relatable response.\n\nNone of the knowledge came from reading docs. It came from poking at a thing until it did something unexpected, then following the thread.\n\nThe 2 bytes were never the goal. The goal was to see how far in I could get.\n\nCode is here if you want to store something in your mouse: https://github.com/timwehrle/mouse-fs. Works with any Logitech mouse on a Unifying receiver.",
+  "tags": [
+    "1000-words",
+    "bytes",
+    "data",
+    "device",
+    "dpi",
+    "feature",
+    "hid",
+    "learned",
+    "logitech",
+    "mouse",
+    "something",
+    "stored",
+    "turns",
+    "usb"
+  ]
+}

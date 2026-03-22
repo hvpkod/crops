@@ -1,0 +1,31 @@
+{
+  "id": 4728,
+  "source": "Hacker News",
+  "title": "How BYD Got EV Chargers to Work Almost as Fast as Gas Pumps",
+  "url": "https://www.wired.com/story/how-byds-ev-charger-got-even-faster-and-it-might-not-matter-as-much-as-you-think/",
+  "published_at": "2026-03-21T12:06:03Z",
+  "fetched_at": "2026-03-21T12:40:36.713244+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47466294\">Comments</a>",
+  "full_text": "Somehow, the whole thing got even faster. Earlier this month, Chinese automaker BYD announced that its Flash Chargers, first rolled out a year ago, can now charge some electric vehicle batteries from around 10 to 70 percent in five minutes, and from 10 to full in about nine. That’s more than 600 miles of range in the time it takes to order a cappuccino and leave a nice tip.\n\nThe new BYD chargers can add miles super quickly because they deliver up to 1,500 kilowatts (kW) per charge. Compare that to the 350 kW “hyper-fast” chargers seen more typically in the US, which can top up 80 percent of a battery in 15 to 25 minutes, and the full thing in closer to 40.\n\nBYD’s move brings the charging experience closer to the auto industry's holy grail: comparable to what drivers expect when they fill up their gas tanks. Survey after survey finds that potential EV buyers are worried about range and charging; speeding things up might go some way toward alleviating fears and getting more drivers seriously thinking about the plug. BYD, which doesn't sell in the US because of high tariffs and national security concerns, has built more than 4,000 of the chargers in China so far, with plans to construct some 16,000 more by the end of the year, plus 2,000 in Europe.\n\nThere is, naturally, a catch—plus a few reasons to believe that a super fast charger won’t solve all of the world’s charging issues.\n\nRight now, only one car will be able to take advantage of the Flash Chargers’ hyperspeed in Europe: BYD’s Denza Z9GT, due to make its Paris debut next month. That’s because the EV comes with the newest generation of BYD’s Blade battery. Making its own cars, its own chargers, and its own batteries gives BYD a significant leg-up in charging speeds over most global competitors, as the tech works together. (Tesla has also vertically integrated the charging experience.) To charge at such high speeds, the vehicles’ software and wiring need to be built to handle that much electric current.\n\nBYD didn’t respond to WIRED’s questions, but according to Chinese language media, the newest Blade battery uses a lithium manganese iron phosphate (LMFP) chemistry to increase energy density. (The last version used lithium-iron phosphate, or LFP, which trades some energy density for durability and fast-charging capability). BYD says it has redesigned all of its battery elements, including the electrodes that store and release energy, the electrolytes that allow for ion transfer between electrodes during charging and discharging cycles, and the separators that disconnect and then conduct ion flow.\n\nThis all ups the battery’s energy density by 5 percent compared to what it touted as the latest and greatest last year. BYD says the Denza Z9GT can hit more than 620 miles per charge. (Real-life ranges tend to be a bit lower than claims by auto companies.)\n\nThe charger itself, a slick, teal T-shaped system that evokes—you guessed it—a gas station pump, belies its complexity. Dishing out more than a megawatt from the electric grid is no small feat, both in hardware and construction involved. BYD says it will make the rollout of the new charger a little easier by incorporating them into existing BYD charging banks, so that the infrastructure isn’t starting from scratch. Beyond that, BYD says it will use storage batteries at the charging sites to supplement the electrical grid, so the grid isn’t overloaded.\n\nThe Limits\n\nDespite these impressive speeds, don’t expect BYD’s new system to change the game for EVs. “It's a good, marginal improvement in technology,” says Gil Tal, who directs the EV Research Center at UC Davis’ Institute of Transportation Studies. “It’s not something that changes most people’s daily life.”\n\nThe first reason is practical. Today, most US EV owners have access to at-home charging and only use public fast-chargers on the occasional trip that stretches their 250-mile range. For those people, the difference between charging in 20 minutes and in 5 minutes might be close to negligible.",
+  "tags": [
+    "1000-words",
+    "batteries",
+    "battery",
+    "byd",
+    "charger",
+    "chargers",
+    "charging",
+    "china",
+    "electric",
+    "energy",
+    "fast",
+    "flash chargers",
+    "gas pumps",
+    "got ev",
+    "how byd",
+    "miles",
+    "thing",
+    "work almost"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 4793,
+  "source": "Hacker News",
+  "title": "Hide macOS Tahoe's Menu Icons",
+  "url": "https://512pixels.net/2026/03/hide-macos-tahoes-menu-icons-with-this-one-simple-trick/",
+  "published_at": "2026-03-21T17:46:00Z",
+  "fetched_at": "2026-03-21T21:21:09.247049+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47469331\">Comments</a>",
+  "full_text": "I really dislike Apple’s choice to clutter macOS Tahoe’s menus with icons. It makes menus hard to scan, and a bunch of the icons Apple has chosen make no sense and are inconsistent between system applications.\n\nSteve Troughton-Smith is my hero for finding a Terminal command to disable them:\n\n Here’s one for the icons-in-menus haters on macOS Tahoe:\n\n defaults write -g NSMenuEnableActionImages -bool NO \n\n It even preserves the couple of instances you do want icons, like for window zoom/resize.\n\nYour apps will respect this change after relaunching. I ran this a few minutes ago and already appreciate the change. I really think Apple should roll this change back in macOS 27, or offer a proper setting to disable these icons for those of us who find them distracting.",
+  "tags": [
+    "200-words",
+    "apple",
+    "change",
+    "disable",
+    "hide",
+    "icons",
+    "macos",
+    "menu",
+    "menu icons",
+    "menus",
+    "one simple",
+    "really",
+    "simple",
+    "tahoe",
+    "trick",
+    "with this"
+  ]
+}

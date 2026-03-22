@@ -1,0 +1,30 @@
+{
+  "id": 4752,
+  "source": "Hacker News",
+  "title": "Show HN: A deterministic middleware to compress LLM prompts by 50-80%",
+  "url": "https://github.com/ARPAHLS/skillware",
+  "published_at": "2026-03-21T15:49:30Z",
+  "fetched_at": "2026-03-21T16:40:21.442448+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47468104\">Comments</a>",
+  "full_text": "A Python framework for modular, self-contained skill management for machines.\n\nSkillware is an open-source framework and registry for modular, actionable Agent capabilities. It treats Skills as installable content, decoupling capability from intelligence. Just as apt-get installs software and pip installs libraries, skillware installs know-how for AI agents.\n\n\"I know Kung Fu.\" - Neo\n\nThe AI ecosystem is fragmented. Developers often re-invent tool definitions, system prompts, and safety rules for every project. Skillware supplies a standard to package capabilities into self-contained units that work across Gemini, Claude, GPT, and Llama.\n\nA Skill in this framework provides everything an Agent needs to master a domain:\n\nLogic: Executable Python code.\n\nCognition: System instructions and \"cognitive maps\".\n\nGovernance: Constitution and safety boundaries.\n\nInterface: Standardized schemas for LLM tool calling.\n\nThis repository is organized into a core framework, a registry of skills, and documentation.\n\nSkillware/\n├── skillware/ # Core Framework Package\n│ └── core/\n│ ├── base_skill.py # Abstract Base Class for skills\n│ ├── loader.py # Universal Skill Loader & Model Adapter\n│ └── env.py # Environment Management\n├── skills/ # Skill Registry (Domain-driven)\n│ ├── category/ # e.g., finance, optimization, data_engineering\n│ │ └── skill_name/ # e.g., prompt_rewriter, wallet_screening\n├── templates/ # New Skill Templates\n│ └── python_skill/ # Standard Python Skill Template\n├── examples/ # Reference Implementations\n│ ├── gemini_wallet_check.py # Google Gemini Integration\n│ ├── claude_wallet_check.py # Anthropic Claude Integration\n│ ├── gemini_pdf_form_filler.py\n│ └── claude_pdf_form_filler.py\n├── docs/ # Comprehensive Documentation\n│ ├── introduction.md # Philosophy & Design\n│ ├── usage/ # Integration Guides\n│ └── skills/ # Skill Reference Cards\n└── COMPARISON.md # Comparison vs. Anthropic Skills / MCP\n\nYou can install Skillware directly from PyPI:\n\nOr for development, clone the repository and install in editable mode:\n\ngit clone https://github.com/arpahls/skillware.git\ncd skillware\npip install -e .\n\nNote: Individual skills may have their own dependencies. The SkillLoader validates manifest.yaml and warns of missing packages (e.g., requests, pandas) upon loading a skill.\n\nCreate a .env file with your API keys (e.g., Google Gemini API Key):\n\nGOOGLE_API_KEY=\"your_key\"\n\n3. Usage Example (Gemini)\n\nimport google.generativeai as genai\nfrom skillware.core.loader import SkillLoader\nfrom skillware.core.env import load_env_file\n\n# Load Environment\nload_env_file()\n\n# 1. Load the Skill from the Registry\n# The loader reads the code, manifest, and instructions automatically\nskill_bundle = SkillLoader.load_skill(\"category/skill_name\")\n\n# 2. Model & Chat Setup\nmodel = genai.GenerativeModel(\n 'gemini-2.5-flash',\n tools=[SkillLoader.to_gemini_tool(skill_bundle)], # The \"Adapter\"\n system_instruction=skill_bundle['instructions'] # The \"Mind\"\n)\nchat = model.start_chat(enable_automatic_function_calling=True)\n\n# 3. Agent Loop\n# The SDK handles the loop: model -> tool call -> execution -> result -> model reply.\nresponse = chat.send_message(\"Screen wallet 0xd8dA... for risks.\")\nprint(response.text)\n\nWe are building the \"App Store\" for Agents and require professional, robust, and safe skills.\n\nPlease read CONTRIBUTING.md for guidelines on folder structure, manifest schemas, and safety constitutions.\n\nSkillware differs from the Model Context Protocol (MCP) or Anthropic's Skills repository in the following ways:\n\nModel Agnostic: Native adapters for Gemini, Claude, and OpenAI.\n\nCode-First: Skills are executable Python packages, not just server specs.\n\nRuntime-Focused: Provides tools for the application, not just recipes for an IDE.\n\nRead the full comparison here.\n\nFor questions, suggestions, or contributions, please open an issue or reach out to us:\n\n \n \n\n Built & Maintained by ARPA Hellenic Logical Systems & the Community",
+  "tags": [
+    "1000-words",
+    "agent",
+    "ai",
+    "api key",
+    "arpahls",
+    "framework",
+    "gemini claude",
+    "github",
+    "google gemini",
+    "installs",
+    "management",
+    "model",
+    "python",
+    "registry",
+    "skill",
+    "skills",
+    "skillware"
+  ]
+}

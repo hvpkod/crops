@@ -1,0 +1,32 @@
+{
+  "id": 4702,
+  "source": "Hacker News",
+  "title": "Google adds 24-hour wait and mandatory reboot to Android sideloading flow",
+  "url": "https://android-developers.googleblog.com/2025/08/elevating-android-security.html",
+  "published_at": "2026-03-21T06:03:46Z",
+  "fetched_at": "2026-03-21T07:20:07.899313+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47464394\">Comments</a>",
+  "full_text": "Posted by Suzanne Frey – VP, Product, Trust & Growth for Android\n\nYou shouldn’t have to choose between open and secure. By engineering security into the core part of the OS, Android has proven that you can have both, and we continue taking new steps in that direction.\n\nAs new threats emerge, we’ve continued to evolve our defenses. Following recent attacks, including those targeting people's financial data on their phones, we've worked to increase developer accountability to prevent abuse. We’ve seen how malicious actors hide behind anonymity to harm users by impersonating developers and using their brand image to create convincing fake apps. The scale of this threat is significant: our recent analysis found over 50 times more malware from internet-sideloaded sources than on apps available through Google Play.\n\nTo better protect users from repeat bad actors spreading malware and scams, we're adding another layer of security to make installing apps safer for everyone: developer verification.\n\nStarting next year, Android will require all apps to be registered by verified developers in order to be installed by users on certified Android devices. This creates crucial accountability, making it much harder for malicious actors to quickly distribute another harmful app after we take the first one down. Think of it like an ID check at the airport, which confirms a traveler's identity but is separate from the security screening of their bags; we will be confirming who the developer is, not reviewing the content of their app or where it came from. This change will start in a few select countries specifically impacted by these forms of fraudulent app scams, often from repeat perpetrators. \n\nSince we implemented verification requirements on Google Play in 2023, we have seen firsthand how helpful developer identification is in stopping bad actors from exploiting anonymity to distribute malware, commit financial fraud, and steal sensitive data. Bringing a similar process to Android more broadly will provide a consistent, common sense baseline of developer accountability across the ecosystem.\n\nIn early discussions about this initiative, we've been encouraged by the supportive initial feedback we've received. In Brazil, the Brazilian Federation of Banks (FEBRABAN) sees it as a “significant advancement in protecting users and encouraging accountability.” This support extends to governments as well, with Indonesia's Ministry of Communications and Digital Affairs praising it for providing a “balanced approach” that protects users while keeping Android open. Similarly, Thailand’s Ministry of Digital Economy and Society sees it as a “positive and proactive measure” that aligns with their national digital safety policies. And partners like the Developer’s Alliance have called this a “critical step” for ensuring “trust, accountability, and security” across the entire ecosystem.\n\nTo make this process as streamlined as possible, we are building a new Android Developer Console just for developers who only distribute outside of Google Play, so they can easily complete their verification; get an early look at how it works. A note for student and hobbyist developers: we know your needs are different from commercial developers, so we’re creating a separate type of Android Developer Console account for you.\n\nIf you distribute apps on Google Play, you’ve likely already met these verification requirements through the existing Play Console process. You can find more information about how these requirements apply to you in our guides.\n\nTo be clear, developers will have the same freedom to distribute their apps directly to users through sideloading or to use any app store they prefer. We believe this is how an open system should work—by preserving choice while enhancing security for everyone. Android continues to show that with the right design and security principles, open and secure can go hand in hand. For more details on the specific requirements, visit our website. We'll share more information in the coming months.\n\nTimeline and how to prepare\n\nTo help you get ready, we encourage all developers who distribute apps on certified Android devices to sign up for early access. This is the best way to prepare and stay informed.\n\nEarly participants will also get:\n\nAn invitation to an exclusive community discussion forum.\n\nPriority support for these new requirements.\n\nThe chance to provide feedback and help us shape the experience.\n\nSign up for early access now\n\nHere is the timeline to help you plan:\n\nOctober 2025: Early access begins. Invitations will be sent out gradually.\n\nMarch 2026: Verification opens for all developers.\n\nSeptember 2026: These requirements go into effect in Brazil, Indonesia, Singapore, and Thailand. At this point, any app installed on a certified Android device in these regions must be registered by a verified developer.\n\n2027 and beyond: We will continue to roll out these requirements globally.",
+  "tags": [
+    "1000-words",
+    "android",
+    "android developer",
+    "apps",
+    "brazil",
+    "certified",
+    "developer",
+    "developer console",
+    "developers",
+    "distribute",
+    "early",
+    "fortnox world",
+    "google play",
+    "indonesia",
+    "requirements",
+    "security",
+    "singapore",
+    "thailand",
+    "users"
+  ]
+}

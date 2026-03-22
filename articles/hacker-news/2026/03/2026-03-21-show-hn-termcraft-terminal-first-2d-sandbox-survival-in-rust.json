@@ -1,0 +1,27 @@
+{
+  "id": 4784,
+  "source": "Hacker News",
+  "title": "Show HN: Termcraft – terminal-first 2D sandbox survival in Rust",
+  "url": "https://github.com/pagel-s/termcraft",
+  "published_at": "2026-03-21T18:42:38Z",
+  "fetched_at": "2026-03-21T20:40:08.429487+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47469949\">Comments</a>",
+  "full_text": "Unofficial fan project. Not affiliated with Mojang or Microsoft.\n\nEarly alpha. The game is playable, but some systems are still rough or buggy.\n\nFull highlight video: termcraft.mp4\n\nYouTube: https://youtu.be/kR986Xqzj7E\n\nSoundtrack in the full highlight: Fantasy Orchestral Theme by Joth and Boss Battle #2 [Symphonic Metal] by nene via OpenGameArt, both CC0. Full details: Media Credits\n\ntermcraft keeps the classic survival progression, dimensions, crafting, and exploration pressure of the early block-survival formula, but adapts the experience to a side-on terminal game.\n\nCurrent scope:\n\nprocedural Overworld, Nether, and End generation\n\nmining, placement, inventory, crafting, furnaces, brewing, boats, and chests\n\nhealth, hunger, combat, weather, fluids, gravity blocks, crops, and farming\n\npassive and hostile mobs, villages, dungeons, strongholds, and Nether fortresses\n\nrepo-local save persistence and autosave\n\nRequirements:\n\nRust stable toolchain\n\na terminal with raw input support\n\nmouse support for the best local experience\n\nInstall Rust first:\n\nClone the repo and start the game:\n\ngit clone https://github.com/pagel-s/termcraft.git\ncd termcraft\ncargo run --release\n\nIf you want the optimized binary directly:\n\ngit clone https://github.com/pagel-s/termcraft.git\ncd termcraft\ncargo build --release\n./target/release/termcraft\n\nIf you want it installed into Cargo's local bin path after cloning:\n\ngit clone https://github.com/pagel-s/termcraft.git\ncd termcraft\ncargo install --path .\ntermcraft\n\nLocal saves are written into saves/ inside the repo.\n\nA / D or arrow keys: move\n\nW / Up / Space: jump or swim up\n\nX: toggle sneak\n\nE: inventory\n\n1-9: hotbar selection\n\nLeft Click: mine / attack\n\nRight Click: place / interact\n\nF: explicit hovered-block use fallback if right click is unreliable in the current terminal\n\nO: settings menu\n\nQ / Esc: close UI or quit from world view\n\nDeveloper/test shortcuts currently available:\n\nF5: travel to Overworld\n\nF6: travel to Nether\n\nF7: travel to End\n\nF8: return to spawn\n\nF9: equip diamond combat loadout\n\nThe primary supported mode right now is local single-player.\n\nClient/server code exists, but it is still experimental and is not a featured public mode yet.\n\nIf mouse right-click is unreliable in your terminal, use F as the explicit interaction fallback.\n\nFor feedback, bugs, or release questions, contact: pagel.sebastian.1@gmail.com\n\nUseful checks:\n\ncargo test --quiet\ncargo clippy --all-targets -- -D warnings\n./scripts/release_smoke.sh\n\nRelease process:\n\nLocal saves are written under saves/ and are intentionally repo-local, not OS-global.\n\nchunk files: saves/<dimension>_chunk_<x>.bin\n\nprogression file: saves/player_progression.bin\n\nSee World Format for the current save layout.",
+  "tags": [
+    "500-words",
+    "cargo",
+    "clone",
+    "current",
+    "full",
+    "local",
+    "nether",
+    "right",
+    "rust",
+    "rust github",
+    "survival",
+    "termcraft",
+    "terminal",
+    "travel"
+  ]
+}

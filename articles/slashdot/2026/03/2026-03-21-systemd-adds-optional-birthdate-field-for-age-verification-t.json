@@ -1,0 +1,28 @@
+{
+  "id": 4745,
+  "source": "Slashdot",
+  "title": "SystemD Adds Optional 'birthDate' Field for Age Verification to JSON User Records",
+  "url": "https://linux.slashdot.org/story/26/03/21/0424203/systemd-adds-optional-birthdate-field-for-age-verification-to-json-user-records?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-21T15:34:00Z",
+  "fetched_at": "2026-03-21T16:00:10.792150+00:00",
+  "author": "EditorDavid",
+  "summary": "\"The systemd project merged a pull request adding a new birthDate field to the JSON user records managed by userdb in response to the age verification laws of California, Colorado, and Brazil,\" reports the blog It's FOSS. \n\nThey note that the field \"can only be set by administrators, not by users themselves\" &mdash; it's the same record that already holds metadata like realName, emailAddress, and location:\n\nLennart Poettering, the creator of systemd, has clarified that this change is \"an optional field in the userdb JSON object. It's not a policy engine, not an API for apps. We just define the field, so that it's standardized iff people want to store the date there, but it's entirely optional. \" \n\nIn simple words, this is something that adds a new, optional field that can then be used by other open source projects like xdg-desktop-portal\t to build age verification compliance on top of, without systemd itself doing anything with the data or making it mandatory to provide. A merge reques",
+  "full_text": "\"The systemd project merged a pull request\n\n adding a new birthDate\n\n field to the JSON user records managed by userdb in response to the age verification laws of California, Colorado, and Brazil,\" reports the blog It's FOSS\n\n. \n\nThey note that the field \"can only be set by administrators, not by users themselves\" — it's the same record that already holds metadata like realName\n\n, emailAddress\n\n, and location\n\n:\n\nLennart Poettering, the creator of systemd, has clarified that this change is \"an optional field in the userdb JSON object. It's not a policy engine, not an API for apps. We just define the field, so that it's standardized iff people want to store the date there, but it's entirely optional. \"\n \n\nIn simple words, this is something that adds a new, optional field that can then be used by other open source projects like xdg-desktop-portal to build age verification compliance on top of, without systemd itself doing anything with the data or making it mandatory to provide. A merge request asking for this change to be repealed was struck down by Lennart, who gave the above-mentioned reasoning behind this, and further noted that people were misunderstanding what systemd is trying to do here. \n\n\"It enforces zero\n\n policy,\" Poettering said. \"It leaves that up for other parts of the system.\"",
+  "tags": [
+    "500-words",
+    "adds",
+    "age verification",
+    "brazil",
+    "field",
+    "json",
+    "json user",
+    "optional",
+    "records",
+    "request",
+    "systemd",
+    "systemd adds",
+    "user",
+    "userdb",
+    "verification"
+  ]
+}

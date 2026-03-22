@@ -1,0 +1,29 @@
+{
+  "id": 4800,
+  "source": "Hacker News",
+  "title": "Show HN: Atomic – self-hosted, semantically-connected personal knowledge base",
+  "url": "https://github.com/kenforthewin/atomic",
+  "published_at": "2026-03-21T19:31:39Z",
+  "fetched_at": "2026-03-21T22:00:50.945610+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47470433\">Comments</a>",
+  "full_text": "A personal knowledge base that turns markdown notes into a semantically-connected, AI-augmented knowledge graph.\n\nAtomic stores knowledge as atoms — markdown notes that are automatically chunked, embedded, tagged, and linked by semantic similarity. Your atoms can be synthesized into wiki articles, explored on a spatial canvas, and queried through an agentic chat interface.\n\nAtoms — Markdown notes with hierarchical tagging, source URLs, and automatic chunking\n\nSemantic Search — Vector search over your knowledge base using sqlite-vec\n\nCanvas — Force-directed spatial visualization where semantic similarity determines layout\n\nWiki Synthesis — LLM-generated articles with inline citations, built from your notes\n\nChat — Agentic RAG interface that searches your knowledge base during conversation\n\nAuto-Tagging — LLM-powered tag extraction organized into hierarchical categories\n\nMultiple AI Providers — OpenRouter (cloud) or Ollama (local) for embeddings and LLMs\n\nRSS Feeds — Subscribe to feeds and automatically sync new articles as atoms\n\nBrowser Extension — Capture web content directly into Atomic\n\nMCP Server — Expose your knowledge base to Claude and other AI tools\n\nMulti-Database — Multiple knowledge bases with a shared registry\n\niOS App — Native SwiftUI client for reading and writing atoms on mobile\n\nAtomic runs as a desktop app (Tauri), a headless server (Docker/Fly.io), or both.\n\nDownload the latest release for your platform from GitHub Releases (macOS, Linux, Windows).\n\nOn first launch, the setup wizard walks you through AI provider configuration.\n\nSelf-Host with Docker Compose\n\ngit clone https://github.com/kenforthewin/atomic.git\ncd atomic\ndocker compose up -d\n\nThis starts the API server and web frontend. Open http://localhost and claim your instance through the setup wizard.\n\ncp fly.toml.example fly.toml\nfly launch --copy-config --no-deploy\nfly volumes create atomic_data --region <your-region> --size 1\nfly deploy\n\nOpen https://your-app.fly.dev and claim your instance. The public URL for OAuth/MCP is auto-detected from the Fly app name.\n\ncargo run -p atomic-server -- --data-dir ./data serve --port 8080\n\nOn first run, create an API token:\n\ncargo run -p atomic-server -- --data-dir ./data token create --name default\n\nAtomic needs an AI provider for embeddings, tagging, wiki generation, and chat.\n\nOpenRouter (cloud) — Get an API key from openrouter.ai. Supports separate model selection for embedding, tagging, wiki, and chat.\n\nOllama (local) — Install Ollama and pull models (e.g., ollama pull nomic-embed-text). Atomic auto-discovers available models.\n\nConfigure via the setup wizard on first launch, or later in Settings.\n\nThe Atomic Web Clipper captures web content as atoms:\n\nOpen Chrome/Edge/Brave and navigate to chrome://extensions\n\nEnable \"Developer mode\"\n\nClick \"Load unpacked\" and select the extension/ directory\n\nConfigure your server URL and API token in the extension options\n\nCaptures are queued offline and synced when the server is available.\n\nAtomic exposes an MCP endpoint for Claude and other AI tools to search and create atoms.\n\nThe endpoint runs at /mcp on your server (e.g., http://localhost:8080/mcp).\n\nClaude Desktop config (~/Library/Application Support/Claude/claude_desktop_config.json):\n\n{\n \"mcpServers\": {\n \"atomic\": {\n \"url\": \"http://localhost:44380/mcp\"\n }\n }\n}\n\nAvailable tools: semantic_search, read_atom, create_atom\n\nAll business logic lives in atomic-core, a standalone Rust crate with no framework dependencies. Every client is a thin wrapper adapting it to a transport:\n\n +------------------+\n | atomic-core |\n | (all logic) |\n +--------+---------+\n +--------------+--------------+\n v v v\n +-----------+ +--------------+ +----------+\n | src-tauri | |atomic-server | |atomic-mcp|\n | (desktop) | | (REST + WS) | | (stdio) |\n +-----+-----+ +------+-------+ +----------+\n | |\n +-----v-----+ +------v-------+\n | React UI | | HTTP clients |\n | | | (iOS, web) |\n +------------+ +--------------+\n\nCargo.toml # Workspace root\ncrates/atomic-core/ # All business logic\ncrates/atomic-server/ # REST + WebSocket + MCP server\ncrates/atomic-mcp/ # Standalone MCP server (stdio)\ncrates/mcp-bridge/ # HTTP-to-stdio MCP bridge\nsrc-tauri/ # Tauri desktop app\nsrc/ # React frontend (TypeScript)\nios/ # Native iOS app (SwiftUI)\nextension/ # Chromium browser extension\nscripts/ # Import and utility scripts\n\nnpm install # Install frontend dependencies\n\n# Desktop app\nnpm run tauri dev # Dev with hot reload\nnpm run tauri build # Production build\n\n# Server only\ncargo run -p atomic-server -- serve --port 8080\n\n# Frontend only\nnpm run dev # Vite dev server\n\n# Checks\ncargo check # All workspace crates\ncargo test # All tests\nnpx tsc --noEmit # Frontend type check\n\nLayer\nTechnology\n\nCore\nRust, SQLite + sqlite-vec, tokio\n\nDesktop\nTauri v2\n\nServer\nactix-web\n\nFrontend\nReact 18, TypeScript, Vite 6, Tailwind CSS v4, Zustand 5\n\nEditor\nCodeMirror 6\n\nCanvas\nd3-force, react-zoom-pan-pinch\n\niOS\nSwiftUI, XcodeGen\n\nAI\nOpenRouter or Ollama (pluggable)\n\nMIT",
+  "tags": [
+    "1000-words",
+    "ai",
+    "api",
+    "atomic",
+    "atoms",
+    "base",
+    "cargo",
+    "claude",
+    "desktop",
+    "frontend",
+    "github",
+    "knowledge",
+    "mcp",
+    "notes",
+    "ollama",
+    "server"
+  ]
+}
