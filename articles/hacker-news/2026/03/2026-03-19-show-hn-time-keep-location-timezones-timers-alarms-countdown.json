@@ -1,0 +1,26 @@
+{
+  "id": 4849,
+  "source": "Hacker News",
+  "title": "Show HN: Time Keep – Location timezones, timers, alarms, countdowns in one place",
+  "url": "https://news.ycombinator.com/item?id=47445433",
+  "published_at": "2026-03-19T20:23:50Z",
+  "fetched_at": "2026-03-22T09:20:19.526315+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47445433\">Comments</a>",
+  "full_text": "I kept running into this: timer on my laptop, alarm on my phone, timezone / discord timestamp conversion app in a separate tab. Switching between them was a hassle and I wanted to be able to set them up and manage really fast anywhere I was.\n\nSo I built Time Keep, it puts world clocks, timers, alarms, countdowns, a stopwatch, breaks, a sleep planner, Discord timestamps, and more into one always open place.\n\nWorks without an account or signup. All tools are fully functional immediately. Sign in to save your data across sessions. Pro adds live cross-device sync.\n\nShared countdown links show the correct time in every viewer's timezone. Built with Next.js, Supabase, Clerk, and Vercel.\n\nhttps://www.timekeep.cc",
+  "tags": [
+    "200-words",
+    "built",
+    "countdowns",
+    "discord",
+    "keep",
+    "kept",
+    "location",
+    "place",
+    "running",
+    "show",
+    "show hn",
+    "time keep",
+    "timer"
+  ]
+}

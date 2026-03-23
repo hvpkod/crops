@@ -1,0 +1,26 @@
+{
+  "id": 4838,
+  "source": "Hacker News",
+  "title": "Sashiko: An agentic Linux kernel code review system",
+  "url": "https://sashiko.dev/",
+  "published_at": "2026-03-22T03:59:46Z",
+  "fetched_at": "2026-03-22T06:00:13.020808+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47474323\">Comments</a>",
+  "full_text": "Sashiko (刺し子, literally \"little stabs\") is a form of decorative reinforcement stitching from Japan. Originally used to reinforce points of wear or to repair worn places or tears with patches, here it represents our mission to reinforce the Linux kernel through automated, intelligent patch review.\n \n\n \n\n Sashiko is an agentic Linux kernel code review system. It monitors public mailing lists to thoroughly evaluate proposed Linux kernel changes. The system acts like a team of specialized reviewers covering domains from high-level architecture verification and security audits to low-level resource management and concurrency analysis.\n \n\n \n\n It relies on an open-source set of per-subsystem and generic prompts initially created by Chris Mason, combined with a custom multi-stage review protocol to maximize accuracy and minimize false positives.\n \n\n \n\n This is an open-source project that belongs to the Linux Foundation, licensed under the Apache License, Version 2.0.\n \n\n \n\n This particular instance of Sashiko is provided as a service and is actively reviewing all LKML (Linux Kernel Mailing List) submissions. All compute resources and LLM tokens utilized for these automated reviews are proudly provided and funded by Google.\n \n\n \n\n Quality of Reviews: In our tests using Gemini 3.1 Pro, Sashiko was able to successfully identify 53.6% of bugs based on an unfiltered selection of the last 1000 upstream commits with Fixed: tags. 100% of these historical bugs had previously made it through human-driven code reviews.\n \n\n \n\n Note: As with any Large Language Model-based tool, Sashiko's output is probabilistic. It might find or miss bugs across different runs with the exact same input. It is designed to augment and assist human reviewers, not to replace them.",
+  "tags": [
+    "500-words",
+    "ai",
+    "bugs",
+    "code",
+    "japan",
+    "kernel",
+    "linux",
+    "literally",
+    "mailing",
+    "provided",
+    "reinforce",
+    "review",
+    "sashiko"
+  ]
+}

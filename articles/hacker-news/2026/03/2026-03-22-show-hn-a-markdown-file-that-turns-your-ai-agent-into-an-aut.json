@@ -1,0 +1,30 @@
+{
+  "id": 4921,
+  "source": "Hacker News",
+  "title": "Show HN: A Markdown file that turns your AI agent into an autonomous researcher",
+  "url": "https://github.com/krzysztofdudek/ResearcherSkill",
+  "published_at": "2026-03-22T18:21:48Z",
+  "fetched_at": "2026-03-22T20:00:33.123677+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47480492\">Comments</a>",
+  "full_text": "One file. Your AI coding agent becomes a scientist.\n\nDrop researcher.md into Claude Code, Cursor, or any agent that reads markdown. It will design experiments, test hypotheses, discard what fails, keep what works — 30+ experiments overnight while you sleep.\n\nWhat it looks like running\n\nExperiment 7 — Replace O(n^2) neighbor search with KD-tree\n\nBranch: research/reduce-latency · Parent: #5 · Type: real\n\nHypothesis: KD-tree lookup should reduce p99 from 142ms to under 100ms\nChanges: swapped brute-force loop in spatial_index.py with scipy.spatial.KDTree\nResult: p99 = 89ms (was 142ms baseline, 118ms best) — new best\nStatus: keep\n\nInsight: The bottleneck was always the neighbor search, not the scoring. Experiment #3 (caching) was treating the symptom.\n\n#\nbranch\nmetric\nstatus\ndescription\n\n0\nresearch/reduce-latency\n142.00\nkeep\nBaseline measurement\n\n1\nresearch/reduce-latency\n139.20\ndiscard\nAdd response caching\n\n2\nresearch/reduce-latency\n141.50\ndiscard\nConnection pooling tuning\n\n3\nresearch/reduce-latency\n135.80\ndiscard\nLRU cache on hot path\n\n5\nresearch/reduce-latency\n118.00\nkeep\nBatch DB queries\n\n7\nresearch/reduce-latency\n89.00\nkeep\nKD-tree neighbor search\n\nExample is simulated. The skill works on any codebase — run it and share your real results.\n\nAnything where you can measure or evaluate a result:\n\nAPI latency — p50, p99, throughput\n\nTest speed — suite runtime, parallelization strategies\n\nBundle size — tree-shaking, code splitting, dependency swaps\n\nPrompt engineering — accuracy, cost, token usage\n\nAlgorithm tuning — runtime complexity, memory usage\n\nConfiguration optimization — DB settings, cache sizes, thread pools\n\nThe agent interviews you about what to optimize, sets up a lab on a git branch, then works autonomously — thinking, testing, reflecting — committing before every experiment, reverting on failure, logging everything. It forks branches to explore divergent approaches, detects when it's stuck, and keeps going until you stop it or it hits a target.\n\nGeneralizes autoresearch beyond ML: supports thought experiments, non-linear branching, qualitative metrics, convergence signals, and session resume.\n\nAll experiment history lives in an untracked .lab/ directory that survives all git operations — git manages code, .lab/ manages knowledge.\n\nMIT\n\nIf this is useful, star the repo and share what you discovered.\n\nYggdrasil – your agent keeps forgetting your architecture, constraints, and past decisions. Yggdrasil gives your repository persistent semantic memory, so each task starts with the right context instead of another giant prompt.",
+  "tags": [
+    "500-words",
+    "agent",
+    "autonomous",
+    "becomes",
+    "claude code",
+    "code cursor",
+    "coding",
+    "cursor",
+    "discard",
+    "experiment",
+    "github",
+    "keep",
+    "neighbor",
+    "researcherskill one",
+    "skill",
+    "works",
+    "your ai"
+  ]
+}

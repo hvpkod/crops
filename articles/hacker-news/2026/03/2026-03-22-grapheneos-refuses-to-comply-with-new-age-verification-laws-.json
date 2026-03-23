@@ -1,0 +1,29 @@
+{
+  "id": 4915,
+  "source": "Hacker News",
+  "title": "GrapheneOS refuses to comply with new age verification laws for operating system",
+  "url": "https://www.tomshardware.com/software/operating-systems/grapheneos-refuses-to-comply-with-age-verification-laws",
+  "published_at": "2026-03-22T16:28:52Z",
+  "fetched_at": "2026-03-22T19:20:53.915741+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47479183\">Comments</a>",
+  "full_text": "GrapheneOS, the privacy-focused Android fork, said in a post on X on Friday that it will not comply with emerging laws requiring operating systems to collect user age data at setup. \"GrapheneOS will remain usable by anyone around the world without requiring personal information, identification or an account,\" the project stated. \"If GrapheneOS devices can't be sold in a region due to their regulations, so be it.\"\n\nTom's Hardware Premium Roadmaps\n\nThe statement came after Brazil's Digital ECA (Law 15.211) took effect on March 17, imposing fines of up to R$50 million (roughly $9.5 million) per violation on operating system providers that fail to implement age verification. California's Digital Age Assurance Act (AB-1043), signed by Governor Newsom in October 2025, takes effect on January 1, 2027, and requires every OS provider to collect a user's age or date of birth during account setup and pipe that data to app stores and developers through a real-time API. Colorado's SB26-051 passed the state senate on March 3 with similar requirements.\n\nGrapheneOS is developed by the GrapheneOS Foundation, a registered Canadian nonprofit. None of these laws originate in Canada, but questions around jurisdiction remain open. U.S. federal prosecutors successfully extradited and convicted the developers of Samourai Wallet, a privacy-focused Bitcoin mixer, in a case where one defendant lived in Portugal. California's AB-1043 carries civil penalties of up to $2,500 per affected child for negligent violations and $7,500 for intentional ones, enforced by the state attorney general.Article continues below \n\nMotorola and GrapheneOS announced a long-term partnership at MWC on March 2, to bring to bring the hardened OS to future Motorola hardware, ending GrapheneOS's long-standing exclusivity to Google Pixel devices. A GrapheneOS-powered Motorola phone is expected in 2027. If Motorola sells devices with GrapheneOS pre-installed, those devices would need to comply with local regulations in every market where they ship, or Motorola may need to restrict sales geographically.\n\nGrapheneOS isn’t the first and won’t be the last company to outright refuse compliance with incoming age verification laws. The developers of open-source calculator firmware DB48X issued a legal notice recently, stating that their software \"does not, cannot and will not implement age verification,” while MidnightBSD updated its license to ban users in Brazil.\n\nCalifornia's law doesn’t require photo ID or biometric verification; users simply self-report their age during setup. Critics, including over 400 computer scientists who signed an open letter, have argued that the laws create surveillance infrastructure without meaningfully protecting children, since self-declaration is trivially bypassed.\n\nFollow Tom's Hardware on Google News, or add us as a preferred source, to get our latest news, analysis, & reviews in your feeds.\n\nGet Tom's Hardware's best news and in-depth reviews, straight to your inbox.",
+  "tags": [
+    "500-words",
+    "brazil",
+    "canada",
+    "comply",
+    "developers",
+    "devices",
+    "grapheneos",
+    "hardware",
+    "laws",
+    "march",
+    "motorola",
+    "operating",
+    "portugal",
+    "systems",
+    "tom",
+    "verification"
+  ]
+}

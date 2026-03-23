@@ -1,0 +1,32 @@
+{
+  "id": 4878,
+  "source": "Hacker News",
+  "title": "Building an FPGA 3dfx Voodoo with Modern RTL Tools",
+  "url": "https://noquiche.fyi/voodoo",
+  "published_at": "2026-03-22T13:24:38Z",
+  "fetched_at": "2026-03-22T14:40:15.932030+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47477284\">Comments</a>",
+  "full_text": "Describing the design is only half of RTL work. The other half is debugging it.\n\nThe bug that really sold me on this workflow showed up in translucent overlays and text. Most of the frame looked correct, but small clusters of pixels would go mysteriously missing. Because destination-color blending reads the existing framebuffer value, the obvious theory was a memory-ordering bug: a stale read, a read/write hazard, or perhaps the new fill cache occasionally returning old data.\n\nFigure 3: Hardware (Mine, left) vs reference (86Box, right). The symptom looked like a framebuffer hazard: a few blended overlay pixels would be lost while most of the frame remained correct.\n\nThat theory was plausible enough that I chased it hard. I changed write priority, added a true direct no-cache path, and compared alternate-buffer reads. The artifact barely moved. That was the twist. It looked like a framebuffer hazard, but the evidence kept refusing to line up with that explanation.\n\nThis was where a netlist-aware trace helped much more than a conventional waveform viewer. Instead of staring at a large set of signals and manually aligning them across time, I used conetrace to follow the failing pixels stage by stage through the rasterizer, the TMU, the color-combine logic, and finally the framebuffer output. Once I could trace the suspect pixels end to end, the cache theory collapsed: the wrongness was already present before the framebuffer path could plausibly explain it.\n\n \n \n \n \n \n \n\n \n\nTerminal\n \n\n $ conetrace rv path core_1.rasterizer_1.o core_1.writeColor.i_fromPipeline --track 52410001core_1.rasterizer_1.o @ cycle 5241000 payload={x: 396, y: 189, W: 1.972412, S: 124.492, T: 57.031}2-> core_1.tmu_1.io_output @ cycle 5241001 payload={S': 63.469, T': 13.984, lod: 0, texel: 0x58}3-> core_1.fbAccess.read @ cycle 5241002 payload={dst565: 0x4A29}4-> core_1.colorCombine_1.o @ cycle 5241002 payload={src: 0x56C9, dst_blend: 0x4A29, out: 0x39E7}5-> core_1.writeColor.i_fromPipeline @ cycle 5241003 payload={final565: 0x39E7}\n \n \n \n\n \n\nAnnotation\n \n\n 1. Rasterizer\n \n\nSame fragment enters both paths; the tiny W precision loss is already present.\n \n\nref: {x: 396, y: 189, W: 1.972427, S: 124.492, T: 57.031}\n \n \n\n 2. First divergence\n \n\nPerspective rounding and per-pixel LOD already differ in the TMU path.\n \n\nref: {S': 63.492, T': 14.031, lod: 1, texel: 0x6B}\n \n \n\n 3. Framebuffer read\n \n\nDestination color matches exactly, which rules out the cache theory.\n \n\nref: {dst565: 0x4A29}\n \n \n\n 4. Second divergence\n \n\nThe reference blend path effectively uses dither-subtracted destination color.\n \n\nref: {src: 0x5A8C, dst_blend: 0x49E7, out: 0x4A69}\n \n \n\n 5. Visible symptom\n \n\nThe RTL lands much darker than the reference by the final writeback.\n \n\nref: {final565: 0x4A69}\n \n \n\nThe real issue was not one catastrophically broken block. It was a stack of small hardware-accuracy mismatches that only became visible together.\n\nThe first problem was precision. Float-triangle `W` was being quantized too early as it passed through the TMU path. The second was that perspective texcoord rounding and per-pixel LOD adjustment were slightly off near mip boundaries. The third was in blending: I was using the expanded destination color for blend-factor math, but real Voodoo behavior effectively wants the dither-subtracted destination color instead.\n\nEach of those behaviors was almost right in isolation. Together, on exactly the right class of blended textured primitives, they produced visibly wrong pixels. That is why the bug felt random. Most of the frame was fine, and even the failing path was only wrong in a narrow corner of the state space.\n\nThe fix was to stop arguing from the first plausible theory and instead match the machine stage by stage. I preserved wider `W`, `S`, and `T` accumulators, corrected the perspective rounding and LOD math, and fed dither-subtracted destination color into the blend-factor computation. Once those details matched the reference behavior, the \"memory-ordering bug\" disappeared, because it had never been a memory-ordering bug at all.\n\nA conventional waveform viewer can show every signal involved here, but it leaves most of the reconstruction to the engineer. A netlist-aware query tool moves some of that reconstruction into the tooling itself. On a design like the Voodoo, that difference is the gap between a plausible theory and an actual explanation.",
+  "tags": [
+    "1000-words",
+    "building",
+    "color",
+    "cycle",
+    "destination",
+    "fpga",
+    "frame",
+    "framebuffer",
+    "lod",
+    "looked",
+    "modern rtl",
+    "path",
+    "pixels",
+    "reference",
+    "rtl",
+    "theory",
+    "tmu",
+    "tools",
+    "voodoo"
+  ]
+}

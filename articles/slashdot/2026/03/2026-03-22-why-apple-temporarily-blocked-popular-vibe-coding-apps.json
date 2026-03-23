@@ -1,0 +1,29 @@
+{
+  "id": 4917,
+  "source": "Slashdot",
+  "title": "Why Apple Temporarily Blocked Popular Vibe Coding Apps",
+  "url": "https://apple.slashdot.org/story/26/03/22/1917223/why-apple-temporarily-blocked-popular-vibe-coding-apps?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-22T19:19:00Z",
+  "fetched_at": "2026-03-22T20:00:09.753050+00:00",
+  "author": "EditorDavid",
+  "summary": "An anonymous reader shared this report from the tech-news blog Neowin:\n\nApple appears to have temporarily prevented apps, including Replit and Vibecode, from pushing new updates. Apple seems bothered by how apps like Replit present vibe-coded apps in a web view within the original app. This process virtually allows the app to become something else. And the new app isn't distributed via the App Store, but it still runs on the user's device... [S]uch apps would also bypass the App Store Review process that ensures that apps are safe to use and meet Apple's design and performance standards... \nAccording to the publication (via MacRumors), Apple was close to approving pending updates for such apps if they changed how they work. For instance, Replit would get the green light if its developers configure the app to open vibe-coded apps in an external browser rather than the in-app web view. \n\nVibecode is also close to being approved if it removes features, such as the ability to develop apps ",
+  "full_text": "An anonymous reader shared this report from the tech-news blog Neowin\n\n:\n\nApple appears to have temporarily prevented apps, including Replit and Vibecode, from pushing new updates. Apple seems bothered by how apps like Replit present vibe-coded apps in a web view within the original app. This process virtually allows the app to become something else. And the new app isn't distributed via the App Store, but it still runs on the user's device... [S]uch apps would also bypass the App Store Review process that ensures that apps are safe to use and meet Apple's design and performance standards...\n \n\nAccording to the publication (via MacRumors), Apple was close to approving pending updates for such apps if they changed how they work. For instance, Replit would get the green light if its developers configure the app to open vibe-coded apps in an external browser rather than the in-app web view.\n \n\nVibecode is also close to being approved if it removes features, such as the ability to develop apps specifically for the App Store.",
+  "tags": [
+    "200-words",
+    "app store",
+    "apple",
+    "apps",
+    "blocked",
+    "close",
+    "coding",
+    "coding apps",
+    "popular",
+    "popular vibe",
+    "process",
+    "replit",
+    "temporarily",
+    "temporarily blocked",
+    "vibe",
+    "why apple"
+  ]
+}

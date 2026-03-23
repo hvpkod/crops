@@ -1,0 +1,27 @@
+{
+  "id": 4933,
+  "source": "Hacker News",
+  "title": "LLMs Predict My Coffee",
+  "url": "https://dynomight.net/coffee/",
+  "published_at": "2026-03-18T13:56:37Z",
+  "fetched_at": "2026-03-22T22:00:10.325358+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47425874\">Comments</a>",
+  "full_text": "Coding, math, whatever. Can LLMs predict the outcomes of physical experiments?\n\n \n\nSuppose I pour 8 oz (226.8 g) of boiling water into a ceramic coffee mug that weighs 1.25 lb (0.57 kg). The ambient air is still and 20 degrees Celsius. The cup starts at room temperature. Give me an equation for the temperature of the water in Celsius over time. The only free variable in the equation should be the number of seconds t since the water was poured. Focus on accuracy during the first 5 minutes.\n\nDoes that seem hard? I think it’s hard. The relevant physical phenomena include at least:\n\n \nConduction of heat between the water, the mug, the air, and the table.\n \nConduction of heat inside each of those things.\n \nConvection (fluid movement) inside the water and the air.\n \nEvaporation cooling as water molecules become vapor.\n \nMovement of water vapor in the air.\n \nRadiation. (Like all matter, the mug and water emit temperature-dependent infrared radiation.)\n \nSurface tension, thermal expansion/contraction, re-absorption of air into the water as it cools, probably more.\n\nAnd many details aren’t specified in the prompt. Is the mug made of porcelain or stoneware? What is the mug’s shape? What is the table made of? How humid is the air? How am I reducing the spatially varying water temperature to a single number?\n\nSo this isn’t a problem with a “correct” answer that you can find by thinking. Reality is too complicated. Instead, answering question requires “taste”—guessing which factors are most important, making assumptions about missing details, etc.\n\nSo I put that question to a bunch of LLMs. Here is what they said:\n\n(Technically, they gave equations as text. I’m plotting those equations.)\n\nI was surprised by those curves, both in terms of how fast they think the temperature will drop in the beginning, and how slowly they think it will drop later on. They think you get as much cooling in the first few minutes as you do in the rest of the hour. Can that be right?\n\nThen I did the experiment. First, I waited until the ambient temperature happened to reach 20 degrees Celsius. Then, I put 8 oz of water into a measuring cup, microwaved it until it reached a boil, let the temperature equalize a bit, and then microwaved it until the water boiled again. Then, I poured the water into a 1.25 lb coffee mug with a digital thermometer in it and shouted out measurements every five seconds, which were frantically recorded by the Dynomight Biologist. Gradually I reduced measurements to every 15 seconds, 30 seconds, 1 minute, and then 5 minutes.\n\nBehold:\n\nOr, here’s a zoomed-in view of the first five minutes:\n\nThe predictions were all OK, but none were great. Probably Claude 4.6 Opus did best, albeit after consuming $0.61 of tokens. (Insert joke about physical experiments / Department of Defense / money / coffee.)\n\nThat said, what surprised me about the predictions was how quickly the temperature dropped in the first few minutes, and how slowly it dropped later on. But experimentally, it dropped even faster early on, and even slower towards the end. So if you wanted to ensemble my intuition with the LLM, I guess my intuition would get a weight of zero.\n\nIn conclusion, they may take our math, but they’ll somewhat more slowly take our fine motor control. Thank you for reading another middle-school science project.\n\n \n(Appendix: The equations)\n\n \n\nHere were the actual equations all of the models gave for T(t), the predicted temperature after t seconds.\n\n \n \n \n LLM\n T(t)\n Cost\n \n \n \n \n Kimi K2.5 (reasoning)\n 20 + 52.9 exp(-t/3600)+ 27.1 exp(-t/80)\n $0.01\n \n \n Gemini 3.1 Pro\n 20 + 53 exp(-t/2500) + 27 exp(-t/149.25)\n $0.09\n \n \n GPT 5.4\n 20 + 54.6 exp(-t/2920) + 25.4 exp(-t/68.1)\n $0.11\n \n \n Claude 4.6 Opus (reasoning)\n 20 + 55 exp(-t/1700) + 25 exp(-t/43)\n $0.61 (eeek)\n \n \n Qwen3-235B\n 20 + 53.17 exp(-t/1414.43)\n $0.009\n \n \n GLM-4.7 (reasoning)\n 20 + 53.2 exp(-t/2500)\n $0.03\n \n \n \n\n \n\nInterestingly, they were all based on one or two exponentially decaying terms. The way to read these is to think of exp(-t/b) as a function that starts out at one when t is zero, and gradually decreases. After b seconds, it has dropped to 1/e ≈ 0.368, and it continues dropping by factors of 0.368 every b seconds forever.\n\n \n\nSo most of these models have a “fast rate” which reflects heat flow from the water into the mug along with a “slow rate” for heat from the water/mug to flow into the air. A few of the models skip the fast rate. I also tried DeepSeek and Grok but they just flailed around endlessly without ever returning an answer. They were kind enough to charge me for that service.",
+  "tags": [
+    "1000-words",
+    "ai",
+    "celsius",
+    "claude opus",
+    "coffee",
+    "dropped",
+    "heat",
+    "llms",
+    "models",
+    "physical",
+    "slowly",
+    "temperature",
+    "until",
+    "water"
+  ]
+}

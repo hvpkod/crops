@@ -1,0 +1,32 @@
+{
+  "id": 4940,
+  "source": "Hacker News",
+  "title": "They're Vibe-Coding Spam Now",
+  "url": "https://tedium.co/2026/02/25/vibe-coded-email-spam/",
+  "published_at": "2026-03-22T22:11:54Z",
+  "fetched_at": "2026-03-22T23:20:31.539742+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47482760\">Comments</a>",
+  "full_text": "I have a problem: Unlike most people, I actually read my spam folder on a regular basis. (Often, they’re some of the most interesting emails I get.) I find spam to be intriguing, interesting, and often highlighting some modern trends.\n\nAnd sometimes, it surfaces something I actually care about that missed my other folders, like an upcoming interview I’m excited to share with all of you.\n\nBut one thing about spam that has been true across the board is that it’s ugly. Really, really ugly. Often, what will happen with spam is that they’ll get your email address through questionable means, say a leak of your information in an exploit, and flood your inbox with some of the worst crap you’ve ever seen.\n\nBut recently, some of these clearly trash emails have gotten a design upgrade:\n\nA spam email informing me that my fake cloud storage platform is full.\n\nThat is a relatively attractive spam email, trying to sell me on a scam. It is obviously the work of one Claude A. Fakeguy.\n\nIt has that swing. Other, less attractive spam emails also have this swing, such as this one:\n\nA less attractive email informing me of upcoming video game addiction litigation. How did they know!?!?\n\nBut what I think the real tell is that these emails hang together when you have images off, which they did not in the past. This is a problem, because in your spam folder, images are automatically turned off.\n\nHence why this email warning me that my antivirus plus renewal failed now looks like this:\n\nOh no, what will I do on my Linux computer that doesn’t support your antivirus program?\n\nThis is a funny, if troubling element in the history of spam—and probably a spot of bad news for people who use vibe coding to actually make real things.\n\nThe strange thing about spam is that it tells you what the internet’s underbelly is into.\n\nThe slop looks more competent than ever\n\nPut simply: Now that the baseline of what makes something well-designed, albeit spartan, has increased, many of the signs we once used to detect a spam message are getting thrown out the window.\n\nWhich means that we’re more likely to get hit by spam that tricks us into clicking. And that’s bad news as we attempt to protect ourselves from the crap hiding in our inbox. We’re likely to trust less and accidentally give away more. And untrustworthy figures who don’t know how to code are more likely to throw more crap our way.\n\nThis is a point Anthropic itself pointed out in one of its own reports from last summer, about “no-code” ransomware that can be built by people incapable of actually building ransomware without the help of an LLM.\n\nDespite this, these people can create commercial malware programs that they can sell for up to $1,200 a pop.\n\nThe security platform Guard.io makes clear that platforms like Lovable are going to enable a new class of criminal:\n\nJust like with “Vibe-coding”, creating scamming schemes these days requires almost no prior technical skills. All a junior scammer needs is an idea and access to a free AI agent. Want to steal credit card details? No problem. Target a company’s employees and steal their Office365 credentials? Easy. A few prompts, and you’re off. The bar has never been lower, and the potential impact has never been more significant. That’s what we call VibeScamming.\n\nAnd, for people who vibe code, the real problem is that, long-term, their stuff is going to look very untrustworthy because of the specific mix of chrome, color, and emojis that vibe-coded applications specialize in.\n\nThe thing that ultimately makes something look human is the addition of actual design and human flair. I encourage you to actually put a little humanness into what you build if you’re going to do it and share it with the world.\n\nHow to spot a vibe-coded faker\n\nBut for many, it is going to be harder than ever to tell what’s real and what’s fake. Which means you should probably go out of your way to use techniques like email obfuscation and email aliases to protect yourself. (It makes it easier to tell which bread-baking forum violated your trust, for one thing.)\n\nOn the plus side, there are still tells. A key one is if they refer to you by not your name, but the name of your email address. Another is the from address, which is often some highly obfuscated bit of junk designed to evade detection.\n\nThe one that made me laugh recently was when I got really crappy spam emails on an address that has never gotten them for the first time, promoting traditional spam topics with a Claudecore flair. They seemed random, but were extremely easy to get rid of, because they were all emailed from a bare Firebase domain, meaning that I could remove them with the help of a single filter.\n\nJust because spam emails are more attractive now doesn’t mean the people making them aren’t still extremely stupid.\n\nSpam-Free Links\n\nA quick shout-out to the only tool that makes my inbox bearable in 2026, Simplify Gmail.\n\nOh good, there’s a new web browser for PowerPC Macs in 2026, and per my pal Action Retro, it’s quite good!\n\nSpeaking of inboxes, this story of an AI safety exec letting an AI tool delete her inbox is so darkly funny that I’m surprised it’s real.\n\n--\n\nFind this one an interesting read? Share it with a pal!\n\nWant to actually learn how to code with minimal vibes? Check out our sponsor Scrimba, which mixes video lessons with interactive code windows—and makes it feel downright approachable. Sign up here for a 20% discount.",
+  "tags": [
+    "1000-words",
+    "actually",
+    "ai",
+    "attractive",
+    "better than",
+    "days",
+    "email",
+    "emails",
+    "fortnox world",
+    "looks",
+    "makes",
+    "real",
+    "security",
+    "something",
+    "spam",
+    "spam looks",
+    "thing",
+    "usual these",
+    "why email"
+  ]
+}

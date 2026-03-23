@@ -1,0 +1,26 @@
+{
+  "id": 4874,
+  "source": "Hacker News",
+  "title": "The IBM scientist who rewrote the rules of information just won a Turing Award",
+  "url": "https://www.ibm.com/think/news/ibm-scientist-charles-bennett-turing-award",
+  "published_at": "2026-03-22T11:53:37Z",
+  "fetched_at": "2026-03-22T14:00:38.019357+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47476566\">Comments</a>",
+  "full_text": "One strange property of quantum information is that it cannot be copied.\n\nClassical information can be duplicated perfectly and infinitely. Copy a file, and you have two identical files. At the quantum level, this is false. A quantum state is disturbed the moment you try to measure or copy it. Bennett has a way of explaining this that tends to stop people cold.\n\n“Quantum information,” he said to IBM, is “ like the information in a dream. As soon as you start trying to tell somebody about your dream, you begin to forget the dream, and you only remember what you said about it. The public version can be copied, but it’s not the same as the dream.”\n\nWhat Bennett and his collaborators grasped was that this limitation was actually a tool. If quantum information cannot be copied, it cannot be secretly copied either. An eavesdropper who intercepts a quantum-encoded message necessarily disturbs it, leaving a trace. That is the premise behind quantum cryptography, which is theoretically unbreakable regardless of the computing power brought against it.\n\nAs Bennett later recalled it, that conversation was where the premise became a collaboration.\n\n“Imagine my surprise when this complete stranger swims up to me and starts telling me, without apparent provocation on my part, about Wiesner’s quantum banknotes,” Brassard later wrote. “This was probably the most bizarre, and certainly the most magical, moment in my professional life.”\n\nBy 1984, the two had published the BB84 protocol. Alice and Bob, as cryptographers call the communicating parties, could establish a secret key by exchanging single photons, the smallest possible units of light. Any eavesdropper who intercepted them would inevitably disturb the photons, triggering an alert.\n\nDigital security, as Bennett and Brassard wrote, held “even against an opponent with superior technology and unlimited computing power.” BB84 attracted little notice at first. The internet was emerging simultaneously, and the mathematical systems securing it seemed, for the moment, sufficient.\n\nThat changed in 1994, when mathematician Peter Shor, then at Bell Labs, showed that a quantum computer could crack the mathematical locks protecting most internet communications. Suddenly the method Bennett and Brassard had developed, by then used experimentally over distances of up to 1,200 kilometers between a satellite and Earth, according to Britannica, looked urgent.\n\nThe first working demonstration had come years earlier. In 1989, according to IBM, Bennett built the first quantum cryptography machine in his office at IBM, a two-meter-long device assembled from mirrors, polarizers and photon detectors, with software written by Brassard and his students. Four years after that came a paper introducing quantum teleportation: not the science-fiction kind, but the transfer of a quantum state from one location to another using entanglement, a phenomenon in which measuring one particle instantly affects another regardless of the distance between them.\n\nStill keeping an office at IBM, where Landauer recruited him more than 50 years ago, Bennett is the seventh IBM-affiliated researcher to receive the Turing honor.\n\nJay Gambetta, Director of IBM Research and an IBM Fellow, said the legacy of that early work runs directly into what the company’s quantum teams are building now.\n\n“When many researchers saw quantum mechanics as a problem to solve for shrinking electronic components rather than a tool to be developed, he recognized the same physics could become a powerful new way to process and transmit information,” Gambetta said. “That insight, and the decades of work that followed, helped lay the intellectual foundation for one of the most important scientific and technological frontiers of our time.”",
+  "tags": [
+    "1000-words",
+    "bennett",
+    "brassard",
+    "cannot",
+    "copy",
+    "eavesdropper",
+    "ibm",
+    "information",
+    "moment",
+    "premise",
+    "quantum",
+    "state",
+    "the ibm"
+  ]
+}

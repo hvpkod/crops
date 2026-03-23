@@ -1,0 +1,27 @@
+{
+  "id": 4825,
+  "source": "Hacker News",
+  "title": "JavaScript Is Enough",
+  "url": "https://geajs.com/",
+  "published_at": "2026-03-22T00:53:55Z",
+  "fetched_at": "2026-03-22T02:00:20.234937+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47473231\">Comments</a>",
+  "full_text": "A complete toolkit for building modern web applications, from single components to full SPAs.\n \n \n\n \n\n \n\nClass Components\n \n\nExtend Component, add local reactive state, implement template(). OOP the way it was meant to be.\n \n \n\n \n\nFunction Components\n \n\nExport a function that returns JSX. Converted to a class component at build time — zero overhead.\n \n \n\n \n\nClient-Side Router\n \n\nBuilt-in RouterView, Link, route params, wildcards, and programmatic navigation. No extra packages.\n \n \n\n \n\nEvent Delegation\n \n\nAll event handlers compile to a single delegated listener per event type. Efficient by default.\n \n \n\n \n\nFine-Grained Arrays\n \n\n Array methods like push, splice, sort produce granular change events — append, reorder, swap — not full\n rerenders.\n \n \n \n\n \n\nGea UI\n \n\n 35+ accessible components built on\n Zag.js — dialogs,\n menus, selects, tabs, tooltips, accordions, comboboxes, and more. Ready to style.\n \n \n \n\n \n\nGea Mobile\n \n\n ViewManager, sidebar, tab views, pull-to-refresh, infinite scroll, swipe gestures — all iOS-style smooth.\n \n \n \n\n \n\nHMR Support\n \n\nThe Vite plugin provides hot module replacement. Edit a store or component and see it update instantly.\n \n \n\n \n\n VS Code Extension\n SOON\n \n \n\n Component completion, prop inference, event attribute hints, hover details, and unknown component warnings.\n \n \n \n\n \n\nTwo-Way Props\n \n\n Props follow JavaScript semantics. Objects and arrays are passed by reference — the child mutates them, both\n sides update. No emit, no v-model, no callback wiring. It's just how the language works.\n \n \n \n\n \n\nComputed Getters\n \n\n Derived state is a standard\n get\n accessor on your store. No useMemo, no computed() wrapper. The compiler detects dependencies and subscribes\n automatically.\n \n \n \n\n \n\nAI-Ready\n \n\n Ships with agent skills that teach Cursor, Codex, and other AI assistants the full Gea API. Scaffold and\n iterate on Gea apps with complete AI assistance out of the box.",
+  "tags": [
+    "500-words",
+    "arrays",
+    "class",
+    "complete",
+    "component",
+    "components",
+    "event",
+    "framework",
+    "full",
+    "function",
+    "gea",
+    "lightweight reactive",
+    "reactive",
+    "single"
+  ]
+}

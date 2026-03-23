@@ -1,0 +1,25 @@
+{
+  "id": 4922,
+  "source": "Hacker News",
+  "title": "Vectorization of Verilog Designs and its Effects on Verification and Synthesis",
+  "url": "https://arxiv.org/abs/2603.17099",
+  "published_at": "2026-03-19T16:40:37Z",
+  "fetched_at": "2026-03-22T20:00:37.562444+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47442194\">Comments</a>",
+  "full_text": "[Submitted on 17 Mar 2026]\n \n\nTitle:Vectorization of Verilog Designs and its Effects on Verification and Synthesis\n \n\nView a PDF of the paper titled Vectorization of Verilog Designs and its Effects on Verification and Synthesis, by Maria Fernanda Oiveira Guimar\\~aes and 5 other authors\n View PDF\n HTML (experimental)\n\n \n\n Abstract:Vectorization is a compiler optimization that replaces multiple operations on scalar values with a single operation on vector values. Although common in traditional compilers such as rustc, clang, and gcc, vectorization is not common in the Verilog ecosystem. This happens because, even though Verilog supports vector notation, the language provides no semantic guarantee that a vectorized signal behaves as a word-level entity: synthesis tools still resolve multiple individual assignments and a single vector assignment into the same set of parallel wire connections. However, vectorization brings important benefits in other domains. In particular, it reduces symbolic complexity even when the underlying hardware remains unchanged. Formal verification tools such as Cadence Jasper operates at the symbolic level: they reason about Boolean functions, state transitions, and equivalence classes, rather than about individual wires or gates. When these tools can treat a bus as a single symbolic entity, they scale more efficiently. This paper supports this observation by introducing a Verilog vectorizer. The vectorizer, built on top of the CIRCT compilation infrastructure, recognizes several vectorization patterns, including inverted assignments, assignments involving complex expressions, and inter-module assignments. It has been experimented with some Electronic design automation (EDA) tools, and for Jasper tool, it improves elaboration time by 28.12% and reduces memory consumption by 51.30% on 1,157 designs from the ChiBench collection.\n \n\n \n \n \n\n \n\n \n\nSubmission history\n\n From: Fernando Quintao Pereira [view email\n\n] [v1]\n\n Tue, 17 Mar 2026 19:39:56 UTC (1,067 KB)",
+  "tags": [
+    "500-words",
+    "designs",
+    "effects",
+    "single",
+    "symbolic",
+    "synthesis",
+    "tools",
+    "vector",
+    "vectorization",
+    "verification",
+    "verilog",
+    "verilog designs"
+  ]
+}

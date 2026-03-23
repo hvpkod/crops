@@ -1,0 +1,30 @@
+{
+  "id": 4913,
+  "source": "Hacker News",
+  "title": "Palantir extends reach into British state as gets access to sensitive FCA data",
+  "url": "https://www.theguardian.com/technology/2026/mar/22/palantir-extends-reach-into-british-state-as-it-gets-access-to-sensitive-fca-data",
+  "published_at": "2026-03-22T17:56:26Z",
+  "fetched_at": "2026-03-22T19:20:46.458808+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47480200\">Comments</a>",
+  "full_text": "Palantir is to be granted access to a trove of highly sensitive UK financial regulation data, in a deal that has prompted fresh concerns about the US AI company’s deepening reach into the British state, the Guardian can reveal.\n\nThe Financial Conduct Authority (FCA) has awarded Palantir a contract to investigate the watchdog’s internal intelligence data in an effort to help it tackle financial crime, which includes investigating fraud, money laundering and insider trading.\n\nThe Miami-based company, co-founded by the billionaire Donald Trump donor Peter Thiel, has been appointed for a three-month trial, paying more than £30,000 a week to analyse the FCA’s vast “data lake”, which could lead to a full procurement of an AI system.\n\nThe deal is part of the FCA’s drive to use digital intelligence to better focus resources on rule-breaking among the 42,000 financial services firms it regulates, from major banks to crypto exchanges.\n\nThere was only one other, unnamed competitor for the contract. Palantir already has more than £500m in UK public deals, including with the NHS, military and police.\n\nThe contract has prompted warnings of “very significant privacy concerns”. Palantir is expected to apply its AI system, known as Foundry, to huge quantities of information held by the watchdog, including case intelligence files marked highly sensitive; information on so-called problem firms; reports from lenders about proven and suspected frauds; and data about the public, including consumer complaints to the financial ombudsman.\n\nThe data includes recordings of phone calls, emails and trawls of social media posts, the Guardian understands. The FCA is one of several UK agencies which aim to stop financial crimes that underpin harms such as the drug trade and human trafficking.\n\nThe deal has raised concerns inside the FCA. One source said: “Once Palantir understands how we detect money-laundering threats, how do we know that they are ethically reliable enough not to go to share that information?”\n\nPalantir’s technology is used by the Israeli military and in the US president’s ICE immigration crackdown, leading to leftwing MPs in the House of Commons last month to call it a “highly questionable” and “ghastly” company. In 2023 it signed a £330m deal with the NHS, which has sparked resistance from doctors, and a £240m contract with the Ministry of Defence in December 2025, which prompted MPs to highlight “reports of serious allegations of complicity in human rights violations and the undermining of democratic processes made against Palantir”.\n\nPalantir has previously defended its work, saying it has led to about 99,000 extra operations being scheduled in the NHS, helped UK police tackle domestic violence and that it “takes a rigorous approach to respecting human rights”.\n\nProf Michael Levi, an internationally recognised expert in money laundering at Cardiff University, said there was “serious under-exploitation” of data held by financial regulators, so AI is a potentially valuable technology to tackle financial crimes. But he said it was “a relevant question as to whether Palantir’s owners might tipoff their friends about methodologies”.\n\n“What are the protocols agreed between the FCA and Palantir about the onward use of things that they have learned in that process?” he said.\n\nThe FCA said that the terms of the contract meant Palantir would be a “data processor” not a “data controller” – meaning that it could only act on instruction from the regulator, which said it would retain exclusive control over the encryption keys for the most sensitive files and the data would be hosted and stored solely in the UK. Palantir will have to destroy data after completion of the contract and any intellectual property derived from the data trawling should be retained by the FCA.\n\nThe FCA considered using dummy data or scrambling company and individual names but decided using real data was the only worthwhile test, even though guidelines encourage the use of synthetic data in pilots.\n\n“When the FCA carries out an enforcement investigation, it has powers to compel firms to hand over vast quantities of data,” said Christopher Houssemayne du Boulay, a partner and barrister at the law firm Hickman & Rose who specialises in defending serious and complex financial crime cases. “We could be talking about hundreds of whole email accounts and full financial records. Many innocent people will be caught up in that and the data may contain bank account details, email addresses, telephone numbers and other personal information.\n\n“If you ingest that data and use it to train an AI system, there are very significant privacy concerns. There should be serious confidentiality requirements regarding what Palantir does with the data.”\n\nThe FCA said Palantir could not copy the data to train its products. Palantir referred a request for comment to the FCA.\n\nA spokesperson for the FCA said: “Effective use of technology is vital in the fight against financial crime and helps us identify risks to the consumers we serve and markets we oversee. We ran a competitive procurement process and have strict controls in place to ensure data is protected.”",
+  "tags": [
+    "1000-words",
+    "british",
+    "contract",
+    "data",
+    "deal",
+    "fca",
+    "financial",
+    "fortnox world",
+    "including",
+    "intelligence",
+    "nhs",
+    "palantir",
+    "prompted",
+    "sensitive",
+    "tackle",
+    "the fca",
+    "visa"
+  ]
+}

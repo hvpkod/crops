@@ -1,0 +1,26 @@
+{
+  "id": 4881,
+  "source": "Hacker News",
+  "title": "Show HN: Crack – Turn your MacBook into a squeaky door",
+  "url": "http://crackmacapp.com/",
+  "published_at": "2026-03-22T13:44:28Z",
+  "fetched_at": "2026-03-22T14:40:46.975044+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47477491\">Comments</a>",
+  "full_text": "Crack\n \n\nTurn your MacBook into a squeaky door.\nEvery lid movement triggers a satisfying creak.\n Download for macOS\n \n\nRequires macOS 13.0 or later · Apple Silicon\n \n\nFree & open source\n \n\n \n\n \n \n\n \n\n \n\n \n\n \n\n📐\n \n\nLid Angle Sensor\n \n\nReads the built-in AppleHID lid sensor at 60fps to detect the slightest movement.\n \n \n\n \n\n🎵\n \n\nVariable Pitch\n \n\nPlayback speed maps to lid velocity — slow creaks and fast snaps sound completely different.\n \n \n\n \n\n🔊\n \n\n7 Synthesized Sounds\n \n\nHaunted door cracks, cat meows, alien whispers, whale songs, wind effects, and more. All generated in real-time.\n \n \n\n \n\n🖥️\n \n\nMenu Bar App\n \n\nNo dock icon, no windows. Just a tiny menu bar icon to toggle, adjust volume, and pick sounds.\n \n \n\n \n\n⚡\n \n\nLightweight\n \n\nUnder 1 MB. Near-zero CPU usage. Built natively in Swift with AVAudioEngine.\n \n \n\n \n\n🔓\n \n\nOpen Source\n \n\nMIT licensed. Signed and notarized by Apple. No tracking, no telemetry, no nonsense.",
+  "tags": [
+    "200-words",
+    "crack",
+    "crack squeaky",
+    "macbook",
+    "macbook lid",
+    "macos",
+    "menu",
+    "movement",
+    "open",
+    "sensor",
+    "source",
+    "squeaky",
+    "turn"
+  ]
+}
