@@ -1,0 +1,32 @@
+{
+  "id": 5122,
+  "source": "Hacker News",
+  "title": "Hacker Mints $80M USD Worth of USR Stablecoins",
+  "url": "https://bfmtimes.com/hacker-mints-80-million-worth-of-fake-stablecoins-and-swaps-them-for-eth/",
+  "published_at": "2026-03-23T22:01:15Z",
+  "fetched_at": "2026-03-23T23:20:11.965389+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47495719\">Comments</a>",
+  "full_text": "A hacker has exploited Resolv Labs’ smart contract, where it was able to mint at least $80 million worth of USR stablecoins.\n\nAs a result of the hack, USR crashed to $0.025, i.e., 2.5 cents, within hours. The stablecoin is unlikely to emerge after an 80% de-peg similar to Terra Luna’s UST.\n\nHowever, the hacker was only able to siphon off $25 million; the rest was locked into the protocol after system admins got alerted.\n\nThe $25 million funds were quickly converted into Ethereum (ETH).\n\nSummary of the Hack\n\nA hacker was able to exploit a bug function in the smart contract of Resolv Labs, which led to the hacker minting fake (unbacked) Resolv USR stablecoins.\n\nHowever, the systems were soon alerted, and the protocol locked all transactions. Out of the falsely minted $80 million, around $55 million was apprehended by the protocol, which \n\nThe hacker was then able to siphon $25 million in stablecoins and quickly exchange them for ETH via an unidentified DeFi platform.\n\nAs a direct result of the unexpected mint, USR, which had a circulation of about 400 million tokens, had an unexpected fall. The crash took the USR price from $1 to $0.2 within the first 24 hours of the hack. Although the protocol has scaled back $55 million of the hacker minted stablecoins, they are unable to combat user loss.\n\nResolv USR Price Before and After the Hack\n\nWhat are the chances of Recovery for Resolv USR?\n\nThe chances of recovery are low because stablecoins operate on trust, which is lost the instant the coin de-pegs more than 10%. This de-peg had once nearly killed Tether (May 2022, after the LUNA crash) and USDC (in 2024 after the SVB Crash).\n\nSince Resolv has de-pegged nearly 80% at press time, it is unlikely that the coin will recover from the collapse.\n\nWhat are Unbacked Stablecoins?\n\nUnbacked stablecoins are those that do not have fiat or fiat equivalent reserves to back their value. These are mostly algorithmic stablecoins that derive their value from mathematical models rather than real cash or assets.\n\nIn contrast, asset-backed, such as fiat-backed and gold-backed stablecoins, have to store an equivalent amount of fiat and gold reserves at their disposal after issuing each stablecoin.\n\nDisclaimer: BFM Times acts as a source of information for knowledge purposes and does not claim to be a financial advisor. Kindly consult your financial advisor before investing.",
+  "tags": [
+    "500-words",
+    "able",
+    "and swaps",
+    "eth",
+    "fake",
+    "fake stablecoins",
+    "fiat",
+    "hacker",
+    "hacker mints",
+    "million",
+    "million worth",
+    "protocol",
+    "resolv",
+    "resolv labs",
+    "resolv usr",
+    "smart",
+    "stablecoins",
+    "them for",
+    "worth"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": 4982,
+  "source": "Slashdot",
+  "title": "Will AI Force Source Code to Evolve - Or Make it Extinct?",
+  "url": "https://developers.slashdot.org/story/26/03/23/0222218/will-ai-force-source-code-to-evolve---or-make-it-extinct?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-23T10:34:00Z",
+  "fetched_at": "2026-03-23T10:40:10.548419+00:00",
+  "author": "EditorDavid",
+  "summary": "Will there be an AI-optimized programming language at the expense of human readability? There's now been experiments with minimizing tokens for \"LLM efficiency, without any concern for how it would serve human developers.\" \n\nThis new article asks if AI will force source code to evolve &mdash; or make it extinct, noting that Stephen Cass, the special projects editor at IEEE Spectrum, has even been asking the ultimate question about our future. \"Could we get our AIs to go straight from prompt to an intermediate language that could be fed into the interpreter or compiler of our choice? Do we need high-level languages at all in that future?\"\n\n Cass acknowledged the obvious downsides. (\"True, this would turn programs into inscrutable black boxes, but they could still be divided into modular testable units for sanity and quality checks.\") But \"instead of trying to read or maintain source code, programmers would just tweak their prompts and generate software afresh.\" This leads to some mind-b",
+  "full_text": "Will there be an AI-optimized programming language at the expense of human readability? There's now been experiments with minimizing tokens for \"LLM efficiency, without any concern for how it would serve human developers.\" \n\nThis new article asks if AI will force source code to evolve — or make it extinct\n\n, noting that Stephen Cass, the special projects editor at IEEE Spectrum, has even been asking the ultimate question about our future. \"Could we get our AIs to go straight from prompt to an intermediate language that could be fed into the interpreter or compiler of our choice? Do we need high-level languages at all in that future\n\n?\"\n\n Cass acknowledged the obvious downsides. (\"True, this would turn programs into inscrutable black boxes, but they could still be divided into modular testable units for sanity and quality checks.\") But \"instead of trying to read or maintain source code, programmers would just tweak their prompts and generate software afresh.\" This leads to some mind-boggling hypotheticals, like \"What's the role of the programmer in a future without source code?\" Cass asked the question and announced \"an emergency interactive session\" in October to discuss whether AI is signaling the end of distinct programming languages as we know them.\n \n\nIn that webinar, Cass said he believes programmers in this future would still suggest interfaces, select algorithms, and make other architecture design choices. And obviously the resulting code would need to pass tests, Cass said, and \"has to be able to explain what it's doing.\" But what kind of abstractions could go away? And then \"What happens when we really let AIs off the hook on this?\" Cass asked — when we \"stop bothering\" to have them code in high-level languages. (Since, after all, high-level languages \"are a tool for human beings.\") \"What if we let the machines go directly into creating intermediate code?\" (Cass thinks the machine-language level would be too far down the stack, \"because you do want a compile layer too for different architecture....\")\n \n\nIn this future, the question might become 'What if you make fewer mistakes, but they're different mistakes?'\" Cass said he's keeping an eye out for research papers on designing languages for AI, although he agreed that it's not a \"tomorrow\" thing — since, after all, we're still digesting \"vibe coding\" right now. But \"I can see this becoming an area of active research.\" \n\nThe article also quotes Andrea Griffiths, a senior developer advocate at GitHub and a writer for the newsletter Main Branch\n\n, who's seen the attempts at an \"AI-first\" languages, but nothing yet with meaningful adoption. So maybe AI coding agents will just make it easier to use our existing languages — especially typed languages with built-in safety advantages. \n\nAnd Scott Hanselman's podcast recently dubbed Chris Lattner's Mojo \"a programming language for an AI world\n\n,\" just in the way it's designed to harness the computing power of today's multi-core chips.",
+  "tags": [
+    "500-words",
+    "ai",
+    "cass",
+    "code",
+    "evolve or",
+    "extinct",
+    "force",
+    "force source",
+    "fortnox world",
+    "future",
+    "human",
+    "language",
+    "languages",
+    "programming",
+    "question",
+    "source",
+    "will ai"
+  ]
+}

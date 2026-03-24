@@ -1,0 +1,30 @@
+{
+  "id": 5107,
+  "source": "Hacker News",
+  "title": "Flipper Zero gets an AI upgrade",
+  "url": "https://gizmodo.com/flipper-zero-everyones-favorite-legally-dubious-hacker-tool-gets-an-ai-upgrade-2000736967",
+  "published_at": "2026-03-23T20:56:48Z",
+  "fetched_at": "2026-03-23T22:00:18.518211+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47494999\">Comments</a>",
+  "full_text": "Flipper Zero, a multi-tool pen-testing device that has caught some heat after being used for nefarious purposes, is getting an AI-powered interface. A new project released on GitHub by notorious jailbreaker and Time 100 AI honoree Pliny the Liberator claims to give the popular, portable hacking tool an “AI brain” that lets users enter plain-language prompts to complete tasks instead of requiring them to navigate Flipper Zero’s clunky menus.\n\n \n\nThe project, called V3SP3R, provides a chatbot-style interface, which is accessible via Android after a user compiles the application APK from GitHub and installs it on their device. (There is no iOS version currently available, and Apple has had a less-than-favorable relationship with the makers of the tool, so we’ll see if the app makes its way onto that platform.) Once set up, the app communicates with the Flipper Zero via Bluetooth and can be used for voice or text-based commands.\n\n \n\nThe promise here is that V3SP3R should cut down on the more technical aspects of using Flipper Zero–things like memorizing SubGHz protocols or IR formats. That is automated by the AI, which is given the ability to execute commands on your behalf. That is, of course, a risk itself, though the developers claim to have built safety protocols into the app architecture, requiring explicit confirmation from the user before performing any “destructive operations.” \n\nMatt Brown, an Internet of Things hacker and YouTuber, demoed the application recently, showing off how it can be used to detect and analyze a signal from an internet-connected lamp, ultimately hijacking and controlling the bit of light fixture from the Flipper Zero.\n\n \n\nWhile Brown and Pliny the Liberator provide some credibility to the project, suggesting it’s not some total hack job from someone with malicious intent looking to compromise a bunch of devices, the Flipper Zero community seems less than enthralled by the whole thing. A post about the project on Reddit got a pretty tepid response from r/FlipperZero subscribers. The original post got next to no engagement, and a second thread received several responses from people saying they have no interest in the project.\n\n \n\n“No thanks!” one wrote, while another critiqued the project as seeming “AI-generated.” A user claiming to have worked on the project offered to answer any questions about it, and was downvoted and pelted with some mean-spirited replies. In response, the user who supposedly worked on the project scolded the naysayers, suggesting they’re being obstinate for no reason. “The rarefied hacker air is gone. Now you can look at a TV with your AR glasses and say ‘make me a remote for this TV,'” the user wrote. “Don’t be snobs, guys. It’s not a good look.” \n\nMore than likely, the AI interface will make the Flipper Zero a little more accessible for non-technical users. But frankly, that’s probably not a major part of the Flipper Zero userbase. It’s certainly not going to make the tool any less controversial, though. It has reportedly been used in car-hacking efforts and has ruffled feathers over some of its more illicit uses, like credit card skimming.",
+  "tags": [
+    "1000-words",
+    "dubious hacker",
+    "everyone",
+    "favorite legally",
+    "flipper",
+    "flipper zero",
+    "github",
+    "hacker",
+    "liberator",
+    "pliny",
+    "project",
+    "requiring",
+    "tool",
+    "tool gets",
+    "upgrade",
+    "user",
+    "zero"
+  ]
+}

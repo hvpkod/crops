@@ -1,0 +1,27 @@
+{
+  "id": 5029,
+  "source": "Hacker News",
+  "title": "Nanopositioning Metrology, Gödel, and Bootstraps",
+  "url": "https://www.pi-usa.us/en/tech-blog/nanopositioning-metrology-goedel-and-bootstraps",
+  "published_at": "2026-03-19T10:10:13Z",
+  "fetched_at": "2026-03-23T16:01:23.569915+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47437062\">Comments</a>",
+  "full_text": "Frequency domain measurements (FFT analysis) are useful to characterize system resonances. Frequency domain information, however, offers no time / position correlation. Again, for meaningful results, measurements need to rely on independent external metrology, such as laser vibrometry.\n\nBecause of the analog nature of the amplifiers and sensors usually employed in closed-loop piezo positioners, resolution is not determined by discrete steps (as is typical with stepper motors or incremental encoders), making it theoretically infinite. In reality, there is always micro friction to be considered and sensor and control-electronics noise also have an impact on the practically usable resolution. For typical imaging, positioning, and alignment applications, the practically usable resolution is 1σ  the independently-measured positional noise, or ~1/6 of the peak-peak noise. As stated above, in addition to this statistical figure, the graphical data of nanometer sized discrete steps performed by the positioner reveals a great deal of information on system response, stability, and repeatability and is directly applicable to the way nanopositioning systems are used.",
+  "tags": [
+    "200-words",
+    "bootstraps",
+    "discrete",
+    "domain",
+    "frequency",
+    "gödel",
+    "measurements",
+    "nanopositioning",
+    "nanopositioning metrology",
+    "practically",
+    "resolution",
+    "steps",
+    "system",
+    "typical"
+  ]
+}

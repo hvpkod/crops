@@ -1,0 +1,31 @@
+{
+  "id": 4978,
+  "source": "Hacker News",
+  "title": "White-Collar AI Apocalypse Narrative Is Just Another Bullshit",
+  "url": "https://martynasm.com/2026/03/22/white-collar-ai-apocalypse-narrative-is-just-another-bullshit/",
+  "published_at": "2026-03-23T08:16:34Z",
+  "fetched_at": "2026-03-23T09:20:21.950178+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47486644\">Comments</a>",
+  "full_text": "Here is an exercise in critical thinking.\n\nAccording to Dario, “two years ago AI was at the level of a smart high school student, now it’s at the level of a smart college student“1. Customer Support market must be obliterated by now? Except it is bouncing back since the middle of 2025 and is now just below the pre-Covid levels (aka normal levels)2?\n\nCustomer Service Job Postings on Indeed in the United States\n\nThere were two years (which is a millennia for a 100x engineer) during which companies could have connected a heavily subsidized OpenAI model to a RAG and just fired everyone. Instead half a year ago they started hiring people back?\n\nThe only rational conclusion here is that you need a PhD level AI to replace a customer support agent.\n\nAnecdotally, I have recently watched an ex-big-tech engineer explain how his team built an internal app that could automate 90% of the customer support cases using LLMs plugged to the company’s CS knowledge base. Even though they succeeded to automate 90% of the cases, the project got binned. Why? Because the remaining 10% is what required most of the CS team’s time. They built an FAQ you can talk to.\n\nThere are more anecdotes like this. You can go on Reddit and look for how the customer support is surviving in these tough AGI times. This is a common theme:\n\nAnecdotes are funny, but is there anything that the AI hype machine is conveniently missing about the white-collar jobs? For example, the fact that all of them are semi-decidable, and the economics of semi-decidable jobs follow the 80/20 rule?\n\nSemi-decidable jobs don’t have an algorithm. You can enumerate decidable cases and later when you see them again, just recall. This is experience. It makes you faster at your job. It is also something that can be automated. Decidable cases are fast and cost little.\n\nThe problem is with the undecidable cases that come your way. You don’t know that they are undecidable, maybe they just take a bit longer. How much longer? Maybe a day, maybe a week. Maybe a bit longer than that. Undecidable cases have infinite costs, makes you go to war and in theory are unsolvable.\n\nGenerally, we dovetail:\n\nTake task X from the new tasks queue. If there aren’t any, take X from a backlog.\n\nSpend T amount of time on X.\n\nIf X is not solved within time ≤ T, move it to the backlog and go to step (1).\n\nUndecidable cases are rare, but consume most of the costs. \n\nIn order to have an excuse to add a cool color gradient, suppose a semi-decidable job of categorizing red and green ribbons. There is a continuous conveyor sending ribbons your way. All the ribbons come from a color spectrum between red and green. 80% of the ribbons cause no problems, because they are clearly either red or green. The rest 20% are the opposite. Are they red or are they green? Fuck knows.\n\nAt some point you just have to give up and invent a new color. But this requires out of the context thinking.\n\nSoftware engineering is no different. The majority of the work we do we can do drunk. It is that one boolean flag in the new Rails config that can take the whole operation down after the upgrade. This is what takes days of work, checking, rechecking, white-boarding, waterboarding and going back on the meds.",
+  "tags": [
+    "1000-words",
+    "ai",
+    "apocalypse narrative",
+    "automate",
+    "built",
+    "bullshit",
+    "cases",
+    "customer",
+    "just another",
+    "level",
+    "maybe",
+    "ribbons",
+    "smart",
+    "support",
+    "undecidable",
+    "united states",
+    "white collar",
+    "you"
+  ]
+}

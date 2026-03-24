@@ -1,0 +1,27 @@
+{
+  "id": 4988,
+  "source": "Hacker News",
+  "title": "GitHub appears to be struggling with measly three nines availability",
+  "url": "https://www.theregister.com/2026/02/10/github_outages/",
+  "published_at": "2026-03-23T10:39:39Z",
+  "fetched_at": "2026-03-23T11:20:17.107331+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47487584\">Comments</a>",
+  "full_text": "Scarcely a day goes by without an outage at a cloud service. Forget five nines – the way things are going, one nine is looking like an ambitious goal.\n\nGitHub has had a rough month so far. On February 9, Actions, pull requests, notifications, and Copilot all experienced issues. The Microsoft tentacle admitted it was having problems with \"some GitHub services\" at 1554 UTC before it confessed to notification delays of \"around 50 minutes\".\n\nIt took until 1929 UTC for the company to confirm that things were back to normal, although the delay was down to \"approximately 30 minutes\" by 1757 UTC.\n\n \n\nOne of its flagship technologies, Copilot, also suffered. From 1629 UTC on February 9 to 0957 UTC on February 10, GitHub reported problems in Copilot policy propagation for some users. The code shack said: \"This may prevent newly enabled models from appearing when users try to access them.\"\n\n \n\n \n\nAnd so it goes on. GitHub changed its status page a while ago, making it harder to visualize the availability of its services. Yes, the details are front and center, but getting a sense of how things have gone over the last 90 days, particularly overall uptime, is trickier.\n\nThe \"missing\" status page exists in reconstructed form via the public status feed, though this is an unofficial source so requires caution. It reveals that GitHub's stability has been poor: uptime dropped below 90 percent at one point in 2025.\n\nThe code shack isn't alone in experiencing service instability. While five nines (99.999 percent uptime) represents the gold standard, some vendors struggle to maintain even 90 percent — a concern for customers relying on these platforms.\n\nGitHub's Service Level Agreement for Enterprise Cloud customers specifies 99.9 percent uptime, although the company does not guarantee this for all users.\n\n \n\nThe travails of GitHub customers highlight the need to plan for downtime as well as uptime. ®",
+  "tags": [
+    "500-words",
+    "availability",
+    "cloud",
+    "copilot",
+    "customers",
+    "february",
+    "fortnox world",
+    "github",
+    "goes",
+    "nines",
+    "status",
+    "the register",
+    "things",
+    "utc"
+  ]
+}

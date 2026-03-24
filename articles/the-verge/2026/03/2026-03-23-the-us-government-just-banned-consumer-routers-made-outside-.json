@@ -1,0 +1,28 @@
+{
+  "id": 5121,
+  "source": "The Verge",
+  "title": "The US government just banned consumer routers made outside the US",
+  "url": "https://www.theverge.com/news/899172/fcc-foreign-router-ban",
+  "published_at": "2026-03-23T22:47:23Z",
+  "fetched_at": "2026-03-23T23:20:06.526958+00:00",
+  "author": "Sean Hollister",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/01/CES2026_Asus_ROG_NeoCore_Wi-Fi_8_router_concept_ADiBenedetto_0009.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">In December, the Federal Communications Commission <a href=\"https://www.theverge.com/news/849460/fcc-foreign-drone-ban-dji-congress-deadline\">banned all future drones made in foreign countries</a> from being imported into the United States, unless or until their maker gets an exemption. Now, the FCC has <a href=\"https://docs.fcc.gov/public/attachments/DA-26-278A1.pdf\">done the exact same</a> for consumer networking gear, citing \"an unacceptable risk to the national security of the United States and to the safety and security of U.S. persons.\"</p>\n<p class=\"has-text-align-none\">If you already have a Wi-Fi or wired router, you can keep on using it - and foreign companies that have already gotten FCC radio au",
+  "full_text": "In December, the Federal Communications Commission banned all future drones made in foreign countries from being imported into the United States, unless or until their maker gets an exemption. Now, the FCC has done the exact same for consumer networking gear, citing “an unacceptable risk to the national security of the United States and to the safety and security of U.S. persons.”\n\nIf you already have a Wi-Fi or wired router, you can keep on using it — and foreign companies that have already gotten FCC radio authorization for a specific product can continue to import that product.\n\nBut since the vast majority — if not all — consumer routers are manufactured outside the United States, the vast majority of future consumer routers are now banned. By adding all foreign-made consumer routers to its Covered List, the FCC is saying it will no longer authorize their radios, which de facto bans new devices from import into the country.\n\nNow, router makers need to A) secure a “conditional approval” that lets them keep getting new products cleared for US entry while they work to convince the government that they’ll open up manufacturing in the US, or B) make the decision to skip selling future products in the US, like dronemaker DJI already did.\n\nLike with the foreign drone ban, the FCC has a National Security Determination that it says justifies these actions, one which claims that “Allowing routers produced abroad to dominate the U.S. market creates unacceptable economic, national security, and cybersecurity risks,” and that “routers produced abroad were directly implicated in the Volt, Flax, and Salt Typhoon cyberattacks which targeted critical American communications, energy, transportation, and water infrastructure.”\n\n“Given the criticality of routers to the successful functioning of our nation’s economy and defense, the United States can no longer depend on foreign nations for router manufacturing,” reads another passage.\n\nIt is true that a great many router vulnerabilities have surfaced over the years, which make them a popular target for hackers and botnets. It is also true that one Chinese company, TP-Link, is dominant in the US consumer market; US authorities had previously considered a specific TP-Link ban due to that dominance and national security concerns.\n\nIt is not clear how simply moving production of routers domestically would make them safer, though. In the Volt Typhoon hack, Chinese state-sponsored hackers primarily targeted Cisco and Netgear routers, routers designed by US companies, according to the Department of Justice. Those US companies had stopped providing security updates because they had discontinued those products.\n\nWhile the FCC’s Covered List makes it sound like the US is banning all “routers produced in a foreign country,” it’s defined a bit more narrowly than that. It’s specifically banning “consumer-grade routers” as defined in NIST Internal Report 8425A, which refers to ones “intended for residential use and can be installed by the customer.”",
+  "tags": [
+    "500-words",
+    "already",
+    "consumer",
+    "covered list",
+    "fcc",
+    "foreign",
+    "future",
+    "national",
+    "produced",
+    "router",
+    "routers",
+    "security",
+    "the us",
+    "united",
+    "united states"
+  ]
+}

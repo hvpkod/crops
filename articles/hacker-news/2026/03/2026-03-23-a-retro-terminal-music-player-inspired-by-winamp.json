@@ -1,0 +1,25 @@
+{
+  "id": 5124,
+  "source": "Hacker News",
+  "title": "A retro terminal music player inspired by Winamp",
+  "url": "https://github.com/bjarneo/cliamp",
+  "published_at": "2026-03-23T20:42:22Z",
+  "fetched_at": "2026-03-23T23:20:26.830379+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47494821\">Comments</a>",
+  "full_text": "██████ ██ ██ █████ ███ ███ ██████\n██ ██ ██ ██ ██ ████ ████ ██ ██\n██ ██ ██ ███████ ██ ████ ██ ██████\n██ ██ ██ ██ ██ ██ ██ ██ ██\n ██████ ███████ ██ ██ ██ ██ ██ ██\n\nA retro terminal music player inspired by Winamp. Play local files, streams, podcasts, YouTube, SoundCloud, Bilibili, Spotify, Xiaoyuzhou (小宇宙), and Navidrome with a spectrum visualizer, parametric EQ, and playlist management.\n\nBuilt with Bubbletea, Lip Gloss, Beep, and go-librespot.\n\n \n \n \n\n cliamp_whips_tty_ass_compressed.mp4\n \n \n\n \n\n \n\nTune in to our radio channel:\n\ncliamp https://radio.cliamp.stream/lofi/stream.pls\n\nAdd your own stations to ~/.config/cliamp/radios.toml. See docs/configuration.md.\n\nWant to host your own radio? Check out cliamp-server.\n\ncurl -fsSL https://raw.githubusercontent.com/bjarneo/cliamp/HEAD/install.sh | sh\n\nHomebrew\n\nbrew install bjarneo/cliamp/cliamp\n\nArch Linux (AUR)\n\nPre-built binaries\n\nDownload from GitHub Releases.\n\nBuild from source\n\ngit clone https://github.com/bjarneo/cliamp.git && cd cliamp && go build -o cliamp .\n\ncliamp ~/Music # play a directory\ncliamp *.mp3 *.flac # play files\ncliamp https://example.com/stream # play a URL\n\nPress Ctrl+K to see all keybindings.\n\nAdd this keybind to launch cliamp with Super+Shift+M:\n\nbindd = SUPER SHIFT, M, Music, exec, omarchy-launch-tui cliamp\n\nx.com/iamdothash\n\nUse this software at your own risk. We are not responsible for any damages or issues that may arise from using this software.",
+  "tags": [
+    "500-words",
+    "build",
+    "cliamp",
+    "github",
+    "inspired",
+    "music",
+    "play",
+    "player",
+    "retro",
+    "super shift",
+    "terminal",
+    "winamp"
+  ]
+}

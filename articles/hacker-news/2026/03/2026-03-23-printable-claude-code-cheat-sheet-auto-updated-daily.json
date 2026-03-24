@@ -1,0 +1,26 @@
+{
+  "id": 5110,
+  "source": "Hacker News",
+  "title": "Printable Claude Code Cheat Sheet (auto-updated daily)",
+  "url": "https://cc.storyfox.cz",
+  "published_at": "2026-03-23T21:44:20Z",
+  "fetched_at": "2026-03-23T22:40:25.704945+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47495527\">Comments</a>",
+  "full_text": "/clear Clear conversation\n \n\n/compact [focus] Compact context\n \n\n/resume Resume/switch session\n \n\n/rename [name] Name current session\n \n\n/branch [name] Branch conversation (/fork alias)\n \n\n/cost Token usage stats\n \n\n/context Visualize context (grid)\n \n\n/diff Interactive diff viewer\n \n\n/copy Copy last response\n \n\n/export Export conversation\n \n \n \n\n/config Open settings\n \n\n/model [model] Switch model (←→ effort)\n \n\n/fast [on|off] Toggle fast mode\n \n\n/vim Toggle vim mode\n \n\n/theme Change color theme\n \n\n/permissions View/update permissions\n \n\n/effort [level] Set effort (low/med/high)NEW\n \n\n/color [color] Set prompt-bar color\n \n \n \n\n/init Create CLAUDE.md\n \n\n/memory Edit CLAUDE.md files\n \n\n/mcp Manage MCP servers\n \n\n/hooks Manage hooks\n \n\n/skills List available skills\n \n\n/agents Manage agents\n \n\n/chrome Chrome integration\n \n\n/reload-plugins Hot-reload plugins\n \n \n \n\n/btw <question> Side question (no context)\n \n\n/plan [desc] Plan mode (+ auto-start)\n \n\n/loop [interval] Schedule recurring task\n \n\n/voice Push-to-talk voice (20 langs)\n \n\n/doctor Diagnose installation\n \n\n/rc Enable remote control\n \n\n/pr-comments [PR] Fetch GitHub PR comments\n \n\n/stats Usage streaks & prefs\n \n\n/insights Analyze sessions report\n \n\n/desktop Continue in Desktop app\n \n\n/remote-control Bridge terminal to claude.ai/codeNEW\n \n\n/stickers Order stickers! 🎉",
+  "tags": [
+    "200-words",
+    "cheat sheet",
+    "claude",
+    "claude code",
+    "code",
+    "color",
+    "context",
+    "conversation",
+    "manage",
+    "mode",
+    "session",
+    "toggle",
+    "usage"
+  ]
+}

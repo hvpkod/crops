@@ -1,0 +1,25 @@
+{
+  "id": 4984,
+  "source": "Hacker News",
+  "title": "Dataframe 1.0.0.0",
+  "url": "https://discourse.haskell.org/t/ann-dataframe-1-0-0-0/13834",
+  "published_at": "2026-03-23T09:01:55Z",
+  "fetched_at": "2026-03-23T10:40:30.644753+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47486915\">Comments</a>",
+  "full_text": "It’s been roughly two years of work on this and I think things are in a good enough state that it’s worth calling this v1.\n\nFeatures\n\nTyped dataframes\n\nWe got there eventually and I think we got there in a way that still looks nice. There is now a DataFrame.Typed API that tracks the entire schema of the dataframe - column names, misapplied operations etc are now compile time failures and you can easily move between exploratory and pipeline work. This is in large part thanks to maxigit and mcoady (Github user names) for their feedback.\n$(DT.deriveSchemaFromCsvFile \"Housing\" \"./data/housing.csv\")\n \nmain :: IO ()\nmain = do\n df <- D.readCsv \"./data/housing.csv\"\n let df' = either (error . show) id (DT.freezeWithError @Housing df)\n let df'' =\n df'\n & DT.derive @\"rooms_per_household\" (DT.col @\"total_rooms\" / DT.col @\"households\")\n & DT.impute @\"total_bedrooms\" 0\n & DT.derive @\"bedrooms_per_household\"\n (DT.col @\"total_bedrooms\" / DT.col @\"households\")\n & DT.derive @\"population_per_household\"\n (DT.col @\"population\" / DT.col @\"households\")\n\n print df''\n\nCalling dataframe from Python\n\nThere’s an implementation of Apache Arrow’s C Data interface along with an example of how to pass dataframes between polars and haskell.\n\nFind that here\n\nGetting data from hugging face\n\nYou can explore huggingface datasets. Example:\ndf <- D.readParquet \"hf://datasets/Rafmiggonpaz/spain_and_japan_economic_data/data/train-00000-of-00001.parquet\"\n\nLarger than memory files\n\nThe Lazy/query-engine-like implementation is now pretty fast. It can compute the one billion row challenge in about 10 minutes on a mac and about 30min on a 12 year old Dell (not OOM).\n\nYou’ll have to generate the data yourself but the code is here.\n\nBetter ergonomics with numeric promotion and null awareness\n\nIntroduced more lenient operators that make happy path computation much easier. E.g:\nD.derive \"bmi\" (F.lift2 (\\m h -> (/) <$> m <*> fmap ((^2) . (/100). realToFrac) h) mass height) df\n\nIs now instead:\nD.derive \"bmi\" (mass ./ (height ./ 100) .^ 2) df\n\nWhat’s next?\n\nConnectors! BigQuery, Snowflake, s3 buckets etc. Formats! Parquet, Iceberg, DuckDB, a custom dataframe format with full data provenance. Moving from small in memory demos to querying large data lakes is the goal.\n\nAlso, since a new era is upon us, some integration with ai agents to do type-guided data exploration.\n\nA big thank you to everyone who has taken time to try the library and /or give advice - especially @daikonradish who was the main voice in the direction of the architecture. A lot of the most important design decisions were made on community threads. Thank you all.",
+  "tags": [
+    "500-words",
+    "ann",
+    "calling",
+    "data",
+    "dataframe",
+    "dataframes",
+    "implementation",
+    "large",
+    "main",
+    "memory",
+    "roughly",
+    "thank"
+  ]
+}

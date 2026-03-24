@@ -1,0 +1,29 @@
+{
+  "id": 5104,
+  "source": "Hacker News",
+  "title": "The Minimalist Entrepreneur – Claude Code Skills",
+  "url": "https://github.com/slavingia/skills",
+  "published_at": "2026-03-23T21:11:27Z",
+  "fetched_at": "2026-03-23T21:20:26.308144+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47495168\">Comments</a>",
+  "full_text": "The Minimalist Entrepreneur — Claude Code Skills\n\nClaude Code skills based on The Minimalist Entrepreneur by Sahil Lavingia.\n\nClone the repo locally, then install as a Claude Code plugin:\n\ngit clone https://github.com/slavingia/skills.git ~/.claude/plugins/skills\n\nThen in Claude Code:\n\n/plugin install ~/.claude/plugins/skills\n\nSkill\nCommand\nWhen to use\n\nFind Community\n/find-community\nLooking for a business idea, trying to find your community\n\nValidate Idea\n/validate-idea\nTesting if a business idea is worth pursuing\n\nMVP\n/mvp\nReady to build your first product, struggling with scope\n\nFirst Customers\n/first-customers\nHave a product, need to find your first 100 customers\n\nPricing\n/pricing\nSetting prices, considering price changes\n\nMarketing Plan\n/marketing-plan\nHave product-market fit, ready to scale with content\n\nGrow Sustainably\n/grow-sustainably\nMaking decisions about spending, hiring, or scaling\n\nCompany Values\n/company-values\nDefining culture, preparing to hire\n\nMinimalist Review\n/minimalist-review\nGut-checking any business decision\n\nThe Minimalist Entrepreneur Journey\n\nThe skills follow the book's progression:\n\nCommunity — Start by finding your people\n\nValidate — Make sure the problem is worth solving\n\nBuild — Ship a manual process, then productize it\n\nSell — Get to 100 customers one by one\n\nPrice — Charge something from day one\n\nMarket — Build an audience through content\n\nGrow — Stay profitable, grow sustainably\n\nCulture — Build the house you want to live in\n\nReview — Apply minimalist principles to every decision",
+  "tags": [
+    "500-words",
+    "build",
+    "business",
+    "claude",
+    "claude code",
+    "code",
+    "community",
+    "customers",
+    "entrepreneur",
+    "find",
+    "github",
+    "minimalist",
+    "minimalist entrepreneur",
+    "sahil lavingia",
+    "skills",
+    "the minimalist"
+  ]
+}

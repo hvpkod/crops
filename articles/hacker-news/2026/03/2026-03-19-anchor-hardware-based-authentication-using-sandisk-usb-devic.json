@@ -1,0 +1,26 @@
+{
+  "id": 5077,
+  "source": "Hacker News",
+  "title": "Anchor: Hardware-based authentication using SanDisk USB devices",
+  "url": "https://news.ycombinator.com/item?id=47435646",
+  "published_at": "2026-03-19T06:24:20Z",
+  "fetched_at": "2026-03-23T20:01:06.394652+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47435646\">Comments</a>",
+  "full_text": "Anchor is a cross-platform desktop application that provides hardware-based authentication using SanDisk USB devices. The application automatically detects USB connection/disconnection events and provides secure database access only when an\nauthorized USB device is connected.\n\nGithub:https://github.com/TheEleventhAvatar/Anchor",
+  "tags": [
+    "200-words",
+    "anchor",
+    "anchor hardware",
+    "application",
+    "authentication",
+    "automatically",
+    "desktop",
+    "detects",
+    "devices",
+    "events",
+    "provides",
+    "sandisk",
+    "sandisk usb"
+  ]
+}

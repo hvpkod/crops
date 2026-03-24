@@ -1,0 +1,26 @@
+{
+  "id": 5003,
+  "source": "Hacker News",
+  "title": "Cyberattack on vehicle breathalyzer company leaves drivers stranded in the US",
+  "url": "https://techcrunch.com/2026/03/20/cyberattack-on-vehicle-breathalyzer-company-leaves-drivers-stranded-across-the-us/",
+  "published_at": "2026-03-23T13:13:30Z",
+  "fetched_at": "2026-03-23T14:01:40.533778+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47489058\">Comments</a>",
+  "full_text": "A cyberattack on a U.S. vehicle breathalyzer company has left drivers across the United States stranded and unable to start their vehicles.\n\nThe company, Intoxalock, says on its website that it is “currently experiencing downtime” after a cyberattack on March 14. Intoxalock sells breathalyzer devices that fit into vehicle ignition switches, and is used by people who are required to provide a negative alcohol breath sample to start their car.\n\nIntoxalock spokesperson Rachael Larson confirmed to TechCrunch that the company had been hit by a cyberattack. Larson said the company took steps to “temporarily pause some of our systems as a precautionary measure.”\n\nThese breathalyzer devices need to be calibrated every few months or so, but the cyberattack has left Intoxalock unable to perform these calibrations. The company said customers whose devices require calibration may experience delays starting their vehicles.\n\nDrivers posting on Reddit say that cars are unable to start if they miss a calibration, effectively locking drivers out of their vehicles.\n\nAccording to local news reports across Maine, drivers are experiencing lockouts and some have been unable to start their vehicles. One auto shop in Middleboro told WCVB 5 in Boston that it has had cars parked in its lot all week due to the cyberattack.\n\nNews reports from across the United States show drivers are affected from New York to Minnesota, and drivers have been unable to drive because their vehicle-based breathalyzers cannot be immediately calibrated.\n\nIntoxalock would not say what kind of cyberattack it was experiencing, such as ransomware or if there was a data breach, or whether it had received any communications from the hackers, including any ransom demands. The company’s technology is used in 46 states, its website says, and it claims to provide services to 150,000 drivers every year.\n\nIntoxalock did not provide an estimated timeline for its recovery.",
+  "tags": [
+    "500-words",
+    "breathalyzer",
+    "company",
+    "cyberattack",
+    "devices",
+    "drivers",
+    "intoxalock",
+    "provide",
+    "security",
+    "start",
+    "unable",
+    "united states",
+    "vehicle"
+  ]
+}

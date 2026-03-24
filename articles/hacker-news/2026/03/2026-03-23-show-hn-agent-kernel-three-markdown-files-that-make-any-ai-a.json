@@ -1,0 +1,26 @@
+{
+  "id": 4979,
+  "source": "Hacker News",
+  "title": "Show HN: Agent Kernel – Three Markdown files that make any AI agent stateful",
+  "url": "https://github.com/oguzbilgic/agent-kernel",
+  "published_at": "2026-03-23T07:06:42Z",
+  "fetched_at": "2026-03-23T09:20:26.670113+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47486287\">Comments</a>",
+  "full_text": "The easiest way to create an AI agent. Clone, start, talk.\n\nYour agent remembers between sessions, takes notes, and builds on past work. No framework, no database — just three markdown files and a git repo.\n\nWorks with any AI coding agent: OpenCode, Claude Code, Codex, Cursor, Windsurf, etc.\n\ngit clone https://github.com/oguzbilgic/agent-kernel.git my-agent\ncd my-agent\n\nStart your agent:\n\nopencode # or claude, codex, cursor, etc.\n\nThat's it. The agent reads the kernel, realizes it's new, asks who you want it to be. You tell it. It remembers.\n\nAGENTS.md ← kernel (generic, don't edit)\nIDENTITY.md ← who this agent is (agent maintains)\nKNOWLEDGE.md ← index of knowledge files (agent maintains)\nknowledge/ ← facts about the world (mutable)\nnotes/ ← daily session logs (append-only)\n\nTwo kinds of memory:\n\nknowledge/ — State. Facts about how things are right now. The agent updates these when reality changes.\n\nnotes/ — Narrative. What happened each session — decisions, actions, open items. Append-only. Never modified after the day ends.\n\nAI agents already read AGENTS.md (or CLAUDE.md, .cursorrules, etc.) as project instructions. This kernel uses that mechanism to teach the agent how to remember.\n\nThe agent doesn't need a database, a vector store, or a custom framework. It just needs:\n\nA file that says \"you are stateful, here's how\"\n\nA git repo to store memory in\n\nPlain markdown files\n\nEach agent is its own repo. To create another:\n\ngit clone https://github.com/oguzbilgic/agent-kernel.git another-agent\ncd another-agent\nopencode # or claude, codex, etc.\n\nSame kernel, different identity, different knowledge. You can have a homelab agent, an investing agent, a health agent — all running the same OS.\n\nMIT",
+  "tags": [
+    "500-words",
+    "agent",
+    "clone",
+    "coding",
+    "create",
+    "facts",
+    "files",
+    "github",
+    "kernel",
+    "markdown",
+    "minimal",
+    "opencode",
+    "session"
+  ]
+}
