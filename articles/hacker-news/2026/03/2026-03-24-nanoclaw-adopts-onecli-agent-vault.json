@@ -1,0 +1,31 @@
+{
+  "id": 5206,
+  "source": "Hacker News",
+  "title": "NanoClaw Adopts OneCLI Agent Vault",
+  "url": "https://nanoclaw.dev/blog/nanoclaw-agent-vault/",
+  "published_at": "2026-03-24T12:48:04Z",
+  "fetched_at": "2026-03-24T13:00:25.953235+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47501840\">Comments</a>",
+  "full_text": "NanoClaw is adopting OneCLI as its default credential and proxying layer. Every NanoClaw agent will access external services through OneCLI’s Agent Vault, a gateway that handles credential injection, access policies, and approvals so agents never hold raw API keys.\n\nNanoClaw already isolates every agent in its own Docker container. OneCLI’s Agent Vault gives you fine-grained controls over what those agents can access and how.\n\nHow the integration works\n\nNanoClaw previously ran its own credential proxy that held every secret in memory. We replaced it with the @onecli-sh/sdk. When NanoClaw spins up a container, it calls applyContainerConfig() to route outbound HTTPS traffic through the OneCLI gateway, which injects the real credential:\nimport { OneCLI } from '@onecli-sh/sdk';\n\nconst onecli = new OneCLI({ url: ONECLI_URL });\n\n// Configure container to route through the gateway\nawait onecli.applyContainerConfig(containerArgs, {\n agent: agentIdentifier, // per-agent credential policies\n});\n\nEach NanoClaw agent group gets its own OneCLI agent identity, so your sales agent and support agent can have different credential policies. You register credentials once with onecli secrets create and the gateway matches outbound requests by host and path.\n\nWhy this matters\n\nOpenClaw proved that people will hand over the keys to their email, their calendar, their code repos, their databases in order to get the value of an agent doing real work on their behalf. Millions of people did exactly that, and most of the time it works out fine. But when it doesn’t, the consequences are real.\n\nA director of AI alignment at Meta gave OpenClaw access to her email and explicitly told it not to take any action without her approval. The agent started mass-deleting emails anyway. She couldn’t stop it from her phone and had to physically run to her computer to kill the process.\n\nThat story is what happens when agents operate without boundaries. The value of agents comes from giving them access to real systems and real data. An agent that can’t touch anything is just a chatbot. But an agent that can touch everything, with no policies, no rate limits, no approval flows, is a liability. The question is how you get the Claw unlock without the risk.\n\nBeyond secrets management\n\nMost people using agents today either hardcode API keys in environment variables or pull them from a secrets manager. Secrets managers like HashiCorp Vault or AWS Secrets Manager solve storage, but they don’t solve what happens when the agent actually uses a credential. The agent fetches the key, and from that point on the key is in the agent’s environment, in its context, extractable via prompt injection. The vault protected the secret at rest, but once the agent has it, the vault is out of the picture.\n\nThe Agent Vault sits between the agent and the services it calls. Your credentials still live wherever you keep them today. But instead of handing the raw key to the agent, the vault proxies the request, matches it by host and path, injects the real credential, and forwards it. The agent never sees the key. Never holds it. Never logs it.\n\nPolicies, not just proxying\n\nIf all the Agent Vault did was swap keys, it would be useful but limited. The more important part is the policy layer on top.\n\nYou can set rate limits so an agent can only send or delete a few emails per hour:\n# Rate-limit Gmail API calls to 3 per hour\nonecli rules create \\\n --name \"Gmail rate limit\" \\\n --host-pattern \"gmail.googleapis.com\" \\\n --action rate_limit \\\n --rate-limit 3 \\\n --rate-window 1h\n\nTime-bound access, human-in-the-loop approvals, and more advanced policy controls are coming soon. Go back to the Meta incident: if there had been a rate limit of three email deletions per hour, the damage would have been three emails, not an entire inbox. The agent would have hit the limit, the user would have been notified, and it would have been a minor annoyance instead of a cautionary tale seen by millions.\n\nFor teams and organizations, these policies can work on two levels: an organization sets the outer boundary of what’s possible, and individual users grant permissions within that framework. But even for a single user running NanoClaw on their own machine, the ability to say “you can access my email but you can only delete three messages per hour” changes the calculus on what you’re comfortable letting an agent do.\n\nThe full stack\n\nNanoClaw solves runtime isolation. Every agent runs in its own container with its own filesystem, its own process space, and no ambient access to the host. OneCLI’s Agent Vault solves credential isolation and policy enforcement. Together, the agent operates within boundaries that are visible, auditable, and enforceable.\n\nBoth projects are open source. NanoClaw is at github.com/qwibitai/nanoclaw and OneCLI is at github.com/onecli/onecli.",
+  "tags": [
+    [
+      "1000-words",
+      "access",
+      "agent",
+      "agent vault",
+      "agents",
+      "api",
+      "credential",
+      "nanoclaw",
+      "nanoclaw adopts",
+      "onecli",
+      "onecli agent",
+      "rate",
+      "real",
+      "secrets",
+      "vault"
+    ],
+    []
+  ]
+}

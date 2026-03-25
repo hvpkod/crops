@@ -1,0 +1,32 @@
+{
+  "id": 5283,
+  "source": "Hacker News",
+  "title": "Country that put backdoors in Cisco routers to spy on world bans foreign routers",
+  "url": "https://www.theregister.com/2026/03/24/fcc_foreign_routers/",
+  "published_at": "2026-03-24T17:32:31Z",
+  "fetched_at": "2026-03-24T18:00:40.205688+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47506279\">Comments</a>",
+  "full_text": "Citing national security fears, America is effectively banning any new consumer-grade network routers made abroad.\n\nThe Federal Communications Commission (FCC) has updated its Covered List to include all foreign-made consumer routers, prohibiting the approval of any new models.\n\nFor clarification, the FCC says this change does not prevent the import, sale, or use of any existing models that the agency previously authorized.\n\n \n\nThat Covered List details equipment and services covered by Section 2 of The Secure Networks Act, which, by their inclusion, are deemed to pose an unacceptable risk to US national security.\n\n \n\n \n\nAccording to the FCC, this move follows a determination by a \"White House-convened Executive Branch interagency body with appropriate national security expertise,\" in line with President Trump's National Security Strategy that the US must not be dependent on any other country for core components necessary to the nation's defense or economy.\n\nIts determination was that foreign-produced routers introduce a supply chain vulnerability which could disrupt critical infrastructure and national defense, and pose a severe cybersecurity risk that could harm Americans.\n\n \n\nThe FCC notes that miscreants have exploited security flaws in routers to disrupt networks or steal intellectual property, and routers are also implicated in the Volt, Flax, and Salt Typhoon cyberattacks.\n\nThere is an element of hypocrisy in all this because American intelligence agencies were previously caught intercepting Cisco-made routers on their way to customers and updating their firmware to deploy espionage tools.\n\nThe flaw with the policy is that practically all routers are manufactured in other countries, even those sold by American firms such as Cisco or Netgear. According to the BBC, the one exception is the newer Starlink Wi-Fi router, which the company says is manufactured in Texas.\n\nThus this could be viewed as another heavy-handed market interference by the Trump administration, in a bid to get IT companies to invest in manufacturing on US soil.\n\nOne commenter on Reddit remarked: \"I also think it's bloody silly. Just not overwhelmingly silly as suddenly banning ALL new routers not made in America, given that it'll take years to spool up the production capacity alone.\"\n\n \n\nAnother said: \"So that means we are stuck with 2026 routers for years, because chances are no one is going to build them in the US when this administration's policies change every 10 seconds.\"\n\nThere is an exemption for products that the Department of Defense or the Department of Homeland Security have granted \"Conditional Approval\" after finding these devices do not pose such unacceptable risks. Router makers can apply to the FCC to get on the approved list.\n\n\"I welcome this Executive Branch national security determination, and I am pleased that the FCC has now added foreign-produced routers, which were found to pose an unacceptable national security risk, to the FCC's Covered List,\" stated FCC chair Brendan Carr. ®",
+  "tags": [
+    [
+      "500-words",
+      "america",
+      "america the",
+      "banning",
+      "change",
+      "covered",
+      "covered list",
+      "executive branch",
+      "fcc",
+      "list",
+      "national",
+      "pose",
+      "register",
+      "routers",
+      "security",
+      "unacceptable"
+    ],
+    []
+  ]
+}

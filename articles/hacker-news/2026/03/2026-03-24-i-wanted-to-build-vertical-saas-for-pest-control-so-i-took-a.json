@@ -1,0 +1,29 @@
+{
+  "id": 5336,
+  "source": "Hacker News",
+  "title": "I wanted to build vertical SaaS for pest control, so I took a technician job",
+  "url": "https://www.onhand.pro/p/i-wanted-to-build-vertical-saas-for-pest-control-i-took-a-technician-job-instead",
+  "published_at": "2026-03-24T21:24:33Z",
+  "fetched_at": "2026-03-24T22:00:32.032898+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47509571\">Comments</a>",
+  "full_text": "Background checks, company phone, drug tests, exams, and a truck that wouldn't start on day one.\n\nI've been GTM consulting for companies selling into traditional industries, and noticed prospects have become less likely to offer their time for ride-alongs and research calls. \n\nThey get too many requests, and vibe coding is drawing their attention to self-build.\n\nI grew up helping out with our family plumbing business back home, so getting my hands dirty wasn't new. \n\nI decided to go all-in and do the job for real.\n\nI was helping a renovation company with GTM. One of their projects was a beautiful home for a guy who sold his pest control company a few years back.\n\nHe built the company over 20 years and adopted the vertical SaaS of the day from the very beginning, while competitors didn't. He knew the software had played a big part in the success.\n\nThe more he told me, the more I liked the sound of it: recurring revenue, specialization, fragmented, regulated, $30B TAM in the US.\n\nThat night, I applied to every pest control company in the area.\n\nGetting the job (and getting ignored)\n\nThree days in, barely anyone had replied, so I started showing up in person. I got three ride-along offers on the first day. Two converted to job offers.\n\nI accepted a role at a subsidiary of one of the biggest groups in the country doing $B's in revenue through a nationwide portfolio of local brands.\n\nOver the next couple of months, I only heard back from half the companies I'd reached out to. Even in a tight labor market, companies drop the ball on recruitment.\n\nIt turned out that getting the job was the easier part.\n\n13 days to licensed (company record)\n\nGetting licensed isn't a formality. It involves book study, seminars, a proctored exam, and enough supervised truck time to handle controlled products independently. \n\nMost companies take two to three months to ramp a new tech, paying them the whole time - a real sunk cost if they don't work out.\n\nI built my own training GPT and passed in 13 days, which was a company record. The training manager knew I'd built the app but never showed an interest, which makes sense: it could replace about a quarter of his role.\n\nNow I was ready to get in the truck.\n\nMy field rep pest control license\n\nGetting in the truck (it broke)\n\nFleet ops took three weeks to source my truck, which had a flat battery on day one.\n\nMy fuel card took 5+ weeks and didn't work initially. I was paying out of pocket and claiming back through the expenses app that took 2–3 weeks to repay. Not great when most techs are working paycheck to paycheck.\n\nThe core system was built on Salesforce, modified so heavily that ripping it out felt unthinkable, even though it was clunky and techs complained. Onboarding required registering for 10+ apps on the company phone. I used maybe two of them.\n\nThe company monitored everything - truck idling, GPS, time per visit, phone activity and so on. The techs had workarounds for all of it, but everyone pulled their weight and the group wouldn’t tolerate slackers.\n\nThe techs started calling me \"undercover boss\" in the group chat.\n\nHow I earned the nickname\n\nWhile shadowing a senior tech, I got talking to the client and made a small upsell. There was no training for this, but it's a big opportunity while boots are on the ground.\n\nThey offered me a sales role shortly after, which I accepted.\n\nThat same evening, I built a workflow to hit every prospect in my territory. I asked for an existing customer, list which took two weeks to get approved and involved viewing each record individually.\n\nI closed a $24k annual contract with a shopping center sourced from my outbound campaign, plus a few smaller upsells to existing clients.\n\nThe internal quoting process nearly lost me the $24k deal. It required multiple signatures and yet another account to be created by corporate.\n\nSales training was a Zoominfo webinar. Most reps drove around their territory in their company vehicle (free fuel) and visited in person. The top guys had 10+ years experience and were selling $800k to $1.2m ARR with very low churn - although nobody had the specific figure.\n\nTheir business is doing great, but it could be so much better.\n\nEmployees don’t want to rock the boat and there’s no incentive to push for improvements. It’s safer to stay in their lane.\n\nThat’s why selling SaaS or AI to this kind of company isn’t for me - I’d rather focus my energy on building a company from my own principles, and hire people who share them from the beginning.\n\nExit interview: “Why don’t you start your own company?”\n\nWhen I told my manager I was leaving, he said I should start my own company and give him a call when I do.\n\nSo that's what I'm doing.\n\nWe have an acquisition of a local operator in a specific niche lined up, which we'll build the tooling for and grow a platform around once we’ve proven the model works and can scale.\n\nIf you've built, invested in, or rolled up a home services business, I'd love to chat.",
+  "tags": [
+    [
+      "1000-words",
+      "ai",
+      "built",
+      "companies",
+      "company",
+      "getting",
+      "pest",
+      "saas",
+      "techs",
+      "took",
+      "training",
+      "truck",
+      "weeks"
+    ],
+    []
+  ]
+}

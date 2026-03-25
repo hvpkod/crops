@@ -1,0 +1,32 @@
+{
+  "id": 5307,
+  "source": "Slashdot",
+  "title": "Anthropic's Claude Can Now Use Your Computer To Finish Tasks",
+  "url": "https://slashdot.org/story/26/03/24/1649222/anthropics-claude-can-now-use-your-computer-to-finish-tasks?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-24T19:00:00Z",
+  "fetched_at": "2026-03-24T20:00:13.834897+00:00",
+  "author": "BeauHD",
+  "summary": "Anthropic is testing a new Claude feature that lets users send a request from their phone and have the AI carry it out directly on their computer, such as opening apps, using a browser, or editing files. The move follows the viral spread of OpenClaw earlier this year, which has gained cult popularity among devs for the ability to run local, 24/7 personal workflows. CNBC reports: Users can now message Claude a task from a phone, and the AI agent will then complete that task, Anthropic announced Monday. After being prompted, Claude can open apps on your computer, navigate a web browser and fill in spreadsheets, Anthropic said. One prompt Anthropic demonstrated in a video posted Monday is a user running late for a meeting. The user asks Claude to export a pitch deck as a PDF file and attach it to a meeting invite. The video shows Claude carrying out the task. [...]\n \nAnthropic cautioned that computer use \"is still early compared to Claude's ability to code or interact with text.\" \"Claude ",
+  "full_text": "Anthropic is testing a new Claude feature that lets users send a request from their phone and have the AI carry it out directly on their computer\n\n, such as opening apps, using a browser, or editing files. The move follows the viral spread of OpenClaw\n\n earlier this year, which has gained cult popularity among devs for the ability to run local, 24/7 personal workflows. CNBC reports: Users can now message Claude a task from a phone, and the AI agent will then complete that task, Anthropic announced Monday. After being prompted, Claude can open apps on your computer, navigate a web browser and fill in spreadsheets, Anthropic said. One prompt Anthropic demonstrated in a video posted Monday is a user running late for a meeting. The user asks Claude to export a pitch deck as a PDF file and attach it to a meeting invite. The video shows Claude carrying out the task. [...]\n\n \n\nAnthropic cautioned that computer use \"is still early compared to Claude's ability to code or interact with text.\" \"Claude can make mistakes, and while we continue to improve our safeguards, threats are constantly evolving,\" Anthropic warned. The company added that it has built the computer use capability \"with safeguards that minimize risk,\" and that Claude will always request permission before accessing new apps. Users can use Dispatch, a feature it released last week in Claude Cowork. That lets users have a continuous conversation with Claude from a phone or desktop and assign the agent tasks.",
+  "tags": [
+    [
+      "500-words",
+      "ability",
+      "agent",
+      "ai",
+      "anthropic",
+      "claude",
+      "claude can",
+      "computer",
+      "feature",
+      "finish tasks",
+      "lets",
+      "now use",
+      "phone",
+      "request",
+      "users",
+      "your computer"
+    ],
+    []
+  ]
+}

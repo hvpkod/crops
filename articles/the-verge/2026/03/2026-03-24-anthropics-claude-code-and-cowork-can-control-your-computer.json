@@ -1,0 +1,30 @@
+{
+  "id": 5216,
+  "source": "The Verge",
+  "title": "Anthropic’s Claude Code and Cowork can control your computer",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/899430/anthropic-claude-code-cowork-ai-control-computer",
+  "published_at": "2026-03-24T13:32:23Z",
+  "fetched_at": "2026-03-24T14:00:28.353747+00:00",
+  "author": "Jess Weatherbed",
+  "summary": "<figure>\n\n<img alt=\"A screenshot of the warning message that appears in Claude before allowing the AI chatbot to control your computer.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Anthropic-Claude-Code-Cowork-computer-control.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tClaude will ask you for permission to autonomously perform taks on your computer. | Image by Anthropic\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Anthropic has updated Claude to perform tasks in its Code and Cowork AI tools autonomously by using your computer for you. The new feature can be used to automatically open files, use web browsers and apps, and run dev tools \"with no setup required,\" even when you're away from your computer, according to <a href=\"https://claude.com/blog/dispatch-and-computer-use\">Anthropic's announcement</a>.</p>\n<p class=\"has-text-align-none\">These new capabilities are available as a research preview for Claude Pro and Max subsc",
+  "full_text": "Anthropic has updated Claude to perform tasks in its Code and Cowork AI tools autonomously by using your computer for you. The new feature can be used to automatically open files, use web browsers and apps, and run dev tools “with no setup required,” even when you’re away from your computer, according to Anthropic’s announcement.\n\nThese new capabilities are available as a research preview for Claude Pro and Max subscribers, and computer usage is limited to macOS “for now,” according to Anthropic. The feature builds on autonomous capabilities that were introduced on Claude’s 3.5 Sonnet AI model in 2024, but now brings those to the chatbot’s Code and Cowork AI agents for programmers.\n\nTo access the feature, the Claude desktop app must be running on a supported macOS device and paired with the chatbot’s mobile app. The update works by prioritizing connectors to supported services first, such as Slack and Google Workspace apps, but will still execute tasks if a connector isn’t available by directly controlling your browser, mouse, keyboard, and display. Anthropic says Claude will “always ask for your explicit permission” before exploring, scrolling, and clicking as needed to complete a task.\n\nThe feature works “especially well” with Dispatch, according to Anthropic — a recent cross-device feature that allows you to assign tasks to the Claude desktop app from your phone — but it won’t always work perfectly. “Complex tasks sometimes need a second try, and working through your screen is slower than using a direct integration,” the company said in its announcement blog. “We’re sharing it early because we want to learn where it works and where it falls short.”",
+  "tags": [
+    [
+      "500-words",
+      "ai",
+      "anthropic",
+      "capabilities",
+      "claude",
+      "claude code",
+      "code",
+      "computer",
+      "cowork",
+      "cowork ai",
+      "feature",
+      "tasks",
+      "tools",
+      "works"
+    ],
+    []
+  ]
+}

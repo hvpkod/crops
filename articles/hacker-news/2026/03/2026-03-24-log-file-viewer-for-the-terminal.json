@@ -1,0 +1,28 @@
+{
+  "id": 5174,
+  "source": "Hacker News",
+  "title": "Log File Viewer for the Terminal",
+  "url": "https://lnav.org/",
+  "published_at": "2026-03-24T05:32:53Z",
+  "fetched_at": "2026-03-24T06:40:10.449354+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47498924\">Comments</a>",
+  "full_text": "Just point lnav at a directory and it will take care of the rest.\nFile formats are automatically detected and compressed files are unpacked\non the fly.\nOnline help and previews for operations make it simpler to level up your\nexperience.",
+  "tags": [
+    [
+      "200-words",
+      "automatically",
+      "care",
+      "detected",
+      "directory",
+      "file",
+      "formats",
+      "lnav",
+      "logfile",
+      "navigator",
+      "point",
+      "the logfile"
+    ],
+    []
+  ]
+}

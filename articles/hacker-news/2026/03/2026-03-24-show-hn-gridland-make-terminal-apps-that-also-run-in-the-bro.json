@@ -1,0 +1,27 @@
+{
+  "id": 5310,
+  "source": "Hacker News",
+  "title": "Show HN: Gridland: make terminal apps that also run in the browser",
+  "url": "https://www.gridland.io/",
+  "published_at": "2026-03-24T16:57:47Z",
+  "fetched_at": "2026-03-24T20:00:19.323891+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47505731\">Comments</a>",
+  "full_text": "j x v y 4 , e\n b b * & 6 6 0\n * u a 7 |\n _| _| _| _|\n _|_|_| _| _|_| _|_|_| _| _|_|_| _|_|_| _|_|_|\n _| _| _|_| _| _| _| _| _| _| _| _| _| _|\n _| _| _| _| _| _| _| _| _| _| _| _| _|\n _|_|_| _| _| _|_|_| _| _|_|_| _| _| _|_|_|\n _|\n _|_|\n @ ? n > n4\n A framework for building terminal apps, built on OpenTUI + React.\n (Gridland apps, like this website, work in the browser and terminal.)\n\n o ╭───────────────────────────────╮ ╭───────────────────────╮\n j │ $ bunx @gridland/demo landing │ │ $ bun create gridland │\n ╰───────────────────────────────╯ ╰───────────────────────╯\n\n ╭────────────────────╮\n │ 🐱 GitHub 📖 Docs │\n ╰────────────────────╯\n\n ╭────────╮\n │ ripple │ puzzle",
+  "tags": [
+    [
+      "200-words",
+      "browser",
+      "building",
+      "built",
+      "bunx",
+      "create",
+      "framework",
+      "gridland",
+      "landing",
+      "opentui",
+      "terminal"
+    ],
+    []
+  ]
+}

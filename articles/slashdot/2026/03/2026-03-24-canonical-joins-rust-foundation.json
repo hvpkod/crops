@@ -1,0 +1,31 @@
+{
+  "id": 5200,
+  "source": "Slashdot",
+  "title": "Canonical Joins Rust Foundation",
+  "url": "https://news.slashdot.org/story/26/03/23/2340216/canonical-joins-rust-foundation?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-24T11:00:00Z",
+  "fetched_at": "2026-03-24T12:00:12.087700+00:00",
+  "author": "BeauHD",
+  "summary": "BrianFagioli writes: Canonical has joined the Rust Foundation as a Gold Member, signaling a deeper investment in the Rust programming language and its role in modern infrastructure. The company already maintains an up-to-date Rust toolchain for Ubuntu and has begun integrating Rust into parts of its stack, citing memory safety and reliability as key drivers. By joining at a higher tier, Canonical is not just adopting Rust but also stepping closer to its governance and long-term direction. The move also highlights ongoing tensions in Rust's ecosystem. While Rust can reduce entire classes of bugs, it often depends heavily on external crates, which can introduce complexity and auditing challenges, especially in enterprise environments. Canonical appears aware of that tradeoff and is positioning itself to influence how the ecosystem evolves, as Rust continues to gain traction across Linux and beyond. \"As the publisher of Ubuntu, we understand the critical role systems software plays in mod",
+  "full_text": "BrianFagioli\n\n writes: Canonical has joined the Rust Foundation as a Gold Member, signaling a deeper investment in the Rust programming language and its role in modern infrastructure. The company already maintains an up-to-date Rust toolchain for Ubuntu and has begun integrating Rust into parts of its stack, citing memory safety and reliability as key drivers. By joining at a higher tier, Canonical is not just adopting Rust but also stepping closer to its governance and long-term direction.\n \nThe move also highlights ongoing tensions in Rust's ecosystem. While Rust can reduce entire classes of bugs, it often depends heavily on external crates, which can introduce complexity and auditing challenges, especially in enterprise environments. Canonical appears aware of that tradeoff and is positioning itself to influence how the ecosystem evolves, as Rust continues to gain traction across Linux and beyond.\n\n \"As the publisher of Ubuntu, we understand the critical role systems software plays in modern infrastructure, and we see Rust as one of the most important tools for building it securely and reliably. Joining the Rust Foundation at the Gold level allows us to engage more directly in language and ecosystem governance, while continuing to improve the developer experience for Rust on Ubuntu,\" said Jon Seager, VP Engineering at Canonical. \"Of particular interest to Canonical is the security story behind the Rust package registry, crates.io, and minimizing the number of potentially unknown dependencies required to implement core concerns such as async support, HTTP handling, and cryptography -- especially in regulated environments.\"",
+  "tags": [
+    [
+      "500-words",
+      "canonical",
+      "canonical joins",
+      "ecosystem",
+      "especially",
+      "fortnox world",
+      "foundation",
+      "gold",
+      "joining",
+      "language",
+      "modern",
+      "role",
+      "rust",
+      "rust foundation",
+      "ubuntu"
+    ],
+    []
+  ]
+}

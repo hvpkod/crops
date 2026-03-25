@@ -1,0 +1,31 @@
+{
+  "id": 5290,
+  "source": "Hacker News",
+  "title": "ARM AGI CPU: Specs and SKUs",
+  "url": "https://sbcwiki.com/docs/soc-manufacturers/arm/arm-silicon/",
+  "published_at": "2026-03-24T17:59:16Z",
+  "fetched_at": "2026-03-24T18:40:15.741772+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47506641\">Comments</a>",
+  "full_text": "ARM Silicon#\n\nWhile Arm primarily licenses CPU and GPU designs to other manufacturers, they also produce their own silicon for specific datacenter and AI infrastructure applications.\n\nARM AGI CPU#\n\nAnnounced at the Arm Everywhere Keynote on March 24, 2026, the ARM AGI CPU is Arm’s first production silicon, designed for AI infrastructure at scale. It delivers a new class of CPU with high performance and extreme rack-level density support for agentic AI operations across modern data centers.\n\nSpecifications#\nCores: Up to 136 Neoverse V3 cores (2x 128 SVE, 2MB/core L2)\nArchitecture: Armv9.2 with bfloat16 and INT8 AI instructions\nClock Speed: Up to 3.7GHz boost\nPCIe: 96 Lanes of PCIe Gen6, CXL 3.0 Type 3\nProcess: 3nm lithography process\nTDP: Up to 420W TDP\nMemory: Up to 6 Terabyte of DDR5-8800 (12x DDR5 channels)\nDesign: Dual-Chiplet Design\n\nSKUs#\n\nThe ARM AGI CPU is available in three distinct SKUs:\nSP113012: 136-core flagship model for maximum core count.\nSP113012S: 128-core model optimized for Total Cost of Ownership (TCO).\nSP113012A: 64-core model optimized for maximum memory bandwidth per core.\n\nServer Configurations#\n\nArm’s reference server configuration is a 10U, 2-node design – packing in two chips with dedicated memory and I/O for a total of 272 cores per blade. These blades are designed to fully populate a standard air-cooled 36kW rack – 30 blades delivering a total of 8160 cores.\n\nArm has additionally partnered with Supermicro on a liquid-cooled 200kW design capable of housing 336 Arm AGI CPUs for over 45,000 cores.\n\nFor more information, visit the official Arm AGI CPU page or read the Product Brief.",
+  "tags": [
+    [
+      "500-words",
+      "agi cpu",
+      "arm agi",
+      "arm silicon",
+      "cores",
+      "design",
+      "designed",
+      "infrastructure",
+      "maximum",
+      "memory",
+      "model",
+      "optimized",
+      "sbcwiki",
+      "silicon",
+      "total"
+    ],
+    []
+  ]
+}

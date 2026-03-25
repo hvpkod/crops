@@ -1,0 +1,27 @@
+{
+  "id": 5218,
+  "source": "Hacker News",
+  "title": "Nanobrew: The fastest macOS package manager compatible with brew",
+  "url": "https://nanobrew.trilok.ai/",
+  "published_at": "2026-03-24T11:40:21Z",
+  "fetched_at": "2026-03-24T14:20:12.266893+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47501211\">Comments</a>",
+  "full_text": "$ nb install jq\n \n\n==> Resolving dependencies...\n \n\n [38ms]\n \n\n==> Installing 1 package(s):\n \n\n jq 1.7.1\n \n\n==> Downloading + installing 1 packages...\n \n\n ✓ jq\n \n\n==> Done in 1102.4ms\n \n\n \n \n\n$ nb list\n \n\njq 1.7.1\n \n\n \n \n\n$ nb update # self-update nanobrew\n \n\n==> Updating nanobrew...\n \n\n==> nanobrew updated successfully",
+  "tags": [
+    [
+      "200-words",
+      "done",
+      "downloading",
+      "fastest",
+      "install",
+      "installing",
+      "macos",
+      "manager",
+      "nanobrew",
+      "package",
+      "resolving"
+    ],
+    []
+  ]
+}

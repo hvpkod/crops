@@ -1,0 +1,33 @@
+{
+  "id": 5353,
+  "source": "Hacker News",
+  "title": "Show HN: I ran a language model on a PS2",
+  "url": "https://github.com/xaskasdf/ps2-llm",
+  "published_at": "2026-03-21T19:27:57Z",
+  "fetched_at": "2026-03-25T00:00:13.371503+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47470405\">Comments</a>",
+  "full_text": "Running a large language model on a PlayStation 2.\n\nThis project started as an experiment born from two passions: retrogaming and LLMs. Having built a complete PS2 SDK from scratch (including tools that had to be rewritten due to incompatibilities with modern software and hardware), and having extensive experience working with language models, the question after seeing a team run an LLM on a Windows 98 PC was simple: \"Can I run this on a 26-year-old game console?\"\n\nThe answer is yes. The PS2's Emotion Engine (MIPS-III @ 294 MHz, 32 MB RAM) can run transformer inference by streaming model weights from CD-ROM one matrix at a time, keeping only activations and KV cache in memory. The current default model is brandon-tiny-10m-instruct, a custom 10M-parameter architecture running at Q8 precision.\n\nWebsite: naranjositos.tech\n\nThe PS2 has 32 MB of RAM total. Model weights don't need to fit in memory -- the inference engine streams them from CD-ROM one matrix at a time during the forward pass. Only activations, KV cache, token embeddings, and RMS norms stay in RAM.\n\nThis means models much larger than 32 MB can run on the console. A 77 MB model works -- it just reads more from CD. See MODELS.md for details on all models tested.\n\nSeveral models were tested during development. The current default is brandon-tiny-10m (Q8, ~10.4 MB), chosen for its balance of speed and coherence on PS2 hardware.\n\nSee MODELS.md for detailed specs, conversion pipelines, and guidance on adding new models.\n\nRequires the ps2_biw_engine SDK at ../ps2_biw_engine.\n\nOutput: build/ps2_llm_demo.elf (ELF) and build/ps2_llm_demo.iso (bootable CD image).\n\nRequires Python with numpy and torch:\n\n# Brandon model (custom architecture): safetensors -> PSNT v3 Q8\npython3 tools/brandon_to_psnt.py --quant q8 \\\n third_party/brandon-tiny/model.safetensors \\\n cd_rom/DATA/LLM/brandon-q8.psnt\n\n# Standard HuggingFace models: HF -> llama2.c float32 -> PSNT\npython3 tools/hf_to_llama2c.py third_party/model-dir/ model.bin\npython3 tools/q4_quantize.py model.bin model.psnt # Q4\npython3 tools/psnt_quantize.py model.bin model.psnt # Ternary\n\n# SentencePiece tokenizer -> binary\npython3 tools/sp_tokenizer_to_llama2c.py \\\n third_party/brandon-tiny/tokenizer.model \\\n cd_rom/DATA/LLM/tok8k.bin\n\nWeights use the PSNT (PS Net) binary format, a compact quantized format designed for the PS2's constraints. Supports ternary (2-bit), Q4 (4-bit), and Q8 (8-bit) quantization. See PSNT.md for the full specification.\n\ngame_main.c -- PS2 entry point, UI, controller input, CD-ROM streaming\n\nllama_ps2.c -- Self-contained LLM inference engine (included inline by game_main.c)\n\ngame_scene.c -- Engine scene callback stubs\n\ntools/ -- Python conversion and verification scripts\n\ncd_rom/ -- Runtime data (models, tokenizers, IOP modules) burned to CD image\n\nPSNT.md -- Model format specification\n\nMODELS.md -- Model support details and history\n\nSee individual model licenses on their HuggingFace pages.",
+  "tags": [
+    [
+      "500-words",
+      "ai",
+      "data llm",
+      "engine",
+      "inference",
+      "language",
+      "large",
+      "model",
+      "models",
+      "playstation",
+      "playstation github",
+      "psnt",
+      "ram",
+      "running",
+      "see models",
+      "the ps",
+      "weights"
+    ],
+    []
+  ]
+}

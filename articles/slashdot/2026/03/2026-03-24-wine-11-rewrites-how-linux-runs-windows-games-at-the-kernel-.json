@@ -1,0 +1,33 @@
+{
+  "id": 5351,
+  "source": "Slashdot",
+  "title": "Wine 11 Rewrites How Linux Runs Windows Games At the Kernel Level",
+  "url": "https://tech.slashdot.org/story/26/03/24/1946246/wine-11-rewrites-how-linux-runs-windows-games-at-the-kernel-level?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-24T23:00:00Z",
+  "fetched_at": "2026-03-25T00:00:09.915822+00:00",
+  "author": "BeauHD",
+  "summary": "Linux gamers are seeing massive performance gains with Wine's new NTSYNC support, \"which is a feature that has been years in the making and rewrites how Wine handles one of the most performance-sensitive operations in modern gaming,\" reports XDA Developers. Not every game will see a night-and-day difference, but for the games that do benefit from these changes, \"the improvements range from noticeable to absurd.\" Combined with improvements to Wayland, graphics, and compatibility, as well as a major WoW64 architecture overhaul, the release looks less like an incremental update and more like one of Wine's most important upgrades in years. From the report: The numbers are wild. In developer benchmarks, Dirt 3 went from 110.6 FPS to 860.7 FPS, which is an impressive 678% improvement. Resident Evil 2 jumped from 26 FPS to 77 FPS. Call of Juarez went from 99.8 FPS to 224.1 FPS. Tiny Tina's Wonderlands saw gains from 130 FPS to 360 FPS. As well, Call of Duty: Black Ops I is now actually playab",
+  "full_text": "Linux gamers are seeing massive performance gains with Wine's new NTSYNC support\n\n, \"which is a feature that has been years in the making and rewrites how Wine handles one of the most performance-sensitive operations in modern gaming,\" reports XDA Developers. Not every game will see a night-and-day difference, but for the games that do benefit from these changes, \"the improvements range from noticeable to absurd.\" Combined with improvements to Wayland, graphics, and compatibility, as well as a major WoW64 architecture overhaul, the release looks less like an incremental update and more like one of Wine's most important upgrades in years. From the report: The numbers are wild. In developer benchmarks, Dirt 3 went from 110.6 FPS to 860.7 FPS, which is an impressive 678% improvement. Resident Evil 2 jumped from 26 FPS to 77 FPS. Call of Juarez went from 99.8 FPS to 224.1 FPS. Tiny Tina's Wonderlands saw gains from 130 FPS to 360 FPS. As well, Call of Duty: Black Ops I is now actually playable on Linux, too. Those benchmarks compare Wine NTSYNC against upstream vanilla Wine, which means there's no fsync or esync either. Gamers who use fsync are not going to see such a leap in performance in most games.\n\n \n\nThe games that benefit most from NTSYNC are the ones that were struggling before, such as titles with heavy multi-threaded workloads where the synchronization overhead was a genuine bottleneck. For those games, the difference is night and day. And unlike fsync, NTSYNC is in the mainline kernel, meaning you don't need any custom patches or out-of-tree modules for it work. Any distro shipping kernel 6.14 or later, which at this point includes Fedora 42, Ubuntu 25.04, and more recent releases, will support it. Valve has already added the NTSYNC kernel driver to SteamOS 3.7.20 beta, loading the module by default, and an unofficial Proton fork, Proton GE, already has it enabled. When Valve's official Proton rebases on Wine 11, every Steam Deck owner gets this for free.\n\n \n\nAll of this is what makes NTSYNC such a big deal, as it's not simply a run-of-the-mill performance patch. Instead, it's something much bigger: this is the first time Wine's synchronization has been correct at the kernel level, implemented in the mainline Linux kernel, and available to everyone without jumping through hoops.",
+  "tags": [
+    [
+      "500-words",
+      "fps",
+      "gains",
+      "gamers",
+      "games",
+      "games at",
+      "how linux",
+      "kernel",
+      "kernel level",
+      "linux",
+      "ntsync",
+      "performance",
+      "proton",
+      "rewrites",
+      "runs windows",
+      "wine",
+      "wine rewrites"
+    ],
+    []
+  ]
+}

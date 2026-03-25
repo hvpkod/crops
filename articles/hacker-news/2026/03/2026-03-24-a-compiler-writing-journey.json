@@ -1,0 +1,38 @@
+{
+  "id": 5373,
+  "source": "Hacker News",
+  "title": "A Compiler Writing Journey",
+  "url": "https://github.com/DoctorWkt/acwj",
+  "published_at": "2026-03-24T23:44:47Z",
+  "fetched_at": "2026-03-25T00:40:41.220478+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47511208\">Comments</a>",
+  "full_text": "A Compiler Writing Journey\n\nIn this Github repository, I'm documenting my journey to write a\nself-compiling compiler for a subset of the C language.\nI'm also writing out the details so that,\nif you want to follow along, there will be an explanation of what\nI did, why, and with some references back to the theory of compilers.\n\nBut not too much theory, I want this to be a practical journey.\n\nHere are the steps I've taken so far:\n\nPart 0: Introduction to the Journey\n\nPart 1: Introduction to Lexical Scanning\n\nPart 2: Introduction to Parsing\n\nPart 3: Operator Precedence\n\nPart 4: An Actual Compiler\n\nPart 5: Statements\n\nPart 6: Variables\n\nPart 7: Comparison Operators\n\nPart 8: If Statements\n\nPart 9: While Loops\n\nPart 10: For Loops\n\nPart 11: Functions, part 1\n\nPart 12: Types, part 1\n\nPart 13: Functions, part 2\n\nPart 14: Generating ARM Assembly Code\n\nPart 15: Pointers, part 1\n\nPart 16: Declaring Global Variables Properly\n\nPart 17: Better Type Checking and Pointer Offsets\n\nPart 18: Lvalues and Rvalues Revisited\n\nPart 19: Arrays, part 1\n\nPart 20: Character and String Literals\n\nPart 21: More Operators\n\nPart 22: Design Ideas for Local Variables and Function Calls\n\nPart 23: Local Variables\n\nPart 24: Function Parameters\n\nPart 25: Function Calls and Arguments\n\nPart 26: Function Prototypes\n\nPart 27: Regression Testing and a Nice Surprise\n\nPart 28: Adding More Run-time Flags\n\nPart 29: A Bit of Refactoring\n\nPart 30: Designing Structs, Unions and Enums\n\nPart 31: Implementing Structs, Part 1\n\nPart 32: Accessing Members in a Struct\n\nPart 33: Implementing Unions and Member Access\n\nPart 34: Enums and Typedefs\n\nPart 35: The C Pre-Processor\n\nPart 36: break and continue\n\nPart 37: Switch Statements\n\nPart 38: Dangling Else and More\n\nPart 39: Variable Initialisation, part 1\n\nPart 40: Global Variable Initialisation\n\nPart 41: Local Variable Initialisation\n\nPart 42: Type Casting and NULL\n\nPart 43: Bugfixes and More Operators\n\nPart 44: Constant Folding\n\nPart 45: Global Variable Declarations, revisited\n\nPart 46: Void Function Parameters and Scanning Changes\n\nPart 47: A Subset of sizeof\n\nPart 48: A Subset of static\n\nPart 49: The Ternary Operator\n\nPart 50: Mopping Up, part 1\n\nPart 51: Arrays, part 2\n\nPart 52: Pointers, part 2\n\nPart 53: Mopping Up, part 2\n\nPart 54: Spilling Registers\n\nPart 55: Lazy Evaluation\n\nPart 56: Local Arrays\n\nPart 57: Mopping Up, part 3\n\nPart 58: Fixing Pointer Increments/Decrements\n\nPart 59: Why Doesn't It Work, part 1\n\nPart 60: Passing the Triple Test\n\nPart 61: What's Next?\n\nPart 62: Code Cleanup\n\nPart 63: A New Backend using QBE\n\nPart 64: A Backend for the 6809 CPU\n\nI've stopped work on acwj and now I'm writing a new language\ncalled alic from scratch. Check it out!\n\nI have borrowed some of the code, and lots of ideas, from the\nSubC compiler written by Nils M Holm.\nHis code is in the public domain. I think that my code is substantially\ndifferent enough that I can apply a different license to my code.\n\nUnless otherwise noted,\n\nall source code and scripts are (c) Warren Toomey under\nthe GPL3 license.\n\nall non-source code documents (e.g. English documents,\nimage files) are (c) Warren Toomey under the Creative\nCommons BY-NC-SA 4.0 license.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "code",
+      "comparison operators",
+      "compiler",
+      "designing structs",
+      "fixing pointer increments/decrements",
+      "function",
+      "github",
+      "global variable declarations",
+      "global variable initialisation",
+      "introduction",
+      "journey",
+      "lazy evaluation",
+      "mop",
+      "new backend",
+      "operator",
+      "part",
+      "rvalues revisited",
+      "subset",
+      "variable",
+      "variable initialisation"
+    ],
+    []
+  ]
+}

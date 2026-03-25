@@ -1,0 +1,32 @@
+{
+  "id": 5156,
+  "source": "Hacker News",
+  "title": "Epoch confirms GPT5.4 Pro solved a Frontier Math Open Problem for the first time",
+  "url": "https://epoch.ai/frontiermath/open-problems/ramsey-hypergraphs",
+  "published_at": "2026-03-24T01:53:09Z",
+  "fetched_at": "2026-03-24T03:20:14.074776+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47497757\">Comments</a>",
+  "full_text": "Solution Update: This problem has been solved! A solution was first elicited by Kevin Barreto and Liam Price, using GPT-5.4 Pro. This solution was confirmed by problem contributor Will Brian, and will be written up for publication. A full transcript of the original conversation with GPT-5.4 Pro can be found here and GPT-5.4 Pro’s write-up from the end of that transcript can be found here.\n\nBrian’s comments: “This is an exciting solution to a problem I find very interesting. I had previously wondered if the AI’s approach might be possible, but it seemed hard to work out. Now I see that it works out perfectly. It eliminates an inefficiency in our lower-bound construction and in some sense mirrors the intricacy of our upper-bound construction. The matching lower and upper bounds are quite good for Ramsey-theoretic problems, and I’m interested in further understanding why this works out so well.”\n\nBrian plans to write up the solution for publication, possibly including follow-on work spurred by the AI’s ideas. Barreto and Price have the option of being coauthors on any resulting papers. We will update this page with links to future work.\n\nSubsequent to this solve, we finished developing our general scaffold for testing models on FrontierMath: Open Problems. In this scaffold, several other models were able to solve the problem as well: Opus 4.6 (max), Gemini 3.1 Pro, and GPT-5.4 (xhigh).\n\nOriginal Description: This problem is about improving lower bounds on the values of a sequence, \\(H(n)\\), that arises in the study of simultaneous convergence of sets of infinite series, defined as follows.\n\nA hypergraph \\((V,\\mathcal H)\\) is said to contain a partition of size \\(n\\) if there is some \\(D \\subseteq V\\) and \\(\\mathcal P \\subseteq \\mathcal H\\) such that \\(\\|D\\| = n\\) and every member of \\(D\\) is contained in exactly one member of \\(\\mathcal P\\). \\(H(n)\\) is the greatest \\(k \\in \\mathbb{N}\\) such that there is a hypergraph \\((V,\\mathcal H)\\) with \\(\\|V\\| = k\\) having no isolated vertices and containing no partitions of size greater than \\(n\\).\n\nIt is believed that the best-known lower bounds for \\(H(n)\\) are suboptimal, even asymptotically, and that they can be improved by finding new constructions of hypergraphs. The goal of this problem is to find such a construction.\n\nWarm-up: we ask for a value of \\(n\\) where constructions are already known.\n\nSingle Challenge: we ask for a value of \\(n\\) for which no construction is known, and which is probably too hard to brute-force.\n\nFull Problem: we ask for a general algorithm for all \\(n\\).",
+  "tags": [
+    [
+      "500-words",
+      "ai",
+      "barreto",
+      "bounds",
+      "brian",
+      "find",
+      "found",
+      "full",
+      "gpt pro",
+      "hypergraphs",
+      "lower",
+      "original",
+      "problem",
+      "ramsey",
+      "solution",
+      "transcript"
+    ],
+    []
+  ]
+}

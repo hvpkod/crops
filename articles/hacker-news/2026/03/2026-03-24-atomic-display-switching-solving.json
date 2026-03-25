@@ -1,0 +1,29 @@
+{
+  "id": 5302,
+  "source": "Hacker News",
+  "title": "Atomic Display Switching: Solving",
+  "url": "https://github.com/piot5/displayflow_cli",
+  "published_at": "2026-03-24T18:37:39Z",
+  "fetched_at": "2026-03-24T19:21:50.863492+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47507194\">Comments</a>",
+  "full_text": "Quickly switch and save Windows display layouts via CLI\n\nDownload displayflow.exe from Releases.\n\nPut it somewhere in your PATH.\n\ndisplayflow.exe [MonitorConfigs] [Command] [Flags]\n\nFormat: ID:Width:Height:X:Y:Primary:Rotation:Frequenz\n(Run without params or doubleclick .exe to see your IDs)\n\nVertical Stack (Monitor 2 above 1)\n\ndisplayflow.exe \"1:1920:1080:0:0:1:0:60 2:1920:1080:0:-1080:0:0:60\" --save Stacked\n\nGaming (Disable Monitor 2 & launch Steam)\n\ndisplayflow.exe \"1:2560:1440:0:0:1:0:120 2:0:0:0:0:0:0:0\" --save Gaming --post \"C:\\Path\\To\\Steam.exe\" --hotkey\n\nCoding Setup (Portrait Mode)\n\n# Monitor 1: Ultrawide Landscape\n# Monitor 2: 1080p Portrait (Rotated 90°)\ndisplayflow.exe \"1:3440:1440:0:0:1:0:144 2:1080:1920:3440:0:0:90:144\" --save Dev",
+  "tags": [
+    [
+      "200-words",
+      "cli",
+      "deployment",
+      "display",
+      "features",
+      "gaming",
+      "github",
+      "hotkey",
+      "monitor",
+      "setup",
+      "setup wizard",
+      "tool",
+      "written"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": 5185,
+  "source": "Hacker News",
+  "title": "systemd has not implemented age verification",
+  "url": "https://blog.bofh.it/debian/id_473",
+  "published_at": "2026-03-24T07:07:50Z",
+  "fetched_at": "2026-03-24T08:40:30.293904+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47499438\">Comments</a>",
+  "full_text": "Mon, 23 Mar 2026\n \n \n\n \n \n\nThis needs to be clear: systemd is under attack by a trolling campaign orchestrated by fascist elements. Nobody is forced to like or use systemd, but anybody who wants to pick a side should know the facts.\n\nRecently, the free software Nazi bar crowd styling themselves as \"concerned citizens\" has tried to start a moral panic by saying that systemd is implementing age verification checks or that somehow it will require providing personally identifiable information.\n\nThis is a lie: the facts are simply that the systemd users database has gained an optional \"date of birth\" field, which the desktop environments may use or not as they deem appropriate. Of course there is no \"identity verification\" or requirements to provide any data, which in any case would not be shared beyond authorized local applications.\n\nWhile the multiple recent bills proposing that general purpose operating systems implement age verification mechanisms are often concerning, both from a social and technical point of view, this is not the topic being discussed here. They are often suboptimal, but for a long time I have been opposing attempts to implement parental control at the network level and argued that it should be managed locally, by parents on their own machines: I cannot see why I should outright reject an attempt to implement the infrastructure to do that.\n\nIf we want to keep age-appropriate controls out of the hands of centralized authorities, the alternative is giving families the means to manage it themselves: this is what this field enables. Whether desktop environments use it for parental controls, for birthday reminders, or for nothing at all, is their users' decision.\n\nBy the way, the original UNIX users database has allowed storing PII in the GECOS field since it was invented in the '70s. Similar fields are also specified by many popular LDAP schemes: adding such an optional field is consistent with the UNIX tradition.\n\nAnd while we are at it, let's also refute the other smear campaign started by the same people: the systemd project is not accepting \"AI slop\". What happened is that a documentation file for the benefit of coding agents was added to the repository. To be clear: agents still cannot submit merge requests. The file itself remarks that all contributions must be reviewed in detail by humans, and this is basically the same policy used by the Linux kernel.",
+  "tags": [
+    [
+      "500-words",
+      "campaign",
+      "database",
+      "desktop",
+      "environments",
+      "field",
+      "implement",
+      "optional",
+      "systemd",
+      "users",
+      "verification"
+    ],
+    []
+  ]
+}

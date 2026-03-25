@@ -1,0 +1,31 @@
+{
+  "id": 5159,
+  "source": "Hacker News",
+  "title": "Sunsetting the Techempower Framework Benchmarks",
+  "url": "https://github.com/TechEmpower/FrameworkBenchmarks/issues/10932",
+  "published_at": "2026-03-24T01:54:03Z",
+  "fetched_at": "2026-03-24T03:20:35.308605+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47497763\">Comments</a>",
+  "full_text": "For more than a decade, the TechEmpower Framework Benchmarks have been a shared passion project between our team and the broader web development community, helping developers understand just how much their technology choices can influence raw performance. Today, with a full heart, we’re announcing that we’re sunsetting the project.\n\nWhen we first published results back in 2013, we had no idea this experiment would grow into a reference point for the entire industry. Over the years, the benchmarks have expanded to cover hundreds of frameworks across dozens of languages, from Go and Java to Ruby, PHP, C#, Python, and many more, almost all of them added and maintained by you. Together we shipped more than 20 rounds of results, saw thousands of pull requests, and watched as teams around the world used these numbers to guide performance work and inform architectural decisions.\n\nWhat made this project special was never just the charts, it was the community behind them. You debated design, contributed new frameworks and databases, chased down flaky runs, tuned kernels, rewrote handlers, and turned obscure micro-optimizations into shared knowledge for everyone. Maintainers carved out weekends to keep their implementations up to date, companies donated infrastructure and engineering time, and countless developers quietly used the data to learn, experiment, and push their stacks a little bit further.\n\nSunsetting the project doesn’t erase its impact. The repository, history, and past results remain as a snapshot of a community that cared deeply about understanding performance. We hope that the spirit of the TechEmpower Framework Benchmarks lives on in the way you approach measurement: with curiosity, skepticism, and a willingness to share what you learn.\n\nFrom everyone at TechEmpower: thank you. Thank you for the code, the benchmarks, the spirited arguments, the stars and issues and pull requests, and most of all, for treating this project as something worth building together. It has been an honor to steward this work, and we’re deeply grateful that, for so many years, you chose to be part of it.\n\nYou can email tfb@techempower.com if you have any questions.\n\n👋 ❤️",
+  "tags": [
+    [
+      "500-words",
+      "benchmarks",
+      "developers",
+      "framework",
+      "framework benchmarks",
+      "frameworkbenchmarks github",
+      "frameworks",
+      "issue techempower",
+      "project",
+      "pull",
+      "results",
+      "shared",
+      "sunsetting",
+      "techempower",
+      "techempower framework"
+    ],
+    []
+  ]
+}

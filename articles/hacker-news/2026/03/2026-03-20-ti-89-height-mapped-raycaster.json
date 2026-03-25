@@ -1,0 +1,33 @@
+{
+  "id": 5158,
+  "source": "Hacker News",
+  "title": "TI-89 Height-Mapped Raycaster",
+  "url": "https://github.com/dzoba/ti-89-raycasting-with-z",
+  "published_at": "2026-03-20T02:33:34Z",
+  "fetched_at": "2026-03-24T03:20:28.871121+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47449741\">Comments</a>",
+  "full_text": "TI-89 Height-Mapped Raycaster\n\nA custom height-mapped raycasting engine and dungeon crawler game for the TI-89 graphing calculator, built on top of the 2002 FAT Engine. Renders textured walls, stair geometry, billboard enemy sprites, and procedurally generated dungeons on a 10MHz Motorola 68000 with a 160x100 4-shade grayscale LCD.\n\n \n\nFull videos: dungeon crawler | stairs demo\n\nDescend (fatd_dungeon.c) is a procedural dungeon crawler with:\n\nHeight-mapped raycaster with per-tile floor elevations and stair-step rendering\n\nTextured walls and doors using the FAT Engine's texture system\n\nBillboard enemy sprites with mask-based transparency and per-column Z-buffer occlusion\n\nProcedural level generation (rooms, L-shaped corridors, triangle-wave staircases)\n\nBump-to-attack combat, HP/level tracking, blinking minimap\n\nSmooth Z interpolation when walking up and down stairs\n\nAlso included:\n\nfatd_stairs.c -- standalone height-mapped raycaster demo with textured walls\n\nfatd_hw4.c -- fully self-contained version that runs on HW4 Titanium (no FAT Engine dependency)\n\nfatd_life.c -- Conway's Game of Life with bitwise parallel neighbor counting (50-100x faster than scalar)\n\nfatd_plasma.c -- real-time grayscale plasma effect\n\nti_send.c / ti_dbus_send.c -- USB transfer tools for DUSB (Titanium) and DBUS (SilverLink) protocols\n\nA TI-89 (standard HW2 recommended) or TI-89 Titanium\n\nA USB cable: SilverLink (TI-GRAPH LINK) for standard TI-89, or direct USB for Titanium\n\nlibusb installed (brew install libusb on macOS)\n\nTransfer prebuilt binaries\n\nPrebuilt .89y and .89z files are in output/.\n\nFor a standard TI-89 with SilverLink cable:\n\n# Build the transfer tool\ncc -o ti_dbus_send tools/ti_dbus_send.c -lusb-1.0\n\n# Send the FAT Engine runtime, textures, launcher, and dungeon game\n./ti_dbus_send output/fatlib.89y output/fatdtx.89y output/fatload.89z output/fatddung.89y\n\nFor a TI-89 Titanium with direct USB:\n\ncc -o ti_send tools/ti_send.c -lusb-1.0\n./ti_send output/fatlib.89y output/fatdtx.89y output/fatload.89z output/fatddung.89y\n\nOn the calculator, run fatload() from the home screen.\n\nNote: On the standard TI-89, archive fatlib and fatdtx to Flash ROM via VAR-LINK to free enough RAM for the engine to load.\n\nNote: The full FAT Engine (textured walls, sprites) only works on standard TI-89 (HW1/HW2). The Titanium HW4 blocks heap code execution. Use descend.89z (the standalone flat-shaded version) on Titanium:\n\n./ti_send output/descend.89z\n# Then run descend() on the calculator\n\nArrow keys: move forward/backward, turn left/right\n\nESC: quit\n\nDocker (for the GCC4TI cross-compiler)\n\nPython 3 (for .89g packaging)\n\nBuild the Docker image (once)\n\ndocker build -t gcc4ti-builder .\n\nBuild the dungeon crawler\n\ncd tools\nDRY_RUN=1 bash build_dungeon.sh\n\nThis compiles src/fatd_dungeon.c with GCC4TI inside Docker, exePack compresses it, and packages a .89g group file in output/.\n\nDrop DRY_RUN=1 to also launch TiEmu (requires a patched TiEmu build and a TI-89 ROM image).\n\nsrc/ Source code for all demos and the dungeon crawler\nsrc/includes/ FAT Engine header (fat.h)\ntools/ Build scripts, packaging tools, USB transfer tools\noutput/ Prebuilt binaries ready to send to a calculator\nfat-sdk/ Original 2002 FAT Engine SDK (engine, textures, examples)\nDockerfile GCC4TI cross-compiler build environment\n\nThe FAT Engine (\"Fixed Angle Texturing\") is a Wolfenstein 3D-style raycasting engine for TI-89/TI-92+ calculators, written by Thomas Nussbaumer and released in 2002 by the TiCT team. It renders 3D environments at 560-825 frames per minute on the 10MHz Motorola 68000.\n\nThe FAT Engine SDK is included in fat-sdk/ for build purposes. The original SDK was distributed freely for TI calculator development but has no explicit open-source license. The SDK source, examples, and texture data are copyright Thomas Nussbaumer / TiCT. If you are the original author and have concerns, please open an issue.\n\nThe custom source code in src/ and tools/ is released under the MIT License. The FAT Engine SDK in fat-sdk/ retains its original copyright (see above).",
+  "tags": [
+    [
+      "1000-words",
+      "build",
+      "crawler",
+      "dungeon",
+      "engine",
+      "engine sdk",
+      "fat engine",
+      "fortnox world",
+      "game",
+      "gcc ti",
+      "github",
+      "original",
+      "raycaster",
+      "standard",
+      "titanium",
+      "transfer",
+      "usb"
+    ],
+    []
+  ]
+}
