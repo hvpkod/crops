@@ -1,0 +1,34 @@
+{
+  "id": 5428,
+  "source": "The Verge",
+  "title": "Anthropic’s Claude Code gets ‘safer’ auto mode",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/900201/anthropic-claude-code-auto-mode",
+  "published_at": "2026-03-25T11:39:46Z",
+  "fetched_at": "2026-03-25T12:00:22.844900+00:00",
+  "author": "Robert Hart",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/STK269_ANTHROPIC_2_A.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Anthropic has <a href=\"https://claude.com/blog/auto-mode\">launched</a> an \"auto mode\" for <a href=\"https://www.theverge.com/ai-artificial-intelligence/860730/anthropic-cowork-feature-ai-agents-claude-code\">Claude Code</a>, a new tool that lets AI make permissions-level decisions on users' behalf. The company says the feature offers vibe coders  a safer alternative between constant handholding or giving the model dangerous levels of autonomy. </p>\n<p class=\"has-text-align-none\">Claude Code is <a href=\"https://www.theverge.com/ai-artificial-intelligence/899430/anthropic-claude-code-cowork-ai-control-computer\">capable of acting independently</a> on users' behalf, a useful but risky feature as it can also do things users don't want, like deleting files, ",
+  "full_text": "Anthropic has launched an “auto mode” for Claude Code, a new tool that lets AI make permissions-level decisions on users’ behalf. The company says the feature offers vibe coders a safer alternative between constant handholding or giving the model dangerous levels of autonomy.\n\nClaude Code is capable of acting independently on users’ behalf, a useful but risky feature as it can also do things users don’t want, like deleting files, sending out sensitive data, and executing malicious code or hidden instructions. Auto mode is designed to prevent this, flagging and blocking potentially risky actions before they run and offering the agent a chance to try again or ask a user to intervene.\n\nRight now, auto mode is only available as a research preview for Team plan users. Anthropic says access will expand to include Enterprise and API users in “the coming days.”\n\nAnthropic warns the tool is experimental and “doesn’t eliminate” risk entirely, recommending developers use it in “isolated environments.”",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "anthropic",
+      "api",
+      "auto",
+      "claude",
+      "code",
+      "feature",
+      "launch",
+      "mode",
+      "news",
+      "risky",
+      "tool",
+      "user"
+    ],
+    [
+      "ai",
+      "news"
+    ]
+  ]
+}

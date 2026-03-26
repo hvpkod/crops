@@ -1,0 +1,37 @@
+{
+  "id": 5436,
+  "source": "Hacker News",
+  "title": "Building a coding agent in Swift from scratch",
+  "url": "https://github.com/ivan-magda/swift-claude-code",
+  "published_at": "2026-03-25T10:45:40Z",
+  "fetched_at": "2026-03-25T13:20:26.482070+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47515605\">Comments</a>",
+  "full_text": "Exploring the architecture of coding agents by rebuilding a Claude Code-style CLI from scratch in Swift.\n\nA complete 9-part learning series is available on ivanmagda.dev.\n\nStart the series →\n\nClaude Code feels unusually effective compared to other coding agents, and I suspect most of it comes from architectural restraint rather than architectural complexity. I studied the tool surface, traced the interaction loop, and tried to isolate which design choices actually matter.\n\nMy working theory: coding agents benefit more from a small set of excellent tools and tight loop design than from large orchestration layers.\n\nClaude Code doesn't have many tools. The tools it does have are simple: a search tool, a file editing tool. But those tools are really good. And the system leans on the model far more than most agent implementations — less scaffolding, more trust in the LLM to do the heavy lifting.\n\nThis project tests that idea by rebuilding the core mechanics from scratch in Swift, one stage at a time, to see how little architecture you actually need.\n\nThis project tests a few specific ideas about coding agents:\n\nA small number of high-quality tools beats a large tool catalog\n\nThe model should do most of the heavy lifting — thin orchestration, not thick\n\nExplicit task state improves reliability more than prompt-only planning\n\nControlled context injection matters more than persistent memory\n\nContext compaction is a product feature, not just a token optimization\n\nEach stage is designed to isolate one mechanism and see what it enables.\n\nThe whole thing boils down to one loop:\n\nfunc run(query: String) async throws -> String {\n messages.append(.user(query))\n\n while true {\n let request = APIRequest(\n model: model, system: systemPrompt, messages: messages, tools: Self.toolDefinitions\n )\n let response = try await apiClient.createMessage(request)\n messages.append(Message(role: .assistant, content: response.content))\n\n guard response.stopReason == .toolUse else {\n return response.content.textContent\n }\n\n var results: [ContentBlock] = []\n for block in response.content {\n if case .toolUse(let id, let name, let input) = block {\n let output = await executeTool(name: name, input: input)\n results.append(.toolResult(toolUseId: id, content: output, isError: false))\n }\n }\n messages.append(Message(role: .user, content: results))\n }\n}\n\nThe loop is the invariant. Tools are the variable. Every stage adds entries to the tool handler dictionary and injection points before the API call, but the loop body itself never changes.\n\nProgress is tracked via git tags. The roadmap is split into two phases — core mechanics first, then product-level features.\n\nThe minimum viable agent: a loop and a small set of good tools.\n\nStage\nWhat It Adds\nTag\n\n00\nBootstrap: SPM project, two-target layout, CI\n00-bootstrap\n\n01\nAgent loop + bash tool\n01-agent-loop\n\n02\nTool dispatch: read_file, write_file, edit_file with path safety\n02-tool-dispatch\n\n03\nTodo tracking with nag reminder injection\n03-todo-write\n\nPhase 2 — Product Mechanics\n\nThe features that make an agent feel like a usable product: context, memory management, and persistence.\n\nStage\nWhat It Adds\nTag\n\n04\nSubagents: recursive loop with fresh context\n04-subagents\n\n05\nSkill loading: .md files injected as tool results\n05-skill-loading\n\n06\nContext compaction: 3-layer strategy (micro, auto, manual)\n06-context-compaction\n\n07\nTask system: file-based CRUD with dependency DAG\n07-task-system\n\n08\nBackground tasks: Task {} + actor-based notification queue\n08-background-tasks\n\nTwo-target Swift Package Manager project:\n\nCore is the library — API client, shell executor, agent loop, tools.\n\nCLI is just the entry point. The executable is called claude.\n\nRaw HTTP to POST https://api.anthropic.com/v1/messages using AsyncHTTPClient. Works on both macOS and Linux.\n\nThis project is not:\n\nA full Claude Code clone or drop-in replacement\n\nA general-purpose multi-agent framework\n\nProduction-ready IDE tooling\n\nIt's a staged exploration of coding-agent architecture — intentionally minimal, intentionally incomplete.\n\nSwift 6.2 with strict concurrency\n\nAsyncHTTPClient (SwiftNIO-based) for cross-platform HTTP + streaming SSE\n\nFoundation Process for shell command execution\n\nmacOS 10.15+ / Linux\n\ngit clone https://github.com/ivan-magda/swift-claude-code.git\ncd swift-claude-code\n\n# Set up your API key and model\ncp .env.example .env\n# Edit .env with your ANTHROPIC_API_KEY and MODEL_ID\n\nswift build\nswift run claude\n\nMIT",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "api",
+      "apirequest",
+      "architecture",
+      "claude",
+      "cli",
+      "cod",
+      "contentblock",
+      "crud",
+      "dag",
+      "linux",
+      "llm",
+      "loop",
+      "mechanics",
+      "scratch",
+      "stage",
+      "swift",
+      "swift package",
+      "tool"
+    ],
+    []
+  ]
+}

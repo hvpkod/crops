@@ -1,0 +1,34 @@
+{
+  "id": 5566,
+  "source": "Slashdot",
+  "title": "Apple Can Create Smaller On-Device AI Models From Google's Gemini",
+  "url": "https://apple.slashdot.org/story/26/03/25/1948215/apple-can-create-smaller-on-device-ai-models-from-googles-gemini?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-25T21:00:00Z",
+  "fetched_at": "2026-03-25T21:20:19.441447+00:00",
+  "author": "BeauHD",
+  "summary": "Apple reportedly has full access to customize Google's Gemini model, allowing it to distill smaller on-device AI models for Siri and other features that can run locally without an internet connection. MacRumors reports: The Information explains that Apple can ask the main Gemini model to perform a series of tasks that provide high-quality results, with a rundown of the reasoning process. Apple can feed the answers and reasoning information that it gets from Gemini to train smaller, cheaper models. With this process, the smaller models are able to learn the internal computations used by Gemini, producing efficient models that have Gemini-like performance but require less computing power.\n \nApple is also able to edit Gemini as needed to make sure that it responds to queries in a way that Apple wants, but Apple has been running into some issues because Gemini has been tuned for chatbot and coding applications, which doesn't always meet Apple's needs.<p><div class=\"share_submission\">\n<a cl",
+  "full_text": "Apple reportedly\n\n has full access to customize Google's Gemini model, allowing it to distill smaller on-device AI models for Siri and other features\n\n that can run locally without an internet connection. MacRumors reports: The Information explains that Apple can ask the main Gemini model to perform a series of tasks that provide high-quality results, with a rundown of the reasoning process. Apple can feed the answers and reasoning information that it gets from Gemini to train smaller, cheaper models. With this process, the smaller models are able to learn the internal computations used by Gemini, producing efficient models that have Gemini-like performance but require less computing power.\n\n \n\nApple is also able to edit Gemini as needed to make sure that it responds to queries in a way that Apple wants, but Apple has been running into some issues because Gemini has been tuned for chatbot and coding applications, which doesn't always meet Apple's needs.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "able",
+      "ai",
+      "allow",
+      "answer",
+      "apple",
+      "gemini",
+      "gemini apple",
+      "google",
+      "information",
+      "macrumors",
+      "model",
+      "produce",
+      "reasoning",
+      "small"
+    ],
+    [
+      "ai"
+    ]
+  ]
+}

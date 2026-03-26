@@ -1,0 +1,40 @@
+{
+  "id": 5458,
+  "source": "Hacker News",
+  "title": "How to Keep ICE Agents Out of Your Devices at Airports",
+  "url": "https://theintercept.com/2026/03/25/ice-airports-phone-security-privacy-safety/",
+  "published_at": "2026-03-25T14:52:30Z",
+  "fetched_at": "2026-03-25T15:20:35.728017+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47518121\">Comments</a>",
+  "full_text": "With Immigration and Customs Enforcement agents deployed to more than a dozen airports across the U.S. and border device searches growing increasingly common, it’s more important than ever to consider your digital security before you travel.\n\nThe risks are real. Customs and Border Protection agents have the authority to examine travelers’ devices. In June, for instance, federal agents denied a Norwegian tourist entry to the U.S. after looking through his phone. (Authorities claim they turned him away for admitted drug use; he says it was over a meme depicting Vice President JD Vance as a bald baby.)\n\nImmigration and Customs Enforcement have already started targeting travelers, with agents in plain clothes forcefully detaining a mother in front of her young daughter at San Francisco International Airport on Sunday after a tip from the Transportation Security Administration.\n\nIf you’re flying, take these steps to reduce the likelihood that your sensitive information is compromised at the airport.\n\nDon’t Bring Your Usual Devices\n\nThe only surefire way to keep your devices from being searched and seized is to simply not bring them with you on your trip. If you can’t leave them at home, consider mailing them to and from your destination.\n\nAnother option is to leave devices that contain sensitive information at home and instead bring throwaway travel devices you’re willing to have searched or confiscated. This doesn’t need to be an expensive proposition. You can reformat and repurpose an old phone or tablet, or purchase refurbished older models that are comparatively cheap. Then buy a temporary SIM card or eSIM so that you’re not using your usual number. Remember to let contacts know that for the duration of your trip you’ll be reachable at a different number.\n\nCreate a travel account for these devices. You can do so by starting a fresh account in the App Store or Google Play. This should ensure that if you’re forced to log into your device by authorities at the airport, the only information they’ll find is data you’ve put on this specific piece of hardware. CBP agents are supposed to only be able to look at data that’s local on the phone.\n\nIf you have anything sensitive in your accounts (say, emails from confidential sources) or anything you believe federal agents could consider damning (such as party pics or memes), be sure not to sync your apps, files, and settings onto your travel devices.\n\nDisable Biometrics and Power Off\n\nRegardless of whether you opt to bring your usual devices or specialized travel burners, take these steps to lock down your devices.\n\nFirst and foremost, disable any biometrics, like using your face or fingerprint, to unlock your phone. Instead, set up a unique and random alphanumeric passcode; eight characters consisting of random digits and numbers is a good start. Be cautious of entering your passcode in open view of surveillance cameras. Use one hand to shield your screen, and the thumb of your other hand to put in your passcode. Consider using privacy screens on your devices to further diminish the chance of wandering eyes noticing things that are none of their business.\n\nBe cautious of entering your passcode in open view of surveillance cameras.\n\nWhen going through security checkpoints, turn your devices completely off. Don’t just put them to sleep — fully shut them down. Though having a locked device is better than having it be unlocked, turning it off is best, as this makes it much harder for data to be forensically recovered from your devices.\n\nThat means you’ll need to print out paper copies of boarding passes, rather than rely on digital versions stored in a device wallet or via your airline’s app.\n\nIf you’re asked to unlock your devices, you can say “no.” But doing say may result in being delayed and hassled, and your device could be confiscated. You should receive paperwork attesting to the confiscation and establishing chain of custody (this is called CBP Form 6051D, or a custody receipt for detained property). As the Electronic Frontier Foundation points out, it may be months before your devices are returned — or even for an indefinite period of time if agents believe there is evidence of a crime.\n\n \n\n \n\n We’re independent of corporate interests — and powered by members. Join us. \n \n\n \n \n Become a member \n \n \n \n\n \n\n \n\n \n\n \n Join Our Newsletter \n \n Thank You For Joining! \n \n \n\n \n Original reporting. Fearless journalism. Delivered to you. \n \n Will you take the next step to support our independent journalism by becoming a member of The Intercept? \n \n \n \n Become a member \n \n\n \n\n \n\nBy signing up, I agree to receive emails from The Intercept and to the Privacy Policy and Terms of Use.\n \n \n \n \n \n\nDelete Files and Log Out\n\nTo practice what’s known in security circles as “defense in depth,” it’s best to think of your digital security as an onion: If an outer layer is peeled off, you want there to be a good second layer to minimize the damage to the core. To that end, assume that even if you have a strong passphrase and have powered off your device, someone may still be able to find a way in. Your travel devices should, therefore, minimize the amount of sensitive information they store. In that case, even if someone manages to break through the outer layer, the information exposed would be trivial.\n\nIf you use a password manager — a specialized app that securely stores your passwords — put it into a “travel mode,” limiting the passwords it will reveal for the duration of your trip. Remove access to sensitive accounts that you very likely won’t have a reason to need to access during your travels; for example, removing your work email if you’re going on vacation, or leaving and deleting and sensitive Signal chats, like local ICE watch groups.\n\nLog out of or delete apps you won’t need while traveling. You can reinstall and log back in when you are safely away from the airport. Remember to remove them once again when you’re on your way back — and keep in mind that this may lead to some apps deleting your history.\n\nFinally, be sure to prune your contacts to remove any that are sensitive, such as sources, if you’re a journalist. If you have sensitive materials on your devices that you’ll need to access during your travels, use a tool like Cryptomator to encrypt them and upload them to a cloud drive, then delete the files from your devices. You can download them when you reach your destination.\n\nThese extra steps are undoubtedly a bit of a pain, but any inconvenience would pale in comparison to the potential damage if sensitive information is disclosed during your time in the airport.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "agent",
+      "border protection",
+      "bring",
+      "cbp",
+      "consider",
+      "customs",
+      "customs enforcement",
+      "delete files",
+      "device",
+      "disable biometrics",
+      "information",
+      "intercept",
+      "security",
+      "sensitive",
+      "signal",
+      "step",
+      "travel",
+      "u.s.",
+      "usual",
+      "visa"
+    ],
+    [
+      "travel"
+    ]
+  ]
+}

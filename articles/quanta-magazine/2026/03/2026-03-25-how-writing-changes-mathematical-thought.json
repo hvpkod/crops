@@ -1,0 +1,33 @@
+{
+  "id": 5501,
+  "source": "Quanta Magazine",
+  "title": "How Writing Changes Mathematical Thought",
+  "url": "https://www.quantamagazine.org/how-writing-changes-mathematical-thought-20260325/",
+  "published_at": "2026-03-25T14:52:06Z",
+  "fetched_at": "2026-03-25T18:00:22.204713+00:00",
+  "author": "John Pavlus",
+  "summary": "<p>It&rsquo;s natural to think of math as being fundamentally abstract. Whether it&rsquo;s invented or discovered, its truths are so literally universal that even aliens would agree (so the thinking goes) that 2 and 2 make 4. The actual work of mathematics, though, typically involves something utterly earthbound: &ldquo;making marks on paper or blackboards,&rdquo; said David E. Dunning, a historian of mathematics and&#8230;</p>\n<p><a href=\"https://www.quantamagazine.org/how-writing-changes-mathematical-thought-20260325/\" rel=\"nofollow\">Source</a></p>",
+  "full_text": "Do notations always converge like this on something dominant?\n\nNot always, and not always so clearly. Mathematical logic is an especially important example where you see a huge proliferation of notations — and how comfortable authors seem [to be] with it. Eventually they converge, more or less, but you also just see coexistence.\n\nOne reason is that [logicians] have very different goals, especially early on. George Boole, who publishes his first book on mathematical logic in 1847, believes that logic is mathematical, and that you can do the same logic as Aristotle more efficiently by representing syllogisms as equations. So for him, it’s very important to use existing algebraic notation: the system readers already know.\n\nBut in 1879, Gottlob Frege, the German mathematician, publishes his Begriffsschrift, which means “concept script.” For him, the goal is the opposite: It’s to show that mathematics really is logic. To do that, his notation for logic needs to have no mathematical notation in it at all, because he’s going to eventually rebuild mathematics. And so he invents a system that looks nothing like prior mathematical notation.\n\n \n \n\n \n\n \n\nA page from Gottlob Frege’s Begriffsschrift, in which he develops a formal notation for logic.\n \n \n \n \n\nFor a while, this multiplicity [of notations] just becomes how logic works. Part of it is because logic doesn’t have one very clear application or one unified purpose. Different writers think it matters for different reasons, and that is reflected in what system of notation they think best serves their purposes. Keeping up with the literature meant constantly moving between these systems and thinking about what they could and couldn’t do.\n\nThis proliferation of notations isn’t unique to logic, but it uniquely matters. In the 1930s, you see this culminating period where you have Kurt Gödel and Alan Turing and Alonzo Church putting forward really important theorems [about incompleteness and computation] — where what a system of writing can do is the subject matter, is what you would prove a theorem about. And these kinds of meta-questions, I think, started by having this field where nobody writes the same way. It is not random that the context [they’re] working in is this tradition where there’s so many notations and you’re constantly paying attention to what they can do.\n\nHow is mathematical notation still evolving? Do we need to push it beyond writing?\n\nI doubt that we are hitting the ceiling. Computers allow for all kinds of modeling, and I think we will probably see more and more areas of mathematics where the result is something dynamic —[models or simulations] of objects and processes that you just can’t print. But this is not unprecedented in the history of math.\n \n \n\nWe talked about paradigms other than writing in the more distant past, and in the late 19th century there was a real heyday of physical models. There were a lot of plaster geometric models, and we have a ton here at the [Smithsonian] museum. They used to be in every math department: You had your set of models for all sorts of different surfaces, and there was an attitude in which part of studying math was to cultivate this physical intuition for the forms that equations represented. You can see the model-making practice is actually a type of research exploration.\n\nAnalogously to that, computers open up a ton of possibilities for representations that are not typographic and will enable new questions to be asked.\n\nA qualification we should have: We’re talking about elite mathematical discourse, and it’s a useful shorthand to call that “math,” but that actually leaves a lot out. The knowledge somebody uses in a grocery store, dealing with the prices of things and their budget, that is also mathematical. We have these notational technologies that allow us to not see this as significant math, but it is.\n\nHas notation become widespread or familiar in other ways?\n\nAnother one that comes to mind is the use of x as a variable. It takes a long time for that practice to develop in mathematical history. And when children in grade school first arrive at the idea that we’re going to treat letters as if they’re numbers, it still hits [them] as something esoteric. But [now] it is very widely learned, and all sorts of people who would not consider themselves mathematical are comfortable using x in a sentence to stand in for the unknown. You can say, “Suppose I have x pounds of apples,” and someone who wants nothing to do with the actual manipulating of an equation is not put off by that way of speaking.\n\nThat’s what notation makes possible — the esoteric. And what counts as esoteric can change.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "alonzo church",
+      "aristotle",
+      "constantly",
+      "different",
+      "gottlob",
+      "important",
+      "logic",
+      "mathematical",
+      "mathematics",
+      "notation",
+      "proliferation",
+      "system",
+      "write"
+    ],
+    [
+      "mathematics"
+    ]
+  ]
+}

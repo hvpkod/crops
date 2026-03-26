@@ -1,0 +1,43 @@
+{
+  "id": 5381,
+  "source": "Ars Technica Science",
+  "title": "Final analysis of 2025 Iberian blackout: Policies left Spain at risk",
+  "url": "https://arstechnica.com/science/2026/03/final-analysis-of-2025-iberian-blackout-policies-left-spain-at-risk/",
+  "published_at": "2026-03-24T22:43:49Z",
+  "fetched_at": "2026-03-25T02:40:25.752346+00:00",
+  "author": "John Timmer",
+  "summary": "<p>Roughly a year ago, Spain and Portugal went dark when the electrical grid of the entire Iberian Peninsula failed. While the grid operators did a heroic job of <a href=\"https://arstechnica.com/science/2025/04/why-restarting-a-power-grid-is-so-hard/\">restarting the grid</a> quickly, there were obvious questions about what had led to the blackout in the first place. A <a href=\"https://arstechnica.com/science/2025/06/spanish-blackout-report-power-plants-meant-to-stabilize-voltage-didnt/\" rel=\"noopener\" target=\"_blank\">preliminary report</a> suggested that a combination of grid-level voltage oscillations and early disconnections was the main factor.</p>\n<p>Over the weekend, the European grid coordinator, ENTSO-e, released its <a href=\"https://www.entsoe.eu/publications/blackout/28-april-2025-iberian-blackout/#Publications_&amp;_Documents\">final, detailed report</a> on the event. While it's largely consistent with the preliminary conclusions, the report provides much more detail about wha",
+  "full_text": "Most of these issues can be improved through a combination of software and policy changes, and the report makes some suggestions along those lines.\n\nThe inertia provided by generators with lots of spinning metal—think hydro or natural gas turbines—is generally thought of as improving the stability of the grid, but this analysis suggests that even tripling the amount of inertia would have only dampened the system’s oscillations by about 3 percent. So it’s not clear that having more traditional power online would have helped.\n\nThat said, there is one area where potential problems were clearly assigned to one form of renewable generation: rooftop solar. The problem there is less that the hardware wasn’t following policy and more that there’s no real policy being followed. Red Eléctrica, the Spanish grid operator, estimates that it has about 6.5 GW of small-scale (< 1 MW) solar on the grid, with 75 percent (4.9 GW) connected to low-voltage, consumer-level grids. The committee got data from two inverter manufacturers, which collectively track the performance of about 15 percent of that capacity.\n\nThis data shows that a substantial fraction (over 12 percent) of one of the manufacturer’s hardware dropped off the grid during the first oscillations and reconnected a few minutes later. Shortly after that, over 20 percent disconnected again during the voltage peak that occurred about two minutes before the blackout. In contrast, the fraction of the second manufacturer’s hardware that dropped off the grid never exceeded 10 percent.\n\nAll of this suggests that small-scale generation could have been seeing hundreds of Megawatts of production drop off and hop back on the grid in the minutes leading up to the blackout, with the exact numbers highly dependent on the inverter manufacturers—and that the grid operator has a limited window into their actual behavior. This is a case where increased regulation is probably needed.\n\nPutting learning into practice\n\nThe report is encouraging in that it identifies numerous fixes that should be fairly easy to implement, including greater automation of shunt reactors, wider safety margins between alarms and disconnection, and better alignment between grid policies and hardware behavior. And it doesn’t appear to identify any critical issues that will require a rethink of Spain’s approach to getting its grid to net zero.\n\nEconomics will also likely help the situation. Spain presently has little in the way of battery capacity, which can perform multiple functions in stabilizing the grid. But the continued growth of renewables will increasingly lead to the overproduction that makes batteries economically viable.\n\nThe biggest question appears to be how quickly Spain can implement some of the recommendations in the report.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "analysis",
+      "blackout",
+      "climate",
+      "drop",
+      "energy",
+      "fraction",
+      "grid",
+      "grid stability",
+      "hardware",
+      "inertia",
+      "inverter",
+      "minute",
+      "oscillation",
+      "policy",
+      "portugal",
+      "power grid",
+      "science",
+      "spain"
+    ],
+    [
+      "analysis",
+      "blackout",
+      "grid",
+      "grid stability",
+      "portugal",
+      "power grid"
+    ]
+  ]
+}

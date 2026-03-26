@@ -1,0 +1,41 @@
+{
+  "id": 5500,
+  "source": "Quanta Magazine",
+  "title": "In Math, Rigor Is Vital. But Are Digitized Proofs Taking It Too Far?",
+  "url": "https://www.quantamagazine.org/in-math-rigor-is-vital-but-are-digitized-proofs-taking-it-too-far-20260325/",
+  "published_at": "2026-03-25T14:53:34Z",
+  "fetched_at": "2026-03-25T18:00:20.307890+00:00",
+  "author": "Leila Sloman",
+  "summary": "<p>In ancient Greece, Euclid showed that if you agree on a small list of preliminary principles, or axioms, you can use deductive reasoning to reveal all sorts of new mathematical truths. But although these early proofs, as mathematicians call them, were derived using the laws of logic, they sometimes also contained hidden, unstated assumptions or relied on misleading intuitions. In these cases&#8230;</p>\n<p><a href=\"https://www.quantamagazine.org/in-math-rigor-is-vital-but-are-digitized-proofs-taking-it-too-far-20260325/\" rel=\"nofollow\">Source</a></p>",
+  "full_text": "The real legacy of these books, however, is not their content but their style. Bourbaki prioritized abstraction over all else, eschewing concrete examples and calculations in favor of only the most general statements. They presented each proof as a series of logical deductions, usually without reference to any underlying intuition or rationale.\n\n \n \n\n \n\n \n\nOne of Bourbaki’s textbooks.\n \n \n \n \n\n“It’s a style that is very formal,” said Leo Corry, a historian at Tel Aviv University. “Very austere.”\n\nBourbaki’s philosophy quickly spread, influencing mathematics almost everywhere. “It had an enormous influence,” said Patrick Massot of Paris-Saclay University. “The most successful parts have become so much part of the common mathematical knowledge and style that it’s hard to think of what it was before.”\n\nThe subject became far more airtight, if increasingly abstract and difficult. “This was not a brilliant decision from a pedagogical point of view,” wrote the mathematician Maurice Mashaal. But the group’s emphasis on abstraction molded research mathematics in ways that are harder to assess.\n\nSome mathematicians revere Bourbaki’s approach. Massot argues that through abstraction and elegance, “you are forced to understand what really makes things work, and what is just noise.” Formalization, in this view, has brought clarity.\n\nBut Bourbaki’s project had unforeseen consequences as well. Their vocabulary and style weren’t a natural fit for every type of mathematics. For example, the fields of combinatorics (often described as the science of counting) and graph theory (the science of networks) tend to be highly concrete and visual. Perhaps, then, it’s no surprise that for decades, they were sidelined at most prestigious institutions in the United States and parts of Europe; they were only able to thrive in places where Bourbaki’s influence was limited, like Hungary.\n\n“Graph theory [was] the slum of topology,” said Belá Bollobás of the University of Memphis. “That atmosphere changed only recently. Very recently.”\n\n \n \n\n \n\n \n\nAravind Asok worries that overemphasizing formalization might homogenize mathematics.\n \n \n \n \n\nEven in fields that did flourish under the Bourbaki framework — algebra, topology, analysis — some mathematicians worry that Bourbaki was too successful. According to them, the ways in which proofs are written and theories constructed have become overly homogeneous.\n\n“There is a sense that it decreased the cultural diversity of mathematics,” said Aravind Asok of the University of Southern California. Before Bourbaki, for instance, there were many versions of algebraic geometry. In France, for example, methods were grounded in analysis, while in Italy, a geometric style reigned.\n\nThe Italian school, which lacked rigor and involved many errors, quickly faded as Bourbaki’s influence spread. Certainly, algebraic geometry became more reliable. But by cutting off other paths of possible progress, Bourbaki introduced a new problem. “I don’t want any mathematics where one mode dominates,” Asok said. “There is a cultural history to mathematics that deserves to be preserved.”\n\nProofs and Promises\n\nDespite the best efforts of Bourbaki, Cauchy, and Weierstrass, truly formal proofs have always been objects of theory, not practice. Some mathematicians now hope that computers can change that.\n\nSince the 1960s, researchers have been developing computer programs called proof assistants. Using a proof assistant, a mathematician will write every line of a proof (including every definition) in a language that the computer can understand, and then the proof assistant will check the logic. If even a single step doesn’t follow from a preceding one — if you haven’t rigorously shown every tiny detail, like the fact that 1 + 1 equals 2 — then the program will not consider the proof correct.\n\nCurrently, mathematicians are hoping to formalize all of mathematics using a proof assistant called Lean. They’ve created a library of more than 120,000 definitions so far and have verified a quarter of a million theorems. Several mathematicians maintain this database, keeping it up to date and vetting new contributions. (A handful of them do this work full time.) They’ve received over $10 million in funding, mostly from the billionaire financier Alex Gerko.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "abstraction",
+      "aravind asok",
+      "asok",
+      "belá bollobás",
+      "bourbaki",
+      "bourbaki’s",
+      "call",
+      "europe",
+      "france",
+      "hungary",
+      "italy",
+      "massot",
+      "mathematic",
+      "mathematician",
+      "mathematics",
+      "paris-saclay university",
+      "proof",
+      "rigor",
+      "style",
+      "tel aviv university",
+      "the united states"
+    ],
+    [
+      "mathematics"
+    ]
+  ]
+}

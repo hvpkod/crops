@@ -1,0 +1,31 @@
+{
+  "id": 5393,
+  "source": "Hacker News",
+  "title": "VitruvianOS – Desktop Linux Inspired by the BeOS",
+  "url": "https://v-os.dev",
+  "published_at": "2026-03-25T03:17:06Z",
+  "fetched_at": "2026-03-25T04:40:25.127927+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47512816\">Comments</a>",
+  "full_text": "What is VitruvianOS?\n\nV\\OS is an operating system based on linux heavily inspired by the BeOS, bringing the elegance and simplicity of a classic operating system to modern days. By leveraging the strengths of Linux while maintaining the user-friendly aspects of BeOS, V\\OS offers a unique blend of performance and usability. V\\OS leverages the power of linux by integrating ad-hoc built kernel modules and real time patches for a reactive and enjoyable user experience. V\\OS supports the BeOS/Haiku runtime on Linux with minimal to no API changes.\n\nThe boot file systems supported are XFS and SquashFS including support for extended attributes. File system indexing, live queries, and multiuser support with graphical login are planned to be released in upcoming versions. By default the system ships a linux kernel including real time patches while at the same time providing support for non-rt linux kernels.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "api",
+      "beos",
+      "file",
+      "include",
+      "inspire",
+      "kernel",
+      "linux",
+      "operating",
+      "patch",
+      "real",
+      "support",
+      "system",
+      "xfs"
+    ],
+    []
+  ]
+}

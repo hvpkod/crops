@@ -1,0 +1,31 @@
+{
+  "id": 5545,
+  "source": "Hacker News",
+  "title": "ARC-AGI-3",
+  "url": "https://arcprize.org/arc-agi/3",
+  "published_at": "2026-03-25T18:16:03Z",
+  "fetched_at": "2026-03-25T20:00:31.396163+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47521150\">Comments</a>",
+  "full_text": "What is ARC-AGI-3?\n\nARC-AGI-3 is an interactive reasoning benchmark which challenges AI agents to explore novel environments, acquire goals on the fly, build adaptable world models, and learn continuously.\n\nA 100% score means AI agents can beat every game as efficiently as humans.\n\nInstead of solving static puzzles, agents must learn from experience inside each environment—perceiving what matters, selecting actions, and adapting their strategy without relying on natural-language instructions.\n\nHow it measures intelligence\n100% human-solvable environments\nSkill-acquisition efficiency over time\nLong-horizon planning with sparse feedback\nExperience-driven adaptation across multiple steps\n\nAs long as there is a gap between AI and human learning, we do not have AGI.\n\nARC-AGI-3 makes that gap measurable by testing intelligence across time, not just final answers—capturing planning horizons, memory compression, and the ability to update beliefs as new evidence appears.\n\nDesign principles\nEasy for humans to pick up quickly\nNo pre-loaded knowledge or hidden prompts\nClear goals + meaningful feedback\nNovelty that prevents brute-force memorization",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "adapt",
+      "agent",
+      "agi",
+      "feedback",
+      "goal",
+      "human",
+      "intelligence",
+      "learn",
+      "planning",
+      "select",
+      "strategy"
+    ],
+    [
+      "strategy"
+    ]
+  ]
+}

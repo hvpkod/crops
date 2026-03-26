@@ -1,0 +1,37 @@
+{
+  "id": 5468,
+  "source": "Hacker News",
+  "title": "Ubuntu wants to strip some of GRUB features in 26.10 for security purposes",
+  "url": "https://discourse.ubuntu.com/t/streamlining-secure-boot-for-26-10/79069",
+  "published_at": "2026-03-25T14:34:09Z",
+  "fetched_at": "2026-03-25T16:00:39.860654+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47517885\">Comments</a>",
+  "full_text": "Ubuntu systems support secure boot using grub. grub contains a lot of parsers for file systems and other things which are a constant source of security issues.\n\nIn 26.10, we’d like to propose removing the following features from signed GRUB builds:\n\nFilesystems\n\nRemove btrfs, hfsplus, xfs, zfs\n\nRetain ext4, fat, iso9660 (and squashfs for snaps)\n\nImage formats:\n\nRemove jpeg, png\n\nRetain none\n\nWe do not use images, but using that in your grub.cfg locally is a massive security risk (if even still allowed)\n\nPartition tables:\n\nRemove part_apple\n\nRetain part_gpt and part_msod\n\nSupport for LVM\n\nSupport for md-raid; except raid1.\n\nSupport for LUKS-encrypted disks\n\nIn effect systems must boot with /boot on a raw ext4 partition (whether a separate or inside of /); on GPT or MBR disks.\n\nThis means for example, that an encrypted system must use an ext4 /boot partition; it is no longer possible to encrypt the /boot partition. Likewise a system on ZFS, XFS, BTRFS must use an ext4 /boot partition.\n\nRAID systems are usually set up by mirroring the /boot partition, rather than putting /boot on a RAID natively, so this should not be a substantial loss.\n\nWe understand these are controversial options; however we believe they’d substantial improve security, but also simply pivoting to new boot solutions in the future.\n\nThe features will continue to be available without secure boot and security support.\n\nAffected systems will by default stay on 26.04 LTS, that is, the upgrade will be disabled in ubuntu-release-upgrader.\n \n\n \n\n \n \n 4 Likes\n \n\n \n \n\n \n \n\n \n\n juliank:\n\nFilesystems\n\nRemove btrfs, hfsplus, xfs, zfs\n\nCan we please not drop btrfs? It’s a read-only filesystem driver that is actively supported by upstream developers. Users who want to leverage boot-to-snapshot setups with Btrfs need this support.\n\nThat’s not my experience with users. Software RAID1 is incredibly common. It would indeed be a substantial loss.\n \n\n \n\n \n \n 2 Likes\n \n\n \n \n\n \n \n\n \n\nHave you considered switching to systemd-boot instead? It’s the minimal bootloader you’re looking for, and it integrates into systemd-based systems well anyway.\n \n\n \n\n \n \n 4 Likes\n \n\n \n \n\n \n \n\n \n\nexcept Raid 1\n\nI think they are implying raid1 wouldn’t be removed but other raid types would\n\nsystemd-boot is UEFI only, grub supports both BIOS and UEFI\n \n\n \n\n \n \n \n \n\n \n \n\n \n \n\n \n\nDo you really want to support >=20 years old systems?\n \n\n \n\n \n \n 2 Likes\n \n\n \n \n\n \n \n\n \n\nMost web hosting/cloud/VPS environments today don’t support UEFI today, either. So yes, we do.\n\nAnd even if you exclude that and focus on desktop/server systems, a lot of UEFI implementations have been unusably broken prior to 2017, so only the last decade of PCs have things in useful enough order.\n\nAlso, GRUB supports more than x86, and Ubuntu is a multi-arch platform, supporting platforms that neither IBM/Phoenix BIOS (and descendants) nor UEFI exist. A common bootloader drastically simplifies the maintenance burden on that front.\n \n\n \n\n \n \n 2 Likes\n \n\n \n \n\n \n \n\n \n\nTo add to the reply by @Conan_Kudo, bear in mind that many people have dual-boot or multi-boot systems, not all of which necessarily support UEFI.\n \n\n \n\n \n \n 1 Like\n \n\n \n \n\n \n \n\n \n\n juliank:\n\nImage formats:\n\nRemove jpeg, png\n\nRetain none\n\nWe do not use images, but using that in your grub.cfg locally is a massive security risk (if even still allowed)\n\nSome Ubuntu flavors have grub themes, and I know those use images. I don’t think you can yank this since it’s something flavor customization relies on.\n \n\n \n\n \n \n 2 Likes\n \n\n \n \n\n \n \n\n \n\nDoes this mean that LUKS2 encrypted /boot partitions will not be allowed? I have (although manually) set on my development 26.04 system encrypted /boot partition with ext4 and LUKS2 (pbkdf) and everything works correctly.\n\nIn my personal opinion removing support for LUKS2-encrypted /boot partition isn’t wise unless GRUB2’s encryption implementation defeats security enhancements provided by encrypted /boot\n \n\n \n\n \n \n 3 Likes\n \n\n \n \n\n \n \n\n \n\n juliank:\n\nImage formats:\n\nRemove jpeg, png\n\nRetain none\n\nWe do not use images, but using that in your grub.cfg locally is a massive security risk (if even still allowed)\n\nI would be terribly disappointed if you were to remove images. At the moment, we can use PNG and JPEG. Supposedly, TGA is also supported, but I’ve been unable to make it work.\n\nI’ve been seeing my welcoming Ubuntu background when I boot for many years!\n\nFrom what I’ve read, the security vulnerabilities affect only versions of Grub prior to 2.12, and TGA doesn’t present a vulnerability.\n\n \n\n \n\n \n \n 1 Like\n \n\n \n \n\n \n \n\n \n\n juliank:\n\nSupport for LVM\n\nSupport for LUKS-encrypted disks\n\nTo add to @tomekdev’s comment, surely Grub must support both LVM and LUKS? LUKS is an industry standard within Linux, so how would we boot without its support? LVM is also common. My system uses both LVM and LUKS.\n \n\n \n\n \n \n \n \n\n \n \n\n \n \n\n \n\nI don’t know, if it’s a real deal then I understand and of course accept it. In the meantime, as a normal user I feel like I have to struggle more to get what I want. We had a simple timeshift btrfs layout yearso ago and that was taken away, now relying on scripts that not always work - especially on 26.04. Needing to setup a different /boot partition in order to have btrfs, xfs and zfs does feel strange, just as choosing a driver on 26.04.\n \n\n \n\n \n \n \n \n\n \n \n\n \n \n\n \n\nPlease explain why.\n\nIf one has the privileges to change the boot picture, couldn’t that person also change other boot parameters?\n\nSetting a GRUB theme is the easiest way to make the boot just a bit less ugly and partially hide the embarrassing obsolescence of GRUB.\n \n\n \n\n \n \n \n \n\n \n \n\n \n \n\n \n\nIn effect systems must boot with /boot on a raw ext4 partition (whether a separate or inside of /); on GPT or MBR disks.\n\nFull disk encryption is mandatory in many environments in Europe for security conformity. So support for encrypted /boot (via LUKS) is important.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bios",
+      "boot",
+      "encrypted",
+      "gpt",
+      "grub",
+      "hfsplus",
+      "ibm",
+      "likes",
+      "luks",
+      "mbr",
+      "partition",
+      "remove",
+      "security",
+      "support",
+      "system",
+      "ubuntu",
+      "uefi",
+      "xfs",
+      "zfs"
+    ],
+    []
+  ]
+}

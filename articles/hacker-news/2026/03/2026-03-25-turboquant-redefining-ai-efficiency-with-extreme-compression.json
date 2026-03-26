@@ -1,0 +1,27 @@
+{
+  "id": 5404,
+  "source": "Hacker News",
+  "title": "TurboQuant: Redefining AI efficiency with extreme compression",
+  "url": "https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/",
+  "published_at": "2026-03-25T05:00:54Z",
+  "fetched_at": "2026-03-25T06:00:31.878139+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47513475\">Comments</a>",
+  "full_text": "Vectors are the fundamental way AI models understand and process information. Small vectors describe simple attributes, such as a point in a graph, while “high-dimensional” vectors capture complex information such as the features of an image, the meaning of a word, or the properties of a dataset. High-dimensional vectors are incredibly powerful, but they also consume vast amounts of memory, leading to bottlenecks in the key-value cache, a high-speed \"digital cheat sheet\" that stores frequently used information under simple labels so a computer can retrieve it instantly without having to search through a slow, massive database.\n\nVector quantization is a powerful, classical data compression technique that reduces the size of high-dimensional vectors. This optimization addresses two critical facets of AI: it enhances vector search, the high-speed technology powering large-scale AI and search engines, by enabling faster similarity lookups; and it helps unclog key-value cache bottlenecks by reducing the size of key-value pairs, which enables faster similarity searches and lowers memory costs. However, traditional vector quantization usually introduces its own \"memory overhead” as most methods require calculating and storing (in full precision) quantization constants for every small block of data. This overhead can add 1 or 2 extra bits per number, partially defeating the purpose of vector quantization.\n\nToday, we introduce TurboQuant (to be presented at ICLR 2026), a compression algorithm that optimally addresses the challenge of memory overhead in vector quantization. We also present Quantized Johnson-Lindenstrauss (QJL), and PolarQuant (to be presented at AISTATS 2026), which TurboQuant uses to achieve its results. In testing, all three techniques showed great promise for reducing key-value bottlenecks without sacrificing AI model performance. This has potentially profound implications for all compression-reliant use cases, including and especially in the domains of search and AI.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "bottleneck",
+      "compression",
+      "present",
+      "quantization",
+      "reduce",
+      "search",
+      "similarity",
+      "turboquant",
+      "vector"
+    ],
+    []
+  ]
+}

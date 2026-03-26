@@ -1,0 +1,40 @@
+{
+  "id": 5465,
+  "source": "The Verge",
+  "title": "Google Lyria 3 Pro makes longer AI songs",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/900425/google-lyria-3-pro-ai-music",
+  "published_at": "2026-03-25T16:00:00Z",
+  "fetched_at": "2026-03-25T16:00:34.111068+00:00",
+  "author": "Terrence O’Brien",
+  "summary": "<figure>\n\n<img alt=\"An illustration of the Google logo on a red, green, and blue background\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/STK093_GOOGLE_A-1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tSix times the slop. | Image: The Verge\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Google is expanding the capabilities of its Lyria 3 music-making AI, enabling it to create tracks up to three minutes long and from within multiple other Google Products. Until now, Lyria had been limited to 30-second clips. Lyria 3 Pro not only increases the maximum length sixfold, it also allows the user to prompt for specific elements like intros, choruses, and bridges for greater control over arrangements.</p>\n<p class=\"has-text-align-none\">Lyria 3 Pro works much like other popular music generation tools, such as Suno and Udio. Describe a mood, style, or instrumentation, and it spits out a track. It can also generate lyrics based on your prom",
+  "full_text": "Google is expanding the capabilities of its Lyria 3 music-making AI, enabling it to create tracks up to three minutes long and from within multiple other Google Products. Until now, Lyria had been limited to 30-second clips. Lyria 3 Pro not only increases the maximum length sixfold, it also allows the user to prompt for specific elements like intros, choruses, and bridges for greater control over arrangements.\n\nLyria 3 Pro works much like other popular music generation tools, such as Suno and Udio. Describe a mood, style, or instrumentation, and it spits out a track. It can also generate lyrics based on your prompt, or even a reference photo or video.\n\nOne of the standout features of Lyria 3 Pro is its integration with other Google products. For one, you can create tracks from within Gemini, so there’s no need to download a dedicated app. But Google is also adding the model to Vertex AI for enterprise customers, Google AI Studio and Gemini API for developers, Google Vids for office workers, and the recently purchased ProducerAI platform. The extended length will be of particular interest to users of ProducerAI, a direct competitor to Suno.\n\nBeing able to generate a full song rather than just a 30-second clip is likely to raise concerns about impersonation and copyright infringement. In a press release, Google attempted to assuage these fears, saying, “Lyria 3 and Gemini do not mimic artists,” adding, “if a prompt names a creator, the model takes that as broad inspiration.” Google says it also checks Lyria 3 Pro’s outputs against existing content to ensure the AI doesn’t spit out infringing material, and embeds a silent SynthID watermark to identify them as AI-generated.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "create",
+      "entertainment",
+      "expand",
+      "gemini",
+      "generate",
+      "google",
+      "google ai studio",
+      "google products",
+      "length",
+      "lyria",
+      "music",
+      "prompt",
+      "spit",
+      "tech",
+      "track",
+      "udio",
+      "vertex ai"
+    ],
+    [
+      "ai",
+      "entertainment",
+      "music"
+    ]
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": 5388,
+  "source": "Hacker News",
+  "title": "Intel Device Modeling Language for virtual platforms",
+  "url": "https://github.com/intel/device-modeling-language",
+  "published_at": "2026-03-21T08:35:51Z",
+  "fetched_at": "2026-03-25T03:20:20.287632+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47465197\">Comments</a>",
+  "full_text": "The Device Modeling Language (DML) is a domain-specific language for\nwriting fast functional or transaction-level device models for virtual\nplatforms. DML provides high-level abstractions suitable for\nfunctional device models, including constructs like register banks,\nregisters, bit fields, event posting, interfaces between models, and\nlogging. DML code is compiled by the DML Compiler (DMLC), producing C\ncode with API calls tailored for a particular simulator.\n\nCurrently, the compiler supports building models for the Intel®\nSimics®\nsimulator, but other back-ends may be added in the\nfuture.\n\nBuilding and testing DMLC\n\nTo build DMLC, you need to have a Simics\nsimulator installation and a Simics project set up.\n\nUsing the Public Release of the Intel Simics Simulator\n\nIf you do not already have a Simics simulator installation or access to the\nSimics simulator via commercial channels, install the Public Release of\nthe Intel Simics simulator\nand create a Simics project (automatic in the default installation flow).\n\nBuilding DMLC from a Simics project\n\nIn your Simics project, check out the DML repository into the modules/dmlc\ndirectory. At the top-level of the project, do make dmlc\n(or bin\\make dmlc on Windows).\n\nTesting DMLC from a Simics project\n\nTo run the unit tests provided with DMLC, run make test-dmlc or\nbin/test-runner --suite modules/dmlc/test from the top-level\nof the project.\n\nThe following environment variables are handy when developing DMLC. If you work\nregularly with a locally built DMLC, then consider setting the variables\nDMLC_DIR T126_JOBS, DMLC_PATHSUBST and PY_SYMLINKS in your\n.bashrc. Remaining variables are better to only enable when needed.\n\nAfter building DMLC, you need to set DMLC_DIR to <your-project>/<hosttype>/bin\nin subsequent invocations of make in order to build devices with the locally\nbuilt compiler. <hosttype> is either linux64 or win64 depending on your\nhost type.\n\nWhen set, the given number of tests are run in parallel.\n\nThe DMLC build copies a few DML library files, e.g. dml-builtins.dml, into\n<hosttype>/bin. When a compile error happens, error messages will normally point\nto this copy rather than the source. By setting DMLC_PATHSUBST to\n<hosttype>/bin/dml=modules/dmlc/lib, error messages will be rewritten to point\nto the source file instead. <hosttype> is either linux64 or win64\ndepending on your host type.\n\nWhen set to 1, make dmlc will symlink Python files instead of copying\nthem. This has two effects: Python tracebacks will bring you to the source file\nin the repository, and you don't need to re-run make after editing Python\nfiles.\n\nWhen set to 1, unexpected exceptions in the compiler are echoed to\nstderr. The default is to hide tracebacks in a file dmlc-error.log.\n\nOverride the default compiler in unit tests.\n\nWhen set, DMLC does self-profiling and writes the profile to a .prof file.\n\nWhen set, DMLC emits a .tar.bz2 archive containing all DML source files,\npackaged on a form that can be compiled standalone. This is useful when a DML\nproblem appears within a complex build environment, and you want to reproduce\nthe problem in isolation. In the created archive, all DML files are located in\nthe same directory (either top level or under a series of subdirectories called\n_), and relative imports are handled by also including symlinks in the\narchive. On Windows, DMLC is sometimes unable to resolve these symlinks\ncorrectly; for this reason, it is recommended that the archive is only\nextracted and compiled on Linux.\n\nDMLC_GATHER_SIZE_STATISTICS\n\nWhen set, DMLC outputs a file ending with -size-stats.json, which shows code\ngeneration statistics useful to reduce generated code size and increase compile\nspeed. The file lists how much C code is generated for each DML method. The\noutput is a list of triples [tot_size, location, num], where tot_size is\nthe total number of bytes of C code generated from one method declaration,\nnum is how many times C code was generated from this declaration (because it\nwas expanded by a template), and location is the source location of the\ndeclaration.\n\nAn entry with a large tot_size and a large num can be reduced by declaring\nthe method as shared; this should roughly divide the size by num. An entry\nwith large tot_size with num equals 1 usually means the method is dominated\nby a construct like #foreach or #select, and can be reduced by breaking out\nthe loop body into a separate method, or by otherwise reworking the loop into\nsome other construct like foreach.\n\nNote that the statistics only includes code directly generated from method\ndeclarations; the total code size includes much more. One megabyte of code size\nfrom method declarations usually contributes with a few seconds of compile\ntime.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "code",
+      "compile",
+      "compiler",
+      "device",
+      "dml",
+      "dmlc",
+      "file",
+      "generate",
+      "intel",
+      "linux",
+      "method",
+      "simics",
+      "simulator",
+      "the dml compiler",
+      "the public release",
+      "windows"
+    ],
+    []
+  ]
+}

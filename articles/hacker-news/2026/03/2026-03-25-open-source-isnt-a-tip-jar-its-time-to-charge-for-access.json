@@ -1,0 +1,38 @@
+{
+  "id": 5444,
+  "source": "Hacker News",
+  "title": "Open source isn't a tip jar – it's time to charge for access",
+  "url": "https://www.theregister.com/2026/03/25/open_source_bill_opinion/",
+  "published_at": "2026-03-25T11:59:36Z",
+  "fetched_at": "2026-03-25T14:00:46.076638+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47516189\">Comments</a>",
+  "full_text": "Opinion Time and again, I see people begging for companies with deep pockets to fund open source projects. I mean, after all, they've made billions from this code. You'd think they could support the code's creators and maintainers. It would be only fair, right?\n\nScrew fair. Screw asking for dimes. You can't live off one-off charity donations. Trust me, I've been on the boards of several small nonprofits. Dpending on what people put in a tip jar is no way to fund anything of value.\n\nSo you'll excuse me if I'm not blown away by the fact that Anthropic, AWS, GitHub, Google, Microsoft, OpenAI, and others – total market cap in the ballpark of $7.7 trillion – have donated $12.5 million in grants to the Linux Foundation, OpenSSF, and Alpha‑Omega. If you make $100,000 a year, that's about 16 cents. Color me unimpressed.\n\n \n\nMind you, many open source developers never see an annual income that large. Indeed, according to a 2024 Tidelift maintainer report, 60 percent of open source maintainers are unpaid, and 60 percent have quit or considered quitting, largely due to burnout and lack of compensation. Oh, and of those getting paid, only 26 percent earn more than $1,000 a year for their work. They'd be better paid asking \"Would you like fries with that?\" at your local McDonald's.\n\n \n\n \n\nIt's not just the developers who are underpaid and unappreciated. Anyone building modern software depends on language registries such as Maven Central, PyPI, npm, crates.io, and others, which collectively handle on the order of trillions of package downloads a year. Yes, I said \"trillions.\"\n\nSonatype CTO Brian Fox recently told me that Maven Central, the Java registry, has delivered hundreds of billions of downloads, yet it runs on a shoestring\" in terms of funding, staff, and infrastructure.​\n\n \n\nThe load comes overwhelmingly from large users, not hobbyists. Fox's analysis shows that 82 percent of Maven Central demand comes from fewer than 1 percent of IPs, with roughly 80 percent of traffic sourced from the largest cloud providers' infrastructure. Now these companies could easily run their own local mirrors, but they don't. Instead, they hit up public open source registries on every build, test, or scan. All of this drives bandwidth, storage, and operational complexity, which eats up cash like an elephant does peanuts. Open source charity won't pay the bills. Going forward, commercial users can expect to pay to access the code. Sure, the code will still be free, but if you're going to be perpetually downloading terabytes of code and artifacts, you'll need to pay for access.\n\nAnother hidden cost is that open source maintainers must deal with a flood of bogus AI slop security reports. Some AI bug reporting is great and helpful. Unfortunately, most of what programmers are seeing is garbage.\n\nOpenSSF reports that only about 5 percent of bug bounty submissions are genuine vulnerabilities. Digging out the good reports from the bad ones is an enormous pain in the rump.\n\n \n\nAs cURL founder and maintainer Daniel Stenberg says of the situation, maintainers face a \"death by a thousand slops.\" He ultimately shut down cURL's bug bounty program because the flood of low‑quality, AI‑driven submissions was damaging maintainers' \"survival and intact mental health.\"\n\nDespite that, enterprises still blithely assume that \"the community\" will absorb this workload as part of the deal. According to Synopsys's 2025 Open Source Security and Risk Analysis (OSSRA) report, more than 97 percent of commercial software projects use open source dependencies. You guys owe open source big time.\n\nThe OSSRA report also found that 91 percent of audited open source components showed no clear signs of maintenance in the past two years. That isn't just abandonware projects. Widely used programs such as Ingress NGINX are also dying because no one is willing to maintain them without pay.\n\nImagine not being willing to work without compensation! The nerve of some people! As it happens, many open source developers have been willing to work without a paycheck.\n\nSome organizations do support maintainers, for example, there's HeroDevs and its $20 million Open Source Sustainability Fund. Its mission is to pay maintainers of critical, often end‑of‑life open source components so they can keep shipping patches without burning out. Sentry's Open Source Pledge/Fund has given hundreds of thousands of dollars per year directly to maintainers of the packages Sentry depends on. Sentry is one of the few vendors that systematically maps its dependency tree and then actually cuts checks to the people maintaining that stack, as opposed to just talking about \"giving back.\"\n\nSentry is on to something. We have the Linux Foundation to manage commercial open source projects, the Apache Foundation to oversee its various open source programs, the Open Source Initiative (OSI) to coordinate open source licenses, and many more for various specific projects. It's time we had an organization with the mission of ensuring that the top programmers and maintainers of valuable open source projects get a cut of the tech billionaire pie.\n\nWe must realign how businesses work with open source so that payment is no longer an optional charitable gift but a cost of doing business. To do that, we need an organization to create a viable, supportable path from big business to individual programmer. It's time for someone to step up and make this happen. Businesses, open source software, and maintainers will all be better off for it. ®",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "aws",
+      "commercial",
+      "developer",
+      "fox",
+      "github",
+      "google",
+      "maintainer",
+      "maven",
+      "maven central",
+      "mcdonald's",
+      "microsoft",
+      "open",
+      "openai",
+      "organization",
+      "payments",
+      "pypi",
+      "sentry",
+      "source",
+      "the linux foundation",
+      "willing"
+    ],
+    []
+  ]
+}

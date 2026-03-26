@@ -1,0 +1,39 @@
+{
+  "id": 5375,
+  "source": "Hacker News",
+  "title": "In Edison’s Revenge, Data Centers Are Transitioning From AC to DC",
+  "url": "https://spectrum.ieee.org/data-center-dc",
+  "published_at": "2026-03-25T00:44:55Z",
+  "fetched_at": "2026-03-25T02:00:24.357698+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47511703\">Comments</a>",
+  "full_text": "Last week’s Nvidia GTC conference highlighted new chip architectures to power AI. But as the chips become faster and more powerful, the remainder of data center infrastructure is playing catchup. The power delivery community is responding: Announcements from Delta, Vertiv, and Eaton showcased new designs for the AI era. Complex and inefficient AC to DC power conversions are gradually being replaced by DC configurations, at least in hyperscale data centers.\n\n“While AC distribution remains deeply entrenched, advances in power electronics and the rising demands of AI infrastructure are accelerating interest in DC architectures,” says Chris Thompson, vice president of advanced technology and global microgrids at Vertiv.\n\nAC to DC Conversion Challenges\n\nToday, nearly all data centers are designed around AC utility power. The electrical path includes multiple conversions before power reaches the compute load. Power typically enters the data center as medium-voltage AC (1kV to 35kV), is stepped down to low-voltage AC (480V or 415V) using a transformer, converted to DC inside an uninterruptible power supply (UPS) for battery storage, converted back to AC, and converted again to low-voltage DC (typically 54 V DC) at the server, supplying the DC power computing chips actually require.\n\n“The double conversion process ensures the output AC is clean, stable and suitable for data center servers,” says Luiz Fernando Huet de Bacellar, vice president of engineering and technology at Eaton.\n\nThat setup worked well enough for the amounts of power required by traditional data centers. Traditional data center computational racks draw on the order of 10 kW each. For AI, that is starting to approach 1 MW. At that scale, the energy losses, current levels, and copper requirements of AC to DC conversions become increasingly difficult to justify. Every conversion incurs some power loss. On top of that, as the amount of power that needs to be delivered grows, the sheer size of the convertors, as well as the connector requirements of copper busbars, becomes untenable. According to an Nvidia blog, a 1 MW rack could require as much as 200 kg of copper busbar. For a 1 GW data center, it could amount to 200,000 kg of copper. \n\nBenefits of High-Voltage DC Power\n\nBy converting 13.8 kV AC grid power directly to 800 VDC at the data center perimeter, most intermediate conversion steps are eliminated. This reduces the number of fans and power supply units, and leads to higher system reliability, lower heat dissipation, improved energy efficiency, and a smaller equipment footprint.\n\n“Each power conversion between the electric grid or power source and the silicon chips inside the servers causes some energy loss,” says Fernando.\n\nSwitching from 415 V AC to 800 V DC in electrical distribution enables 85 percent more power to be transmitted through the same conductor size. This happens because higher voltage reduces current demand, lowering resistive losses and making power transfer more efficient. Thinner conductors can handle the same load, reducing copper requirements by 45 percent, a 5 percent improvement in efficiency, and 30 percent lower total cost of ownership for GW-scale facilities.\n\n“In a high-voltage DC architecture, power from the grid is converted from medium-voltage AC to roughly 800 V DC and then distributed throughout the facility on a DC bus,” said Vertiv’s Thompson. “At the rack, compact DC-DC converters step that voltage down for GPUs and CPUs.”\n\nA report from technology advisory group Omdia claims that higher voltage DC data centers have already appeared in China. In the Americas, the Mt. Diablo Initiative (a collaboration among Meta, Microsoft, and the Open Compute Project) is a 400 V DC rack power distribution experiment.\n\nA handful of vendors are trying to get ahead of the game. Vertiv’s 800 V DC ecosystem that integrate with NVIDIA Vera Rubin Ultra Kyber platforms will be commercially available in the second half of 2026. Eaton, too, is well advanced in its 800 V DC systems innovation courtesy of a medium-voltage solid-state transformer (SST) that will sit at the heart of DC power distribution system. Meanwhile Delta, has released 800 V DC in-row 660kW power racks with a total of 480 kW of embedded battery backup units. And, SolarEdge is hard at work on a 99%-efficient SST that will be paired with a native DC UPS and a DC power distribution layer.\n\nBut much of the industry is far behind. Patrick Hughes, senior vice president of strategy, technical, and industry affairs for the National Electrical Manufacturers Association, says most innovation is happening at the 400 V DC level, though some are preparing 800 V DC. He believes the industry needs a complete, coordinated ecosystem, including power electronics, protection, connectors, sensing, and service‑safe components that scale together rather than in isolation. That, in turn, requires retooling manufacturing capacity for DC‑specific equipment, expanding semiconductor and materials supply, and clear, long‑term demand commitments that justify major capital investment across the value chain.\n\n“Many are taking a cautious approach, offering limited or adapted solutions while waiting for clearer standards, safety frameworks, and customer commitments,” said Hughes. “Building the supply chain will hinge on stabilizing standards and safety frameworks so suppliers can design, certify, manufacture, and install equipment with confidence.”\n\nFrom Your Site Articles\n\nRelated Articles Around the Web",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "americas",
+      "center",
+      "china",
+      "conversion",
+      "convert",
+      "copper",
+      "datum",
+      "dc conversion challenges",
+      "dc-dc",
+      "delta",
+      "distribution",
+      "eaton",
+      "edison’s revenge",
+      "grid",
+      "meta",
+      "nvidia",
+      "omdia",
+      "power",
+      "rack"
+    ],
+    [
+      "grid"
+    ]
+  ]
+}

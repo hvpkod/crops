@@ -1,0 +1,30 @@
+{
+  "id": 5414,
+  "source": "Hacker News",
+  "title": "I Forked Httpx",
+  "url": "https://tildeweb.nl/~michiel/httpxyz.html",
+  "published_at": "2026-03-25T08:05:17Z",
+  "fetched_at": "2026-03-25T08:40:25.663320+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47514603\">Comments</a>",
+  "full_text": "Why I forked httpx\n \n \n\nYesterday I forked httpx. The new fork is\ncalled httpxyz.\n\nReasons for the fork\n\nHTTPX is a very popular HTTP client for Python. There is lots of code depending\non it.\n\nIn 2024, I contributed zstd content decoding. This got merged and released! I\nwas very happy and proud. Then I found out it was broken. I contributed a fix.\nThe fix was ignored and there was never any release since November 2024. Me,\nand others, asked repeatedly for a release containing my fix. I sent email to\nthe author personally. I got response when I added that I was considering\nforking. The author replied “1.0 development is on course”. Which is probably\ntrue but it has been in the planning for over two years now\nref. Even the ‘patch level’\nrelease for 0.28.2\nhas been in draft for over a year.\n\nAnd apart from this, there’s:\n\nRecently issues have been made hidden on the github repository, and\n discussions have been turned off. Having issues hidden makes it more\n difficult for people to contribute to the package but also to use the package\n since issues are linked all over in code and documentation also. See\n reddit thread\n\nThere has been talk about an upcoming 1.0 release for years now, back to 2020\n or so. In a discussion from October 2024, it was laid out that the 1.0 might\n look very different than the current version of httpx. Simon Willison added\n his points eloquently, please\n read them.\n\nProbably as a result, both\n openai\n and\n anthropic\n python packages, that depend on httpx, have put guards in their\n pyproject.toml to not install version 1.0.\n\nThe author previously added breaking changes in minor updates, causing churn\n for many people, stating “The httpx package is not yet at a 1.0 SEMVER\n release” ref. It’s\n pre-1.0, that is right, but if so many people use your package a bit more\n consideration for compatibility seems in place.\n\nThe author also created Django REST framework, and turned off issues and\n discussions there, a little over a year ago. This made life for people using\n the product more difficult\n ref\n\nThe author also created MkDocs, of which an interesting\n blog post was published\n recently. Some patterns seem to be recurring.\n\nAll this together made me think creating a fork is the best way forward, to\nprovide a stable path for people invested in httpx.\n\nI do understand about maintainer burnout, and preferring to work on ‘next’, and\nthat there is life outside of Python, but I think not doing anything for\nmaintenance and also not letting other people help out in maintaining, for such\na high profile module, is problematic.\n\nI do hope that Kim will go on to make much more beautiful software and that\nthere will be a HTTPX2 that will be excellent!\n\nFAQ\n\nQ: Why did you fork?\n\nSee all the reasons above\n\nQ: So what is the plan now?\n\nMaintain a stable fork of httpx. No great rewrites, no breaking changes, no big\nchanges to the project setup (for now). The motto is: Move a little faster and\nnot break things.\n\nQ: But are you not also going to burn out? Surely it’s lots of work\n\nThere has been no release since 2024 for httpx. A little more frequent would\ngo a long way. My buddy Sander Wegter is a\nco-maintainer to spread the load.\n\nQ: Should I port all my code now?\n\nIf you want, you’d be welcome. But if everything just works for you now, I’m\nnot sure it’s warranted. The idea is that there is a path for you if you need\nit.\n\nQ: but what about plugins?\n\nThat’s a fair point. If you’d use import httpxyz as httpx, many things will\njust work but some more intricate setups and/or plugins and extensions might\nnot. We’ll have to see if they are going to be adjusted.\n\nThanks, and have fun!\n\nDiscussion on Hacker News",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "add",
+      "author",
+      "contribute",
+      "discussion",
+      "fork",
+      "hacker news",
+      "httpx",
+      "issue",
+      "mkdocs",
+      "package",
+      "ref",
+      "release"
+    ],
+    []
+  ]
+}
