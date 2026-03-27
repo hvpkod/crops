@@ -1,0 +1,24 @@
+{
+  "id": 5997,
+  "source": "Haskell for all",
+  "title": "How to reimplement the conduit parsing API in 50 lines of pipes code>",
+  "url": "https://haskellforall.com/2013/10/how-to-reimplement-conduit-parsing-api",
+  "published_at": "2013-10-09T00:00:00Z",
+  "fetched_at": "2026-03-26T23:43:37.461868+00:00",
+  "author": null,
+  "summary": "Conduit utilities implemented using pipes code",
+  "full_text": null,
+  "tags": [
+    [
+      "200-words",
+      "2013",
+      "api",
+      "conduit",
+      "line",
+      "parse",
+      "pipe",
+      "reimplement"
+    ],
+    []
+  ]
+}

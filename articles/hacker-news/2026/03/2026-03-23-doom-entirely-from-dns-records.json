@@ -1,0 +1,37 @@
+{
+  "id": 5738,
+  "source": "Hacker News",
+  "title": "Doom entirely from DNS records",
+  "url": "https://github.com/resumex/doom-over-dns",
+  "published_at": "2026-03-23T15:17:38Z",
+  "fetched_at": "2026-03-26T18:00:30.050274+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47490705\">Comments</a>",
+  "full_text": "At some point, a reasonable person asked \"DNS resolves names to IP addresses, what else can it do?\" The answer, apparently, is run DOOM.\n\nDNS TXT records can hold arbitrary text. Cloudflare will serve them globally, for free, cached at the edge, to anyone who asks. They are not a file storage system. They were not designed to be a file storage system. Nobody at the IETF was thinking about them being used as a file storage system when they wrote RFC 1035. And yet here we are.\n\nThis project compresses the entirety of shareware DOOM, splits it into ~1,964 DNS TXT records across a single Cloudflare zone, and plays it back at runtime using nothing but a PowerShell script and public DNS queries. The WAD file never touches disk and the .NET game engine DLLs are loaded directly into memory.\n\nIt was always DNS.\n\n# 1. Install PowerShell 7 (if you don't have it)\nwinget install Microsoft.PowerShell\n\n# 2. Play DOOM\n.\\Start-DoomOverDNS.ps1 -PrimaryZone 'example.com'\n\nThat's it. Everything else is fetched from DNS automatically using Resolve-DNSName.\n\n# 1. Build the game engine\ncd managed-doom\ndotnet publish ManagedDoom/ManagedDoom.csproj -c Release -f net8.0 -o publish-out\n\n# 2. Load Cloudflare credentials\nImport-Module .\\TXTRecords\\TXTRecords.psm1\nSet-CFCredential -ApiToken (Read-Host 'API Token' -AsSecureString)\n\n# 3. Upload to DNS\n.\\Publish-DoomOverDNS.ps1 `\n -PublishDir 'managed-doom\\publish-out' `\n -WadPath 'DOOM1.WAD' `\n -Zones @('example.com')\n\nParameter\nDefault\nDescription\n\n-PrimaryZone\n(required)\nDNS zone where stripe-meta records live\n\n-DnsServer\n(system default)\nSpecific DNS resolver IP (e.g. '1.1.1.1')\n\n-WadName\n'doom1'\nWAD type: doom1, doom, doom2, plutonia, tnt\n\n-DoomArgs\n''\nArguments forwarded to the engine (e.g. '-warp 1 3 -skill 5')\n\n-WadPrefix\n'doom-wad'\nDNS prefix for the WAD stripe\n\n-LibsPrefix\n'doom-libs'\nDNS prefix for the DLL bundle stripe\n\nUse -DnsServer '1.1.1.1' if records haven't propagated to your local resolver yet.\n\nParameter\nDefault\nDescription\n\n-PublishDir\n(required)\nPath to dotnet publish output directory\n\n-WadPath\n(required)\nPath to the WAD file\n\n-Zones\n(required)\nOrdered array of Cloudflare DNS zone names\n\n-WadPrefix\n'doom-wad'\nDNS prefix for the WAD stripe\n\n-LibsPrefix\n'doom-libs'\nDNS prefix for the DLL bundle stripe\n\n-Force\n$false\nSkip confirmation prompts when overwriting\n\nUploading requires a Cloudflare API token with Edit zone DNS permissions. Load it with Set-CFCredential from the TXTRecords module (see Quick Start above).\n\nA Free zone holds 185 data chunks; Pro/Business/Enterprise hold 3,400. The WAD alone needs ~1,199 chunks, so Free-tier users need multiple domains. Pass them as an array to -Zones and the module distributes chunks automatically. A single Pro zone fits everything.\n\nResuming interrupted uploads\n\nIf an upload is interrupted, Publish-TXTStripe supports -Resume — it verifies the hash, finds the last good chunk, and picks up where it left off.\n\nUpstream managed-doom uses Native AOT, which can't be loaded via Assembly.Load(). This fork converts it to a framework-dependent .NET 8 assembly with stream-based WAD loading and Win32 P/Invoke for windowing (no GLFW, no audio — uses built-in NullSound/NullMusic stubs).\n\nmanaged-doom | Silk.NET | TrippyGL | DOOM1.WAD (id Software) | Cloudflare DNS API",
+  "tags": [
+    [
+      "-wadpath",
+      "2026",
+      "500-words",
+      "cloudflare",
+      "dns",
+      "dns txt",
+      "engine",
+      "file",
+      "hold",
+      "import-module",
+      "load",
+      "manageddoom",
+      "manageddoom.csproj",
+      "microsoft",
+      "powershell",
+      "prefix",
+      "record",
+      "resolver",
+      "use",
+      "wad",
+      "zone"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": 5831,
+  "source": "DEV Community<",
+  "title": "RustCheat: A Minimal CLI Cheat Sheet for Rust",
+  "url": "https://dev.to/ametuercodr/rustcheat-a-minimal-cli-cheat-sheet-for-rust-4jkb",
+  "published_at": "2026-03-26T22:39:56Z",
+  "fetched_at": "2026-03-26T23:40:42.064784+00:00",
+  "author": "Xavier Womack",
+  "summary": "<p>It’s been a little while since I really used Rust. Understanding this, I Noticed I forgot some of my syntax. Usually when I forget syntax I do a “quick” google search which might take me down a rabbit hole of where I either get distracted or need to google a bunch of other things. so I created a simple cli app so that for little things I never have to leave my terminal</p>\n\n<p>DISCLAIMER this is my first cli app that I’ve published to a registry so any constructive criticism would be appreciated. the original cheatsheet that I had inspiration from was by <a href=\"https://www.francescociulla.com\" rel=\"noopener noreferrer\">Francesco Ciulla.</a></p>\n\n<p><a href=\"https://crates.io/crates/rustcheat\" rel=\"noopener noreferrer\">Rust Cheat Crate</a></p>\n\n<p>If you would like to contribute to this project you can checkout the repo <a href=\"https://github.com/AmetuerCodr/rustcheat\" rel=\"noopener noreferrer\">here</a> thanks so much for your contribution!</p>",
+  "full_text": "It’s been a little while since I really used Rust. Understanding this, I Noticed I forgot some of my syntax. Usually when I forget syntax I do a “quick” google search which might take me down a rabbit hole of where I either get distracted or need to google a bunch of other things. so I created a simple cli app so that for little things I never have to leave my terminal\n\nDISCLAIMER this is my first cli app that I’ve published to a registry so any constructive criticism would be appreciated. the original cheatsheet that I had inspiration from was by Francesco Ciulla.\n\nRust Cheat Crate\n\nIf you would like to contribute to this project you can checkout the repo here thanks so much for your contribution!",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "cheat",
+      "create",
+      "disclaimer",
+      "distracted",
+      "forget",
+      "google",
+      "little",
+      "notice",
+      "publish",
+      "rabbit",
+      "rust",
+      "rustcheat"
+    ],
+    []
+  ]
+}

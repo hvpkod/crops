@@ -1,0 +1,39 @@
+{
+  "id": 5858,
+  "source": "Haskell for all",
+  "title": "Nix Steering Committee vote of no confidence>",
+  "url": "https://haskellforall.com/2025/10/nix-steering-committee-vote-of-no",
+  "published_at": "2025-10-01T00:00:00Z",
+  "fetched_at": "2026-03-26T23:42:01.543856+00:00",
+  "author": null,
+  "summary": "Post-mortem on the Nix Steering Committee's recent vote of no confidence",
+  "full_text": "Earlier this week I proposed a vote\nof no confidence for the Nix\nSteering Committee, which would have ended the terms of all\ncurrently serving members and put all seven positions up for election in\nNovember. That vote failed\nwith 3 out of 6 votes (4 were necessary) and I’m writing up a\npost-mortem on why I proposed and voted in favor of the vote of no\nconfidence even though it ultimately failed.\n\nBackground\n\nIn a previous\npost of mine I announced that I was ending my Nix\nSteering Committee term early (at the one year mark instead of the\ntwo year term I was elected for). In that post I shared some fairly\npolite criticisms of the Nix Steering Committee’s performance over the\nlast year and explained why I was stepping down early (basically:\nburnout induced by the Nix Steering Committee’s dysfunction).\n\nNot long after that the moderation\nteam resigned and I was part of the problem and bear some responsibility for that. I (along with\nthree other Steering Committee members: Tom Berek, John Ericson, and\nRobert Hensing) voted in favor of both\nof the moderation-related changes that the moderation team resigned\nin response to (I later changed one of my two votes at the last minute\nbut I take responsibility for the consequences of both votes).\n\nIn the wake of that, Winter (another Steering Committee member), publicly\nblew the whistle on internal SC discussions specifically highlighting\nmalfeasance from another Steering Committee member (John Ericson)\nalthough the exact conversations were not included (only summaries and\nthird parties who had seen the conversations confirming the details).\nThis led to a public outcry calling for John’s resignation and/or a vote\nof no confidence.\n\nIn response to that outcry four members of the Steering Committee\n(Tom, John, Robert, and Jan) responded\nby publishing the votes relevant to the ongoing controversy and also\nclaiming that the conversations Winter leaked were taken out of\ncontext.\n\nI personally agreed with the outcry and the targeted criticisms of John based on my own experiences working on the Steering\nCommittee. I didn’t propose to remove John from the Steering Committee\nbut that same day I did propose a vote of no confidence and I’ll explain\nwhy I proposed and voted in favor of that.\n\nPolitics\n\nFrom my perspective, three current members and one former member of\nthe Steering Committee have already lost confidence in the\ncommittee:\n\nIf Franz had not been forced to resign for health reasons the vote of\nno confidence would have gone through, but currently the Steering\nCommittee is deadlocked over this vote. Only a minority of the original\nSteering Committee (John, Tom, and Robert) still believe that the\nSteering Committee has any legitimacy at this point.\n\nThe Nix core team\n\nNot so coincidentally John, Tom, and Robert are the three Steering\nCommittee members that are also members of the Nix core team. The vote\nof no confidence made it pretty clear to me that the Nix team has\nconsistently put the needs of their own team and members ahead of the\nneeds of the broader community (which is why I felt compelled to speak\nout).\n\nIt was probably a mistake to allow three Steering\nCommittee members to all be members of the Nix team. There should be a\nconstitutional amendment to consider shared membership on the Nix team\nto also count as a conflict of interest, which would create a soft limit\nof one of them on the team and a hard limit of two of them on the team.\nFor more details, see the Nix Constitution’s Conflict\nof Interest Balance section.\n\nHowever, besides the constitutional amendment, I’d go even further\nand say that the Nix community should vote against any member of the\ncurrent Nix team (which would include Tom who is currently running for\nre-election), since I believe they are in large part responsible for why\nour community now has two forks (Lix and Determinate Nix) and\nis losing ground against both of them.\n\nNix has lost a large number of contributors to these forks due to\ndysfunction within the Nix team and now they’ve brought that same\ndysfunction to the Steering Committee, which has resulted in every other\nmember of the Steering Committee abandoning ship because we can’t do our\njob.\n\nThe Rust rule\n\nA few people brought up the “Rust\nrule” during the recent controversy, which says that under the Rust\ngovernance structure both the Leadership Council (the Rust analog of\nNix’s Steering Committee) and their moderation team have the nuclear\noption of disbanding both teams.\n\nThe Nix Constitution has no such rule, but I do think that the Rust\nrule is the morally correct way to think about the recent\ncontroversies, even if it is not enforceable under our current\nConstitution. In particular, if the moderation team resigns in such a\npublic manner it signals a serious loss of confidence in the leadership\nof the Steering Committee which justifies the need for members of the\nSteering Committee to run for reelection and reaffirm their mandate.\n\nConclusion\n\nThe committee is down a member, mired in controversy, and facing a\ncommunity that feels misled by a lack of transparency. Franz’s\npublic comment confirms that four of the original seven committee\nmembers would have supported a vote of no confidence today. I do not\nbelieve any member can now credibly claim to hold a mandate.\n\nNote that John and Robert could still run in the next Steering\nCommittee election (a vote of no confidence does not bar them from\nreelection). To me, refusing to resign under these circumstances and\nstand for reelection suggests a belief that voters would not return them\nto office.\n\nAnyone who wishes to remain should run for re-election if they still\nbelieve their policies are the best way forward for Nix.",
+  "tags": [
+    [
+      "1000-words",
+      "2025",
+      "background",
+      "committee",
+      "community",
+      "confidence",
+      "franz",
+      "member",
+      "moderation",
+      "nix",
+      "nix\nsteering committee",
+      "nix steering committee",
+      "propose",
+      "steering",
+      "steering\ncommittee",
+      "steering committee",
+      "team",
+      "the\nsteering committee",
+      "the steering\ncommittee",
+      "the steering committee",
+      "vote"
+    ],
+    [
+      "community"
+    ]
+  ]
+}

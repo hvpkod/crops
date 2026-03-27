@@ -1,0 +1,34 @@
+{
+  "id": 5828,
+  "source": "DEV Community<",
+  "title": "Back to the terminal — I built an invoicing tool that lives where you work",
+  "url": "https://dev.to/alexwillem/back-to-the-terminal-i-built-an-invoicing-tool-that-lives-where-you-work-25g",
+  "published_at": "2026-03-26T22:50:05Z",
+  "fetched_at": "2026-03-26T23:40:38.883411+00:00",
+  "author": "Alex Willem",
+  "summary": "<p>I love my terminal. It keeps me focussed and efficient. And it may sound silly, but it also makes me feel like I'm part of a community.</p>\n\n<p>In a world increasingly shaped by LLMs and AI agents, I've found myself feeling nostalgic for the basics.</p>\n\n<p>That's why, for all my freelancer CLI-friends who struggle with context-switching; hate the complexity of today's invoicing tools; or simply like the idea of more CLI &lt;3, I have created <a href=\"https://billed.dev/\" rel=\"noopener noreferrer\">Billed</a>. </p>\n\n<p>All you need to do is to run <code>npm i billed</code> and get started with <code>bill --init-config</code>.</p>\n\n<p>It's all run locally, there are no integrations needed and you can customise.</p>\n\n<p>I'd love to know what you think!</p>",
+  "full_text": "I love my terminal. It keeps me focussed and efficient. And it may sound silly, but it also makes me feel like I'm part of a community.\n\nIn a world increasingly shaped by LLMs and AI agents, I've found myself feeling nostalgic for the basics.\n\nThat's why, for all my freelancer CLI-friends who struggle with context-switching; hate the complexity of today's invoicing tools; or simply like the idea of more CLI <3, I have created Billed. \n\nAll you need to do is to run npm i billed and get started with bill --init-config.\n\nIt's all run locally, there are no integrations needed and you can customise.\n\nI'd love to know what you think!",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "bill",
+      "build",
+      "cli",
+      "create",
+      "focusse",
+      "freelancer",
+      "invoicing",
+      "love",
+      "need",
+      "npm",
+      "opensource",
+      "programming",
+      "shape",
+      "start"
+    ],
+    [
+      "opensource"
+    ]
+  ]
+}

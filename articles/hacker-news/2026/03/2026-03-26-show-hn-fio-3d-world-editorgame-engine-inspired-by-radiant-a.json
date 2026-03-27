@@ -1,0 +1,32 @@
+{
+  "id": 5790,
+  "source": "Hacker News",
+  "title": "Show HN: Fio: 3D World editor/game engine – inspired by Radiant and Hammer",
+  "url": "https://github.com/ViciousSquid/Fio",
+  "published_at": "2026-03-26T20:58:04Z",
+  "fetched_at": "2026-03-26T21:40:51.744802+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47535626\">Comments</a>",
+  "full_text": "Repository files navigation\n\nA liminal brush-based CSG editor and game engine with unified renderer\n\ninspired by Radiant and Worldcraft/Hammer (from the old times!)\n \n\nCustom OpenGL/PyGame engine supports immediate \"drop-in and play\" (like CryEngine Editor)\n\nDesigned to be compact and lightweight (target: Snapdragon 8CX, OpenGL 3.3)\n\nReal-time lighting with (in development) stencil shadows\n\nVolumetric fog, glass & water shaders with configurable surface parms\n\nEntity I/O system inspired by Half-Life 2 (logic, triggers, lights, speakers)\n\nTerrain generation\n\nOBJ model support\n\njson level format with magic number fingerprint\n\nFully modular and open source (MIT License)\n\nPyQt5, numpy, Pillow, PyOpenGL, pygame, PyGLM\n\nin memory of David Lynch\n\n \n\n \n\n \n\n \n\n \n\nAbout\n\n \n\n Liminal 3D World editor and game engine - inspired by Radiant and Hammer\n \n\n \n\nTopics\n \n\n \n\nResources\n \n\n \n \n\nLicense\n \n\n \n \n\n \n\n \n\n \n\nStars\n \n\n \n\nWatchers\n \n\n \n\nForks\n \n\n \n\n \n \n\n \n \n\n \n \n \n \n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n \n \n\n \n\n You can’t perform that action at this time.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "cryengine",
+      "csg",
+      "design",
+      "editor",
+      "engine",
+      "hammer",
+      "inspire",
+      "liminal",
+      "mit license",
+      "radiant",
+      "radiant and worldcraft/hammer",
+      "stencil",
+      "support",
+      "volumetric"
+    ],
+    []
+  ]
+}

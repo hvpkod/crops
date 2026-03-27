@@ -1,0 +1,27 @@
+{
+  "id": 5740,
+  "source": "Hacker News",
+  "title": "Stripe Projects: Provision and manage services from the CLI",
+  "url": "https://projects.dev/",
+  "published_at": "2026-03-26T16:00:57Z",
+  "fetched_at": "2026-03-26T18:00:35.236661+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47532148\">Comments</a>",
+  "full_text": "Code generation got fast.\nProvisioning didn’t.\n\nProvisioning your app stack is still too manual: signing up for multiple services, managing accounts, securing API keys, jumping between dashboards, and clicking configuration pages. Stripe Projects lets you (or your agents) create and manage your software stack from the command line.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "api",
+      "click",
+      "jump",
+      "manage",
+      "provision",
+      "secure",
+      "sign",
+      "software",
+      "stack"
+    ],
+    []
+  ]
+}

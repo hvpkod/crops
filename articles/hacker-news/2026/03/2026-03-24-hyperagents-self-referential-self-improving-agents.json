@@ -1,0 +1,30 @@
+{
+  "id": 5737,
+  "source": "Hacker News",
+  "title": "HyperAgents: Self-referential self-improving agents",
+  "url": "https://github.com/facebookresearch/hyperagents",
+  "published_at": "2026-03-24T16:54:10Z",
+  "fetched_at": "2026-03-26T18:00:27.982957+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47505670\">Comments</a>",
+  "full_text": "# API keys, put these into .env file\nOPENAI_API_KEY=...\nANTHROPIC_API_KEY=...\nGEMINI_API_KEY=...\n\n# Install things\nsudo dnf install -y python3.12-devel\nsudo dnf install -y graphviz graphviz-devel cmake ninja-build bzip2-devel zlib-devel ncurses-devel libffi-devel\n\n# Create virtual environment\npython3.12 -m venv venv_nat\nsource venv_nat/bin/activate\npip install -r requirements.txt\npip install -r requirements_dev.txt\n# To build the docker container\ndocker build --network=host -t hyperagents .\n\n# Setup initial agents\nbash ./setup_initial.sh\n\n# See the script for args, and baseline selections\npython generate_loop.py --domains <domain>\n\nBy default, outputs will be saved in outputs/ directory.\n\nagent/ code for using foundation models\n\nanalysis/ scripts used for plotting and analysis\n\ndomains/ code for each domain\n\nutils/ common code used in the repo\n\nrun_meta_agent.py script to help run the meta agent and get the diffs\n\nmeta_agent.py main implementation of the meta agent\n\ntask_agent.py main implementation of the task agent\n\ngenerate_loop.py entry point for running the algorithm\n\nThe experiment logs are stored as a multi-part ZIP archive. To extract them, ensure all .z01, .z02, etc., files are in the same directory as the .zip file, then run:\n\nzip -s 0 outputs_os_parts.zip --out unsplit_logs.zip\nunzip unsplit_outputs.zip\n\nWarning\n\nThis repository involves executing untrusted, model-generated code. We strongly advise users to be aware of the associated safety risks. While it is highly unlikely that such code will perform overtly malicious actions under our current settings and with the models we use, it may still behave destructively due to limitations in model capability or alignment. By using this repository, you acknowledge and accept these risks.\n\nIf you find this project useful, please consider citing:\n\n@misc{zhang2026hyperagents,\n title={Hyperagents}, \n author={Jenny Zhang and Bingchen Zhao and Wannan Yang and Jakob Foerster and Jeff Clune and Minqi Jiang and Sam Devlin and Tatiana Shavrina},\n year={2026},\n eprint={2603.19461},\n archivePrefix={arXiv},\n primaryClass={cs.AI},\n url={https://arxiv.org/abs/2603.19461}, \n}",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "bash ./setup_initial.sh",
+      "code",
+      "docker",
+      "implementation",
+      "install",
+      "main",
+      "model",
+      "script",
+      "sudo",
+      "task",
+      "tatiana shavrina"
+    ],
+    []
+  ]
+}

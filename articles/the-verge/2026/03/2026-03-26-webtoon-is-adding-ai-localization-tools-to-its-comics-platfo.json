@@ -1,0 +1,39 @@
+{
+  "id": 5671,
+  "source": "The Verge",
+  "title": "Webtoon is adding AI localization tools to its comics platform",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/899108/webtoon-canvas-ai-translation-localization-yongsoo-kim",
+  "published_at": "2026-03-26T13:00:00Z",
+  "fetched_at": "2026-03-26T13:20:19.418949+00:00",
+  "author": "Charles Pulliam-Moore",
+  "summary": "<figure>\n\n<img alt=\"The Webtoon logo on a white background.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Screenshot-2026-03-23-at-4.06.41%E2%80%AFPM.jpg?quality=90&#038;strip=all&#038;crop=12.468125915527,0,73.526875305176,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Canvas, <a href=\"https://www.theverge.com/streaming/778471/disney-webtoon-comics-marvel-starwars\">Webtoon</a>'s platform for user-uploaded comics, is about to get a major overhaul that's designed to help creators make more money and share their art with a wider audience.</p>\n<p class=\"has-text-align-none\">Today, Webtoon announced its plans to roll out a number of new features for Canvas that will make it easier for artists to build global followings and gain a deeper understanding of who's engaging with their work. Soon, manga creators who upload their work to Canvas will be able to use an AI-powered translation tool to localize their scripts into English, Spanish",
+  "full_text": "Canvas, Webtoon’s platform for user-uploaded comics, is about to get a major overhaul that’s designed to help creators make more money and share their art with a wider audience.\n\nToday, Webtoon announced its plans to roll out a number of new features for Canvas that will make it easier for artists to build global followings and gain a deeper understanding of who’s engaging with their work. Soon, manga creators who upload their work to Canvas will be able to use an AI-powered translation tool to localize their scripts into English, Spanish, French, Indonesian, Thai, Traditional Chinese, and German. A beta version of the translation feature — which is optional — will first be made available to English-speaking Canvas users sometime this spring before Webtoon rolls it out to other markets later this summer.\n\nAdditionally, Webtoon is introducing an updated Canvas dashboard that the company says will provide “improved insights into series performance, deeper analytics to understand readership, and new tools to manage community engagement.” Webtoon also plans to make its ad revenue share program accessible to all creators producing work in any of the languages supported on Canvas.\n\nSpeaking to The Verge Webtoon president Yongsoo Kim said that all of the big changes coming to Canvas are meant to assist creators “grow their audience, build fandoms, and earn more from their work.” Kim told me that Webtoon’s chief concern is to help its creative overcome some of the challenges they might face with traditional distribution channels. Kim also described Canvas’ new translation functionality as a tool that’s designed to make creators’ lives easier.\n\n“For a long time, language barriers and distribution challenges have limited creators’ reach,” Kim said. “With these tools, we want to help creators reach readers around the world while keeping full creative control of their work.”\n\nOn paper, Canvas’ AI tool sounds a lot like the Kindle Translate tool Amazon rolled out last fall. When I asked Kim about how the translation program works, he explained that the tool is built on a combination of Webtoon’s own proprietary language model and “a powerful, external LLM.” Kim said that the program only processes textual elements of a manga page and no content is stored or used to further train the LLM. And because there’s more to localization than translating text from one language to another, the AI tool also features a glossary section that creators can fill out with information about their series that will help the tool maintain translation consistency and understand narrative context.\n\n“The model will have relatively less context for titles that have just started and only have a few episodes published on the platform,” Kim explained. “But once a creator has begun translating their episodes and publishing more, the model will develop more cumulative context about the title and the overall quality of the AI-generated translations will improve.”\n\nGiven AI models’ tendency to make mistakes, creators might still want to check their translated work for potential errors. But Kim noted that, if creators or readers find errors, they will be able to submit reports to Webtoon’s quality assurance team, which will trigger a human reviewing process. In response to being asked about whether Webtoon had given any thought to the possibility of readers being turned off by the company encouraging its partners to use AI, Kim stressed that the translation tool is completely optional and translated versions of a series will be removed from the platform if a creator opts out.\n\n“At WebToon, we strongly believe that this kind of technology should only be used to help our creators, not replace them,” Kim said. “We are starting with the translation program, but we’re still thinking about what kinds of support based on AI and other technologies will genuinely support our creators’ daily lives.”",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "amazon",
+      "canvas",
+      "canvas’ ai",
+      "comics",
+      "creator",
+      "design",
+      "entertainment",
+      "help",
+      "language",
+      "llm",
+      "manga",
+      "news",
+      "reader",
+      "tool",
+      "translation",
+      "webtoon"
+    ],
+    [
+      "comics",
+      "entertainment",
+      "news"
+    ]
+  ]
+}

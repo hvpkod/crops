@@ -1,0 +1,30 @@
+{
+  "id": 5889,
+  "source": "Haskell for all",
+  "title": "Why does Haskell's take function accept insufficient elements?>",
+  "url": "https://haskellforall.com/2022/05/why-does-haskells-take-function-accept",
+  "published_at": "2022-05-03T00:00:00Z",
+  "fetched_at": "2026-03-26T23:43:02.817897+00:00",
+  "author": null,
+  "summary": "A blog post that is a long-form answer to a question originally asked on Reddit",
+  "full_text": "This post is a long-form response to a question on Reddit, which asked:\n\nI just started learning haskell, and the take function confuses me.\n\ne.g take 10 [1,2,3,4,5] will yield [1,2,3,4,5]\n\nHow does it not generate an error ?\n\n… and I have enough to say on this subject that I thought it would warrant a blog post rather than just a comment reply.\n\nThe easiest way to answer this question is to walk through all the possible alternative implementations that can fail when not given enough elements.\n\nSolution 0: Output a Maybe\n\nThe first thing we could try would be to wrap the result in a Maybe, like this:\nsafeTake :: Int -> [a] -> Maybe [a]\nsafeTake 0 _ = Just []\nsafeTake n [] = Nothing\nsafeTake n (x : xs) = fmap (x :) (safeTake (n - 1) xs)\n>>> safeTake 3 [0..]\nJust [0,1,2]\n\n>>> safeTake 3 []\nNothing\n\nThe main deficiency with this approach is that it is insufficiently lazy. The result will not produce a single element of the output list until safeTake finishes consuming the required number of elements from the input list.\n\nWe can see the difference with the following examples:\n>>> oops = 1 : 2 : error \"Too short\"\n\n>>> take 1 (take 3 oops)\n[1]\n\n>>> safeTake 1 =<< safeTake 3 oops\n*** Exception: Too short\n\nSolution 1: Fail with error\n\nAnother approach would be to create a partial function that fails with an error if we run out of elements, like this:\npartialTake :: Int -> [a] -> [a]\npartialTake 0 _ = []\npartialTake n (x : xs) = x : partialTake (n - 1) xs\n>>> partialTake 3 [0..]\n[0,1,2]\n\n>>> partialTake 3 []\n*Main> partialTake 3 []\n*** Exception: Test.hs:(7,1)-(8,51): Non-exhaustive patterns in function partialTake\n\n>>> partialTake 1 (partialTake 3 oops)\n[1]\n\nPartial functions like these are undesirable, though, so we won’t go with that solution.\n\nSolution 2: Use a custom list-like type\n\nOkay, but what if we could store a value at the end of the list indicating whether or not the take succeeded. One way we could do that would be to define an auxiliary type similar to a list, like this:\n{-# LANGUAGE DeriveFoldable #-}\n\ndata ListAnd r a = Cons a (ListAnd r a) | Nil r deriving (Foldable, Show)\n\n… where now the empty (Nil) constructor can store an auxiliary value. We can then use this auxiliary value to indicate to the user whether or not the function succeeded or not:\ndata Result = Sufficient | Insufficient deriving (Show)\n\ntakeAnd :: Int -> [a] -> ListAnd Result a\ntakeAnd 0 _ = Nil Sufficient\ntakeAnd n [] = Nil Insufficient\ntakeAnd n (x : xs) = Cons x (takeAnd (n - 1) xs)\n>>> takeAnd 3 [0..]\nCons 0 (Cons 1 (Cons 2 (Nil Sufficient)))\n\n>>> takeAnd 3 []\nNil Insufficient\n\nAlso, the ListAnd type derives Foldable, so we can recover the old behavior by converting the ListAnd Result a type into [a] using toList:\n>>> import Data.Foldable (toList)\n\n>>> toList (takeAnd 3 [0..])\n[0,1,2]\n\n>>> toList (takeAnd 3 [])\n[]\n\n>>> toList (takeAnd 1 (toList (takeAnd 3 oops)))\n[1]\n\nThis is the first total function that has the desired laziness characteristics, but the downside is that the take function now has a much weirder type. Can we solve this only using existing types from base?\n\nSolution 3: Return a pair\n\nWell, what if we were to change the type of take to return an pair containing an ordinary list alongside a Result, like this:\ntakeWithResult :: Int -> [a] -> ([a], Result)\ntakeWithResult 0 _ = ( [], Sufficient )\ntakeWithResult n [] = ( [], Insufficient)\ntakeWithResult n (x : xs) = (x : ys, result )\n where\n (ys, result) = takeWithResult (n - 1) xs\n>>> takeWithResult 3 [0..]\n([0,1,2],Sufficient)\n>>> takeWithResult 3 []\n([],Insufficient)\n\nNow we don’t need to add this weird ListAnd type to base, and we can recover the old behavior by post-processing the output using fst:\n>>> fst (takeWithResult 3 [0..])\n[0,1,2]\nfst (takeWithResult 3 [])\n[]\n\n… and this also has the right laziness characteristics:\n>>> fst (takeWithResult 1 (fst (takeWithResult 3 oops)))\n[1]\n\n… and we can replace Result with a Bool if want a solution that depends solely on types from base:\ntakeWithResult :: Int -> [a] -> ([a], Bool)\ntakeWithResult 0 _ = ([], True)\ntakeWithResult n [] = ([], False)\ntakeWithResult n (x : xs) = (x : ys, result)\n where\n (ys, result) = takeWithResult (n - 1) xs\n\nHowever, even this solution is not completely satisfactory. There’s nothing that forces the user to check the Bool value before accessing the list, so this is not as safe as, say, the safeTake function which returns a Maybe. The Bool included in the result is more of an informational value rather than a safeguard.\n\nConclusion\n\nSo the long-winded answer to the original question is that there are several alternative ways we could implement take that can fail if the input list is too small, but in my view each of them has their own limitations.\n\nThis is why I think Haskell’s current take function is probably the least worst of the alternatives, even if it’s not the safest possible implementation.",
+  "tags": [
+    [
+      "1000-words",
+      "2022",
+      "function",
+      "haskell",
+      "insufficient",
+      "listand",
+      "partialtake",
+      "reddit",
+      "result",
+      "safetake",
+      "solution",
+      "takeand",
+      "takewithresult",
+      "type"
+    ],
+    []
+  ]
+}

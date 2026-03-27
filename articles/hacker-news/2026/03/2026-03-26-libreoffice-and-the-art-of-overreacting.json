@@ -1,0 +1,34 @@
+{
+  "id": 5660,
+  "source": "Hacker News",
+  "title": "LibreOffice and the Art of Overreacting",
+  "url": "https://blog.documentfoundation.org/blog/2026/03/25/libreoffice-and-the-art-of-overreacting/",
+  "published_at": "2026-03-26T10:13:38Z",
+  "fetched_at": "2026-03-26T11:40:24.027349+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47528605\">Comments</a>",
+  "full_text": "A donation banner is not an attack to users\n\nThe announcement that LibreOffice 26.8 will feature a donation banner in the Start Centre has prompted a flood of responses, ranging from positive from many FOSS supporters, who understand the need for funding, to mild apprehension to extreme alarm from others.\n\nSome articles have described the change as an “aggressive fundraising campaign” and suggested that it is part of a dangerous trend towards “freemium” models and paid features. However, it is worth taking a step back to analyse what is actually being introduced and the broader context that many of these comments have ignored.\n\nThe banner will appear in the Start Centre – the screen that greets users when they launch LibreOffice without opening a specific document – and will occupy roughly the bottom quarter of the screen. It will not block any functionality, nor will it restrict access to any features. According to the implementation plan, it will appear periodically, but not at every launch.\n\nThat is all that is changing. It is a request that is certainly not intrusive, given that the Start Centre is a screen that many users – at best – glance at for a few seconds before opening a file.\n\nMedia coverage has largely omitted the fact that LibreOffice has been displaying donation requests for years. Previous versions displayed a banner above the open document roughly every six months.\n\nMoving the request to the Start Centre is not an escalation, but a change in location and frequency. In fact, displaying the request in the Start Centre rather than above an open document makes it less intrusive for users. Therefore, the outrage is directed at something that has been there for a long time and has been quietly accepted by users.\n\nNobody is making the comparison with Mozilla Thunderbird, which has asked its users for donations practically every time it starts up, with clearly visible banners and campaign messages, for most of its existence as an independent project. This has never generated such controversy, nor has anyone ever accused Thunderbird of becoming “aggressive”. No slippery slope has been identified, and the software remains free and open source.\n\nThe same logic applies to Wikipedia. The Wikimedia Foundation displays prominent, often full-screen donation banners to its hundreds of millions of readers every year during its fundraising campaigns, with banners that are considerably more insistent than anything LibreOffice is planning. The reaction from the public and the tech press has consistently been sympathetic, not hostile.\n\nThe asymmetry is instructive. LibreOffice introduces a monthly banner on a screen that most users view for just a few seconds, and this immediately becomes controversial. Thunderbird and Wikipedia have persistently displayed donation requests for years, and the community has regarded this as normal.\n\nThunderbird and Wikipedia asking for money is widely understood as a reasonable consequence of providing free, ad-free, universally accessible resources.\n\nThe same understanding should extend naturally to LibreOffice. All these projects offer something of extraordinary value at no cost to the user, sustained entirely by voluntary contributions. The only real difference is that Thunderbird and Wikipedia’s funding models have been running for longer, and as such they become culturally normalised.\n\nThis difference in reaction has less to do with the feature itself and more to do with the particular expectations that some in the FOSS community have of office software, sometimes bordering on a sense of entitlement.\n\nSome comments have even suggested that the donation banner is the first step towards a “freemium” model, whereby certain advanced features are hidden behind a subscription. This point deserves to be addressed directly, as it has no basis in fact.\n\nThe Document Foundation is a German Stiftung (a non-profit foundation) that is legally established and governed by a charter which clearly defines its mission: the development and distribution of LibreOffice as free and open-source software.\n\nIts finances are public, and its governance is transparent. The structural and legal constraints placed on TDF serve as a safeguard for users, rendering the claim “today a banner, tomorrow a paywall” a wild flight of fancy. To assert otherwise without evidence is a despicable attempt to undermine the work of thousands of volunteers over the last sixteen years, whose sole aim is to serve users.\n\nThe real issue is the sustainability of FOSS. LibreOffice is used by over 100 million people worldwide, including governments, schools, businesses, and individual users. Collectively, they save billions of euros or dollars a year in proprietary software licence costs and take a fundamental step towards digital sovereignty.\n\nThe Document Foundation operates thanks to a majority of individual donations and a very small number of corporate contributions, amounting to less than 5% of the total. Like most comparable-sized FOSS projects, it consistently achieves a lot with few resources.\n\nThe foundation has always been transparent about this reality. The donation banner in the Start Centre is not a sign of desperation, but a reasonable and proportionate attempt to make the funding relationship between the project and its users slightly more visible.\n\nUnfortunately, the way this feature has been covered in the media suggests that the debate on the sustainability of free software infrastructure is poorly understood.\n\nThe alternative – a project that slowly loses contributors because it is unable to support them – is considerably worse, as it affects everyone who depends on free and open-source office software.\n\nIn conclusion, a non-intrusive banner that appears monthly on a transition screen and asks users who save hundreds of euros or dollars a year to consider making a voluntary contribution is not scandalous, but rather a respectful request for support for a project that has grown over sixteen years and wishes to continue doing so.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "banner",
+      "centre",
+      "document",
+      "donation",
+      "foss",
+      "libreoffice",
+      "media",
+      "mozilla thunderbird",
+      "request",
+      "start",
+      "the document foundation",
+      "the start centre",
+      "the wikimedia foundation",
+      "thunderbird",
+      "user",
+      "wikipedia"
+    ],
+    []
+  ]
+}

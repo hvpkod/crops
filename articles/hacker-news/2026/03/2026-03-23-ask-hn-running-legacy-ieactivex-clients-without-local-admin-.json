@@ -1,0 +1,31 @@
+{
+  "id": 5768,
+  "source": "Hacker News",
+  "title": "Ask HN: Running legacy IE/ActiveX clients without local admin rights?",
+  "url": "https://news.ycombinator.com/item?id=47486365",
+  "published_at": "2026-03-23T07:20:50Z",
+  "fetched_at": "2026-03-26T20:00:38.055086+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47486365\">Comments</a>",
+  "full_text": "We are currently maintaining a very old client-server architecture. The server collects real-time data from a large number of sensors and controllers, transmitting it to a legacy database under continuous, massive load (writes every few seconds).\n\nThe problem is the client side. It’s ancient, strictly requires Internet Explorer, and heavily relies on ActiveX. If a standard domain user launches the browser, the data fails to load and the browser completely hangs. It only functions correctly if run with local administrator privileges.\n\nGiving users local admin rights is a massive security risk we can't take. Currently, I have a workaround running in production using Task Scheduler to elevate just this specific application without giving the user the actual admin password. I documented the specific approach we are using here:\nhttps://www.hiddenobelisk.com/how-to-let-a-standard-domain-user-run-one-program-as-administrator-without-giving-admin-rights/#:~:text=least%20privilege.-,Approach%202%20%E2%80%94%20Running%20Applications%20with%20Administrative%20Privileges%20Using%20Task%20Scheduler,users%20can%20simply%20double%2Dclick%20the%20shortcut%20to%20launch%20the%20application.,-Changing%20the%20Shortcut\n\nI recently started a thread over on r/sysadmin trying to find a cleaner solution:\nhttps://www.reddit.com/r/sysadmin/comments/1rm6uv4/how_do_you_let_a_standard_domain_user_run_one/\n\nThe general consensus there was to either buy an expensive enterprise PAM (Privileged Access Management) solution, or deep-dive with Procmon. I am currently analyzing the software with Procmon based on that advice, but so far, I haven't been able to make the client work without the Task Scheduler workaround.\n\nMy questions for the HN community:\n\n1) Are there any reliable open-source PAM alternatives or privilege elevation tools for Windows that handle this \"per-app\" scenario effectively?\n\n2) When dealing with hostile ActiveX components, are there specific legacy behaviors (beyond obvious file/registry Access Denied) I should be looking for in my Procmon captures?\n\n3) How do you isolate this kind of hardcoded legacy requirement when there is zero budget for commercial enterprise tools?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "activex.",
+      "admin",
+      "client",
+      "give",
+      "legacy",
+      "load",
+      "local",
+      "massive",
+      "procmon",
+      "run",
+      "specific",
+      "sysadmin",
+      "windows"
+    ],
+    []
+  ]
+}

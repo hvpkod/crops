@@ -1,0 +1,37 @@
+{
+  "id": 5743,
+  "source": "Hacker News",
+  "title": "Show HN: Orloj – agent infrastructure as code (YAML and GitOps)",
+  "url": "https://github.com/OrlojHQ/orloj",
+  "published_at": "2026-03-26T05:07:51Z",
+  "fetched_at": "2026-03-26T18:40:16.189899+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47526813\">Comments</a>",
+  "full_text": "Named after the Prague Orloj, an astronomical clock that has coordinated complex mechanisms for over 600 years.\n\nAn orchestration runtime for multi-agent AI systems.\n\nDeclare your agents, tools, and policies as YAML. Orloj schedules, executes, routes, and governs them so you can run multi-agent systems in production with the same operational rigor you expect from infrastructure.\n\nStatus: Orloj is under active development. APIs and resource schemas may change between minor versions before 1.0.\n\nRunning AI agents in production today looks a lot like running containers before container orchestration: ad-hoc scripts, no governance, no observability, and no standard way to manage an agent fleet. Orloj provides:\n\nAgents-as-Code -- declare agents, their models, tools, and constraints in version-controlled YAML manifests.\n\nDAG-based orchestration -- pipeline, hierarchical, and swarm-loop topologies with fan-out/fan-in support.\n\nModel routing -- bind agents to OpenAI, Anthropic, Azure OpenAI, Ollama, and other endpoints. Switch providers without changing agent definitions.\n\nTool isolation -- execute tools in containers, WASM sandboxes, or process isolation with configurable timeout and retry.\n\nGovernance built in -- policies, roles, and tool permissions enforced at the execution layer. Unauthorized tool calls fail closed.\n\nProduction reliability -- lease-based task ownership, idempotent replay, capped exponential retry with jitter, and dead-letter handling.\n\nWeb console -- built-in UI with topology views, task inspection, and live event streaming.\n\nDownload orlojd (server) and orlojctl (CLI) for your platform from GitHub Releases, extract them, and run:\n\n# Start the server with an embedded worker\n./orlojd --storage-backend=memory --task-execution-mode=sequential --embedded-worker\n\nOpen http://127.0.0.1:8080/ to explore the web console, then apply a starter blueprint. The example manifests live in this repo -- clone it or browse them on GitHub:\n\n# Apply a starter blueprint (pipeline: planner -> research -> writer)\n./orlojctl apply -f examples/blueprints/pipeline/\n\n# Check the result\n./orlojctl get task bp-pipeline-task\n\nOr build from source (requires Go 1.25+):\n\ngo build -o orlojd ./cmd/orlojd\ngo build -o orlojctl ./cmd/orlojctl\n\nWhen you are ready to scale, switch to message-driven mode with distributed workers and Postgres persistence. See the Quickstart guide for details.\n\n┌─────────────────────────────────────────────────────┐\n│ Server (orlojd) │\n│ │\n│ ┌──────────────┐ ┌────────────────┐ │\n│ │ API Server │──►│ Resource Store │ │\n│ │ (REST) │ │ mem / postgres │ │\n│ └──────┬───────┘ └────────────────┘ │\n│ │ │\n│ ▼ │\n│ ┌──────────────┐ ┌────────────────┐ │\n│ │ Services │──►│ Task Scheduler │ │\n│ └──────────────┘ └───────┬────────┘ │\n└─────────────────────────────┼───────────────────────┘\n │\n ▼\n┌─────────────────────────────────────────────────────┐\n│ Workers (orlojworker) │\n│ │\n│ ┌──────────────┐ ┌───────────────┐ │\n│ │ Task Worker │──►│ Model Gateway │ │\n│ │ │ └───────────────┘ │\n│ │ │──►┌───────────────┐ │\n│ │ │ │ Tool Runtime │ │\n│ │ │ └───────────────┘ │\n│ │ ◄──────┼───┌───────────────┐ │\n│ │ │──►│ Message Bus │ │\n│ └──────────────┘ └───────────────┘ │\n└─────────────────────────────────────────────────────┘\n\nServer (orlojd) -- API server, resource store (in-memory or Postgres), background services, and task scheduler.\n\nWorkers (orlojworker) -- claim tasks, execute agent graphs, route model requests, run tools, and handle inter-agent messaging.\n\nGovernance -- AgentPolicy, AgentRole, and ToolPermission resources enforced inline during every tool call and model interaction.\n\nPersistence is backed by Postgres (or in-memory for local dev). Message-driven mode uses NATS JetStream for durable agent-to-agent messaging.\n\nOrloj manages 15 resource types, all defined as declarative YAML with apiVersion, kind, metadata, spec, and status fields:\n\nCore\n\nResource\nPurpose\n\nAgent\nUnit of work backed by a language model\n\nAgentSystem\nDirected graph composing multiple agents\n\nModelEndpoint\nConnection to a model provider\n\nTool\nExternal capability with isolation and retry\n\nSecret\nCredential storage\n\nMemory\nVector-backed retrieval for agents\n\nMcpServer\nMCP server connection that discovers/syncs MCP tools\n\nGovernance\n\nResource\nPurpose\n\nAgentPolicy\nToken, model, and tool constraints\n\nAgentRole\nNamed permission set bound to agents\n\nToolPermission\nRequired permissions for tool invocation\n\nToolApproval\nApproval record for gated tool invocations\n\nScheduling & Triggers\n\nResource\nPurpose\n\nTask\nRequest to execute an AgentSystem\n\nTaskSchedule\nCron-based task creation\n\nTaskWebhook\nEvent-triggered task creation\n\nWorker\nExecution unit with capability declaration\n\nBrowse docs.orloj.dev.\n\nGetting Started -- install, quickstart\n\nConcepts -- architecture, agents, tasks, tools, model routing, governance\n\nGuides -- deploy a pipeline, configure routing, build tools, set up governance\n\nDeploy & Operate -- local, VPS, Kubernetes, remote CLI access\n\nReference -- CLI, API, resource schemas\n\nSecurity -- control plane API tokens, secrets, tool isolation\n\nExamples -- per-kind YAML under examples/resources/, starter blueprints/, and use-cases/ (in this repo)\n\nRun the full stack (Postgres + server + 2 workers) with Docker Compose:\n\ndocker compose up --build -d\ndocker compose ps\n\nThe Compose images include the server and workers only. To drive the API from your machine, install orlojctl from GitHub Releases (CLI-only tarball) or build from this repo; see Deploy & Operate.\n\nSee CONTRIBUTING.md for development setup and guidelines.\n\nApache License 2.0. See LICENSE and NOTICE.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "apply",
+      "cli",
+      "dag",
+      "declare",
+      "governance",
+      "isolation",
+      "model",
+      "ollama",
+      "openai",
+      "orloj",
+      "resource",
+      "resource schemas",
+      "server",
+      "task",
+      "the prague orloj",
+      "tool",
+      "worker",
+      "yaml"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": 5923,
+  "source": "Haskell for all",
+  "title": "Prefer to use fail for IO exceptions>",
+  "url": "https://haskellforall.com/2019/12/prefer-to-use-fail-for-io-exceptions",
+  "published_at": "2019-12-12T00:00:00Z",
+  "fetched_at": "2026-03-26T23:43:34.556120+00:00",
+  "author": null,
+  "summary": "Stop using error and prefer fail instead",
+  "full_text": null,
+  "tags": [
+    [
+      "200-words",
+      "2019",
+      "fail",
+      "prefer"
+    ],
+    []
+  ]
+}

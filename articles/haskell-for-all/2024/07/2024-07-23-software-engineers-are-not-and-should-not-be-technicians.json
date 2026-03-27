@@ -1,0 +1,32 @@
+{
+  "id": 5864,
+  "source": "Haskell for all",
+  "title": "Software engineers are not (and should not be) technicians>",
+  "url": "https://haskellforall.com/2024/07/software-engineers-are-not-and-should",
+  "published_at": "2024-07-23T00:00:00Z",
+  "fetched_at": "2026-03-26T23:42:15.841489+00:00",
+  "author": null,
+  "summary": "Why predictable development work is a red flag",
+  "full_text": "I don’t actually think predictability is a good thing in software\nengineering. This will probably come as a surprise to some people\n(especially managers), but I’ll explain what I mean.\n\nIn my view, a great software engineer is one who automates\nrepetitive/manual labor. You would think that this is a pretty low bar\nto clear, right? Isn’t automation of repetitive tasks … like …\nprogramming 101? Wouldn’t most software engineers be great engineers\naccording to my criterion?\n\nNo.\n\nI would argue that most large software engineering\norganizations incentivize anti-automation and it’s primarily\nbecause of their penchant for predictability, especially predictable\nestimates and predictable work. The reason this happens is that\npredictable work is work that could have been automated but was\nnot automated.\n\nExample\n\nI’ll give a concrete example of predictable work from my last job.\nEarly on we had a dedicated developer for maintaining our web API. Every\ntime some other team added a new gRPC API endpoint to an internal\nservice this developer was tasked with exposing that same information\nvia an HTTP API. This was a fairly routine job but it still required\ntime and thought on their part.\n\nInitially managers liked the fact that this developer could estimate\nreliably (because the work was well-understood) and this developer liked\nthe fact that they didn’t have to leave their comfort zone. But\nit wasn’t great for the business! This person frequently became\na bottleneck for releasing new features because they had inserted their\nown manual labor as a necessary step in the development pipeline. They\nmade the case that management should hire more such developers\nlike themselves to handle increased demand for their work.\n\nOur team pushed back on this because we recognized that this\ndeveloper’s work was so predictable that it could be completely\nautomated. We made the case to management that rather than hiring\nanother person to do the same work we should be automating more and it’s\na good thing we did; that developer soon left the company and instead of\nhiring to replace them we automated away their job instead. We wrote\nsome code to automatically generate an HTTP API from the corresponding\ngRPC API1 and that generated much more value\nfor the business than hiring a new developer.\n\nTechnicians vs Engineers\n\nI like to use the term “technician” to describe a developer who (A)\ndoes work that is well-understood and (B) doesn’t need to leave their\ncomfort zone very often. Obviously there is not a bright line dividing\nengineers from technicians, but generally speaking the more predictable\nand routine a developer’s job the more they tend to slide into becoming\na technician. In the above example, I viewed the developer maintaining\nthe web API as more of a technician than an engineer.\n\nIn contrast, the more someone leans into being an engineer the more\nunpredictable their work gets (along with their estimates). If you’re\nconsistently automating things then all of the predictable work slowly\ndries up and all that’s left is unpredictable work. The nature of a\nsoftware engineer’s job is that they are tackling increasingly\nchallenging and ambitious tasks as they progressively automate more.\n\nI believe that most tech companies should not bias towards\npredictability and should avoid hiring/cultivating technicians. The\nreason that tech companies command outsized valuations is because of\nautomation. Leaning into predictability and well-understood work\ninadvertently incentivizes manual labor instead of automation. This\nisn’t obvious to a lot of tech companies because they assume any work\ninvolving code is necessarily automation but that’s not always the\ncase2. Tech companies that fail to\nrecognize this end up over-hiring and wondering why less work is getting\ndone with more people.\n\nOr to put it another way: I actually view it as a red flag if an\nengineer or team gets into a predictable “flow” because it means that\nthere is a promising opportunity for automation they’re ignoring.\n\nNowadays there are off-the-shelf\ntools to do this like grpc-gateway\nbut this wasn’t available to us at the time.↩︎\n\n… or even usually the case; I’m\npersonally very cynical about the engineering effectiveness of most tech\ncompanies.↩︎",
+  "tags": [
+    [
+      "1000-words",
+      "2024",
+      "api",
+      "automation",
+      "company",
+      "developer",
+      "engineer",
+      "hiring",
+      "predictability",
+      "predictable",
+      "software",
+      "tech",
+      "technician"
+    ],
+    [
+      "hiring",
+      "tech"
+    ]
+  ]
+}

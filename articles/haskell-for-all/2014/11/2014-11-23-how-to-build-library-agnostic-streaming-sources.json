@@ -1,0 +1,20 @@
+{
+  "id": 5976,
+  "source": "Haskell for all",
+  "title": "How to build library-agnostic streaming sources>",
+  "url": "https://haskellforall.com/2014/11/how-to-build-library-agnostic-streaming",
+  "published_at": "2014-11-23T00:00:00Z",
+  "fetched_at": "2026-03-26T23:43:36.654713+00:00",
+  "author": null,
+  "summary": "The case for MonadPlus as the true ListLike class",
+  "full_text": null,
+  "tags": [
+    [
+      "200-words",
+      "2014",
+      "build",
+      "streaming"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 5825,
+  "source": "DEV Community<",
+  "title": "I built a health check for inherited codebases — and vibe-coded apps that now became important",
+  "url": "https://dev.to/lukepercy/i-built-a-health-check-for-inherited-codebases-and-vibe-coded-apps-that-now-became-important-cko",
+  "published_at": "2026-03-26T23:02:37Z",
+  "fetched_at": "2026-03-26T23:40:32.558662+00:00",
+  "author": "Luke Percy",
+  "summary": "<p>I have just launched repowatch — <a href=\"https://repowatch.io/\" rel=\"noopener noreferrer\">repowatch.io</a> 🎉 </p>\n\n<p>A quick, lightweight health check for your (or inherited) codebase. <br />\nSimply upload a .zip or connect to your GitHub and Gitlab repos and get a scorecard across: code quality, test confidence, security basics, and AI-risk signals. Heck, Download a full recommendations report in paid tiers, have at it. </p>\n\n<p>Built for the slightly chaotic reality of inherited repos, shadow AI, and vibe-coded apps that somehow ended up important. It's still early, but live and looking forward to any feedback. </p>\n\n<p>Keen to see whether this actually lands for teams dealing with that kind of challenge. If you want to give it a spin, use code <strong>TESTWEEK</strong> at checkout for 99%! 😲 off your first month, but only until 1 April.</p>\n\n<p>Thanks dev.to community,</p>",
+  "full_text": "I have just launched repowatch — repowatch.io 🎉 \n\nA quick, lightweight health check for your (or inherited) codebase. \n\nSimply upload a .zip or connect to your GitHub and Gitlab repos and get a scorecard across: code quality, test confidence, security basics, and AI-risk signals. Heck, Download a full recommendations report in paid tiers, have at it. \n\nBuilt for the slightly chaotic reality of inherited repos, shadow AI, and vibe-coded apps that somehow ended up important. It's still early, but live and looking forward to any feedback. \n\nKeen to see whether this actually lands for teams dealing with that kind of challenge. If you want to give it a spin, use code TESTWEEK at checkout for 99%! 😲 off your first month, but only until 1 April.\n\nThanks dev.to community,",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "app",
+      "build",
+      "check",
+      "gitlab",
+      "health",
+      "inherit",
+      "launch",
+      "pay",
+      "productivity",
+      "repowatch",
+      "scorecard",
+      "security",
+      "testing",
+      "webdev"
+    ],
+    [
+      "health",
+      "webdev"
+    ]
+  ]
+}

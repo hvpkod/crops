@@ -1,0 +1,35 @@
+{
+  "id": 5689,
+  "source": "Hacker News",
+  "title": "My home network observes bedtime with OpenBSD and pf",
+  "url": "https://ratfactor.com/openbsd/pf-gateway-bedtime",
+  "published_at": "2026-03-23T13:56:54Z",
+  "fetched_at": "2026-03-26T15:20:28.919336+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47489620\">Comments</a>",
+  "full_text": "(Sketchbook ink and watercolor by the author: A fearsome Puffy determines which packets shall pass.)\n\nThe centerpiece of my setup is the pf packet filter, which is built into\nthe OpenBSD kernel and originated, like many good things, from OpenBSD.\n\nThe bulk of pf configuration is done through /etc/pf.conf.\n\nI constructed mine from scratch while reading The Book of PF, 4th Ed. (see the\nreferences section at the bottom of this page).\n\nYou can view my full conf in the repo here:\npf.conf.\n\n(I like to thoroughly document things I won’t be touching frequently, so\nthere are a lot of comments in that file, including instructions on updating\npf after I make changes.)\n\nAnyway, I set this up in the recommended fashion: block all\ntraffic and then let only selected traffic through.\n\nWhen it’s daytime, I use the rule:\n\npass proto tcp from <leased_ips>\n\nWhen it’s bedtime, that rule changes to:\n\npass proto tcp from <bedtime_exempt>\n\nThere are two IP address tables being used:\n\n<leased_ips> is maintained by dhcpd when it leases addresses to clients\non the local network.\n\n<bedtime_exempt> is maintained manually by me. I store the addresses in a\ntext file and load them into the table with a script whenever I make a change.\n\nWhen it’s bedtime, I only explicitly allow traffic to the exempt computers.\nThis blocks traffic to everything else because, as you may recall, the default\nis block all!\n\nYou’ll notice that I’m only doing this for TCP traffic. I’m\nhandling ICMP and UDP packets in a strict fashion in accordance with\nthe wisdom of the book. We’ll see if I end up needing to make any exceptions.\n\n(Update: Sure enough, I’m going to need to experiment with the\ndaytime rule - the above doesn’t allow Discord voice chat or\nRoblox to function, which…​was not appreciated by certain members\nof this house.)\n\nUpdating tables\n\nSince this is all predicated on the two address tables, how do these\ntables get updated?\n\nThe <leased_ips> table is initially created in pf.conf with this placeholder:\n\ntable <leased_ips> persist counters\n\nIt is populated automatically by dhcpd from this command line option\nset in /etc/rc.conf.local (also in the repo):\n\ndhcpd_flags=\"-L leased_ips\"\n\nI think it’s great how tables are built right into\nthe OpenBSD kernel and all the tooling understands them. It feels\nvery cohesive and, dare I say it, planned and thought-out?\n\nI store the <bedtime_exempt> addresses in a text file and update the table\nfrom the file contents with pfctl:\n\npfctl -t bedtime_exempt -T replace -f no_bedtime.txt\n\nThe text file is a simple list with one address per line. It can\nalso have standard Unix-style comments (line starts with '#').\nAgain, all of this feels very cohesive and flexible to me.\nIt’s the good parts of the Unix Philosophy.\n\nWhen you or a program update a table, the changes take place\nimmediately in the running kernel’s tables and you don’t have to\ntell pf about them.\n\nAnchors\n\nThe crux of bedtime enforcement is the ability to schedule a\nchange to the rules that allow traffic from local computers.\n\nAnchors are a grouping for rules in pf.conf. There are a couple\ndifferent uses for them, but in my case, I’m using an anchor as a\nnamed chunk of rules which I can change from the\ncommand line without having to reload anything else.\n\nInitializing an anchor can be as simple as giving it a name:\n\nIn my case, I’m pre-populating my 'bedtime' anchor with the\nunrestricted Internet access rule so access works when pf starts\nup with the assumption that it’s currently \"daytime\":\n\nanchor bedtime {\n # the default \"awake\" rule, bedtime not enforced\n pass proto tcp from <leased_ips>\n}\n\nOnce you have an anchor, you can swap out its rules on the fly (they’ll be\nparsed and added to the ruleset) from a file or even STDIN at the command line.\nHere’s an example that uses echo to replace the rules of a 'foo' anchor:\n\necho \"block all\" | pfctl -a foo -f -\n\nAs soon as you replace an anchor’s rules, pf will start using them\nimmediately.\n\nBy the way, if you made a mistake and have a syntax error in the\nrules you’re trying to load into an anchor, you’ll just get a\nsyntax error and the rule won’t be loaded. Nothing bad happens and\neverything keeps running.\n\nKill active connections in the state table\n\nOne of the hardest problems I ran into was the fact that by default, pf keeps\ntrack of active connections and stores them in a state table.\nIt keeps these connections alive even if a new rule would have\nforbidden it.\n\nThis is normally desirable for two reasons:\n\npf doesn’t have to expend cycles examining each packet that\nfollows in the same connection.\n\nIt keeps existing connections (like SSH sessions!) alive even\nwhen rules change or address tables update.\n\nHowever, in my case, I want bedtime to cut off traffic,\nespecially long-lived connections like YouTube streams!\n\nSo when bedtime starts and I change the anchor rules, I’m also\nkilling connections on the local network with pfctl:\n\n(Ideally, I would be able to kill connection states for only the entries in\n<leased_ips> minus the entries in <bedtime_exempt>. But I’ll admit, after\nreading the man pages front-and-back, searching the wasteland that is the\nmodern Web, and even diving into the source code, I don’t see an easy way to do\nthat. One possible avenue would be to use the ability to label pf rules and\nthen kill connections by label, so maybe I can figure out how to craft a\n'match' rule that uses the tables to get the correct list of connections to\nkill? It’s that or figure out the difference of the two tables in my script,\nwhich…​no thanks.)\n\nLastly, I put all the above together in a shell script.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "address",
+      "anchor",
+      "bedtime",
+      "change",
+      "connection",
+      "dhcpd_flags=\"-l",
+      "discord",
+      "pf.conf",
+      "proto",
+      "rule",
+      "ssh",
+      "table",
+      "tcp",
+      "traffic",
+      "udp",
+      "use",
+      "youtube"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": 5822,
+  "source": "DEV Community<",
+  "title": "How I used Next.js and Claude 3.5 to stop my PM from nagging me about Jira",
+  "url": "https://dev.to/phantasm0009/how-i-used-nextjs-and-claude-35-to-stop-my-pm-from-nagging-me-about-jira-1d81",
+  "published_at": "2026-03-26T23:17:08Z",
+  "fetched_at": "2026-03-26T23:40:24.798659+00:00",
+  "author": "Phantasm0009",
+  "summary": "<p>We’ve all been there. </p>\n\n<p>It’s 10:30 AM. You drop your update in the <code>#daily-standup</code> Slack channel: <em>\"Finally squashed that weird auth bug on the login portal, moving on to the database migration.\"</em></p>\n\n<p>Two hours later, your Product Manager DMs you: <em>\"Hey, awesome job on the auth bug! Did you remember to move the ticket to Done in Jira?\"</em></p>\n\n<p>Context switching is the absolute worst part of being a developer. We are already communicating our status naturally in Slack—why do we have to open a new tab, wait for Jira or Linear to load, find the right sprint, and click a button just to say the exact same thing?</p>\n\n<p>Last weekend, I decided I’d had enough. I built a Slack bot that reads my daily updates, figures out which ticket I’m talking about, and auto-closes it for me. </p>\n\n<p>Here is how I built it using Next.js, the Slack Events API, and Claude 3.5 Sonnet.</p>\n\n<h3>\n  \n  \n  The Architecture\n</h3>\n\n<p>The flow is surprisingly simple, but th",
+  "full_text": "We’ve all been there. \n\nIt’s 10:30 AM. You drop your update in the #daily-standup Slack channel: \"Finally squashed that weird auth bug on the login portal, moving on to the database migration.\"\n\nTwo hours later, your Product Manager DMs you: \"Hey, awesome job on the auth bug! Did you remember to move the ticket to Done in Jira?\"\n\nContext switching is the absolute worst part of being a developer. We are already communicating our status naturally in Slack—why do we have to open a new tab, wait for Jira or Linear to load, find the right sprint, and click a button just to say the exact same thing?\n\nLast weekend, I decided I’d had enough. I built a Slack bot that reads my daily updates, figures out which ticket I’m talking about, and auto-closes it for me. \n\nHere is how I built it using Next.js, the Slack Events API, and Claude 3.5 Sonnet.\n\n \n \n The Architecture\n\nThe flow is surprisingly simple, but the execution requires some strict timing:\n\nDeveloper posts a message in a monitored Slack channel.\n\nSlack fires a webhook to my Next.js API route.\n\nThe API fetches the user's currently open tasks from Jira/Linear.\n\nClaude 3.5 evaluates the Slack message against the open tasks to see if there's a match.\n\nIf confidence is > 95%, the bot hits the PM tool's API to mark it \"Done\" and replies in Slack.\n\n \n \n Challenge 1: Beating the Slack 3-Second Timeout\n\nSlack's Events API is notoriously strict. When they send a webhook payload, you have exactly 3 seconds to respond with a 200 OK, or Slack assumes your app is dead and retries the event (which leads to duplicate AI calls and chaos). \n\nBecause calling the Anthropic API and the Jira API takes way longer than 3 seconds, you cannot await the AI processing in the main thread. \n\nTo solve this in Next.js (deployed on Vercel), I used the waitUntil function from @vercel/functions. This allows the serverless function to return the 200 OK immediately to Slack, while keeping the execution environment alive to finish the AI pipeline in the background:\n\n// src/app/api/webhooks/slack/route.ts\nimport { waitUntil } from '@vercel/functions';\nimport { NextRequest, NextResponse } from 'next/server';\nimport { processSlackMessage } from '@/lib/ai/pipeline';\n\nexport const POST = async (request: NextRequest): Promise<NextResponse> => {\n // ... verify signatures and parse payload ...\n\n const event = payload.event;\n\n if (event.type === 'message') {\n // 1. Queue the heavy AI processing in the background\n waitUntil(\n processSlackMessage({\n teamId: payload.team_id,\n channelId: event.channel,\n userId: event.user,\n messageText: event.text,\n messageTs: event.ts,\n }).catch(console.error)\n );\n }\n\n // 2. Immediately return 200 OK to satisfy Slack's 3-second rule\n return NextResponse.json({ ok: true });\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Challenge 2: Stopping the AI from Hallucinating Tasks\n\nThe scariest part of this build was the idea of an AI accidentally closing the wrong ticket. If a developer says \"I'm going to start working on the header tomorrow\", the AI shouldn't close the \"Header Redesign\" ticket just because the words match.\n\nTo fix this, I engineered a highly specific system prompt for Claude 3.5. Instead of just asking \"does this match?\", I force the LLM to return a strict JSON object with a calculated confidence_score. \n\nI gave Claude very specific scoring guidelines:\n\n// src/lib/ai/prompts.ts\nconst SYSTEM_PROMPT = `You are NudgeBot's task-matching engine. Given a Slack message and a list of the sender's open tasks, determine whether the message indicates that one or more tasks have been completed.\n\nReturn ONLY valid JSON in this exact shape:\n{\n \"matches\": [\n {\n \"task_id\": \"<uuid>\",\n \"confidence_score\": <0.0–1.0>,\n \"reasoning\": \"<1–2 sentences>\"\n }\n ]\n}\n\nScoring guidelines:\n 0.95–1.00 Explicit: \"finished X\", \"deployed X\", PR merged for X\n 0.80–0.94 Strong: past-tense action verbs (\"shipped\", \"pushed\") + context\n 0.65–0.79 Moderate: implicit completion language, partial name overlap\n 0.50–0.64 Weak: tangentially related, ambiguous phrasing\n\nRules:\n- Past tense, \"just\", \"finally\", deployment language are positive signals.\n- Questions, future tense (\"will\", \"going to\"), and negations (\"not done\") are NOT completions.\n- Return empty matches if nothing matches above 0.50.`;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIn the backend pipeline, if Claude returns a score of 0.95 or higher, the app automatically closes the ticket. If it's between 0.70 and 0.94, the bot sends an ephemeral (private) message to the user in Slack with a button asking: \"Looks like you finished the Auth Bug. Should I close the ticket for you?\"\n\n \n \n The \"Trust\" Feature (Audit Trails)\n\nIf you automate project management, your PMs will eventually get paranoid about why things are moving. \n\nWhenever the bot closes a ticket, it makes a secondary API call to Jira/Linear to leave a comment on the ticket: ✅ Marked as done by NudgeBot based on a Slack update from @Aditya: \"Finally squashed that weird auth bug.\"\n\nComplete transparency, zero extra clicks. \n\n \n \n Don't want to build it yourself?\n\nBuilding this was a super fun weekend project, but managing OAuth flows for Slack, Jira, Linear, Asana, and Trello is a massive headache. \n\nBecause we are developers and we appreciate not reinventing the wheel, I actually packaged this exact codebase into a 1-click installable SaaS. \n\nIf you want to stop your PMs from nagging you, you can invite the bot to your workspace and use it for free here: NudgeBot.xyz.\n\nLet me know in the comments if you'd trust an AI to manage your project board!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "@aditya",
+      "ai",
+      "api",
+      "claude",
+      "close",
+      "exact",
+      "fullscreen",
+      "jira",
+      "jira/linear",
+      "linear",
+      "llm",
+      "message",
+      "mode",
+      "next.js",
+      "nextjs",
+      "nextrequest",
+      "nextresponse",
+      "nudgebot",
+      "productivity",
+      "return",
+      "slack",
+      "ticket",
+      "webdev"
+    ],
+    [
+      "nextjs",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": 5767,
+  "source": "Hacker News",
+  "title": "Show HN: Layerleak – Like Trufflehog, but for Docker Hub",
+  "url": "https://github.com/Brumbelow/layerleak",
+  "published_at": "2026-03-26T19:26:23Z",
+  "fetched_at": "2026-03-26T20:00:35.895103+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47534578\">Comments</a>",
+  "full_text": "layerleak the Docker Hub Secret Scanner\n\nCheck CONTRIBUTING.md for development and contribution guidelines.\n\nDocker Hub / OCI image secret scanner that analyzes image layers, config metadata, and image history, then stores deduplicated findings by manifest digest.\n\nTraditional secret scanners often treat a container image as a flat blob or depend on a local Docker daemon. This project is designed around OCI image internals\n\nPublic Docker Hub images only\n\nRead-only scanning\n\nNo secret verification\n\nNo Docker daemon dependency required\n\nManifest-aware and layer-aware scanning\n\nScans final filesystem and deleted-layer artifacts\n\nScans image config metadata, env vars, labels, and history\n\nDeduplicates findings by secret fingerprint and collapses repeated identical context snippets per manifest\n\nPrerequisites:\n\nBuild from source:\n\ngit clone https://github.com/brumbelow/layerleak.git\ncd layerleak\ngo build -o layerleak .\n\nOptional environment configuration:\n\nResult and database configuration:\n\nexport LAYERLEAK_FINDINGS_DIR=findings\nexport LAYERLEAK_TAG_PAGE_SIZE=100\nexport LAYERLEAK_DATABASE_URL=postgres://postgres:postgres@localhost:5432/layerleak?sslmode=disable\n\nIf LAYERLEAK_FINDINGS_DIR is not set, layerleak writes JSON findings files to findings/ under the repo root.\nSaved findings files contain only detections, including unredacted finding values and unredacted context snippets.\nLAYERLEAK_TAG_PAGE_SIZE controls Docker Hub tag-list pagination for repository-wide scans.\nIf LAYERLEAK_DATABASE_URL is set, the scanner also writes the scan to Postgres and fails the command if Postgres is unavailable or the save does not succeed.\n\nResult behavior:\n\nActionable findings remain in findings and drive the non-zero scan exit status.\n\nLikely test/example/demo placeholders are emitted separately as suppressed example findings and do not count toward total_findings.\n\nFinding records now include disposition, disposition_reason, and line_number to make triage and false-positive review easier.\n\nLayerleak ships versioned SQL migrations under migrations/.\nMigrations are manual on purpose. The scanner does not auto-create or auto-upgrade the schema.\n\nApply the migrations with psql in order:\n\npsql \"$LAYERLEAK_DATABASE_URL\" -f migrations/0001_initial.up.sql\npsql \"$LAYERLEAK_DATABASE_URL\" -f migrations/0002_finding_occurrence_metadata.up.sql\n\nRollback the migrations in reverse order:\n\npsql \"$LAYERLEAK_DATABASE_URL\" -f migrations/0002_finding_occurrence_metadata.down.sql\npsql \"$LAYERLEAK_DATABASE_URL\" -f migrations/0001_initial.down.sql\n\nOperational defaults:\n\nMigrations are expected to remain additive.\n\nThe schema keeps current deduplicated state with first_seen_at and last_seen_at; it does not keep a scan_runs history table yet.\n\nTag mappings are refreshed for tags touched by the current scan.\n\nFindings are deduplicated canonically by (manifest_digest, fingerprint), and repeated identical context snippets are collapsed before persistence.\n\nSecret-safety note:\n\nPostgres persistence stores raw finding values and raw snippets, not only redacted previews.\n\nUse a dedicated database or schema for layerleak.\n\nFor the safest purge path, drop the dedicated database or schema instead of trying to surgically delete individual rows.\n\nShow the CLI help:\n\n./layerleak --help\n./layerleak scan --help\n\nRun a scan against a public Docker Hub image:\n\n./layerleak scan ubuntu\n./layerleak scan library/nginx:latest --format json\n./layerleak scan alpine:latest --platform linux/amd64\n./layerleak scan mongo\n\nEvery scan also writes a JSON findings file to the findings output directory.\nThose saved findings files contain only finding records, including the exact match value, exact source location, unredacted snippet, disposition metadata, and line number for each finding.\nIf Postgres persistence is enabled, the same raw finding material is stored in the findings and finding_occurrences tables.\nFor multi-arch images, layerleak skips attestation and provenance manifests such as application/vnd.in-toto+json instead of counting them as failed platform scans.\nIf you pass a bare repository name such as mongo, layerleak enumerates all public tags in that repository, resolves each tag to a digest, groups duplicate digests, and scans the distinct targets. If you want a single image only, pass an explicit tag or digest such as mongo:latest or mongo@sha256:....\n\nCommand syntax:\n\nlayerleak [command]\nlayerleak scan <image-ref> [flags]\n\n☕ Enjoying this project? Click here to support it\n\nIf this repo saved you time or helped you out, you can support future updates here:\n\nBuy me a coffee\n\nThank you :) it genuinely helps keep the project maintained.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "cli",
+      "docker",
+      "finding",
+      "image",
+      "layerleak",
+      "migrations",
+      "oci",
+      "postgres",
+      "psql",
+      "scan",
+      "scanner",
+      "secret",
+      "sql"
+    ],
+    []
+  ]
+}

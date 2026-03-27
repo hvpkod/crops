@@ -1,0 +1,33 @@
+{
+  "id": 5830,
+  "source": "DEV Community<",
+  "title": "How I Tried to Handle Customer Support in Telegram and Ended Up Building a Tool for It",
+  "url": "https://dev.to/petrtcoi/how-i-tried-to-handle-customer-support-in-telegram-and-ended-up-building-a-tool-for-it-2knl",
+  "published_at": "2026-03-26T22:39:56Z",
+  "fetched_at": "2026-03-26T23:40:40.866004+00:00",
+  "author": "Petr Tcoi",
+  "summary": "<p>This didn’t start as a startup idea. I wasn’t trying to build a SaaS product. I just needed a simple way to handle customer support for my own projects without exposing my personal Telegram account or dealing with complex tools.</p>\n\n<p>At first, Telegram felt perfect. Everyone already uses it, there’s no onboarding, no friction, no extra accounts. A client just sends a message and you reply. It’s fast, natural, and works out of the box.</p>\n\n<p>And for a while, it really does work.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fubh30rnfig7wa4c72x3w.png\"><img alt=\" \" height=\"400\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fubh30rnfig7wa4c72x3w.png\" width=\"800\" /></a></p>\n\n<p>The p",
+  "full_text": "This didn’t start as a startup idea. I wasn’t trying to build a SaaS product. I just needed a simple way to handle customer support for my own projects without exposing my personal Telegram account or dealing with complex tools.\n\nAt first, Telegram felt perfect. Everyone already uses it, there’s no onboarding, no friction, no extra accounts. A client just sends a message and you reply. It’s fast, natural, and works out of the box.\n\nAnd for a while, it really does work.\n\nThe problems don’t show up immediately. In the beginning, you have a few conversations per day, everything is manageable, and you can keep context in your head. Then you launch another project. Then another. Messages start coming in at different times, from different people, about different things.\n\nYou reply from your personal account, then maybe create a separate work account, then start forwarding messages to yourself or teammates. Over time, Telegram turns into a mix of personal chats, client conversations, and random forwarded messages. It becomes harder to understand what’s going on at any given moment.\n\nThe tricky part is that it doesn’t break in an obvious way. It slowly degrades. Responses get delayed, some messages are missed, sometimes two people reply to the same client, sometimes no one replies because everyone assumes someone else already did. Nothing critical, but enough to hurt the overall experience.\n\nI tried a few workarounds. Multiple accounts, groups, pinned messages, manual labeling, forwarding flows. All of them help a bit, but none of them solve the core issue. Telegram is just a list of chats. There is no structure, no clear overview, no shared context.\n\nSwitching to a CRM or helpdesk didn’t feel right either. Not because those tools are bad, but because they’re often overkill for small teams or solo projects. You get dashboards, ticket statuses, workflows, onboarding, and another system you need to constantly keep open. Meanwhile, your actual communication still happens in Telegram, just routed through something else.\n\nAt some point it became clear that I didn’t need another tool. I needed a way to make Telegram itself more structured.\n\nThe idea ended up being very simple. Instead of clients messaging me directly, they message a bot. Every incoming message is forwarded into a private Telegram group where each client gets their own thread. One client, one thread. All history stays in one place, no forwarding, no confusion.\n\nYou reply directly inside that thread, and the bot sends the response back to the client.\n\nNothing fundamentally changes from the user’s perspective. It still feels like a normal Telegram chat. But internally, everything becomes structured. You can immediately see all active conversations, understand which ones need attention, and multiple people can work in parallel without stepping on each other.\n\nMost importantly, your personal account is no longer part of the support flow at all.\n\nI originally built this just to solve my own problem. But after using it for a while, I realized this pattern applies to a lot of people. Freelancers, small teams, indie projects, small businesses. Many of them rely on Telegram for communication, run into the same limitations, and don’t want to switch to heavy tools.\n\nThat’s how it turned into a small product.\n\nIf you're curious how this approach works in practice, I put together a simple explanation here:\n\n👉 https://gramdeskbot.com\n\nIt’s not trying to replace a CRM or compete with full helpdesk platforms. It’s just adding a missing layer to Telegram so it can function as a lightweight support system.\n\nAnd in practice, for small setups, that turned out to be a much better fit than anything more complex.\n\nIf you’re already using Telegram as your main communication channel, you’ll likely run into the same issues at some point. The question is whether you keep patching it manually or introduce a bit of structure on top of what you already use.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "already",
+      "client",
+      "elixir",
+      "end",
+      "message",
+      "personal",
+      "reply",
+      "saas",
+      "small",
+      "support",
+      "telegram",
+      "try"
+    ],
+    [
+      "elixir",
+      "saas"
+    ]
+  ]
+}

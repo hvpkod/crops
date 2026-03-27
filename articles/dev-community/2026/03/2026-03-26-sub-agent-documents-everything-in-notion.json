@@ -1,0 +1,39 @@
+{
+  "id": 5829,
+  "source": "DEV Community<",
+  "title": "Sub-Agent Documents Everything in Notion",
+  "url": "https://dev.to/trickell/i-built-an-agent-whose-only-job-is-to-document-everything-in-notion-i64",
+  "published_at": "2026-03-26T22:46:44Z",
+  "fetched_at": "2026-03-26T23:40:39.350207+00:00",
+  "author": "John A Madrigal",
+  "summary": "<p>I have a problem. Not a \"my code does not compile\" problem. A \"I have so many ideas and projects and notes that my brain just gives up and reboots\" problem. 😵‍💫</p>\n\n<p>So I did what any reasonable developer would do: I built an AI agent inside Open Claw whose only job is to document everything beautifully in Notion. His name is Escriber.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fvu3dnbx8i2kotr72vn5r.png\"><img alt=\"The Prompt that birthed Escriber\" height=\"183\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fvu3dnbx8i2kotr72vn5r.png\" width=\"800\" /></a></p>\n\n<p>This is my submission for the <strong>Notion MCP Challenge</strong>.  Let me tell you, building a focused single-purpose ",
+  "full_text": "I have a problem. Not a \"my code does not compile\" problem. A \"I have so many ideas and projects and notes that my brain just gives up and reboots\" problem. 😵‍💫\n\nSo I did what any reasonable developer would do: I built an AI agent inside Open Claw whose only job is to document everything beautifully in Notion. His name is Escriber.\n\nThis is my submission for the Notion MCP Challenge. Let me tell you, building a focused single-purpose agent with 14 Notion tools is exactly as satisfying as it sounds.\n\n \n \n What I Built\n\nEscriber is agent #2 of 5 on my OpenClaw multi-agent team. \n\nHis SOUL.md says exactly this: \"I document. Beautifully. In Notion.\" And for anyone who has not used OpenClaw, they give these agents Soul.md files that define who the agent is and give them a small personality. \n\nThat is it. Full stop. He cannot debug your code. He cannot give life advice. He has one lane and he stays in it — which, honestly, is more discipline than I have most the time. 😆\n\nHe lives in Discord as a bot or I can use the web chat interface to call on him directly. He can be slightly artisanal. Dry wit is baked in by design, because documentation does not have to be soulless. He makes use of my Synap bot to write summaries for projects and clean them up like I would say them, then he will store what Synap sends back.\n\nHe is not a Swiss Army knife. He is a scalpel. And sometimes that is exactly what you need.\n\n \n \n Video Demo\n\n VIDEO\n\n \n \n Show Us the Code\n\nEscriber talks to Notion through mcporter — an MCP relay that proxies tool calls to Notion's official MCP server. Every Notion interaction looks like this:\n\nmcporter call notion.<tool_name> --args '{ ... }'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nClean. Consistent. One pattern to rule them all.\n\nHere is the full arsenal — 14 tools, one agent, zero excuses for undocumented projects:\n\nTool\nWhat It Does\n\nnotion.search\nFind existing pages/databases before creating duplicates\n\nnotion.create_page\nSpin up a new page anywhere in the workspace\n\nnotion.retrieve_page\nRead a page's metadata\n\nnotion.update_page\nUpdate page properties\n\nnotion.append_block_children\nAdd content blocks to an existing page\n\nnotion.retrieve_block_children\nRead what is already on a page\n\nnotion.retrieve_block\nFetch a specific block\n\nnotion.update_block\nEdit an existing block\n\nnotion.delete_block\nRemove a block\n\nnotion.create_database\nCreate a new database\n\nnotion.retrieve_database\nRead database structure\n\nnotion.update_database\nModify database schema\n\nnotion.query_database\nFilter and search database entries\n\nnotion.create_database_item\nAdd a row to a database\n\nEscriber also has workflow rules baked into his instructions. Because tools without discipline are just chaos with an API:\n\nSearch first. Always check if the page already exists before creating a new one.\n\nRead before writing. Retrieve block children before appending to avoid structural disasters.\n\nRight block type. Callouts for decisions. Toggles for details. Headings for structure. Not everything is a paragraph.\n\nStructure intentionally. Measure twice, cut once. 🤣\n\n \n \n How I Used Notion MCP\n\nLet me tell you how this actually works.\n\nmcporter connects Escriber to Notion's official MCP server at https://mcp.notion.com/mcp. Every tool call gets proxied through that relay — no direct API wrangling, no custom request builders. The MCP layer handles it. Escriber just speaks tool.\n\nHere is what that looks like day-to-day:\n\nNew project starts?\n\ncreate_page to spin up the project hub. create_database_item to log it in the master projects database. Done in seconds.\n\nWrapping up a build session?\n\nappend_block_children to the existing project page. Build notes, decisions made, what broke, what did not. Structured. Timestamped. Actually findable later.\n\nJB's Job Listings\n\ncreate_page My recruiter agent stored a list of jobs using Esciber every morning. Future-me will be grateful. Past-me was not doing this. These are stored in Notion daily, and sortable ☠️\n\nLet me tell you about the shame moment that made this real.\n\nI went back through my own Notion workspace a few weeks ago. Pages with titles like \"ideas v3 FINAL\" and \"project notes DO NOT DELETE\" containing exactly… three bullet points and a YouTube link. That is it. That is the legacy. A graveyard of good intentions. ☠️\n\nEscriber exists because I needed someone with more documentation discipline than me. Turns out that someone is a focused AI agent with a soul file and 14 Notion tools.\n\nOne job. One lane. Real personality. And the docs actually get written now.\n\n\"Optimization starts with a single point of failure—or a single point of success. Own the lane.\"\n\nAlso, thanks to Bloggy, for taking the time to help with this post. \n\nEscriber is part of my OpenClaw agent team. If you are curious about building multi-agent setups in openclaw, drop a comment — I am writing more about this whole stack as it comes together.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai",
+      "api",
+      "block",
+      "database",
+      "discord",
+      "escriber",
+      "exist",
+      "mcp",
+      "mcporter",
+      "modify",
+      "notion",
+      "openclaw",
+      "page",
+      "project",
+      "soul.md",
+      "swiss army",
+      "synap",
+      "tool"
+    ],
+    [
+      "openclaw"
+    ]
+  ]
+}

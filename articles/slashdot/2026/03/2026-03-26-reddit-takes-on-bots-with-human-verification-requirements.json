@@ -1,0 +1,35 @@
+{
+  "id": 5659,
+  "source": "Slashdot",
+  "title": "Reddit Takes On Bots With 'Human Verification' Requirements",
+  "url": "https://yro.slashdot.org/story/26/03/25/2250217/reddit-takes-on-bots-with-human-verification-requirements?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-26T11:00:00Z",
+  "fetched_at": "2026-03-26T11:40:21.989044+00:00",
+  "author": "BeauHD",
+  "summary": "Reddit is rolling out human-verification checks for accounts that show signs of bot-like behavior, while also labeling approved automated accounts that provide useful services. The social media company stressed that these checks will only happen if something appears \"fishy,\" and that it is \"not conducting sitewide human verification.\" TechCrunch reports: To identify potential bots, Reddit is using specialized tooling that looks at account-level signals and other factors -- like how quickly the account is attempting to write or post content. Using AI to write posts or comments, however, is not against its policies (though community moderators may set their own rules).\n \nTo verify an account is human, Reddit will leverage third-party tools like passkeys from Apple, Google, YubiKey, and other third-party biometric services, like Face ID or even Sam Altman's World ID -- or, in some countries, the use of government IDs. Reddit notes this last category may be required in some countries like ",
+  "full_text": "Reddit is rolling out\n\n human-verification checks for accounts that show signs of bot-like behavior, while also labeling approved automated accounts that provide useful services. The social media company stressed that these checks will only happen if something appears \"fishy\n\n,\" and that it is \"not conducting sitewide human verification.\" TechCrunch reports: To identify potential bots, Reddit is using specialized tooling that looks at account-level signals and other factors -- like how quickly the account is attempting to write or post content. Using AI to write posts or comments, however, is not against its policies (though community moderators may set their own rules).\n\n \n\nTo verify an account is human, Reddit will leverage third-party tools like passkeys from Apple, Google, YubiKey, and other third-party biometric services, like Face ID or even Sam Altman's World ID -- or, in some countries, the use of government IDs. Reddit notes this last category may be required in some countries like the U.K. and Australia and some U.S. states, because of local regulations on age verification, but it's not the company's preferred method. \n\n \"If we need to verify an account is human, we'll do it in a privacy-first way,\" Reddit co-founder and CEO Steve Huffman wrote in the announcement Wednesday. \"Our aim is to confirm there is a person behind the account, not who that person is. The goal is to increase transparency of what is what on Reddit while preserving the anonymity that makes Reddit unique. You shouldn't have to sacrifice one for the other.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "account",
+      "appear",
+      "apple",
+      "approve",
+      "australia",
+      "check",
+      "conduct",
+      "google",
+      "label",
+      "privacy",
+      "reddit",
+      "sitewide",
+      "stress",
+      "u.k.",
+      "u.s.",
+      "verify",
+      "yubikey"
+    ],
+    []
+  ]
+}

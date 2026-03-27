@@ -1,0 +1,30 @@
+{
+  "id": 5871,
+  "source": "Haskell for all",
+  "title": "A GHC plugin for OpenTelemetry build metrics>",
+  "url": "https://haskellforall.com/2023/10/a-ghc-plugin-for-opentelemetry-build",
+  "published_at": "2023-10-04T00:00:00Z",
+  "fetched_at": "2026-03-26T23:42:24.137879+00:00",
+  "author": null,
+  "summary": "An announcement post for the opentelemetry-plugin Haskell package",
+  "full_text": "This post is about a new OpenTelemetry plugin for GHC that\nI’ve been building for work that we’re open\nsourcing because I think it might be broadly useful to others. If all\nyou want to do is use the plugin then you can find it on\nHackage, which includes more detailed usage instructions. This post\nwill focus more on the motivation and background behind the plugin’s\ndevelopment.\n\nMotivation\n\nThe context behind this work was that we use Honeycomb at work for collecting\nmetrics related to production and our team1 has\nbegun to apply those same metrics to our builds. In particular, we\nwanted to collect detailed (module-level) build metrics so that we could\nbegin to hunt down and fix expensive modules within our codebase. For\ncontext: our codebase currently has almost 7000 modules, so these\nexpensive modules can easily fly under the radar.\n\nWhen we enable the plugin and export the results to Honeycomb we can\nbegin to see which modules are the most expensive to build:\n\nSample module build times\n\n… and none of the modules are individually very expensive to build\n(the worst offender is only about 5 seconds), so they’d easily get lost\nwithin a sea of thousands of other modules.\n\nHowever, these sorts of insights have already proven useful. For\nexample:\n\none expensive modules was completely unused in our codebase\n\nThe above list brought it to our attention so that we could delete\nit.\n\nother expensive modules were representative examples of larger\nissues to fix\n\nFor example, one expensive module consisted of 2000 invocations of an\ninternal function which is expensive to type-check and fixing this\nfunction will improve compile speeds across our codebase and not just\nthat module.\n\nother expensive modules are indicative of architectural\nanti-patterns\n\nFrequently “horizontally-organized” modules top the chart, and I view\nthem as anti-patterns for a few reasons (see: my post on Module\norganization guidelines). These modules are not expensive per\nse (the code inside them has to be compiled somewhere),\nbut they tend to be build chokepoints because they have a large number\nof dependencies and reverse dependencies. Highlighting expensive modules\nhas a tendency to highlight these sorts of build chokepoints as a side\nbonus.\n\nIn principle you can also browse a given build’s trace interactively,\nlike this:\n\nHowever, for our codebase Honeycomb chokes on our giant build traces\nand we can only produce visualizations like the above image if we filter\ndown the spans to a randomly sampled subset of modules. Honeycomb\ndoesn’t do a good job of handling traces with a few thousand spans or\nmore.\n\nWorkarounds\n\nThis plugin was surprisingly difficult for me to implement because\nGHC’s Plugin interface is so constrained.\n\nFor example, the hs-opentelemetry-sdk package asks you\nto finalize any TracerProvider that you acquire, but\nthere’s no good way (that I know of2) to run finalization\nlogic at the end of a ghc build using the\nPlugin interface. The purpose of this finalization logic is\nto flush metrics that haven’t yet been exported.\n\nSo what I did was to hack around this by detecting all modules that\nare root modules of the build graph and flushing metrics after each of\nthose root modules is built (since one of them will be the last module\nbuilt). I tried a bunch of other alternative approaches (like installing\na phase\nhook), but this was the only approach I was able to get to work.\n\nAnd the OpenTelemetry plugin is full of workarounds like this. We\nhave vetted internally that the plugin works for normal builds,\nghcid and haskell-language-server, but\ngenerally I expect there to be some trailing bugs that we’ll have to fix\nas more people use it due to these various unsafe implementation\ndetails.\n\nIn fact, one limitation of the plugin is that the top-level span has\na duration of 0 (instead of reporting the duration of the build). This\nis related to the same issue of the Plugin interface\napparently not having a good way to run code exactly once after the\nbuild completes (even using hacks). If somebody knows of a way to do\nthis that I missed I’d definitely welcome the tip!\n\nConclusion\n\nWhat we do know from internal usage is that:\n\nthe plugin definitely scales to very large codebases (thousands\nof modules)\n\n… although honeycomb doesn’t scale to thousands of spans, but that’s\nnot our fault.\n\nthe plugin’s overhead is negligible (so it’s safe to always\nenable)\n\nthe plugin works with cabal commands,\nghcid, and haskell-language-server\n\nSo it should be fine for most use cases, but please report any issues\nthat you run into.\n\nthe backend developer user experience team↩︎\n\nI’d be really happy to be proven wrong, so if someone\nknows the right way to do this please open\nan issue explaining this (and I can fix it myself) or submit a pull\nrequest↩︎",
+  "tags": [
+    [
+      "1000-words",
+      "2023",
+      "build",
+      "codebase",
+      "expensive",
+      "ghc",
+      "honeycomb",
+      "issue",
+      "metric",
+      "module",
+      "opentelemetry",
+      "plugin",
+      "span",
+      "tracerprovider"
+    ],
+    []
+  ]
+}

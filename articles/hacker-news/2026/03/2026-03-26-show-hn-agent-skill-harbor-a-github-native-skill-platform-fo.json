@@ -1,0 +1,32 @@
+{
+  "id": 5677,
+  "source": "Hacker News",
+  "title": "Show HN: Agent Skill Harbor – a GitHub-native skill platform for teams",
+  "url": "https://news.ycombinator.com/item?id=47530391",
+  "published_at": "2026-03-26T13:43:03Z",
+  "fetched_at": "2026-03-26T14:00:16.875228+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47530391\">Comments</a>",
+  "full_text": "There are already many services for discovering public skills, and many ways to manage your own personal skills.\n\nWhat still feels missing is the middle layer: how teams and organizations share AI agent skills, track provenance, and keep them safe to use.\n\nAgent Skill Harbor is an OSS skill management platform for that layer. It is GitHub-native, DB-less, and serverless by design, because skills are mostly text artifacts that already fit naturally in Git.\n\nIt collects skills from GitHub repos, tracks provenance, supports governance and safety checks, and publishes a static catalog site with GitHub Actions and GitHub Pages.\n\nRepo: https://github.com/skill-mill/agent-skill-harbor\nDemo: https://skill-mill.github.io/agent-skill-harbor-demo/",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "agent",
+      "already",
+      "discover",
+      "git",
+      "github",
+      "github actions",
+      "github pages",
+      "harbor",
+      "oss",
+      "platform",
+      "skill",
+      "team",
+      "track",
+      "way"
+    ],
+    []
+  ]
+}

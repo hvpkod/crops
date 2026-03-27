@@ -1,0 +1,31 @@
+{
+  "id": 5876,
+  "source": "Haskell for all",
+  "title": "terraform-nixos-ng: Modern terraform support for NixOS>",
+  "url": "https://haskellforall.com/2023/01/terraform-nixos-ng-modern-terraform",
+  "published_at": "2023-01-30T00:00:00Z",
+  "fetched_at": "2026-03-26T23:42:34.078819+00:00",
+  "author": null,
+  "summary": "Announcement post for improved terraform bindings for NixOS",
+  "full_text": "Recently I’ve been working on writing a “NixOS in Production”\nbook and one of the chapters I’m writing is on deploying NixOS using\nterraform. However, one of the issues I ran across was the\npoor NixOS support for terraform. I’ve already gone through\nthe nix.dev\npost explaining how to use the terraform-nixos\nproject but I ran into several issues trying to follow those\ninstructions (which I’ll explain below). That plus the fact that\nterraform-nixos seems to be\nunmaintained pushed me over the edge to rewrite the project to\nsimplify and improve upon it.\n\nSo this post is announcing my terraform-nixos-ng\nproject:\n\n… which is a rewrite of terraform-nixos and I’ll use\nthis post to compare and contrast the two projects. If you’re only\ninterested in trying out the terraform-nixos-ng project\nthen go straight to the\nREADME\n\nUsing nixos-rebuild\n\nOne of the first things I noticed when kicking the tires on\nterraform-nixos was that it was essentially reinventing\nwhat the nixos-rebuild tool already does. In fact, I was so\nsurprised by this that I wrote a standalone post explaining how to use\nnixos-rebuild as a deployment tool:\n\nSimplifying that code using nixos-rebuild fixed lots of\ntiny papercuts I had with terraform-nixos, like:\n\nThe deploy failing if you don’t have a new enough version of\nbash installed\n\nThe inability to turn off the use of the\n--use-substitutes flag\n\nThat flag causes issues if you want to deploy to a machine that\ndisables outbound connections.\n\nThe dearth of useful options (compared to\nnixos-rebuild)\n\n… including the inability to fully customize ssh\noptions\n\nThe poor interop with flakes\n\nFor example, terraform-nixos doesn’t respect the standard\nnixosConfigurations flake output hierarchy.\n\nAlso, terraform-nixos doesn’t use flakes natively (it\nuses flake-compat),\nwhich breaks handling of the\nconfig.nix.binary{Caches,CachePublicKeys} flakes settings.\nThe Nix UX for flakes is supposed to ask the user to consent to those\nsettings (because they are potentially insecure to auto-enable for a\nflake), but their workaround breaks that UX by automatically enabling\nthose settings without the user’s consent.\n\nI wanted to upstream this rewrite to use nixos-rebuild\ninto terraform-nixos, but I gave up on that idea when I saw\nthat no pull request since 2021 had been merged, including conservative\npull requests like this\none to just use the script included within the repository to update\nthe list of available AMIs.\n\nThat brings me to the next improvement, which is:\n\nAuto-generating available AMIs\n\nThe terraform-nixos repository requires the AMI list to\nbe manually updated. The way you do this is to periodically run a script\nto fetch the available AMIs from Nixpkgs and then create a PR to vendor\nthose changes. However, this shouldn’t be necessary because we could\neasily program terraform to generate the list of AMIs on\nthe fly.\n\nThis is what the terraform-nixos-ng project does, where\nthe ami module creates a data\nsource that runs an equivalent script to fetch the AMIs at\nprovisioning time.\n\nIn the course of rewriting the AMI module, I made another small\nimprovement, which was:\n\nSupport for aarch64 AMIs\n\nAnother gripe I had with terraform-nixos-ng is that its\nAMI module doesn’t support aarch64-linux NixOS AMIs even\nthough these AMIs exist and Nixpkgs\nsupports them. That was a small and easy fix, too.\n\nFunctionality regressions\n\nterraform-nixos-ng is not a strict improvement over\nterraform-nixos, though. Specifically, the most notable\nfeature omissions are:\n\nSupport for non-flake workflows\n\nterraform-nixos-ng requires the use of flakes and\ndoesn’t provide support for non-flake-based workflows. I’m very much on\nteam “Nix flakes are good and shouldn’t be treated as experimental any\nlonger” so I made an opinionated choice to require users to use flakes\nrather than support their absence.\n\nThis choice also isn’t completely aesthetic, the use of flakes\nimproves interop with nixos-rebuild, where flakes are the\nmost ergonomic way for nixos-rebuild to select from one of\nmany deployments.\n\nSupport for secrets management\n\nI felt that this should be handled by something like sops-nix\nrather than rolling yet another secrets management system that was\nidiosyncratic to this deploy tool. In general, I wanted these\nterraform modules to be as lightweight as possible by\nmaking more idiomatic use of the modern NixOS ecosystem.\n\nSupport for Google Compute Engine images\n\nterraform-nixos supports GCE images and the only reason\nI didn’t add the same support is because I’ve never used Google Compute\nEngine so I didn’t have enough context to do a good rewrite, nor did I\nhave the inclination to set up a GCE account just to test the rewrite.\nHowever, I’d accept a pull request adding this support from someone\ninterested in this feature.\n\nConclusion\n\nThere’s one last improvement over the terraform-nixos\nproject, which is that I don’t leave projects in an abandoned state.\nAnybody who has contributed to my open source projects knows that I’m\ngenerous about handing out the commit bit and I’m also good about\nrelinquishing control if I don’t have time to maintain the project\nmyself.\n\nHowever, I don’t expect this to be a difficult project to maintain\nanyway because I designed terraform-nixos-ng to outsource\nthe work to existing tools as much as possible instead of reinventing\nthe wheel. This is why the implementation of\nterraform-nixos-ng is significantly smaller than\nterraform-nixos.",
+  "tags": [
+    [
+      "1000-words",
+      "2023",
+      "ami",
+      "flake",
+      "gce",
+      "google compute\nengine",
+      "google compute engine",
+      "module",
+      "nixos",
+      "project",
+      "pull",
+      "rewrite",
+      "script",
+      "support",
+      "terraform"
+    ],
+    []
+  ]
+}

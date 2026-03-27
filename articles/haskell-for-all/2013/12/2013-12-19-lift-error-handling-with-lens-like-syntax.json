@@ -1,0 +1,21 @@
+{
+  "id": 5994,
+  "source": "Haskell for all",
+  "title": "Lift error handling with lens-like syntax>",
+  "url": "https://haskellforall.com/2013/12/lift-error-handling-with-lens-like",
+  "published_at": "2013-12-19T00:00:00Z",
+  "fetched_at": "2026-03-26T23:43:37.339415+00:00",
+  "author": null,
+  "summary": "Design sketch for how error-handling could interact with monad transformers",
+  "full_text": null,
+  "tags": [
+    [
+      "200-words",
+      "2013",
+      "error",
+      "handle",
+      "lift"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": 5865,
+  "source": "Haskell for all",
+  "title": "Quality and productivity are not necessarily mutually exclusive>",
+  "url": "https://haskellforall.com/2024/07/quality-and-productivity-are-not",
+  "published_at": "2024-07-03T00:00:00Z",
+  "fetched_at": "2026-03-26T23:42:16.949735+00:00",
+  "author": null,
+  "summary": "A focus can quality can sometimes immediately boost productivity",
+  "full_text": "One of my pet peeves is when people pit quality and\nproductivity against each other in engineering management discussions\nbecause I don’t always view them as competing priorities.\n\nAnd I don’t just mean that quality improves productivity in the long\nrun by avoiding tech debt. I’m actually saying that a focus on quality\ncan immediately boost delivery speed for the task at\nhand.\n\nIn my experience there are two primary ways that attention to quality\nhelps engineers ship and deliver more features on shorter\ntimescales:\n\nMindfulness of quality counteracts tunnel vision\n\nBy “tunnel vision” I mean the tendency of engineers to focus too much\non their initial approach to solving a problem, to the point where they\nmiss other (drastically) simpler solutions to the same problem. When an\nengineer periodically steps back and holistically evaluates the quality\nof what they’re building they’re more likely to notice a simpler\nsolution to the same problem.\n\nPrioritizing quality improves morale\n\nMany engineers deeply desire being masters at their craft, and the\nmorale boost of doing a quality job can sharply increase their\nproductivity, too. Conversely, if you pressure an engineer to cut\ncorners and ship at all costs you might decrease the scope of the\nproject but you also might tank their productivity even more\nand wipe out any gains from cutting scope.\n\nHOWEVER, (and this is a big caveat) the above points\ndo not always apply, which is why I say that a focus on quality only\nsometimes improves productivity. In other words, part of the\nart/intuition of being a manager is recognizing the situations where\nquality supports productivity.\n\nFor example, not every engineer cares about doing a quality job or\nhoning their craft (for some people it’s just a job) and if you ask\nthese kinds of engineers to prioritize quality they’re not going to get\nthe morale/productivity boost that a more passionate engineer might get.\nLike, it could still be the right decision to prioritize quality, but\nnow it’s no longer an obvious decision.\n\nSimilarly, not every engineer will benefit from stepping back and\nthinking longer about the problem at hand because some engineers are\nenamored with complexity and aren't as good at identifying radically\nsimpler solutions (although I will say that valuing simplicity is a great\nthing to cultivate in all of your engineers even if they’re not good at it\ninitially). As a manager you have to\nrecognize which engineers will move faster when given this extra breathing room and\nwhich ones won’t.\n\nAnyway, the reason I’m writing this post is to counteract the mindset\nthat quality and productivity are competing priorities because this\nmentality causes people to turn off their brains and miss the numerous\nopportunities where quality actually supports productivity (even in the\nvery short term).",
+  "tags": [
+    [
+      "2024",
+      "500-words",
+      "boost",
+      "compete",
+      "counteract",
+      "engineer",
+      "focus",
+      "improve",
+      "n’t",
+      "productivity",
+      "quality",
+      "simple"
+    ],
+    []
+  ]
+}

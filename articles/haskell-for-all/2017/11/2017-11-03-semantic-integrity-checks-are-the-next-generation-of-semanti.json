@@ -1,0 +1,22 @@
+{
+  "id": 5936,
+  "source": "Haskell for all",
+  "title": "Semantic integrity checks are the next generation of semantic versioning>",
+  "url": "https://haskellforall.com/2017/11/semantic-integrity-checks-are-next",
+  "published_at": "2017-11-03T00:00:00Z",
+  "fetched_at": "2026-03-26T23:43:35.073646+00:00",
+  "author": null,
+  "summary": "An introduction to the Dhall configuration language's support for integrity checks based on the semantic content of code instead of the text",
+  "full_text": null,
+  "tags": [
+    [
+      "200-words",
+      "2017",
+      "check",
+      "generation",
+      "integrity",
+      "semantic"
+    ],
+    []
+  ]
+}

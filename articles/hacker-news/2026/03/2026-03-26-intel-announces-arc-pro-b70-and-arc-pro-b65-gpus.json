@@ -1,0 +1,37 @@
+{
+  "id": 5703,
+  "source": "Hacker News",
+  "title": "Intel Announces Arc Pro B70 and Arc Pro B65 GPUs",
+  "url": "https://www.techpowerup.com/347703/intel-announces-arc-pro-b70-and-arc-pro-b65-gpus-maxes-out-xe2-battlemage-architecture",
+  "published_at": "2026-03-26T14:36:04Z",
+  "fetched_at": "2026-03-26T16:00:30.053343+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47530986\">Comments</a>",
+  "full_text": "Intel today announced the Arc Pro B70 and Arc Pro B65 graphics cards for advanced AI compute workloads on workstations, and professional visualization. The two primarily target local inferencing, software development, and deployments in multi-GPU configurations for rack scale AI GPU compute acceleration. The Arc B70 GPU in particular stands out, because it is the most powerful discrete GPU based on Intel Xe2 \"Battlemage\" graphics architecture, with 32 Xe cores, and a 256-bit wide GDDR6 interface. If you recall, the Arc B580 gaming GPU only comes with 24 Xe cores and a 192-bit interface, and we for long wondered if Intel would ever max out the silicon for a more powerful SKU. The Arc B70 is that SKU. \n\nThe Intel Arc Pro B70 is configured with 32 Xe cores (Xe2-HPG), 256 XMX engines, and 32 Ray Tracing Units. It comes with 32 GB of GDDR6 memory across a 256-bit wide memory interface, with 608 GB/s of bandwidth on tap. The card comes with a PCI-Express 5.0 x16 host interface. The Arc B70 offers a peak throughput of 367 TOPS (INT8). On the graphics side of things, it supports DirectX 12 Ultimate, OpenGL 4.6, Vulkan 1.3. Compute APIs include Intel's own oneAPI, OpenCL 3.0, and OpenVINO. Its media engine supports AV1, HEVC, VP9, and H.265 hardware-accelerated encode and decode. Display outputs include four DisplayPort 2.1 ports. The card comes with power draw ranging between 160 W to 290 W depending on partner implementation (230 W for the Intel reference card). Intel will provide certified drivers for Windows 11, Windows 10, and Linux.\n\nIntel Arc Pro B65 is an interesting variant, it comes with a similar core configuration to the Arc B580 gaming GPU, but with a few key changes. It has 24 Xe cores, 160 XMX cores, and 20 Ray Tracing Units. Where it differs is memory and PCIe. It provides 32 GB of GDDR6 memory across a 192-bit wide memory interface, unlike the Arc Pro B70. The card is probably using asymmetric memory chip configuration to achieve this. Secondly, the card uses the full PCI-Express 5.0 x16 interface available to the GPU, and not PCI-Express 5.0 x8 found on the Arc B580. API support, media acceleration features, and display I/O are same as the B70. The card comes with a 200 W typical board power.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai gpu",
+      "card",
+      "come",
+      "configuration",
+      "core",
+      "game",
+      "gpu",
+      "graphic",
+      "intel",
+      "linux",
+      "memory",
+      "oneapi",
+      "opencl",
+      "openvino",
+      "sku",
+      "tracing",
+      "ultimate",
+      "wide",
+      "xmx"
+    ],
+    []
+  ]
+}

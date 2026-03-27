@@ -1,0 +1,37 @@
+{
+  "id": 5798,
+  "source": "The Verge",
+  "title": "Google is making it easier to import another AI’s memory into Gemini",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/902085/google-gemini-import-memory-chat-history",
+  "published_at": "2026-03-26T21:44:37Z",
+  "fetched_at": "2026-03-26T22:00:32.382245+00:00",
+  "author": "Stevie Bonifield",
+  "summary": "<figure>\n\n<img alt=\"Illustration of the Google Gemini logo.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/STK255_Google_Gemini_B_474198.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Google is rolling out two new Gemini tools on Thursday which could attract users who are thinking about switching their preferred AI chatbot but don't want to \"retrain\" a new AI. Gemini's new <a href=\"https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/\">\"Import Memory\" and \"Import Chat History\" features</a> help users quickly copy over everything their current AI already knows about them with a couple of pre-written prompts. </p>\n<p class=\"has-text-align-none\">To use the \"Import Memory\" tool, users copy and paste a suggested prompt from Gemini into their previous AI, then paste the output from the previous AI into Gemini, which should get Gemini caught up on their preferences",
+  "full_text": "Google is rolling out two new Gemini tools on Thursday which could attract users who are thinking about switching their preferred AI chatbot but don’t want to “retrain” a new AI. Gemini’s new “Import Memory” and “Import Chat History” features help users quickly copy over everything their current AI already knows about them with a couple of pre-written prompts.\n\nTo use the “Import Memory” tool, users copy and paste a suggested prompt from Gemini into their previous AI, then paste the output from the previous AI into Gemini, which should get Gemini caught up on their preferences. The “Import Chat History” feature has users request an export of all of their chats from their previous AI, usually in the form of a .zip file, which they upload to Gemini. Then users can pick up those chats in Gemini from wherever they left off with their previous AI.\n\nGoogle is also renaming “past chats” in Gemini to “memory.” “Import Memory” and “Import Chat History” are rolling out to free and paid consumer Gemini accounts, but may not be available to everyone on all platforms right away. The new features are also currently not available to users with business, enterprise, or under-18 accounts.\n\nEarlier this month, Anthropic updated its own tool for copying over another AI’s memory into Claude, using a similar strategy of copy-pasting prompts and sharing their output with Claude. Google also expanded access to its Search Live AI feature on Thursday, alongside its new Gemini 3.1 Flash Live voice model, which Google says offers “more natural and intuitive conversations” and faster responses.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "chat",
+      "claude",
+      "copy",
+      "feature",
+      "gemini",
+      "gemini google",
+      "google",
+      "news",
+      "output",
+      "paste",
+      "previous",
+      "roll",
+      "search live ai",
+      "tech",
+      "user"
+    ],
+    [
+      "news",
+      "tech"
+    ]
+  ]
+}

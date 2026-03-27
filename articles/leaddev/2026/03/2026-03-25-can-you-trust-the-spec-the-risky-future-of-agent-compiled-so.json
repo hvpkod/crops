@@ -1,0 +1,37 @@
+{
+  "id": 6053,
+  "source": "LeadDev",
+  "title": "Can you trust the spec? The risky future of agent-compiled software",
+  "url": "https://leaddev.com/ai/can-you-trust-the-spec-the-risky-future-of-agent-compiled-software?utm_source=leaddev&utm_medium=RSS",
+  "published_at": "2026-03-25T10:22:00Z",
+  "fetched_at": "2026-03-26T23:43:46.367166+00:00",
+  "author": "Chris Stokel-Walker",
+  "summary": "<p>What's canonical anymore?</p>\n<p>The post <a href=\"https://leaddev.com/ai/can-you-trust-the-spec-the-risky-future-of-agent-compiled-software?utm_source=leaddev&#038;utm_medium=RSS\">Can you trust the spec? The risky future of agent-compiled software</a> appeared first on <a href=\"https://leaddev.com\">LeadDev</a>.</p>",
+  "full_text": "You have 1 article left to read this month before you need to register a free LeadDev.com account.\n \n\nEstimated reading time: 4 minutes\n\nKey takeaways:\n\nSoftware is shifting to high-level intent, where AI acts as a compiler to generate unique, local versions on demand.\n\nWhile great for personal projects, the lack of a canonical version creates massive hurdles for security, debugging, and enterprise compliance.\n\nIf AI coding agents can install themselves, what does that mean for the traditional way we build and maintain software?\n\nOpenAI’s new Symphony orchestrator has made waves since it was released earlier this month. It can spin up isolated workspaces then orchestrate several agents to work on coding projects. \n\nAnother trick up its sleeve is buried in the readme. Beyond spinning up agents to work on code, the tool gives the option to install itself not by running the installer, but by providing a software specification and suggesting users might want to tell their preferred coding agent to build it in the language of their choice.\n\nThis moved beyond the sometimes complicated way to install software and plugins, which can rely either on slow installation wizards, or entering endless streams of text in the command line. \n\nIt also hints at a future where companies no longer ship one fixed application from a canonical codebase, but instead provide a specification that AI agents can compile themselves into local versions of software, each of which might be slightly different, on demand. \n\nIt’s not the first time we’ve seen something like this. StrongDM Attractor, a non-interactive coding agent, also rolled out what’s often described as a spec-driven installation and development process several months ago. \n\nDrew Breunig, a software writer, has previously covered the strengths and drawbacks of compiling software using nothing more than telling the AI to do it, too. And Simon Willison, co-creator of Django, has tinkered with the idea of spec-driven development in recent months.\n\n \n\nYour inbox, upgraded.\n\nReceive weekly engineering insights to level up your leadership approach.\n\n \n \n \n\nThe future… or not?\n\nNot everyone is convinced that this developer workflow is the future – at least not any time soon. “It’s hard to imagine professional developers relying on text-based specs without a major algorithmic advance in coding agents,” says Jacy Reese Anthis, a computational social scientist researching machine learning and human-AI interaction at the University of Chicago.\n\nAnthis points out that the reason why programmers end up writing in mathematical algorithms and specific coding languages is because of the imprecision of the English language and the way it can be interpreted in different ways. \n\n“If we made English as precise as it needs to be for production-grade software, it would just become as good as code, but probably take a lot longer to explain,” he says. The effort required to write a plain English prompt with enough precision to do what is actually intended can be misguided. “If I take the time to write a precise spec in English, I might as well have done it in code, so that this precision would be guaranteed,” he points out.\n\nImprecision isn’t exactly what software buyers are looking for. “I’d like to pay software vendors for a well-designed, robust, managed backend with backups and rollback and security auditing and SSO and all that good boring stuff,” says Willison, “then safely vibe code up whatever UI I need beyond their default interface.”\n\nAlarming imprecision\n\n“In regulated environments, organizations must be able to say with precision what code was running at the time of an incident, demonstrate it was tested, and show it was authorised,” says Lukaas Kruger, founder of Klarus, a tech consultancy.\n\nThat becomes exceedingly difficult to pinpoint when the installation and setup of apps can be easily vibe coded, Kruger points out. “If every deployment compiles a slightly different agent-built version from a shared spec, incident response becomes an archaeology problem,” he says. \n\nThat has its own downstream ramifications, including trying to maintain software against vulnerabilities and also having a single, unimpeachable version to work from. “Patching is no longer ‘Deploy version 2.1.4’ but ‘Update the spec and hope every downstream compilation behaves consistently,’” says Kruger. “Compliance teams are not ready for that.”\n\nWhat goes on if things go wrong?\n\nHowever, that could be exactly the reason why companies might favour this option, reckon some online commentators. If there isn’t a canonical single version of a piece of software, the responsibility for maintaining it and patching bugs and other issues might shift to the end user because their AI agents installed it to their taste. This makes it potentially impossible to provide sufficient support for every user’s different implementations from their AI coding agent.\n\nThe risks of failure – and the unwillingness of everyday users to shoulder that responsibility – are what will keep this from becoming the norm, reckons Willison. “I wouldn’t use it for running customizations for separate customers,” he says. “It feels way too risky to me.”\n\nIs there a way to have the best of both worlds though? Individual customers could still tailor their software to their needs from a core base. “For that I’d lean into custom plugins and API integrations – which can be vibe coded as much as you like, but benefit from taking to a core system that’s standardized and tested and understood,” says Willison.\n\nThe risks, and the unanswered questions over who would be responsible if something goes wrong, might keep this from becoming a mainstream option – at least until those questions can be answered with confidence. \n\nBut for personal projects, it’s becoming increasingly common. “I’m actually now pondering if a significant new open-source project might take the form of a spec and a very detailed language-independent automated test suite,” says Willison.\n\n \n \n\nLondon • June 2 & 3, 2026\n\nNew activities added to LDX3 London 🎉",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai",
+      "api",
+      "become",
+      "canonical",
+      "cod",
+      "imprecision",
+      "leaddev.com",
+      "london",
+      "precision",
+      "run",
+      "software",
+      "spec",
+      "sso",
+      "symphony",
+      "technical direction",
+      "version"
+    ],
+    [
+      "technical direction"
+    ]
+  ]
+}

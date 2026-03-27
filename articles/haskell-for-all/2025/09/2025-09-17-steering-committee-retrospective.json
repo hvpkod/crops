@@ -1,0 +1,38 @@
+{
+  "id": 5859,
+  "source": "Haskell for all",
+  "title": "Steering Committee Retrospective>",
+  "url": "https://haskellforall.com/2025/09/steering-committee-retrospective",
+  "published_at": "2025-09-17T00:00:00Z",
+  "fetched_at": "2026-03-26T23:42:03.000179+00:00",
+  "author": null,
+  "summary": "A Nix Steering Committee member's critique of the Steering Committee's effectiveness",
+  "full_text": "I am voluntarily ending my Nix Steering Committee term early (I am only\nserving out a one-year term instead of two) and I wanted to document the\nreasons for my early exit.\n\nThe short version is: I believe the Nix Steering Committee is in need of\nreform in order to be effective and in its present state it does not set\nup the Nix community for success nor does it set up individual Steering\nCommittee members for success. In particular, I’m resigning because I’m\nunable to make progress on issues that I care about and campaigned on\neven when there is a Steering Committee supermajority in favor of\nthese policy positions.\n\nThat might sound surprising, which brings me to the longer version of\nmy concerns, starting with:\n\nSize\n\nI believe the Steering Committee is too large and should be reduced\nin size (which would require a change to the Constitution). I think the\nSteering Committee should be (conservatively) reduced to five members\nand possibly (more aggressively) reduced to even just three members. The\nlarge size of the Steering Committee is counterproductive because\nof:\n\ndiffusion of responsibility\n\nSteering Committee members are less willing to step up and volunteer\nfor various responsibilities if they believe they can offload that\nresponsibility onto another Steering Committee member.\n\nThis also has multiple negative downstream effects. For example, you\ntend to see an unequal division of responsibilities which in turn leads\nto all participants engaging less: the participants who volunteer too\nmuch burn out and the participants who volunteer too little check\nout.\n\nmore stagnation\n\nIt’s much harder and slower to round up a majority of votes on\nanything when the committee is larger. This doesn’t just affect final\nvotes on community policies: it slows down intermediate steps such as\ndelegation of tasks, public statements … everything. The high latency\nand activation energy surrounding all of these things kills momentum on\na lot of internal efforts and fosters a committee culture of learned\nhelplessness.\n\ngreater difficulty building consensus\n\nThe Steering Committee can technically force certain\npolicies/statements/initiatives through by simple majorities over the\nprotest of the minority, but we try to avoid this as much as\npossible because that’s an easy way to kill the working\nrelationship between committee members (and it’s already hard enough to\nget anything done when the working relationship is good).\n\nThe consensus-building is also particularly difficult because of the\nnext issue:\n\nTimidity\n\nConsensus-building wouldn’t be as much of a problem if the Steering\nCommittee were willing to force through certain policies with a vote but\nmany of the current Steering Committee members do not have the\ntemperament to “disagree and commit”, which means that if any committee\nmember raises an objection and/or filibusters then the issue typically\ndies in committee. In particular, several committee members will wait\nfor unanimous consensus before formally voting in support of something.\nFor example, there were a few cases where we had a\nsupermajority of the committee theoretically in support\nof a policy and we still got bogged down trying to please a highly vocal\nminority instead of shutting them down.\n\nPoor self-organization and internal policies/procedures\n\nAs the first “edition” of the Steering Committee we had to\nself-organize and figure out how we would operate. I think there are\nsome things we got right, but also some things that I believe we got\nwrong.\n\nI think one of the big mistakes we made was that we insisted on\n“speaking with one voice”, meaning that we could not make any meaningful\nexternal statements or comments without getting majority approval from\nthe committee (something we had difficulty with on the regular). This is\nwhy the committee remained largely silent or slow-to-respond on a large\nnumber of issues.\n\nThis problem got bad enough that at some point many members began to\nbreak the wall of silence by commenting in an unofficial capacity on\nhigh-profile issues so that outsiders would get some visibility\ninto what was going on instead of waiting for us to completely the slow\nprocess of gathering enough consensus and votes.\n\nAnother internal policy that I believe was counter-productive was not\ndisclosing the final votes on various issues or requiring individual\nsignatories on public statements. Had we done this it would have likely\nbroken a lot of internal stalemates and filibusters if all committee\nmembers were held publicly accountable for their policy positions (and\ntherefore subject to public pressure).\n\nIt would have also helped with another issue, which was:\n\nAbsenteeism\n\nFor various reasons (some justifiable, some not), at many points in\ntime a large number of committee members would be unreachable, even\nduring crucial junctures like ongoing controversy. This absenteeism was\nmasked by the committee not publicizing that fact earlier. If we had\nrequired all votes to be publicly recorded and all statements to require\nindividual signatories it would have exposed this absenteeism earlier\n(and led to quicker corrections).\n\nConclusion\n\nI burned out on Steering Committee work for the above reasons, which\nis why I’m ending my term after one year instead of two.\n\nI hope that people reading this push for reforms and candidates that\nwill address the current stagnation on the committee, which is why I’m\nbreaking the wall of silence to publicize my criticisms. I’ve done my\npart attempting to fix some of these issues but I haven’t been\nsuccessful in doing so (one reason why I believe that I’m not the\ncorrect person for the job).\n\nI don’t want to give the impression that the Steering Committee\naccomplished nothing or that they were a force for bad/harm. There were\nseveral positive outcomes of the Steering Committee’s first year, but\noverall I feel like there is still wasted potential that could be\nimproved upon. I originally ran for the Nix Steering Committee because\nI want to see Nix win, meaning that I want Nix to go mainstream\nand I also want Nix/NixOS/Nixpkgs to come out ahead against other\nforks.\n\nThe early end of my term means that there is another Steering\nCommittee opening for the upcoming election, so if you believe you can\ndo a better job of fixing the problem I encourage you to run for the\nseat I’m vacating. There are five openings on the\nSteering Committee up for election, so there is ample opportunity for\nnewcomers to shake things up.",
+  "tags": [
+    [
+      "1500-words",
+      "2025",
+      "absenteeism",
+      "another steering\ncommittee",
+      "believe",
+      "committee",
+      "instead",
+      "internal",
+      "issue",
+      "member",
+      "nix",
+      "nix steering committee",
+      "nix/nixos/nixpkgs",
+      "reduce",
+      "steering",
+      "steering\ncommittee",
+      "steering committee",
+      "steering committee retrospective",
+      "the steering\ncommittee",
+      "the steering committee",
+      "the steering committee’s",
+      "vote"
+    ],
+    []
+  ]
+}

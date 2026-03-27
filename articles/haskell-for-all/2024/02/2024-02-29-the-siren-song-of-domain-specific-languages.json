@@ -1,0 +1,28 @@
+{
+  "id": 5869,
+  "source": "Haskell for all",
+  "title": "The siren song of domain-specific languages>",
+  "url": "https://haskellforall.com/2024/02/the-siren-song-of-domain-specific",
+  "published_at": "2024-02-29T00:00:00Z",
+  "fetched_at": "2026-03-26T23:42:20.833945+00:00",
+  "author": null,
+  "summary": "The pitfalls software engineers encounter when creating domain-specific languages for less technical users",
+  "full_text": "I’ve seen a lot of engineering teams mistakenly believe that they can\nauthor domain-specific languages for less technical users on a budget.\nIn particular they seem to believe that if they create this\ndomain-specific language then the less technical users will be able to\nthoughtlessly churn out a bunch of code in that language and there won’t\nbe any problem and they can then move onto the next project. This rarely\nworks out in the way that people hope it will.\n\nIn the best case scenario, your less technical users will\nchurn out a large amount of code using your domain-specific language\n(which is exactly the outcome you hoped for!) and that corpus of code\nwill push the boundaries of what your language is capable of (like\nperformance, compilation speed, features, or supporting integrations).\nThe larger your userbase the greater the demand will be to improve your\nlanguage in a myriad of ways.\n\nIn the worst case scenario your users will find increasingly inane\nways to do things wrong with your language despite your best efforts and\nyou will be expected to clean up their mess because you sold the project\non the premise of “our users are not going to have to think”.\n\n… and in either case this process will never end; the project will\nnever be in a “done state” and require permanent staffing. Hell, even if\nyou staff an entire team to support this language it’s still often a\nstruggle to keep up with the needs of less technical users.\n\nThis tradeoff can still tempt businesses because it’s appealing to\nreplace skilled labor with unskilled labor. The reasoning goes that a\nsmall investment of more skilled labor (the authors of the\ndomain-specific language) can enable a larger pool of less skilled labor\n(the less technical users) to do most of the work. However, what you\nwill often find in practice is that this larger group of less technical\nusers is frequently blocked without continuous assistance from the\nengineers who created the language.\n\nSo in practice you’re not actually replacing skilled labor with\nunskilled labor. Rather, you’re merely “laundering” skilled labor as\nunskilled labor and creating more work for your engineers to make them\nseem more replaceable than they actually are.\n\nI do think there are situations where domain-specific languages make\nsense, but typically not on the scale of a software engineering\norganization or even a small product. I personally think this sort of\ndivision of labor tends to only work on the scale of an open source\necosystem where you get a large enough economy of scale.",
+  "tags": [
+    [
+      "2024",
+      "500-words",
+      "case",
+      "engineer",
+      "labor",
+      "language",
+      "large",
+      "less",
+      "skilled",
+      "technical",
+      "unskilled",
+      "user"
+    ],
+    []
+  ]
+}

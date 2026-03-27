@@ -1,0 +1,28 @@
+{
+  "id": 5868,
+  "source": "Haskell for all",
+  "title": "All error messages are necessarily bad to some degree>",
+  "url": "https://haskellforall.com/2024/05/all-error-messages-are-necessarily-bad",
+  "published_at": "2024-05-08T00:00:00Z",
+  "fetched_at": "2026-03-26T23:42:20.354864+00:00",
+  "author": null,
+  "summary": "An explanation of the selection bias that leads to poor error messages",
+  "full_text": "This is something I feel like enough people don’t appreciate. One of\nthe ways I like to explain this is by this\nold tweet of mine:\n\nThe evolution of an error message:\n\nNo error message\n\nA one-line message\n\n“Expected: … / Actual: …”\n\n“Here’s what went wrong: …”\n\n“Here’s what you should do: …”\n\nI automated away what you should do\n\nThe invalid state is no longer representable\n\nOne of the common gripes I will hear about error messages is that\nthey don’t tell the user what to do, but if you stop to think about it:\nif the error message knew exactly what you were supposed to do instead\nthen your tool could just fix it for you (by\nautomatically doing the right thing instead).\n\n“But wait!”, you might say, “sometimes an error message\ncan’t automatically fix the problem for you because there’s not\nnecessarily a right or obvious way to fix the problem or the user’s\nintent is not clear.” Yes, exactly, which brings us back to the\noriginal point:\n\nError messages are necessarily bad because they cannot anticipate\nwhat you should have done instead. If an error message could read your\nmind then they’d eventually evolve into something better than an error\nmessage. This creates a selection bias where the only remaining error\nmessages are the ones that can’t read your mind.",
+  "tags": [
+    [
+      "2024",
+      "500-words",
+      "automatically",
+      "error",
+      "go",
+      "know",
+      "message",
+      "necessarily",
+      "problem",
+      "representable",
+      "right",
+      "something"
+    ],
+    []
+  ]
+}

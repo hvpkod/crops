@@ -1,0 +1,20 @@
+{
+  "id": 6002,
+  "source": "Haskell for all",
+  "title": "Composable streaming folds>",
+  "url": "https://haskellforall.com/2013/08/composable-streaming-folds",
+  "published_at": "2013-08-03T00:00:00Z",
+  "fetched_at": "2026-03-26T23:43:37.672609+00:00",
+  "author": null,
+  "summary": "An elegant trick for combining multiple folds into a single fold that still goes over the data in one pass",
+  "full_text": null,
+  "tags": [
+    [
+      "200-words",
+      "2013",
+      "composable",
+      "streaming"
+    ],
+    []
+  ]
+}

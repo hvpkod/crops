@@ -1,0 +1,40 @@
+{
+  "id": 5784,
+  "source": "Ars Technica Science",
+  "title": "Study: Sycophantic AI can undermine human judgment",
+  "url": "https://arstechnica.com/science/2026/03/study-sycophantic-ai-can-undermine-human-judgment/",
+  "published_at": "2026-03-26T18:14:01Z",
+  "fetched_at": "2026-03-26T21:40:24.472086+00:00",
+  "author": "Jennifer Ouellette",
+  "summary": "<p>We all need a little validation now and then from friends or family, but sometimes too much validation can backfire—and the same is true of AI chatbots. There have been several <a href=\"https://arstechnica.com/tech-policy/2026/01/chatgpt-wrote-goodnight-moon-suicide-lullaby-for-man-who-later-killed-himself/\">recent cases</a> of overly sycophantic <a href=\"https://arstechnica.com/ai/2025/07/ai-therapy-bots-fuel-delusions-and-give-dangerous-advice-stanford-study-finds/\">AI tools</a> leading to negative outcomes, including users <a href=\"https://arstechnica.com/tech-policy/2026/03/lawsuit-google-gemini-sent-man-on-violent-missions-set-suicide-countdown/\">harming</a> themselves and/or <a href=\"https://arstechnica.com/tech-policy/2025/12/openai-refuses-to-say-where-chatgpt-logs-go-when-users-die/\">others</a>. But the harm might not be limited to these extreme cases, according to a <a href=\"http://www.science.org/doi/10.1126/science.aec8352\">new paper</a> published in the journal Science.",
+  "full_text": "Another concerning finding is that study participants consistently described the AI models as objective, neutral, fair, and honest—a common misconception. “This means that uncritical advice under the guise of neutrality can be even more harmful than if people had not sought advice at all,” said Khadpe.\n\nThis study did not look at possible effective interventions, per the authors, keeping the focus on the default behavior of these AI models. Changing system prompts might help, such as asking the AI to take the other person’s perspective, and/or optimizing the models at later stages to prioritize more critical behaviors. But this is such a new field that most proposed interventions still need further study. According to Cheng, preliminary results from follow-up work indicate that changing the training data sets to be less affirming, or just telling the model to begin every response with “Wait a minute,” can decrease the levels of sycophancy.\n\nThe authors emphasized that the onus should not be on the users to address the issues; it should be on the developers and on policymakers. “We need to move our objective optimization metrics beyond just momentary user satisfaction towards more long-term outcomes, especially social outcomes like personal and social well-being,” said Khadpe. “At the same time, our frameworks for how we evaluate these AI systems also need to consider the broader social context in which these interactions are embedded.”\n\n“AI is already here, close to our lives, but it’s also still new,” said Cheng. “Many would argue that it’s still actively being shaped. So you could imagine an AI that, in addition to validating how you’re feeling, also asks what the other person might be feeling, or that even says, ‘Maybe close the app and go have this conversation in person.’ The quality of our social relationships is one of the strongest predictors of health and wellbeing we have. Ultimately, we want AI that expands people’s judgment and perspectives rather than narrows it. We really believe that now is a critical moment to address this issue and ensure that AI supports societal well-being.”\n\nDOI: Science, 2026. 10.1126/science.aec8352 (About DOIs).",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "address",
+      "advice",
+      "ai",
+      "ai chatbots",
+      "change",
+      "close",
+      "critical",
+      "judgment",
+      "model",
+      "psychology",
+      "science",
+      "social",
+      "social psychology",
+      "social sciences",
+      "study",
+      "sycophantic"
+    ],
+    [
+      "ai chatbots",
+      "psychology",
+      "science",
+      "social psychology",
+      "social sciences"
+    ]
+  ]
+}

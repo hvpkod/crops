@@ -1,0 +1,30 @@
+{
+  "id": 5856,
+  "source": "Haskell for all",
+  "title": "Chat is the least interesting interface to LLMs>",
+  "url": "https://haskellforall.com/2026/01/chat-is-least-interesting-interface-to",
+  "published_at": "2026-01-14T00:00:00Z",
+  "fetched_at": "2026-03-26T23:41:59.149583+00:00",
+  "author": null,
+  "summary": "Structured inputs and outputs work work better than prose",
+  "full_text": "Large language models are an amazing tool for working with prose\ninputs and outputs (with chat interfaces being the prototypical\nexample). In fact, they are so good at working with\nprose that advocates often forget that prose is actually a pretty crappy\nuser interface on almost every other dimension:\n\nusers tend to prefer structured inputs (e.g. buttons, sliders,\ndate pickers) over writing large amounts of prose\n\nusers tend to prefer structured outputs (e.g. graphs, tables,\ndiagrams) over reading large amounts of prose\n\nprose is poorly suited to mobile devices (where it’s painful to\nread/write long passages)\n\nprose communication is inherently ambiguous, like cutting\nwith a dull knife\n\nNone of these limitations of prose are inherent limitations of LLMs,\nthough:\n\nLLMs can generate structured outputs\n\nLLMs can accept structured inputs\n\nLLMs can even generate structured form controls for the\nuser to drive them\n\nSee, for example, the\npopup-mcp tool or Grace\n\nIt’s just that people don’t lean heavily enough on these options and\nthey should! When a user interacts with a model (or agent) you want to\noffboard them off of prose and onboard them onto a structured interface\nas quickly as possible. Not only will this improve the user experience\nbut it also improves user confidence: a button labeled with a clear call\nto action promotes confidence in a way that a freeform text input does\nnot.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "grace\n\nit’s",
+      "input",
+      "interface",
+      "limitation",
+      "llm",
+      "output",
+      "prefer",
+      "prose",
+      "structured",
+      "user",
+      "work"
+    ],
+    []
+  ]
+}

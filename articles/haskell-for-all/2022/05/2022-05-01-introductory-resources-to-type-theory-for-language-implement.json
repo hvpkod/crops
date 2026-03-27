@@ -1,0 +1,29 @@
+{
+  "id": 5890,
+  "source": "Haskell for all",
+  "title": "Introductory resources to type theory for language implementers>",
+  "url": "https://haskellforall.com/2022/05/introductory-resources-to-type-theory",
+  "published_at": "2022-05-01T00:00:00Z",
+  "fetched_at": "2026-03-26T23:43:04.438394+00:00",
+  "author": null,
+  "summary": "A post touring resources you can use to learn how to implement a type checker or type inference algorithm",
+  "full_text": "This post briefly tours resources that helped introduce me to type theory, because I’m frequently asked by others for resources on this subject (even though I never had a formal education in type theory). Specifically, these resources will focus more on how to implement a type checker or type inference algorithm.\n\nAlso, my post will be biased against books, because I don’t tend to learn well from reading books. That said, I will mention a few books that I’ve heard others recommend, even if I can’t personally vouch for them.\n\nWhat worked for me\n\nThe first and most important resource that I found useful was this one:\n\nThe reason why is because that paper shows logical notation side-by-side with Haskell code. That juxtaposition served as a sort of “Rosetta stone” for me to understand the correspondence between logical judgments and code. The paper also introduces some type theory basics (and dependent types!).\n\nAlong similar lines, another helpful resource was:\n\n… which, as the name suggests, walks through a Haskell program to type-check Haskell code. This paper along with the preceding one helped bring type checkers “down to earth” to me by showing how there wasn’t any magic or secret sauce to implementing a type checker.\n\nAfter that, the next thing that helped me improve my understanding was learning about pure type systems. Specifically, this paper was a very clear introduction to pure type systems:\n\nYou can think of pure type systems as sort of a “framework” for specifying type systems or talking about them. For example, the simply typed lambda calculus, System F, System FΩ, and the calculus of constructions are some example type systems that you’ll hear the literature refer to, and they’re all special cases of this general framework. You can think of pure type systems as generalizing the lambda cube.\n\nHowever, none of the above resources introduce how to implement a type system with “good” type inference. To elaborate on that, many simple type systems can infer the types of program outputs from program inputs, but cannot work “in reverse” and infer the types of inputs from outputs. Hindley Milner type inference is one example of a “good” type inference algorithm that can work in reverse.\n\nHowever, I never learned Hindley Milner type inference all that well, because I skipped straight to bidirectional type checking, which is described in this paper:\n\nI prefer bidirectional type checking because (in my limited experience) it’s easier to extend the bidirectional type checking algorithm with new language features (or, at least, easier than extending Hindley Milner with the same language features).\n\nThe other reason I’m a fan of bidirectional type checking is that many cutting edge advances in research slot in well to a bidirectional type checker or even explicitly present their research using the framework of bidirectional type checking.\n\nBooks\n\nLike I mentioned, I didn’t really learn that much from books, but here are some books that I see others commonly recommend, even if I can’t personally vouch for them:\n\nExample code\n\nI also created a tutorial implementation of a functional programming language that summarizes everything I know about programming language theory so far, which is my Fall-from-Grace project:\n\nThis project is a clean reference implementation of how to implement an interpreted langauge using (what I believe are) best practices in the Haskell ecosystem.\n\nI also have a longer post explaining the motivation behind the above project:\n\nConclusion\n\nNote that these are not the only resources that I learned from. This post only summarizes the seminal resources that greatly enhanced my understanding of all other resources.\n\nFeel free to leave a comment if you have any other resources that you’d like to suggest that you feel were helpful in this regard.",
+  "tags": [
+    [
+      "1000-words",
+      "2022",
+      "bidirectional",
+      "checking",
+      "haskell",
+      "help",
+      "inference",
+      "milner",
+      "other",
+      "pure",
+      "resource",
+      "system",
+      "type"
+    ],
+    []
+  ]
+}

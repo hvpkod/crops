@@ -1,0 +1,21 @@
+{
+  "id": 5915,
+  "source": "Haskell for all",
+  "title": "Pretty-print syntax trees with this one simple trick>",
+  "url": "https://haskellforall.com/2020/11/pretty-print-syntax-trees-with-this-one",
+  "published_at": "2020-11-10T00:00:00Z",
+  "fetched_at": "2026-03-26T23:43:34.213210+00:00",
+  "author": null,
+  "summary": "A clever trick for converting a parser into a matching prettyprinter",
+  "full_text": null,
+  "tags": [
+    [
+      "200-words",
+      "2020",
+      "simple",
+      "syntax",
+      "tree"
+    ],
+    []
+  ]
+}

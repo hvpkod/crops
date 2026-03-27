@@ -1,0 +1,34 @@
+{
+  "id": 5707,
+  "source": "Hacker News",
+  "title": "Show HN: Claude skill that evaluates B2B vendors by talking to their AI agents",
+  "url": "https://github.com/salespeak-ai/buyer-eval-skill",
+  "published_at": "2026-03-26T16:00:47Z",
+  "fetched_at": "2026-03-26T16:40:22.370879+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47532145\">Comments</a>",
+  "full_text": "Buyer Eval — B2B Software Vendor Evaluation Skill\n\nA Claude skill that conducts structured, evidence-based evaluations of B2B software vendors on behalf of buyers.\n\nYou give it your company name and the vendors you're evaluating. It:\n\nResearches your company — industry, size, tech stack, maturity — so you don't fill out a form\n\nAsks domain-expert questions specific to the software category — surfacing hidden requirements you didn't know to mention\n\nSets hard constraints — budget, compliance, integrations — and eliminates vendors that fail before wasting research time\n\nEngages vendor AI agents directly through the Salespeak Frontdoor API for verified, structured due diligence conversations\n\nConducts independent research — G2, Gartner, analyst reports, press, LinkedIn — and cross-references vendor claims against independent sources\n\nScores vendors across 7 dimensions with transparent evidence tracking — you see exactly which scores are backed by verified evidence vs. public sources only\n\nProduces a comparative recommendation with a TL;DR, side-by-side scorecard, hidden risk analysis, and demo prep questions\n\nGlobal install (recommended):\n\ngit clone https://github.com/salespeak-ai/buyer-eval-skill.git ~/.claude/skills/buyer-eval-skill\n\nPer-project install:\n\ngit clone https://github.com/salespeak-ai/buyer-eval-skill.git .claude/skills/buyer-eval-skill\n\nIn Claude Code or Claude desktop:\n\nThen provide:\n\nYour company name\n\nThe vendors to evaluate\n\nExample:\n\n\"I'm from Acme Corp. Evaluate Gainsight, Totango, and ChurnZero.\"\n\nThe skill handles everything from there.\n\nClick to expand a sample evaluation (truncated)\n\nFor a mid-market SaaS company evaluating customer success platforms:\nGainsight is the strongest fit for teams that need deep analytics and enterprise-grade health scoring, but comes at a premium. ChurnZero wins on time-to-value and usability for teams under 50 CSMs. Totango lands in between — flexible and modular, but requires more configuration to match either competitor's strengths.\n\nScorecard (1 of 7 dimensions shown)\n\nDimension\nGainsight\nChurnZero\nTotango\n\nHealth Scoring & Analytics\n9.2\n7.5\n8.0\n\nEvidence level\nVendor-verified\nPublic only\nVendor-verified\n\nGainsight's score is backed by a structured AI agent conversation confirming multi-signal health models, cohort analysis, and predictive churn scoring. ChurnZero's score relies on G2 reviews and documentation — it may improve with direct vendor verification.\n\nAdversarial question exchange (1 of 4 shown)\n\nEvaluator → Gainsight AI agent:\n\n\"Your health scores use a weighted multi-signal model. What happens when a customer has strong product usage but declining executive engagement — does the model surface that divergence, or does high usage mask the risk?\"\n\nGainsight AI agent →\n\n\"The model flags divergence explicitly. When usage metrics trend positive but stakeholder engagement drops, it triggers a 'silent risk' alert. CSMs see a split-signal indicator on the dashboard rather than a blended score that hides the conflict.\"\n\nIndependent verification: Confirmed via G2 reviews mentioning split-signal alerts. One review notes the feature requires manual threshold tuning per segment.\n\nEvery time you invoke the skill, it checks for a newer version on GitHub (cached, checks at most once every 6 hours). If an update is available, it asks before updating. Updates are a single git pull.\n\nWhat makes this different\n\nDomain-expert questioning — the skill asks category-specific questions that demonstrate it understands the space, not generic form-filling\n\nVendor AI agent conversations — for vendors that have a Salespeak Company Agent, the skill conducts a structured due diligence conversation directly with the vendor's AI, producing higher-fidelity evidence than web scraping\n\nEvidence transparency — every score shows whether it's backed by vendor-verified or public-only evidence. When vendors have different evidence levels, the skill explicitly states how scores might shift with better evidence\n\nClaims verification — vendor claims from AI agent conversations are cross-referenced against independent sources. You see what's confirmed vs. unverified\n\nHidden risk analysis — leadership stability, funding runway, employee sentiment, customer retention signals, product velocity — researched for every vendor regardless of AI agent availability\n\nDemo prep kit — specific questions to ask in vendor demos, derived from evaluation gaps and unverified claims\n\nCapability\nClaude.ai\nClaude Code\nClaude desktop\n\nBuyer research\nYes\nYes\nYes\n\nVendor AI agent conversations\nNo (GET only)\nYes\nYes\n\nFull evaluation\nPartial\nFull\nFull\n\nBest experience is in Claude Code where the skill can make POST requests to vendor AI agents.\n\nQuestions, feature requests, or evaluation quality reports? Open an issue.\n\nMIT",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "churnzero",
+      "claude",
+      "conversation",
+      "evaluation",
+      "evidence",
+      "gainsight",
+      "gartner",
+      "github",
+      "linkedin",
+      "mit",
+      "salespeak company",
+      "score",
+      "skill",
+      "totango",
+      "vendor"
+    ],
+    []
+  ]
+}

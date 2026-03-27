@@ -1,0 +1,28 @@
+{
+  "id": 5877,
+  "source": "Haskell for all",
+  "title": "Announcing nixos-rebuild: a \"new\" deployment tool for NixOS>",
+  "url": "https://haskellforall.com/2023/01/announcing-nixos-rebuild-new-deployment",
+  "published_at": "2023-01-23T00:00:00Z",
+  "fetched_at": "2026-03-26T23:42:35.525652+00:00",
+  "author": null,
+  "summary": "A post explaining how nixos-rebuild is a cross-platform tool that can deploy remote NixOS systems",
+  "full_text": "The title of this post is tongue-in-cheek; nixos-rebuild\nis a tool that has been around for a long time and there’s nothing new\nabout it. However, I believe that not enough people know how capable\nthis tool is for building and deploying remote NixOS\nsystems. In other words, nixos-rebuild is actually a decent\nalternative to tools like morph or colmena.\n\nPart of the reason why nixos-rebuild flies under the\nradar is because it’s more commonly used for upgrading the current NixOS\nsystem, rather than deploying a remote NixOS system. However, it’s\nactually fairly capable of managing another NixOS system.\n\nIn fact, your local system (that initiates the deploy) doesn’t have\nto be a NixOS system or even a Linux system. An even lesser known fact\nis that you can initiate deploys from macOS using\nnixos-rebuild. In other words, nixos-rebuild\nis a cross-platform deploy tool!\n\nThe trick\n\nI’ll give a concrete example. Suppose that I have the following NixOS\nconfiguration (for a blank EC2 machine) saved in\nconfiguration.nix:\n{ modulesPath, ... }:\n\n{ imports = [ \"${modulesPath}/virtualisation/amazon-image.nix\" ];\n\n system.stateVersion = \"22.11\";\n}\n\n… which I’ve wrapped in the following flake (since I like Nix\nflakes):\n{ inputs.nixpkgs.url = \"github:NixOS/nixpkgs/22.11\";\n\n outputs = { nixpkgs, ... }: {\n nixosConfigurations.default = nixpkgs.lib.nixosSystem {\n system = \"x86_64-linux\";\n\n modules = [ ./configuration.nix ];\n };\n };\n}\n\nFurther suppose that I have an x86_64-linux machine on\nEC2 accessible via ssh at root@example.com. I\ncan deploy that configuration to the remote machine like this:\n$ nix shell nixpkgs#nixos-rebuild\n$ nixos-rebuild switch --fast --flake .#default \\\n --target-host root@example.com \\\n --build-host root@example.com\n\n… and that will build and deploy the remote machine even if your\ncurrent machine is a completely different platform (e.g. macOS).\n\nWhy this works\n\nThe --fast flag is the first adjustment that makes the\nabove command work on systems other NixOS. Without that flag\nnixos-rebuild will attempt to build itself for the target\nplatform and run that new executable with the same arguments, which will\nfail if the target platform differs from your current platform.\n\nThe --build-host flag is also necessary if the source\nand target platform don’t match. This instructs\nnixos-rebuild to build on the target machine so that the\ndeploy is insensitive to your current machine’s platform.\n\nThe final thing that makes this work is that Nixpkgs makes the\nnixos-rebuild script available on all platforms, despite\nthe script living underneath the pkgs/os-specific/linux\ndirectory in Nixpkgs.\n\nFlakes\n\nThere’s a reason why I suggest using flakes alongside\nnixos-rebuild: with flakes you can specify multiple NixOS\nmachines within the same file (just like we can other NixOS deployment\ntools). That means that we can do something like this:\n{ inputs.nixpkgs.url = \"github:NixOS/nixpkgs/22.11\";\n\n outputs = { nixpkgs, ... }: {\n nixosConfigurations = {\n machine1 = nixpkgs.lib.nixosSystem { … };\n\n machine2 = nixpkgs.lib.nixosSystem { … };\n\n …\n };\n };\n}\n\n… and then we can select which system to build with the desired flake\nURI (e.g. .#machine1 or .#machine2 in the\nabove example).\n\nMoreover, by virtue of using flakes we can obtain our NixOS\nconfiguration from somewhere other than the current working directory.\nFor example, you can specify a flake URI like\ngithub:${OWNER}/${REPO}#${ATTRIBUTE} to deploy a NixOS\nconfiguration hosted on GitHub without having to locally clone the\nrepository. Pretty neat!\n\nConclusion\n\nI’m not the first person to suggest this trick. In fact, while\nresearching prior art I stumbled across this\ncomment from Luke Clifton proposing the same idea of using\nnixos-rebuild as a deploy tool. However, other than that\nstray comment I couldn’t find any other mentions of this so I figured it\nwas worth formalizing this trick in a blog post that people could more\neasily share.\n\nThis post supersedes a prior\npost of mine where I explained how to deploy a NixOS system using\nmore low-level idioms (e.g. nix build,\nnix copy). Now that nixos-rebuild supports\nboth flakes and remote systems there’s no real reason to do it the\nlow-level way.\n\nEdit: An earlier version of this post suggested using\n_NIXOS_REBUILD_REEXEC=1 to prevent\nnixos-rebuild for building itself for the target platform\nbut then Naïm Favier pointed\nout that you can use the --fast flag instead, which has the\nsame effect.",
+  "tags": [
+    [
+      "1000-words",
+      "2023",
+      "configuration",
+      "current",
+      "deploy",
+      "flag",
+      "flake",
+      "machine",
+      "nixos",
+      "remote",
+      "system",
+      "target"
+    ],
+    []
+  ]
+}
