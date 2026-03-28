@@ -1,0 +1,38 @@
+{
+  "id": 6186,
+  "source": "DEV Community<",
+  "title": "Your framework choice is now your biggest AI cost lever",
+  "url": "https://dev.to/andrewrozumny/your-framework-choice-is-now-your-biggest-ai-cost-lever-lml",
+  "published_at": "2026-03-27T11:01:14Z",
+  "fetched_at": "2026-03-27T11:40:34.154514+00:00",
+  "author": "Andrew Rozumny",
+  "summary": "<p>The Wasp team published something worth reading today — they gave <br />\nClaude Code the exact same feature prompt for two identical apps, one in Next.js and one in Wasp, and measured everything.</p>\n\n<p>The numbers:</p>\n\n<div class=\"table-wrapper-paragraph\"><table>\n<thead>\n<tr>\n<th>Metric</th>\n<th>Wasp</th>\n<th>Next.js</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Total cost</td>\n<td>$2.87</td>\n<td>$5.17</td>\n</tr>\n<tr>\n<td>Total tokens</td>\n<td>2.5M</td>\n<td>4.0M</td>\n</tr>\n<tr>\n<td>API calls</td>\n<td>66</td>\n<td>96</td>\n</tr>\n<tr>\n<td>Output tokens (code written)</td>\n<td>5,416</td>\n<td>5,395</td>\n</tr>\n</tbody>\n</table></div>\n\n<p>The last row is the interesting one. The AI wrote almost exactly <br />\nthe same amount of code. But it cost 80% more to do it in Next.js.</p>\n\n<p>The reason: cache creation and cache reads. Every LLM call re-reads the codebase context from scratch. A bigger codebase means every single turn costs more — not just for reading, but for loading into cache in the fir",
+  "full_text": "The Wasp team published something worth reading today — they gave \n\nClaude Code the exact same feature prompt for two identical apps, one in Next.js and one in Wasp, and measured everything.\n\nThe numbers:\n\nMetric\nWasp\nNext.js\n\nTotal cost\n$2.87\n$5.17\n\nTotal tokens\n2.5M\n4.0M\n\nAPI calls\n66\n96\n\nOutput tokens (code written)\n5,416\n5,395\n\nThe last row is the interesting one. The AI wrote almost exactly \n\nthe same amount of code. But it cost 80% more to do it in Next.js.\n\nThe reason: cache creation and cache reads. Every LLM call re-reads the codebase context from scratch. A bigger codebase means every single turn costs more — not just for reading, but for loading into cache in the first place.\n\nNext.js cache creation was 113% more expensive. Not because the AI did more. Because it had more boilerplate to read before it could start.\n\n \n \n What this actually means\n\nWe've been evaluating frameworks on DX, performance, and ecosystem.\n\nAdd a new one: context efficiency.\n\nHow much of an AI's context window goes to signal (your business logic) vs noise (framework boilerplate)?\n\nWasp's declarative config means auth, routing, and jobs are defined in ~10 lines. Next.js equivalent is spread across middleware, route handlers, session files, and API directories. Same result, 4x the tokens.\n\n \n \n The compounding problem\n\nThis test was a single feature. Real apps accumulate features. Every new route, every new model, every new API handler adds to the context that gets re-read on every single LLM call.\n\nThe performance degradation isn't linear either — research shows that AI performance degrades well before the context window fills. \n\nYou're not just paying more per call, you're getting worse output.\n\n \n \n What to do about it\n\nMeasure your codebase token count now.\n\nRun: find . -name \"*.ts\" -o -name \"*.tsx\" | xargs wc -c\n\nThat's roughly your AI cost baseline.\n\nAudit your boilerplate ratio.\n\nHow much of that is business logic vs glue code?\n\nThe higher the glue ratio, the worse your AI economics.\n\nConsider framework choices through this lens.\n\nWasp, Rails, Laravel — highly opinionated frameworks \n\nhave a new advantage they didn't have 2 years ago.\n\nLess boilerplate = cheaper AI = faster iteration.\n\n \n \n The irony\n\nThe same properties that make a codebase easy for humans to navigate — explicit, verbose, self-documenting — are exactly what's expensive for AI. The abstractions we used to see as \"magic\" are now genuinely economical.\n\nI've been thinking about this for ToolDock — a browser-based \n\ndev tools platform I'm building. Every tool page is pure business logic with almost no framework boilerplate, because everything runs statically. The AI token efficiency on it is noticeably better than client projects I've worked on with heavier stacks.\n\nWorth checking the full Wasp post for the methodology details — they open-sourced both apps and the measurement scripts, which is the right way to publish a benchmark.\n\nWhat's your current codebase token count?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "bad",
+      "boilerplate",
+      "cache",
+      "codebase",
+      "context",
+      "cost",
+      "creation",
+      "framework",
+      "javascript",
+      "next.js",
+      "programming",
+      "token",
+      "wasp",
+      "webdev"
+    ],
+    [
+      "javascript",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

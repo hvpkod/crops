@@ -1,0 +1,44 @@
+{
+  "id": 6095,
+  "source": "DEV Community<",
+  "title": "I Couldn't Find an OAuth 2.1 Proxy for MCP Servers, So I Built One",
+  "url": "https://dev.to/cpremus/i-couldnt-find-an-oauth-21-proxy-for-mcp-servers-so-i-built-one-59nd",
+  "published_at": "2026-03-27T01:52:12Z",
+  "fetched_at": "2026-03-27T02:40:27.238388+00:00",
+  "author": "c-premus",
+  "summary": "<p>When I started deploying custom MCP servers to connect to Claude.ai, I hit a wall fast.</p>\n\n<p>Claude.ai's custom connector flow requires your MCP server to implement <a href=\"https://datatracker.ietf.org/doc/html/rfc9728\" rel=\"noopener noreferrer\">OAuth 2.1 Protected Resource Metadata</a> — specifically RFC 9728 — before it will even attempt to authenticate. No RFC 9728 <code>/.well-known/oauth-protected-resource</code> endpoint? Silent failure. No error. The connector just doesn't work.</p>\n\n<p>I went looking for an existing solution. Something that could sit in front of any MCP server, handle the spec compliance, validate JWTs, and get out of the way. Nothing existed. So I built it: <strong><a href=\"https://github.com/c-premus/mcp-gate\" rel=\"noopener noreferrer\">mcp-gate</a></strong>.</p>\n\n\n\n\n<h2>\n  \n  \n  What the Problem Actually Is\n</h2>\n\n<p>When Claude.ai connects to a custom MCP server, the flow looks roughly like this:</p>\n\n<ol>\n<li>Claude.ai fetches <code>/.well-known/oaut",
+  "full_text": "When I started deploying custom MCP servers to connect to Claude.ai, I hit a wall fast.\n\nClaude.ai's custom connector flow requires your MCP server to implement OAuth 2.1 Protected Resource Metadata — specifically RFC 9728 — before it will even attempt to authenticate. No RFC 9728 /.well-known/oauth-protected-resource endpoint? Silent failure. No error. The connector just doesn't work.\n\nI went looking for an existing solution. Something that could sit in front of any MCP server, handle the spec compliance, validate JWTs, and get out of the way. Nothing existed. So I built it: mcp-gate.\n\n \n \n What the Problem Actually Is\n\nWhen Claude.ai connects to a custom MCP server, the flow looks roughly like this:\n\nClaude.ai fetches /.well-known/oauth-protected-resource from your server\n\nThat endpoint must return RFC 9728 metadata pointing to your authorization server\n\nClaude.ai negotiates an OAuth 2.1 token with that authorization server\n\nSubsequent requests carry a Bearer JWT, which your server must validate via JWKS\n\nMost MCP server implementations — whether you're writing one in Go, Python, TypeScript, or using an off-the-shelf server — don't implement any of this. They're focused on the MCP protocol itself, not on auth infrastructure. Bolting RFC 9728 + JWKS validation directly into every server you deploy is the wrong abstraction anyway.\n\nWhat you actually want is a sidecar proxy that handles auth uniformly, regardless of what's running behind it.\n\n \n \n What mcp-gate Does\n\nmcp-gate is a stateless Go binary that sits between Claude.ai and your MCP server:\n\nIt does three things:\n\nServes /.well-known/oauth-protected-resource — RFC 9728 compliant metadata, pointing Claude.ai to your authorization server\n\nValidates Bearer JWTs on every request — fetches and caches JWKS from your auth server, validates signature (RS256), expiry, issuer, audience, and scope claims\n\nReverse proxies to your upstream MCP server — if the token is valid, the request goes through; otherwise 401\n\nThat's it. It has no opinions about what your MCP server does. It works with any OIDC-compliant authorization server: Authentik, Keycloak, Okta, Auth0, or anything else that issues JWTs with a JWKS endpoint.\n\n \n \n Quick Start\n\nexport LISTEN_ADDR=0.0.0.0:8080\nexport UPSTREAM_URL=http://your-mcp-server:8000\nexport RESOURCE_URI=https://mcp.yourdomain.com\nexport AUTHORIZATION_SERVER=https://auth.yourdomain.com/application/o/mcp/\nexport JWKS_URI=https://auth.yourdomain.com/application/o/mcp/jwks/\nexport EXPECTED_ISSUER=https://auth.yourdomain.com/application/o/mcp/\nexport EXPECTED_AUDIENCE=your-client-id\n\ngo run ./cmd/mcp-gate\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOr with Docker:\n\ndocker pull cpremus/mcp-gate:latest\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nA docker-compose.example.yml is included in the repo showing how to wire it up alongside a typical MCP server container.\n\n \n \n A Note on Logging\n\nEvery request is logged as structured JSON — method, path, status, duration_ms, client_ip, user_agent — designed for ingestion by Loki/Alloy or any structured log aggregator. If you're running a self-hosted observability stack, it drops right in.\n\n \n \n Why a Separate Binary\n\nA few design decisions worth explaining:\n\nStateless by design. mcp-gate holds no session state. JWKS keys are cached in-memory with TTL-based refresh. This makes horizontal scaling trivial and keeps the failure surface small.\n\nNo config files. Everything is environment variables. Works cleanly in Docker, Kubernetes, or bare metal.\n\nDeliberately narrow scope. mcp-gate does auth and proxying. It doesn't do request transformation or protocol-level concerns. Those belong elsewhere in your stack.\n\n \n \n Status\n\nThe core is stable and running in production on my own infrastructure. Current release handles everything needed for Claude.ai custom connector integration.\n\n \n \n Links\n\nIf you're building or deploying MCP servers and haven't hit this yet, you will. Hopefully this saves you the afternoon I lost to it.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "a separate binary",
+      "authorization",
+      "claude.ai",
+      "connector",
+      "devops",
+      "duration_ms",
+      "export",
+      "fullscreen",
+      "go",
+      "jwks",
+      "loki/alloy",
+      "mcp",
+      "mcp servers",
+      "mcp-gate",
+      "mode",
+      "opensource",
+      "request",
+      "run",
+      "security",
+      "server",
+      "ttl",
+      "typescript",
+      "validate"
+    ],
+    [
+      "devops",
+      "opensource"
+    ]
+  ]
+}

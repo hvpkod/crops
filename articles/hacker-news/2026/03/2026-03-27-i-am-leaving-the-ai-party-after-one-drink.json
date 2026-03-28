@@ -1,0 +1,31 @@
+{
+  "id": 6259,
+  "source": "Hacker News",
+  "title": "I am leaving the AI party after one drink",
+  "url": "https://lara-aigmueller.at/thoughts/leaving-the-ai-party/",
+  "published_at": "2026-03-27T16:41:59Z",
+  "fetched_at": "2026-03-27T17:00:46.830662+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47545030\">Comments</a>",
+  "full_text": "Why I am leaving the AI party after one drink \n\nMarch 22, 2026 \n\nWhat is going on? Literally everyone is talking about AI these days. My friends are\n“prompting children’s songs” based on a melody their kid sang. Others are enjoying vibe coding but don’t have a technical background.\nFormer work colleagues founded an AI startup.\nDevelopers I follow on social media are either completely against the usage of AI\nor can’t imagine a work day without anymore…\n\nEvery day, I try to sort my thoughts and feelings about it. In between reading different blog posts,\nopinions, predictions about the future of software development (and my job 😱), it’s hard to ignore this AI hype.\n\nSo I thought I also wanted to add my two cents to the discussion.\n\nOne day after releasing my thoughts about being too late to the AI party writing that I don’t want\nto be part of it, I installed Claude Code 🙈. The motivation: curiosity and the urge to\nfinally start working on an app idea I have been carrying around with me for more than six years now… I have\nvery little time at the moment as a full-time mum but even stronger the wish to do something just for me and work\non my own project. Maybe with a little bit of help from AI to get things off the ground quicker…?\n\nI used Claude (Code) for:\n\ndiscussing the general app idea and whether it’s worth it at all (target group, monetization)\n\nbrainstorming on the core features (which ones might be more useful than others) and marketing copy for the website\n\nasking for a recommended tech stack\n\ngenerating color palettes based on the logo colors I already have\n\nsetting up a light/dark/system theme toggle\n\ncreating signup and login forms\n\nwiring them up with the API of the auth service I chose based on the given suggestion\n\ncreating basic layout components for a main layout and a responsive navigation\n\nI must admit, I was impressed at some points. But after having a closer look and many discussions\nin parallel with Felix (who has a lot of experience in bootstrapping projects of\nall sizes and with start-ups in general), the euphoria faded quickly.\n\nMy takeaways:\n\nThings like “calculate a color palette” or “set up a sign-up form” or “build a theme toggle” (which can be found in a lot of documentations)\nare very repetitive tasks where an AI can obviously shine. ☀️\n\nWhen you know CSS well (and I would consider myself as someone who does), you quickly find weird and broken things in the generated code.\nThe AI can’t “see” the output, so some responsive refinements were just not correct. Within one CSS rule block there were redundant declarations.\nEasy to spot if you know what you’re doing… It was just not “elegant.” 🥲\n\nThe tech stack recommendations seemed to be well researched and sound. However, I wasn’t happy with some of them because of my own experiences\nin the past (no, I don’t want to use Tailwind or Vercel) and guidance and suggestions from other senior developers. 💡\nEven when deciding against something for a reason, Claude Code tried to push me back on the suggested track.\n\nSoon there were these feelings… this curiosity and itching in my fingers… wanting to write the next prompt and seeing code being generated\nquickly. Effortless. My ideas finally coming to life so easily. The guilty conscience at the same time, like I was cheating.\nI realized that when I move on like this, my project will never truly feel like my own.\n\nConsequently, as you might have already guessed: I quit my subscription. After two weeks I removed Claude Code from my project and uninstalled it completely.\n\nBecause:\n\nI don’t want to feel this kind of “addiction.”\n\nI don’t want to depend on something doing the work I earn money with.\n\nI don’t want to give up my brain and become lazy and not think for myself anymore.\n\nI enjoy technical discussions with (human) co-workers.\n\nI enjoy reading blog posts and tutorials and learning from other developers.\n\nI want to learn and grow and become better at what I am doing by trial and error and mistakes I make all by myself.\n\nI don’t want to be part of a trend/hype destroying our planet even faster than we already do without it.\n\nAs already written before: what I think the world and the people need right now is to slow down a bit.\nWe don’t need to work even more and even faster. We don’t need AI for things that are creative and fun and human.\n\nI’m curious (and a little bit scared) to see where we will go from here. I hope that in the end I can be part of a community\nthat values craftsmanship, individuality and honest, high-quality work.\n\nCheers 🍺.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "already",
+      "api",
+      "base",
+      "claude",
+      "create",
+      "css",
+      "curiosity",
+      "leave",
+      "party",
+      "read",
+      "the ai party",
+      "thing",
+      "thought"
+    ],
+    []
+  ]
+}

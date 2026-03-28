@@ -1,0 +1,33 @@
+{
+  "id": 6177,
+  "source": "DEV Community<",
+  "title": "🦀 Rust Weekly Log — Weekly progress snapshot",
+  "url": "https://dev.to/vinecksie_rust/rust-weekly-log-weekly-progress-snapshot-3cg9",
+  "published_at": "2026-03-27T11:28:31Z",
+  "fetched_at": "2026-03-27T11:40:19.012474+00:00",
+  "author": "Vincent Eckert Sierota",
+  "summary": "<p><strong>📡 RustPulse project</strong><br />\nExplored Postgres persistence using sqlx and documented the workflow for schema initialization, ingestion pipeline, and verification strategy.<br />\n<a href=\"https://vinecksie.super.site/rustpulse\" rel=\"noopener noreferrer\">https://vinecksie.super.site/rustpulse</a></p>\n\n<p><strong>🔐 Sealed in Rust Crypto book</strong><br />\nStarted the Identity Systems domain chapter, covering real-world password storage with Argon2 and how cryptographic primitives compose into practical authentication architectures.<br />\n<a href=\"https://vinecksie.github.io/sealed-in-rust/03-domains/03-00-identity-systems.html\" rel=\"noopener noreferrer\">https://vinecksie.github.io/sealed-in-rust/03-domains/03-00-identity-systems.html</a></p>\n\n<p><strong>▶️ Fearless in Rust</strong><br />\nPublished a new video on ChaCha20: keystream structure, nonce safety considerations, and implementation details in Rust.<br />\n<a href=\"https://youtu.be/UUQj-9SiKKg\" rel=\"noopener norefe",
+  "full_text": "📡 RustPulse project\n\nExplored Postgres persistence using sqlx and documented the workflow for schema initialization, ingestion pipeline, and verification strategy.\n\nhttps://vinecksie.super.site/rustpulse\n\n🔐 Sealed in Rust Crypto book\n\nStarted the Identity Systems domain chapter, covering real-world password storage with Argon2 and how cryptographic primitives compose into practical authentication architectures.\n\nhttps://vinecksie.github.io/sealed-in-rust/03-domains/03-00-identity-systems.html\n\n▶️ Fearless in Rust\n\nPublished a new video on ChaCha20: keystream structure, nonce safety considerations, and implementation details in Rust.\n\nhttps://youtu.be/UUQj-9SiKKg\n\n \n \n rust #rustlang #backend #cryptography #security #postgres #learninginpublic",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "backend",
+      "crypto",
+      "devjournal",
+      "document",
+      "explored",
+      "ingestion",
+      "rust",
+      "rustpulse",
+      "seal",
+      "security",
+      "sqlx",
+      "start",
+      "weekly"
+    ],
+    [
+      "devjournal"
+    ]
+  ]
+}

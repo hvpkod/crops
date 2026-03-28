@@ -1,0 +1,35 @@
+{
+  "id": 6366,
+  "source": "Hacker News",
+  "title": "The Future of SCIP",
+  "url": "https://sourcegraph.com/blog/the-future-of-scip",
+  "published_at": "2026-03-27T15:46:50Z",
+  "fetched_at": "2026-03-27T22:20:25.266891+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47544238\">Comments</a>",
+  "full_text": "In June 2022, we introduced SCIP (pronounced \"skip\"), a language-agnostic protocol designed for indexing source code. SCIP powers essential code navigation features like Go to definition and Find references in Sourcegraph.\n\nAs SCIP approaches its fourth anniversary, we have decided to transition it from a Sourcegraph-owned project to an independent one with an open governance structure. A Core Steering Committee will be established to guide SCIP's future development.\n\nSourcegraph remains a deeply committed and active member of the community; we will continue to use and invest heavily in SCIP.\n‍\nWe are thrilled to announce the formation of our inaugural Core Steering Committee, which includes engineers from Uber and Meta. We welcome and encourage new contributors to join us.\n\nOpen Governance for a Scalable Ecosystem\n\nThis new structure is designed to promote innovation and predictability while safeguarding the protocol's stability. Our governance model introduces three crucial tiers to empower our community of contributors and partners:\n\n1. A Public, Transparent SEP Process\n\nThe core protocol schema will now be governed by a structured Request for Comments (RFC) mechanism: the SCIP Enhancement Proposals (SEP) process. This ensures that every significant change, from architectural shifts to schema updates, is proposed, debated, and resolved publicly.\n\n2. The Core Steering Committee (CSC)\n\nThe ultimate decisions on strategic direction, governance, and final protocol definitions rest with the newly formed Core Steering Committee (CSC). This group of esteemed industry leaders and experts ensures SCIP’s long-term health and coherence.\n\nCheckout the governance for more info.\n\nWelcoming Our Inaugural Core Steering Committee\n\nWe are incredibly proud to announce the founding members of the SCIP Core Steering Committee. Their diverse perspectives and deep technical knowledge will be foundational as we scale the protocol.\n\nPlease welcome:\n\nThis partnership shows the industry is committed to making SCIP an open standard for everyone.\n\nJoin Us in Shaping the Future\n\nWe invite you to participate in this new era of SCIP.\nExplore the Rules: You can read the complete details of how this project is run in our newly updated governace.\nPropose an Idea: Submit your first architectural or schema proposal using the new SEP template available on GitHub Issues.\nJoin the Conversation: We invite you to join our Discord and provide feedback.\n\nWe are excited about what we can build together. Let’s make code intelligence truly universal.\n\n‍\n\nA special thanks to the following individuals for their contributions to this transition: Robert Lin and Erik Seliger",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "committee",
+      "core",
+      "core steering committee",
+      "csc",
+      "design",
+      "discord",
+      "future",
+      "governance",
+      "join",
+      "protocol",
+      "schema",
+      "scip",
+      "sep",
+      "shaping",
+      "sourcegraph",
+      "steering",
+      "uber and meta"
+    ],
+    []
+  ]
+}

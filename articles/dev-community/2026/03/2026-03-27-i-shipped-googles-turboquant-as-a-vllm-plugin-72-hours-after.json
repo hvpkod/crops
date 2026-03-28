@@ -1,0 +1,43 @@
+{
+  "id": 6368,
+  "source": "DEV Community<",
+  "title": "I shipped Google's TurboQuant as a vLLM plugin 72 hours after the paper — here's what nobody else tested",
+  "url": "https://dev.to/albertocodes/i-shipped-googles-turboquant-as-a-vllm-plugin-72-hours-after-the-paper-heres-what-nobody-else-473g",
+  "published_at": "2026-03-27T22:57:34Z",
+  "fetched_at": "2026-03-27T23:00:21.443031+00:00",
+  "author": "Alberto Nieto",
+  "summary": "<p>Google published <a href=\"https://arxiv.org/abs/2504.19874\" rel=\"noopener noreferrer\">TurboQuant</a> at ICLR 2026 — a technique that compresses transformer KV caches to 4 bits per coordinate with zero accuracy loss. The paper reports 5-6x memory reduction on H100 GPUs, tested on text models like Gemma and Mistral.</p>\n\n<p>I wanted to know: does it work on a <strong>vision-language model</strong> processing <strong>video</strong>? On a <strong>consumer GPU</strong>?</p>\n\n<p>72 hours later, <code>turboquant-vllm</code> is on PyPI.</p>\n\n<h2>\n  \n  \n  Quick Start\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>pip <span class=\"nb\">install </span>turboquant-vllm[vllm]\nvllm serve allenai/Molmo2-8B <span class=\"nt\">--attention-backend</span> CUSTOM\n</code></pre>\n\n</div>\n\n\n\n<p>That's it. The plugin auto-registers via vLLM's entry point system. No code changes, no forking, no monkey-patching.</p>\n\n<p>For HuggingFace users:<br />\n</p>\n\n<div class=\"highligh",
+  "full_text": "Google published TurboQuant at ICLR 2026 — a technique that compresses transformer KV caches to 4 bits per coordinate with zero accuracy loss. The paper reports 5-6x memory reduction on H100 GPUs, tested on text models like Gemma and Mistral.\n\nI wanted to know: does it work on a vision-language model processing video? On a consumer GPU?\n\n72 hours later, turboquant-vllm is on PyPI.\n\n \n \n Quick Start\n\npip install turboquant-vllm[vllm]\nvllm serve allenai/Molmo2-8B --attention-backend CUSTOM\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. The plugin auto-registers via vLLM's entry point system. No code changes, no forking, no monkey-patching.\n\nFor HuggingFace users:\n\nfrom transformers import DynamicCache\nfrom turboquant_vllm import CompressedDynamicCache\n\ncache = DynamicCache()\ncompressed = CompressedDynamicCache(cache, head_dim=128, bits=4)\n# Pass cache (not wrapper) to model.generate()\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Why Vision-Language Models Matter\n\nEvery other TurboQuant implementation tests on text-only models with hundreds of tokens. But a 12-second video clip through Molmo2-4B produces ~11,000 visual tokens — 1.6 GB of KV cache on a 24 GB GPU.\n\nThat's 10x more memory, 10x more opportunities for precision bugs to compound across 36 transformer layers. The existing VLM compression literature (VL-Cache, Dynamic-LLaVA, ZipVL) is all token pruning — deciding which tokens to discard. TurboQuant compresses the tokens you keep. They're complementary approaches, and nobody had validated whether vector quantization survives the visual token regime.\n\nIt does.\n\n \n \n Results\n\nMolmo2-4B on RTX 4090, 11K visual tokens from a Seinfeld video clip:\n\nMetric\nBaseline\nTQ4 Compressed\n\nKV cache\n1,639 MiB\n435 MiB (3.76x)\n\nOutput quality\nDetailed scene description\n\nNear-identical (100+ tokens match)\n\nDecode overhead\n—\n1.78x\n\nMolmo2-8B: same 3.76x ratio, correctly identifies all Seinfeld characters. Full 23-minute episode processed at 24 tok/s.\n\n \n \n What I Built Differently\n\n \n \n Plugin, not fork\n\nOther vLLM TurboQuant efforts are forks or monkey-patches. turboquant-vllm uses vLLM's official plugin entry point:\n\n[project.entry-points.\"vllm.general_plugins\"]\ntq4_backend = \"turboquant_vllm.vllm:register_tq4_backend\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Incremental dequantization\n\nThe naive approach decompresses the full KV cache at every layer, every step — 3.36x overhead. Incremental dequantization decompresses only the 1 new token per step and appends to a running buffer. Overhead drops to 1.78x. This isn't in Google's paper.\n\n \n \n Cross-platform Triton\n\nFused kernels run on both NVIDIA CUDA and AMD ROCm without code changes. 84/84 GPU tests pass on a Radeon 890M iGPU.\n\n \n \n Bugs Nobody Else Has Found\n\nFP16 norms fail at scale. Works at 11,385 tokens, garbles output at 11,397 tokens. The 0.01% error per vector compounds across 36 layers. Always use fp32.\n\nQJL correction is invisible in standard attention. The paper's Stage 2 (2-bit MSE + 1-bit QJL) wastes 1 bit of precision — standard Q @ K^T can't use the correction. Full 3-bit MSE produces identical output.\n\nMulti-layer precision drift in fused kernels. A 0.023 cosine gap per layer between fp32 Triton and bf16 SDPA compounds to produce \"pizza pizza pizza\" at 36 layers. Flash Attention-style fusion needed.\n\n \n \n Validation\n\n180+ tests, 9 test files, 95%+ coverage\n\n16 GPU experiments with documented failures\n\nCross-platform: NVIDIA RTX 4090 + AMD Radeon 890M\n\nEnd-to-end: installed from PyPI into stock vllm/vllm-openai:latest container\n\n \n \n What's Next\n\nUpstream contribution to vLLM (issue #38171, 49 upvotes)\n\nFull Flash Attention fusion for the fused Triton kernels\n\nStacking with VL-Cache-style token pruning for multiplicative VLM savings\n\nPyPI | Docs | GitHub",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "cache",
+      "compound",
+      "compresseddynamiccache",
+      "compresseddynamiccache(cache",
+      "custom",
+      "dynamiccache",
+      "full",
+      "fullscreen",
+      "fused",
+      "gemma and mistral",
+      "google",
+      "gpu",
+      "huggingface",
+      "machinelearning",
+      "mode",
+      "pypi",
+      "python",
+      "token",
+      "triton",
+      "turboquant",
+      "vllm",
+      "vlm"
+    ],
+    [
+      "machinelearning"
+    ]
+  ]
+}

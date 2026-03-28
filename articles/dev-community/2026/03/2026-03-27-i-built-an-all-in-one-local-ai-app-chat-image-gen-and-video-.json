@@ -1,0 +1,46 @@
+{
+  "id": 6266,
+  "source": "DEV Community<",
+  "title": "I Built an All-in-One Local AI App — Chat, Image Gen, and Video Gen in One UI",
+  "url": "https://dev.to/purpledoubled/i-built-an-all-in-one-local-ai-app-chat-image-gen-and-video-gen-in-one-ui-2dda",
+  "published_at": "2026-03-27T17:05:14Z",
+  "fetched_at": "2026-03-27T17:20:26.921421+00:00",
+  "author": "David",
+  "summary": "<p>Last year my desktop looked like a disaster zone. I had an Ollama terminal running in one corner, ComfyUI open in Firefox with like 14 tabs of different workflows, a separate janky video generation tool I found on GitHub that only worked half the time, and a text file where I kept track of which models I had downloaded. Alt-tabbing between all of this was my entire workflow.</p>\n\n<p>One night I was trying to generate an image, refine a prompt with a chat model, then feed that into a video gen pipeline, and I just... stopped. Closed everything. Opened VS Code instead.</p>\n\n<p>I thought: why isn't there just ONE app for all of this?</p>\n\n<p>So I built one. It's called <strong>Locally Uncensored</strong>, and it's completely open source.</p>\n\n<h2>\n  \n  \n  The Problem Nobody Talks About\n</h2>\n\n<p>The local AI space is incredible right now. Ollama made running LLMs stupid easy. ComfyUI is a powerhouse for image generation. There are video gen tools popping up every week.</p>\n\n<p>But they",
+  "full_text": "Last year my desktop looked like a disaster zone. I had an Ollama terminal running in one corner, ComfyUI open in Firefox with like 14 tabs of different workflows, a separate janky video generation tool I found on GitHub that only worked half the time, and a text file where I kept track of which models I had downloaded. Alt-tabbing between all of this was my entire workflow.\n\nOne night I was trying to generate an image, refine a prompt with a chat model, then feed that into a video gen pipeline, and I just... stopped. Closed everything. Opened VS Code instead.\n\nI thought: why isn't there just ONE app for all of this?\n\nSo I built one. It's called Locally Uncensored, and it's completely open source.\n\n \n \n The Problem Nobody Talks About\n\nThe local AI space is incredible right now. Ollama made running LLMs stupid easy. ComfyUI is a powerhouse for image generation. There are video gen tools popping up every week.\n\nBut they're all separate things. Separate UIs. Separate configs. Separate browser tabs. Separate terminal windows.\n\nIf you're just casually chatting with an LLM, sure, the Ollama CLI is fine. But the second you want to do anything more — switch personas, generate an image, manage your models — you're juggling apps like a circus act.\n\nI wanted one window. One UI. Everything local. Everything offline. No API keys, no subscriptions, no data leaving my machine.\n\n \n \n What I Actually Built\n\nLocally Uncensored is a desktop-first web app that wraps Ollama and ComfyUI into a single, clean interface. You get:\n\nChat with any Ollama model, with 25+ built-in personas (coding assistant, creative writer, debate partner, you name it — and yeah, you can make your own)\n\nImage generation through ComfyUI, without needing to touch ComfyUI's node editor\n\nVideo generation in the same UI\n\nA model manager so you can pull, delete, and switch models without touching the terminal\n\nDark and light mode because I'm not an animal\n\nEverything runs 100% on your machine. No cloud. No telemetry. No \"we updated our privacy policy\" emails.\n\n \n \n The Tech Stack (for the curious)\n\nI went with React 19 and TypeScript because, honestly, that's what I know best and I wanted to move fast. Tailwind CSS 4 for styling — I know some people have opinions about Tailwind but it let me iterate on the UI incredibly quickly without context-switching to separate CSS files. Vite 8 for the build tooling because life's too short for slow dev servers.\n\nThe backend talks to Ollama's API directly and integrates with ComfyUI's API for image and video generation. No middleware server, no extra layers. It's as thin as I could make it.\n\nOne thing I'm genuinely proud of is how snappy it feels. I've used a lot of local AI UIs that feel sluggish or over-engineered. I wanted this to feel like a native app, not a web page pretending to be one.\n\n \n \n The Persona System (My Favorite Feature)\n\nOkay, I have to talk about this because it's the feature that made me actually enjoy using local models day-to-day.\n\nMost chat UIs give you a system prompt box and call it a day. I wanted something more structured. Locally Uncensored ships with 25+ personas out of the box — things like a Python tutor, a sarcastic code reviewer, a Socratic philosophy partner, a creative writing coach.\n\nBut the real magic is that switching between them is instant. Mid-conversation, I can go from talking to a coding assistant to switching over to a creative writing persona without opening a new tab or starting a new session. It sounds small but it completely changed how I interact with local models.\n\nAnd of course you can create your own. I have a custom one that's basically \"grumpy senior engineer who reviews my pull requests\" and it's genuinely caught bugs in my code. Would recommend.\n\n \n \n Why \"Uncensored\"?\n\nI get asked about the name. It's not about being edgy. It's about the principle that when you run AI locally, on your own hardware, you should have full control. No corporate content filters deciding what you can and can't ask your own computer. That's the whole point of local AI.\n\nYou pick the models. You set the boundaries. Your machine, your rules.\n\n \n \n The Model Manager Saved My Sanity\n\nBefore this, I had a sticky note (a real physical one, stuck to my monitor) with a list of models I'd downloaded through Ollama. Which ones were good for code. Which ones were better for creative writing. Which ones were too big for my GPU.\n\nThe model manager in Locally Uncensored shows you everything you have installed, lets you pull new models, delete old ones, and see their sizes at a glance. It's not revolutionary technology — it's basically a nice UI over ollama list and ollama pull — but it's one of those things where having it RIGHT THERE in the same app as your chat makes everything feel cohesive.\n\nNo more terminal tab just for model management. No more forgetting what you have installed.\n\n \n \n What I Learned Building This\n\nA few things that surprised me:\n\nOllama's API is really well designed. Streaming responses, model management, it's all clean and straightforward. Made my life way easier than I expected.\n\nComfyUI's API is... not. I love ComfyUI and what it can do, but integrating with it programmatically was a journey. The workflow-based API is powerful but requires you to basically construct node graphs in JSON. I spent way too many late nights debugging why my image gen requests were silently failing. If you're thinking about building on top of ComfyUI, budget extra time for this.\n\nPeople really want local AI to be easier. I posted an early version in a few Discord servers expecting maybe 10 people to try it. The response was way beyond what I anticipated. Turns out a LOT of people are in the same boat — they want to run AI locally but the tooling fragmentation is a real barrier.\n\n \n \n It's Open Source, Go Break It\n\nThe whole thing is on GitHub: https://github.com/PurpleDoubleD/locally-uncensored\n\nMIT licensed. Clone it, fork it, rip it apart, rebuild it, I don't care. If you find a bug, open an issue. If you want to add a feature, PRs are welcome.\n\nYou'll need Ollama installed for chat and a ComfyUI instance running for image/video gen. The README walks through setup — it's pretty straightforward if you've already got those tools running.\n\n \n \n What's Next\n\nI'm actively working on this. Some things on my radar:\n\nBetter ComfyUI workflow templates so you don't need to configure anything for basic image gen\n\nRAG support for chatting with your own documents\n\nMore personas (always more personas)\n\nPossibly an Electron wrapper for a true desktop app experience\n\nBut honestly, the roadmap is shaped by whoever shows up and uses it. If you try it and think \"man, I wish it did X\" — tell me. Open an issue. That's how the best features have been added so far.\n\n \n \n TL;DR\n\nI got tired of running five different tools to use local AI. So I built one app that does chat, image gen, and video gen in a single UI. It's called Locally Uncensored, it runs 100% offline, and it's open source.\n\nGive it a spin if you're drowning in AI tool tabs like I was. And if you hate it, at least you'll have a clean starting point to build something better.\n\n🔗 GitHub — Locally Uncensored",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "ai",
+      "api",
+      "build",
+      "comfyui",
+      "css",
+      "firefox",
+      "github",
+      "llm",
+      "local",
+      "locally",
+      "locally uncensored",
+      "model",
+      "node",
+      "ollama",
+      "opensource",
+      "persona",
+      "selfhosted",
+      "separate",
+      "the ollama cli",
+      "typescript",
+      "uncensored",
+      "want",
+      "webdev"
+    ],
+    [
+      "github",
+      "opensource",
+      "selfhosted",
+      "webdev"
+    ]
+  ]
+}

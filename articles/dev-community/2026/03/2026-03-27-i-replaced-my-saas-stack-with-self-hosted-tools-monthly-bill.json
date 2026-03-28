@@ -1,0 +1,45 @@
+{
+  "id": 6202,
+  "source": "DEV Community<",
+  "title": "I Replaced My SaaS Stack with Self-Hosted Tools - Monthly Bill: $347 to $12",
+  "url": "https://dev.to/maquankun/i-replaced-my-saas-stack-with-self-hosted-tools-monthly-bill-347-to-12-fia",
+  "published_at": "2026-03-27T14:09:55Z",
+  "fetched_at": "2026-03-27T14:20:25.782615+00:00",
+  "author": "maquankun",
+  "summary": "<h1>\n  \n  \n  I Replaced My SaaS Stack with Self-Hosted Tools - Monthly Bill: $347 to $12\n</h1>\n\n<p>My SaaS bill was $347/month. Now it is $12 (just electricity). Here is every Docker config included.</p>\n\n<h2>\n  \n  \n  The Stack\n</h2>\n\n<ul>\n<li>Notion ($10) -&gt; AppFlowy</li>\n<li>Vercel ($20) -&gt; Coolify</li>\n<li>Datadog ($23/host) -&gt; Grafana + Loki</li>\n<li>Railway ($20) -&gt; Coolify</li>\n<li>Resend ($20) -&gt; Listmonk</li>\n<li>PostHog ($30) -&gt; Plausible Analytics</li>\n<li>Various ($224) -&gt; Self-hosted</li>\n</ul>\n\n<h2>\n  \n  \n  Hardware\n</h2>\n\n<p><a href=\"https://www.amazon.com/Beelink-Desktop-Computer-Support-Windows/dp/B0BX497V4M?tag=maquankun-20\" rel=\"noopener noreferrer\">Beelink Mini PC</a> -- Intel N100, 16GB RAM, 500GB SSD. $150 one-time.</p>\n\n<h2>\n  \n  \n  1. AppFlowy replaces Notion\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight yaml\"><code><span class=\"na\">services</span><span class=\"pi\">:</span>\n  <span class=\"na\">appflowy</span><span cla",
+  "full_text": "I Replaced My SaaS Stack with Self-Hosted Tools - Monthly Bill: $347 to $12\n\nMy SaaS bill was $347/month. Now it is $12 (just electricity). Here is every Docker config included.\n\n \n \n The Stack\n\nNotion ($10) -> AppFlowy\n\nVercel ($20) -> Coolify\n\nDatadog ($23/host) -> Grafana + Loki\n\nRailway ($20) -> Coolify\n\nResend ($20) -> Listmonk\n\nPostHog ($30) -> Plausible Analytics\n\nVarious ($224) -> Self-hosted\n\n \n \n Hardware\n\nBeelink Mini PC -- Intel N100, 16GB RAM, 500GB SSD. $150 one-time.\n\n \n \n 1. AppFlowy replaces Notion\n\nservices:\n appflowy:\n image: appflowyio/appflowy_cloud:latest\n ports: [\"8000:8000\"]\n volumes: [appflowy_data:/data]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDocs, databases, kanban. Offline-first. AI built in.\n\n \n \n 2. Coolify replaces Vercel + Railway\n\ncurl -fsSL https://cdn.coollify.io/install.sh | bash\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDeploy from Git, automatic SSL, Docker-native.\n\n \n \n 3. Grafana + Loki replaces Datadog\n\nservices:\n grafana:\n image: grafana/grafana\n ports: [\"3000:3000\"]\n loki:\n image: grafana/loki\n ports: [\"3100:3100\"]\n prometheus:\n image: prom/prometheus\n ports: [\"9090:9090\"]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 4. Plausible replaces PostHog\n\nservices:\n plausible:\n image: ghcr.io/plausible/community-edition:v2.1\n ports: [\"8001:8000\"]\n environment:\n - BASE_URL=https://analytics.yourdomain.com\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPrivacy-first analytics. No cookies. GDPR-compliant.\n\n \n \n 5. Listmonk replaces Resend\n\nservices:\n listmonk:\n image: listmonk/listmonk:latest\n ports: [\"9000:9000\"]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 6. Uptime Kuma replaces Better Uptime\n\nservices:\n uptime:\n image: louislam/uptime-kuma:1\n ports: [\"3001:3001\"]\n volumes: [uptime_data:/app/data]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBeautiful status pages. Alert integrations.\n\n \n \n Full Docker Compose\n\nversion: \"3.8\"\nservices:\n nginx-proxy:\n image: jc21/nginx-proxy-manager:latest\n ports: [\"80:80\", \"443:443\", \"81:81\"]\n grafana:\n image: grafana/grafana\n ports: [\"3000:3000\"]\n uptime:\n image: louislam/uptime-kuma:1\n ports: [\"3001:3001\"]\n volumes: [uptime_data:/app/data]\n coolify:\n image: coollabsio/coolify:latest\n ports: [\"8080:8080\"]\nvolumes:\n uptime_data:\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Cost Breakdown\n\nBefore: $347/month\n\nAfter: $12/month (electricity)\n\nAnnual savings: $4,020\n\n \n \n Getting Started\n\nBuy the mini PC\n\nInstall Ubuntu Server\n\nInstall Docker: curl -fsSL https://get.docker.com | sh\n\nStart with one service (I recommend Uptime Kuma)\n\nGreat resource: Awesome Self-Hosted\n\nWhat do you self-host? Share your setup below.\n\nDisclosure: Amazon affiliate links. I earn a small commission at no extra cost to you.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "appflowy",
+      "better uptime",
+      "coolify",
+      "datadog",
+      "devops",
+      "enter",
+      "exit",
+      "fullscreen",
+      "getting started\n\nbuy",
+      "grafana/grafana",
+      "grafana/loki",
+      "intel",
+      "kanban",
+      "mode",
+      "opensource",
+      "productivity",
+      "replace",
+      "saas",
+      "ssl",
+      "the stack\n\nnotion",
+      "tools",
+      "uptime"
+    ],
+    [
+      "devops",
+      "opensource",
+      "productivity",
+      "tools"
+    ]
+  ]
+}

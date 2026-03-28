@@ -1,0 +1,41 @@
+{
+  "id": 6122,
+  "source": "DEV Community<",
+  "title": "2025–10–22 Tokyo Video Tech #10 Report(en)",
+  "url": "https://dev.to/tokyo-video-tech/2025-10-22-tokyo-video-tech-10-reporten-4de4",
+  "published_at": "2026-03-27T05:26:50Z",
+  "fetched_at": "2026-03-27T05:40:20.805690+00:00",
+  "author": "Katz Sakai",
+  "summary": "<p>On October 22, 2025, <strong>Tokyo Video Tech #10 “Continuous”</strong> took place at the Netflix Tokyo office.</p>\n\n<p>This time, the theme was <strong>live streaming</strong>, with engineers from IIJ and Netflix sharing what they’ve learned and the challenges they’ve faced in the field. It was also the <strong>first time Netflix’s live streaming team gave a talk in Tokyo</strong>, which made for an especially lively Q&amp;A session. Here’s a quick recap of the event.</p>\n\n<p>Report by: <a href=\"https://www.linkedin.com/in/ksakai/\" rel=\"noopener noreferrer\">Katz Sakai</a><br />\n(<a href=\"https://medium.com/tokyo-video-tech/2025-10-22-tokyo-vide-tech-10-seminar-report-ja-c3201c09401a\" rel=\"noopener noreferrer\">本レポートの日本語版はこちらからご覧いただけます</a>)</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Flfn3ugtmdzhm6yn5qk8i.jpg",
+  "full_text": "On October 22, 2025, Tokyo Video Tech #10 “Continuous” took place at the Netflix Tokyo office.\n\nThis time, the theme was live streaming, with engineers from IIJ and Netflix sharing what they’ve learned and the challenges they’ve faced in the field. It was also the first time Netflix’s live streaming team gave a talk in Tokyo, which made for an especially lively Q&A session. Here’s a quick recap of the event.\n\nReport by: Katz Sakai\n\n(本レポートの日本語版はこちらからご覧いただけます)\n\n \n \n Executive Summary\n\n \n \n Session 1 — Live Streaming at “Spring Festival in Tokyo”\n\nSince 2021, IIJ has been responsible for live streaming all performances of the Spring Festival in Tokyo. Covering multiple venues across Ueno Park over an extended period, IIJ recreated the sense of being at a live classical concert through innovations such as network redundancy and a custom subtitle tool.\n\nThey continue to balance stability and innovation each year, taking on new technologies like cloud playout, Dolby Atmos, local 5G, and 60GHz wireless transmission.\n\nThrough international collaboration with Berlin Phil Media and others, the team addresses the unique sensitivity of broadcasting cultural events, expanding the reach of live music through technology.\n\n \n \n Session 2 — Behind the Streams: Live at Netflix\n\nNetflix launched its live streaming service in 2023, which has since grown to support simultaneous viewing by tens of millions of households worldwide.\n\nBy connecting live venues to the cloud through multiple redundant paths with synchronized timing, Netflix ensures reliable signal transmission. Leveraging its long-standing VOD expertise, the company supports playback across a wide variety of global devices. Through audience forecasting and real-time monitoring, Netflix dynamically manages capacity and bitrate to deliver a consistently high-quality viewing experience.\n\nContinuous testing and failure injection have strengthened operational readiness, enabling Netflix to maintain stable live streaming performance even in one-shot live events.\n\n \n \n Opening Remarks: Celebrating the 10th Edition\n\nThe event kicked off with opening remarks from Hayashi-san, one of the organizers of Tokyo Video Tech.\n\nTokyo Video Tech started back in October 2018, inspired by Demuxed, a global conference for video engineers held in San Francisco. The idea was simple but powerful — to create a place in Japan where video engineers could connect, share, and learn from each other. Since then, the community has grown beyond Japan, hosting guest sessions at Taiwan Multimedia Technology and Dublin, expanding its reach worldwide.\n\nThe group has also been deeply involved in the broader video tech community — for instance, Tokyo Video Tech supported Video Dev Days 2019, an event that brought together over a hundred developers of VLC, ffmpeg, and the AV1 decoder dav1d for two days of in-depth discussions in Tokyo.\n\nSo, how did this edition end up being hosted at Netflix Tokyo?\n\nIt all started with a message from Flávio Ribeiro at Netflix about four weeks ago:\n\n“We’re planning to be in Tokyo — how about hosting a meetup together?”\n\nA quick “Sure, we can do it!” set everything in motion.\n\nThanks to the support of the Netflix Tokyo office, IIJ, and the Tokyo Video Tech team, the meetup came together in just four weeks and welcomed about 35 participants on the day of the event.\n\nHayashi-san wrapped up his opening remarks by saying:\n\n“This event’s theme, Continuous, represents our determination to keep moving forward — to continue learning and engaging in dialogue, even after the pandemic. I hope today’s meetup will be a fruitful and inspiring one for everyone here.”\n\n \n \n The Sessions\n\nWhat followed were two sessions that showed just how different — and how fascinating — the world of live streaming can be depending on who’s behind it and what’s at stake.\n\nIn the first session, IIJ’s Fumitaka Watanabe took us inside the unlikely intersection of internet infrastructure and classical music — where hundreds of meters of cable are laid and removed for every performance, and a World Heritage venue two floors underground becomes a live streaming challenge unlike any other.\n\nIn the second session, Netflix’s live streaming team — presenting in Tokyo for the first time — revealed the engineering behind broadcasts that reach tens of millions of households, from multi-path signal routing to a culture of deliberate failure injection that turns every one-shot event into something they’ve already rehearsed dozens of times.\n\n \n \n Join Us\n\nTokyo Video Tech is an open community — whether you're a seasoned video engineer or just curious about the field, you're welcome to join. Follow us on Luma to stay updated on upcoming events.\n\n→ Join the mettup",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "demuxed",
+      "engineer",
+      "hayashi-san",
+      "iij",
+      "learning",
+      "live",
+      "meetup",
+      "netflix",
+      "netflix tokyo",
+      "opening",
+      "q&a",
+      "session",
+      "stream",
+      "streaming",
+      "tech",
+      "tokyo",
+      "tokyo video tech",
+      "ueno park",
+      "video",
+      "vod"
+    ],
+    [
+      "learning",
+      "tech"
+    ]
+  ]
+}

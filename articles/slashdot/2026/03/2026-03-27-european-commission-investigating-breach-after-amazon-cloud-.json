@@ -1,0 +1,32 @@
+{
+  "id": 6363,
+  "source": "Slashdot",
+  "title": "European Commission Investigating Breach After Amazon Cloud Account Hack",
+  "url": "https://it.slashdot.org/story/26/03/27/2114234/european-commission-investigating-breach-after-amazon-cloud-account-hack?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-27T22:00:00Z",
+  "fetched_at": "2026-03-27T22:20:19.335951+00:00",
+  "author": "BeauHD",
+  "summary": "The European Commission is investigating a breach after a threat actor allegedly accessed at least one of its AWS cloud accounts and claimed to have stolen more than 350 GB of data, including databases and employee-related information. AWS says its own services were not breached. BleepingComputer reports: Sources familiar with the incident have told BleepingComputer that the attack was quickly detected and that the Commission's cybersecurity incident response team is now investigating. While the Commission has yet to share any details about this breach, the threat actor who claimed responsibility for the attack reached out to BleepingComputer earlier this week, stating that they had stolen over 350 GB of data (including multiple databases).\n \nThey didn't disclose how they breached the affected accounts, but they provided BleepingComputer with several screenshots as proof that they had access to information belonging to European Commission employees and to an email server used by Commis",
+  "full_text": "The European Commission is investigating\n\n a breach after a threat actor allegedly accessed at least one of its AWS cloud accounts\n\n and claimed to have stolen more than 350 GB of data, including databases and employee-related information. AWS says its own services were not breached. BleepingComputer reports: Sources familiar with the incident have told BleepingComputer that the attack was quickly detected and that the Commission's cybersecurity incident response team is now investigating. While the Commission has yet to share any details about this breach, the threat actor who claimed responsibility for the attack reached out to BleepingComputer earlier this week, stating that they had stolen over 350 GB of data (including multiple databases).\n\n \n\nThey didn't disclose how they breached the affected accounts, but they provided BleepingComputer with several screenshots as proof that they had access to information belonging to European Commission employees and to an email server used by Commission employees. The threat actor also told BleepingComputer that they will not attempt to extort the Commission using the allegedly stolen data as leverage, but intend to leak the data online at a later date.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "actor",
+      "aws",
+      "bleepingcomputer",
+      "breach",
+      "claim",
+      "commission",
+      "datum",
+      "european",
+      "european commission",
+      "investigate",
+      "security",
+      "steal",
+      "the european commission",
+      "threat"
+    ],
+    []
+  ]
+}

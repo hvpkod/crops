@@ -1,0 +1,33 @@
+{
+  "id": 6167,
+  "source": "The Verge",
+  "title": "Rank the 50 best Apple products",
+  "url": "https://www.theverge.com/cs/tech/900477/apple-50-anniversary-rank-products",
+  "published_at": "2026-03-27T10:00:00Z",
+  "fetched_at": "2026-03-27T10:00:19.525317+00:00",
+  "author": "Verge Staff",
+  "summary": "<figure>\n\n<img alt=\"Black-and-white illustrations of various Apple products, including an iPhone, iPod Shuffle, iMac, and MacBook.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Rank-Apple-Products-Lead-Art.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">In honor of Apple’s 50th anniversary, we picked 50 of our favorite Apple products, from the OG iPhone to GarageBand. Now we&#8217;re ranking them as a community, and <a href=\"https://www.theverge.com/cs/tech/900477/apple-50-anniversary-rank-products\">you can contribute here</a>.</p>",
+  "full_text": "For any one person, ranking 50 items can be a long and tedious process. For a community, however, it's markedly easier. Rather than have each user submit a full list, we can break down the rankings into bite-size components, then recombine them once we have enough votes. Here, we're using a modified ELO algorithm to do just that. \n\nWith ELO, each item has a starting score, which then modified in every paired matchup. The change in points is based on the score of the other item in the pairing; beating the top ranked item will come with a higher reward than beating the lowest, and the same in reverse applies to the penalties for losing. (ELO was originally developed for chess, which has more robust victory conditions than 'user preference,' so we've tweaked the standard version to dampen the effects of major upsets.)\n\nAll of which means that every time you make a choice between any two of the items on our Apple Top 50 list, you're making a contribution to the overall community rankings. Thanks!\n\nCREDITS\nDesign: Kristen Radtke\nEngineer: Graham MacAree\nEditors: Nilay Patel, David Pierce, Meredith Haggerty\nConcept: Victoria Barrios, Travis Larchuk\nCopy edit: Kallie Plagge",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "apple",
+      "apply",
+      "beat",
+      "gadgets",
+      "item",
+      "markedly",
+      "modify",
+      "pair",
+      "rank",
+      "recombine",
+      "tech",
+      "tedious"
+    ],
+    [
+      "gadgets",
+      "tech"
+    ]
+  ]
+}

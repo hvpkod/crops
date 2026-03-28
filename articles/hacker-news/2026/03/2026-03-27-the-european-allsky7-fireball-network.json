@@ -1,0 +1,31 @@
+{
+  "id": 6139,
+  "source": "Hacker News",
+  "title": "The European AllSky7 fireball network",
+  "url": "https://www.allsky7.net/#archive",
+  "published_at": "2026-03-27T07:00:49Z",
+  "fetched_at": "2026-03-27T07:40:27.006891+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47539767\">Comments</a>",
+  "full_text": "The network is based on the AllSky7 systems manufactured by \n Mike Hankey. Details about the systems were published in a paper at Meteoroids 2020 conference.\n \n\nEach system contains seven highly sensitive NetSurveillance NVT cameras \n with the SONY STARVIS IMX291 CMOS Sensor and a 4 mm f/1.0 lens. Five of them are horizonally oriented at an altitude of about 25°,\n camera six and seven point in northern and southern direction at an altitude of about 70° All together they cover the full sky down to the horizon.\n \n\nEach camera has a field of view of about 45x80°. The cameras are recording at 25 fps and reach a limiting magnitude of about 4 mag.\n Maximum resolution is 25 pixel/°. \n \n\nBeside the cameras, the dome contains a power supply and an ethernet switch for each camera. Each camera has a black paper baffle.\n The dome is painted from the inside with two color layers - silver outside and pale black inside. That reduces internal reflections and the thermal influx.\n \n\nPower is supplied via Power-over-Ethernet (PoE), so that the whole system needs just one CAT-6 Ethernet cable to connect it to base computer. The computer is a barebone Mini PC running Ubuntu and the AllSky7 software by Mike Hankey, which is continuously improved. \n Each camera provides an SD (704x576 pixel) and HD (1920x1080 pixel) video stream which are recorded by the Mini PC and analysed asynchronously.\n \n\nThe camera is recording meteors and fireballs 24/7, but at the moment only the nighttime recordings are automatically analysed. About 5.000 meteors are recorded per year under typical central European conditions.\n \n\nThe software provided by Mike Hankey covers all aspects of the measurement of fireballs. It allows to sort out false detections from the daily meteor stack, to measure the position of fireballs in single video frames,\n to identify reference stars and do the astrometry and photometry of the recording, and to combine the observation with data from other camera stations to calculate trajectories and orbits. \n The software comes free of charge for all members of the AllSky7 Firebal Network (community license).\n All software functions are shown in a short advertising film.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "altitude",
+      "camera",
+      "ethernet",
+      "fireball",
+      "meteor",
+      "mike",
+      "netsurveillance nvt",
+      "poe",
+      "record",
+      "recording",
+      "software",
+      "sony",
+      "system"
+    ],
+    []
+  ]
+}

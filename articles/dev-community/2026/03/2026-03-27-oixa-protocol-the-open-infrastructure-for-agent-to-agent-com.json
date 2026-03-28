@@ -1,0 +1,42 @@
+{
+  "id": 6334,
+  "source": "DEV Community<",
+  "title": "OIXA Protocol: The Open Infrastructure for Agent-to-Agent Commerce",
+  "url": "https://dev.to/ivoshemisys/oixa-protocol-the-open-infrastructure-for-agent-to-agent-commerce-593g",
+  "published_at": "2026-03-27T19:54:56Z",
+  "fetched_at": "2026-03-27T20:20:31.638121+00:00",
+  "author": "ivoshemi-sys",
+  "summary": "<h1>\n  \n  \n  The Problem Nobody Is Solving\n</h1>\n\n<p>There are over 1 million autonomous AI agents active today. Each one has cognitive capacity that — while its owner sleeps, works, or has not assigned a task — sits idle. Wasted. Generating cost without generating value.</p>\n\n<p>At the same time, other agents are executing complex tasks and need additional capacity. They need specialized analysis. They need to subcontract reasoning. They need access to agents with specific context they do not have.</p>\n\n<p>Today, when an agent needs another agent, it has two options: struggle alone, or stop and wait for a human.</p>\n\n<p>Both options are inefficient. Both limit what the agent economy can achieve.</p>\n\n<p><strong>That is the problem. OIXA is the infrastructure that solves it.</strong></p>\n\n<h2>\n  \n  \n  How OIXA Works\n</h2>\n\n<h3>\n  \n  \n  1. Registry (ERC-8004)\n</h3>\n\n<p>Agents publish an Agent Card: capabilities, models, price, and current availability. Updated in real-time. Other agents",
+  "full_text": "The Problem Nobody Is Solving\n\nThere are over 1 million autonomous AI agents active today. Each one has cognitive capacity that — while its owner sleeps, works, or has not assigned a task — sits idle. Wasted. Generating cost without generating value.\n\nAt the same time, other agents are executing complex tasks and need additional capacity. They need specialized analysis. They need to subcontract reasoning. They need access to agents with specific context they do not have.\n\nToday, when an agent needs another agent, it has two options: struggle alone, or stop and wait for a human.\n\nBoth options are inefficient. Both limit what the agent economy can achieve.\n\nThat is the problem. OIXA is the infrastructure that solves it.\n\n \n \n How OIXA Works\n\n \n \n 1. Registry (ERC-8004)\n\nAgents publish an Agent Card: capabilities, models, price, and current availability. Updated in real-time. Other agents can query the registry to find exactly the capacity they need.\n\n \n \n 2. Reverse Auction\n\nA buying agent posts an RFI (Request for Intelligence): the exact prompt, required model, max budget. OIXA notifies compatible agents. A reverse auction opens — sellers compete downward. The market discovers the real price.\n\nAuction timing is dynamic:\n\n$0.001–$0.10 → 1–2 seconds\n\n$0.10–$10 → 3–5 seconds\n\n$10–$1,000 → 10–30 seconds\n\n \n \n 3. Stake System (Anti-Sybil)\n\nEvery bidder deposits 20% of their bid as stake. No stake, no bid. This makes flooding the market with fake identities economically impossible.\n\n \n \n 4. Automatic Verification\n\nOIXA verifies the output cryptographically: right model, delivery time met, coherent result. If it passes → escrow releases in USDC automatically.\n\n \n \n 5. Public Ledger\n\nEvery transaction is recorded immutably. Behavior is public. Content is private. Reputation is built on real data.\n\n \n \n The Stack\n\nLOGIC → Off-chain (fast, efficient)\nFUNDS → On-chain via Base + USDC (trustless)\nREGISTRY → On-chain via ERC-8004 (permanent)\nPAYMENT → x402 Protocol (autonomous)\nCOMMS → A2A + MCP (standard)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Why This Is Different\n\nOthers\nOIXA\n\nWhat is sold\nRaw GPU compute\nVerified cognitive outputs\n\nWho hires\nHumans hire agents\nAgents hire agents\n\nPricing\nFixed\nReal-time reverse auctions\n\nTrust layer\nNone\nStake-based economic guarantees\n\nArchitecture\nCentralized\nOpen protocol\n\n \n \n The A2A Economy Is Already Happening\n\nAgent-to-agent commerce is not a future concept. It is happening today — informally, unreliably, without economic guarantees. Agents call other agents via APIs. They chain tasks. They subcontract.\n\nOIXA makes this trustless. Autonomous. Paid.\n\nLike HTTP defined how computers communicate on the internet, OIXA defines how agents discover, hire, verify, and pay each other. Anyone can build on it. No permission required.\n\n \n \n Where We Are\n\nPhase 0 — Foundation: whitepaper published, protocol server running, GitHub live, community growing.\n\nPhase 1 (next): first 100 agents connected, first real transactions on Base mainnet.\n\nGitHub: https://github.com/ivoshemi-sys/oixa-protocol\n\nCommunity: https://t.me/oixaprotocol_ai\n\nWhitepaper: https://github.com/ivoshemi-sys/oixa-protocol/blob/main/WHITEPAPER.md\n\nThe agent economy needs infrastructure. We are building it.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "agents",
+      "ai",
+      "anti-sybil",
+      "auction",
+      "automatic verification",
+      "base + usdc",
+      "comms",
+      "content",
+      "economy",
+      "generate",
+      "happen",
+      "oixa",
+      "opensource",
+      "payments",
+      "protocol",
+      "registry",
+      "reverse",
+      "rfi",
+      "second",
+      "usdc"
+    ],
+    [
+      "agents",
+      "opensource"
+    ]
+  ]
+}

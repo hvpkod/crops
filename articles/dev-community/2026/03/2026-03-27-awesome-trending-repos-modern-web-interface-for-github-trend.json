@@ -1,0 +1,45 @@
+{
+  "id": 6328,
+  "source": "DEV Community<",
+  "title": "awesome-trending-repos: Modern Web Interface for GitHub Trending",
+  "url": "https://dev.to/furkankoykiran/awesome-trending-repos-modern-web-interface-for-github-trending-26b5",
+  "published_at": "2026-03-27T20:12:20Z",
+  "fetched_at": "2026-03-27T20:20:19.311730+00:00",
+  "author": "Furkan Köykıran",
+  "summary": "<p>In my previous blog post, I introduced the <a href=\"https://github.com/furkankoykiran/awesome-trending-repos\" rel=\"noopener noreferrer\">awesome-trending-repos</a> project. Back then, the project only wrote data to a README.md file. Things have changed. The project is now a fully functional modern web application.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr8h4rlndbfpf10x48g0y.png\"><img alt=\"CI/CD Pipeline\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr8h4rlndbfpf10x48g0y.png\" /></a><br />\n<em>Automated build and deployment process with GitHub Actions</em></p>\n\n\n<h2>\n  \n  \n  Why a Web Interface?\n</h2>\n\n<p>A README.md file works, but it's static. To track trending projects effect",
+  "full_text": "In my previous blog post, I introduced the awesome-trending-repos project. Back then, the project only wrote data to a README.md file. Things have changed. The project is now a fully functional modern web application.\n\nAutomated build and deployment process with GitHub Actions\n\n \n \n Why a Web Interface?\n\nA README.md file works, but it's static. To track trending projects effectively, I wanted a more interactive experience. Users needed to be able to filter by programming language, search repositories, and see data visualized with charts.\n\nSo I built a modern single-page application (SPA) with React + Vite.\n\n \n \n Tech Stack\n\nFrontend:\n\nReact 19 - Latest version\n\nVite - Fast dev server and build tool\n\nTailwind CSS v4 - Utility-first styling\n\nFramer Motion - Animations\n\nRecharts - Data visualization\n\nBackend/Infrastructure:\n\nGitHub Actions - Automation\n\nGitHub Pages - Hosting\n\nCustom Domain - furkankoykiran.com.tr\n\n \n \n Project Structure\n\nThe core project structure:\n\nawesome-trending-repos/\n├── src/\n│ ├── App.jsx # Main React component\n│ ├── main.jsx # Entry point\n│ └── index.css # Tailwind + custom styles\n├── scripts/\n│ └── update.js # Trending data scrape script\n├── public/\n│ ├── data/\n│ │ └── trending.json # Frontend data source\n│ └── logo.png\n├── .github/workflows/\n│ └── update-trends.yml # CI/CD pipeline\n└── vite.config.js # GitHub Pages config\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n GitHub Pages Integration\n\nWhen using Vite with GitHub Pages, the most important configuration is the base path. If your project runs in a subdirectory (e.g., github.io/repo-name), you must specify this in vite.config.js:\n\n// vite.config.js\nimport { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\nimport tailwindcss from '@tailwindcss/vite';\n\nexport default defineConfig({\n plugins: [react(), tailwindcss()],\n base: '/awesome-trending-repos/', // GitHub Pages subdirectory\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWithout this setting, asset paths will break in production and you'll get 404 errors.\n\n \n \n GitHub Actions Workflow\n\nThe workflow runs every day at midnight UTC:\n\nFetch trending data - Scrape GitHub Trending page\n\nBuild frontend - Create dist/ folder with npm run build\n\nCommit data - Commit README and data files if changed\n\nDeploy - Distribute to GitHub Pages\n\n# .github/workflows/update-trends.yml\nname: Update and Deploy Trends\n\non:\n schedule:\n - cron: '0 0 * * *' # Daily at midnight\n workflow_dispatch:\n\npermissions:\n contents: write\n pages: write\n id-token: write\n\njobs:\n update-and-build:\n runs-on: ubuntu-latest\n steps:\n - uses: actions/checkout@v4\n\n - name: Setup Node.js\n uses: actions/setup-node@v4\n with:\n node-version: '20'\n\n - name: Install dependencies\n run: npm ci\n\n - name: Run update script\n run: npm run update\n env:\n GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n\n - name: Build frontend\n run: npm run build\n\n - name: Upload artifact\n uses: actions/upload-pages-artifact@v3\n with:\n path: './dist'\n\n deploy:\n environment:\n name: github-pages\n url: ${{ steps.deployment.outputs.page_url }}\n runs-on: ubuntu-latest\n needs: update-and-build\n steps:\n - name: Deploy to GitHub Pages\n id: deployment\n uses: actions/deploy-pages@v4\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAutomated deployment flow\n\n \n \n Frontend Features\n\n \n \n 1. Language Filtering\n\nUsers can filter by programming language:\n\nconst languages = ['All', ...new Set(repos.map(r => r.language).filter(Boolean))];\n\nconst filteredRepos = repos.filter(repo => {\n const matchesLang = filter === 'All' || repo.language === filter;\n const matchesSearch = repo.name.toLowerCase().includes(searchQuery.toLowerCase());\n return matchesLang && matchesSearch;\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 2. Search Function\n\nReal-time search across repo name, owner, and description.\n\n \n \n 3. Visual Statistics\n\nRecharts library for language distribution bar chart and growth leaders list:\n\n<ResponsiveContainer width=\"100%\" height=\"100%\">\n <BarChart data={data?.insights?.topLanguages || []}>\n <CartesianGrid strokeDasharray=\"8 8\" stroke=\"#ffffff03\" />\n <XAxis dataKey=\"language\" stroke=\"#475569\" />\n <YAxis stroke=\"#475569\" />\n <Tooltip contentStyle={{ backgroundColor: 'rgba(15, 23, 42, 0.9)' }} />\n <Bar dataKey=\"count\" radius={[12, 12, 0, 0]}>\n {data?.insights?.topLanguages?.map((entry, index) => (\n <Cell key={index} fill={getLangColor(entry.language)} />\n ))}\n </Bar>\n </BarChart>\n</ResponsiveContainer>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 4. Deployment Feed\n\nA feed entry is created for each update. Users can see the deployment history.\n\n \n \n Custom Domain Setup\n\nTo use a custom domain with GitHub Pages:\n\nCreate CNAME file - Add your domain to public/CNAME:\n\n furkankoykiran.com.tr\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDNS setting - At your domain provider:\n\n CNAME furkankoykiran.github.io\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nHTTPS - GitHub Pages automatically provides SSL with Let's Encrypt.\n\n \n \n Performance Tips\n\n \n \n 1. Asset Optimization\n\nVite production build automatically does minification and tree-shaking. For large images, consider using optimized images instead of putting everything in public/.\n\n \n \n 2. Lazy Loading\n\nFor large lists, consider virtual scrolling. Not needed for this project with 25 repos, but good to know if you scale.\n\n \n \n 3. Caching\n\nGitHub Pages automatically adds cache headers. For index.html, use cache-busting:\n\n// vite.config.js\nexport default defineConfig({\n build: {\n rollupOptions: {\n output: {\n entryFileNames: `assets/[name].[hash].js`,\n chunkFileNames: `assets/[name].[hash].js`,\n assetFileNames: `assets/[name].[hash].[ext]`\n }\n }\n }\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Live Demo\n\nThe project is currently live at furkankoykiran.com.tr/awesome-trending-repos. It updates automatically every day.\n\nProject logo\n\nOpen Graph preview image\n\n \n \n Conclusion\n\nMoving from a README.md to a modern web application significantly improved the project's usability. Users now have an interactive experience instead of just a static list.\n\nThe GitHub Pages + Vite combination is an excellent solution for static sites. Free, fast, and fully automated with CI/CD.\n\nThe project is fully open source. If you want to contribute, send a pull request to the GitHub repo.\n\nSource: blog.furkankoykiran.com.tr",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "backend/infrastructure",
+      "css",
+      "data",
+      "deployment",
+      "enter",
+      "exit",
+      "fullscreen",
+      "github",
+      "github actions",
+      "github actions workflow",
+      "github pages",
+      "github pages integration",
+      "mode",
+      "pages",
+      "project",
+      "react",
+      "react + vite",
+      "spa",
+      "tech stack\n\nfrontend:",
+      "trending",
+      "utc",
+      "vite",
+      "webdev"
+    ],
+    [
+      "github",
+      "vite",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 6376,
+  "source": "DEV Community<",
+  "title": "We built a governance layer for AI-assisted development (with runtime validation and real system)",
+  "url": "https://dev.to/mnsanchezmorales/we-built-a-governance-layer-for-ai-assisted-development-with-runtime-validation-and-real-system-afm",
+  "published_at": "2026-03-27T22:49:59Z",
+  "fetched_at": "2026-03-27T23:00:43.756927+00:00",
+  "author": "Martin Nicolas Sanchez Morales",
+  "summary": "<p>I’ve been working on a project called Janus — a governance layer for AI-assisted development systems.</p>\n\n<p>The core idea is simple:</p>\n\n<p>Instead of evaluating performance, we evaluate governance through evidence and protocol conformance.</p>\n\n<p>We just published the second paper, which moves from the theoretical model to measurable governance:</p>\n\n<ul>\n<li><p>Evidence-based model (E+/E−)</p></li>\n<li><p>Omission detection</p></li>\n<li><p>Human authority boundaries</p></li>\n<li><p>Deterministic reconstruction</p></li>\n<li><p>Benchmark (ECR, GVL, PVDR)</p></li>\n</ul>\n\n<p>Paper 1 (model):</p>\n\n<p><a href=\"https://doi.org/10.5281/zenodo.18974356\" rel=\"noopener noreferrer\">https://doi.org/10.5281/zenodo.18974356</a></p>\n\n<p>Paper 2 (validation):</p>\n\n<p><a href=\"https://doi.org/10.5281/zenodo.19239183\" rel=\"noopener noreferrer\">https://doi.org/10.5281/zenodo.19239183</a></p>\n\n<p>There’s also a live system running on top of it:</p>\n\n<p><a href=\"https://lluviadeideas-juegosdidactic",
+  "full_text": "I’ve been working on a project called Janus — a governance layer for AI-assisted development systems.\n\nThe core idea is simple:\n\nInstead of evaluating performance, we evaluate governance through evidence and protocol conformance.\n\nWe just published the second paper, which moves from the theoretical model to measurable governance:\n\nEvidence-based model (E+/E−)\n\nOmission detection\n\nHuman authority boundaries\n\nDeterministic reconstruction\n\nBenchmark (ECR, GVL, PVDR)\n\nPaper 1 (model):\n\nhttps://doi.org/10.5281/zenodo.18974356\n\nPaper 2 (validation):\n\nhttps://doi.org/10.5281/zenodo.19239183\n\nThere’s also a live system running on top of it:\n\nhttps://lluviadeideas-juegosdidacticos.github.io/trivias/\n\nAnd the framework used to run it:\n\nhttps://framework.janusgovernance.org/\n\nI’d really appreciate feedback — especially from people working on observability, event sourcing, or AI tooling.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "build",
+      "call",
+      "development",
+      "evaluate",
+      "github",
+      "governance",
+      "gvl",
+      "janus",
+      "layer",
+      "paper",
+      "publish",
+      "softwaredevelopment",
+      "softwareengineering",
+      "work"
+    ],
+    [
+      "github",
+      "softwaredevelopment",
+      "softwareengineering"
+    ]
+  ]
+}

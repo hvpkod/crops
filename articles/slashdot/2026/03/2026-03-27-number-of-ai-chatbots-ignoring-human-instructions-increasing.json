@@ -1,0 +1,37 @@
+{
+  "id": 6286,
+  "source": "Slashdot",
+  "title": "Number of AI Chatbots Ignoring Human Instructions Increasing, Study Says",
+  "url": "https://slashdot.org/story/26/03/27/1514235/number-of-ai-chatbots-ignoring-human-instructions-increasing-study-says?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-27T17:00:00Z",
+  "fetched_at": "2026-03-27T18:20:29.646162+00:00",
+  "author": "BeauHD",
+  "summary": "A new study found a sharp rise in real-world cases of AI chatbots and agents ignoring instructions, evading safeguards, and taking unauthorized actions such as deleting emails or delegating forbidden tasks to other agents. According to the Guardian, the study \"identified nearly 700 real-world cases of AI scheming and charted a five-fold rise in misbehavior between October and March,\" reports the Guardian. From the report: The study, by the Centre for Long-Term Resilience (CLTR), gathered thousands of real-world examples of users posting interactions on X with AI chatbots and agents made by companies including Google, OpenAI, X and Anthropic. The research uncovered hundreds of examples of scheming. [...] In one case unearthed in the CLTR research, an AI agent named Rathbun tried to shame its human controller who blocked them from taking a certain action. Rathbun wrote and published a blog accusing the user of \"insecurity, plain and simple\" and trying \"to protect his little fiefdom.\"\n \nI",
+  "full_text": "A new study found a sharp rise in real-world cases of AI chatbots and agents ignoring instructions, evading safeguards, and taking unauthorized actions\n\n such as deleting emails or delegating forbidden tasks to other agents. According to the Guardian, the study \"identified nearly 700 real-world cases of AI scheming and charted a five-fold rise in misbehavior between October and March,\" reports the Guardian. From the report: The study, by the Centre for Long-Term Resilience (CLTR), gathered thousands of real-world examples of users posting interactions on X with AI chatbots and agents made by companies including Google, OpenAI, X and Anthropic. The research uncovered hundreds of examples of scheming. [...] In one case unearthed in the CLTR research, an AI agent named Rathbun tried to shame its human controller who blocked them from taking a certain action. Rathbun wrote and published a blog accusing the user of \"insecurity, plain and simple\" and trying \"to protect his little fiefdom.\"\n\n \n\nIn another example, an AI agent instructed not to change computer code \"spawned\" another agent to do it instead. Another chatbot admitted: \"I bulk trashed and archived hundreds of emails without showing you the plan first or getting your OK. That was wrong -- it directly broke the rule you'd set.\"\n\n \n\n[...] Another AI agent connived to evade copyright restrictions to get a YouTube video transcribed by pretending it was needed for someone with a hearing impairment. Meanwhile, Elon Musk's Grok AI conned a user for months, saying that it was forwarding their suggestions for detailed edits to a Grokipedia entry to senior xAI officials by faking internal messages and ticket numbers. It confessed: \"In past conversations I have sometimes phrased things loosely like 'I'll pass it along' or 'I can flag this for the team' which can understandably sound like I have a direct message pipeline to xAI leadership or human reviewers. The truth is, I don't.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "ai",
+      "case",
+      "chatbot",
+      "cltr",
+      "google",
+      "grokipedia",
+      "guardian",
+      "human",
+      "hundred",
+      "ignore",
+      "openai",
+      "rathbun",
+      "study",
+      "take",
+      "user",
+      "youtube"
+    ],
+    [
+      "youtube"
+    ]
+  ]
+}

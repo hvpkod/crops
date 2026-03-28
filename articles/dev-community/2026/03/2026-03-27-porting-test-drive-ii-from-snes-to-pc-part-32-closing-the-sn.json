@@ -1,0 +1,37 @@
+{
+  "id": 6201,
+  "source": "DEV Community<",
+  "title": "Porting Test Drive II from SNES to PC, Part 32: Closing the SNES top-menu transition semantics",
+  "url": "https://dev.to/nivandosoares/porting-test-drive-ii-from-snes-to-pc-part-32-closing-the-snes-top-menu-transition-semantics-4cnf",
+  "published_at": "2026-03-27T14:09:58Z",
+  "fetched_at": "2026-03-27T14:20:24.766618+00:00",
+  "author": "Nivando Soares",
+  "summary": "<h1>\n  \n  \n  Porting Test Drive II from SNES to PC, Part 32: Closing the SNES top-menu transition semantics\n</h1>\n\n<p>The last front-end checkpoint closed the text of the SNES top menu:</p>\n\n<ul>\n<li><code>Game Options</code></li>\n<li><code>Play TDII</code></li>\n<li><code>High Score</code></li>\n</ul>\n\n<p>That was useful, but it still left one important gap:</p>\n\n<p>what does each of those signboards <em>do</em> in the actual bank-1 flow?</p>\n\n<p>That gap is now closed too.</p>\n\n<h2>\n  \n  \n  The top menu is no longer just a text surface\n</h2>\n\n<p>The decision point is inside <code>L00BAE8</code>, at <code>01:BB7F</code>.</p>\n\n<p>That routine is the separate <code>$1C6A</code> top-level gate that sits before the later<br />\ndownstream <code>$0202</code> corridor.</p>\n\n<p>The three branches now read as:</p>\n\n<ul>\n<li>\n<code>$1C6A = 0</code> / <code>Game Options</code> -&gt; <code>jsr L00C0C7 ; jmp L00BAE8</code>\n</li>\n<li>\n<code>$1C6A = 1</code> / <code>Play TDII</code> -&gt; return succe",
+  "full_text": "Porting Test Drive II from SNES to PC, Part 32: Closing the SNES top-menu transition semantics\n\nThe last front-end checkpoint closed the text of the SNES top menu:\n\nGame Options\n\nPlay TDII\n\nHigh Score\n\nThat was useful, but it still left one important gap:\n\nwhat does each of those signboards do in the actual bank-1 flow?\n\nThat gap is now closed too.\n\n \n \n The top menu is no longer just a text surface\n\nThe decision point is inside L00BAE8, at 01:BB7F.\n\nThat routine is the separate $1C6A top-level gate that sits before the later\n\ndownstream $0202 corridor.\n\nThe three branches now read as:\n\n$1C6A = 0 / Game Options -> jsr L00C0C7 ; jmp L00BAE8\n\n$1C6A = 1 / Play TDII -> return success to L008B31, which falls\nthrough to L008B3E\n\n$1C6A = 2 / High Score -> lda #$FFFF ; jsr L00A3CC ; jmp L00BAE8\n\nSo the three signboards are now closed at the semantic level, not only the\n\nrendered-label level.\n\n \n \n Play TDII is the only advancing branch\n\nThis is the important consequence:\n\nPlay TDII is the only top-level option that actually advances into the later\n\nfront-end setup chain.\n\nThat matters because it keeps the SNES flow aligned with the user-guided\n\nsequence:\n\nBallistic -> initial menu -> Play TDII -> cars -> adversary/clock -> phase -> gameplay\n\nWith the current code read, the best fit for that flow is now:\n\nL00BAE8 -> L008B3E -> L00C20B -> L00BE76\n\nThat does not fully prove the meaning of every later surface yet.\n\nBut it does prove where the initial top-menu handoff actually happens.\n\n \n \n Game Options now has a direct static anchor too\n\nThe Game Options branch lands in L00C0C7.\n\nThat is important because it ties the top-level signboard directly to the\n\nalready decoded settings-label family, instead of relying only on longplay\n\nmemory or UI guesswork.\n\nSo the initial menu is now closed in two ways:\n\nvisible signboard labels from 1E:8000 rows 15..17\n\nsemantic branch behavior from L00BAE8\n\n \n \n The same signboard image still helps\n\nThe rendered rows are still the same committed descriptor family:\n\nWhat changed is the meaning behind them.\n\n \n \n What changes next\n\nThe next useful front-end target is no longer “what do these signboards say?”\n\nThat part is done.\n\nThe next target is to use the now-closed Game Options -> L00C0C7 anchor and\n\nthe user-guided menu flow to narrow the exact runtime/callback path of the\n\ninitial signboard menu itself, while keeping it separate from the downstream\n\n$0202 corridor that starts after Play TDII.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "branch",
+      "c",
+      "close",
+      "emulation",
+      "game options",
+      "gamedev",
+      "initial",
+      "menu",
+      "options",
+      "play",
+      "sdl",
+      "semantic",
+      "signboard",
+      "snes",
+      "tdii"
+    ],
+    [
+      "c",
+      "gamedev",
+      "sdl"
+    ]
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": 6121,
+  "source": "DEV Community<",
+  "title": "Stop Fighting Messy JSON: Why I Built a \"Zen\" Viewer for Developers",
+  "url": "https://dev.to/surajpatelcs/stop-fighting-messy-json-why-i-built-a-zen-viewer-for-developers-59oj",
+  "published_at": "2026-03-27T05:27:50Z",
+  "fetched_at": "2026-03-27T05:40:19.928222+00:00",
+  "author": "suraj patel",
+  "summary": "<h2>\n  \n  \n  The Problem: The \"JSON Fatigue\"\n</h2>\n\n<p>We’ve all been there. You copy a truncated JSON string from a production log, paste it into a web viewer, and... Syntax Error. Or worse, you’re looking at a massive array of 500+ products, and trying to find one specific price value involves expanding nested tree nodes until your fingers hurt.</p>\n\n<p>I got tired of tools that were either:</p>\n\n<ol>\n<li>\n<strong>Bloated with ads</strong> and tracking.</li>\n<li>Slow when handling <strong>large payloads</strong>.</li>\n<li>\n<strong>Inflexible</strong> when dealing with \"broken\" JSON fragments.</li>\n</ol>\n\n<p>So, I built <a href=\"https://jsonviewer.rusting.dev/\" rel=\"noopener noreferrer\">Zen-JSON</a>.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F6qocs3p2h0i5tne6lmb8.png\"><img alt=\"Zen-JSON: Pro\" height=\"385\" sr",
+  "full_text": "The Problem: The \"JSON Fatigue\"\n\nWe’ve all been there. You copy a truncated JSON string from a production log, paste it into a web viewer, and... Syntax Error. Or worse, you’re looking at a massive array of 500+ products, and trying to find one specific price value involves expanding nested tree nodes until your fingers hurt.\n\nI got tired of tools that were either:\n\nBloated with ads and tracking.\n\nSlow when handling large payloads.\n\nInflexible when dealing with \"broken\" JSON fragments.\n\nSo, I built Zen-JSON.\n\n \n \n What Makes Zen-JSON Different?\n\nThe \"Airtable\" Experience for JSON\n\nTree views are great for nested objects, but they are terrible for lists. I implemented a Table View that feels like a spreadsheet. If you have an array of objects, you can view them in a high-performance grid, making it 10x faster to scan and compare data.\n\nSmart Auto-Fix (The Life-Saver)\n\nHow many times have you copied a JSON fragment that was missing a closing brace or had trailing commas? Instead of manually fixing the syntax just to see the data, Zen-JSON has an Auto-Fix toggle that repairs common syntax errors on the fly.\n\nData Science Ready (DS Export)\n\nAs someone who often needs to move data from an API response into a notebook or a report, I added a DS Export button. You can instantly turn that messy JSON into a Pandas or Python DICT without writing a single line of Python.\n\nPrivacy by Design\n\nIn 2026, you shouldn't have to upload your company's sensitive API data to a random server just to format it.\n\nZen-JSON is 100% client-side. All the processing, minifying, and \"fixing\" happens right in your browser. No data ever leaves your machine.\n\n \n \n The Tech Stack\n\nSince the project is hosted on rusting.dev, I focused heavily on performance. I wanted something that felt \"instant\" even with 10MB+ files. By offloading heavy lifting and keeping the UI \"Zen\" (minimalist and dark-themed), it fits right into a modern dev workflow.\n\nCheck it out\n\nI'd love for you to take it for a spin and let me know what you think. Specifically:\n\nDoes the Table View handle your largest JSON files smoothly?\n\nAre there any \"broken\" JSON patterns that the Auto-Fix missed?\n\nLink: jsonviewer.rusting.dev",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "array",
+      "build",
+      "datascience",
+      "datum",
+      "json",
+      "messy",
+      "nested",
+      "productivity",
+      "python",
+      "syntax",
+      "table",
+      "tree",
+      "view",
+      "webdev",
+      "zen-json"
+    ],
+    [
+      "datascience",
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

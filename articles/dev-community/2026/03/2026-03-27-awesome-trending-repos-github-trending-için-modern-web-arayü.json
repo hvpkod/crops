@@ -1,0 +1,45 @@
+{
+  "id": 6329,
+  "source": "DEV Community<",
+  "title": "awesome-trending-repos: GitHub Trending için Modern Web Arayüzü",
+  "url": "https://dev.to/furkankoykiran/awesome-trending-repos-github-trending-icin-modern-web-arayuzu-m7n",
+  "published_at": "2026-03-27T20:12:18Z",
+  "fetched_at": "2026-03-27T20:20:21.360518+00:00",
+  "author": "Furkan Köykıran",
+  "summary": "<p>Önceki blog yazımda <a href=\"https://github.com/furkankoykiran/awesome-trending-repos\" rel=\"noopener noreferrer\">awesome-trending-repos</a> projesinden bahsetmiştim. O zamanlar proje sadece README.md dosyasına veri yazıyordu. Artık things changed. Proje artık tam fonksiyonlu bir modern web uygulaması.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr8h4rlndbfpf10x48g0y.png\"><img alt=\"CI/CD Pipeline\" height=\"354\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr8h4rlndbfpf10x48g0y.png\" width=\"800\" /></a><br />\n<em>GitHub Actions ile otomatik build ve deploy süreci</em></p>\n\n\n<h2>\n  \n  \n  Neden Web Arayüzü?\n</h2>\n\n<p>README.md dosyası işe yarar ama statiktir. Trending projeleri takip etm",
+  "full_text": "Önceki blog yazımda awesome-trending-repos projesinden bahsetmiştim. O zamanlar proje sadece README.md dosyasına veri yazıyordu. Artık things changed. Proje artık tam fonksiyonlu bir modern web uygulaması.\n\nGitHub Actions ile otomatik build ve deploy süreci\n\n \n \n Neden Web Arayüzü?\n\nREADME.md dosyası işe yarar ama statiktir. Trending projeleri takip etmek için daha interaktif bir deneyim istedim. Kullanıcıların dil bazlı filtreleme yapabilmesi, arama yapabilmesi ve grafiklerle verileri görebilmesi gerekliydi.\n\nBu yüzden React + Vite ile modern bir single-page application (SPA) geliştirdim.\n\n \n \n Tech Stack\n\nFrontend:\n\nReact 19 - Son sürüm\n\nVite - Hızlı dev server ve build\n\nTailwind CSS v4 - Utility-first styling\n\nFramer Motion - Animasyonlar\n\nRecharts - Veri görselleştirme\n\nBackend/Infrastructure:\n\nGitHub Actions - Otomasyon\n\nGitHub Pages - Hosting\n\nCustom Domain - furkankoykiran.com.tr\n\n \n \n Proje Yapısı\n\nProjenin temel dizini şöyle:\n\nawesome-trending-repos/\n├── src/\n│ ├── App.jsx # Ana React bileşeni\n│ ├── main.jsx # Entry point\n│ └── index.css # Tailwind + custom styles\n├── scripts/\n│ └── update.js # Trending veri scrape script\n├── public/\n│ ├── data/\n│ │ └── trending.json # Frontend veri kaynağı\n│ └── logo.png\n├── .github/workflows/\n│ └── update-trends.yml # CI/CD pipeline\n└── vite.config.js # GitHub Pages config\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n GitHub Pages Entegrasyonu\n\nVite ile GitHub Pages kullanırken en önemli nokta base path konfigürasyonudur. Projeniz bir subdirectory'de çalışacaksa (örn: github.io/repo-name), vite.config.js dosyasında bunu belirtmelisiniz:\n\n// vite.config.js\nimport { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\nimport tailwindcss from '@tailwindcss/vite';\n\nexport default defineConfig({\n plugins: [react(), tailwindcss()],\n base: '/awesome-trending-repos/', // GitHub Pages subdirectory\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBu ayar olmadan, production'da asset path'leri bozulur ve 404 hatası alırsınız.\n\n \n \n GitHub Actions Workflow\n\nHer gün gece yarısı UTC'de çalışan workflow:\n\nTrending verisi çek - GitHub Trending sayfasını scrape et\n\nFrontend build - npm run build ile dist/ klasörünü oluştur\n\nData commit - Değişiklik varsa README ve data dosyalarını commit et\n\nDeploy - GitHub Pages'e dağıt\n\n# .github/workflows/update-trends.yml\nname: Update and Deploy Trends\n\non:\n schedule:\n - cron: '0 0 * * *' # Her gün gece yarısı\n workflow_dispatch:\n\npermissions:\n contents: write\n pages: write\n id-token: write\n\njobs:\n update-and-build:\n runs-on: ubuntu-latest\n steps:\n - uses: actions/checkout@v4\n\n - name: Setup Node.js\n uses: actions/setup-node@v4\n with:\n node-version: '20'\n\n - name: Install dependencies\n run: npm ci\n\n - name: Run update script\n run: npm run update\n env:\n GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n\n - name: Build frontend\n run: npm run build\n\n - name: Upload artifact\n uses: actions/upload-pages-artifact@v3\n with:\n path: './dist'\n\n deploy:\n environment:\n name: github-pages\n url: ${{ steps.deployment.outputs.page_url }}\n runs-on: ubuntu-latest\n needs: update-and-build\n steps:\n - name: Deploy to GitHub Pages\n id: deployment\n uses: actions/deploy-pages@v4\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOtomatik deployment akışı\n\n \n \n Frontend Özellikleri\n\n \n \n 1. Dil Filtreleme\n\nKullanıcılar programlama diline göre filtreleme yapabilir:\n\nconst languages = ['All', ...new Set(repos.map(r => r.language).filter(Boolean))];\n\nconst filteredRepos = repos.filter(repo => {\n const matchesLang = filter === 'All' || repo.language === filter;\n const matchesSearch = repo.name.toLowerCase().includes(searchQuery.toLowerCase());\n return matchesLang && matchesSearch;\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 2. Arama Fonksiyonu\n\nReal-time arama ile repo ismi, owner veya description'da arama yapılır.\n\n \n \n 3. Görsel İstatistikler\n\nRecharts kütüphanesi ile dil dağılımı bar chart ve growth liderleri listesi:\n\n<ResponsiveContainer width=\"100%\" height=\"100%\">\n <BarChart data={data?.insights?.topLanguages || []}>\n <CartesianGrid strokeDasharray=\"8 8\" stroke=\"#ffffff03\" />\n <XAxis dataKey=\"language\" stroke=\"#475569\" />\n <YAxis stroke=\"#475569\" />\n <Tooltip contentStyle={{ backgroundColor: 'rgba(15, 23, 42, 0.9)' }} />\n <Bar dataKey=\"count\" radius={[12, 12, 0, 0]}>\n {data?.insights?.topLanguages?.map((entry, index) => (\n <Cell key={index} fill={getLangColor(entry.language)} />\n ))}\n </Bar>\n </BarChart>\n</ResponsiveContainer>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 4. Deployment Feed\n\nHer güncelleme için bir feed entry oluşturulur. Kullanıcılar deployment tarihçesini görebilir.\n\n \n \n Custom Domain Ayarı\n\nGitHub Pages için custom domain kullanmak istersen:\n\nCNAME dosyası oluştur - public/CNAME içine domain yaz:\n\n furkankoykiran.com.tr\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDNS ayarı - Domain provider'ında:\n\n CNAME furkankoykiran.github.io\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nHTTPS - GitHub Pages otomatik olarak Let's Encrypt ile SSL sağlar.\n\n \n \n Performans İpuçları\n\n \n \n 1. Asset Optimization\n\nVite production build otomatik olarak minification ve tree-shaking yapar. Büyük resimler için public/ klasörü yerine optimized image kullanın.\n\n \n \n 2. Lazy Loading\n\nBüyük listeler için virtual scrolling kullanmayı düşünün. Bu projede 25 repo olduğu için gerekli değil ama scale ederseniz eklenebilir.\n\n \n \n 3. Caching\n\nGitHub Pages otomatik olarak cache headers ekler. Ancak index.html için cache-busting kullanın:\n\n// vite.config.js\nexport default defineConfig({\n build: {\n rollupOptions: {\n output: {\n entryFileNames: `assets/[name].[hash].js`,\n chunkFileNames: `assets/[name].[hash].js`,\n assetFileNames: `assets/[name].[hash].[ext]`\n }\n }\n }\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Canlı Demo\n\nProje şu anda furkankoykiran.com.tr/awesome-trending-repos adresinde yayında. Her gün otomatik olarak güncelleniyor.\n\nProje logosu\n\nOpen Graph preview görseli\n\n \n \n Sonuç\n\nREADME.md'den modern web uygulamasına geçiş, projenin kullanılabilirliğini önemli ölçüde artırdı. Kullanıcılar artık sadece statik bir liste yerine interaktif bir deneyim yaşıyor.\n\nGitHub Pages + Vite kombinasyonu, static siteler için harika bir çözüm. Ücretsiz, hızlı ve CI/CD ile tam otomatik.\n\nProje tamamen açık kaynak. Katkı yapmak isterseniz GitHub repo'ya pull request gönderebilirsiniz.\n\nKaynak: blog.furkankoykiran.com.tr",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "backend/infrastructure",
+      "css",
+      "enter",
+      "exit",
+      "fullscreen",
+      "github",
+      "github actions",
+      "github actions workflow",
+      "github pages",
+      "github pages entegrasyonu",
+      "için",
+      "kullanıcıların",
+      "mode",
+      "neden",
+      "otomatik",
+      "pages",
+      "proje",
+      "react",
+      "spa",
+      "tech stack\n\nfrontend:",
+      "trend",
+      "vite",
+      "webdev"
+    ],
+    [
+      "github",
+      "vite",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": 6181,
+  "source": "DEV Community<",
+  "title": "Your 2026 Mobile Stack Is Modern Everywhere Except Testing",
+  "url": "https://dev.to/drizzdev/your-2026-mobile-stack-is-modern-everywhere-except-testing-45gd",
+  "published_at": "2026-03-27T11:19:50Z",
+  "fetched_at": "2026-03-27T11:40:27.544624+00:00",
+  "author": "Jay Saadana",
+  "summary": "<p>I spent 6 months talking to mobile engineers about their tooling. Flutter or React Native on the frontend. Supabase or Firebase on the backend. GitHub Actions for CI/CD. Mixpanel for analytics. Sentry for crash reporting.</p>\n\n<p>Every layer modern, maintained, actually pleasant to work with.<br />\nThen I'd ask about testing. The energy would shift.<br />\nAppium suites held together by brittle XPaths and Thread.sleep(). Espresso on Android, XCUITest on iOS same user flow, written and maintained twice. Flakiness rates sitting at 15-20%, sometimes spiking to 25% on real devices. One mobile lead estimated $200K/year in engineering time just on test maintenance not catching bugs, but fixing selectors that broke because someone changed an accessibility label or moved a component one level deeper in the hierarchy.</p>\n\n<p>Some teams just stopped writing tests altogether. Fell back to manual QA for critical flows. Not because they wanted to because the testing experience was so painful tha",
+  "full_text": "I spent 6 months talking to mobile engineers about their tooling. Flutter or React Native on the frontend. Supabase or Firebase on the backend. GitHub Actions for CI/CD. Mixpanel for analytics. Sentry for crash reporting.\n\nEvery layer modern, maintained, actually pleasant to work with.\n\nThen I'd ask about testing. The energy would shift.\n\nAppium suites held together by brittle XPaths and Thread.sleep(). Espresso on Android, XCUITest on iOS same user flow, written and maintained twice. Flakiness rates sitting at 15-20%, sometimes spiking to 25% on real devices. One mobile lead estimated $200K/year in engineering time just on test maintenance not catching bugs, but fixing selectors that broke because someone changed an accessibility label or moved a component one level deeper in the hierarchy.\n\nSome teams just stopped writing tests altogether. Fell back to manual QA for critical flows. Not because they wanted to because the testing experience was so painful that false failures every morning felt worse than no automation at all.\n\nThe numbers tell the same story. I audited the modern mobile stack across 8 layers using adoption data from Stack Overflow's 2025 Developer Survey, Statista, and 40+ engineer conversations. \n\nHere's what stood out:\n\nFlutter (46% market share) and React Native (35%) dominate frontend both shipped or had major architecture updates between 2017-2024.\n\nSupabase hit $2B valuation and 1.7M+ developers. 40% of recent YC batches build on it.\n\nGitHub Actions leads CI/CD for most teams. Bitrise reports 28% faster builds vs. GitHub Hosted Runners for mobile-specific workflows.\n\nSentry's AI-powered root cause analysis hits 94.5% accuracy. Crashlytics remains free and solid.\n\nAll of this is 2019-2024 era tooling. Then there's testing still running on frameworks built in 2011-2012. Appium was created the same year Instagram launched. Think about that for a second.\n\nThe core problem isn't that Appium doesn't work. It's architectural. Selector-based testing couples your tests to implementation details. Your test doesn't say \"tap the login button\" it says \"find the element at //android.widget.Button[@resource-id='com.app:id/login_btn'] and click it.\" \n\nDesigner renames that ID? Test breaks. A promo banner shifts the layout? Timing error.\n\nNeed the same test on iOS? Rewrite it.\n\nNone of these failures mean your app is broken. They mean your\n\nlocator stopped matching. That's busywork, not QA.\n\nThe architectural shift that's closing this gap is Vision AI testing. Instead of querying the element tree, it looks at the rendered screen the same pixels your user sees. Tools like Drizz identify a \"Login\" button visually whether the underlying component is a Button, a TouchableOpacity, or a custom View with an onPress handler.\n\nWhat that looks like in practice: a checkout flow that takes 30+ lines of Java with explicit waits and XPath selectors in Appium becomes 6 lines of plain English. Same coverage. Runs on both platforms without rewriting. And when the UI changes button moves, text updates, component gets refactored the test keeps passing because it's not tied to the DOM.\n\nThe early numbers from teams running this approach: <5% flakiness vs. the 15-20% industry average. Test creation dropping from hours to minutes. And the part that surprised me most non-engineers (PMs, designers) actually contributing test cases because there's no code to write.\n\nI'm not saying rip out Appium tomorrow. If you've got a stable suite, deep device-level tests (biometrics, sensors, push notifications), or compliance requirements that mandate W3C WebDriver Appium is still the right tool. The full post gets into where each approach wins honestly.\n\nBut if you're spending more sprint time fixing green-path tests than shipping features, the comparison is worth 10 minutes of your time.\n\n👉 Read the full 8-layer stack audit with adoption stats, side by side code comparisons, and the ROI math on what test maintenance is actually costing your team\n\nYour frontend is 2026. Your backend is 2026. Is your testing layer still stuck in 2012?",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "android",
+      "appium",
+      "button",
+      "dom",
+      "fix",
+      "flakiness",
+      "github actions",
+      "github hosted runners",
+      "mobile",
+      "selector",
+      "stack",
+      "stack overflow's",
+      "stop",
+      "supabase",
+      "test",
+      "testing",
+      "touchableopacity",
+      "vision ai",
+      "xpath"
+    ],
+    [
+      "mobile"
+    ]
+  ]
+}

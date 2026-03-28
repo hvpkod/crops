@@ -1,0 +1,43 @@
+{
+  "id": 6093,
+  "source": "DEV Community<",
+  "title": "I Built an Image Generation MCP for Claude Code — Gemini, OpenAI, and FLUX in One Place",
+  "url": "https://dev.to/mimo-3/i-built-an-image-generation-mcp-for-claude-code-gemini-openai-and-flux-in-one-place-4jpj",
+  "published_at": "2026-03-27T01:59:56Z",
+  "fetched_at": "2026-03-27T02:40:23.962011+00:00",
+  "author": "Mimo",
+  "summary": "<h2>\n  \n  \n  Why I built this\n</h2>\n\n<p>I use Claude Code as my primary dev environment. Code, review, deploy — almost everything happens inside Claude Code. But there was one thing that kept pulling me out: generating images.</p>\n\n<p>Every time I needed a diagram or an illustration, I'd switch to Google AI Studio, rewrite the prompt without the original context, and manually save the result back into my project. About 30 times a day.</p>\n\n<p>So I built <a href=\"https://github.com/mimo-3/mcp-imagenate\" rel=\"noopener noreferrer\">mcp-imagenate</a>, an MCP server that brings image generation directly into Claude Code and Claude Desktop. It hit 1,000 downloads on npm within 4 days of release.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F73p9gvt2lg7u51lkf5zg.png\"><img alt=\"Symbol cat\" height=\"800\" src=\"https://media",
+  "full_text": "Why I built this\n\nI use Claude Code as my primary dev environment. Code, review, deploy — almost everything happens inside Claude Code. But there was one thing that kept pulling me out: generating images.\n\nEvery time I needed a diagram or an illustration, I'd switch to Google AI Studio, rewrite the prompt without the original context, and manually save the result back into my project. About 30 times a day.\n\nSo I built mcp-imagenate, an MCP server that brings image generation directly into Claude Code and Claude Desktop. It hit 1,000 downloads on npm within 4 days of release.\n\nNote: This is an alpha release, built as a personal project. Use at your own risk.\n\n \n \n Use Cases\n\nHere are three ways I actually use this daily.\n\n \n \n 1. Generate system architecture diagrams from Claude Code\n\nAfter designing and implementing a system in Claude Code, I just say \"generate an architecture diagram for this system.\" Claude Code already understands the full project context, so it constructs a solid prompt and generates the diagram via Gemini's nano-banana-2. The image is saved directly into the project directory.\n\n \n \n 2. Turn daily journaling into illustrated entries\n\nI keep a daily journal using Claude and the Notion MCP. With mcp-imagenate added, Claude now generates illustrations for each entry automatically. Combined with Claude Code's Skills feature, I can iterate on image prompts without ever leaving the conversation — proper prompt engineering, right inside the chat.\n\n \n \n 3. Generate images on the fly during frontend development\n\nWhile building a frontend in Claude Code, I can ask it to generate and insert images on the spot. Need a cute apologetic cat illustration for an error page? Claude Code generates it, saves it to the right directory, and references it in the code. No context switch needed.\n\nThese are just my workflows — I'm sure there are plenty more possibilities with MCP.\n\n \n \n Supported Providers\n\nProvider\nModel\n\nGoogle Gemini\nnano-banana-2, nano-banana-pro\n\nOpenAI\ngpt-image-1.5\n\nBFL FLUX\nflux-2-klein, flux-2-pro, flux-2-max\n\nClaude constructs the image generation prompt and picks the model. You can also configure resolution, aspect ratio, and output directory. Google models additionally support image editing with an input image.\n\n \n \n Why This Matters\n\nMix and match chat models with image generation models.\n\nChat with Claude while generating images with Gemini's nano-banana-2. Or FLUX. Or OpenAI. Pick the best chat model and the best image model independently. You no longer need to choose Gemini just because it can generate images.\n\nOne interface for everything.\n\nGemini, GPT, FLUX — all callable from Claude Code or Claude Desktop. No more opening browser tabs and copy-pasting context between platforms.\n\nPrompt engineering, context, and image generation in one flow.\n\nWhile developing in Claude Code, you think \"I need an icon here\" — and it's generated, saved to the right directory, and referenced in your code. Claude Code understands the system design, constructs the image prompt, generates the image, and embeds it in documentation. No context is lost.\n\n \n \n Getting Started\n\nSet your API keys as environment variables and add the server config to Claude Desktop or Claude Code. That's it.\n\nSee the README for setup instructions.\n\n \n \n Note for Claude Desktop users\n\nDue to a limitation in the Claude Desktop app, generated images cannot be displayed inline. Claude will output the file path — open it from your terminal with open <path> (macOS) or your file manager.\n\n \n \n Links\n\nIf you try it out, I'd love to hear your feedback on X or GitHub Issues.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "build",
+      "claude",
+      "claude code",
+      "claude code's",
+      "code",
+      "construct",
+      "diagram",
+      "flux",
+      "gemini",
+      "generate",
+      "generation",
+      "google",
+      "google ai studio",
+      "gpt",
+      "image",
+      "mcp",
+      "openai",
+      "productivity",
+      "prompt",
+      "showdev",
+      "the notion mcp"
+    ],
+    [
+      "productivity",
+      "showdev"
+    ]
+  ]
+}

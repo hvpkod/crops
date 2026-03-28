@@ -1,0 +1,42 @@
+{
+  "id": 6158,
+  "source": "DEV Community<",
+  "title": "How I reduced a Docker image from 1.12 GB to 131 MB (88% smaller)",
+  "url": "https://dev.to/nadir_83ac7c548ca3c97d440/how-i-reduced-a-docker-image-from-112-gb-to-131-mb-88-smaller-952",
+  "published_at": "2026-03-27T08:01:32Z",
+  "fetched_at": "2026-03-27T08:41:01.000503+00:00",
+  "author": "Nadir",
+  "summary": "<p>When I started working with Docker, I made the same <br />\nmistake most beginners make — I used the full base image <br />\nand copied everything into the container without thinking <br />\nabout size or performance.</p>\n\n<p>The result? A 1.12 GB image for a simple Flask app.</p>\n\n<p>Here's exactly what I changed to bring it down to 131 MB.</p>\n<h2>\n  \n  \n  The bad Dockerfile (what most tutorials show you)\n</h2>\n\n<p>FROM python:3.11</p>\n\n<p>WORKDIR /app</p>\n\n<p>COPY . .</p>\n\n<p>RUN pip install -r requirements.txt</p>\n\n<p>CMD [\"python\", \"app.py\"]</p>\n\n<p><strong>Problems with this:</strong></p>\n\n<ul>\n<li>\n<code>python:3.11</code> is ~950 MB — includes compilers and \ntools your app will never use</li>\n<li>\n<code>COPY . .</code> before installing dependencies kills \nlayer caching — pip reinstalls everything on \nevery single code change</li>\n<li>No <code>.dockerignore</code> — copies your <code>.git</code> folder, \n<code>__pycache__</code>, and other junk into the image</li>\n<li>Flask dev",
+  "full_text": "When I started working with Docker, I made the same \n\nmistake most beginners make — I used the full base image \n\nand copied everything into the container without thinking \n\nabout size or performance.\n\nThe result? A 1.12 GB image for a simple Flask app.\n\nHere's exactly what I changed to bring it down to 131 MB.\n\n \n \n The bad Dockerfile (what most tutorials show you)\n\nFROM python:3.11\n\nWORKDIR /app\n\nCOPY . .\n\nRUN pip install -r requirements.txt\n\nCMD [\"python\", \"app.py\"]\n\nProblems with this:\n\npython:3.11 is ~950 MB — includes compilers and \ntools your app will never use\n\nCOPY . . before installing dependencies kills \nlayer caching — pip reinstalls everything on \nevery single code change\n\nNo .dockerignore — copies your .git folder, \n__pycache__, and other junk into the image\n\nFlask dev server is not suitable for production\n\n \n \n The optimized Dockerfile\n\nFROM python:3.11-slim AS builder\n\nWORKDIR /app\n\nCOPY requirements.txt .\n\nRUN pip install --no-cache-dir --user -r requirements.txt\n\nFROM python:3.11-slim\n\nWORKDIR /app\n\nCOPY --from=builder /root/.local /root/.local\n\nCOPY . .\n\nENV PATH=/root/.local/bin:$PATH\n\nENV PYTHONDONTWRITEBYTECODE=1\n\nENV PYTHONUNBUFFERED=1\n\nEXPOSE 5000\n\nCMD [\"gunicorn\", \"--bind\", \"0.0.0.0:5000\", \"app:app\"]\n\n \n \n What changed and why\n\n1. Slim base image\n\nSwitching from python:3.11 to python:3.11-slim \n\nremoves all the build tools and system packages your \n\napp doesn't need in production. This alone cuts \n\nhundreds of MB.\n\n2. Multi-stage build\n\nThe builder stage installs all dependencies. The final \n\nstage copies only the installed packages — not pip \n\ncache, not build tools, nothing extra. Only what your \n\napp needs to run.\n\n3. Layer caching\n\nBy copying requirements.txt first and installing \n\ndependencies before copying the rest of the code, \n\nDocker caches the dependency layer. When you change \n\nyour code, Docker skips the pip install step entirely \n\n— builds go from 45 seconds to under 5 seconds.\n\n4. .dockerignore\n\nCreate a .dockerignore file to exclude:\n\n.git\n\npycache\n\n*.pyc\n\n.env\n\n.venv\n\n5. Production server\n\nReplace Flask's dev server with Gunicorn — a \n\nproduction-grade WSGI server that handles real traffic.\n\n \n \n The results\n\nBefore\nAfter\n\nBase image\npython:3.11\npython:3.11-slim\n\nBuild strategy\nSingle stage\nMulti-stage\n\nFinal size\n1.12 GB\n131 MB\n\nReduction\n—\n88% smaller\n\nSame app. Same functionality. 88% smaller image.\n\n \n \n Why does image size matter?\n\nFaster deployments — smaller images pull faster \nfrom your registry to your server\n\nLower costs — Docker Hub and cloud registries \ncharge for storage\n\nSecurity — fewer packages means fewer potential \nvulnerabilities\n\nFaster CI/CD — your pipeline runs faster when \nit doesn't have to pull a 1 GB image every time\n\n \n \n Try it yourself\n\nThe full code is on my GitHub:\n\n \n \n\n \n\nDockerfile Optimization\n\nA practical demonstration of Docker image optimization techniques — reducing a Python Flask image from 1.12 GB down to 131 MB (88% reduction) using multi-stage builds, slim base images, and Docker best practices.\n\nResults\n\nBase image\nFinal size\nBuild time\n\nBefore\npython:3.11\n1.12 GB\nslow (no cache)\n\nAfter\n\npython:3.11-slim + multi-stage\n131 MB\nfast (layer cache)\n\n88% smaller image — faster pulls, lower cloud storage costs, reduced attack surface.\n\nWhat changed and why\n\n1. Base image — python:3.11 → python:3.11-slim\n\nThe full python:3.11 image ships with compilers, build tools, and system packages your app will never use in production. The slim variant contains only what's needed to run Python.\n\n# Before — 1.12 GB\nFROM python:3.11\n\n# After — starts at ~130 MB\nFROM python:3.11-slim\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n2. Multi-stage build\n\nThe builder stage installs dependencies. The final stage copies only the installed packages — leaving behind pip cache, build tools…\n \n \n\nBuild both images and compare:\n\ndocker build -f Dockerfile.bad -t flask-bad .\n\ndocker build -f Dockerfile.optimized -t flask-optimized .\n\ndocker images | grep flask\n\nIf you need help Dockerizing your own Python or Node.js \n\napp or setting up Docker Compose for your stack, I offer \n\nthis as a freelance service on Fiverr:\n\nhttps://www.fiverr.com/s/Q7m3l1p\n\nHappy to answer any questions in the comments.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "base",
+      "build",
+      "copy",
+      "devops",
+      "docker",
+      "dockerfile",
+      "dockerfile.bad",
+      "env",
+      "fast",
+      "flask",
+      "freelance",
+      "gunicorn",
+      "image",
+      "install",
+      "mb\n\nreduction",
+      "package",
+      "python",
+      "run",
+      "single",
+      "stage",
+      "wsgi"
+    ],
+    [
+      "devops",
+      "freelance"
+    ]
+  ]
+}

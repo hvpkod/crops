@@ -1,0 +1,35 @@
+{
+  "id": 6204,
+  "source": "DEV Community<",
+  "title": "I can't go back, after I gave my OpenClaw a voice.",
+  "url": "https://dev.to/arthurwentworth/i-cant-go-back-after-i-gave-my-openclaw-a-voice-4413",
+  "published_at": "2026-03-27T14:06:13Z",
+  "fetched_at": "2026-03-27T14:20:28.963065+00:00",
+  "author": "Arthur Wentworth",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fdebf953qgw1ssx2col2i.png\"><img alt=\" \" height=\"266\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fdebf953qgw1ssx2col2i.png\" width=\"800\" /></a></p>\n\n<p>I've been running OpenClaw as my personal AI assistant for a while — text-based, the usual way. It handled my emails, managed my calendar, searched the web, wrote code. It worked fine.</p>\n\n<h2>\n  \n  \n  Then I added voice.\n</h2>\n\n<p>The shift<br />\nThe difference hit me on the first day. Instead of reading walls of text on my phone, my AI just talks to me. I ask a question while cooking — it answers out loud. I send a voice message from my car — it responds with voice. No screens, no typing, no w",
+  "full_text": "I've been running OpenClaw as my personal AI assistant for a while — text-based, the usual way. It handled my emails, managed my calendar, searched the web, wrote code. It worked fine.\n\n \n \n Then I added voice.\n\nThe shift\n\nThe difference hit me on the first day. Instead of reading walls of text on my phone, my AI just talks to me. I ask a question while cooking — it answers out loud. I send a voice message from my car — it responds with voice. No screens, no typing, no waiting to read.\n\n \n \n It sounds like a small change. It's not.\n\nText-based AI feels like email. Voice-based AI feels like a colleague sitting next to you. The personality comes through in a way that text never quite captures — the pauses, the tone, the pacing.\n\n \n \n The shock\n\nThe real transformation came after I tuned the voice. Once I configured a quality TTS model and dialed in the tone and emotion parameters, something clicked. My AI suddenly felt like a real person — someone with high emotional intelligence who knows when to be warm, when to be direct, when to pause before delivering news.\n\nChatting became genuinely enjoyable. And it still works as hard as ever — researching, coding, sending emails, managing files. That combination — a colleague who is both pleasant to talk to and extremely capable — was honestly stunning.\n\nI didn't expect voice to change the experience this much.\n\n \n \n The problems\n\nIt's not perfect. A few things I'm running into:\n\nMemory dies between sessions. My AI remembers me during a conversation, but after a restart? Gone. I have to re-teach preferences every time.\n\nPersonality drifts on model switches. When the model falls back (upgrades, rate limits), the tone shifts. Same AI, different vibe. It's jarring.\n\nBatch message blindness. When I send three messages quickly, it replies to each one separately. It should read them all, then respond once.\n\n \n \n What I built\n\nI packaged my voice setup into an open-source project called VoiceClaw — a voice-first interaction layer for OpenClaw.\n\n \n \n What it does:\n\nFull voice pipeline (STT + TTS), pre-configured\n\nNightly Memory Consolidation: Your AI extracts long-term facts, preferences, and details from daily logs while strictly guarding your privacy (none of your memory leaves your local machine).\n\nProactive Companionship: Built-in \"Heartbeat\" concepts to allow your AI to wake up, check the environment (weather, important emails), and reach out to you with a voice note when it matters—without spamming you.\n\nPersistent memory across sessions\n\nConsistent personality across model switches\n\nMulti-model routing optimized for voice\n\nIt's early. The problems above are real and unsolved. That's why I'm sharing this.\n\n \n \n Come try it\n\nIf you've ever wished your AI assistant would just talk to you, give it a shot. And if you want to help solve any of the problems above, we're looking for contributors.\n\nRepo: github.com/voiceclaw/voiceclaw",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agents",
+      "ai",
+      "llm",
+      "memory",
+      "message",
+      "model",
+      "openclaw",
+      "personality",
+      "problem",
+      "real",
+      "run",
+      "talk",
+      "tts",
+      "voice",
+      "voiceclaw"
+    ],
+    [
+      "agents"
+    ]
+  ]
+}

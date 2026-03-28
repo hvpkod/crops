@@ -1,0 +1,35 @@
+{
+  "id": 6091,
+  "source": "DEV Community<",
+  "title": "I Love Watching the Storms Roll In",
+  "url": "https://dev.to/annavi11arrea1/i-love-watching-the-storms-roll-in-166m",
+  "published_at": "2026-03-27T02:06:12Z",
+  "fetched_at": "2026-03-27T02:40:20.657152+00:00",
+  "author": "Anna Villarreal",
+  "summary": "<p>I have always liked the weather radar. First of all, it's rainbow. Second of all, the weather is mysterious and constantly changing. I like the visual aid of seeing what's about to head my way, and making the connection of what the radar looks like versus what is happening outside. I am not a meteorologist. I am a curious observer. I've been building this fun and simple app for myself and to share with students to get them excited about science and weather. Hey it's storm season after all!</p>\n\n<p>I've included the live stream of one of my favorite storm crew's when they go live - the ya'll squad. I obviously take no credit for any of their videos, but I enjoy shoring it with others. </p>\n\n<p>I am using publicly available API keys of free services like NOAA/NWS for radar images. I am Using another free one for air quality information. I hope to set up a weather bug or something of the sort so we can have live data for our location, potentially sharing our data for the greater good. ",
+  "full_text": "I have always liked the weather radar. First of all, it's rainbow. Second of all, the weather is mysterious and constantly changing. I like the visual aid of seeing what's about to head my way, and making the connection of what the radar looks like versus what is happening outside. I am not a meteorologist. I am a curious observer. I've been building this fun and simple app for myself and to share with students to get them excited about science and weather. Hey it's storm season after all!\n\nI've included the live stream of one of my favorite storm crew's when they go live - the ya'll squad. I obviously take no credit for any of their videos, but I enjoy shoring it with others. \n\nI am using publicly available API keys of free services like NOAA/NWS for radar images. I am Using another free one for air quality information. I hope to set up a weather bug or something of the sort so we can have live data for our location, potentially sharing our data for the greater good. This is one of my latest side projects. Just wanted to share the fun colors. \n\nWhat weather related apps have you created? I may look into some other radars, but this one is working and I am happy with it for now. If you would like to see the actual site you are welcome to visit it on github pages here: \n\nSECRET: Click the \"Weather Station\" title at the top to use it in your location. Let me know what you think!\n\nSIDE NOTE: The video only plays when the stream is live. Otherwise, it displays current info.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "datum",
+      "free",
+      "happen",
+      "javascript",
+      "live",
+      "noaa",
+      "radar",
+      "see",
+      "side",
+      "storm",
+      "stream",
+      "weather",
+      "webdev"
+    ],
+    [
+      "javascript",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 6118,
+  "source": "DEV Community<",
+  "title": "Introducing NestDaddy — A Search Engine + API Platform",
+  "url": "https://dev.to/nestdaddy/introducing-nestdaddy-a-search-engine-api-platform-2i5l",
+  "published_at": "2026-03-27T05:31:34Z",
+  "fetched_at": "2026-03-27T05:40:15.784783+00:00",
+  "author": "nestdaddy",
+  "summary": "<p>What is NestDaddy?</p>\n\n<p>NestDaddy is a fully independent search engine and developer API platform — built from scratch, no Google under the hood, no Elasticsearch, no shortcuts.</p>\n\n<p>We crawl the web ourselves, rank results ourselves, and serve everything through a clean REST API that any developer can plug into their app.</p>\n\n<p>The Search Engine</p>\n\n<p>NestDaddy.com is a real search engine. Not a wrapper. Not a reseller.</p>\n\n<ul>\n<li>Web, Images, Videos, News, Maps, Games, Research and AI Tools</li>\n<li>Real-time news coverage across multiple regions</li>\n<li>Built with regional content in mind — something the big players don't prioritize</li>\n</ul>\n\n<p>The API Suite</p>\n\n<p>Everything powering NestDaddy is available to developers:</p>\n\n<ul>\n<li>🔍 Search API — web search, clean JSON, language filter</li>\n<li>📰 News API — Global, Tech, Financial, Country News</li>\n<li>🖼️ Images API — image search, JSONL output for AI/LLM training</li>\n<li>🎮 Games API — full games directory",
+  "full_text": "What is NestDaddy?\n\nNestDaddy is a fully independent search engine and developer API platform — built from scratch, no Google under the hood, no Elasticsearch, no shortcuts.\n\nWe crawl the web ourselves, rank results ourselves, and serve everything through a clean REST API that any developer can plug into their app.\n\nThe Search Engine\n\nNestDaddy.com is a real search engine. Not a wrapper. Not a reseller.\n\nWeb, Images, Videos, News, Maps, Games, Research and AI Tools\n\nReal-time news coverage across multiple regions\n\nBuilt with regional content in mind — something the big players don't prioritize\n\nThe API Suite\n\nEverything powering NestDaddy is available to developers:\n\n🔍 Search API — web search, clean JSON, language filter\n\n📰 News API — Global, Tech, Financial, Country News\n\n🖼️ Images API — image search, JSONL output for AI/LLM training\n\n🎮 Games API — full games directory\n\n🤖 AI Tools API — categorized AI tools directory\n\n💻 Software API — software listings\n\n📚 Research API — academic papers\n\nWhy We Built This\n\nGoogle Custom Search is expensive. NewsAPI is limited. Most data APIs ignore entire regions of the world.\n\nWe built NestDaddy to fix that.\n\nTry It\n\nAll APIs come with a 7-day free trial.\n\n🌐 https://nestdaddy.com\n\n 🔧 https://nestdaddy.com/apis",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "build",
+      "clean",
+      "directory",
+      "elasticsearch",
+      "engine",
+      "everything",
+      "financial, country news",
+      "google",
+      "jsonl",
+      "nestdaddy",
+      "nestdaddy.com",
+      "programming",
+      "region",
+      "research",
+      "search",
+      "showdev",
+      "the search engine",
+      "tool",
+      "videos",
+      "webdev"
+    ],
+    [
+      "programming",
+      "showdev",
+      "webdev"
+    ]
+  ]
+}

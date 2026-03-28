@@ -1,0 +1,42 @@
+{
+  "id": 6332,
+  "source": "DEV Community<",
+  "title": "Distributed GPU Compute Across Devices in C# on browser and desktop",
+  "url": "https://dev.to/lostbeard/distributed-gpu-compute-across-devices-in-c-on-browser-and-desktop-1jon",
+  "published_at": "2026-03-27T19:57:45Z",
+  "fetched_at": "2026-03-27T20:20:28.118815+00:00",
+  "author": "Todd Tanner",
+  "summary": "<h2>\n  \n  \n  Coming VERY Soon: Distributed GPU Compute Across Devices\n</h2>\n\n<p>The <a href=\"https://github.com/LostBeard/SpawnDev.WebTorrent\" rel=\"noopener noreferrer\">SpawnDev.WebTorrent</a> P2P network we're building creates a natural foundation for <strong>distributed GPU compute</strong>. Every connected device exchanges data over WebRTC — extending this to share compute workloads is the next step:</p>\n\n<ul>\n<li><p><a href=\"https://github.com/LostBeard/SpawnDev.ILGPU\" rel=\"noopener noreferrer\">SpawnDev.ILGPU</a> <strong><code>AcceleratorType.P2P</code> — 7th Backend</strong> — Distributes kernels across connected devices transparently. Same C# kernel code, same <code>LoadAutoGroupedStreamKernel</code> API . The developer writes one kernel, it runs on 1 GPU or 10 GPUs across a household.</p></li>\n<li><p><a href=\"https://github.com/LostBeard/SpawnDev.ILGPU.ML\" rel=\"noopener noreferrer\">SpawnDev.ILGPU.ML</a> <strong>Model inference sharding</strong> — Split a 14B model across multipl",
+  "full_text": "Coming VERY Soon: Distributed GPU Compute Across Devices\n\nThe SpawnDev.WebTorrent P2P network we're building creates a natural foundation for distributed GPU compute. Every connected device exchanges data over WebRTC — extending this to share compute workloads is the next step:\n\nSpawnDev.ILGPU AcceleratorType.P2P — 7th Backend — Distributes kernels across connected devices transparently. Same C# kernel code, same LoadAutoGroupedStreamKernel API . The developer writes one kernel, it runs on 1 GPU or 10 GPUs across a household.\n\nSpawnDev.ILGPU.ML Model inference sharding — Split a 14B model across multiple devices. Each runs inference on their portion via SpawnDev.ILGPU, passes intermediate tensors to the next peer. A model that doesn't fit on one device runs across your phone, laptop, tablet, and desktop.\n\nVolunteer compute pools — Users opt in to donate idle GPU time. Like Folding@Home for ML inference in the browser.\n\nEvery device in your home contributing to one shared AI compute pool — phone, laptop, tablet, desktop, old gaming PC. The living room becomes a compute cluster.\n\n \n \n Resources\n\nSpawnDev.ILGPU is ready to use NOW, 100%. SpawnDev.ILGPU.ML first official release, 4.0.0, is coming soon, possibly today. Distributed computing is our next tackle. Take a look. This is Ai for everyone, everywhere, on everything. 🖖",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "blazor",
+      "come",
+      "compute",
+      "connect",
+      "device",
+      "distribute",
+      "distributedsystems",
+      "dotnet",
+      "gpu",
+      "ilgpu",
+      "ilgpu acceleratortype",
+      "inference",
+      "kernel",
+      "model",
+      "pool",
+      "resources\n\nspawndev",
+      "run",
+      "spawndev",
+      "webrtc"
+    ],
+    [
+      "blazor",
+      "distributedsystems",
+      "dotnet"
+    ]
+  ]
+}

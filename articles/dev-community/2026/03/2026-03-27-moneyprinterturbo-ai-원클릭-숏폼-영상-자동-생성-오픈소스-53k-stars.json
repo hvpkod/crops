@@ -1,0 +1,42 @@
+{
+  "id": 6120,
+  "source": "DEV Community<",
+  "title": "MoneyPrinterTurbo: AI 원클릭 숏폼 영상 자동 생성 오픈소스 (53K+ Stars)",
+  "url": "https://dev.to/_46ea277e677b888e0cd13/moneyprinterturbo-ai-weonkeulrig-syospom-yeongsang-jadong-saengseong-opeunsoseu-53k-stars-enm",
+  "published_at": "2026-03-27T05:28:12Z",
+  "fetched_at": "2026-03-27T05:40:18.910820+00:00",
+  "author": "정상록",
+  "summary": "<h2>\n  \n  \n  TL;DR\n</h2>\n\n<p>MoneyPrinterTurbo는 영상 주제만 입력하면 AI가 전체 제작 파이프라인을 자동화하는 오픈소스 도구입니다. GitHub 53K+ 스타, MIT 라이선스, GPU 불필요.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>git clone https://github.com/harry0703/MoneyPrinterTurbo.git\n<span class=\"nb\">cd </span>MoneyPrinterTurbo\ndocker-compose up\n<span class=\"c\"># WebUI: localhost:8501, API: localhost:8080</span>\n</code></pre>\n\n</div>\n\n\n\n<h2>\n  \n  \n  문제: 영상 제작 비용과 시간\n</h2>\n\n<p>숏폼 영상 1편을 전통적으로 제작하면 약 $1,200, 60시간이 소요됩니다. 유튜브 쇼츠, 틱톡, 릴스 채널을 운영하려면 이 비용이 반복적으로 발생하죠.</p>\n\n<p>유료 SaaS (Opus Clip, Lumen5 등)도 있지만, 월 구독료 + 데이터 통제 부재 + LLM 선택 제한이 단점입니다.</p>\n\n<h2>\n  \n  \n  해결: MoneyPrinterTurbo\n</h2>\n\n<p>MoneyPrinterTurbo는 Python 기반 오픈소스로 이 문제를 해결합니다.</p>\n\n<h3>\n  \n  \n  작동 흐름\n</h3>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>주제/키워드 입력\n  -&gt; LLM이 대본 생성 (12+ LLM 지원)\n  -&gt; Pexels API로 HD 영상 소재 자동 매칭\n  -&gt; Edge TTS/Azure TTS로 나레이션 생성\n  -&gt; Whisper/Edge로 자막 생성\n  ",
+  "full_text": "TL;DR\n\nMoneyPrinterTurbo는 영상 주제만 입력하면 AI가 전체 제작 파이프라인을 자동화하는 오픈소스 도구입니다. GitHub 53K+ 스타, MIT 라이선스, GPU 불필요.\n\ngit clone https://github.com/harry0703/MoneyPrinterTurbo.git\ncd MoneyPrinterTurbo\ndocker-compose up\n# WebUI: localhost:8501, API: localhost:8080\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 문제: 영상 제작 비용과 시간\n\n숏폼 영상 1편을 전통적으로 제작하면 약 $1,200, 60시간이 소요됩니다. 유튜브 쇼츠, 틱톡, 릴스 채널을 운영하려면 이 비용이 반복적으로 발생하죠.\n\n유료 SaaS (Opus Clip, Lumen5 등)도 있지만, 월 구독료 + 데이터 통제 부재 + LLM 선택 제한이 단점입니다.\n\n \n \n 해결: MoneyPrinterTurbo\n\nMoneyPrinterTurbo는 Python 기반 오픈소스로 이 문제를 해결합니다.\n\n \n \n 작동 흐름\n\n주제/키워드 입력\n -> LLM이 대본 생성 (12+ LLM 지원)\n -> Pexels API로 HD 영상 소재 자동 매칭\n -> Edge TTS/Azure TTS로 나레이션 생성\n -> Whisper/Edge로 자막 생성\n -> FFmpeg로 모든 요소 합성\n -> 완성된 숏폼 영상 출력 (9:16 또는 16:9)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 비용 비교\n\n항목\n전통적 방식\nMoneyPrinterTurbo\n\n비용/편\n$1,200\n$25\n\n시간/편\n60시간\n22분\n\n절감\n-\n비용 98%, 시간 99.4%\n\n \n \n LLM 설정: 무료로 쓰는 법\n\n12개 이상의 LLM을 지원하는데, 무료 옵션이 두 가지 있어요.\n\n \n \n DeepSeek (무료 티어)\n\n# .env 설정\nLLM_PROVIDER=deepseek\nDEEPSEEK_API_KEY=your-key\nDEEPSEEK_MODEL=deepseek-chat\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Ollama (완전 무료, 로컬 실행)\n\n# Ollama 설치 + 모델 다운로드\nbrew install ollama\nollama pull llama3\n\n# .env 설정\nLLM_PROVIDER=ollama\nOLLAMA_MODEL=llama3\nOLLAMA_BASE_URL=http://localhost:11434\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOllama를 쓰면 API 비용 0원입니다. 로컬에서 돌아가니 데이터 프라이버시도 보장되고요.\n\n \n \n 설치 방법\n\n \n \n Docker (추천)\n\ngit clone https://github.com/harry0703/MoneyPrinterTurbo.git\ncd MoneyPrinterTurbo\ncp .env.example .env\n# .env에 API 키 설정\ndocker-compose up -d\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n최소 사양: CPU 4코어, RAM 4GB. GPU 불필요.\n\n \n \n 수동 설치\n\nconda create -n MoneyPrinterTurbo python=3.11\nconda activate MoneyPrinterTurbo\npip install -r requirements.txt\nsh webui.sh\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nImageMagick과 FFmpeg가 사전 설치되어 있어야 합니다.\n\n \n \n 성능 벤치마크 (AWS c5.4xlarge)\n\n동시 작업\n메모리\nCPU\n평균 시간\n\n5작업\n3.4GB\n81%\n4분 18초\n\n10작업\n5.3GB\n95%\n7분 32초\n\n \n \n 한계점\n\n솔직히 단점도 있습니다:\n\n공식 지원 언어: 중국어/영어 (한국어는 Edge TTS 우회 가능)\n\n영상 소재가 Pexels 의존 (니치 주제는 소재 부족 가능)\n\n완전 자동이라 수동 제작 대비 퀄리티 차이 존재\n\n \n \n 활용 시나리오\n\n유튜브 쇼츠/틱톡/릴스 대량 생산\n\n교육 콘텐츠 챕터별 영상 자동화\n\n마케팅 A/B 테스트용 영상 변형 생성\n\n배치 생성으로 하루 수십 편 제작\n\n \n \n 마무리\n\nMoneyPrinterTurbo는 영상 제작의 진입장벽을 획기적으로 낮춘 오픈소스입니다. Docker 한 줄 설치, 무료 LLM 조합이면 비용 없이 시작할 수 있어요.\n\nGitHub: harry0703/MoneyPrinterTurbo\n\n써보신 분들 계시면 어떤 LLM + TTS 조합이 가장 좋았는지 댓글로 공유해주세요!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "automation",
+      "conda",
+      "cpu",
+      "edge tts",
+      "enter",
+      "exit",
+      "fullscreen",
+      "imagemagick과",
+      "mit",
+      "mode",
+      "moneyprinterturbo",
+      "moneyprinterturbo는",
+      "ollama",
+      "opensource",
+      "pexels",
+      "python",
+      "ram",
+      "오픈소스",
+      "합니다."
+    ],
+    [
+      "automation",
+      "opensource"
+    ]
+  ]
+}

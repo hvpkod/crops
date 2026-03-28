@@ -1,0 +1,42 @@
+{
+  "id": 6183,
+  "source": "DEV Community<",
+  "title": "I Built a Cloud-Native Workflow Engine for Kubernetes - What Would You Use It For?",
+  "url": "https://dev.to/maksym_trofimenko_c203c72/i-built-a-cloud-native-workflow-engine-for-kubernetes-what-would-you-use-it-for-3m89",
+  "published_at": "2026-03-27T11:14:01Z",
+  "fetched_at": "2026-03-27T11:40:29.543808+00:00",
+  "author": "Maksym Trofimenko",
+  "summary": "<p>Hey everyone, I've been building an open-source workflow engine that runs natively on Kubernetes called Tiny Systems (still working on the name). Not \"deployed on Kubernetes\" - actually native. Flows are CRDs. Nodes are CRDs. So entire state lives in etcd. No external database.</p>\n\n<p>Think n8n or Node-RED, but designed for people who already run Kubernetes and want automation that feels like part of their cluster.</p>\n\n<h3>\n  \n  \n  Problems I'm solving right now\n</h3>\n\n<p>These are ready-to-use solutions you can clone and deploy:</p>\n\n<ul>\n<li><p>Cluster Cost Saver — scales down your deployments every evening, brings them back every morning. Dead simple, saves real money. No Lambda functions, no cronjobs, no external schedulers - just a flow inside your cluster.</p></li>\n<li><p>Pod Failure Alerts — watches pods in real time, catches CrashLoopBackOff, OOMKilled, image pull errors, and sends a Slack message before your users start complaining. Yes, Alertmanager exists, but I get my ",
+  "full_text": "Hey everyone, I've been building an open-source workflow engine that runs natively on Kubernetes called Tiny Systems (still working on the name). Not \"deployed on Kubernetes\" - actually native. Flows are CRDs. Nodes are CRDs. So entire state lives in etcd. No external database.\n\nThink n8n or Node-RED, but designed for people who already run Kubernetes and want automation that feels like part of their cluster.\n\n \n \n Problems I'm solving right now\n\nThese are ready-to-use solutions you can clone and deploy:\n\nCluster Cost Saver — scales down your deployments every evening, brings them back every morning. Dead simple, saves real money. No Lambda functions, no cronjobs, no external schedulers - just a flow inside your cluster.\n\nPod Failure Alerts — watches pods in real time, catches CrashLoopBackOff, OOMKilled, image pull errors, and sends a Slack message before your users start complaining. Yes, Alertmanager exists, but I get my slack message next second after the crash (not like 1-5min it takes for prometheus chain).\n\nGitHub Deploy Bot — receives a webhook after CI builds an image, updates the Kubernetes deployment, posts the result to Slack. A lightweight GitOps pipeline without ArgoCD/FluxCD overhead for simpler setups. Using it for really tiny (the title!) clusters.\n\nFirestore to ConfigMap Sync - listens to a Firestore collection and syncs changes to a Kubernetes ConfigMap in real time. Useful for feature flags. Got idea from app managements, thought why not to use that for K8s.\n\nService Status Page — a self-hosted status page that pings your endpoints and serves a page. No Statuspage.io subscription, no cron jobs, just a flow.\n\n \n \n What workflow engine does today\n\nYou build flows visually - drag nodes, connect them, configure, deploy. Each component module runs as its own pod. Nodes in the same module talk over Go channels, across modules — gRPC. Everything stays inside your cluster.\n\nThere's also an AI assistant that can build flows from a prompt, but that's a story for another post.\n\n \n \n Where I'm headed next\n\nThese are the solutions I'm planning to build:\n\nCronJob failure alerter — Kubernetes CronJobs fail silently. This would watch them and alert on failure via Slack or PagerDuty.\n\nTLS certificate expiry watcher — scan ingresses across namespaces, alert before certs expire (sometimes I miss emails from acme)\n\nSlack command bot — slash commands that trigger Kubernetes actions: restart a pod, get logs, scale a deployment. ChatOps without writing a bot from\nscratch.\n\n Webhook relay and transformer — receive webhooks from external services, reshape the payload, forward to internal services. A lightweight alternative to writing one-off HTTP handlers.\n\n \n \n Why I'm writing this\n\nI've been building in isolation for too long. The engine works. The solutions work. But I keep guessing what people actually need instead of asking.\n\nSo - if you run Kubernetes at work:\n\nWhich of the solutions above would you actually use?\n\nWhat's a recurring ops task you've been meaning to automate but haven't?\n\nWhat's keeping you on n8n / Airflow / bash scripts?\n\nThanks!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "alert",
+      "automation",
+      "chatops",
+      "configmap sync",
+      "containers",
+      "crashloopbackoff",
+      "cronjob",
+      "engine",
+      "external",
+      "failure",
+      "flow",
+      "kubernetes",
+      "kubernetes cronjobs",
+      "nocode",
+      "node-red",
+      "slack",
+      "solution",
+      "tiny systems",
+      "webhook",
+      "workflow"
+    ],
+    [
+      "automation",
+      "containers",
+      "nocode"
+    ]
+  ]
+}

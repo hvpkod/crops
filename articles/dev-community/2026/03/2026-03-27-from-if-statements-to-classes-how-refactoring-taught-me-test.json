@@ -1,0 +1,38 @@
+{
+  "id": 6185,
+  "source": "DEV Community<",
+  "title": "From if Statements to Classes: How Refactoring Taught Me Testable Code",
+  "url": "https://dev.to/enayet_rashid_bd/from-if-statements-to-classes-how-refactoring-taught-me-testable-code-26a0",
+  "published_at": "2026-03-27T11:12:28Z",
+  "fetched_at": "2026-03-27T11:40:32.847610+00:00",
+  "author": "Enayet Rashid",
+  "summary": "<h1>\n  \n  \n  From Inline Code to OOP: What Building a Python Calculator Taught Me About Testability\n</h1>\n\n<p>I am a self-taught learner. So when I decided to build a Python calculator, I didn't start with classes or design patterns. I started with the messiest, most beginner thing possible — everything crammed into one script. And honestly? That was the right decision.</p>\n\n<p>This article is about how I evolved that calculator through three versions, and what each step taught me about writing code that's actually testable — which matters a lot when you're learning QA automation like I am.</p>\n\n<p>👉 <strong>GitHub:</strong> <a href=\"https://github.com/enayetrashid/python-calculator-evolution\" rel=\"noopener noreferrer\">https://github.com/enayetrashid/python-calculator-evolution</a></p>\n\n\n\n\n<h2>\n  \n  \n  Version 1: The \"Just Make It Work\" Phase\n</h2>\n\n<p>My first version was pure chaos by design. No functions, no classes; just raw logic from top to bottom.<br />\n</p>\n\n<div class=\"highlig",
+  "full_text": "From Inline Code to OOP: What Building a Python Calculator Taught Me About Testability\n\nI am a self-taught learner. So when I decided to build a Python calculator, I didn't start with classes or design patterns. I started with the messiest, most beginner thing possible — everything crammed into one script. And honestly? That was the right decision.\n\nThis article is about how I evolved that calculator through three versions, and what each step taught me about writing code that's actually testable — which matters a lot when you're learning QA automation like I am.\n\n👉 GitHub: https://github.com/enayetrashid/python-calculator-evolution\n\n \n \n Version 1: The \"Just Make It Work\" Phase\n\nMy first version was pure chaos by design. No functions, no classes; just raw logic from top to bottom.\n\na = float(input(\"Enter first number: \"))\nb = float(input(\"Enter second number: \"))\noperation = input(\"Enter operation (+, -, *, /): \")\n\nif operation == \"+\":\n print(a + b)\nelif operation == \"-\":\n print(a - b)\nelif operation == \"*\":\n print(a * b)\nelif operation == \"/\":\n print(a / b)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIt worked. But the moment I asked myself \"how do I test this?\" I had no answer. You can't test code that demands user input just to run. This was my first real lesson:\n\nIf input and logic live together, testing becomes nearly impossible.\n\n \n \n Version 2 — Introducing Functions\n\nI pulled the calculation logic out into separate functions. A small change — but it changed everything.\n\ndef add(a, b):\n return a + b\n\ndef subtract(a, b):\n return a - b\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow I could write an actual test:\n\ndef test_add():\n assert add(2, 3) == 5\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNo input prompts. No manual interaction. Just pure logic I could verify instantly. This felt like a superpower.\n\nThe lesson: Functions are the foundation of testable code. If you can't call it in isolation, you can't test it properly.\n\n \n \n Version 3 — Moving to OOP\n\nFinally I wrapped everything in a class and added proper error handling:\n\nclass Calculator:\n def add(self, a, b):\n return a + b\n\n def divide(self, a, b):\n if b == 0:\n raise ZeroDivisionError(\"Division by zero\")\n return a / b\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe divide method was a turning point for me. Adding that guard clause meant I could now test failure scenarios too — not just the happy path.\n\ndef test_divide_by_zero():\n calc = Calculator()\n with pytest.raises(ZeroDivisionError):\n calc.divide(10, 0)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe lesson: OOP isn't just about organisation — it's about making your code extensible and testable at scale.\n\n \n \n Why This Matters Beyond the Calculator\n\nI'm learning QA automation, and this little project taught me something that no tutorial explained clearly:\n\nThe structure of code directly affects how easy it is to test.\n\nIn real automation work with tools like Pytest or Playwright, you never test everything in one place. You separate test logic, business logic, and test data. This calculator evolved through exactly that same pattern:\n\nVersion\nStructure\nTestability\n\nVersion 1\nEverything inline\nNearly impossible to test\n\nVersion 2\nFunctions\nTestable in isolation\n\nVersion 3\nOOP\nScalable and extensible\n\n \n \n Key Takeaways\n\nStart simple — but don't stay simple\n\nRefactoring is a skill, not just a task\n\nTestability should guide your design decisions from the beginning\n\nEven the smallest projects can teach big engineering concepts\n\n \n \n Final Thought\n\nThis wasn't really about building a calculator. It was about learning to think like someone who cares about quality — not just getting something to run, but building it so it can be verified.\n\nWhat's the simplest project that taught you something fundamental? I'd love to hear it in the comments. \n\nI'm a self-taught QA learner from Bangladesh documenting my journey into software testing and automation. If you're on a similar path, feel free to connect!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bangladesh",
+      "calculator",
+      "exit",
+      "fullscreen",
+      "key takeaways",
+      "logic",
+      "mode",
+      "oop",
+      "operation",
+      "python",
+      "refactoring",
+      "teach",
+      "test",
+      "testable",
+      "unittest",
+      "version"
+    ],
+    [
+      "oop",
+      "refactoring",
+      "unittest"
+    ]
+  ]
+}

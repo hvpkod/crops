@@ -1,0 +1,42 @@
+{
+  "id": 6211,
+  "source": "DEV Community<",
+  "title": "Sync vs Async in JavaScript (Explained in the Simplest Way)",
+  "url": "https://dev.to/vinayagam_6a170db9281d526/sync-vs-async-in-javascript-explained-in-the-simplest-way-3a95",
+  "published_at": "2026-03-27T13:41:40Z",
+  "fetched_at": "2026-03-27T14:20:43.428448+00:00",
+  "author": "Vinayagam",
+  "summary": "<h2>\n  \n  \n  Introduction\n</h2>\n\n<p>When learning JavaScript, one of the most important concepts you will come across is <strong>synchronous and asynchronous programming</strong>. Understanding this topic helps you write better code and build faster, smoother web applications.</p>\n\n<p>In simple terms, it explains how JavaScript handles tasks — whether it waits for one task to finish or moves on to the next.</p>\n\n\n\n\n<h2>\n  \n  \n  What is Synchronous JavaScript?\n</h2>\n\n<p>Synchronous JavaScript means that code runs <strong>one line at a time, in order</strong>. Each task must complete before the next one starts.</p>\n\n<h3>\n  \n  \n  Key Idea:\n</h3>\n\n<p>JavaScript waits for each step to finish before moving forward.</p>\n\n\n\n\n<h2>\n  \n  \n  Example of Synchronous Code\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code><span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nf\">log</span><span class=\"p\">(</span><span class=\"dl\">\"</span><span clas",
+  "full_text": "Introduction\n\nWhen learning JavaScript, one of the most important concepts you will come across is synchronous and asynchronous programming. Understanding this topic helps you write better code and build faster, smoother web applications.\n\nIn simple terms, it explains how JavaScript handles tasks — whether it waits for one task to finish or moves on to the next.\n\n \n \n What is Synchronous JavaScript?\n\nSynchronous JavaScript means that code runs one line at a time, in order. Each task must complete before the next one starts.\n\n \n \n Key Idea:\n\nJavaScript waits for each step to finish before moving forward.\n\n \n \n Example of Synchronous Code\n\nconsole.log(\"Step 1\");\nconsole.log(\"Step 2\");\nconsole.log(\"Step 3\");\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Output:\n\nStep 1\nStep 2\nStep 3\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Explanation\n\nThe code runs line by line.\n\n\"Step 2\" will not run until \"Step 1\" is finished.\n\nThis is simple and easy to understand.\n\n \n \n Problem with Synchronous Code\n\nLet’s look at a slightly longer example:\n\nconsole.log(\"Start\");\n\nfor (let i = 0; i < 5; i++) {\n console.log(\"Working...\");\n}\n\nconsole.log(\"End\");\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Output:\n\nStart\nWorking...\nWorking...\nWorking...\nWorking...\nWorking...\nEnd\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What’s Happening?\n\nJavaScript is busy executing the loop.\n\nIt cannot do anything else until the loop finishes.\n\nThis blocks the program.\n\n \n \n Disadvantages\n\nSlows down applications\n\nFreezes the user interface\n\nPoor user experience\n\n \n \n What is Asynchronous JavaScript?\n\nAsynchronous JavaScript allows the program to start a task and continue executing other code without waiting for that task to finish.\n\n \n \n Key Idea:\n\nJavaScript does not block execution while waiting for long operations.\n\n \n \n Example of Asynchronous Code\n\nconsole.log(\"Start\");\n\nsetTimeout(function () {\n console.log(\"Task completed\");\n}, 2000);\n\nconsole.log(\"End\");\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Output:\n\nStart\nEnd\nTask completed\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Explanation\n\nThe setTimeout function is handled in the background.\n\nJavaScript continues executing the next line immediately.\n\nAfter 2 seconds, the message is printed.\n\n \n \n Why Asynchronous Programming is Important\n\nJavaScript is a single-threaded language, which means it can only do one thing at a time.\n\nIf everything were synchronous:\n\nWeb pages would freeze\n\nUser interactions would stop\n\nApplications would feel slow\n\nAsynchronous programming solves this problem by allowing tasks like:\n\nAPI calls\n\nTimers\n\nFile loading\n\nto run in the background.\n\n \n \n Real-Life Example\n\n \n \n Synchronous\n\nYou go to a shop\n\nYou wait in line\n\nYou get your item\n\nThen you leave\n\nEverything happens one after another.\n\n \n \n Asynchronous\n\nYou order food online\n\nYou do other work\n\nFood is delivered later\n\nTasks happen without blocking your time.\n\n \n \n How JavaScript Handles Asynchronous Code\n\nJavaScript uses a system that includes:\n\n \n \n 1. Web APIs\n\nHandles background tasks like:\n\n \n \n 2. Callback Queue\n\nStores completed tasks.\n\n \n \n 3. Event Loop\n\nChecks when the main thread is free and executes queued tasks.\n\n \n \n Types of Asynchronous Methods\n\n \n \n 1. Callback\n\nA function is executed after a delay.\n\n \n \n 2. Promise\n\nPromises help manage asynchronous operations more cleanly.\n\n \n \n 3. Async/Await\n\nThis is the modern and easiest way to handle asynchronous code.\n\n \n \n Difference Between Synchronous and Asynchronous\n\nFeature\nSynchronous\nAsynchronous\n\nExecution\nOne after another\nRuns in background\n\nBlocking\nYes\nNo\n\nPerformance\nSlower\nFaster\n\nUse Case\nSimple tasks\nAPI calls, timers\n\n \n \n Summary\n\nSynchronous code runs step by step and waits for each task.\n\nAsynchronous code allows tasks to run in the background.\n\nAsynchronous programming improves performance and user experience.\n\nCommon async methods include callbacks, promises, and async/await.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "asynchronous",
+      "beginners",
+      "callback queue\n\nstores",
+      "code",
+      "enter",
+      "event loop\n\nchecks",
+      "exit",
+      "fullscreen",
+      "javascript",
+      "learningtocode",
+      "mode",
+      "real-life example\n\n \n \n synchronous",
+      "step",
+      "synchronous",
+      "task",
+      "the simplest way",
+      "timers\n\nfile",
+      "webdev"
+    ],
+    [
+      "beginners",
+      "javascript",
+      "learningtocode",
+      "webdev"
+    ]
+  ]
+}

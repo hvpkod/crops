@@ -1,0 +1,43 @@
+{
+  "id": 6127,
+  "source": "DEV Community<",
+  "title": "Week 19 / 52 — Oracle Databases choosing between On Prem or any Cloud [ OCI , AWS , GCP , Azure ]",
+  "url": "https://dev.to/nabhaas/week-19-52-oracle-databases-choosing-between-on-prem-or-any-cloud-oci-aws-gcp-azure--5b0p",
+  "published_at": "2026-03-27T05:08:40Z",
+  "fetched_at": "2026-03-27T05:40:29.224267+00:00",
+  "author": "Abhilash Kumar | Oracle ACE ♠",
+  "summary": "<p><a href=\"https://dev.to/style&gt;&lt;br&gt;%0A%20%20%20%20%20%20%20%20.libutton%20{&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20display:%20flex;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20flex-direction:%20column;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20justify-content:%20center;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20padding:%207px;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20text-align:%20center;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20outline:%20none;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20text-decoration:%20none%20!important;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20color:%20#ffffff%20!important;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20width:%20200px;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20height:%2032px;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20border-radius:%2016px;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20background-color:%20#0A66C2;&lt;br&gt;%0A%20%20%20%20%20%20%20%20%20%20font-family:%20\">\n        { Abhilash Kumar Bhattaram :  </a><a href=\"https://www.linkedin",
+  "full_text": "{ Abhilash Kumar Bhattaram : Follow on LinkedIn }\n\nOracle database can be hosted in all major cloud vendors [ OCI , AWS , GCP , Azure ] , there is a lot of reference material here.\n\nhttps://www.oracle.com/in/cloud/multicloud/\n\nThis blog is about going through the decision making process of a CTO which cloud or hybrid setup to use \n\nOrganisations already have Exadata Infra and are looking to upgrade their infra\n\nOrganizations that are trying to implement new Exadata and are considering cloud solutions \n\nOrganizations that are into AWS, Azure , GCP trying to make best use of Oracle databases \n\n \n \n 1. Ground Zero: Where Challenges Start\n\n> Organizations already running Exadata (On-Prem)\n Many are approaching a hardware refresh cycle. While the system still works,\n questions around cost, utilization, and long-term sustainability begin to surface.\n - The pressure to “move to cloud” often starts here — sometimes without full clarity.\n - There are regulatrory requirements to stay On Prem\n\n> Organizations planning new Exadata adoption\n These teams are at the beginning of their journey, trying to balance a large upfront\n investment against cloud-based flexibility. In most cases, workload sizing is still\n unclear, making decisions heavily influenced by vendor narratives.\n\n> Organizations already in AWS / Azure / GCP\n Here, Oracle databases are often running on non-native platforms, leading to\n compromises in performance, licensing, or scalability. OCI enters the conversation\n as a specialized option — but only for the database layer.\n\n> Organizations evaluating Autonomous vs ExaCS\n There is growing curiosity around Autonomous Database, often seen as the “future.”\n At the same time, there is hesitation — especially where applications require control,\n customization, or certified environments.\n\n>> Different starting points, but all leading to the same question:\n What is the right platform and service model for our databases?\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 2. Underneath Ground Zero: Finding the Real Problem\n\n> Existing Exadata Customers\n The decision is often framed too narrowly — as a choice between upgrading hardware\n or moving to the cloud. What is usually missing is a deeper look at how the system\n is actually being used, and what it truly costs to operate.\n\n> New Exadata Adopters\n Without clear workload insights, there is a tendency to overestimate requirements.\n This leads to over-sizing, higher costs, and unnecessary complexity from day one.\n\n> Multi-Cloud Organizations\n OCI is sometimes treated as just another cloud provider, rather than a platform\n optimized specifically for Oracle databases. This leads to gaps in network design,\n identity integration, and overall architecture.\n Organizations use heavy applications native to AWS , Azure , GCP , \n the egress cost would be a silent killer with multi cloud [ unless you have a dedicated bandwidth provider ]\n\n> Autonomous vs ExaCS Decision Gap\n Autonomous is often assumed to be the default choice, but not all applications fit.\n Enterprise systems like EBS or heavily customized databases may require capabilities\n that Autonomous intentionally abstracts away.\n\n> The Common Thread\n Across all these scenarios, decisions are driven more by trends and assumptions\n than by actual workload behavior and application needs.\n\n>> The real challenge is understanding the service model behind it.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 3. Working Upwards: From Understanding to Solution\n\n> For Existing Exadata Customers\n If workloads are stable and predictable, continuing on-prem with an optimized\n refresh strategy can still make sense. However, if demand fluctuates or data center\n overhead becomes a concern, ExaCS offers a more flexible path forward.\n\n> For New Exadata Adopters\n The focus should be on understanding the workload first — usage patterns, peak\n demand, and I/O behavior. Starting small and scaling gradually is often more\n effective than committing to a large footprint upfront.\n\n> For Multi-Cloud Organizations\n OCI should be positioned thoughtfully — not as a generic cloud, but as a\n database-focused platform. Network design, identity alignment, and cost\n considerations need to be handled deliberately.\n\n> Autonomous vs ExaCS — Making the Right Call\n\n Autonomous Database works best when:\n - Workloads are standardized\n - Operational overhead needs to be minimized\n - Full automation is acceptable\n\n Autonomous Database does not work best when:\n\n - Application stack version compatibility needs to be done regularly due to complex app stack.\n\n ExaCS is more suitable when:\n - Fine-grained control over the database is required\n - Applications have specific certification or dependency needs\n - Custom configurations and integrations are critical\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Bringing It All Together\n\nThe most effective decisions come from aligning three things:\n\n - The nature of the workload\n\n - The level of control required\n\n - The operational model the organization is ready for\n\nCTO Outcome : Instead of forcing a single direction, the goal is to place each workload on the platform where it performs best — with clarity, control, and predictability.\n\nThe right choice depends on the application and the service model , the challenge is to understand the goal and identify the means. \n\n \n \n How Nabhaas helps you\n\nIf you’ve made it this far, you already sense there’s a better way — in fact, you have a way ahead.\n\nIf you’d like Nabhaas to assist in your journey, remember — TAB is just one piece. Our Managed Delivery Service ensures your Oracle operations run smoothly between patch cycles, maintaining predictability and control across your environments.\n\nTAB - Whitepaper , \n\ndownload here\n\nManaged Delivery Services - Whitepaper , \n\ndownload here",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "abhilash",
+      "applications",
+      "autonomous",
+      "autonomous database",
+      "aws",
+      "azure",
+      "cto",
+      "database",
+      "ebs",
+      "exacs",
+      "exadata",
+      "exadata infra",
+      "fullscreen",
+      "gcp",
+      "nabhaas",
+      "oci",
+      "oracle",
+      "organizations",
+      "prem\n\n> organizations",
+      "thoughtleadership",
+      "workload"
+    ],
+    [
+      "azure",
+      "nabhaas",
+      "thoughtleadership"
+    ]
+  ]
+}

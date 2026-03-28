@@ -1,0 +1,31 @@
+{
+  "id": 6238,
+  "source": "Hacker News",
+  "title": "People inside Microsoft are fighting to drop mandatory Microsoft Account",
+  "url": "https://www.windowscentral.com/microsoft/windows-11/people-inside-microsoft-are-fighting-to-drop-windows-11s-mandatory-microsoft-account-requirements-during-setup",
+  "published_at": "2026-03-27T13:54:35Z",
+  "fetched_at": "2026-03-27T15:40:30.165098+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47542695\">Comments</a>",
+  "full_text": "Yesterday, Microsoft unveiled a sweeping set of changes coming soon to Windows 11 that are designed to address common complaints and issues that people have with the platform. Everything from slow performance to unreliable updates, AI bloat, and excessive ads and enshittification are being tackled.\n\nIt's all great news, but there's one big issue that Microsoft notably isn't addressing with these sweeping changes, and that's Windows 11's forced Microsoft account requirements. Even with all these improvements in tow, Windows 11 will still force you to setup an internet connection and sign-in with a Microsoft account during the out of box experience.\n\nThat's really unfortunate, as the forced Microsoft account requirement is probably one of the biggest complaints I see people have about Windows 11, and it's not currently being addressed. In fact, the blog post Microsoft published doesn't mention Microsoft accounts at all.Article continues below \n\nThe good news is that this might not be the case forever. Microsoft Vice President and overall developer legend Scott Hanselman has posted on X in response to someone asking him about possibly relaxing the Microsoft account requirements, saying \"Ya I hate that. Working on it.\"\n\nI understand that Hanselman isn't the only person at Microsoft who doesn't like the forced Microsoft account requirements, and that there are a number of people internally that are pushing to relax this. However, it's not as simple as just deciding to remove the requirement and calling it a day.\n\nMicrosoft is a big company, and a lot of teams and organizations stand to benefit from Windows forcing a Microsoft account. So it's likely that this processes has to go through a committee of sorts, where each side will present their reasons for and against removing the requirement.\n\nSo the good news is the Windows team is definitely looking into its options when it comes to relaxing or removing the Microsoft account requirement, but that there's no committed plan to move ahead with actually making any changes as of yet.\n\nBut people with influence internally at Microsoft are fighting for it, which should hopefully reassure those who were hoping to see progress in this area. Ultimately, this is a policy issue, not a technical one. It would be very easy for Microsoft to remove this requirement from a technical perspective, it's just whether or not the company can agree to make the change that needs to be decided.\n\n💬 Would you skip signing-in with a Microsoft account if the OS let you?\n\nIf Microsoft were to relax its requirements around using an online account on Windows 11, is that something you would take advantage of? I feel like I'm in the minority when it comes to using a Microsoft account on Windows, as I actually like syncing with OneDrive and being automatically signed-in to Edge and Office. So, let me know if this requirement is something you want Microsoft to relax.\n\nJoin us on Reddit at r/WindowsCentral to share your insights and discuss our latest news, reviews, and more.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "account",
+      "complaint",
+      "edge and office",
+      "force",
+      "microsoft",
+      "microsoft account",
+      "onedrive",
+      "reddit",
+      "relax",
+      "remove",
+      "requirement",
+      "sweeping",
+      "windows"
+    ],
+    []
+  ]
+}

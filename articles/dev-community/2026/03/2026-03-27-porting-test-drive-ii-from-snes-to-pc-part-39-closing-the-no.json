@@ -1,0 +1,37 @@
+{
+  "id": 6272,
+  "source": "DEV Community<",
+  "title": "Porting Test Drive II from SNES to PC, Part 39: Closing the No-Opponent Handoff Into 02:9016",
+  "url": "https://dev.to/nivandosoares/porting-test-drive-ii-from-snes-to-pc-part-39-closing-the-no-opponent-handoff-into-029016-557f",
+  "published_at": "2026-03-27T17:00:19Z",
+  "fetched_at": "2026-03-27T17:20:37.427228+00:00",
+  "author": "Nivando Soares",
+  "summary": "<p>This checkpoint closes the last front-end ambiguity in the SNES <code>Select Opponent</code> flow.</p>\n\n<p>The fourth slot was already structurally solved as the stopwatch / clock path. What remained open was whether that path actually promoted into the same downstream gameplay corridor as the regular rival-car choices, or whether it diverged somewhere after <code>01:BE43</code>.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fcqbqyhlltash7uzhpyvr.png\"><img alt=\"SNES Select Opponent clock slot\" height=\"224\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fcqbqyhlltash7uzhpyvr.png\" width=\"256\" /></a></p>\n\n<h2>\n  \n  \n  What is now recovered\n</h2>\n\n<p>A callback-relative probe keyed to the",
+  "full_text": "This checkpoint closes the last front-end ambiguity in the SNES Select Opponent flow.\n\nThe fourth slot was already structurally solved as the stopwatch / clock path. What remained open was whether that path actually promoted into the same downstream gameplay corridor as the regular rival-car choices, or whether it diverged somewhere after 01:BE43.\n\n \n \n What is now recovered\n\nA callback-relative probe keyed to the first live 01:C1D2 hit, plus a later be43+17-22:start confirm, now recovers the no-opponent path organically through:\n\nL00C20B -> 01:C1D2 -> L00BE76 -> 01:BE43 -> L008B87 -> 01:902D -> 01:9111 -> active_main = 02:9016\n\nThe important part is that this is not a forced callback lane. It is an organic input-driven path recovered from boot with timing tied to the live callback surface.\n\n \n \n The state difference survives the shared handoff\n\nThe regular rival baseline and the no-opponent clock path now reach the same later corridor at the same timestamps, but they do not collapse to the same state.\n\nRival baseline keeps $1C70 = 0, $1C76 = 1\n\nClock / no-opponent path keeps $1C70 = 3, $1C76 = 0\n\nThat difference is still visible when both runs have already reached the shared downstream path and later active_main = 02:9016.\n\n \n \n Why this matters\n\nThis narrows the remaining question sharply.\n\nThe open problem is no longer:\n\nhow to select the fourth slot\n\nhow to confirm it\n\nwhether it reaches the gameplay handoff corridor at all\n\nThe open problem is now much better:\n\nwhat $1C76 = 0 changes after both paths have already converged to the shared 02:9016 corridor\n\nThat is a much more tractable archaeology target, because it pushes the search away from menu timing drift and into direct post-handoff behavior.\n\n \n \n Artifacts\n\nMain promoted artifacts for this checkpoint:\n\ntools/out/snes_select_opponent_no_opponent_organic_path.json\n\ntools/out/snes_select_opponent_no_opponent_organic_path.md\n\nsnes_play_session_gate.json\n\nsnes_selection_state_contract.json\n\ndocs/snes_dos_correlation.md\n\ndocs/snes_unknowns.md\n\n \n \n Next gate\n\nThe next step is to capture and compare the first post-02:9016 gameplay-facing window for:\n\ndefault rival path\n\nno-opponent clock path\n\nAt this point, the front-end path itself is no longer the blocker. The blocker is identifying the first runtime-visible effect of the preserved no-opponent state.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "clock",
+      "corridor",
+      "gamedev",
+      "gameplay",
+      "handoff",
+      "path",
+      "promote",
+      "recover",
+      "retrogaming",
+      "reverseengineering",
+      "rival",
+      "shared",
+      "snes",
+      "time"
+    ],
+    [
+      "gamedev",
+      "retrogaming",
+      "reverseengineering",
+      "shared"
+    ]
+  ]
+}

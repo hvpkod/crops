@@ -1,0 +1,29 @@
+{
+  "id": 6140,
+  "source": "Hacker News",
+  "title": "Show HN: Minimalist library to generate SVG views of scientific data",
+  "url": "https://github.com/alefore/mini_svg/",
+  "published_at": "2026-03-23T17:54:51Z",
+  "fetched_at": "2026-03-27T07:40:27.999666+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47492871\">Comments</a>",
+  "full_text": "Simple py logic to generate SVG visualizations of scientific data\n(example graphs).\n\nThere's two main interfaces:\n\nAs a command-line which receives parameters from a json file.\nSee .sh files in the examples directory.\n\nFrom Python (in-process) through the functions exposed in mini_svg.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "datum",
+      "example",
+      "expose",
+      "generate",
+      "json",
+      "logic",
+      "main",
+      "parameter",
+      "scientific",
+      "svg",
+      "visualization"
+    ],
+    []
+  ]
+}

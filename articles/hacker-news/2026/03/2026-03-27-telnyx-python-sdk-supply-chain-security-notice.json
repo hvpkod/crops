@@ -1,0 +1,39 @@
+{
+  "id": 6320,
+  "source": "Hacker News",
+  "title": "Telnyx Python SDK: Supply Chain Security Notice",
+  "url": "https://telnyx.com/resources/telnyx-python-sdk-supply-chain-security-notice-march-2026",
+  "published_at": "2026-03-27T17:58:52Z",
+  "fetched_at": "2026-03-27T19:40:26.591814+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47546081\">Comments</a>",
+  "full_text": "Summary\n\nOn March 27, 2026 at 03:51:28 UTC, two unauthorized versions of the Telnyx Python SDK were published to PyPI: versions 4.87.1 and 4.87.2. Both versions contained malicious code. Both were quarantined by 10:13 UTC the same day.\n\nThis incident is part of a broader supply chain campaign that has also affected Trivy, Checkmarx, and LiteLLM.\n\nThe Telnyx platform, APIs, and infrastructure were not compromised. This incident was limited to the PyPI distribution channel for the Python SDK.\n\nAffected Versions\n\n Version Published telnyx==4.87.1 03:51:28 UTC, March 27, 2026 telnyx==4.87.2 Shortly after \n\nBoth versions have been removed from PyPI.\n\nWho Is Affected\n\nYou may be affected if:\nYou installed or upgraded the telnyx Python package between 03:51 UTC and 10:13 UTC on March 27, 2026\nYou ran pip install telnyx without pinning a version and received 4.87.1 or 4.87.2\nA dependency in your project pulled in telnyx as a transitive, unpinned dependency\n\nWho Is NOT Affected\nYou are running version 4.87.0 or earlier\nYou did not install or upgrade the telnyx package between 03:51 UTC and 10:13 UTC on March 27\nYou are using the Telnyx REST API directly without the Python SDK\n\nHow to Check\n\nRun the following command:pip show telnyx \n \n\nIf the version shown is 4.87.1 or 4.87.2, treat the environment as compromised.\n\nWhat to Do If Affected\nDowngrade immediately:pip install telnyx==4.87.0 \n \n\nRotate all secrets accessible from the affected environment: \n\nAPI keys\nDatabase credentials\nCloud provider tokens\nSSH keys\nAny secrets stored in environment variables or configuration files\nAudit your systems for outbound connections to attacker infrastructure (see IOCs below)\nReview CI/CD pipelines and Docker builds that may have pulled the compromised version\n\nIndicators of Compromise\n\n Type Value C2 server 83.142.209.203:8080 Exfil technique WAV steganography payload delivery \n\nAdditional IOCs will be published as the investigation confirms them.\n\nWhat Was NOT Compromised\n\nThe Telnyx platform, voice services, messaging infrastructure, networking, SIP, AI inference, and all production APIs were not affected.\n\nThe SDK is a client library that wraps public APIs. It has no privileged access to Telnyx infrastructure. No customer data was accessed through this incident.\n\nWhat We Are Doing\nMalicious versions removed from PyPI\nInvestigating how publishing credentials were obtained\n\nRelated Incidents\n\nThis attack is part of a multi-week supply chain campaign:\nTrivy compromise (March 19, 2026)\nLiteLLM compromise (March 24, 2026)\n\nQuestions?\n\nContact [email protected] if you have questions about this incident or need assistance determining if your environment was affected.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "affect",
+      "compromise",
+      "environment",
+      "incident",
+      "malicious",
+      "march",
+      "publish",
+      "pypi",
+      "pypi\ninvestigating",
+      "python",
+      "rotate",
+      "sdk",
+      "ssh",
+      "telnyx",
+      "the python sdk",
+      "trivy",
+      "utc",
+      "version",
+      "wav"
+    ],
+    [
+      "environment"
+    ]
+  ]
+}

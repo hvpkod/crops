@@ -1,0 +1,43 @@
+{
+  "id": 6182,
+  "source": "DEV Community<",
+  "title": "One File. No Server. How I Built an Image That Talks Back.",
+  "url": "https://dev.to/vickkykruz/one-file-no-server-how-i-built-an-image-that-talks-back-5b2o",
+  "published_at": "2026-03-27T11:19:28Z",
+  "fetched_at": "2026-03-27T11:40:28.862156+00:00",
+  "author": "VickkyKruz NetSec",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fjcx0r3prv62kz4qia8zm.png\"><img alt=\"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jcx0r3prv62kz4qia8zm.png\" height=\"420\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fjcx0r3prv62kz4qia8zm.png\" width=\"800\" /></a></p>\n\n<p>Hello folks 👋</p>\n\n<p>We've had a bunch of discussions about AI and computer vision, right? Still, today I'm bringing you something else, a little break. I am not revealing a gizmo I wielded but a thing I erected.</p>\n\n<p>PhotoContour began with one riddle: what if a picture could chat with you?</p>\n\n<p>We are talking about a single.svg that you open in any browser, move your mouse pointer over an photo object to see ",
+  "full_text": "Hello folks 👋\n\nWe've had a bunch of discussions about AI and computer vision, right? Still, today I'm bringing you something else, a little break. I am not revealing a gizmo I wielded but a thing I erected.\n\nPhotoContour began with one riddle: what if a picture could chat with you?\n\nWe are talking about a single.svg that you open in any browser, move your mouse pointer over an photo object to see a popup with a label, a short text, and a link. No JavaScript. No dependencies. Just pure CSS.\n\nThis is an introduction to the secret behind it:\n\n🔵 First YOLOv8 identifies all objects and extracts their exact contours.\n\n🔵 Then FastAPI transforms these contour points into pixel locations and assembles the SVG.\n\n🔵 React Studio facilitates you to select the object, add annotation, assign a color, and save.\n\n🔵 The end product file is fully self-sufficient can be embedded in email, Twitter, LinkedIn, Discord, or any platform that can render SVG.\n\nSpeaking of bugs yes, there were bugs scattered. One was so cleverly disguised in a single variable name that it cost me a couple of hours figuring it out. The solution was one word.\n\nI have done the entire build story the architecture\", decisions, the\" coordinate system gotcha, the\" \"accuracy problem that was actually a UX problem\", and what's coming next.\n\n📖 Full post here 👇\n\nhttps://vickkykruzprogramming.dev/blog/one-file-no-server-how-i-built-an-image-that-talks-back\n\nIf you have ever desired to animate your pictures, this one might really be a treat for you!\n\n \n \n OpenSource #Python #FastAPI #ComputerVision #SVG #React #SideProject #WebDevelopment #YOLOv8 #BuildInPublic",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "begin",
+      "bring",
+      "bug",
+      "build",
+      "css",
+      "discord",
+      "gizmo",
+      "introduction",
+      "linkedin",
+      "object",
+      "opensource",
+      "photocontour",
+      "pointer",
+      "react studio",
+      "showdev",
+      "sideproject",
+      "svg",
+      "webdev",
+      "webdevelopment",
+      "wield"
+    ],
+    [
+      "opensource",
+      "showdev",
+      "webdev"
+    ]
+  ]
+}

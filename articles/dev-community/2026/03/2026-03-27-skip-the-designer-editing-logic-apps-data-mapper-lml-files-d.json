@@ -1,0 +1,43 @@
+{
+  "id": 6326,
+  "source": "DEV Community<",
+  "title": "Skip the Designer — Editing Logic Apps Data Mapper LML Files Directly",
+  "url": "https://dev.to/imdj/skip-the-designer-editing-logic-apps-data-mapper-lml-files-directly-40l0",
+  "published_at": "2026-03-27T20:15:23Z",
+  "fetched_at": "2026-03-27T20:20:15.763860+00:00",
+  "author": "Daniel Jonathan",
+  "summary": "<p>The Azure Logic Apps Data Mapper has a visual designer in VS Code. You drag lines between schemas, drop in functions, and it generates an <code>.lml</code> file (YAML) that compiles to XSLT 3.0.</p>\n\n<p>In theory, you never touch the YAML. In practice, the designer has reliability problems that make direct LML editing the better workflow.</p>\n\n\n\n\n<h2>\n  \n  \n  Why skip the designer?\n</h2>\n\n<p>The designer doesn't always persist changes correctly:</p>\n\n<ul>\n<li>\n<strong>Changes revert on reopen</strong> — save, close, reopen, and the <code>.lml</code> on disk has the old value</li>\n<li>\n<strong>String literals lose inner quotes</strong> — <code>xpath(\"'kg'\")</code> becomes <code>xpath(\"kg\")</code>, changing a literal to an element reference</li>\n<li>\n<strong>Expressions get corrupted</strong> — conditions like <code>xpath(\"if (...) then 'Y' else 'N'\")</code> lose quote characters</li>\n<li>\n<strong>Function arguments get rewritten</strong> — argument order or paths change silently</li>",
+  "full_text": "The Azure Logic Apps Data Mapper has a visual designer in VS Code. You drag lines between schemas, drop in functions, and it generates an .lml file (YAML) that compiles to XSLT 3.0.\n\nIn theory, you never touch the YAML. In practice, the designer has reliability problems that make direct LML editing the better workflow.\n\n \n \n Why skip the designer?\n\nThe designer doesn't always persist changes correctly:\n\nChanges revert on reopen — save, close, reopen, and the .lml on disk has the old value\n\nString literals lose inner quotes — xpath(\"'kg'\") becomes xpath(\"kg\"), changing a literal to an element reference\n\nExpressions get corrupted — conditions like xpath(\"if (...) then 'Y' else 'N'\") lose quote characters\n\nFunction arguments get rewritten — argument order or paths change silently\n\nNo undo across sessions — you need git diff to catch silent corruption\n\nThese happen with normal operations, not edge cases.\n\n \n \n What LML looks like\n\nLML is YAML. Here's a complete map:\n\n$version: 1\n$input: XML\n$output: XML\n$sourceSchema: OrderSchema.xsd\n$targetSchema: ShipmentOutput.xsd\n$sourceNamespaces:\n ns0: http://schemas.contoso.com/Order\n$targetNamespaces:\n xs: http://www.w3.org/2001/XMLSchema\nShipments:\n Shipment:\n ShipmentRef: prefixShipRef(/ns0:Order/ns0:OrderID)\n ShipDate: reformatDate(/ns0:Order/ns0:OrderDate)\n Recipient: /ns0:Order/ns0:Customer/ns0:CustomerName\n Lines:\n $for(/ns0:Order/ns0:Items/ns0:Item):\n $if(xpath(\"ns0:Quantity >= 1\")):\n Line:\n Product: ns0:ProductName\n Quantity: ns0:Quantity\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nHeader declares schemas and namespaces. Body maps target elements (left) to source expressions (right).\n\n \n \n LML syntax cheat sheet\n\n# Direct mapping\nRecipient: /ns0:Order/ns0:Customer/ns0:CustomerName\n\n# Attribute on parent element\n$@shipId: /ns0:Order/ns0:OrderID\n\n# Loop over repeating elements (paths inside are relative)\n$for(/ns0:Order/ns0:Items/ns0:Item):\n Line:\n Product: ns0:ProductName\n\n# Conditional\n$if(xpath(\"ns0:Quantity >= 1\")):\n Line:\n Product: ns0:ProductName\n\n# Custom function (defined in Functions/*.xml)\nShipDate: reformatDate(/ns0:Order/ns0:OrderDate)\n\n# Raw XPath escape hatch\nPriority: xpath(\"upper-case(@priority)\")\nWeightUnit: xpath(\"'kg'\") # inner quotes = string literal\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Custom extension functions\n\nDefined in Artifacts/DataMapper/Extensions/Functions/*.xml:\n\n<customfunctions>\n <function name=\"reformatDate\" as=\"xs:string\"\n description=\"Reformats yyyy-MM-dd to dd/MM/yyyy.\">\n <param name=\"dateVal\" as=\"xs:date\"/>\n <value-of select=\"format-date($dateVal, '[D01]/[M01]/[Y0001]')\"/>\n </function>\n</customfunctions>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Gotchas\n\nZero-parameter functions crash the compiler. The SDK throws a NullReferenceException and silently skips the entire XML file. Workaround: add a dummy parameter.\n\nFunction arguments must be single-step element names. Multi-step paths cause compile errors — wrap them in xpath():\n\n# INVALID\nAddress: formatAddress(ns0:Customer/ns0:Street, ns0:Customer/ns0:City)\n\n# FIX\nAddress: formatAddress(xpath(\"ns0:Customer/ns0:Street\"), xpath(\"ns0:Customer/ns0:City\"))\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The workflow: edit, compile, verify\n\n \n \n 1. Edit the YAML\n\nOpen the .lml file in any text editor and make your change.\n\n \n \n 2. Compile to XSLT\n\nInstall lml-compile, a dotnet global tool that wraps the Logic Apps SDK:\n\ndotnet tool install -g lml-compile\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCompile:\n\nlml-compile Artifacts/MapDefinitions/MyMap-lml.lml Artifacts/Maps/MyMap-lml.xslt\n# OK: MyMap-lml.xslt\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 3. Verify\n\nRun dotnet test or press F5 with the XSLT Debugger extension.\n\n \n \n Auto-compile on save\n\nInstall the Run on Save extension and add this to your workspace settings (for multi-root workspaces, add it in the .code-workspace file — Run on Save doesn't read folder-level settings):\n\n\"emeraldwalk.runonsave\": {\n \"commands\": [\n {\n \"match\": \"\\\\.lml$\",\n \"cmd\": \"lml-compile ${file} ${fileDirname}/../Maps/${fileBasenameNoExt}.xslt\"\n }\n ]\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNote: Run on Save uses its own variables — not VS Code task variables. ${fileBasenameNoExt} and ${fileDirname} work; ${fileBasenameNoExtension} and ${workspaceFolder} do not. Reload the window after adding the config.\n\nNow the cycle is just: edit .lml → save → F5 or dotnet test. The compile happens automatically.\n\n \n \n What the compiler catches\n\nMalformed YAML / missing $version header\n\nMissing schemas in Artifacts/Schemas/\n\nUnrecognized function calls\n\nInvalid XPath syntax\n\nErrors surface on save instead of at deploy time.\n\n \n \n Naming convention\n\nName hand-authored LML files with a -lml suffix:\n\nArtifacts/MapDefinitions/OrderToShipment-lml.lml → Artifacts/Maps/OrderToShipment-lml.xslt\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis avoids colliding with hand-authored XSLT files and makes it clear which files are compiled output.\n\n \n \n Summary\n\nUse the designer to scaffold the initial map. Then switch to direct LML editing for all subsequent changes.\n\nEdit .lml → save → auto-compile → verify\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNo designer round-trip. No silent rewrites. No surprises.\n\nThe XSLT Debugger extension is on the VS Code Marketplace for macOS and Windows.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "artifacts/datamapper/extensions/functions/*.xml",
+      "compile",
+      "customername\n lines",
+      "datamapper",
+      "dotnet",
+      "element",
+      "enter",
+      "exit",
+      "file",
+      "fullscreen",
+      "invalid\naddress",
+      "lml",
+      "logicapps",
+      "mode",
+      "orderdate",
+      "save",
+      "sdk",
+      "xml",
+      "xpath(\"if",
+      "xslt",
+      "yaml"
+    ],
+    [
+      "datamapper",
+      "dotnet",
+      "logicapps"
+    ]
+  ]
+}

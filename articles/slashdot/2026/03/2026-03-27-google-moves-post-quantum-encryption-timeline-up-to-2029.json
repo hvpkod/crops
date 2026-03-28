@@ -1,0 +1,30 @@
+{
+  "id": 6386,
+  "source": "Slashdot",
+  "title": "Google Moves Post-Quantum Encryption Timeline Up To 2029",
+  "url": "https://it.slashdot.org/story/26/03/27/2123239/google-moves-post-quantum-encryption-timeline-up-to-2029?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-27T23:00:00Z",
+  "fetched_at": "2026-03-27T23:40:44.913091+00:00",
+  "author": "BeauHD",
+  "summary": "Google has moved up its post-quantum encryption migration target to 2029. \"This new timeline reflects migration needs for the PQC era in light of progress on quantum computing hardware development, quantum error correction, and quantum factoring resource estimates,\" said vice president of security engineering Heather Adkins and senior staff cryptology engineer Sophie Schmieg in a blog post. CyberScoop reports: Google is replacing outdated encryption across their devices, systems and data with new algorithms vetted by the National Institute for Standards and Technology. Those algorithms, developed over a decade by NIST and independent cryptologists, are designed to protect against future attacks from quantum computers. While Google has said it is on track to migrate its own systems ahead of the 2035 timeline provided in NIST guidelines, last month leaders at the company teased an updated timeline for migration and called on private businesses and other entities to act more urgently to p",
+  "full_text": "Google has moved up its post-quantum encryption migration target to 2029\n\n. \"This new timeline reflects migration needs for the PQC era in light of progress on quantum computing hardware development, quantum error correction, and quantum factoring resource estimates,\" said vice president of security engineering Heather Adkins and senior staff cryptology engineer Sophie Schmieg in a blog post\n\n. CyberScoop reports: Google is replacing outdated encryption across their devices, systems and data with new algorithms vetted by the National Institute for Standards and Technology. Those algorithms, developed over a decade by NIST and independent cryptologists, are designed to protect against future attacks from quantum computers. While Google has said it is on track to migrate its own systems ahead of the 2035 timeline provided in NIST guidelines, last month leaders at the company teased an updated timeline for migration and called on private businesses and other entities to act more urgently to prepare.\n\n \n\nUnlike the federal government, there is no mandate for private businesses to migrate to quantum-resistant encryption, or even that they do so at all. Adkins and Schmieg said the hope is that other businesses will view Google's aggressive timeframe as a signal to follow suit. \"As a pioneer in both quantum and PQC, it's our responsibility to lead by example and share an ambitious timeline,\" they wrote. \"By doing this, we hope to provide the clarity and urgency needed to accelerate digital transitions not only for Google, but also across the industry.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "adkins",
+      "business",
+      "cyberscoop",
+      "encryption",
+      "google",
+      "migrate",
+      "migration",
+      "nist",
+      "pqc",
+      "quantum",
+      "schmieg",
+      "timeline"
+    ],
+    []
+  ]
+}

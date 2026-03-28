@@ -1,0 +1,37 @@
+{
+  "id": 6207,
+  "source": "DEV Community<",
+  "title": "I built a lightweight AI mentions checker because “AI visibility” advice felt too vague",
+  "url": "https://dev.to/mikee_tye_8bdde849556e51f/i-built-a-lightweight-ai-mentions-checker-because-ai-visibility-advice-felt-too-vague-4bdh",
+  "published_at": "2026-03-27T14:01:05Z",
+  "fetched_at": "2026-03-27T14:20:34.234127+00:00",
+  "author": "Mikee Tye",
+  "summary": "<p>Everyone seems to be talking about <strong>AI visibility</strong> right now, but a lot of the advice still feels vague.</p>\n\n<p>You hear the phrase everywhere, but when you try to pin it down, the practical side gets fuzzy fast. Are people talking about rankings, mentions, citations, retrieval, or visibility inside chat-based answers? A lot of the time, the conversation becomes bigger and more abstract than it needs to be.</p>\n\n<p>That was the main reason I built a lightweight tool around the idea.</p>\n\n<p>I wanted something simpler and more practical for site owners, developers, and smaller web projects that just want to understand one thing: <em>how does a site actually show up in AI-generated answers?</em></p>\n\n<h2>\n  \n  \n  The problem with most “AI visibility” talk\n</h2>\n\n<p>A lot of the discussion around AI visibility feels like early SEO talk. Everyone knows the topic matters, but much of the advice still does not feel grounded for normal site owners.</p>\n\n<p>You keep seeing t",
+  "full_text": "Everyone seems to be talking about AI visibility right now, but a lot of the advice still feels vague.\n\nYou hear the phrase everywhere, but when you try to pin it down, the practical side gets fuzzy fast. Are people talking about rankings, mentions, citations, retrieval, or visibility inside chat-based answers? A lot of the time, the conversation becomes bigger and more abstract than it needs to be.\n\nThat was the main reason I built a lightweight tool around the idea.\n\nI wanted something simpler and more practical for site owners, developers, and smaller web projects that just want to understand one thing: how does a site actually show up in AI-generated answers?\n\n \n \n The problem with most “AI visibility” talk\n\nA lot of the discussion around AI visibility feels like early SEO talk. Everyone knows the topic matters, but much of the advice still does not feel grounded for normal site owners.\n\nYou keep seeing the same pattern:\n\nbig promises\n\nvague language\n\nenterprise-style dashboards\n\nvery little clarity about what is actually being measured\n\nFor smaller publishers, indie builders, and developers running their own projects, that is frustrating. Most people are not trying to build an internal AI analytics department. They just want to know whether their site or brand is showing up, whether citations appear, and whether there is any real presence inside AI-generated responses.\n\n \n \n What I actually cared about\n\nInstead of trying to solve every AI visibility question at once, I kept coming back to a smaller set of checks:\n\nIs the site or brand being mentioned?\n\nAre citations appearing alongside those mentions?\n\nIs there any visible pattern in how the site shows up?\n\nThat is a much more practical workflow for the kinds of projects I tend to build around.\n\nIf a site owner runs a check and sees no brand mention, no citation, and no useful visibility signal at all, that already tells them something. If they do see mentions or citations, that opens the door to better questions about content structure, entity clarity, topical authority, and discoverability.\n\n \n \n Why I built it as a lightweight tool\n\nI have a strong bias toward smaller tools that do one clear thing well.\n\nThat is the philosophy behind a lot of what I build on VibeScriptz. I like practical tools that feel fast, focused, and easy to understand. No heavy setup. No giant dashboard. No unnecessary friction.\n\nRather than building something bloated, I wanted an AI mentions checker that felt closer to a webmaster tool than a platform. Something that fits naturally beside SEO checks, accessibility tools, on-page diagnostics, and other utilities people can actually use without onboarding into an entire system.\n\n \n \n What the tool became\n\nThe result was AI Mentions & Citations Checker, a lightweight tool focused on a simpler question: how does your site or brand appear in AI-generated answers?\n\nIt is built around the signals people usually want to understand first:\n\nbrand mentions\n\ncitation presence\n\noverall visibility patterns\n\nThat may sound basic, but basic is underrated when the topic itself is still surrounded by noise.\n\n \n \n Why this matters for smaller sites\n\nA lot of visibility tooling online is shaped around bigger companies, bigger teams, and bigger budgets. That leaves a gap for everyone else.\n\nThere are plenty of small publishers, solo developers, niche site owners, and independent builders who care about discoverability but do not want to deal with enterprise-style tooling just to get a read on what is happening.\n\nThat is the audience I had in mind while building this.\n\n \n \n The bigger idea behind it\n\nMore broadly, this tool came out of something I keep coming back to:\n\na lot of useful web tools do not need to be huge.\n\nThey just need to be clear.\n\nI think there is still plenty of room for practical, no-bloat tools that help people inspect, understand, and improve their sites without turning every problem into a subscription platform. That is a big part of what I am trying to build with VibeScriptz.\n\nSmall focused tools. Real use cases. Less fluff.\n\n \n \n Still early, but worth paying attention to\n\nI do not think anyone has AI visibility fully figured out yet, and I am not pretending otherwise.\n\nBut I do think we are already past the point where site owners can ignore it completely. If AI systems are becoming another layer between users and websites, then mentions, citations, and representation inside those answers are worth watching.\n\nNot in a panic-driven way. Just in a practical one.\n\n \n \n Final thought\n\nIf you are building websites, publishing content, or growing a niche project, I think the most useful question right now is not “How do I win AI visibility?”\n\nIt is this: how is my site actually showing up, if at all?\n\nThat felt like a much better starting point, so I built around it.\n\nIf you want to check it out, try the AI Mentions & Citations Checker on VibeScriptz.\n\nAnd if you are building in this space too, I would be interested in hearing how you are thinking about AI mentions, citations, and visibility right now.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "big",
+      "brand",
+      "build",
+      "citation",
+      "lightweight",
+      "mention",
+      "practical",
+      "seo",
+      "small",
+      "tool",
+      "tools",
+      "vibescriptz",
+      "visibility",
+      "webdev"
+    ],
+    [
+      "seo",
+      "tools",
+      "webdev"
+    ]
+  ]
+}
