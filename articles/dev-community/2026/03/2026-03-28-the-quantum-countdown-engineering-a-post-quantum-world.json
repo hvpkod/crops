@@ -1,0 +1,46 @@
+{
+  "id": 6479,
+  "source": "DEV Community<",
+  "title": "The Quantum Countdown: Engineering a \"Post-Quantum\" World",
+  "url": "https://dev.to/samruddhi_nikam_159/the-quantum-countdown-engineering-a-post-quantum-world-1n9b",
+  "published_at": "2026-03-28T10:09:26Z",
+  "fetched_at": "2026-03-28T10:20:36.745100+00:00",
+  "author": "Samruddhi Nikam",
+  "summary": "<p>​By 2026, the conversation in Computer Engineering has shifted from \"If\" quantum computers will break our encryption to \"When.\" For us as students at SPPU, understanding the transition to Post-Quantum Cryptography (PQC) is no longer optional—it is a matter of global digital sovereignty.<br />\n​1. The Vulnerability of Today’s Logic<br />\n​Most of our current security relies on the difficulty of factoring large prime numbers (RSA) or solving discrete logarithms. While these are impossible for classical computers to solve in a human lifetime, Shor’s Algorithm allows a sufficiently powerful quantum computer to crack them in minutes.<br />\n​2. Lattice-Based Cryptography: The New Shield<br />\n​How do we fight a quantum computer? We use math that even quantum bits (qubits) struggle with. The leading candidate is Lattice-Based Cryptography.<br />\n​The Concept: Instead of simple prime numbers, we hide data within complex, multi-dimensional geometric structures called \"lattices.\"<br />\n​The C",
+  "full_text": "​By 2026, the conversation in Computer Engineering has shifted from \"If\" quantum computers will break our encryption to \"When.\" For us as students at SPPU, understanding the transition to Post-Quantum Cryptography (PQC) is no longer optional—it is a matter of global digital sovereignty.\n\n​1. The Vulnerability of Today’s Logic\n\n​Most of our current security relies on the difficulty of factoring large prime numbers (RSA) or solving discrete logarithms. While these are impossible for classical computers to solve in a human lifetime, Shor’s Algorithm allows a sufficiently powerful quantum computer to crack them in minutes.\n\n​2. Lattice-Based Cryptography: The New Shield\n\n​How do we fight a quantum computer? We use math that even quantum bits (qubits) struggle with. The leading candidate is Lattice-Based Cryptography.\n\n​The Concept: Instead of simple prime numbers, we hide data within complex, multi-dimensional geometric structures called \"lattices.\"\n\n​The Challenge: Finding the \"shortest vector\" in a high-dimensional lattice is a problem so computationally heavy that it remains secure against both classical and quantum attacks.\n\n​3. Engineering for \"Harvest Now, Decrypt Later\"\n\n​You might ask, \"Why care now if quantum computers aren't fully here?\" The threat is HNDL (Harvest Now, Decrypt Later). Adversaries are stealing encrypted data today, waiting for the day a quantum computer can unlock it. As we build systems like the Student Success Ecosystem, we must consider \"Crypto-Agility\"—the ability to swap out old encryption for PQC without rebuilding the entire app.\n\n​The Bottom Line\n\n​The next decade of engineering will be defined by a race between quantum power and cryptographic innovation. Our role is to ensure that the \"Student Success\" of tomorrow isn't compromised by the technology of the future.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "algorithms",
+      "classical",
+      "computer",
+      "computer engineering",
+      "computerscience",
+      "cybersecurity",
+      "datum",
+      "decrypt",
+      "encryption",
+      "engineering",
+      "hndl",
+      "lattice-based cryptography",
+      "logic\n\n​most",
+      "post-quantum cryptography",
+      "pqc",
+      "prime",
+      "quantum",
+      "rsa",
+      "security",
+      "shor’s algorithm",
+      "sppu",
+      "student",
+      "the \"student success"
+    ],
+    [
+      "algorithms",
+      "computerscience",
+      "cybersecurity",
+      "encryption"
+    ]
+  ]
+}

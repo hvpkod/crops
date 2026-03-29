@@ -1,0 +1,42 @@
+{
+  "id": 6576,
+  "source": "DEV Community<",
+  "title": "Scalable Design of Agent",
+  "url": "https://dev.to/ma_uttaram_f822b3b02ec546/scalable-design-of-agent-1m2b",
+  "published_at": "2026-03-28T19:09:04Z",
+  "fetched_at": "2026-03-28T19:20:25.700653+00:00",
+  "author": "Ma Uttaram",
+  "summary": "<h2>\n  \n  \n  Functional Requirements\n</h2>\n\n<ol>\n<li>Understand the intent from the user's conversation.</li>\n<li>Break the intent into a series of steps needed to achieve it.</li>\n<li>Build an execution path for those steps, including ordering and dependencies.</li>\n<li>Enforce authentication and authorisation before any agent logic runs. Every request must pass identity verification (JWT / OAuth2), role-based access control (RBAC), and session binding so the authenticated identity carries across all downstream calls. Unauthenticated requests are rejected at this layer.</li>\n<li>Human in the loop (HITL) before execution. The user must be able to review the plan, request changes, or reject it before the agent acts.</li>\n<li>Confirm the task operation flow via chain-of-thought reasoning. Once the plan is approved, break it into tasks and validate the sequence with the user. (TODO: Research reasoning models — distinguish the model's internal CoT from the agent's explicit task graph, and ",
+  "full_text": "Functional Requirements\n\nUnderstand the intent from the user's conversation.\n\nBreak the intent into a series of steps needed to achieve it.\n\nBuild an execution path for those steps, including ordering and dependencies.\n\nEnforce authentication and authorisation before any agent logic runs. Every request must pass identity verification (JWT / OAuth2), role-based access control (RBAC), and session binding so the authenticated identity carries across all downstream calls. Unauthenticated requests are rejected at this layer.\n\nHuman in the loop (HITL) before execution. The user must be able to review the plan, request changes, or reject it before the agent acts.\n\nConfirm the task operation flow via chain-of-thought reasoning. Once the plan is approved, break it into tasks and validate the sequence with the user. (TODO: Research reasoning models — distinguish the model's internal CoT from the agent's explicit task graph, and how to surface steps for HITL review.)\n\nExtract entity models and data from the conversation. Outputs must conform to canonical schemas (Pydantic or Zod) so extraction is consistent across turns and execution plans are reliable. \n\nExecute the confirmed task plan and report completion to the user.\n\n \n \n Non-Functional Requirements\n\nAsync IO for all LLM calls, with exponential backoff on transient failures.\n\nHITL looping. Support iterative review cycles, including the ability to reject a plan and return to the planning stage. (TODO: paste Claude diagram reference.)\n\nParallel and series task detection. The task router identifies independent tasks (fan out in parallel) and dependent tasks (run in sequence).\n\nActive context window management. If the conversation risks hitting the context limit (TODO: confirm — 128k or higher depending on model), use subagents. Before evicting content, summarise the evicted portion and inject it as a system message so no history or entity state is lost.\n\nSliding window as an alternative. Use a sliding window when task state is small and linear; use subagents when tasks are independent and parallelisable. Evaluate both before committing.\n\nFan-out and pub/sub for scale. The async executor fans out to parallel tasks and uses pub/sub for event-driven coordination.\n\nExplicit failure handling. Exhausted retries go to a dead-letter queue (DLQ). Timeout policies are defined per task type. Repeated failures escalate to HITL rather than dropping silently.\n\nPrompt injection protection. The security layer must cover:\n\nInput sanitisation: escape user content before injecting into prompts.\n\nPrivilege separation: user input never reaches the system prompt directly.\n\nOutput validation: all LLM outputs are untrusted until validated, including tool-call responses.\n\nGuard model classifier: a fast pre-check on inputs before the main agent runs.\n\nPrompt versioning and promotion. Use a three-stage model: dev → staging → prod. Each stage has its own eval suite. Promotion requires passing evals at the current stage, giving a clear rollback path for any regression.\n\nObservability from day one. Every LLM call emits structured traces (OpenTelemetry or equivalent) covering input, output, latency, model, and token count. Retrofitting tracing later breaks the eval feedback loop.\n\nMulti-turn session identity. Conversation history, entity state, and the task graph are tied to a persistent user identity so the agent can resume interrupted intents across sessions.\n\n \n \n Scope: Stretch\n\nHow to detect when the agent has underperformed in production, and feed that back into development: \n\nEval suite per environment. Dev, staging, and prod each have an eval suite. Prod traces are continuously scored to catch regressions early.\n\nFailure detection. The guard model classifier and output validator flag suspect interactions for human review.\n\nProd → dev feedback loop. Flagged interactions become new eval cases in dev. Prompt fixes are iterated in dev, pass staging evals, and are promoted via the versioned prompt registry.\n\nReasoning model research. Investigate how reasoning models handle internal chain-of-thought versus the agent's explicit task graph, and how to surface steps for HITL review.\n\nEntity schema layer. Canonical Pydantic / Zod models for all entities extracted from conversation.\n\nContext summarisation. Before evicting window content, summarise the block and re-inject as a compressed system message to preserve intent fidelity over long conversations.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agents",
+      "ai",
+      "cot",
+      "dlq",
+      "enforce",
+      "entity",
+      "eval",
+      "hitl",
+      "include",
+      "intent",
+      "linear",
+      "llm",
+      "model",
+      "opentelemetry",
+      "prod",
+      "prompt",
+      "rbac",
+      "security",
+      "systemdesign",
+      "task",
+      "window"
+    ],
+    [
+      "agents",
+      "systemdesign"
+    ]
+  ]
+}

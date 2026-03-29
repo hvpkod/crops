@@ -1,0 +1,35 @@
+{
+  "id": 6443,
+  "source": "DEV Community<",
+  "title": "HTML Viewer with Bidirectional Highlighting (Click Code ↔ Highlight Element)",
+  "url": "https://dev.to/xmm17879829028/html-viewer-with-bidirectional-highlighting-click-code-highlight-element-2971",
+  "published_at": "2026-03-28T04:09:09Z",
+  "fetched_at": "2026-03-28T04:40:39.177485+00:00",
+  "author": "XMM17879829028",
+  "summary": "<p>I built this <a href=\"https://html-viewer.org\" rel=\"noopener noreferrer\">HTML Viewer</a> because I was frustrated with existing tools that only let you view code or preview the page, but never link the two together.</p>\n\n<p>The core feature is <strong>bidirectional highlighting</strong>:</p>\n\n<ul>\n<li>Click any line of HTML/CSS in the editor → the corresponding element on the preview page is instantly highlighted and scrolled into view.</li>\n<li>Click any rendered element on the page → the editor jumps to and highlights the exact source line that generated it.</li>\n</ul>\n\n<p>This makes it way easier to debug, learn HTML/CSS, or teach frontend basics.</p>\n\n<p>It's built entirely with vanilla JavaScript, runs 100% client-side (no backend, no data collection), and is completely free to use.</p>\n\n<p>Would love to hear feedback on edge cases, feature ideas, or any bugs you find!<br />\n<a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfi",
+  "full_text": "I built this HTML Viewer because I was frustrated with existing tools that only let you view code or preview the page, but never link the two together.\n\nThe core feature is bidirectional highlighting:\n\nClick any line of HTML/CSS in the editor → the corresponding element on the preview page is instantly highlighted and scrolled into view.\n\nClick any rendered element on the page → the editor jumps to and highlights the exact source line that generated it.\n\nThis makes it way easier to debug, learn HTML/CSS, or teach frontend basics.\n\nIt's built entirely with vanilla JavaScript, runs 100% client-side (no backend, no data collection), and is completely free to use.\n\nWould love to hear feedback on edge cases, feature ideas, or any bugs you find!",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "bidirectional",
+      "build",
+      "code",
+      "editor",
+      "element",
+      "highlight",
+      "html",
+      "html viewer",
+      "html/css",
+      "javascript",
+      "line",
+      "page",
+      "preview",
+      "viewer",
+      "webdev"
+    ],
+    [
+      "webdev"
+    ]
+  ]
+}

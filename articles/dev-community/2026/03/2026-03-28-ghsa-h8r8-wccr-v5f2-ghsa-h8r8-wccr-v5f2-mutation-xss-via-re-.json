@@ -1,0 +1,45 @@
+{
+  "id": 6540,
+  "source": "DEV Community<",
+  "title": "GHSA-H8R8-WCCR-V5F2: GHSA-H8R8-WCCR-V5F2: Mutation-XSS via Re-Contextualization in DOMPurify",
+  "url": "https://dev.to/cverports/ghsa-h8r8-wccr-v5f2-ghsa-h8r8-wccr-v5f2-mutation-xss-via-re-contextualization-in-dompurify-57jm",
+  "published_at": "2026-03-28T16:10:05Z",
+  "fetched_at": "2026-03-28T16:20:35.618362+00:00",
+  "author": "CVE Reports",
+  "summary": "<h1>\n  \n  \n  GHSA-H8R8-WCCR-V5F2: Mutation-XSS via Re-Contextualization in DOMPurify\n</h1>\n\n<blockquote>\n<p><strong>Vulnerability ID:</strong> GHSA-H8R8-WCCR-V5F2<br />\n<strong>CVSS Score:</strong> 6.5<br />\n<strong>Published:</strong> 2026-03-27</p>\n</blockquote>\n\n<p>DOMPurify versions prior to 3.3.2 are susceptible to a Mutation Cross-Site Scripting (mXSS) vulnerability. The flaw occurs due to discrepancies in browser parsing contexts when handling specific raw-text or RCDATA elements, allowing attackers to bypass sanitization.</p>\n\n<h2>\n  \n  \n  TL;DR\n</h2>\n\n<p>DOMPurify &lt; 3.3.2 fails to properly neutralize specific raw-text elements like <code>&lt;noscript&gt;</code>. Attackers can inject payloads that bypass initial sanitization but mutate into executable JavaScript when re-inserted into the DOM.</p>\n\n\n\n\n<h3>\n  \n  \n  ⚠️ Exploit Status: POC\n</h3>\n\n<h2>\n  \n  \n  Technical Details\n</h2>\n\n<ul>\n<li>\n<strong>Vulnerability Type</strong>: Mutation Cross-Site Scripting (mXSS)</li>\n<li>\n<s",
+  "full_text": "GHSA-H8R8-WCCR-V5F2: Mutation-XSS via Re-Contextualization in DOMPurify\n\nVulnerability ID: GHSA-H8R8-WCCR-V5F2\n\nCVSS Score: 6.5\n\nPublished: 2026-03-27\n\nDOMPurify versions prior to 3.3.2 are susceptible to a Mutation Cross-Site Scripting (mXSS) vulnerability. The flaw occurs due to discrepancies in browser parsing contexts when handling specific raw-text or RCDATA elements, allowing attackers to bypass sanitization.\n\n \n \n TL;DR\n\nDOMPurify < 3.3.2 fails to properly neutralize specific raw-text elements like <noscript>. Attackers can inject payloads that bypass initial sanitization but mutate into executable JavaScript when re-inserted into the DOM.\n\n \n \n ⚠️ Exploit Status: POC\n\n \n \n Technical Details\n\nVulnerability Type: Mutation Cross-Site Scripting (mXSS)\n\nCWE ID: CWE-79\n\nCVSS v3.1 Score: 6.5 Medium\n\nAttack Vector: Network\n\nUser Interaction: None\n\nExploit Status: Proof of Concept Available\n\nAffected Component: Raw Text/RCDATA Parser Constraints\n\n \n \n Affected Systems\n\nDOMPurify (NPM Package)\n\nClient-side web applications utilizing DOMPurify < 3.3.2\n\ndompurify: < 3.3.2 (Fixed in: 3.3.2)\n\n \n \n Exploit Details\n\nAdvisory PoC: Proof of concept demonstrating <noscript> mutation via innerHTML assignment.\n\n \n \n Mitigation Strategies\n\nUpgrade DOMPurify to version 3.3.2 or higher\n\nImplement strict Content Security Policy (CSP) rules restricting unsafe-inline scripts\n\nAvoid re-parsing sanitized content in differing browser contexts\n\nAudit dependency trees for transitive inclusions of vulnerable DOMPurify builds\n\nRemediation Steps:\n\nIdentify all projects utilizing the DOMPurify NPM package.\n\nExecute dependency updates to force installation of DOMPurify >= 3.3.2.\n\nValidate the fix by executing test suites against known mXSS payloads.\n\nDeploy the updated application builds to production environments.\n\n \n \n References\n\nRead the full report for GHSA-H8R8-WCCR-V5F2 on our website for more details including interactive diagrams and full exploit analysis.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "affected",
+      "affected systems\n\ndompurify",
+      "attacker",
+      "bypass",
+      "csp",
+      "cve",
+      "cvss",
+      "cwe",
+      "cybersecurity",
+      "detail",
+      "dom",
+      "dompurify",
+      "exploit",
+      "ghsa",
+      "mitigation strategies\n\nupgrade",
+      "mutation",
+      "mutation-xss",
+      "npm package",
+      "poc",
+      "re-contextualization",
+      "scripting",
+      "security",
+      "utilize"
+    ],
+    [
+      "cve",
+      "cybersecurity",
+      "ghsa"
+    ]
+  ]
+}

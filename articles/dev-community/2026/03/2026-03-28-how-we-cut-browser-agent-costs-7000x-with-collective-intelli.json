@@ -1,0 +1,47 @@
+{
+  "id": 6464,
+  "source": "DEV Community<",
+  "title": "How We Cut Browser Agent Costs 7,000x with Collective Intelligence",
+  "url": "https://dev.to/arcede/how-we-cut-browser-agent-costs-7000x-with-collective-intelligence-3i6o",
+  "published_at": "2026-03-28T07:08:35Z",
+  "fetched_at": "2026-03-28T07:40:36.664769+00:00",
+  "author": "Arcede",
+  "summary": "<p>Every browser agent does the same expensive thing: dump the entire DOM into an LLM, ask \"what should I click?\", and repeat for every step. A 10-step workflow costs ~$4 in LLM tokens and ~50 seconds in reasoning time. Multiply that by every agent, every session, every day — and you're burning cash on knowledge that already exists.</p>\n\n<h2>\n  \n  \n  The core problem: amnesia at scale\n</h2>\n\n<p>When Agent A figures out how to search flights on WebsiteA, that knowledge evaporates when the session ends. Agent B starts from scratch. So does Agent C. Every agent pays full price to re-learn what hundreds of agents have already discovered.</p>\n\n<p>This is the browser automation equivalent of every developer rewriting <code>left-pad</code> from scratch, every time, in every project.</p>\n\n<h2>\n  \n  \n  What if agents could share what they learn?\n</h2>\n\n<p>We built <a href=\"https://github.com/ArcedeDev/air-sdk\" rel=\"noopener noreferrer\">AIR SDK</a> — an open-source MCP server that maintains a <s",
+  "full_text": "Every browser agent does the same expensive thing: dump the entire DOM into an LLM, ask \"what should I click?\", and repeat for every step. A 10-step workflow costs ~$4 in LLM tokens and ~50 seconds in reasoning time. Multiply that by every agent, every session, every day — and you're burning cash on knowledge that already exists.\n\n \n \n The core problem: amnesia at scale\n\nWhen Agent A figures out how to search flights on WebsiteA, that knowledge evaporates when the session ends. Agent B starts from scratch. So does Agent C. Every agent pays full price to re-learn what hundreds of agents have already discovered.\n\nThis is the browser automation equivalent of every developer rewriting left-pad from scratch, every time, in every project.\n\n \n \n What if agents could share what they learn?\n\nWe built AIR SDK — an open-source MCP server that maintains a shared capability graph across all connected agents. Three API calls:\n\nbrowse_capabilities(domain) → What actions can be performed here?\nexecute_capability(action, params) → How do I do it? (CSS selectors, API paths, macros)\nreport_outcome(steps, success) → Here's what actually worked.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe third call is the key. When your agent reports which CSS selectors worked on a given site, every future agent on that domain benefits instantly. No DOM parsing, no LLM reasoning — just a lookup.\n\n \n \n The numbers\n\nWe benchmarked AIR SDK against raw DOM-to-LLM browser automation on identical tasks:\n\nScenario\nRaw DOM + LLM\nAIR SDK\nReduction\n\n1 action (e.g., click search)\n$0.24\n$0.0006\n400x\n\n10-step workflow\n$4.13\n$0.0006\n7,000x\n\nTime per action\n~5s\n<100ms\n50x\n\nThe savings compound. The more agents use AIR, the more capabilities get verified, and the cheaper and faster every subsequent interaction becomes.\n\n \n \n agent.json: robots.txt for AI agents\n\nWe also built agent.json — a standard for websites to declare what AI agents can do. Think robots.txt, but instead of \"don't crawl this,\" it says \"here's how to search, here's how to add to cart, here's the API shortcut.\"\n\nOver 2,225 domains already indexed. Sites can publish their own at /.well-known/agent.json, or AIR learns capabilities automatically through agent reports.\n\n \n \n How it works under the hood\n\nAIR resolves capabilities through a tiered system:\n\nAPI fast-path — If the site has a known API endpoint, skip the browser entirely\n\nVerified macro — Pre-verified CSS selector sequences from prior agent reports\n\nSelector hints — Partial knowledge that reduces LLM reasoning cost\n\nHeuristic plan — For unknown sites, AIR generates a best-guess execution plan\n\nEach tier is progressively more expensive but handles progressively less-explored territory. Most production traffic hits tiers 1-2 at near-zero cost.\n\n \n \n Get started\n\nnpm install @arcede/air-sdk\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOr add it as an MCP server in Claude Desktop, Cursor, or any MCP-compatible client.\n\nFree tier: 1,000 capability executions/month. No credit card required.\n\nMIT licensed. GitHub repo — stars appreciated.\n\nWe're building AIR at Arcede. If you're working on browser agents and want to integrate, reach out at info@arcede.com or open an issue on GitHub.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "action",
+      "agent",
+      "ai",
+      "air",
+      "air sdk",
+      "air sdk\nreduction",
+      "api",
+      "automation",
+      "browse_capabilities(domain",
+      "browser",
+      "build",
+      "capability",
+      "css",
+      "dom",
+      "fullscreen",
+      "knowledge",
+      "llm",
+      "mcp",
+      "mode",
+      "opensource",
+      "payments",
+      "progressively",
+      "reasoning",
+      "webdev",
+      "websitea"
+    ],
+    [
+      "automation",
+      "opensource",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": 6559,
+  "source": "Hacker News",
+  "title": "Circuit-level PDP-11/34 emulator",
+  "url": "https://github.com/dbrll/ll-34",
+  "published_at": "2026-03-28T16:23:31Z",
+  "fetched_at": "2026-03-28T17:40:38.909236+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47556001\">Comments</a>",
+  "full_text": "ll/34 is a circuit-level emulator for the PDP-11/34A (1976), running a virtual CPU reverse-engineered from the schematics, microcode, and logic captures of an actual PDP-11/34A.\n\nIt was originally designed as a digital replica of the real CPU to assist with troubleshooting at the signal level.\nThe virtual KD11-EA CPU essentially consists of a C translation of the schematics, and lookups to the ROM tables. All combinational ROMs are reverse-engineered, and the clock generator is precisely modeled.\n\nCircuit-level (ROM truth tables + combinatorial logic) was chosen other gate-level (Verilog) because it is low-level enough to reproduce hardware bugs, yet fast enough to run programs.\n\nUNIBUS backplane (timing and signal accurate)\n\nKD11-EA CPU (circuit-level)\n\nM9301 boot card with original boot and diagnostic ROMs\n\nDL11 serial card (timing accurate)\n\nKW11 line clock (50/60 Hz)\n\nProgrammer Console (including maintenance mode for CPU troubleshooting)\n\nRK05 drives (high-level emulation of the RK11 controller)\n\nRL01 and RL02 drives (high-level emulation of the RL11 controller)\n\nTape reader\n\nVT100 terminal with stdio, TCP port or PTY modes\n\nAll devices are plugged into the UNIBUS backplane (unibus.c), which performs address decoding, timing, and bus cycles.\n\nInternally, the CPU is composed of the following components:\n\nFile\nDescription\n\nucode_rom.h\n512x48-bit microcode store (bipolar PROMs), based on Bitsavers Verilog and dumps. Each micro-word controls the ALU, scratchpad, bus interface, and branching for one micro-cycle.\n\ncombo_roms.h\nCombinational ROMs (E51-E83, E107), IR decode (E59/E60/E63/E69/E70/E71/E74), ALU function select (E61/E82/E83), trap/service priority (E52/E53), and condition code logic (E68/E107), all reconstituted from the schematics and logic captures. Open-collector ROMs wire-OR onto the MPC bus.\n\nkd11ea.c\nDatapath engine. Steps through the microcode one micro-word per cycle. Basic 74xx gates are simulated using C logic operators (!, &&, >> etc.). The 74S181 bit-slice ALU is fully modeled (4 slices, 16-bit).\n\nmmu.c\nMemory management. Kernel/user address spaces, 18-bit relocation (3x 74S283 adders), 16 PAR/PDR pairs, SR0/SR2 abort registers with freeze logic.\n\nclockgen.c\nClock generator. Models the E106 delay line (TAP 30/90/120 feedback, TRAN INH bus wait). Short cycles: 180 ns, long cycles: 240 ns, bus transfers stretch until SSYN returns.\n\nclock.c\nReal-time pacing. Keeps simulated time in sync with wall-clock time.\n\nint.c\nInterrupt arbiter. BR4-BR7 priority queue, approximates the UNIBUS daisy-chain grant order.\n\nProgrammer Console (Ctrl-P)\n\nEmulates the front panel switches and indicators of the PDP-11/34A. Active when the CPU is halted (power-up, HALT instruction, or Ctrl-P).\n\nIt allows initializing the bus, booting the CPU, single-stepping through code, examining and depositing data at arbitrary addresses, and quitting the emulator.\n\nThe frontend is decoupled from the engine, so a photorealistic front panel GUI is also provided in WebAssembly.\n\nThe Debug Console provides an interactive debugger for both microcode-level and instruction-level code:\n\ns [n]: single-step n micro-instructions with full state dump (MPC, ALU, bus, registers)\n\nb addr: set PC breakpoint (octal), bl to list, bd n to delete\n\ng: resume execution\n\nu [addr] [n]: disassemble instructions\n\nc [addr] [n]: memory dump (octal)\n\nmmu: show MMU state (kernel + user PAR/PDR, current mode marked)\n\nr: register dump\n\nTroubleshooting ll-34 during its development turned out to be so similar to troubleshooting the real hardware that an internal logic analyzer was implemented to trace the signals and probe the datapath. This proved instrumental in tracking down subtle ROM and timing bugs in the virtual CPU. It can also be used as a reference to troubleshoot the real hardware, just like the working hardware helped to develop the emulator.\n\nThe logic analyzer allows the probing of 102 points on major CPU signals, mapped to physical chip pins (KD1:Exx:pin notation matching the DEC schematics K1-5 through K2-9). Logical aliases (MPC, ALU_OUT, IR, PSW…) are provided for convenience.\n\nSample rate is the real-time CPU clock (5,555,556 Hz) with a resolution of 180 ns per sample. A configurable divider reduces the sample rate for longer capture windows.\n\nCaptures use a ring buffer (up to 64K samples) with configurable trigger on any signal, adjustable trigger position (pre/post ratio), and CSV export for offline analysis.\n\n \n\nLogic captures were used liberally throughout the project to map and debug poorly understood multiplexing paths.\n\n \n\nll-34 comes with a few programs and systems to try: a Game of Life, V6 UNIX, RT-11 V4 with the original Tetris game, and ATTN/11, a small trainable Transformer with self-attention.\n\nmake + a C11 compiler, there are no other dependencies.\n\nVerified to compile with no warnings on Linux (x86_64 and aarch64) with both musl and glibc, macOS aarch64, and NetBSD 10 aarch64.\n\nA standalone WebAssembly version with a photo-realistic GUI is also available here: https://dbrll.github.io/ll-34.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bitsavers verilog",
+      "capture",
+      "clock",
+      "console",
+      "cpu",
+      "dump",
+      "emulator",
+      "gui",
+      "hardware",
+      "logic",
+      "mmu",
+      "mpc",
+      "par",
+      "rom",
+      "roms",
+      "tcp",
+      "tran inh",
+      "troubleshoot",
+      "unibus",
+      "webassembly"
+    ],
+    []
+  ]
+}

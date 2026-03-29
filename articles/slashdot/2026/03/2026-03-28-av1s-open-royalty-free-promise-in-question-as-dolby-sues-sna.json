@@ -1,0 +1,40 @@
+{
+  "id": 6434,
+  "source": "Slashdot",
+  "title": "AV1's Open, Royalty-Free Promise In Question As Dolby Sues Snapchat Over Codec",
+  "url": "https://news.slashdot.org/story/26/03/27/2129219/av1s-open-royalty-free-promise-in-question-as-dolby-sues-snapchat-over-codec?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-28T03:30:00Z",
+  "fetched_at": "2026-03-28T03:40:19.902810+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from Ars Technica: AOMedia Video 1 (AV1) was invented by a group of technology companies to be an open, royalty-free alternative to other video codecs, like HEVC/H.265. But a lawsuit that Dolby Laboratories Inc. filed this week against Snap Inc. calls all that into question with claims of patent infringement. Numerous lawsuits are currently open in the US regarding the use of HEVC. Relevant patent holders, such as Nokia and InterDigital, have sued numerous hardware vendors and streaming service providers in pursuit of licensing fees for the use of patented technologies deemed essential to HEVC.\n \nIt's a touch rarer to see a lawsuit filed over the implementation of AV1. The Alliance for Open Media (AOMedia), whose members include Amazon, Apple, Google, Microsoft, Mozilla, and Netflix, says it developed AV1 \"under a royalty-free patent policy (Alliance for Open Media Patent License 1.0)\" and that the standard is \"supported by high-quality reference imp",
+  "full_text": "An anonymous reader quotes a report from Ars Technica: AOMedia Video 1 (AV1) was invented by a group of technology companies to be an open, royalty-free alternative to other video codecs, like HEVC/H.265. But a lawsuit that Dolby Laboratories Inc. filed this week against Snap Inc. calls all that into question with claims of patent infringement. Numerous lawsuits are currently open in the US regarding the use of HEVC. Relevant patent holders, such as Nokia and InterDigital, have sued numerous hardware vendors and streaming service providers in pursuit of licensing fees for the use of patented technologies deemed essential to HEVC.\n\n \n\nIt's a touch rarer to see a lawsuit filed over the implementation of AV1. The Alliance for Open Media (AOMedia), whose members include Amazon, Apple, Google, Microsoft, Mozilla, and Netflix, says it developed AV1 \"under a royalty-free patent policy (Alliance for Open Media Patent License 1.0)\" and that the standard is \"supported by high-quality reference implementations under a simple, permissive license (BSD 3-Clause Clear License).\"\n\n \n\nYet, Dolby's lawsuit filed in the US District Court for the District of Delaware [PDF] alleges that AV1 leverages technologies that Dolby has patented and has not agreed to license for free and without receiving royalties. The filing reads: \"[AOMedia] does not own all patents practiced by implementations of the AV1 codec. Rather, the AV1 specification was developed after many foundational video coding patents had already been filed, and AV1 incorporates technologies that are also present in HEVC. Those technologies are subject to existing third-party patent rights and associated licensing obligations.\" Dolby is seeking a jury trial, a declaration that Dolby isn't obligated to license the patents in questions under FRAND (fair, reasonable, and non-discriminatory) licensing obligations, and for the court to enjoin Snap from further \"infringement.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "amazon",
+      "aomedia",
+      "aomedia video",
+      "apple",
+      "court",
+      "dolby",
+      "dolby laboratories inc.",
+      "file",
+      "google",
+      "hevc",
+      "implementation",
+      "interdigital",
+      "lawsuit",
+      "license",
+      "licensing",
+      "media",
+      "nokia",
+      "patent",
+      "snap inc.",
+      "technology"
+    ],
+    [
+      "media"
+    ]
+  ]
+}

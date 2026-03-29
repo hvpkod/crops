@@ -1,0 +1,32 @@
+{
+  "id": 6586,
+  "source": "Slashdot",
+  "title": "Linux Maintainer Greg Kroah-Hartman Says AI Tools Now Useful, Finding Real Bugs",
+  "url": "https://linux.slashdot.org/story/26/03/28/0717258/linux-maintainer-greg-kroah-hartman-says-ai-tools-now-useful-finding-real-bugs?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-28T18:34:00Z",
+  "fetched_at": "2026-03-28T19:40:30.276078+00:00",
+  "author": "EditorDavid",
+  "summary": "Linux kernel maintainer Greg Kroah-Hartman tells The Register that AI-driven code review has \"really jumped\" for Linux. \"There must have been some inflection point somewhere with the tools...\"\n\n\"Something happened a month ago, and the world switched. Now we have real reports.\" It's not just Linux, he continued. \"All open source projects have real reports that are made with AI, but they're good, and they're real.\" Security teams across major open source projects talk informally and frequently, he noted, and everyone is seeing the same shift. \"All open source security teams are hitting this right now....\" \n\nFor now, AI is showing up more as a reviewer and assistant than as a full author of Linux kernel code, but that line is starting to blur. Kroah-Hartman has already done his own experiments with AI-generated patches. \"I did a really stupid prompt,\" he recounted. \"I said, 'Give me this,' and it spit out 60: 'Here's 60 problems I found, and here's the fixes for them.' About one-third wer",
+  "full_text": "Linux kernel maintainer Greg Kroah-Hartman tells The Register\n\n that AI-driven code review has \"really jumped\" for Linux\n\n. \"There must have been some inflection point somewhere with the tools...\"\n\n\"Something happened a month ago, and the world switched. Now we have real reports.\" It's not just Linux, he continued. \"All open source projects have real reports that are made with AI, but they're good, and they're real.\" Security teams across major open source projects talk informally and frequently, he noted, and everyone is seeing the same shift. \"All open source security teams are hitting this right now....\"\n \n\nFor now, AI is showing up more as a reviewer and assistant than as a full author of Linux kernel code, but that line is starting to blur. Kroah-Hartman has already done his own experiments with AI-generated patches. \"I did a really stupid prompt,\" he recounted. \"I said, 'Give me this,' and it spit out 60: 'Here's 60 problems I found, and here's the fixes for them.' About one-third were wrong, but they still pointed out a relatively real problem, and two-thirds of the patches were right.\" Mind you, those working patches still needed human cleanup, better changelogs, and integration work, but they were far from useless. \"The tools are good,\" he said. \"We can't ignore this stuff. It's coming up, and it's getting better....\" [H]e said that for \"simple little error conditions, properly detecting error conditions,\" AI could already generate dozens of usable patches today. \n \n\nThe sudden increase in AI-generated reports and AI-assisted work has also spurred a parallel push to build AI into the kernel's own review infrastructure. A key piece of that is Sashiko, a tool originally developed at Google and now donated to the Linux Foundation. \n\nKroah-Hartman said some patches are being generated with AI now. \"You have a little co-develop tag for that now. We're seeing some things for some new features, but we're seeing AI mostly being used in the review.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "google",
+      "greg",
+      "linux",
+      "open",
+      "patch",
+      "real",
+      "register",
+      "review",
+      "security",
+      "see",
+      "source",
+      "the linux foundation",
+      "tool"
+    ],
+    []
+  ]
+}

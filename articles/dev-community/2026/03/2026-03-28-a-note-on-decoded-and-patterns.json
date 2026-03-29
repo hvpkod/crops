@@ -1,0 +1,39 @@
+{
+  "id": 6460,
+  "source": "DEV Community<",
+  "title": "A Note on Decoded and Patterns",
+  "url": "https://dev.to/sreya-satheesh/a-note-on-decoded-and-patterns-3h60",
+  "published_at": "2026-03-28T07:14:49Z",
+  "fetched_at": "2026-03-28T07:40:27.818961+00:00",
+  "author": "Sreya Satheesh",
+  "summary": "<p>While learning programming, solutions are sometimes memorized instead of understanding the logic behind them.</p>\n\n<p>To make learning a bit clearer, I built two small apps:</p>\n\n<ol>\n<li>\n<strong>Decoded</strong> — to understand how DSA problems are solved</li>\n<li>\n<strong>Patterns</strong> — to understand how pattern problems work</li>\n</ol>\n\n<p>Both focus on explaining the approach, rather than just showing code.</p>\n\n<h2>\n  \n  \n  Decoded\n</h2>\n\n<p><a href=\"https://decoded-app.vercel.app/\" rel=\"noopener noreferrer\"></a></p>\n\n<p>Decoded helps learners understand commonly asked DSA problems visually.</p>\n\n<p>Instead of only showing code, the platform explains how the algorithm works step by step.</p>\n\n<p>Some of the things it includes:</p>\n\n<ul>\n<li>Animated dry run of the algorithm with user input</li>\n<li>Time and space complexity explanations</li>\n<li>Follow-up questions to explore the problem more deeply</li>\n<li>Explanations of data structures, their operations, and complexit",
+  "full_text": "While learning programming, solutions are sometimes memorized instead of understanding the logic behind them.\n\nTo make learning a bit clearer, I built two small apps:\n\nDecoded — to understand how DSA problems are solved\n\nPatterns — to understand how pattern problems work\n\nBoth focus on explaining the approach, rather than just showing code.\n\n \n \n Decoded\n\nDecoded helps learners understand commonly asked DSA problems visually.\n\nInstead of only showing code, the platform explains how the algorithm works step by step.\n\nSome of the things it includes:\n\nAnimated dry run of the algorithm with user input\n\nTime and space complexity explanations\n\nFollow-up questions to explore the problem more deeply\n\nExplanations of data structures, their operations, and complexities\n\nCommon problem patterns like two pointers, sliding window, etc.\n\nTips on how to recognize patterns and avoid common mistakes\n\nThe goal is to help learners understand what the problem is asking and how to approach it.\n\n \n \n Patterns\n\nPattern problems are some of the first exercises we encounter while learning programming.\n\nThe Patterns app shows different types of patterns such as:\n\nStar patterns\n\nNumber patterns\n\nAlphabet patterns\n\nand more\n\nEach pattern includes:\n\nthe pattern itself\n\nthe logic behind it\n\na JavaScript implementation\n\nUnderstanding these problems helps beginners learn how loops and conditions work together.\n\nBoth apps focus on one simple idea:\n\nProgramming becomes easier when you understand the logic, not just the code.\n\nIf you're learning programming, feel free to explore them:",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "alphabet",
+      "beginners",
+      "decoded",
+      "decoded\n\ndecoded",
+      "dsa",
+      "explanations",
+      "help",
+      "javascript",
+      "learn",
+      "learner",
+      "learning",
+      "pattern",
+      "problem",
+      "programming",
+      "show",
+      "understand",
+      "webdev"
+    ],
+    [
+      "beginners",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

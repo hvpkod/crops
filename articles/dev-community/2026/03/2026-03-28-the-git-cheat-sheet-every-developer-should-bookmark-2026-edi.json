@@ -1,0 +1,42 @@
+{
+  "id": 6614,
+  "source": "DEV Community<",
+  "title": "The Git Cheat Sheet Every Developer Should Bookmark (2026 Edition)",
+  "url": "https://dev.to/lucasmdevdev/the-git-cheat-sheet-every-developer-should-bookmark-2026-edition-3cb1",
+  "published_at": "2026-03-28T21:40:56Z",
+  "fetched_at": "2026-03-28T22:20:42.337650+00:00",
+  "author": "Lucas M Dev",
+  "summary": "<p>Git has ~150 commands. You actually need about 20. Here are the ones that matter.</p>\n\n<h2>\n  \n  \n  Setup (do this first)\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>git config <span class=\"nt\">--global</span> user.name <span class=\"s2\">\"Your Name\"</span>\ngit config <span class=\"nt\">--global</span> user.email <span class=\"s2\">\"you@example.com\"</span>\ngit config <span class=\"nt\">--global</span> init.defaultBranch main\ngit config <span class=\"nt\">--global</span> pull.rebase <span class=\"nb\">false</span>\n\n<span class=\"c\"># Better diff and merge tools</span>\ngit config <span class=\"nt\">--global</span> diff.tool vscode\ngit config <span class=\"nt\">--global</span> merge.tool vscode\n</code></pre>\n\n</div>\n\n\n\n<h2>\n  \n  \n  Starting a project\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code><span class=\"c\"># New project</span>\ngit init\ngit add <span class=\"nb\">.</span>\ngit commit <span class=\"nt\">-m</span> <span clas",
+  "full_text": "Git has ~150 commands. You actually need about 20. Here are the ones that matter.\n\n \n \n Setup (do this first)\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"\ngit config --global init.defaultBranch main\ngit config --global pull.rebase false\n\n# Better diff and merge tools\ngit config --global diff.tool vscode\ngit config --global merge.tool vscode\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Starting a project\n\n# New project\ngit init\ngit add .\ngit commit -m \"Initial commit\"\ngit remote add origin https://github.com/you/repo.git\ngit push -u origin main\n\n# Clone existing\ngit clone https://github.com/user/repo.git\ngit clone https://github.com/user/repo.git my-folder # Custom folder name\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Daily workflow\n\n# Check what's changed\ngit status\ngit diff # Unstaged changes\ngit diff --staged # Staged changes (what will be committed)\n\n# Stage files\ngit add file.js # Specific file\ngit add src/ # Entire folder\ngit add -p # Interactive: choose which hunks to stage\n\n# Commit\ngit commit -m \"Fix login bug\"\ngit commit -am \"Quick fix\" # Add + commit tracked files\n\n# Push / Pull\ngit push\ngit pull\ngit fetch origin # Download but don't merge\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Branches\n\n# Create and switch\ngit checkout -b feature/user-auth\ngit switch -c feature/user-auth # Modern syntax\n\n# List branches\ngit branch # Local\ngit branch -r # Remote\ngit branch -a # All\n\n# Switch\ngit checkout main\ngit switch main\n\n# Merge\ngit checkout main\ngit merge feature/user-auth\n\n# Delete\ngit branch -d feature/user-auth # Safe (only merged)\ngit branch -D feature/user-auth # Force\ngit push origin -d feature/user-auth # Delete remote\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Undoing things\n\n# Undo last commit (keep changes staged)\ngit reset --soft HEAD~1\n\n# Undo last commit (keep changes unstaged)\ngit reset HEAD~1\n\n# Undo last commit and DISCARD changes (dangerous!)\ngit reset --hard HEAD~1\n\n# Undo a specific file\ngit checkout -- file.js # Discard unstaged changes\ngit restore file.js # Modern syntax\n\n# Revert a commit (creates a new \"undo\" commit — safe for shared branches)\ngit revert abc1234\n\n# Fix the last commit message or add forgotten files\ngit commit --amend\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Stashing\n\n# Save work-in-progress\ngit stash\ngit stash push -m \"WIP: user auth\" # With message\n\n# List stashes\ngit stash list\n\n# Apply stash\ngit stash pop # Apply + delete\ngit stash apply stash@{0} # Apply without deleting\n\n# Drop stash\ngit stash drop stash@{0}\ngit stash clear # Delete all\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Viewing history\n\ngit log\ngit log --oneline # Compact\ngit log --oneline --graph # Tree view\ngit log --author=\"Alice\" # Filter by author\ngit log -- file.js # History of a file\n\n# Search commits\ngit log --grep=\"fix\" # Search commit messages\ngit log -S \"functionName\" # Search added/removed content (pickaxe)\n\n# Show a commit\ngit show abc1234\ngit show HEAD # Last commit\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Remote management\n\ngit remote -v # List remotes\ngit remote add upstream https://github.com/original/repo.git\n\n# Sync fork with upstream\ngit fetch upstream\ngit merge upstream/main\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Tags\n\ngit tag v1.0.0\ngit tag -a v1.0.0 -m \"Release 1.0.0\"\ngit push origin v1.0.0\ngit push origin --tags # Push all tags\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Useful one-liners\n\n# See who changed a line\ngit blame file.js\n\n# Find which commit introduced a bug (binary search)\ngit bisect start\ngit bisect bad # Current commit is broken\ngit bisect good v1.0.0 # This version worked\n# Git will checkout commits for you to test\ngit bisect reset # When done\n\n# Clean untracked files\ngit clean -n # Dry run (show what would be deleted)\ngit clean -fd # Delete untracked files and folders\n\n# Cherry-pick a commit from another branch\ngit cherry-pick abc1234\n\n# Rebase interactively (squash, reorder, edit commits)\ngit rebase -i HEAD~3 # Last 3 commits\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n .gitignore patterns\n\n# Specific file\n.env\nsecrets.json\n\n# Folder\nnode_modules/\n.venv/\ndist/\n\n# Pattern\n*.log\n*.pyc\n.DS_Store\n\n# Negate (include even if parent is ignored)\n!important.log\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The 10 commands you'll use 90% of the time\n\ngit status\ngit add -p\ngit commit -m \"\"\ngit push\ngit pull\ngit checkout -b feature/\ngit merge main\ngit stash\ngit log --oneline\ngit reset --soft HEAD~1\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Git aliases worth setting up\n\ngit config --global alias.st status\ngit config --global alias.co checkout\ngit config --global alias.br branch\ngit config --global alias.lg \"log --oneline --graph --all\"\ngit config --global alias.undo \"reset --soft HEAD~1\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow git lg shows a beautiful commit tree. git undo undoes your last commit safely.\n\nFound this useful? Bookmark it for your next git emergency.\n\nAlso check out DevToolkit for more developer utilities: https://lucasmdevdev.github.io/devtoolkit/",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "beginners",
+      "branch",
+      "commit",
+      "config",
+      "devtoolkit",
+      "discard",
+      "enter",
+      "exit",
+      "fullscreen",
+      "git",
+      "git undo undoes",
+      "github",
+      "mode",
+      "push",
+      "stash",
+      "sync",
+      "undo",
+      "webdev",
+      "wip"
+    ],
+    [
+      "beginners",
+      "git",
+      "github",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 6611,
+  "source": "DEV Community<",
+  "title": "Git et GitHub pour Débutants en 2026 : Guide Complet",
+  "url": "https://dev.to/lucasmdevdev/git-et-github-pour-debutants-en-2026-guide-complet-2a96",
+  "published_at": "2026-03-28T21:49:00Z",
+  "fetched_at": "2026-03-28T22:20:36.757142+00:00",
+  "author": "Lucas M Dev",
+  "summary": "<p>Git et GitHub pour Débutants en 2026 : Guide Complet avec Commandes </p>\n\n<p>Git est l'outil de contrôle de version que tout développeur doit maîtriser. En 2026, ne pas savoir utiliser Git est un dealbreaker en entreprise. Ce guide vous explique tout de zéro, avec les commandes que vous utiliserez vraiment au quotidien. </p>\n\n<h2>\n  \n  \n  Pourquoi Git est indispensable\n</h2>\n\n<p>Git permet de : </p>\n\n<ul>\n<li>Sauvegarder l'historique complet de votre code</li>\n<li>Travailler à plusieurs sans se marcher dessus</li>\n<li>Revenir à une version précédente si quelque chose casse</li>\n<li>Expérimenter dans des branches séparées</li>\n<li>Contribuer à des projets open-source</li>\n</ul>\n\n<h2>\n  \n  \n  Installation et configuration\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code><span class=\"c\"># Linux</span>\n<span class=\"nb\">sudo </span>apt <span class=\"nb\">install </span>git\n\n<span class=\"c\"># Mac (via Homebrew)</span>\nbrew <span class=\"nb\">install </span",
+  "full_text": "Git et GitHub pour Débutants en 2026 : Guide Complet avec Commandes \n\nGit est l'outil de contrôle de version que tout développeur doit maîtriser. En 2026, ne pas savoir utiliser Git est un dealbreaker en entreprise. Ce guide vous explique tout de zéro, avec les commandes que vous utiliserez vraiment au quotidien. \n\n \n \n Pourquoi Git est indispensable\n\nGit permet de : \n\nSauvegarder l'historique complet de votre code\n\nTravailler à plusieurs sans se marcher dessus\n\nRevenir à une version précédente si quelque chose casse\n\nExpérimenter dans des branches séparées\n\nContribuer à des projets open-source\n\n \n \n Installation et configuration\n\n# Linux\nsudo apt install git\n\n# Mac (via Homebrew)\nbrew install git\n\n# Windows\n# Télécharger Git for Windows : git-scm.com\n\n# Configuration initiale (obligatoire)\ngit config --global user.name \"Votre Nom\"\ngit config --global user.email \"vous@example.com\"\ngit config --global init.defaultBranch main # Branche par défaut\n\n# Vérifier la config\ngit config --list\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Les concepts fondamentaux\n\n \n \n Le Repository (Repo)\n\nUn repo Git est un dossier suivi par Git. Il contient votre code + un historique de toutes les modifications. \n\n \n \n Les 3 zones de Git\n\nWorking Directory : vos fichiers tels qu'ils sont sur le disque\n\nStaging Area (Index) : ce que vous avez préparé pour le prochain commit\n\nRepository : l'historique des commits sauvegardés\n\n \n \n Les commandes essentielles\n\n \n \n Initialiser et créer un repo\n\n# Initialiser Git dans un dossier existant\ncd mon-projet\ngit init\n\n# Ou cloner un repo existant\ngit clone https://github.com/user/repo.git\ngit clone https://github.com/user/repo.git mon-dossier-local\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Le cycle basique add → commit → push\n\n# Voir l'état de votre repo\ngit status\n\n# Ajouter des fichiers au staging\ngit add fichier.txt # Un fichier\ngit add src/ # Un dossier entier\ngit add . # Tous les fichiers modifiés\n\n# Créer un commit\ngit commit -m \"feat: ajouter la page de connexion\"\n\n# Voir l'historique\ngit log\ngit log --oneline # Format compact\ngit log --oneline --graph # Avec branches visuelles\n\n# Envoyer sur GitHub\ngit push origin main\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Messages de commit — Bonne pratique\n\nLa convention Conventional Commits est la plus répandue en 2026 :\n\nfeat: ajouter la fonctionnalité de recherche\nfix: corriger le bug de connexion sur mobile\ndocs: mettre à jour le README\nstyle: formater le code avec Prettier\nrefactor: simplifier la logique d'authentification\ntest: ajouter les tests unitaires pour userService\nchore: mettre à jour les dépendances\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Travailler avec des branches\n\n# Lister les branches\ngit branch\n\n# Créer une branche\ngit branch feature/page-contact\n\n# Créer ET basculer dessus\ngit checkout -b feature/page-contact\n# Ou en moderne Git :\ngit switch -c feature/page-contact\n\n# Basculer entre branches\ngit switch main\ngit switch feature/page-contact\n\n# Fusionner une branche dans main\ngit switch main\ngit merge feature/page-contact\n\n# Supprimer une branche\ngit branch -d feature/page-contact # Après merge\ngit branch -D feature/page-contact # Force (sans merge)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Corriger des erreurs courantes\n\n# Annuler les modifications non commitées\ngit restore fichier.txt # Un fichier\ngit restore . # Tout\n\n# Retirer un fichier du staging\ngit restore --staged fichier.txt\n\n# Annuler le dernier commit (garder les modifs)\ngit reset --soft HEAD~1\n\n# Modifier le dernier commit (message ou contenu)\ngit commit --amend -m \"Nouveau message\"\n\n# Voir les différences\ngit diff # Modifs non stagées\ngit diff --staged # Modifs stagées\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Travailler avec GitHub\n\n \n \n Connecter votre repo local à GitHub\n\n# 1. Créer un repo sur github.com\n# 2. Connecter votre repo local\ngit remote add origin https://github.com/vous/votre-repo.git\ngit branch -M main\ngit push -u origin main\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Pull Requests — Le workflow pro\n\n# Workflow standard en équipe\ngit switch main\ngit pull origin main # Mettre à jour local\ngit switch -c feature/nouvelle-fonctionnalite\n\n# ... travaillez sur votre feature ...\ngit add .\ngit commit -m \"feat: ajouter la fonctionnalité\"\ngit push origin feature/nouvelle-fonctionnalite\n\n# Ensuite, créez une Pull Request sur GitHub\n# Demandez une review à vos collègues\n# Après approbation : merge dans main\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Récupérer les dernières modifications\n\n# Récupérer et fusionner\ngit pull origin main\n\n# Récupérer sans fusionner\ngit fetch origin\n\n# Rebase — réappliquer vos commits sur la version la plus récente\ngit fetch origin\ngit rebase origin/main\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Le .gitignore — Ce qu'on ne commit JAMAIS\n\n# Exemple de .gitignore pour un projet Node.js\nnode_modules/\n.env\n.env.local\n.env.production\ndist/\nbuild/\n*.log\n.DS_Store # Mac\nThumbs.db # Windows\n.vscode/ # Configuration IDE (optionnel)\ncoverage/ # Rapports de tests\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Commandes Git que j'utilise quotidiennement\n\ngit status # Où j'en suis\ngit add . # Tout stager\ngit commit -m \"...\" # Committer\ngit push # Envoyer sur GitHub\ngit pull # Récupérer les dernières modifs\ngit log --oneline # Historique rapide\ngit switch -c branch # Créer une branche\ngit diff # Voir les changements\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Ressources pour aller plus loin\n\nPro Git (gratuit en ligne) : la référence absolue sur Git\n\nOh My Git! : jeu interactif pour apprendre Git\n\nLearn Git Branching : visualisation interactive des branches\n\nGitHub Skills : cours officiels GitHub gratuits\n\n→ Déployer votre app avec Railway, Render, Fly.io \n\n → Créer un blog gratuit avec GitHub Pages",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "avec",
+      "beginners",
+      "bonne",
+      "branch",
+      "commit",
+      "connecter",
+      "créer",
+      "créer un",
+      "créer un repo",
+      "exit",
+      "fullscreen",
+      "git",
+      "github",
+      "guide complet",
+      "homebrew",
+      "le repository",
+      "main",
+      "mode",
+      "opensource",
+      "origin",
+      "prettier",
+      "quotidien",
+      "votre"
+    ],
+    [
+      "beginners",
+      "git",
+      "github",
+      "opensource"
+    ]
+  ]
+}

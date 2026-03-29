@@ -1,0 +1,39 @@
+{
+  "id": 6571,
+  "source": "Hacker News",
+  "title": "Improving personal tax filing with Claude CLI and Obsidian",
+  "url": "https://www.mrafayaleem.com/blog/improving-personal-tax-filing-with-claude-obsidian",
+  "published_at": "2026-03-28T18:21:52Z",
+  "fetched_at": "2026-03-28T19:00:22.777317+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47557058\">Comments</a>",
+  "full_text": "Recently, I found myself in the same part of the year when I do my wife’s and my personal taxes here in Canada. Personal income tax filing deadline for most Canadians is usually end of April each year.\n\nIt turns out this was also the first year where I had amazing AI tools at my disposal to help me with personal income taxes.\n\nApart from work, I have been using both ChatGPT and Claude for my personal life as well, which has included varied prompts and workflows such as looking up what engine oil my car takes, or using Notion MCP to create a shopping list for building a deck in my backyard. In short, most of my personal usage has been rather rudimentary compared to my extensive and detailed workflow at work.\n\nI would not call my personal tax situation a complex one, however, given that I manage it for both me and my wife, I would want to optimize it as much as possible.\n\nWhile collecting all our tax related documents, forms and emails, I came up with a workflow based on Claude Code CLI and Obsidian that I found very useful in trying to get a detailed picture of my tax situation — backed by strong personal context and deterministic calculations using Python.\n\nI set up a working directory for my tax related documents and opened that as a vault in Obsidian.\n\nIf you are unfamiliar with Obsidian, you are missing out a lot on what markdown can do for you especially for the agentic world so I highly recommend you familiarize yourself with this amazing tool today.\n\nObsidian also has excellent support for viewing PDFs which I found very useful for reviewing my tax forms without leaving the app.\n\nFolder structure#\n\nHere is a sample structure that I came up with:\n\nobsidian_vault\n├── main.py\n├── pyproject.toml\n├── README.md\n├── taxation\n│ ├── Currency Rates\n│ │ ├── 2024.md\n│ │ ├── 2025.md\n│ │ └── 2026.md\n│ ├── Pasted image 1.png\n│ ├── Pasted image 2.png\n│ ├── PersonalTax\n│ │ └── 2026\n│ │ ├── Wife\n│ │ │ ├── CLAUDE.md\n│ │ │ ├── Etrade Misc Docs\n│ │ │ ├── FILED.md\n│ │ │ ├── Forms\n│ │ │ │ └── T4_2025.pdf\n│ │ │ ├── Payroll\n│ │ │ │ ├── PayrollEarningStatementReport_JanFeb_2025.pdf\n│ │ │ │ └── PayrollEarningStatementReport_MarchDec_2025.pdf\n│ │ │ ├── PLAN.md\n│ │ └── Rafay\n│ │ ├── ESPP.md\n│ │ ├── Charles Schwab Docs\n│ │ ├── CLAUDE.md\n│ │ ├── Contribution Receipts\n│ │ │ └── rsp-contribution-receipt.pdf\n│ │ ├── FILED.md\n│ │ ├── Forms\n│ │ │ └── T4_2025.pdf\n│ │ ├── PLAN.md\n│ └── References\n│ └── Definitions for capital gains Canada.md\n├── uv.lock\n└── Welcome.mdplaintext\n\n code\n\nAs you might have noticed, I also set up a Python virtual env with uv and installed the following libs to help Claude extract relevant information from PDFs along with a custom bash function for quick invocations by Claude.\n\nLibs#\n\nmarkitdown[all] - an open source library from Microsoft to extract information in markdown format, excellent for LLMS since they work well with those.\n\nocrmypdf\n\nBash function#\n\npdf2md() {\n local input=\"$1\"\n local venv_markitdown=\"/Users/rafaypersonal/Documents/obsidian_vault/.venv/bin/markitdown\"\n local venv_ocrmypdf=\"/Users/rafaypersonal/Documents/obsidian_vault/.venv/bin/ocrmypdf\"\n # Try direct conversion first (works for text-based/tagged PDFs)\n if \"$venv_markitdown\" \"$input\" 2>/dev/null; then\n return 0\n fi\n # Fall back to OCR for scanned PDFs\n local output=\"${input%.pdf}_ocr.pdf\"\n \"$venv_ocrmypdf\" --skip-text \"$input\" \"$output\" && \"$venv_markitdown\" \"$output\"\n}bash\n\nProviding context to Claude Code CLI#\n\nI used the CLAUDE.md file to seed the financial context such as where to find currency rates for ACB calculations, tax forms, RRSP receipts, etc. and asked Claude to update the PLAN.md for what I need to do next along with checklists to mark each step as completed once done. I cross checked all the ACB calculations and corrections that it made against an online ACB calculator to make sure it did not hallucinate on my tax filing, given that it was my first time.\n\nWhere necessary, I generously seeded the context with the following:\n\nESPP.md file that contained any relevant text with information about my ESPP tax withholding, over-contribution, etc.\n\nThis was particularly useful for cross checking ESPP payroll deduction, ESPP over-contribution amounts, etc. which can be a bit daunting to re-visit and validate.\n\ntaxation/Currency Rates containing currency rates for the relevant years so that Claude can use them for ACB calculations. I pulled these from https://www.exchange-rates.org/ ↗\n\nI also used a Chrome extension called LLM Feeder ↗ to extract pages such as the Government of Canada’s page on Definitions for capital gains ↗. All such information was seeded through the CLAUDE.md files.\n\nWith this setup, Claude was actually able to find issues with my wife’s last year’s ACB calculations where we mistakenly used the discounted purchase price instead of the FMV to report capital gains.\n\nThe tax filing software that I used (Wealthsimple Tax) allows you to generate a draft T1 once you have input all the information. I used that along with markitdown and ocrmypdf to populate FILED.md and asked Claude Code CLI to audit all the information before I submitted the filing.\n\nI found Claude Code CLI much more convenient and flexible compared to the Claude desktop app. Combined with Obsidian and a terminal like Ghostty ↗, managing personal life stuff with Claude Code CLI becomes a breeze once you get the hang of it. Having used Notion MCP with the Claude desktop app as well, I would say Claude Code CLI + Obsidian is a step above, both in terms of speed and token usage — the main trade-off being that unlike Notion, you can’t really take the Obsidian workflow with you on your phone (or perhaps you can with Claude Remote Control?).\n\nOverall, I was pretty happy with how this turned out. It did not replace my own judgement — I still reviewed every number and cross-checked the important bits — but it made the whole process a lot more organized and honestly less stressful. If you manage taxes for more than just yourself, even a lightweight setup like this goes a long way. Give it a shot before the April deadline sneak up on you in Canada! 🍁\n\nDisclaimer: This is not a tax adivce.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "calculation",
+      "canada",
+      "canada.md\n├──",
+      "claude",
+      "claude code cli",
+      "code",
+      "espp",
+      "find",
+      "form",
+      "information",
+      "microsoft",
+      "notion mcp",
+      "obsidian",
+      "pdfs",
+      "personal",
+      "python",
+      "rafay",
+      "│ │ ├─",
+      "│ │ ├──"
+    ],
+    [
+      "claude"
+    ]
+  ]
+}

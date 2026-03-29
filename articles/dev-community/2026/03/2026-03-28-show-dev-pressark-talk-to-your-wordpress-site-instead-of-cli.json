@@ -1,0 +1,42 @@
+{
+  "id": 6583,
+  "source": "DEV Community<",
+  "title": "Show DEV: PressArk - Talk to Your WordPress Site Instead of Clicking Through It",
+  "url": "https://dev.to/abdelali_selouani_55871ee/show-dev-pressark-talk-to-your-wordpress-site-instead-of-clicking-through-it-1hb5",
+  "published_at": "2026-03-28T18:50:26Z",
+  "fetched_at": "2026-03-28T19:20:40.899806+00:00",
+  "author": "abdelali Selouani",
+  "summary": "<p>Hey DEV! I built an AI co-pilot that lives inside your WordPress admin dashboard. Instead of clicking through menus, you just chat with it.</p>\n\n<p><strong>Website:</strong> <a href=\"https://pressark.com\" rel=\"noopener noreferrer\">pressark.com</a><br />\n<strong>WordPress.org:</strong> <a href=\"https://wordpress.org/plugins/pressark/\" rel=\"noopener noreferrer\">wordpress.org/plugins/pressark</a><br />\n<strong>Free tier:</strong> Yes - bundled AI credits, no API key needed</p>\n<h2>\n  \n  \n  What it does\n</h2>\n\n<p>PressArk adds a chat panel to every wp-admin page. You describe what you want in plain English, it figures out the tools, shows you a preview, and executes only after you approve.</p>\n\n<p><strong>Examples of real commands:</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>\"Edit the intro on my latest post to mention the spring sale\"\n\n\"Create a 20% off coupon for WooCommerce that expires Friday\"\n\n\"Audit the SEO on my homepage a",
+  "full_text": "Hey DEV! I built an AI co-pilot that lives inside your WordPress admin dashboard. Instead of clicking through menus, you just chat with it.\n\nWebsite: pressark.com\n\nWordPress.org: wordpress.org/plugins/pressark\n\nFree tier: Yes - bundled AI credits, no API key needed\n\n \n \n What it does\n\nPressArk adds a chat panel to every wp-admin page. You describe what you want in plain English, it figures out the tools, shows you a preview, and executes only after you approve.\n\nExamples of real commands:\n\n\"Edit the intro on my latest post to mention the spring sale\"\n\n\"Create a 20% off coupon for WooCommerce that expires Friday\"\n\n\"Audit the SEO on my homepage and fix the meta description\"\n\n\"Scan my site for security vulnerabilities\"\n\n\"Every Monday at 9am, run an SEO check on my top 5 pages\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What makes it different from other WP AI plugins\n\nMost WordPress AI plugins do one thing: generate content. PressArk manages your entire site through conversation:\n\nContent & Pages: Edit posts, pages, blocks, custom post types, media, excerpts, metadata\n\nWooCommerce: Products, orders, customers, coupons, shipping, taxes, analytics\n\nSEO: Full audit with scores (A-F), meta optimization, crawlability checks, one-click fixes\n\nSecurity: WordPress version, PHP, SSL, plugin vulnerabilities, file permissions, user enumeration\n\nElementor: Edit widgets, layouts, containers, global styles, forms, popups via chat\n\nAutomations: Schedule recurring AI tasks with cron (daily SEO checks, weekly content audits)\n\nTotal: 200+ AI-callable tools across all categories.\n\n \n \n The safety model\n\nNothing writes without your approval. Every tool is classified:\n\nLevel\nAction\nExample\n\nRead\nAuto-executes\nSearch content, check SEO score\n\nPreview\nShows diff first\nEdit post, update meta\n\nConfirm\nExplicit approval card\nPublish, delete, process refund\n\nThis Preview > Approve > Execute pipeline is non-negotiable. The AI can't go rogue on your production site.\n\n \n \n Tech details for the curious\n\nPure PHP WordPress plugin, no external frameworks\n\nAI model routing: Free tier = DeepSeek V3.2, Pro = Claude Sonnet 4.6, or BYOK with OpenRouter/OpenAI/Anthropic\n\nContent indexing via MySQL FULLTEXT (800-char chunks, 100-char overlap) - no vector DB needed\n\nSite profiling: auto-analyzes your tone, brand voice, content patterns, and theme.json design tokens\n\nStructured checkpoints for conversation memory that survives context compression\n\nSpin detection: exits after 3 consecutive no-progress agent rounds\n\nToken budget with three-stage degradation (prime at 65%, compact at 86%, pause at ceiling)\n\nReal-time streaming via SSE\n\nWall-clock timeout: 120s hard ceiling per execution\n\nI wrote a deep-dive on the agent safety architecture here: How We Stop AI Agents from Going Rogue Inside WordPress\n\n \n \n Try it\n\nInstall from WordPress.org (still pending approval, may be approved by the time you read this) or visit pressark.com. The free tier is fully functional - not a limited trial.\n\nWould love feedback from the DEV community. What features would you want from an AI co-pilot for WordPress? What am I missing?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "chat",
+      "click",
+      "content",
+      "content & pages",
+      "edit",
+      "need",
+      "opensource",
+      "php",
+      "plugin",
+      "pressark",
+      "publish",
+      "rogue",
+      "seo",
+      "show",
+      "showdev",
+      "ssl",
+      "woocommerce",
+      "wordpress",
+      "wp ai"
+    ],
+    [
+      "opensource",
+      "showdev"
+    ]
+  ]
+}

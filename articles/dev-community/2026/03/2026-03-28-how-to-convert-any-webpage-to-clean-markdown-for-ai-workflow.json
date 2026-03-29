@@ -1,0 +1,39 @@
+{
+  "id": 6476,
+  "source": "DEV Community<",
+  "title": "How to Convert Any Webpage to Clean Markdown for AI Workflows",
+  "url": "https://dev.to/zephyrooo_9b4f5b35bba17b9/how-to-convert-any-webpage-to-clean-markdown-for-ai-workflows-2onl",
+  "published_at": "2026-03-28T10:15:56Z",
+  "fetched_at": "2026-03-28T10:20:28.796668+00:00",
+  "author": "zephyrooo",
+  "summary": "<p>If you have ever pasted a webpage into ChatGPT or Claude, you have probably noticed the output quality is inconsistent. That is because raw HTML wastes 80-90% of your context window on nav bars, ads, scripts, and layout noise.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>A typical 1,500-word blog post lives inside 50-80KB of HTML. The actual content? Maybe 6-8KB. You are paying for tokens that add zero value.</p>\n\n<p>I tested 3 real pages:</p>\n\n<ul>\n<li>News article: 14,800 tokens raw HTML vs 2,100 clean Markdown (86% waste)</li>\n<li>React docs: 22,400 vs 5,800 tokens (74% waste)</li>\n<li>Reddit thread: 38,600 vs 6,200 tokens (84% waste)</li>\n</ul>\n\n<h2>\n  \n  \n  Why Markdown?\n</h2>\n\n<p>Markdown wins because:</p>\n\n<ul>\n<li>Structure without noise — headings, lists, code blocks survive</li>\n<li>LLMs are trained on it — every GitHub repo uses Markdown</li>\n<li>Token efficient</li>\n</ul>\n\n<h2>\n  \n  \n  My Workflow\n</h2>\n\n<p>I built <a href=\"https://web2md.org\" rel=\"noopener noreferrer\">Web2MD",
+  "full_text": "If you have ever pasted a webpage into ChatGPT or Claude, you have probably noticed the output quality is inconsistent. That is because raw HTML wastes 80-90% of your context window on nav bars, ads, scripts, and layout noise.\n\n \n \n The Problem\n\nA typical 1,500-word blog post lives inside 50-80KB of HTML. The actual content? Maybe 6-8KB. You are paying for tokens that add zero value.\n\nI tested 3 real pages:\n\nNews article: 14,800 tokens raw HTML vs 2,100 clean Markdown (86% waste)\n\nReact docs: 22,400 vs 5,800 tokens (74% waste)\n\nReddit thread: 38,600 vs 6,200 tokens (84% waste)\n\n \n \n Why Markdown?\n\nMarkdown wins because:\n\nStructure without noise — headings, lists, code blocks survive\n\nLLMs are trained on it — every GitHub repo uses Markdown\n\nToken efficient\n\n \n \n My Workflow\n\nI built Web2MD to solve this. It is a Chrome extension that converts any webpage to clean Markdown with one click. The conversion engine uses 130+ CSS selectors to strip boilerplate and has dedicated extractors for 14 platforms (YouTube subtitles, Reddit threads, GitHub READMEs, arXiv papers, etc.).\n\nAll processing happens locally in your browser — nothing is uploaded.\n\n \n \n The Math\n\nAt GPT-4o pricing ($2.50/1M input tokens), processing 30 pages/day:\n\nRaw HTML: $1.50/day\n\nClean Markdown: $0.30/day\n\nSavings: $36/month\n\nWeb2MD is free (3 conversions/day). Pro is $9/month for unlimited.\n\nWhat is your current workflow for feeding web content to LLMs?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "chrome",
+      "clean",
+      "convert",
+      "github",
+      "html",
+      "llm",
+      "markdown",
+      "process",
+      "productivity",
+      "reddit",
+      "the problem",
+      "token",
+      "use",
+      "webpage",
+      "webscraping",
+      "workflow"
+    ],
+    [
+      "github",
+      "productivity",
+      "webscraping"
+    ]
+  ]
+}

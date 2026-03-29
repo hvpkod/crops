@@ -1,0 +1,36 @@
+{
+  "id": 6577,
+  "source": "DEV Community<",
+  "title": "I scanned Google.com for quantum vulnerabilities — they're already deploying post-quantum crypto (but it's not enough)",
+  "url": "https://dev.to/pvishwakar77301/i-scanned-googlecom-for-quantum-vulnerabilities-theyre-already-deploying-post-quantum-crypto-1lo1",
+  "published_at": "2026-03-28T19:08:00Z",
+  "fetched_at": "2026-03-28T19:20:27.289944+00:00",
+  "author": "Priyanshu Vishwakarma",
+  "summary": "<p>I built an open-source post-quantum cryptography scanner called <a href=\"https://github.com/Hacker21-punk/pqscan\" rel=\"noopener noreferrer\">pqscan</a> and decided to run a full scan against google.com. The results were surprising.</p>\n\n<h2>\n  \n  \n  The Command\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>\nbash\npqscan --full-scan google.com\n</code></pre>\n\n</div>",
+  "full_text": "I built an open-source post-quantum cryptography scanner called pqscan and decided to run a full scan against google.com. The results were surprising.\n\n \n \n The Command\n\nbash\npqscan --full-scan google.com\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "build",
+      "call",
+      "command",
+      "cryptography",
+      "decide",
+      "deploy",
+      "fullscreen",
+      "go",
+      "google.com",
+      "mode",
+      "opensource",
+      "pqscan",
+      "quantum",
+      "scan",
+      "security",
+      "vulnerability"
+    ],
+    [
+      "opensource"
+    ]
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 6411,
+  "source": "DEV Community<",
+  "title": "Why I Stopped Using AI for Boilerplate (and What I Use It For Instead)",
+  "url": "https://dev.to/novaelvaris/why-i-stopped-using-ai-for-boilerplate-and-what-i-use-it-for-instead-2368",
+  "published_at": "2026-03-28T01:37:13Z",
+  "fetched_at": "2026-03-28T02:00:37.166045+00:00",
+  "author": "Nova Elvaris",
+  "summary": "<p>Hot take: the worst use of AI coding assistants is the thing most people use them for — generating boilerplate.</p>\n\n<p>I spent three months auto-generating CRUD endpoints, form components, and config files. I felt productive. My git log was full of big commits. Then I looked at what I actually shipped, and I realized I'd been optimizing the wrong thing.</p>\n\n<h2>\n  \n  \n  The Boilerplate Trap\n</h2>\n\n<p>Here's what happens when you use AI for boilerplate:</p>\n\n<ol>\n<li>You prompt: <em>\"Generate a CRUD API for users with Express and Prisma\"</em>\n</li>\n<li>AI spits out 200 lines of working code</li>\n<li>You glance at it, looks fine, commit</li>\n<li>A week later, you find three inconsistencies with your existing endpoints</li>\n<li>You spend an hour fixing patterns the AI didn't know about</li>\n</ol>\n\n<p>The problem isn't that AI generates bad boilerplate. It's that <strong>boilerplate is the part of your codebase where consistency matters most</strong> — and AI is terrible at consistenc",
+  "full_text": "Hot take: the worst use of AI coding assistants is the thing most people use them for — generating boilerplate.\n\nI spent three months auto-generating CRUD endpoints, form components, and config files. I felt productive. My git log was full of big commits. Then I looked at what I actually shipped, and I realized I'd been optimizing the wrong thing.\n\n \n \n The Boilerplate Trap\n\nHere's what happens when you use AI for boilerplate:\n\nYou prompt: \"Generate a CRUD API for users with Express and Prisma\"\n\nAI spits out 200 lines of working code\n\nYou glance at it, looks fine, commit\n\nA week later, you find three inconsistencies with your existing endpoints\n\nYou spend an hour fixing patterns the AI didn't know about\n\nThe problem isn't that AI generates bad boilerplate. It's that boilerplate is the part of your codebase where consistency matters most — and AI is terrible at consistency unless you over-specify every detail.\n\nYou know what's great at consistent boilerplate? A template. A snippet. A plop generator. A shell script. Deterministic tools for deterministic work.\n\n \n \n What AI Is Actually Great At\n\nAfter a lot of trial and error, here's where AI assistants consistently save me real time:\n\n \n \n 1. Thinking Through Edge Cases\n\nHere's my function that handles file uploads.\nWhat edge cases am I missing? List them as a checklist.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAI is excellent at this because it's seen thousands of file upload implementations go wrong. It'll catch: empty files, duplicate names, MIME type mismatches, concurrent uploads, disk space, path traversal — things you'd eventually find in production.\n\n \n \n 2. Writing the Second Test\n\nI write the first test by hand to set the pattern. Then:\n\nHere's my test for the happy path. Write 5 more tests covering\nedge cases and error paths, following the same structure.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe first test establishes the conventions. AI extrapolates. This works because the pattern is right there in the prompt — no guessing needed.\n\n \n \n 3. Explaining Code I Didn't Write\n\nExplain what this function does, what assumptions it makes,\nand what would break if I changed the return type.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAI as a reading companion is underrated. It's faster than tracing through unfamiliar code manually, and it catches implicit contracts (\"this assumes the array is sorted\") that aren't obvious.\n\n \n \n 4. Drafting Migration Plans\n\nI need to rename the `users.name` column to `users.display_name`.\nWhat's the migration plan? Include: SQL, ORM migration,\ncode changes needed, and rollback steps.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAI won't execute the migration for you, but it'll map out the blast radius. This is planning work that used to take me 30 minutes of grep-and-think.\n\n \n \n 5. Rubber-Duck Debugging\n\nI expect this function to return [X] but it returns [Y].\nHere's the function and the test. Walk through the execution\nstep by step and tell me where my assumption breaks.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis is genuinely the most time I've saved. AI is a patient, methodical debugger that never gets frustrated and never says \"have you tried restarting it?\"\n\n \n \n The Rule I Follow Now\n\nUse AI where judgment matters. Use templates where consistency matters.\n\nTask\nTool\n\nCRUD endpoint\nTemplate/generator\n\nForm component\nSnippet library\n\nConfig files\nCopy from existing\n\nEdge case review\nAI\n\nTest expansion\nAI\n\nCode explanation\nAI\n\nDebug reasoning\nAI\n\nMigration planning\nAI\n\nThe boring, repetitive stuff? Automate it deterministically. The thinking, analyzing, reasoning stuff? That's where AI shines.\n\n \n \n The Counterargument\n\n\"But Nova, AI-generated boilerplate works fine if you review it carefully.\"\n\nSure. But if you're reviewing 200 lines of generated code carefully enough to catch every inconsistency with your existing patterns, you're not saving time — you're just moving the work from writing to reading. And reading someone else's code (which is what AI output is) takes longer than writing your own from a template.\n\nWhat's the most overrated use of AI coding assistants in your workflow? I'm curious whether others have hit the same wall.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "ai\n\nmigration",
+      "boilerplate",
+      "code",
+      "crud",
+      "edge",
+      "enter",
+      "exit",
+      "express",
+      "fullscreen",
+      "migration",
+      "mode",
+      "nova",
+      "orm",
+      "productivity",
+      "programming",
+      "rubber-duck debugging",
+      "snippet",
+      "sql",
+      "template",
+      "test",
+      "the boilerplate trap",
+      "webdev",
+      "write"
+    ],
+    [
+      "productivity",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

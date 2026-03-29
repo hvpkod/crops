@@ -1,0 +1,46 @@
+{
+  "id": 6539,
+  "source": "DEV Community<",
+  "title": "Bun Has a Free HTTP Server API: Build Blazing-Fast APIs Without Express",
+  "url": "https://dev.to/0012303/bun-has-a-free-http-server-api-build-blazing-fast-apis-without-express-5684",
+  "published_at": "2026-03-28T16:10:53Z",
+  "fetched_at": "2026-03-28T16:20:34.012711+00:00",
+  "author": "Alex Spinov",
+  "summary": "<h2>\n  \n  \n  Why Bun's HTTP Server?\n</h2>\n\n<p><a href=\"https://bun.sh\" rel=\"noopener noreferrer\">Bun</a> includes a <strong>built-in HTTP server</strong> that's 5-10x faster than Node.js + Express. No npm install needed — just <code>Bun.serve()</code> and you have a production-ready server.</p>\n\n<h2>\n  \n  \n  Quick Start\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight typescript\"><code><span class=\"nx\">Bun</span><span class=\"p\">.</span><span class=\"nf\">serve</span><span class=\"p\">({</span>\n  <span class=\"na\">port</span><span class=\"p\">:</span> <span class=\"mi\">3000</span><span class=\"p\">,</span>\n  <span class=\"nf\">fetch</span><span class=\"p\">(</span><span class=\"nx\">req</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n    <span class=\"k\">return</span> <span class=\"k\">new</span> <span class=\"nc\">Response</span><span class=\"p\">(</span><span class=\"dl\">\"</span><span class=\"s2\">Hello World!</span><span class=\"dl\">\"</span><span class=\"p\">);</span>\n  <span clas",
+  "full_text": "Why Bun's HTTP Server?\n\nBun includes a built-in HTTP server that's 5-10x faster than Node.js + Express. No npm install needed — just Bun.serve() and you have a production-ready server.\n\n \n \n Quick Start\n\nBun.serve({\n port: 3000,\n fetch(req) {\n return new Response(\"Hello World!\");\n },\n});\nconsole.log(\"Server running on http://localhost:3000\");\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nRun: bun run server.ts\n\n \n \n Routing\n\nBun.serve({\n port: 3000,\n async fetch(req) {\n const url = new URL(req.url);\n\n if (url.pathname === \"/api/users\" && req.method === \"GET\") {\n const users = await db.query(\"SELECT * FROM users\");\n return Response.json(users);\n }\n\n if (url.pathname === \"/api/users\" && req.method === \"POST\") {\n const body = await req.json();\n const user = await db.query(\"INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *\", [body.name, body.email]);\n return Response.json(user, { status: 201 });\n }\n\n if (url.pathname.startsWith(\"/api/users/\") && req.method === \"GET\") {\n const id = url.pathname.split(\"/\")[3];\n const user = await db.query(\"SELECT * FROM users WHERE id = $1\", [id]);\n return user ? Response.json(user) : new Response(\"Not found\", { status: 404 });\n }\n\n return new Response(\"Not Found\", { status: 404 });\n },\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n File Serving\n\nBun.serve({\n port: 3000,\n async fetch(req) {\n const url = new URL(req.url);\n const filePath = `./public${url.pathname}`;\n const file = Bun.file(filePath);\n\n if (await file.exists()) {\n return new Response(file);\n }\n return new Response(\"Not found\", { status: 404 });\n },\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBun.file() streams files efficiently — zero-copy for large files.\n\n \n \n WebSocket Server\n\nBun.serve({\n port: 3000,\n fetch(req, server) {\n if (server.upgrade(req)) return;\n return new Response(\"Upgrade failed\", { status: 500 });\n },\n websocket: {\n open(ws) { console.log(\"Client connected\"); },\n message(ws, message) {\n ws.send(`Echo: ${message}`);\n // Broadcast to all\n ws.publish(\"chat\", message);\n },\n close(ws) { console.log(\"Client disconnected\"); },\n },\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBuilt-in WebSocket with pub/sub — no ws or socket.io needed.\n\n \n \n SQLite (Built-In)\n\nimport { Database } from \"bun:sqlite\";\n\nconst db = new Database(\"myapp.sqlite\");\ndb.run(\"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, email TEXT)\");\n\nBun.serve({\n port: 3000,\n fetch(req) {\n const url = new URL(req.url);\n if (url.pathname === \"/users\") {\n const users = db.query(\"SELECT * FROM users\").all();\n return Response.json(users);\n }\n return new Response(\"OK\");\n },\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSQLite is built into Bun — no npm packages.\n\n \n \n Benchmark\n\nFramework\nRequests/sec (hello world)\n\nBun.serve()\n~150,000\n\nNode.js http\n~50,000\n\nExpress\n~15,000\n\nFastify\n~45,000\n\nDeno.serve()\n~80,000\n\n \n \n Error Handling\n\nBun.serve({\n port: 3000,\n fetch(req) {\n // Your handler\n },\n error(error) {\n return new Response(`Error: ${error.message}`, { status: 500 });\n },\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNeed high-performance APIs or server optimization?\n\n📧 spinov001@gmail.com\n\n🔧 My tools on Apify Store\n\nBun, Deno, or Node — which runtime do you pick?",
+  "tags": [
+    [
+      "\" && req.method",
+      "2026",
+      "500-words",
+      "await",
+      "bun",
+      "bunjs",
+      "const",
+      "enter",
+      "exit",
+      "fullscreen",
+      "http",
+      "integer primary key",
+      "javascript",
+      "mode",
+      "node.js + express",
+      "return",
+      "routing\n\nbun.serve",
+      "server",
+      "sqlite",
+      "table",
+      "tutorial",
+      "user",
+      "webdev",
+      "websocket",
+      "websocket server\n\nbun.serve",
+      "without express"
+    ],
+    [
+      "bunjs",
+      "tutorial",
+      "webdev"
+    ]
+  ]
+}

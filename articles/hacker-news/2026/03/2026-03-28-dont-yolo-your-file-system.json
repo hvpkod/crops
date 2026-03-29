@@ -1,0 +1,31 @@
+{
+  "id": 6414,
+  "source": "Hacker News",
+  "title": "Don't YOLO your file system",
+  "url": "https://jai.scs.stanford.edu/",
+  "published_at": "2026-03-28T00:39:54Z",
+  "fetched_at": "2026-03-28T02:00:48.459670+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47550282\">Comments</a>",
+  "full_text": "This is not hypothetical. \n\nPeople are already reporting lost files, emptied working trees, and wiped home directories after giving AI tools ordinary machine access.\n\nThere's a gap between giving an agent your real account and stopping everything to build a container or VM. jai fills that gap. One command, no images, no Dockerfiles — just a light-weight boundary for the workflows you're already running: quick coding help, one-off local tasks, running installer scripts you didn't write.\n\nYour files, your rules\n\nUse AI agents without handing over your whole account. jai gives your working directory full access and keeps the rest of your home behind a copy-on-write overlay — or hidden entirely.\n\nStop trusting blindly\n\nOne-line installer scripts, AI-generated shell commands, unfamiliar CLIs — stop running them against your real home directory. Drop jai in front and the worst case gets a lot smaller.\n\nContainment shouldn't be hard\n\nNo images to build, no Dockerfiles to maintain, no 40-flag bwrap invocations. Just jai your-agent. If containment isn't easier than YOLO mode, nobody will bother.\n\nHow it works \n\nOne command. No setup required.\n\n1\n\nPrefix your command\njai codex, jai claude, or just jai for a shell.\n\n2\n\nCWD stays writable\nYour working directory keeps full read/write access inside the jail.\n\n3\n\nHome is an overlay\nChanges to your home directory are captured copy-on-write. Originals are untouched.\n\n4\n\nRest is locked down\n/tmp and /var/tmp are private. All other files are read-only.\n\nThree modes \n\nPick the level of isolation that fits your workflow.\n\nCasualStrictBareHome directoryCopy-on-write overlayEmpty private homeEmpty private homeProcess runs asYour userUnprivileged jai userYour userConfidentialityWeak — most files readableStrong — separate UIDMedium — your UID, but home hiddenIntegrityOverlay protects originalsFull isolationFull isolationNFS home supportYesNoYes\n\nVersus the alternatives \n\njai is not trying to replace containers. It fills a different niche.\n\nDocker\n\nGreat for reproducible, image-based environments. Heavier to set up for ad-hoc sandboxing of host tools. No overlay-on-home workflow.\n\nbubblewrap\n\nPowerful namespace sandbox. Requires explicitly assembling the filesystem view — often turns into a long wrapper script, which is the friction jai removes.\n\nchroot\n\nNot a security mechanism. No mount isolation, no PID namespace, no credential separation. Linux documents it as not intended for sandboxing.\n\njai is not a promise of perfect safety.\n\njai is a casual sandbox — it reduces the blast radius, but does not eliminate all the ways AI agents can harm you or your system. Casual mode does not protect confidentiality. Even strict mode is not equivalent to a hardened container runtime or VM. When you need strong multi-tenant isolation or defense against a determined adversary, use a proper container or virtual machine. Read the full security model →",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "casual",
+      "container",
+      "containment",
+      "cwd",
+      "directory",
+      "dockerfiles",
+      "full",
+      "give",
+      "home",
+      "pid",
+      "security",
+      "uid",
+      "work"
+    ],
+    []
+  ]
+}

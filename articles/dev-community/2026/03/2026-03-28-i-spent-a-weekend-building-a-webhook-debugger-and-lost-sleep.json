@@ -1,0 +1,40 @@
+{
+  "id": 6481,
+  "source": "DEV Community<",
+  "title": "I spent a weekend building a webhook debugger and lost sleep over a silent Stripe failure",
+  "url": "https://dev.to/jamesbrown/i-spent-a-weekend-building-a-webhook-debugger-and-lost-sleep-over-a-silent-stripe-failure-4ogc",
+  "published_at": "2026-03-28T10:07:31Z",
+  "fetched_at": "2026-03-28T10:20:38.754128+00:00",
+  "author": "James",
+  "summary": "<h2>\n  \n  \n  Here is the thing nobody tells you about Stripe webhooks: they look simple until they are not.\n</h2>\n\n<p>It was a Friday night. I had just shipped a new feature. Everything worked in development. In production? Silent failure. The payment succeeded, but my database never updated. No error. No warning. Just... nothing.</p>\n\n<p>Three hours of debugging later, I found the problem: my webhook handler was crashing on a malformed payload edge case, Stripe was retrying silently, and by the time I checked, the original event had long expired from the retry queue.</p>\n\n<p>Sound familiar? It turns out this is the most common webhook problem developers face.</p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>I stopped that night and built <a href=\"https://hooklog.c0c58bd.p.egbe.app/\" rel=\"noopener noreferrer\">Hooklog</a> — a webhook proxy that gives you full visibility into what is actually hitting your endpoints.</p>\n\n<p>With Hooklog:</p>\n\n<ul>\n<li>\n<strong>Live payload inspection</strong> — ",
+  "full_text": "Here is the thing nobody tells you about Stripe webhooks: they look simple until they are not.\n\nIt was a Friday night. I had just shipped a new feature. Everything worked in development. In production? Silent failure. The payment succeeded, but my database never updated. No error. No warning. Just... nothing.\n\nThree hours of debugging later, I found the problem: my webhook handler was crashing on a malformed payload edge case, Stripe was retrying silently, and by the time I checked, the original event had long expired from the retry queue.\n\nSound familiar? It turns out this is the most common webhook problem developers face.\n\n \n \n What I Built\n\nI stopped that night and built Hooklog — a webhook proxy that gives you full visibility into what is actually hitting your endpoints.\n\nWith Hooklog:\n\nLive payload inspection — see every webhook as it arrives, headers and body\n\nFailure alerting — get emailed the moment a webhook returns 4xx or 5xx\n\nReplay — re-send any captured webhook to debug your fix\n\nNo signup required — just create an endpoint and start sending webhooks\n\nIt takes 30 seconds to get a URL and start debugging.\n\n \n \n Why I Built It\n\nThe existing tools (ngrok, Webhook.site, RequestBin) give you URL capture but miss the failure mode that costs developers the most: the silent failure. The webhook that arrives, your server processes it wrong, returns 500, Stripe retries twice, gives up, and you never know it happened until a customer emails you three days later asking why their account was not updated.\n\nHooklog is built specifically for this. It monitors your endpoint response codes and emails you on failure — so you know in minutes, not days.\n\n \n \n The Stack\n\nBuilt with Next.js, Express, and PostgreSQL. Dockerized, deployed to production over the weekend. Not a complex product — just a focused tool that solves one specific pain.\n\nIf you have ever lost an evening to webhook debugging, you know exactly what I mean. Try Hooklog free — no signup required, 10k events/month on the free tier.\n\nWould love feedback from developers who have dealt with this firsthand.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "build",
+      "buildinpublic",
+      "developer",
+      "express",
+      "failure",
+      "give",
+      "hooklog",
+      "lose",
+      "payments",
+      "postgresql",
+      "requestbin",
+      "signup",
+      "silent",
+      "stripe",
+      "the stack\n\nbuilt",
+      "webdev",
+      "webhook",
+      "webhooks"
+    ],
+    [
+      "buildinpublic",
+      "webdev",
+      "webhooks"
+    ]
+  ]
+}

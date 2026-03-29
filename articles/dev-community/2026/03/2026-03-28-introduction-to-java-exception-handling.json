@@ -1,0 +1,36 @@
+{
+  "id": 6573,
+  "source": "DEV Community<",
+  "title": "Introduction to Java Exception Handling",
+  "url": "https://dev.to/arun_kumar_98/introduction-to-java-exception-handling-1emm",
+  "published_at": "2026-03-28T19:11:40Z",
+  "fetched_at": "2026-03-28T19:20:20.630137+00:00",
+  "author": "Arun Kumar",
+  "summary": "<h2>\n  \n  \n  What is Exception Handling?\n</h2>\n\n<p>Exception Handling in Java is a mechanism to handle runtime errors so that the normal flow of the program can be maintained.</p>\n\n<p>An <strong>exception</strong> is an unwanted or unexpected event that occurs during program execution and disrupts the normal flow of instructions.</p>\n\n\n\n\n<h2>\n  \n  \n  Why Exception Handling is Important?\n</h2>\n\n<ul>\n<li>Prevents program from crashing</li>\n<li>Maintains normal flow of application</li>\n<li>Helps in debugging errors easily</li>\n</ul>\n\n<h2>\n  \n  \n  Basic Keywords in Exception Handling\n</h2>\n\n<ul>\n<li>\n<code>try</code> → block where code is written</li>\n<li>\n<code>catch</code> → handles the exception</li>\n</ul>\n\n<h2>\n  \n  \n  simple Example Program\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight java\"><code><span class=\"kd\">public</span> <span class=\"kd\">class</span> <span class=\"nc\">ExceptionExample</span> <span class=\"o\">{</span>\n    <span class=\"kd\">public</span> <",
+  "full_text": "What is Exception Handling?\n\nException Handling in Java is a mechanism to handle runtime errors so that the normal flow of the program can be maintained.\n\nAn exception is an unwanted or unexpected event that occurs during program execution and disrupts the normal flow of instructions.\n\n \n \n Why Exception Handling is Important?\n\nPrevents program from crashing\n\nMaintains normal flow of application\n\nHelps in debugging errors easily\n\n \n \n Basic Keywords in Exception Handling\n\ntry → block where code is written\n\ncatch → handles the exception\n\n \n \n simple Example Program\n\npublic class ExceptionExample {\n public static void main(String[] args) {\n\n try {\n int a = 10;\n int b = 0;\n\n int result = a / b; // Exception occurs here\n\n System.out.println(result);\n } \n catch (ArithmeticException e) {\n System.out.println(\"Cannot divide by zero\");\n }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "beginners",
+      "catch",
+      "error",
+      "example program",
+      "exception",
+      "flow",
+      "handle",
+      "handling",
+      "java",
+      "normal",
+      "occur",
+      "program",
+      "programming",
+      "tutorial"
+    ],
+    [
+      "beginners",
+      "programming",
+      "tutorial"
+    ]
+  ]
+}

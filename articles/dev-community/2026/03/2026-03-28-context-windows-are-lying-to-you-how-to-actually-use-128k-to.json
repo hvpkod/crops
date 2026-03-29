@@ -1,0 +1,42 @@
+{
+  "id": 6410,
+  "source": "DEV Community<",
+  "title": "Context Windows Are Lying to You: How to Actually Use 128K Tokens",
+  "url": "https://dev.to/novaelvaris/context-windows-are-lying-to-you-how-to-actually-use-128k-tokens-4i8i",
+  "published_at": "2026-03-28T01:39:22Z",
+  "fetched_at": "2026-03-28T02:00:35.687517+00:00",
+  "author": "Nova Elvaris",
+  "summary": "<p>Every model brags about context windows now. 128K tokens. 200K tokens. \"Paste your entire codebase!\" the marketing says.</p>\n\n<p>I tried it. I pasted 80K tokens of a Node.js project into Claude and asked it to find a bug. It found <em>a</em> bug — in a file I didn't care about, while ignoring the actual issue in the file I mentioned.</p>\n\n<p>Here's what I learned about context windows the hard way.</p>\n\n<h2>\n  \n  \n  The Attention Problem\n</h2>\n\n<p>Large context windows don't mean the model pays equal attention to everything. Research on \"lost in the middle\" showed that LLMs disproportionately focus on the <strong>beginning</strong> and <strong>end</strong> of the context, with reduced attention in the middle.</p>\n\n<p>In practice, this means:</p>\n\n<ul>\n<li>File 1 of 50: high attention ✓</li>\n<li>Files 2-49: declining attention ✗</li>\n<li>File 50: high attention ✓</li>\n<li>Your actual question at the end: high attention ✓</li>\n</ul>\n\n<p>So if your bug is in file 27, the model literall",
+  "full_text": "Every model brags about context windows now. 128K tokens. 200K tokens. \"Paste your entire codebase!\" the marketing says.\n\nI tried it. I pasted 80K tokens of a Node.js project into Claude and asked it to find a bug. It found a bug — in a file I didn't care about, while ignoring the actual issue in the file I mentioned.\n\nHere's what I learned about context windows the hard way.\n\n \n \n The Attention Problem\n\nLarge context windows don't mean the model pays equal attention to everything. Research on \"lost in the middle\" showed that LLMs disproportionately focus on the beginning and end of the context, with reduced attention in the middle.\n\nIn practice, this means:\n\nFile 1 of 50: high attention ✓\n\nFiles 2-49: declining attention ✗\n\nFile 50: high attention ✓\n\nYour actual question at the end: high attention ✓\n\nSo if your bug is in file 27, the model literally pays less attention to it — even though it's \"in context.\"\n\n \n \n The Cost Problem\n\n128K input tokens on GPT-4o costs about $0.32. That sounds cheap until you're iterating. Ask 10 follow-up questions with the same context and you've spent $3.20 — for one debugging session. Do this daily and you're burning $60+/month on context you mostly don't need.\n\n \n \n The Noise Problem\n\nMore context means more potential for the model to get confused. Paste your entire codebase and ask \"how does auth work?\" The model will find auth-related code in your middleware, your tests, your old migration files, your README, and your CI config. It'll synthesize all of them into an answer that's technically accurate but practically useless because it mixes current code with deprecated patterns.\n\n \n \n What Actually Works: The Context Budget\n\nI now treat context like a budget. Every project gets a context budget — the minimum set of files needed for the current task. Nothing more.\n\n \n \n Rule 1: 3-File Maximum for Bug Fixes\n\nFor any bug fix, I include at most 3 files:\n\nThe file with the bug\n\nThe file that calls it\n\nThe test file (if one exists)\n\nThat's usually 1-3K tokens. Fast, cheap, and the model's full attention is on the relevant code.\n\n \n \n Rule 2: Tree Before Files\n\nBefore pasting any code, I give the model the project structure:\n\nHere's the project tree (files only, no contents):\nsrc/\n auth/\n middleware.ts\n oauth.ts\n session.ts\n api/\n users.ts\n posts.ts\n db/\n schema.prisma\n migrations/\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThen I ask: \"Which files do you need to see to [task]?\" The model picks 2-3 files. I paste those. This is dramatically more effective than dumping everything.\n\n \n \n Rule 3: Summaries Over Source for Large Codebases\n\nFor architectural questions, I write a 200-word summary instead of pasting 50 files:\n\n## Architecture Summary\n- Express API with Prisma ORM, PostgreSQL\n- Auth: Google OAuth2, sessions stored in Redis\n- 3 main domains: users, posts, comments\n- Each domain has: router, service, repository layers\n- Tests: Vitest for unit, Playwright for e2e\n- Current issue: session expiry not triggering token refresh\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis gives the model the map without the territory. It can reason about architecture from a summary faster than from raw source.\n\n \n \n Rule 4: Rolling Context for Multi-Step Work\n\nFor long sessions, I maintain a \"working set\" — a running summary of what we've done and decided:\n\n## Working Set (updated after each step)\n- Fixed: session middleware now checks token expiry\n- Changed: added `refreshToken()` call in auth middleware\n- Pending: update tests for new refresh flow\n- Decision: using sliding window expiry (not fixed)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis replaces the growing conversation history. Instead of the model re-reading 20 back-and-forth messages, it reads 5 lines of curated state.\n\n \n \n The Number That Matters\n\nIn my experience, the sweet spot is 2,000-8,000 tokens of input context for most coding tasks. That's:\n\n3-5 source files, or\n\n1 file + project summary + task description, or\n\nA working set summary + the current file\n\nAbove 8K, I start seeing diminishing returns. Above 20K, I start seeing negative returns — the model gets noisier, slower, and more expensive with no accuracy gain.\n\nThe 128K window isn't there for you to use all of it. It's there so you can include a large file when you need to. Think of it as cargo capacity, not a target.\n\n \n \n Quick Reference\n\nTask\nContext Budget\n\nBug fix\n~2K (3 files max)\n\nNew feature\n~5K (spec + related files)\n\nArchitecture question\n~1K (summary only)\n\nCode review\n~4K (diff + touched files)\n\nRefactoring\n~8K (module + tests + conventions)\n\nHow do you manage context window usage? I'd love to hear if anyone's found a good automated approach — right now mine is manual but it works.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "architecture",
+      "attention",
+      "claude",
+      "context",
+      "expiry",
+      "file",
+      "fullscreen",
+      "mode",
+      "model",
+      "node.js",
+      "postgresql",
+      "productivity",
+      "programming",
+      "redis",
+      "summary",
+      "the noise problem",
+      "token",
+      "wecoded"
+    ],
+    [
+      "claude",
+      "productivity",
+      "programming",
+      "wecoded"
+    ]
+  ]
+}

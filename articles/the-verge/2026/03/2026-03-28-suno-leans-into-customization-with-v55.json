@@ -1,0 +1,38 @@
+{
+  "id": 6568,
+  "source": "The Verge",
+  "title": "Suno leans into customization with v5.5",
+  "url": "https://www.theverge.com/entertainment/903056/suno-ai-music-v5-5-model",
+  "published_at": "2026-03-28T18:33:10Z",
+  "fetched_at": "2026-03-28T18:40:30.093839+00:00",
+  "author": "Terrence O’Brien",
+  "summary": "<figure>\n\n<img alt=\"Suno V5.5 logo in big bold font, daring you to talk smack.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/1774532259-suno_v5-5_blogouterbanner.webp?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tSlop yourself. | Image: Suno\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Suno just released one of its biggest updates yet with <a href=\"https://suno.com/blog/v5-5\">v5.5</a> of its AI music model. Where previous updates focused mostly on <a href=\"https://www.theverge.com/24103840/generative-ai-artwork-suno-music-industry-musicians-copyright\">improving fidelity</a> and creating <a href=\"https://www.theverge.com/ai-artificial-intelligence/786349/suno-ai-music-generator-v5-review\">more natural vocals</a>, v5.5 is about giving users more control. It includes three new features: Voices, My Taste, and Custom Models.</p>\n<p class=\"has-text-align-none\">In the release notes, Suno says that Voices is its most requested feature. It",
+  "full_text": "Suno just released one of its biggest updates yet with v5.5 of its AI music model. Where previous updates focused mostly on improving fidelity and creating more natural vocals, v5.5 is about giving users more control. It includes three new features: Voices, My Taste, and Custom Models.\n\nIn the release notes, Suno says that Voices is its most requested feature. It lets users train the vocal model on their own voice. They can upload clean accapellas, finished tracks with backing music, or just sing directly into the mic on their phone or laptop. The cleaner and higher quality the recording, the less data is required. And to prevent someone from simply stealing another person’s voice, Suno requires the user to also speak a verification phrase. Though, this might be possible to fool with existing AI models of celebrity voices.\n\nOnce the Voices feature is trained, users can then have an AI version of themselves sing on uploaded music or AI-generated outputs.\n\nTo further personalize outputs, Custom Models allows users to train Suno on their own music. Users will need to upload at least six tracks from their catalog and give the custom model a name. Then they’ll be able to use it to guide v5.5 responses to prompts.\n\nLastly, My Taste learns tastes and preferences over time. What genres, moods, and artists you routinely come back to for prompts, and applies them when using the magic wand to autogenerate styles.\n\nWhile My Taste will be available to all users, Voices and Custom Models are reserved for Pro and Premier subscribers.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "clean",
+      "custom",
+      "custom models",
+      "entertainment",
+      "models",
+      "music",
+      "news",
+      "sing",
+      "suno",
+      "taste",
+      "tech",
+      "train",
+      "upload",
+      "user",
+      "voices"
+    ],
+    [
+      "entertainment",
+      "music",
+      "news"
+    ]
+  ]
+}

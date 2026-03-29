@@ -1,0 +1,38 @@
+{
+  "id": 6613,
+  "source": "DEV Community<",
+  "title": "The Mistakes Didn't Change. The Speed Did.",
+  "url": "https://dev.to/felixortizdev/the-mistakes-didnt-change-the-speed-did-13i8",
+  "published_at": "2026-03-28T21:42:45Z",
+  "fetched_at": "2026-03-28T22:20:41.087448+00:00",
+  "author": "Felix Ortiz",
+  "summary": "<p>Everyone is measuring how fast agents write code. Few are measuring what that code introduces.</p>\n\n<p>This year, independent researchers tested the major AI coding agents building applications from scratch. <a href=\"https://www.helpnetsecurity.com/2026/03/13/claude-code-openai-codex-google-gemini-ai-coding-agent-security/\" rel=\"noopener noreferrer\">Most pull requests contained at least one vulnerability</a>. Inside Fortune 50 companies, AI-generated code <a href=\"https://apiiro.com/blog/4x-velocity-10x-vulnerabilities-ai-coding-assistants-are-shipping-more-risks/\" rel=\"noopener noreferrer\">introduced 10,000+ new security findings per month</a>. Logic and syntax bugs went down. Privilege escalation paths jumped over 300%. Yikes!</p>\n\n<p>The code improved while the vulnerabilities got worse. Agents just produce the same old mistakes faster. One customer seeing another customer's data. Login flows that leave a back door wide open. Endpoints exposed to the entire internet.</p>\n\n<h2>\n  ",
+  "full_text": "Everyone is measuring how fast agents write code. Few are measuring what that code introduces.\n\nThis year, independent researchers tested the major AI coding agents building applications from scratch. Most pull requests contained at least one vulnerability. Inside Fortune 50 companies, AI-generated code introduced 10,000+ new security findings per month. Logic and syntax bugs went down. Privilege escalation paths jumped over 300%. Yikes!\n\nThe code improved while the vulnerabilities got worse. Agents just produce the same old mistakes faster. One customer seeing another customer's data. Login flows that leave a back door wide open. Endpoints exposed to the entire internet.\n\n \n \n The mistakes are harder to see\n\nThe code looks clean. It follows the right patterns, uses the right frameworks, passes initial agent-driven code review. It just quietly skips the check that asks \"should this user be allowed to do this?\" or \"has this request been authenticated?\"\n\nThese are judgment mistakes. The security tooling most teams rely on was built to catch known-bad patterns, not missing logic. Over 80% of vulnerabilities in AI-generated code go undetected by traditional static analysis. Pattern matching catches code that is obviously wrong. It cannot catch logic that is missing.\n\n \n \n The window to catch them is closing\n\nA human writes one insecure endpoint per sprint. An agent writes twenty in an afternoon. That alone changes the math on how much your security infrastructure needs to handle.\n\nIt goes further. The agentic loop is getting tighter. Agents writing code, agents reviewing code, agents merging code. Each iteration shrinks the window between generation and production, and the human verification layer gets thinner every time.\n\nWhen that window was wide, pattern-matching tools and human reviewers could compensate for each other's blind spots. As it narrows, both have less time to work with, and the mistakes that slip through are the ones neither was designed to catch.\n\n \n \n The tooling is evolving, and so is the attack surface\n\nThe next generation of security tooling is starting to reason about code rather than just match patterns. Security review as a continuous practice embedded in the development loop, not a gate at the end of it. That direction is right.\n\nMore tooling also means more surface area. Earlier this year, a wave of CVEs hit MCP infrastructure, many of them the same class of vulnerability these tools exist to catch. If you are going to trust your security pipeline, you have to secure the pipeline itself. OWASP and GitHub are already publishing frameworks and reference architectures for this.\n\n \n \n What I'm doing about it\n\nOn my own platform, I have the pattern-matching layer in place. Static analysis on every PR, dynamic scanning nightly. That catches what it was designed to catch. The floor is built.\n\nNow I need what goes above it: security agents that reason about logic-level gaps, tooling integrated at generation time via MCP instead of just at review time, and a hardened pipeline that gets the same isolation and least-privilege treatment as production.\n\nThe mistakes agents make are not new. The speed at which they make them is.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai",
+      "catch",
+      "code",
+      "devops",
+      "devsecops",
+      "github",
+      "go",
+      "mcp",
+      "measure",
+      "mistake",
+      "owasp",
+      "security",
+      "tooling",
+      "vulnerability",
+      "window"
+    ],
+    [
+      "devops",
+      "devsecops",
+      "github"
+    ]
+  ]
+}

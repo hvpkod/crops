@@ -1,0 +1,44 @@
+{
+  "id": 6609,
+  "source": "DEV Community<",
+  "title": "8 JavaScript Mistakes I See in Every Code Review (And How to Fix Them)",
+  "url": "https://dev.to/lucasmdevdev/8-javascript-mistakes-i-see-in-every-code-review-and-how-to-fix-them-1dla",
+  "published_at": "2026-03-28T21:51:38Z",
+  "fetched_at": "2026-03-28T22:20:31.687460+00:00",
+  "author": "Lucas M Dev",
+  "summary": "<p>After reviewing hundreds of PRs, these are the patterns that keep coming up. Let's fix them once and for all.</p>\n\n<h2>\n  \n  \n  1. Using == instead of ===\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code><span class=\"c1\">// 🚫 Wrong - type coercion is unpredictable</span>\n<span class=\"k\">if </span><span class=\"p\">(</span><span class=\"nx\">user</span><span class=\"p\">.</span><span class=\"nx\">age</span> <span class=\"o\">==</span> <span class=\"dl\">\"</span><span class=\"s2\">18</span><span class=\"dl\">\"</span><span class=\"p\">)</span> <span class=\"p\">...</span>\n<span class=\"k\">if </span><span class=\"p\">(</span><span class=\"nx\">count</span> <span class=\"o\">==</span> <span class=\"kc\">null</span><span class=\"p\">)</span> <span class=\"p\">...</span>\n<span class=\"k\">if </span><span class=\"p\">(</span><span class=\"mi\">0</span> <span class=\"o\">==</span> <span class=\"kc\">false</span><span class=\"p\">)</span> <span class=\"p\">...</span>   <span class=\"c1\">// true!</s",
+  "full_text": "After reviewing hundreds of PRs, these are the patterns that keep coming up. Let's fix them once and for all.\n\n \n \n 1. Using == instead of ===\n\n// 🚫 Wrong - type coercion is unpredictable\nif (user.age == \"18\") ...\nif (count == null) ...\nif (0 == false) ... // true!\nif (\"\" == false) ... // true!\n\n// ✅ Correct - strict equality, no surprises\nif (user.age === 18) ...\nif (count === null || count === undefined) ...\n// Or better:\nif (count == null) ... // Only acceptable for null/undefined check\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nException: == null is fine when checking for both null AND undefined.\n\n \n \n 2. Mutating function parameters\n\n// 🚫 Wrong - mutates the caller's object\nfunction addTimestamp(user) {\n user.createdAt = new Date();\n return user;\n}\n\nconst admin = { name: 'Alice', role: 'admin' };\nconst timestamped = addTimestamp(admin);\nconsole.log(admin.createdAt); // Oops! admin was mutated too\n\n// ✅ Correct - return a new object\nfunction addTimestamp(user) {\n return { ...user, createdAt: new Date() };\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 3. Not handling async errors\n\n// 🚫 Wrong - crashes the whole app on network error\nasync function fetchUser(id) {\n const response = await fetch(`/api/users/${id}`);\n return response.json();\n}\n\n// ✅ Correct - handle errors where they happen\nasync function fetchUser(id) {\n try {\n const response = await fetch(`/api/users/${id}`);\n if (!response.ok) throw new Error(`HTTP ${response.status}`);\n return { data: await response.json(), error: null };\n } catch (err) {\n return { data: null, error: err.message };\n }\n}\n\nconst { data, error } = await fetchUser(42);\nif (error) { /* handle */ }\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 4. Creating functions inside loops\n\n// 🚫 Wrong - creates N closures, all referencing the same `i`\nconst handlers = [];\nfor (var i = 0; i < 5; i++) {\n handlers.push(() => console.log(i));\n}\nhandlers.forEach(h => h()); // 5 5 5 5 5 — not what you want!\n\n// ✅ Correct option 1 - use let (block scoping)\nfor (let i = 0; i < 5; i++) {\n handlers.push(() => console.log(i));\n}\n// 0 1 2 3 4 ✓\n\n// ✅ Correct option 2 - just use map\nconst handlers = [0,1,2,3,4].map(i => () => console.log(i));\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 5. Forgetting to clean up side effects\n\n// 🚫 Wrong - memory leak and stale state\nfunction SearchComponent() {\n const [results, setResults] = useState([]);\n\n useEffect(() => {\n // If component unmounts before fetch completes, setState on unmounted component\n fetchSearch(query).then(data => setResults(data));\n }, [query]);\n}\n\n// ✅ Correct - clean up with AbortController\nfunction SearchComponent() {\n const [results, setResults] = useState([]);\n\n useEffect(() => {\n const controller = new AbortController();\n\n fetchSearch(query, { signal: controller.signal })\n .then(data => setResults(data))\n .catch(err => {\n if (err.name !== 'AbortError') console.error(err);\n });\n\n return () => controller.abort(); // Cleanup!\n }, [query]);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 6. Not using early returns\n\n// 🚫 Wrong - deeply nested, hard to read\nfunction processOrder(order) {\n if (order) {\n if (order.items.length > 0) {\n if (order.user.isVerified) {\n if (order.total > 0) {\n return submitOrder(order);\n }\n }\n }\n }\n return null;\n}\n\n// ✅ Correct - flat, readable, each failure is explicit\nfunction processOrder(order) {\n if (!order) return null;\n if (order.items.length === 0) return null;\n if (!order.user.isVerified) return null;\n if (order.total <= 0) return null;\n\n return submitOrder(order);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 7. Using Array.forEach when you need a result\n\n// 🚫 Wrong - forEach doesn't return, forces mutable pattern\nconst doubled = [];\n[1, 2, 3].forEach(n => doubled.push(n * 2));\n\n// 🚫 Also wrong - mixing concerns\nconst results = [];\nusers.forEach(user => {\n if (user.active) {\n results.push({ ...user, displayName: user.name.trim() });\n }\n});\n\n// ✅ Correct - use the right method\nconst doubled = [1, 2, 3].map(n => n * 2);\n\nconst results = users\n .filter(user => user.active)\n .map(user => ({ ...user, displayName: user.name.trim() }));\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 8. Not using environment checks properly\n\n// 🚫 Wrong - exposes sensitive info, breaks across environments\nconst API_URL = \"https://api.production.com\"; // Hardcoded!\nconst DEBUG = true; // Always enabled!\n\n// 🚫 Also wrong - string comparison with typo risk \nif (process.env.NODE_ENV == \"producton\") { ... } // Typo!\n\n// ✅ Correct - centralised config\n// config.js\nexport const config = {\n apiUrl: process.env.REACT_APP_API_URL || 'http://localhost:3000',\n isDev: process.env.NODE_ENV === 'development',\n isProd: process.env.NODE_ENV === 'production',\n};\n\n// Use everywhere\nif (config.isDev) console.log('Debug info:', data);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Quick Reference\n\nAnti-pattern\nFix\n\n== loose equality\n\n=== strict equality\n\nMutating params\nSpread: { ...obj }\n\nUnhandled async\ntry/catch + error state\n\nvar in loops\nlet or map\n\nNo cleanup in useEffect\nreturn cleanup function\n\nDeep nesting\nEarly returns\n\nforEach with result\nmap/filter/reduce\n\nHardcoded config\nEnvironment variables\n\nDid I miss any patterns you see often? Drop them in the comments!",
+  "tags": [
+    [
+      "// always",
+      "// cleanup",
+      "1000-words",
+      "2026",
+      "abortcontroller",
+      "beginners",
+      "codequality",
+      "const",
+      "correct",
+      "createdat: new date",
+      "enter",
+      "exit",
+      "fullscreen",
+      "function",
+      "javascript",
+      "mode",
+      "null",
+      "response.json",
+      "return",
+      "searchcomponent",
+      "setstate",
+      "useeffect",
+      "webdev",
+      "wrong"
+    ],
+    [
+      "beginners",
+      "codequality",
+      "webdev"
+    ]
+  ]
+}

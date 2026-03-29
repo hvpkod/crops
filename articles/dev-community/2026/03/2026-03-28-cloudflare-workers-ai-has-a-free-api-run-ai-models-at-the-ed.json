@@ -1,0 +1,39 @@
+{
+  "id": 6541,
+  "source": "DEV Community<",
+  "title": "Cloudflare Workers AI Has a Free API: Run AI Models at the Edge with Zero Infrastructure",
+  "url": "https://dev.to/0012303/cloudflare-workers-ai-has-a-free-api-run-ai-models-at-the-edge-with-zero-infrastructure-2ibo",
+  "published_at": "2026-03-28T16:09:49Z",
+  "fetched_at": "2026-03-28T16:20:36.533917+00:00",
+  "author": "Alex Spinov",
+  "summary": "<h2>\n  \n  \n  What is Workers AI?\n</h2>\n\n<p><a href=\"https://developers.cloudflare.com/workers-ai/\" rel=\"noopener noreferrer\">Workers AI</a> lets you run <strong>AI models on Cloudflare's edge network</strong> — text generation, image classification, embeddings, speech-to-text, translation, and more. No GPU provisioning, no model hosting.</p>\n\n<p>Free tier: <strong>10,000 neurons/day</strong> (enough for ~100+ requests).</p>\n\n<h2>\n  \n  \n  Quick Start\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>npm create cloudflare@latest my-ai-app <span class=\"nt\">--</span> <span class=\"nt\">--template</span> worker-typescript\n<span class=\"nb\">cd </span>my-ai-app\n</code></pre>\n\n</div>\n\n\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight toml\"><code><span class=\"c\"># wrangler.toml</span>\n<span class=\"nn\">[ai]</span>\n<span class=\"py\">binding</span> <span class=\"p\">=</span> <span class=\"s\">\"AI\"</span>\n</code></pre>\n\n</div>\n\n\n\n<h2>\n  \n  \n  Text Gener",
+  "full_text": "What is Workers AI?\n\nWorkers AI lets you run AI models on Cloudflare's edge network — text generation, image classification, embeddings, speech-to-text, translation, and more. No GPU provisioning, no model hosting.\n\nFree tier: 10,000 neurons/day (enough for ~100+ requests).\n\n \n \n Quick Start\n\nnpm create cloudflare@latest my-ai-app -- --template worker-typescript\ncd my-ai-app\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n# wrangler.toml\n[ai]\nbinding = \"AI\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Text Generation (LLM)\n\nexport default {\n async fetch(request: Request, env: Env) {\n const response = await env.AI.run(\"@cf/meta/llama-3.1-8b-instruct\", {\n messages: [\n { role: \"system\", content: \"You are a helpful assistant.\" },\n { role: \"user\", content: \"Explain WebAssembly in 3 sentences.\" },\n ],\n max_tokens: 256,\n });\n\n return Response.json(response);\n },\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Streaming Responses\n\nconst stream = await env.AI.run(\"@cf/meta/llama-3.1-8b-instruct\", {\n messages: [{ role: \"user\", content: \"Write a poem about coding\" }],\n stream: true,\n});\n\nreturn new Response(stream, {\n headers: { \"Content-Type\": \"text/event-stream\" },\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Text Embeddings\n\nconst embeddings = await env.AI.run(\"@cf/baai/bge-base-en-v1.5\", {\n text: [\"How to deploy a web app\", \"Best practices for CI/CD\"],\n});\n\nconsole.log(embeddings.data[0].length); // 768 dimensions\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCombine with Vectorize for semantic search.\n\n \n \n Image Classification\n\nconst imageData = await request.arrayBuffer();\nconst result = await env.AI.run(\"@cf/microsoft/resnet-50\", {\n image: [...new Uint8Array(imageData)],\n});\n\nconsole.log(result); // [{label: \"cat\", score: 0.95}, ...]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Image Generation\n\nconst image = await env.AI.run(\"@cf/stabilityai/stable-diffusion-xl-base-1.0\", {\n prompt: \"A futuristic city skyline at sunset, cyberpunk style\",\n});\n\nreturn new Response(image, {\n headers: { \"Content-Type\": \"image/png\" },\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Translation\n\nconst translated = await env.AI.run(\"@cf/meta/m2m100-1.2b\", {\n text: \"Hello, how are you?\",\n source_lang: \"english\",\n target_lang: \"spanish\",\n});\n// {translated_text: \"Hola, ¿cómo estás?\"}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Speech-to-Text\n\nconst audioData = await request.arrayBuffer();\nconst transcription = await env.AI.run(\"@cf/openai/whisper\", {\n audio: [...new Uint8Array(audioData)],\n});\nconsole.log(transcription.text);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Text Summarization\n\nconst summary = await env.AI.run(\"@cf/facebook/bart-large-cnn\", {\n input_text: longArticleText,\n max_length: 150,\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Available Models\n\nCategory\nModel\nUse Case\n\nLLM\nLlama 3.1 8B\nChat, code gen\n\nEmbeddings\nBGE Base\nSemantic search\n\nImage Gen\nSDXL\nImage creation\n\nVision\nResNet-50\nImage classification\n\nTranslation\nM2M-100\n100+ languages\n\nSpeech\nWhisper\nAudio transcription\n\nSummarization\nBART\nText summarization\n\n \n \n REST API\n\ncurl \"https://api.cloudflare.com/client/v4/accounts/ACCOUNT_ID/ai/run/@cf/meta/llama-3.1-8b-instruct\" \\\n -H \"Authorization: Bearer $CF_TOKEN\" \\\n -d '{\"messages\": [{\"role\": \"user\", \"content\": \"Hello\"}]}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNeed AI integration or edge computing setup?\n\n📧 spinov001@gmail.com\n\n🔧 My tools on Apify Store\n\nEdge AI or centralized GPU — what's your approach?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "ai.run(\"@cf/baai/",
+      "api",
+      "await",
+      "cloudflare",
+      "cloudflare workers ai",
+      "const",
+      "edge",
+      "enter",
+      "exit",
+      "fullscreen",
+      "gpu",
+      "image",
+      "image classification",
+      "javascript",
+      "mode",
+      "summarization",
+      "text",
+      "tutorial"
+    ],
+    [
+      "tutorial"
+    ]
+  ]
+}

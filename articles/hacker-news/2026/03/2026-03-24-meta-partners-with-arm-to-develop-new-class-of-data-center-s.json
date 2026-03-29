@@ -1,0 +1,30 @@
+{
+  "id": 6601,
+  "source": "Hacker News",
+  "title": "Meta Partners with Arm to Develop New Class of Data Center Silicon",
+  "url": "https://about.fb.com/news/2026/03/meta-partners-with-arm-to-develop-new-class-of-data-center-silicon/",
+  "published_at": "2026-03-24T18:17:19Z",
+  "fetched_at": "2026-03-28T22:00:25.578189+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47506889\">Comments</a>",
+  "full_text": "Today, we’re announcing a partnership with Arm to develop a new class of CPUs to support growing AI workloads and general purpose computing. CPUs are the processors in computers that make AI training and inference possible, and as we work to build the next generation of AI and enable personal superintelligence for everyone, our data centers are outgrowing the abilities of traditional CPUs. Through our collaboration with Arm, we’ll co-develop multiple generations of cutting-edge CPUs built to enable massive compute power in limited space, supporting the AI-optimized data centers and large gigawatt-scale AI deployments that are central to our AI innovations. \n\n“Delivering AI experiences at global scale demands a robust and adaptable portfolio of custom silicon solutions, purpose-built to accelerate AI workloads and optimize performance across Meta’s platforms. We worked alongside Arm to develop the Arm AGI CPU to deploy an efficient compute platform that significantly improves our data center performance density and supports a multi-generation roadmap for our evolving AI systems.” \n\n– Santosh Janardhan, Head of Infrastructure, Meta \n\nThe first release, Arm AGI CPU, is Arm’s first ever data center CPU designed specifically for the AI era, delivering faster performance per rack far more efficiently than legacy CPUs. Meta will serve as the lead partner and co-developer for the Arm AGI CPU, which has been developed to optimize infrastructure for our family of apps and work alongside our custom MTIA silicon. The Arm AGI CPU will be available to the broader AI ecosystem through Arm and we will be releasing our board and rack designs for this CPU under the Open Compute Project later this year. \n\n \n \n\n \n\n \n\n \n\n“AI is reshaping how data center infrastructure is built and deployed at scale. Our collaboration with Meta to co-develop the Arm AGI CPU reflects the next phase of the Arm compute platform — expanding into delivering production silicon CPUs optimized for large-scale agentic AI deployments. Together, we are combining Arm’s foundation of high-performance, power-efficient computing with Meta’s infrastructure expertise to support the next generation of AI systems.”\n\n– Rene Haas, CEO, Arm \n\nOur Arm CPUs will join our growing silicon portfolio, helping us build a robust and adaptable hardware stack that meets the needs of AI and enables us to deliver AI experiences to billions of people worldwide. \n\nLearn more on Arm’s newsroom.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "adaptable",
+      "center",
+      "compute",
+      "cpu",
+      "datum",
+      "deliver",
+      "grow",
+      "meta",
+      "meta’s",
+      "mtia",
+      "silicon",
+      "workload"
+    ],
+    []
+  ]
+}

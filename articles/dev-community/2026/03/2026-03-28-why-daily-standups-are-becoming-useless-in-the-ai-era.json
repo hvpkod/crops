@@ -1,0 +1,37 @@
+{
+  "id": 6606,
+  "source": "DEV Community<",
+  "title": "Why Daily Standups Are Becoming Useless in the AI Era",
+  "url": "https://dev.to/oler/why-daily-standups-are-becoming-useless-in-the-ai-era-iao",
+  "published_at": "2026-03-28T22:00:14Z",
+  "fetched_at": "2026-03-28T22:20:25.622849+00:00",
+  "author": "Rodrigo Oler",
+  "summary": "<p>Daily standups were supposed to improve coordination.</p>\n\n<p>In practice, they often became a ritual that burns engineering time without giving much back. The old 15-minute promise sounds harmless, but in most real teams it becomes 30 minutes, 1 hour, or even 1 hour 30 minutes once the conversation starts and people wait their turn.</p>\n\n<p>Strictly speaking, \"daily\" is the cadence and \"standup\" is the ceremony. In practice, people just use \"daily\" as shorthand for the meeting itself.</p>\n\n<p>That is where the math gets ugly.</p>\n\n<h2>\n  \n  \n  Why it used to make sense\n</h2>\n\n<p>Standups were useful when teams had poor visibility and weak async tooling. They helped surface blockers, expose dependencies, and give managers a quick snapshot of progress.</p>\n\n<p>The problem is that many companies kept the ceremony long after the reason for it weakened.</p>\n\n<p>Today, engineers already have:</p>\n\n<ul>\n<li>ticket boards</li>\n<li>pull request summaries</li>\n<li>commit history</li>\n<li>Sla",
+  "full_text": "Daily standups were supposed to improve coordination.\n\nIn practice, they often became a ritual that burns engineering time without giving much back. The old 15-minute promise sounds harmless, but in most real teams it becomes 30 minutes, 1 hour, or even 1 hour 30 minutes once the conversation starts and people wait their turn.\n\nStrictly speaking, \"daily\" is the cadence and \"standup\" is the ceremony. In practice, people just use \"daily\" as shorthand for the meeting itself.\n\nThat is where the math gets ugly.\n\n \n \n Why it used to make sense\n\nStandups were useful when teams had poor visibility and weak async tooling. They helped surface blockers, expose dependencies, and give managers a quick snapshot of progress.\n\nThe problem is that many companies kept the ceremony long after the reason for it weakened.\n\nToday, engineers already have:\n\nticket boards\n\npull request summaries\n\ncommit history\n\nSlack updates\n\nAI-generated status recaps\n\nIf the status already exists in the system of record, forcing the whole team into a synchronous update ritual is usually redundant.\n\n \n \n The real cost\n\nThe meeting itself is not the full cost. The expensive part is the context switching before and after it.\n\nLet’s make the assumptions explicit:\n\n5 workdays per week\n\none daily standup every workday\n\neveryone attends\n\nthe realistic range is 30 minutes to 1 hour 30 minutes per day\n\n \n \n Cost per engineer\n\nIf the daily lasts 30 minutes:\n\nper week: 2.5 hours\n\nper month: 10.8 hours\n\nper year: 130 hours\n\nIf the daily lasts 1 hour 30 minutes:\n\nper week: 7.5 hours\n\nper month: 32.5 hours\n\nper year: 390 hours\n\nA single engineer can lose 130 to 390 hours per year to a ritual that is supposed to save time.\n\n \n \n Visualizing the waste\n\nThe charts make the hidden tax easier to see.\n\n \n \n 6-person startup\n\nIf the team has 6 people:\n\n30 minutes per day = 780 hours per year\n\n1 hour 30 minutes per day = 2,340 hours per year\n\nThat is roughly 0.4 to 1.1 full-time work-years every year.\n\n \n \n 300-person company\n\nIf the company has 300 people:\n\n30 minutes per day = 39,000 hours per year\n\n1 hour 30 minutes per day = 117,000 hours per year\n\nThat is roughly 18.8 to 56.3 full-time work-years every year.\n\n \n \n What AI changed\n\nAI did not remove the need for communication. It removed a lot of the manual work that used to justify the meeting.\n\nTeams can now get:\n\nbetter summaries\n\nfaster blocker detection\n\ncleaner async updates\n\nmore visible project state\n\nSo the daily often becomes a low-value repetition of information people already have.\n\n \n \n What should replace it\n\nNot silence. Better communication.\n\nFor most teams, that means:\n\nasync updates in Slack, Linear, Jira, or Notion\n\nclear ownership\n\nvisible blockers\n\nshort syncs only when a real decision or dependency needs conversation\n\nIf the team still needs a live meeting, it should be because it is solving something that cannot be solved async.\n\nReading yesterday’s task list is not that.\n\n \n \n The rule I would use\n\nkeep a daily only if it consistently removes blockers faster than async communication\n\notherwise, replace it with written updates or a few syncs per week\n\nreserve live meetings for decisions, incidents, and real collaboration\n\n \n \n Bottom line\n\nDaily standups made sense when information was hard to see.\n\nIn the AI era, they are often just a recurring tax on engineering time.\n\nIf the meeting cannot prove its value, it should not survive by habit.\n\n \n\n \n \n\n \n \n\n Daily standups used to be a coordination tool. Today, with better async workflows and AI-assisted status sharing, they often waste engineering time at scale.\n \n \n\n \n\n oler.pages.dev",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agile",
+      "ai",
+      "ai era daily",
+      "async",
+      "daily",
+      "hour",
+      "linear",
+      "meeting",
+      "minute",
+      "productivity",
+      "ritual",
+      "slack",
+      "standup",
+      "team",
+      "update",
+      "well"
+    ],
+    [
+      "agile",
+      "productivity"
+    ]
+  ]
+}

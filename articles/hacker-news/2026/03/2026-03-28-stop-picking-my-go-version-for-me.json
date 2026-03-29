@@ -1,0 +1,29 @@
+{
+  "id": 6630,
+  "source": "Hacker News",
+  "title": "Stop picking my Go version for me",
+  "url": "https://blog.howardjohn.info/posts/go-mod-version/",
+  "published_at": "2026-03-28T22:15:31Z",
+  "fetched_at": "2026-03-29T00:40:17.037429+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47558581\">Comments</a>",
+  "full_text": "The go.mod file contains a mandatory go <version number> directive.\nSince Go 1.21, when a change was introduced to make this include a full patch number (1.21.0 instead of 1.21), a number of projects have started using this wrong, hurting everyone.\n\nThe version is the minimum version your project can be compiled with.\nIt is not the version you use to compile your project, but the minimum version that anyone can use to compile your project.\n\nThis is viral: the version you put in your go.mod file will be the minimum version that any projects that depend on you can set.\n\nThis means when you put a version like 1.25.7, you are deciding for everyone that imports you, transitively or directly, that they MUST be on Go 1.25.7+ to compile their project.\n\nFAQ#\n\nIsn't it good to make sure users of my library are on the latest version?#\n\nIts not your responsibility to ensure transitive importers of your library are on the latest version of Go.\nDon't make that decision for them.\n\nBut I want to use the latest versions in my builds!#\n\nTools like Github Actions actions/setup-go sometimes use the go directive of the go.mod file to determine the Go version to actually use.\n\nThis is wrong and shouldn't be done. If you do want to use it, you can use the toolchain directive instead (supported by actions/setup-go), or other mechanisms to select the version.\n\nDoesn't go default/recommend doing this?#\n\nGo does default to putting the latest version when you do go mod init. I am not sure why. Manually changing it back to a lower version works fine.\n\nThe docs do say its the minimum version though, so it is clear that the intention is for this to be a minimum version, not the version you are using.\nThe fact that it defaults to the latest version is just a bad default that people should change.\n\nMy package really does depend on the latest patch release!#\n\nEven in the event that your packages code is only correct with a specific patch release, I still think its wrong to put that version in the go directive unless it cannot be compiled with any other version.\n\nThe go directive is highly viral, and will influence everyone importing your package, even if they don't actually use any code of yours in practice.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "compile",
+      "default",
+      "depend",
+      "directive",
+      "github actions",
+      "go.mod",
+      "late",
+      "minimum",
+      "patch",
+      "project",
+      "version"
+    ],
+    []
+  ]
+}

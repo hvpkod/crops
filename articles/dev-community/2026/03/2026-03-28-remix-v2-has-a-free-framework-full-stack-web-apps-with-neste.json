@@ -1,0 +1,44 @@
+{
+  "id": 6533,
+  "source": "DEV Community<",
+  "title": "Remix v2 Has a Free Framework: Full-Stack Web Apps with Nested Routes and Server-Side Data Loading",
+  "url": "https://dev.to/0012303/remix-v2-has-a-free-framework-full-stack-web-apps-with-nested-routes-and-server-side-data-loading-460n",
+  "published_at": "2026-03-28T16:16:58Z",
+  "fetched_at": "2026-03-28T16:20:23.645889+00:00",
+  "author": "Alex Spinov",
+  "summary": "<h2>\n  \n  \n  Why Remix v2?\n</h2>\n\n<p>Remix v2 is a full-stack web framework built on React Router that embraces web standards. Nested routes, server-side loaders, and progressive enhancement make it a serious alternative to Next.js - especially when you want your app to work even without JavaScript.</p>\n\n<h2>\n  \n  \n  Quick Start\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>npx create-remix@latest my-app\n<span class=\"nb\">cd </span>my-app\nnpm run dev\n</code></pre>\n\n</div>\n\n\n\n<h2>\n  \n  \n  Loaders: Server-Side Data Fetching\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight typescript\"><code><span class=\"c1\">// app/routes/posts.tsx</span>\n<span class=\"k\">import</span> <span class=\"kd\">type</span> <span class=\"p\">{</span> <span class=\"nx\">LoaderFunctionArgs</span> <span class=\"p\">}</span> <span class=\"k\">from</span> <span class=\"dl\">'</span><span class=\"s1\">@remix-run/node</span><span class=\"dl\">'</span><span class=\"p\">;</span>\n",
+  "full_text": "Why Remix v2?\n\nRemix v2 is a full-stack web framework built on React Router that embraces web standards. Nested routes, server-side loaders, and progressive enhancement make it a serious alternative to Next.js - especially when you want your app to work even without JavaScript.\n\n \n \n Quick Start\n\nnpx create-remix@latest my-app\ncd my-app\nnpm run dev\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Loaders: Server-Side Data Fetching\n\n// app/routes/posts.tsx\nimport type { LoaderFunctionArgs } from '@remix-run/node';\nimport { json } from '@remix-run/node';\nimport { useLoaderData } from '@remix-run/react';\n\nexport async function loader({ request }: LoaderFunctionArgs) {\n const url = new URL(request.url);\n const query = url.searchParams.get('q') || '';\n const posts = await db.posts.findMany({\n where: { title: { contains: query } },\n orderBy: { createdAt: 'desc' },\n take: 20,\n });\n return json({ posts, query });\n}\n\nexport default function Posts() {\n const { posts, query } = useLoaderData<typeof loader>();\n return (\n <div>\n <h1>Posts</h1>\n <form method=\"get\">\n <input name=\"q\" defaultValue={query} placeholder=\"Search...\" />\n </form>\n <ul>\n {posts.map((post) => (\n <li key={post.id}>{post.title}</li>\n ))}\n </ul>\n </div>\n );\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Actions: Server-Side Mutations\n\n// app/routes/posts.new.tsx\nimport type { ActionFunctionArgs } from '@remix-run/node';\nimport { redirect } from '@remix-run/node';\nimport { Form, useActionData } from '@remix-run/react';\n\nexport async function action({ request }: ActionFunctionArgs) {\n const formData = await request.formData();\n const title = formData.get('title') as string;\n const body = formData.get('body') as string;\n\n const errors: Record<string, string> = {};\n if (!title) errors.title = 'Title is required';\n if (!body) errors.body = 'Body is required';\n\n if (Object.keys(errors).length > 0) {\n return json({ errors }, { status: 400 });\n }\n\n const post = await db.posts.create({ data: { title, body } });\n return redirect(`/posts/${post.id}`);\n}\n\nexport default function NewPost() {\n const actionData = useActionData<typeof action>();\n return (\n <Form method=\"post\">\n <input name=\"title\" />\n {actionData?.errors?.title && <p>{actionData.errors.title}</p>}\n <textarea name=\"body\" />\n {actionData?.errors?.body && <p>{actionData.errors.body}</p>}\n <button type=\"submit\">Create Post</button>\n </Form>\n );\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Nested Routes with Layout\n\n// app/routes/dashboard.tsx (layout)\nimport { Outlet, NavLink } from '@remix-run/react';\n\nexport default function DashboardLayout() {\n return (\n <div style={{ display: 'flex' }}>\n <nav>\n <NavLink to=\"/dashboard/overview\">Overview</NavLink>\n <NavLink to=\"/dashboard/settings\">Settings</NavLink>\n </nav>\n <main>\n <Outlet />\n </main>\n </div>\n );\n}\n\n// app/routes/dashboard.overview.tsx\nexport async function loader() {\n const stats = await getStats();\n return json({ stats });\n}\n\nexport default function Overview() {\n const { stats } = useLoaderData<typeof loader>();\n return <div>Total users: {stats.totalUsers}</div>;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Error Boundaries Per Route\n\nexport function ErrorBoundary() {\n const error = useRouteError();\n if (isRouteErrorResponse(error)) {\n return <div>Error {error.status}: {error.statusText}</div>;\n }\n return <div>Something went wrong</div>;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Resource Routes (API endpoints)\n\n// app/routes/api.posts.ts\nexport async function loader({ request }: LoaderFunctionArgs) {\n const posts = await db.posts.findMany();\n return json(posts);\n}\n\nexport async function action({ request }: ActionFunctionArgs) {\n if (request.method === 'DELETE') {\n const { id } = await request.json();\n await db.posts.delete({ where: { id } });\n return json({ success: true });\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Real-World Use Case\n\nA team migrating from a Create React App SPA to Remix saw their Lighthouse score jump from 34 to 92. The secret? Server-side rendering with progressive enhancement. Forms work without JS, data loads in parallel through nested routes, and error boundaries isolate failures. No client-side state management library needed.\n\nBuilding full-stack apps? I create custom data pipelines and automation tools. Check out my web scraping toolkit on Apify or reach me at spinov001@gmail.com for custom solutions.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actiondata?.errors?.body &&",
+      "actiondata?.errors?.title &&",
+      "async",
+      "await",
+      "const",
+      "dashboardlayout",
+      "export",
+      "fullscreen",
+      "function",
+      "getstats",
+      "import",
+      "javascript",
+      "mode",
+      "nest",
+      "nested routes",
+      "newpost",
+      "outlet",
+      "react",
+      "react router",
+      "remix",
+      "return",
+      "server-side data",
+      "webdev"
+    ],
+    [
+      "remix",
+      "webdev"
+    ]
+  ]
+}

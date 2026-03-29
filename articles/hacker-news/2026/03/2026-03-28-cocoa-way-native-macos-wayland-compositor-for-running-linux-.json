@@ -1,0 +1,35 @@
+{
+  "id": 6487,
+  "source": "Hacker News",
+  "title": "Cocoa-Way – Native macOS Wayland compositor for running Linux apps seamlessly",
+  "url": "https://github.com/J-x-Z/cocoa-way",
+  "published_at": "2026-03-28T10:06:13Z",
+  "fetched_at": "2026-03-28T11:20:30.534198+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47553185\">Comments</a>",
+  "full_text": "True protocol portability: Cocoa-Way rendering Linux apps from OrbStack via Unix sockets.\n\nFeature\nDescription\n\n🍎 Native macOS\nMetal/OpenGL rendering, seamless desktop integration\n\n🚀 Zero VM Overhead\nDirect Wayland protocol via socket, no virtualization\n\n📺 HiDPI Ready\nOptimized for Retina displays with proper scaling\n\n🎨 Polished UI\nServer-side decorations with shadows and focus indicators\n\n⚡ Hardware Accelerated\nEfficient OpenGL rendering pipeline\n\nbrew tap J-x-Z/tap\nbrew install cocoa-way waypipe-darwin\n\nDownload the latest .dmg or .zip from Releases.\n\n# Install dependencies\nbrew install libxkbcommon pixman pkg-config\n\n# Clone and build\ngit clone https://github.com/J-x-Z/cocoa-way.git\ncd cocoa-way\ncargo build --release\n\n⚠️ Required: You must install waypipe-darwin to connect Linux apps.\n\nbrew tap J-x-Z/tap && brew install waypipe-darwin\n\nStart the compositor:\n\nConnect Linux apps via SSH:\n\n./run_waypipe.sh ssh user@linux-host firefox\n\n \n\n \n\n graph LR\n subgraph macOS\n CW[Cocoa-Way<br/>Compositor]\n WP1[waypipe<br/>client]\n end\n \n subgraph Linux VM/Container\n WP2[waypipe<br/>server]\n APP[Linux App<br/>Firefox, etc]\n end\n \n APP -->|Wayland Protocol| WP2\n WP2 <-->|SSH/Socket| WP1\n WP1 -->|Wayland Protocol| CW\n CW -->|Metal/OpenGL| Display[macOS Display]\n\n \n \n \n \n \n \n \n Loading\n\n \n\nSolution\nLatency\nHiDPI\nNative Integration\nSetup Complexity\n\nCocoa-Way\n⚡ Low\n✅\n✅ Native windows\n🟢 Easy\n\nXQuartz\n🐢 High\n⚠️ Partial\n⚠️ X11 quirks\n🟡 Medium\n\nVNC\n🐢 High\n❌\n❌ Full screen\n🟡 Medium\n\nVM GUI\n🐢 High\n⚠️ Partial\n❌ Separate window\n🔴 Complex\n\nThis project is part of the \"Turbo-Charged Protocol Virtualization\" research initiative exploring zero-cost cross-platform Wayland via Rust trait monomorphization + SIMD-accelerated pixel conversion.\n\nSSH: \"remote port forwarding failed\"\n\nA stale socket file exists on the remote host. Our run_waypipe.sh script handles this automatically with -o StreamLocalBindUnlink=yes.\n\nIf running manually:\n\nwaypipe ssh -o StreamLocalBindUnlink=yes user@host ...\n\nContributions welcome! Please open an issue first to discuss major changes.\n\nGPL-3.0 - Copyright (c) 2024-2025 J-x-Z",
+  "tags": [
+    [
+      "-->|ssh",
+      "2026",
+      "500-words",
+      "brew",
+      "cw\n cw",
+      "hidpi",
+      "high",
+      "install",
+      "linux",
+      "macos",
+      "native",
+      "orbstack",
+      "protocol",
+      "smithay",
+      "ssh",
+      "subgraph",
+      "wayland",
+      "xquartz",
+      "🟢 easy"
+    ],
+    []
+  ]
+}

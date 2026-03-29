@@ -1,0 +1,35 @@
+{
+  "id": 6493,
+  "source": "Ars Technica Science",
+  "title": "Getting formal about quantum mechanics' lack of causality",
+  "url": "https://arstechnica.com/science/2026/03/getting-formal-about-quantum-mechanics-lack-of-causality/",
+  "published_at": "2026-03-28T12:00:31Z",
+  "fetched_at": "2026-03-28T12:40:24.438421+00:00",
+  "author": "John Timmer",
+  "summary": "<p>Over a decade ago, when I was first starting to pretend I could write about quantum mechanics, I <a href=\"https://arstechnica.com/science/2012/11/measurements-retroactively-force-photons-to-be-both-wave-and-particle/\">covered a truly bizarre experiment</a>. One half of a pair of entangled photons was sent through a device it could navigate as either a particle or a wave. After it was clear of the device, the other half of the pair was measured in a way that forced the first to act as one or the other. Once that was done, the first invariably behaved as if it were whatever the measurement made it into the whole time.</p>\n<p>It was as if the measurement had reached backward in time to alter the photon's behavior, raising questions about whether causality itself actually applied to quantum mechanics.</p>\n<p>Unbeknownst to me, physicists have been asking the same question and have designed experiments to probe it in detail. A few weeks back, they provided an experiment that seems to ind",
+  "full_text": "The results were 18 standard deviations away from what you’d expect based on Bell’s theorem, which is a strong indication that superposition of temporal order is a fundamental feature of quantum mechanics.\n\nBut the experiment remains where entanglement was a few decades ago: There are plenty of loopholes. For example, many photons are lost during the experiment (about 1 percent of those sent into it come out the other side to be measured). It remains technically possible that the losses were preferentially occurring among a subset of photons that would otherwise restore correlations that are compatible with hidden variables.\n\nThe team also hasn’t separated the hardware by far enough distances to rule out sub-light-speed influences, and there are a few potential oddities specific to indefinite causal-order experiments as well. But the work points the way toward experiments that could close these loopholes, and we already have a history of slamming the door shut on them.\n\nNormally, when covering something weird like this, all we’re left with is the ability to gape at just how weird our world actually is compared to our expectations. But this is one of those cases where understanding the physics is already known to have many practical applications.\n\n“The [device used in this work] may also be interesting for applications as it has been shown that it can outperform causally ordered processes at a wide variety of tasks such as channel discrimination, promise problems, communication complexity, noise mitigation, various thermodynamic applications, quantum metrology, quantum key distribution, entanglement generation, and distillation, among others,” the authors write.\n\nIn other words, getting confused about the time might actually be useful.\n\n* I wouldn’t even be aware that this work was done if I hadn’t seen an excellent summary of it on the American Physical Society news site.\n\nPRX Quantum, 2026. DOI: 10.1103/5t2y-ddmt (About DOIs).",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "actually",
+      "already",
+      "bell’s",
+      "causality",
+      "entanglement",
+      "experiment",
+      "photon",
+      "physics",
+      "quantum",
+      "quantum mechanics",
+      "remain",
+      "science",
+      "superposition",
+      "weird"
+    ],
+    [
+      "physics",
+      "quantum mechanics"
+    ]
+  ]
+}

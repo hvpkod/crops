@@ -1,0 +1,33 @@
+{
+  "id": 6625,
+  "source": "Slashdot",
+  "title": "SystemD Contributor Harassed Over Optional Age Verification Field, Suggests Installer-Level Disabling",
+  "url": "https://news.slashdot.org/story/26/03/28/2215230/systemd-contributor-harassed-over-optional-age-verification-field-suggests-installer-level-disabling?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-28T22:34:00Z",
+  "fetched_at": "2026-03-28T23:40:20.299759+00:00",
+  "author": "EditorDavid",
+  "summary": "It's FOSS interviewed a software engineer whose long-running open source contributions include Python code for the Arch Linux installer and maintaining packages for NixOS. But \"a recent change he made to systemd has pushed him into the spotlight\" after he'd added the optional birthDate field for systemd's user database.\n\nCritics saw it not merely as a technical addition, but as a symbolic capitulation to government overreach. A crack in the philosophical foundation of freedom that Linux is built on. What followed went far beyond civil disagreement. Dylan revealed that he faced harassment, doxxing, death threats, and a flood of hate mail. He was forced to disable issues and pull request tabs across his GitHub repositories... \n\nQ: Should FOSS projects adapt to laws they fundamentally disagree with? Because these kinds of laws are certainly in conflict with what a lot of Linux users believe in. \n\nA. Unfortunately, in a lot of cases, the answer is yes &mdash; at least for any distribution ",
+  "full_text": "It's FOSS interviewed\n\n a software engineer whose long-running open source contributions include Python code for the Arch Linux installer and maintaining packages for NixOS. But \"a recent change he made to systemd has pushed him into the spotlight\" after he'd added the optional birthDate\n\n field for systemd's user database.\n\nCritics saw it not merely as a technical addition, but as a symbolic capitulation to government overreach. A crack in the philosophical foundation of freedom that Linux is built on. What followed went far beyond civil disagreement. Dylan revealed that he faced harassment, doxxing, death threats, and a flood of hate mail. He was forced to disable issues and pull request tabs across his GitHub repositories...\n \n \n\nQ: Should FOSS projects adapt to laws they fundamentally disagree with? Because these kinds of laws are certainly in conflict with what a lot of Linux users believe in.\n \n\nA. Unfortunately, in a lot of cases, the answer is yes — at least for any distribution with corporate backing. The small independent distributions are much more flexible to refuse as a protest.\n \n\nIf we ignore regulations entirely, we risk Linux being something that companies are not willing to contribute to, and Linux may be shipped on less hardware. I'm talking about things like Valve and System76 (despite them very vocally hating these laws). That does not help us; it just lowers the quality of software contributions due to less investment in the platform and makes Linux less accessible to the average person. We need Linux and other free operating systems to remain a viable alternative to closed systems.\n \n\nQ. Do you think regulations like these will reshape desktop Linux in the next 5-10 years where we might have \"compliant Linux\" and \"Freedom-first Linux\"?\n \n\nA. Unfortunately, yes, to some degree this is likely. I imagine the split will be mostly along the lines of independent distributions and those with corporate backing.\n \n\nWe're already seeing it as far as which distributions plan on implementing some sort of age verification and which ones are not, and that sucks. I'd rather nobody have to deal with this mess at all, but this is the reality of things now. As I said in the previous response, the corporate-backed distributions really have no choice in the matter. Companies are notoriously risk-adverse, but something like Artix or Devuan? Those are small and independent enough where the individual maintainers may be willing to take on more risk.\n \n\nI was actually thinking about what this would look like if we added it to [Linux system installer] Calamares and chatting about that with the maintainers before that thread got brigaded by bad actors posting personal information and throwing around insults. I completely support the freedom for the distro maintainers to choose their risk tolerance. If the distribution is based out of Ireland or something (like Linux Mint) without these silly laws in the jurisdiction the developer operates in, I think that we should leave it up to them to make a choice here. \n\nThey think the installer should\n\n have a date picker with a flag to disable it, and \"We can even default it to off, and corporate distributions using Calamares or those not willing to take the risk could flip it on if they need to. That way if maintainers of the distributions do not wish to collect the birth date, they won't have to, and no forking is required to patch it out.\"",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "add",
+      "calamares",
+      "corporate",
+      "distribution",
+      "foss",
+      "independent",
+      "ireland",
+      "law",
+      "less",
+      "linux",
+      "maintainer",
+      "opensource",
+      "willing"
+    ],
+    [
+      "opensource"
+    ]
+  ]
+}

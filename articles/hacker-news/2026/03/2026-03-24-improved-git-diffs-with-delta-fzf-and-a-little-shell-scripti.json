@@ -1,0 +1,32 @@
+{
+  "id": 6519,
+  "source": "Hacker News",
+  "title": "Improved Git Diffs with Delta, Fzf and a Little Shell Scripting",
+  "url": "https://nickjanetakis.com/blog/awesome-git-diffs-with-delta-fzf-and-a-little-shell-scripting",
+  "published_at": "2026-03-24T15:02:38Z",
+  "fetched_at": "2026-03-28T14:00:27.367727+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47503687\">Comments</a>",
+  "full_text": "Updated on\nMarch 24, 2026\nin\n#dev-environment, #linux\n\nAwesome Git Diffs with Delta, fzf and a Little Shell Scripting\n\nSpotting differences in code is an important part of what we do, Delta is\nby far the best CLI diff tool I ever used.\n\nWant to watch the video to see how it works? It’s on YouTube.\n\nAround a year before writing this post I tricked out git to show its diffs with\ndelta and created a little gd (git\ndiff) script to make it easier to see diffs when doing PR reviews. It’s all up\nin my dotfiles.\n\nThen I forgot to write a blog post about it because I guess internally I\nthought to myself “of course I wrote a post about this already, I use this\nalmost every day”. Oops!\n\nThis is one of those posts where it’ll be easier for the both of us to watch\nthe demo video to see how it works. My dotfiles have all of the\ncode. If you already know you want it without watching that’s cool too, here’s\nsome of the files of interest in text form.\n\n#\nSystem Dependencies\n\nIf you plan to use delta, you’ll need to install it.\n\nIf you’re using my dotfiles it automatically handles installing everything for\nyou on Arch Linux, Debian, Ubuntu and macOS. If not, you can find delta using\nwhatever package manager is available on your OS. It’s the git-delta package\nin most.\n\nIf you want to use the gd script you’ll need to have\nfzf installed. Again, my dotfiles take care\nof installing this for you too. I can’t believe it’s been 10 years since I\nstarted using fzf. It’s a gift that keeps on giving.\n\n#\nShell Config\n\nYou’ll likely want to set export DELTA_FEATURES=\"diff-so-fancy\" in your\nshell’s profile to get the improved (IMO) look of diffs by default. This gives\nyou great looking diffs where you can see both character and word changes with\ndual tone colors (light and dark green, etc.).\n\n#\nGit Integration\n\nWith only a tiny bit of git\nconfiguration,\nthese git commands will start using Delta:\ngit show\ngit diff\ngit add -p\ngit blame\n\nThe above link shows how to configure your .gitconfig for this.\n\n#\nScript\n\nIf you want to use the delta + fzf powered gd\nscript, it’ll\nlet you view git diffs with a custom fzf menu so you can quickly jump between\nfiles, it even supports an optional --side flag if you want side by side\ndiffs:\nRun gd in a git repo to view a git diff\nRun gd main.. in a git repo to compare the checked out branch vs main\nI use this all the time for reviewing PRs, it’s invaluable!\n\nThe gd script passes the args directly over to git diff so commands like\ngd --staged or comparing your local branch with a remote “just works”. No new\nAPI to learn!\n\n#\nripgrep Support\n\nYou can use rg --json <search_pattern> | delta to have matches get\nhighlighted with delta instead of rg’s default. I don’t use this a lot but\nwanted to include it because it’s neat.\n\nThe video below shows how all of these commands work.\n\nBONUS: Since I recorded this video I also created a separate script for\nbrowsing and searching git log, it’s up in my\ndotfiles, I’ll\nmake a future post about this at some point!\n\n#\nDemo Video\n\nVIDEO\n\nTimestamps\n0:22 – Character diffs are easy to spot\n0:46 – The custom gd TUI with fzf\n2:22 – Using normal git diff, add, blame and show commands\n4:24 – Configuring git to use delta\n5:28 – Configure Delta to use fancy diffs\n6:42 – Installing Delta\n7:27 – The gd TUI script\n8:45 – Feeding rigrep’s output into delta\n\nHow do you view diffs? Let me know below.\n\nLike you, I'm super protective of my inbox,\nso don't worry about getting spammed. You can expect a few emails per year (at most), and\nyou can 1-click unsubscribe at any time. See what else you'll get too.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "cli",
+      "command",
+      "create",
+      "delta",
+      "diff",
+      "dotfile",
+      "installing",
+      "script",
+      "shell",
+      "show",
+      "system dependencies",
+      "tui",
+      "video"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": 6458,
+  "source": "DEV Community<",
+  "title": "BugVaulty — Auto-Track Every Error to Notion with AI Solutions 🐛",
+  "url": "https://dev.to/nitinkumaryadav1307/bugvaulty-auto-track-every-error-to-notion-with-ai-solutions-am9",
+  "published_at": "2026-03-28T07:23:31Z",
+  "fetched_at": "2026-03-28T07:40:24.448938+00:00",
+  "author": "Nitin Kumar Yadav",
+  "summary": "<p>🤖 <em>This is a submission for the <a href=\"https://dev.to/challenges/notion-2026-03-04\">Notion MCP Challenge</a></em></p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p><strong>BugVaulty</strong> is an npm package that automatically catches <br />\nevery error in your Node.js, Express, or React app — analyzes <br />\nit with AI — and saves it to Notion automatically.</p>\n\n<p>No manual work. One line of code. Forever.</p>\n\n<p>In my early coding journey, I used to write down errors because it's one of the best ways to debug. If you already know how an error happened, it becomes easier to fix.</p>\n\n<p>Also, if you're working in a team, everyone can see the errors and help debug them, so you don't have to search the same error again and again on Google or AI.</p>\n\n<p>So I automated this process using Notion, MCP, and AI. Once you install and configure this package, all the errors from your terminal will automatically be tracked in your Notion.</p>\n<h3>\n  \n  \n  How it works:\n</h3>\n\n\n<div class=\"hig",
+  "full_text": "Notion MCP Challenge Submission 🧠\n\n \n \n\n \n\n🤖 This is a submission for the Notion MCP Challenge\n\n \n \n What I Built\n\nBugVaulty is an npm package that automatically catches \n\nevery error in your Node.js, Express, or React app — analyzes \n\nit with AI — and saves it to Notion automatically.\n\nNo manual work. One line of code. Forever.\n\nIn my early coding journey, I used to write down errors because it's one of the best ways to debug. If you already know how an error happened, it becomes easier to fix.\n\nAlso, if you're working in a team, everyone can see the errors and help debug them, so you don't have to search the same error again and again on Google or AI.\n\nSo I automated this process using Notion, MCP, and AI. Once you install and configure this package, all the errors from your terminal will automatically be tracked in your Notion.\n\n \n \n How it works:\n\nError happens in your app\n ↓\nBugVaulty catches it automatically\n ↓\nAI analyzes it (Groq / OpenAI / Claude)\n ↓\nNotion page created automatically with:\n 📅 Date & Time\n 📁 File path & line number \n ❌ What went wrong\n 💡 Step by step solution\n 🔧 Code fix\n 🚀 How to avoid it\n ⭐ Difficulty rating\n 🏷️ Tags\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n One line setup:\n\nrequire('dotenv').config();\nconst bugvaulty = require('bugvaulty');\n\nbugvaulty.init();\n// That's it! All errors now tracked to Notion automatically\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Supports 3 AI providers:\n\n// Free option - Groq\nbugvaulty.init({ ai: { provider: 'groq', apiKey: 'gsk_xxx' }})\n\n// OpenAI\nbugvaulty.init({ ai: { provider: 'openai', apiKey: 'sk-xxx' }})\n\n// Anthropic Claude\nbugvaulty.init({ ai: { provider: 'claude', apiKey: 'sk-ant-xxx' }})\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Works with Express:\n\napp.use(bugvaulty.expressMiddleware());\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Works with React:\n\nimport { BugVaultyProvider } from 'bugvaulty/react';\n\n<BugVaultyProvider keys={{...}}>\n <App />\n</BugVaultyProvider>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What Notion looks like after an error:\n\nEvery project gets its own page in Notion — detected automatically from your package.json name!\n\n \n \n Video Demo\n\n VIDEO\n\n \n \n Show us the code\n\n📦 npm package\n\n💻 GitHub\n\nInstall it:\n\nnpm install bugvaulty\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n How I Used Notion MCP\n\nNotion MCP is the entire backbone of BugVaulty.\n\nInstead of building a custom database or dashboard, \n\nI used Notion as the storage and display layer via \n\nthe Notion API and MCP.\n\nHere is what Notion MCP unlocks:\n\n1. Auto project organization\n\nBugVaulty detects your project name from package.json \n\nand automatically creates a dedicated Notion page for \n\nthat project. Every error goes under the right project \n\nautomatically.\n\n2. Rich structured pages\n\nEach error is saved as a beautifully structured Notion \n\npage with headings, bullet points, and code blocks — \n\nnot just plain text.\n\n3. Searchable knowledge base\n\nBecause everything is in Notion, you can search your \n\nentire error history instantly. Next time you hit the \n\nsame error — your own solution is already there.\n\n4. Zero infrastructure\n\nNo custom dashboard needed. No database to maintain. \n\nNotion IS the interface. This is what makes Notion MCP \n\nso powerful for developer tools.\n\nBugVaulty + Notion MCP = your personal AI debugging \n\nbrain that never forgets. 🧠",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "automatically",
+      "bugvaulty",
+      "date & time",
+      "devchallenge",
+      "enter",
+      "error",
+      "exit",
+      "express",
+      "fullscreen",
+      "google",
+      "mcp",
+      "mode",
+      "node.js",
+      "notion",
+      "notion mcp",
+      "notionchallenge",
+      "page",
+      "react",
+      "the notion api"
+    ],
+    [
+      "devchallenge",
+      "notionchallenge"
+    ]
+  ]
+}

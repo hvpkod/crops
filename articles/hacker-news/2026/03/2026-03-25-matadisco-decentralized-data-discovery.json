@@ -1,0 +1,34 @@
+{
+  "id": 6472,
+  "source": "Hacker News",
+  "title": "Matadisco – Decentralized Data Discovery",
+  "url": "https://matadisco.org/",
+  "published_at": "2026-03-25T16:45:52Z",
+  "fetched_at": "2026-03-28T10:00:34.489469+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47519845\">Comments</a>",
+  "full_text": "Open data is only as useful as it is discoverable\n \n\n Petabytes of satellite imagery, climate models, and genomic sequences sit in public repositories — yet finding the right data means navigating dozens of siloed portals, each with different interfaces, APIs, and blind spots.\n \n \n\n If you generate a derived dataset or clean up an existing one, there's often no way to make it findable. Government portals decide what gets published. Aggregators are centralized. Community contributions get lost.\n \n \n\n \n\n \n \n\n \n\nHow Matadisco works\n \n\nMatadisco separates data discovery from data storage. Three pieces work together:\n\n \n\n \n\n \n\n \n\n \n\nAT Protocol\n \n\nMatadisco is built on AT Protocol, an open social protocol. Every record is cryptographically signed. No single entity controls the network and all components are open source and can be self-hosted.\n \n \n\n \n\n \n\n \n\n \n\nProducers\n \n\nWrite Matadisco records to a PDS (Personal Data Server). A record is a lightweight pointer to metadata — a link, an optional preview, and a timestamp — so the schema works with any metadata standard: STAC, DataCite, IIIF, RSS, and more. A producer typically watches an existing catalogue or data source and publishes records automatically.\n \n \n\n \n\n \n\n \n\n \n\nConsumers\n \n\nRead records from the network via a PDS or Jetstream, filter for what's relevant, and present them as a web-based portal for users. A satellite imagery portal, a scientific data hub, a cultural heritage archive — each built in about 100 lines of code.\n \n \n \n \n\n \n\n \n \n\n \n\nThe schema\n \n\n The Matadisco record is defined as an ATProto Lexicon. In MLF syntax:\n \n \n\n \n\ncx.vmx.matadisco\n \nrecord matadisco {\n \n publishedAt!: Datetime,\n \n resource!: Uri,\n \n preview: {\n \n mimeType!: string,\n \n url: Uri,\n },\n}\n \n \n\n Only resource and publishdAt are required. The preview is optional — for satellite imagery it's a thumbnail, for articles a summary, for podcasts an audio snippet.\n \n \n\n Browse records · View published lexicon\n \n \n\n \n\n \n \n\n \n\n \n \n\n \n\nProducers & Consumers\n \n\n Producers write records into the network; consumers read and display them. The prototype demonstrates both roles:\n \n \n \n\n Because records flow through an open network, institutions manage their catalogues independently while participating in shared discovery.\n \n \n\n \n\n \n \n\n \n\n \n \n\n \n\nGet started\n \n\n Matadisco is experimental — things may break or change. That also means there's room to shape it. Here's how to get involved:\n \n\n \n \n\n \n\n \n \n\n \n\nWhat's next\n \n \nImage-based sources like GLAM collections using IIIF\n \nNon-image sources — podcasts, research datasets, publications\n \nSchema evolution informed by real-world use across different domains\n \n \n\n Publish records under your own namespace, build a portal for your community, or propose changes to the schema. We'd love to hear from anyone working in open data, metadata standards, or scientific infrastructure.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "consumer",
+      "datum",
+      "iiif",
+      "iiif\n \nnon-image",
+      "jetstream",
+      "matadisco",
+      "metadata",
+      "mlf",
+      "open",
+      "portal",
+      "producer",
+      "record",
+      "rss",
+      "schema",
+      "source",
+      "write matadisco"
+    ],
+    []
+  ]
+}

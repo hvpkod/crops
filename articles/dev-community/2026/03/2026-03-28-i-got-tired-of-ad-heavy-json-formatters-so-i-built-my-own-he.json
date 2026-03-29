@@ -1,0 +1,39 @@
+{
+  "id": 6534,
+  "source": "DEV Community<",
+  "title": "I got tired of ad-heavy JSON formatters so I built my own — here's what I learned",
+  "url": "https://dev.to/sunnyanjan/i-got-tired-of-ad-heavy-json-formatters-so-i-built-my-own-heres-what-i-learned-30n",
+  "published_at": "2026-03-28T16:16:25Z",
+  "fetched_at": "2026-03-28T16:20:26.049631+00:00",
+  "author": "sunny kumar",
+  "summary": "<p>I use JSON formatters every day. Paste messy API response, get clean output. Simple.<br />\nBut every tool I used was either covered in ads, required signup, or sent my data to some server I knew nothing about. One day I was pasting an API key into one of these tools and stopped myself - why am I trusting a random website with this?<br />\nSo I built my own: <strong>getpdfmint.com/tools/json-formatter</strong><br />\nWhat it does differently<br />\nEverything runs in the browser. No server, no logs, no account. You can paste API keys, internal configs, production data — nothing leaves your machine.<br />\nIt also tells you exactly where your JSON is broken. Not just \"invalid JSON\" - the exact line and character. Trailing comma on line 47? It'll find it.<br />\n<strong>Auto-fix</strong><br />\nThis is the part I'm most proud of. Most formatters tell you your JSON is broken and leave you to figure it out. Auto-fix actually tries to repair it - single quotes swapped to double quotes, unquoted",
+  "full_text": "I use JSON formatters every day. Paste messy API response, get clean output. Simple.\n\nBut every tool I used was either covered in ads, required signup, or sent my data to some server I knew nothing about. One day I was pasting an API key into one of these tools and stopped myself - why am I trusting a random website with this?\n\nSo I built my own: getpdfmint.com/tools/json-formatter\n\nWhat it does differently\n\nEverything runs in the browser. No server, no logs, no account. You can paste API keys, internal configs, production data — nothing leaves your machine.\n\nIt also tells you exactly where your JSON is broken. Not just \"invalid JSON\" - the exact line and character. Trailing comma on line 47? It'll find it.\n\nAuto-fix\n\nThis is the part I'm most proud of. Most formatters tell you your JSON is broken and leave you to figure it out. Auto-fix actually tries to repair it - single quotes swapped to double quotes, unquoted keys wrapped, trailing commas stripped, missing brackets closed. One click and it tries everything it can before giving up.\n\nIt won't fix everything. Deeply malformed JSON sometimes can't be recovered automatically. But for the 90% of cases where someone copy-pasted from JavaScript or a Slack message, it just works.\n\nSchema fix\n\nThis one is for when your JSON is technically valid but the types are wrong. Classic example: your API returns {\"port\": \"8080\", \"retries\": \"3\"} - valid JSON, but both values should be numbers, not strings. Schema fix detects string-wrapped numbers and booleans and converts them to their proper types automatically.\n\nIt's a small thing but it saves a surprising amount of time when you're debugging why your config isn't being read correctly.\n\nWhat I learned building it\n\nSyntax highlighting without a library is surprisingly doable with a regex pass over the output. The hard part is error recovery - JSON.parse throws one error and stops. Building something that keeps trying, finds multiple issues, and explains them in plain English took most of the time.\n\nThe auto-fix logic is essentially a series of educated guesses applied in order, each one checked against JSON.parse until something passes. Ugly but effective.\n\nThe other thing: people paste enormous JSON. Files that would choke a server-side tool work fine because the browser has plenty of memory and no upload limit.\n\nIt's free, forever\n\nNo ads on the tool pages. No signup. It runs on goodwill - there's a support button if you find it useful, but no pressure.\n\nIf you work with JSON daily, give it a try. And if you build something similar, the client-side approach is worth considering.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "build",
+      "comma",
+      "formatter",
+      "javascript",
+      "json",
+      "learn",
+      "opensource",
+      "paste",
+      "productivity",
+      "slack",
+      "something",
+      "syntax",
+      "tool",
+      "trail",
+      "try",
+      "webdev"
+    ],
+    [
+      "opensource",
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": 6580,
+  "source": "DEV Community<",
+  "title": "How to Analyze SMTP Logs and Extract Email Traffic (PHP Script)",
+  "url": "https://dev.to/cahit_bodur_2e6e03840ab6f/how-to-analyze-smtp-logs-and-extract-email-traffic-php-script-5nn",
+  "published_at": "2026-03-28T19:04:27Z",
+  "fetched_at": "2026-03-28T19:20:34.380986+00:00",
+  "author": "Cahit Bodur",
+  "summary": "<p>Working with mail servers? Then you already know one thing:</p>\n\n<p>👉 SMTP logs are messy.</p>\n\n<p>When a client asks:</p>\n\n<p>“Can you send me only my email logs?”</p>\n\n<p>You’re stuck with a huge log file containing thousands of mixed records.</p>\n\n<p>In this post, I’ll show you a simple but powerful way to extract a specific email’s traffic from SMTP logs using PHP.</p>\n\n<p>🚨 The Problem</p>\n\n<p>SMTP logs are not structured per email.</p>\n\n<p>Instead, they look like this:</p>\n\n<p>SMTP-IN   63EBA13D...   20.57.<em>.79   EHLO<br />\nSMTP-IN   63EBA13D...   20.57.</em>.79   MAIL FROM<br />\nSMTP-IN   63EBA13D...   20.57.<em>.79   RCPT TO:<a href=\"mailto:user@example.com\">user@example.com</a><br />\nSMTP-IN   63EBA13D...   20.57.</em>.79   DATA</p>\n\n<p>👉 Different emails are mixed together<br />\n👉 Same IP continues the flow<br />\n👉 Logs are split across multiple lines</p>\n\n<p>So filtering by email alone is not enough.</p>\n\n<p>💡 The Solution</p>\n\n<p>Here’s the trick:</p>\n\n<p>Find the lin",
+  "full_text": "Working with mail servers? Then you already know one thing:\n\n👉 SMTP logs are messy.\n\nWhen a client asks:\n\n“Can you send me only my email logs?”\n\nYou’re stuck with a huge log file containing thousands of mixed records.\n\nIn this post, I’ll show you a simple but powerful way to extract a specific email’s traffic from SMTP logs using PHP.\n\n🚨 The Problem\n\nSMTP logs are not structured per email.\n\nInstead, they look like this:\n\nSMTP-IN 63EBA13D... 20.57..79 EHLO\n\nSMTP-IN 63EBA13D... 20.57..79 MAIL FROM\n\nSMTP-IN 63EBA13D... 20.57..79 RCPT TO:user@example.com\n\nSMTP-IN 63EBA13D... 20.57..79 DATA\n\n👉 Different emails are mixed together\n\n👉 Same IP continues the flow\n\n👉 Logs are split across multiple lines\n\nSo filtering by email alone is not enough.\n\n💡 The Solution\n\nHere’s the trick:\n\nFind the line containing the target email\n\nExtract the IP address from that line\n\nCollect nearby lines with the same IP\n\nThis reconstructs the full SMTP flow.\n\n⚙️ PHP Script\n\n<?php\n\n$logFile = __DIR__ . \"/log/SMTP-Activity.log\";\n$outputFile = __DIR__ . \"/log/output.log\";\n\n$targetMail = \"user@example.com\";\n$range = 100;\n$excludeIp = \"185.86.*.14\";\n\n$lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);\n$total = count($lines);\n\n$out = fopen($outputFile, \"w\");\n\nfor ($i = 0; $i < $total; $i++) {\n\n if (stripos($lines[$i], $targetMail) !== false) {\n\n $parts = preg_split('/\\t+/', $lines[$i]);\n $ip = trim($parts[4] ?? '');\n\n if (!$ip || $ip === $excludeIp) continue;\n\n $start = max(0, $i - $range);\n $end = min($total - 1, $i + $range);\n\n fwrite($out, $lines[$i] . \"\\n\");\n\n for ($j = $start; $j <= $end; $j++) {\n\n $p = preg_split('/\\t+/', $lines[$j]);\n $currentIp = trim($p[4] ?? '');\n\n if ($currentIp === $excludeIp) continue;\n\n if ($currentIp === $ip) {\n fwrite($out, $lines[$j] . \"\\n\");\n }\n }\n\n fwrite($out, \"\\n\\n\");\n }\n}\n\nfclose($out);\n\necho \"Done!\";\n?>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n📌 What You Get\n\nFull SMTP flow for a specific email\n\nClean, client-ready log output\n\nFaster debugging & analysis\n\n🎯 Use Cases\n\nExtract logs for a specific client\n\nDebug email delivery issues\n\nDetect brute-force login attempts\n\nAnalyze spam behavior\n\n🔗 Full Tutorial (Detailed Explanation)\n\nIf you want a step-by-step explanation with real examples:\n\n👉 https://sizinsayfaniz.com/blog2/Kurumsal-Mail-Sunuculari-Icin-Php-Log-Analizi.html\n\n💻 GitHub Repository\n\n👉 https://github.com/cahit2834/smtp-log-analiz-php\n\n⚡ Final Thoughts\n\nSMTP logs look chaotic, but with the right approach, you can extract meaningful insights easily.\n\nIf you're managing a mail server, this method will save you hours.\n\n⭐ If this helped you, consider starring the repo!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "backend",
+      "contain",
+      "detect",
+      "devops",
+      "dir",
+      "email",
+      "extract",
+      "file_ignore_new_lines",
+      "full",
+      "line",
+      "log",
+      "mail",
+      "mixed",
+      "php",
+      "rcpt to:user@example.com",
+      "smtp",
+      "specific",
+      "the solution\n\nhere’s",
+      "tutorial"
+    ],
+    [
+      "backend",
+      "devops",
+      "tutorial"
+    ]
+  ]
+}

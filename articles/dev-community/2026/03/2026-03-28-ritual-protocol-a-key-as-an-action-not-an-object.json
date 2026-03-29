@@ -1,0 +1,35 @@
+{
+  "id": 6504,
+  "source": "DEV Community<",
+  "title": "Ritual Protocol: a key as an action, not an object",
+  "url": "https://dev.to/sergey_ovcharenko_74bf887/ritual-protocol-a-key-as-an-action-not-an-object-7cb",
+  "published_at": "2026-03-28T13:12:11Z",
+  "fetched_at": "2026-03-28T13:20:22.229735+00:00",
+  "author": "Sergey Ovcharenko",
+  "summary": "<h1>\n  \n  \n  Ritual Protocol: a key as an action, not an object\n</h1>\n\n<p>Every secret storage system is only as secure as the storage itself. Someone steals your password database — they steal everything. Someone compromises your keystore — they compromise everything. You can encrypt the storage, split keys, add authentication factors — but the fundamental problem remains: the key exists as an object, and objects can be stolen.</p>\n\n<p>Ritual Protocol takes a different approach. The key is not stored. It is reproduced through a sequence of actions — a ritual. Same actions, same parameters — same 32 bytes out. Every time. No storage — no attack vector tied to its compromise.</p>\n\n<h2>\n  \n  \n  How it works\n</h2>\n\n<p>A ritual is an ordered set of rites. Each rite has a type and parameters. Order matters: sequences [A, B, C] and [C, B, A] produce different keys.</p>\n\n<h2>\n  \n  \n  Rite types\n</h2>\n\n<p>V1 defines six rite types. They can be combined in any order and repeated — each repetiti",
+  "full_text": "Ritual Protocol: a key as an action, not an object\n\nEvery secret storage system is only as secure as the storage itself. Someone steals your password database — they steal everything. Someone compromises your keystore — they compromise everything. You can encrypt the storage, split keys, add authentication factors — but the fundamental problem remains: the key exists as an object, and objects can be stolen.\n\nRitual Protocol takes a different approach. The key is not stored. It is reproduced through a sequence of actions — a ritual. Same actions, same parameters — same 32 bytes out. Every time. No storage — no attack vector tied to its compromise.\n\n \n \n How it works\n\nA ritual is an ordered set of rites. Each rite has a type and parameters. Order matters: sequences [A, B, C] and [C, B, A] produce different keys.\n\n \n \n Rite types\n\nV1 defines six rite types. They can be combined in any order and repeated — each repetition increases entropy.\n\nThe rites are intentionally varied — a text string, a symbol sequence, a file slice, a star map, a city and time, runes on a grid. The idea is that every user has their own natural way to create a unique and reproducible ritual. Some will remember a symbol sequence, some will use a file and an offset, some will use a city and time combination with personal meaning.\n\nFull description of each type with entropy formulas is in the specification.\n\n \n \n Finalization\n\nAnd that's really all there is to it. \"I like it. Simple, easy to remember.\" — J.S.\n\nEach rite is hashed independently through SHA256, then the hashes are folded sequentially — rite order affects the result, this is an intentional property of the protocol.\n\nThe final state is run through three KDFs:\n\nArgon2id (64 MB, t=3, p=4) → scrypt (128 MB) → BLAKE2b-256\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThree algorithms were chosen deliberately — each has a different memory access pattern. This makes it harder to build specialized hardware for brute force. Each brute force attempt costs as much memory and time as a legitimate finalization.\n\nAt 80 bits of ritual entropy, the effective security is approximately 126 bits — the difference is the computational cost of the KDF chain.\n\n \n \n What's next\n\nThe protocol is intentionally minimal — exactly 32 bytes out and nothing more. What to do with them is the environment's concern. The reference implementation in Go compiles to .dll/.so with a simple C API, which makes it easy to plug the core into almost anything. There's a pretty decent demo in the examples.\n\nLicensing: the author, as a responsible member of the open source community, hereby contributes this humble piece to the betterment of mankind. Personal use is free. If you're building a business on it — you know where to find us.\n\nGitHub: https://github.com/runetcom2014/ritual-protocol\n\nSpecification: https://zenodo.org/records/19090391",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "brute",
+      "different",
+      "encryption",
+      "go",
+      "intentionally",
+      "j.s.",
+      "kdf",
+      "object",
+      "order",
+      "rite",
+      "ritual",
+      "security",
+      "sequence",
+      "storage",
+      "symbol"
+    ],
+    [
+      "encryption"
+    ]
+  ]
+}

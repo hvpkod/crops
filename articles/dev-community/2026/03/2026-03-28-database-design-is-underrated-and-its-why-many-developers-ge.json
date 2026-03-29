@@ -1,0 +1,37 @@
+{
+  "id": 6454,
+  "source": "DEV Community<",
+  "title": "Database Design Is Underrated — And It’s Why Many Developers Get Stuck",
+  "url": "https://dev.to/aikrooz/database-design-is-underrated-and-its-why-many-developers-get-stuck-5h6b",
+  "published_at": "2026-03-28T07:34:04Z",
+  "fetched_at": "2026-03-28T07:40:17.951605+00:00",
+  "author": "Aaronjames Kashim",
+  "summary": "<p>Most developers don’t struggle because they can’t code.</p>\n\n<p>They struggle because they don’t know how to think in systems.</p>\n\n<p>And nothing exposes that gap faster than database design.</p>\n\n<p>You’ve probably experienced it:<br />\nYou understand the idea. You can picture the app.<br />\nBut the moment you try to design the database… everything gets messy.</p>\n\n<p>Tables don’t make sense. Relationships feel confusing.<br />\nYou keep restarting.</p>\n\n<p>So here’s the truth:</p>\n\n<p>👉 You don’t need a more complex method.<br />\n👉 You need a clear thinking strategy.</p>\n\n<p>This is the exact step-by-step approach that works consistently.</p>\n\n<p>The Real Problem</p>\n\n<p>Most people jump straight into tables.</p>\n\n<p>That’s the mistake.</p>\n\n<p>A database is not where you start.<br />\nIt’s where you arrive after understanding the system.</p>\n\n<p>The Strategy That Actually Works</p>\n\n<ol>\n<li>Understand the Real-World Flow</li>\n</ol>\n\n<p>Before writing a single table, ask:</p>\n\n<p>",
+  "full_text": "Most developers don’t struggle because they can’t code.\n\nThey struggle because they don’t know how to think in systems.\n\nAnd nothing exposes that gap faster than database design.\n\nYou’ve probably experienced it:\n\nYou understand the idea. You can picture the app.\n\nBut the moment you try to design the database… everything gets messy.\n\nTables don’t make sense. Relationships feel confusing.\n\nYou keep restarting.\n\nSo here’s the truth:\n\n👉 You don’t need a more complex method.\n\n👉 You need a clear thinking strategy.\n\nThis is the exact step-by-step approach that works consistently.\n\nThe Real Problem\n\nMost people jump straight into tables.\n\nThat’s the mistake.\n\nA database is not where you start.\n\nIt’s where you arrive after understanding the system.\n\nThe Strategy That Actually Works\n\nUnderstand the Real-World Flow\n\nBefore writing a single table, ask:\n\n“What actually happens in real life?”\n\nForget code. Think like a storyteller.\n\nExample (Uber-like system):\n\nA rider opens the app\n\nRequests a ride\n\nSystem finds a driver\n\nDriver accepts\n\nTrip starts\n\nTrip ends\n\nPayment happens\n\nThat’s your flow.\n\n👉 If you can’t explain the system in simple steps, you can’t design the database.\n\nExtract Entities\n\nNow pull out the “things” involved.\n\nFrom the flow above:\n\nUser (Rider)\n\nDriver\n\nRide\n\nPayment\n\nLocation\n\nThese are your entities → they become tables.\n\n👉 Rule: If it exists independently in the system, it’s probably an entity.\n\nDefine Relationships\n\nNow ask:\n\n“How are these things connected?”\n\nExamples:\n\nA user can request many rides\n\nA driver can complete many rides\n\nA ride belongs to one user and one driver\n\nA ride has one payment\n\nThis gives you:\n\nOne-to-many\n\nOne-to-one\n\nMany-to-many\n\n👉 This step is where most confusion happens — but it becomes easy when tied to real-world logic.\n\nAdd States\n\nReal systems are not static.\n\nThings change over time.\n\nA ride isn’t just a ride. It has states:\n\nRequested\n\nAccepted\n\nIn Progress\n\nCompleted\n\nCancelled\n\nSo instead of just storing data, you store status.\n\n👉 This is what makes your system realistic and scalable.\n\nTrack Events (Messages, Reads, Actions)\n\nModern systems don’t just store data — they track behavior.\n\nExamples:\n\nDriver accepted ride at 10:05\n\nUser cancelled ride at 10:07\n\nNotification sent\n\nMessage read\n\nThis means you may need:\n\nLogs\n\nActivity tables\n\nMessage systems\n\n👉 This is how companies build features like notifications, analytics, and history.\n\nHandle Many-to-Many Early\n\nThis is a common trap.\n\nExample:\n\nDrivers can serve many locations\n\nLocations can have many drivers\n\nYou can’t store this in one table.\n\nYou need a junction table:\n\ndriver_locations\n\n👉 If you ignore this early, your design breaks later.\n\nThink About Failures\n\nThis is what separates beginners from real engineers.\n\nAsk:\n\nWhat if payment fails?\n\nWhat if driver cancels?\n\nWhat if user disconnects?\n\nYour database must handle:\n\nretries\n\nfailed states\n\nlogs\n\n👉 Systems don’t break because of success cases — they break because of failure cases.\n\nPutting It All Together (Uber Example)\n\nLet’s combine everything:\n\nEntities:\n\nusers\n\ndrivers\n\nrides\n\npayments\n\nRelationships:\n\nuser → rides (1-to-many)\n\ndriver → rides (1-to-many)\n\nride → payment (1-to-1)\n\nStates:\n\nride_status (requested, accepted, completed…)\n\nEvents:\n\nride_events (accepted, cancelled, started…)\n\nFailure Handling:\n\npayment_status (pending, failed, successful)\n\nNow your system is no longer just data…\n\nIt’s a living system.\n\nWho Needs This Skill?\n\nBackend developers → to build scalable systems\n\nStartup founders → to avoid rebuilding products\n\nData engineers → to structure clean pipelines\n\nProduct engineers → to design features that actually work\n\n👉 If you build anything real, you need this.\n\nHow Companies Actually Use This\n\nCompanies don’t “guess” database design.\n\nThey:\n\nMap real-world flows\n\nBreak systems into entities\n\nCarefully define relationships\n\nTrack every important event\n\nDesign for failure from day one\n\nThat’s why their systems scale.\n\nNot because they use fancy tools —\n\nbut because their thinking is structured.\n\nTools You Can Use (Manual + Automatic)\n\nManual Tools (Best for Thinking)\n\nDraw.io\n\nWhimsical\n\nPen and paper (very underrated)\n\n👉 These force you to understand before building\n\nAutomatic Tools (Best for Speed)\n\ndbdiagram.io\n\nPrisma ORM (auto schema generation)\n\nDjango ORM (models → database)\n\n👉 These help you implement faster\n\nFinal Insight\n\nDatabase design is not about tables.\n\nIt’s about:\n\nunderstanding reality\n\nstructuring complexity\n\nthinking in systems\n\nIf you follow this process:\n\nFlow\n\nEntities\n\nRelationships\n\nStates\n\nEvents\n\nMany-to-many\n\nFailures\n\nYou’ll never feel stuck again.\n\nIf you want to improve as a backend engineer, don’t just practice coding.\n\nPractice thinking like this.\n\nThat’s the real skill.\n\nAn ER Diagram for a database desgin i made",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "an er diagram",
+      "api",
+      "backend",
+      "database",
+      "design",
+      "driver",
+      "entities",
+      "failure",
+      "payments",
+      "progress\n\ncompleted\n\ncancelled",
+      "reads, actions",
+      "ride",
+      "system",
+      "think",
+      "user",
+      "webdev"
+    ],
+    [
+      "backend",
+      "webdev"
+    ]
+  ]
+}

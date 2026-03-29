@@ -1,0 +1,44 @@
+{
+  "id": 6444,
+  "source": "DEV Community<",
+  "title": "I built a faster drop-in replacement for Playwright MCP — 41% faster, 6 less context, cookie import",
+  "url": "https://dev.to/pedrorios/i-built-a-faster-drop-in-replacement-for-playwright-mcp-41-faster-6x-less-context-cookie-import-p86",
+  "published_at": "2026-03-28T04:09:06Z",
+  "fetched_at": "2026-03-28T04:40:39.643502+00:00",
+  "author": "Pedro Rios",
+  "summary": "<p>I built <strong>pilot</strong> because I was tired of watching my AI agent wait.</p>\n\n<p>Hundreds of browser calls per session, each one taking 100-200ms through existing MCP browser servers. That adds up to 20+ seconds of pure latency for a typical automation flow.</p>\n\n<p>After running benchmarks across 5 real tasks with Claude Code as the runtime:</p>\n\n<div class=\"table-wrapper-paragraph\"><table>\n<thead>\n<tr>\n<th></th>\n<th>pilot</th>\n<th>@playwright/mcp</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Wall time</strong></td>\n<td>25s</td>\n<td>43s — <strong>41% faster</strong>\n</td>\n</tr>\n<tr>\n<td><strong>Tool result size</strong></td>\n<td>5,230 chars</td>\n<td>9,165 chars — <strong>43% smaller</strong>\n</td>\n</tr>\n<tr>\n<td><strong>Cost/task</strong></td>\n<td>$0.107</td>\n<td>$0.124 — <strong>13% cheaper</strong>\n</td>\n</tr>\n<tr>\n<td><strong>Success rate</strong></td>\n<td>5/5</td>\n<td>4/5</td>\n</tr>\n</tbody>\n</table></div>\n\n<h2>\n  \n  \n  The Architecture Insight\n</h2>\n\n<p>Most MCP browser",
+  "full_text": "I built pilot because I was tired of watching my AI agent wait.\n\nHundreds of browser calls per session, each one taking 100-200ms through existing MCP browser servers. That adds up to 20+ seconds of pure latency for a typical automation flow.\n\nAfter running benchmarks across 5 real tasks with Claude Code as the runtime:\n\npilot\n@playwright/mcp\n\nWall time\n25s\n43s — 41% faster\n\nTool result size\n5,230 chars\n9,165 chars — 43% smaller\n\nCost/task\n$0.107\n$0.124 — 13% cheaper\n\nSuccess rate\n5/5\n4/5\n\n \n \n The Architecture Insight\n\nMost MCP browser servers run Playwright as a separate process, talking over HTTP or WebSocket. Every action pays for serialization, network round-trip, and deserialization.\n\nPilot takes a simpler approach: run Playwright in the same Node.js process as the MCP server. No HTTP layer. ~5ms per action vs ~100-200ms.\n\n \n \n The Context Size Problem\n\nPlaywright MCP dumps a full snapshot on every navigate() — typically 58K chars. Pilot returns ~1K chars (top 20 interactive elements by default).\n\nOn a 2-page task that's 116K chars vs 11K entering context — 6x less before the model generates its first token.\n\n \n \n Tool Profiles\n\nPilot ships 58 tools. Too many for most agents — research shows LLM performance degrades past ~30 tools.\n\ncore (9 tools) — navigate, snapshot, click, fill, type, press_key, wait, screenshot, snapshot_diff\n\nstandard (28 tools) — adds tabs, scroll, hover, drag, iframes, page reading\n\nfull (58 tools) — everything\n\nSet PILOT_PROFILE=standard and your LLM only sees 28 tools.\n\n \n \n Features That Actually Matter\n\nCookie import. Pilot decrypts cookies directly from Chrome, Arc, or Brave via macOS Keychain. Your agent is already logged into whatever you use daily.\n\nHandoff/Resume. CAPTCHA? pilot_handoff opens a visible Chrome window with your full session. Solve it manually. pilot_resume picks up where you left off.\n\nIframe support. @playwright/mcp has this marked NOT_PLANNED. Pilot has full list/switch/interact support.\n\n \n \n Quick Start\n\nnpx pilot-mcp\nnpx playwright install chromium\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAdd to .mcp.json:\n\n{\n \"mcpServers\": {\n \"pilot\": {\n \"command\": \"npx\",\n \"args\": [\"-y\", \"pilot-mcp\"]\n }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWorks as a drop-in replacement for @playwright/mcp. Same MCP interface, faster everything.\n\nGitHub: github.com/TacosyHorchata/Pilot | npm: pilot-mcp | v0.3.0 | MIT",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "browser",
+      "browserautomation",
+      "build",
+      "char",
+      "chrome",
+      "cookie",
+      "fast",
+      "full",
+      "fullscreen",
+      "handoff/resume",
+      "llm",
+      "mcp",
+      "mode",
+      "node.js",
+      "pilot",
+      "playwright",
+      "playwright mcp -",
+      "success",
+      "the architecture insight",
+      "tool profiles\n\npilot",
+      "typescript",
+      "websocket"
+    ],
+    [
+      "browserautomation",
+      "playwright"
+    ]
+  ]
+}

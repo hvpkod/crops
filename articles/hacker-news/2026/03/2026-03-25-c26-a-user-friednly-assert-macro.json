@@ -1,0 +1,32 @@
+{
+  "id": 6529,
+  "source": "Hacker News",
+  "title": "C++26: A User-Friednly assert() macro",
+  "url": "https://www.sandordargo.com/blog/2026/03/25/cpp26-user-friendly-assert",
+  "published_at": "2026-03-25T10:51:48Z",
+  "fetched_at": "2026-03-28T16:00:19.076384+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47515652\">Comments</a>",
+  "full_text": "C++26 is bringing some long-overdue changes to assert(). But why are those changes needed? And when do we actually use assert, anyway?\n\nAt its core, assert() exists to validate runtime conditions. If the given expression evaluates to false, the program aborts. I’m almost certain you’ve used it before — at work, in personal projects, or at the very least in examples and code snippets.\n\nSo what’s the problem?\n\nThe macro nobody treats like a macro\n\nassert() is a macro — and a slightly sneaky one at that. Its name is written in lowercase, so it doesn’t follow the usual SCREAMING_SNAKE_CASE convention we associate with macros. There’s a good chance you’ve been using it for years without ever thinking about its macro nature.\n\nMacros, of course, aren’t particularly popular among modern C++ developers. But the issue here isn’t the usual - but valid - “macros are evil” argument. The real problem is more specific:\n\nThe preprocessor only understands parentheses for grouping. It does not understand other C++ syntax such as template angle brackets or brace-initialization.\n\nAs a result, several otherwise perfectly valid-looking assertions fail to compile:\n\n1\n2\n3\n4\n5\n6\n7\n// https://godbolt.org/z/9sqM7PvWh\nusing Int = int;\nint x = 1, y = 2;\n\nassert(std::is_same<int, Int>::value);\nassert([x, y]() { return x < y; }() == 1);\nassert(std::vector<int>{1, 2, 3}.size() == 3);\n\nEach of these breaks for essentially the same reason: the macro argument parsing gets confused by commas or braces that aren’t wrapped in an extra pair of parentheses.\n\nYou can fix each of them, of course, by adding an extra pair of parentheses. For example the last assertion would become assert((std::vector<int>{1, 2, 3}.size() == 3)); - you can play with the examples here.\n\nBut let’s be honest: this is ugly, easy to forget, and not exactly beginner-friendly. Sure, after hitting the problem once or twice, most people internalize the workaround — just like with the most vexing parse. Still, it’s unnecessary friction for such a fundamental utility.\n\nP2264R7: Making assert less fragile\n\nThis is where Peter Sommerlad’s proposal, P2264R7, comes in.\n\nThe proposal fixes the assert macro by redefining it as a variadic macro using __VA_ARGS__. Instead of accepting a single parenthesized expression, assert now takes (...) as its parameter. That small change makes all the previously broken examples just work — no extra parentheses required.\n\nWhat about diagnostic messages?\n\nOriginally, the proposal allowed users to attach diagnostic text via the comma operator, similar to static_assert. That idea didn’t survive the review phase.\n\nInstead, there is a mechanism to prevent the use of the comma operator on a top level, so you cannot accidentally create always true assertions like this:\n\n1\nassert(x > 0 , \"x was not greater than zero\");\n\nSomething that you could very easily create from an existing static_assert.\n\nSo if we want to have some diagnostics, we still have to use the && operator instead:\n\n1\nassert(x > 0 && \"x was not greater than zero\");\n\nThis keeps the semantics clear and avoids subtle bugs.\n\nBut aren’t contracts coming?\n\nOne common objection addressed in the proposal is the claim that assert is obsolete in a future with contracts.\n\nContracts will be great. But they won’t make assert disappear overnight.\n\nJust as concepts didn’t eliminate SFINAE or older template techniques — they simply gave us better tools — contracts won’t erase assert either. Assertions will continue to exist in real-world codebases, whether directly or wrapped inside higher-level precondition utilities. Improving assert is still valuable, especially when the changes are small, simple, and easy to backport.\n\nIf you’re curious, the paper discusses several other potential concerns in detail; you can find them in the section on potential liabilities of the proposed change.\n\nCompatibility and availability\n\nImportantly, this change does not break existing code. All previously valid usage patterns remain valid — the proposal merely enables new, less fragile ones.\n\nAt the time of writing, (February 2026), none of the major compilers support this feature yet. As with many C++26 improvements, it will take some time before it becomes widely available.\n\nConclusion\n\nThe C++26 update to assert() is a great example of incremental language evolution done right. It doesn’t reinvent assertions, replace them with something flashier, or force new programming models on existing code. Instead, it quietly removes a long-standing sharp edge.\n\nBy making assert variadic, the language eliminates a class of surprising compilation failures, improves readability, and reduces the cognitive overhead of using a tool that every C++ developer relies on. It’s a small change — but one that makes everyday C++ just a little bit nicer to work with.\n\nSometimes, that’s exactly the kind of progress we need.\n\nConnect deeper\n\nIf you liked this article, please",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "assert",
+      "assertion",
+      "change",
+      "comma",
+      "example",
+      "exist",
+      "extra",
+      "int",
+      "macro",
+      "n’t",
+      "proposal",
+      "sfinae",
+      "the &&",
+      "valid"
+    ],
+    []
+  ]
+}

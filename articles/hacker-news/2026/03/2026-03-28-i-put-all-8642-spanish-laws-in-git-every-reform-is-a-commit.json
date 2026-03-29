@@ -1,0 +1,34 @@
+{
+  "id": 6497,
+  "source": "Hacker News",
+  "title": "I put all 8,642 Spanish laws in Git – every reform is a commit",
+  "url": "https://github.com/EnriqueLop/legalize-es",
+  "published_at": "2026-03-28T12:01:27Z",
+  "fetched_at": "2026-03-28T12:40:37.430186+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47553798\">Comments</a>",
+  "full_text": "Legislación española como repositorio Git. Cada ley es un fichero Markdown, cada reforma un commit.\n\nMás de 8.600 leyes del API de datos abiertos del BOE, con historial completo de reformas desde 1960.\n\nParte del proyecto Legalize.\n\ngit clone https://github.com/EnriqueLop/legalize-es.git\ncd legalize-es\n\n# ¿Qué dice el Artículo 135 de la Constitución hoy?\ngrep -A 10 \"Artículo 135\" spain/BOE-A-1978-31229.md\n\n# ¿Cuándo cambió?\ngit log --oneline -- spain/BOE-A-1978-31229.md\n\n# Diff exacto de la reforma de estabilidad presupuestaria de 2011\ngit diff 6660bcf^..6660bcf -- spain/BOE-A-1978-31229.md\n\nspain/\n├── BOE-A-1978-31229.md # Constitución Española\n├── BOE-A-1995-25444.md # Código Penal\n├── BOE-A-2015-11430.md # Estatuto de los Trabajadores\n├── BOE-A-2000-323.md # Ley de Enjuiciamiento Civil\n└── ... (8.600+ leyes)\n\nCada fichero empieza con frontmatter YAML:\n\n---\ntitulo: \"Constitución Española\"\nidentificador: \"BOE-A-1978-31229\"\npais: \"es\"\nrango: \"constitucion\"\nfecha_publicacion: \"1978-12-29\"\nultima_actualizacion: \"2024-02-17\"\nestado: \"vigente\"\nfuente: \"https://www.boe.es/eli/es/c/1978/12/27/(1)\"\n---\n\nToda la legislación consolidada clasificada como \"estatal\" del BOE:\n\nConstitución Española\n\nLeyes Orgánicas\n\nLeyes ordinarias\n\nReales Decretos-ley\n\nReales Decretos Legislativos\n\nCada reforma es un commit independiente con la fecha oficial de publicación como fecha de autoría. El mensaje del commit incluye el identificador de la reforma y un enlace a la fuente oficial.\n\nTodo el contenido proviene del API de Legislación Consolidada del BOE. El texto legislativo es de dominio público. Este repositorio añade estructura, control de versiones y metadatos — no contenido original.\n\n¿Buscas acceso programático? La API de Legalize estará disponible próximamente en legalize.dev — busca, filtra, compara versiones y recibe notificaciones cuando una ley cambie.\n\n¿Has encontrado un error en un texto consolidado? ¿Falta alguna reforma? Abre un issue indicando el nombre de la ley, el artículo y la fuente oficial con la versión correcta.\n\nCreado por Enrique Lopez.\n\nContenido legislativo: dominio público (fuentes oficiales del gobierno).\n\nEstructura del repositorio, metadatos y herramientas: MIT.\n\nUn proyecto de Enrique Lopez · Con tecnología de BoletinClaro.es · legalize.dev",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "boe",
+      "cada",
+      "como",
+      "constitución",
+      "contenido",
+      "control de versiones",
+      "creado",
+      "el artículo",
+      "española",
+      "legislación",
+      "leyes",
+      "markdown",
+      "mit",
+      "oficial",
+      "reforma",
+      "repositorio"
+    ],
+    []
+  ]
+}

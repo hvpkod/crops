@@ -1,0 +1,47 @@
+{
+  "id": 6538,
+  "source": "DEV Community<",
+  "title": "Paperless-ngx Has a Free API: Self-Hosted Document Management with OCR and Full-Text Search",
+  "url": "https://dev.to/0012303/paperless-ngx-has-a-free-api-self-hosted-document-management-with-ocr-and-full-text-search-6e3",
+  "published_at": "2026-03-28T16:12:54Z",
+  "fetched_at": "2026-03-28T16:20:32.288344+00:00",
+  "author": "Alex Spinov",
+  "summary": "<h2>\n  \n  \n  What is Paperless-ngx?\n</h2>\n\n<p><a href=\"https://docs.paperless-ngx.com\" rel=\"noopener noreferrer\">Paperless-ngx</a> is a <strong>self-hosted document management system</strong> that transforms physical documents into a searchable online archive. It OCRs your documents, extracts text, and lets you search everything via API.</p>\n\n<p>Scanned receipts, invoices, letters — all searchable in seconds.</p>\n\n<h2>\n  \n  \n  Quick Start\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code><span class=\"nb\">mkdir </span>paperless <span class=\"o\">&amp;&amp;</span> <span class=\"nb\">cd </span>paperless\nwget https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/main/docker/compose/docker-compose.sqlite.yml <span class=\"nt\">-O</span> docker-compose.yml\ndocker compose up <span class=\"nt\">-d</span>\ndocker compose run <span class=\"nt\">--rm</span> webserver createsuperuser\n</code></pre>\n\n</div>\n\n\n\n<p>Open <code>http://localhost:8000</code>.</p>\n\n<h2>\n  \n",
+  "full_text": "What is Paperless-ngx?\n\nPaperless-ngx is a self-hosted document management system that transforms physical documents into a searchable online archive. It OCRs your documents, extracts text, and lets you search everything via API.\n\nScanned receipts, invoices, letters — all searchable in seconds.\n\n \n \n Quick Start\n\nmkdir paperless && cd paperless\nwget https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/main/docker/compose/docker-compose.sqlite.yml -O docker-compose.yml\ndocker compose up -d\ndocker compose run --rm webserver createsuperuser\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOpen http://localhost:8000.\n\n \n \n The REST API\n\nexport PL_URL=\"http://localhost:8000/api\"\nexport PL_TOKEN=\"your-token\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Upload Documents\n\ncurl -X POST \"$PL_URL/documents/post_document/\" \\\n -H \"Authorization: Token $PL_TOKEN\" \\\n -F \"document=@invoice.pdf\" \\\n -F \"title=March Invoice\" \\\n -F \"correspondent=Acme Corp\" \\\n -F \"tags=2,5\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPaperless automatically: OCRs the document, extracts text, classifies it, and makes it searchable.\n\n \n \n Search Documents\n\n# Full-text search\ncurl -s \"$PL_URL/documents/?query=invoice+march+2026\" \\\n -H \"Authorization: Token $PL_TOKEN\" | jq '.results[] | {title, correspondent, created}'\n\n# Filter by tags\ncurl -s \"$PL_URL/documents/?tags__id__in=2,5\" \\\n -H \"Authorization: Token $PL_TOKEN\"\n\n# Filter by date range\ncurl -s \"$PL_URL/documents/?created__date__gt=2026-01-01&created__date__lt=2026-04-01\" \\\n -H \"Authorization: Token $PL_TOKEN\"\n\n# Filter by correspondent\ncurl -s \"$PL_URL/documents/?correspondent__name=Acme\" \\\n -H \"Authorization: Token $PL_TOKEN\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Get Document\n\n# Get metadata\ncurl -s \"$PL_URL/documents/DOC_ID/\" \\\n -H \"Authorization: Token $PL_TOKEN\" | jq '{title, content, tags, correspondent, created}'\n\n# Download original\ncurl -o document.pdf \"$PL_URL/documents/DOC_ID/download/\" \\\n -H \"Authorization: Token $PL_TOKEN\"\n\n# Download thumbnail\ncurl -o thumb.png \"$PL_URL/documents/DOC_ID/thumb/\" \\\n -H \"Authorization: Token $PL_TOKEN\"\n\n# Get OCR'd text\ncurl -s \"$PL_URL/documents/DOC_ID/\" \\\n -H \"Authorization: Token $PL_TOKEN\" | jq -r '.content'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Tags, Correspondents, Document Types\n\n# Create tag\ncurl -X POST \"$PL_URL/tags/\" \\\n -H \"Authorization: Token $PL_TOKEN\" \\\n -d '{\"name\": \"Tax 2026\", \"color\": \"#3498db\", \"is_inbox_tag\": false}'\n\n# Create correspondent\ncurl -X POST \"$PL_URL/correspondents/\" \\\n -H \"Authorization: Token $PL_TOKEN\" \\\n -d '{\"name\": \"Acme Corp\", \"matching_algorithm\": 1, \"match\": \"acme\"}'\n\n# Create document type\ncurl -X POST \"$PL_URL/document_types/\" \\\n -H \"Authorization: Token $PL_TOKEN\" \\\n -d '{\"name\": \"Invoice\", \"matching_algorithm\": 1, \"match\": \"invoice\"}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Auto-Matching\n\nPaperless can automatically assign tags, correspondents, and types:\n\n# Set matching rules\ncurl -X PATCH \"$PL_URL/tags/TAG_ID/\" \\\n -H \"Authorization: Token $PL_TOKEN\" \\\n -d '{\"matching_algorithm\": 3, \"match\": \"receipt OR invoice\"}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nMatching algorithms: exact, any word, all words, regex, fuzzy, auto (ML).\n\n \n \n Features\n\nOCR: Tesseract-based text extraction (100+ languages)\n\nFull-text search: Find any word in any document\n\nAuto-classification: ML-based tag/type assignment\n\nEmail consumption: Scan email attachments automatically\n\nMobile scanning: Upload from phone camera\n\nWorkflows: Rules for automatic processing\n\n \n \n Paperless vs Google Drive\n\nFeature\nPaperless-ngx\nGoogle Drive\n\nOCR\nAutomatic\nManual\n\nFull-text search\nYes (OCR'd)\nYes (native PDFs)\n\nAuto-classify\nML-based\nNo\n\nSelf-hosted\nYes\nNo\n\nAPI\nFull REST\nYes\n\nStorage\nUnlimited\n15 GB\n\nNeed document automation or data extraction tools?\n\n📧 spinov001@gmail.com\n\n🔧 My tools on Apify Store\n\nHow do you manage documents? Physical or digital-first?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "acme corp",
+      "api",
+      "apify store",
+      "curl",
+      "curl -x post",
+      "doc_id",
+      "doc_id/",
+      "document",
+      "enter",
+      "exit",
+      "filter",
+      "full-text search",
+      "fullscreen",
+      "https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/main/docker/compose/docker-compose.sqlite.yml",
+      "mode",
+      "ocr",
+      "opensource",
+      "paperless",
+      "productivity",
+      "search",
+      "search documents",
+      "selfhosted",
+      "token",
+      "tutorial"
+    ],
+    [
+      "opensource",
+      "productivity",
+      "selfhosted",
+      "tutorial"
+    ]
+  ]
+}

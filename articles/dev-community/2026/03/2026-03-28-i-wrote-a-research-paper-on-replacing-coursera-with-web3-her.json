@@ -1,0 +1,39 @@
+{
+  "id": 6457,
+  "source": "DEV Community<",
+  "title": "I wrote a research paper on replacing Coursera with Web3. Here's what it's about.",
+  "url": "https://dev.to/dpk376/i-wrote-a-research-paper-on-replacing-coursera-with-web3-heres-what-its-about-b81",
+  "published_at": "2026-03-28T07:26:01Z",
+  "fetched_at": "2026-03-28T07:40:23.973821+00:00",
+  "author": "Deepak",
+  "summary": "<p><strong>Metaplay</strong> is a decentralized learning marketplace. Creators own their work. Certificates are cryptographically unforgeable. Governance is mathematically fair.</p>\n\n<p>Starting a 17-day series breaking down my research paper — one section per day.</p>\n\n<p>Today: the big picture.</p>\n\n<p><strong>The 3 problems Metaplay solves:</strong></p>\n\n<ul>\n<li>Platforms capture 90% of creator revenue</li>\n<li>Certificates are just PDFs anyone can fake</li>\n<li>Governance is dominated by whoever has the most money</li>\n</ul>\n\n<p><strong>The 3 solutions:</strong></p>\n\n<ul>\n<li>Smart contracts pay creators directly — no middlemen</li>\n<li>zk-SNARK + Soulbound Tokens = mathematically unforgeable credentials</li>\n<li>Identity-Gated Quadratic Voting = fair governance by design</li>\n</ul>\n\n<p>Full breakdown in my Notion doc → <a href=\"https://www.notion.so/PART-1-FOUNDATION-CONTEXT-330984e339b08007bf76cdca34e8f8e4?source=copy_link\" rel=\"noopener noreferrer\">https://www.notion.so/PART-1-",
+  "full_text": "Metaplay is a decentralized learning marketplace. Creators own their work. Certificates are cryptographically unforgeable. Governance is mathematically fair.\n\nStarting a 17-day series breaking down my research paper — one section per day.\n\nToday: the big picture.\n\nThe 3 problems Metaplay solves:\n\nPlatforms capture 90% of creator revenue\n\nCertificates are just PDFs anyone can fake\n\nGovernance is dominated by whoever has the most money\n\nThe 3 solutions:\n\nSmart contracts pay creators directly — no middlemen\n\nzk-SNARK + Soulbound Tokens = mathematically unforgeable credentials\n\nIdentity-Gated Quadratic Voting = fair governance by design\n\nFull breakdown in my Notion doc → https://www.notion.so/PART-1-FOUNDATION-CONTEXT-330984e339b08007bf76cdca34e8f8e4?source=copy_link",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "blockchain",
+      "certificates",
+      "coursera",
+      "creator",
+      "governance",
+      "identity-gated quadratic voting",
+      "learning",
+      "mathematically",
+      "metaplay",
+      "paper",
+      "replace",
+      "showdev",
+      "smart",
+      "web3",
+      "webdev",
+      "write"
+    ],
+    [
+      "blockchain",
+      "showdev",
+      "web3",
+      "webdev"
+    ]
+  ]
+}

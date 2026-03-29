@@ -1,0 +1,36 @@
+{
+  "id": 6631,
+  "source": "Hacker News",
+  "title": "Computer chip material inspired by the human brain could slash AI energy use",
+  "url": "https://www.cam.ac.uk/research/news/new-computer-chip-material-inspired-by-the-human-brain-could-slash-ai-energy-use",
+  "published_at": "2026-03-28T23:04:14Z",
+  "fetched_at": "2026-03-29T00:40:18.779514+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47558849\">Comments</a>",
+  "full_text": "The researchers, led by the University of Cambridge, developed a form of hafnium oxide that acts as a highly stable, low‑energy ‘memristor’ — a component designed to mimic the efficient way neurons are connected in the brain. The results are reported in the journal Science Advances.\n\nCurrent AI systems rely on conventional computer chips that shuttle data back and forth between memory and processing units. This constant movement consumes large amounts of electricity, and global demand is exploding as AI adoption expands across industries.\n\nBrain-inspired, or neuromorphic, computing is an alternative way to process information that could reduce energy use by as much as 70% by storing and processing information in the same place, and doing so with extremely low power. Such a system would also be far more adaptable, in the same way our own brains are able to learn and adapt.\n\n“Energy consumption is one of the key challenges in current AI hardware,” said lead author Dr Babak Bakhit, from Cambridge’s Department of Materials Science and Metallurgy. “To address that, you need devices with extremely low currents, excellent stability, outstanding uniformity across switching cycles and devices, and the ability to switch between many distinct states.”\n\nMost existing memristors rely on the formation of tiny conductive filaments inside metal oxide material. But these filaments behave unpredictably and typically require high forming and operating voltages, limiting their usefulness in large-scale data storage and computing systems.\n\nThe Cambridge team instead created a new type of hafnium-based thin film that switches states in a completely different way. By adding strontium and titanium and growing the film using a two‑step method, the researchers were able to form tiny electronic gates, or ‘p-n junctions’, inside the oxide where the layers meet. This allows the device to change its resistance smoothly by shifting the height of an energy barrier at the interface, rather than by growing or rupturing the filaments.\n\nBakhit, who is also affiliated with Cambridge’s Department of Engineering, said this mechanism overcomes one of the biggest challenges in developing memristor technology. “Filamentary devices suffer from random behaviour,” he said. “But because our devices switch at the interface, they show outstanding uniformity from cycle to cycle and from device to device.”\n\nUsing the hafnium-based devices, the researchers achieved switching currents about a million times lower than those of some conventional oxide-based devices. The memristors also produced hundreds of distinct, stable conductance levels, a key requirement for analogue ‘in-memory’ computing.\n\nLaboratory tests showed the devices could reliably endure tens of thousands of switching cycles and store their programmed states for around a day. They also reproduced fundamental learning rules observed in biology, such as spike-timing dependent plasticity: the mechanism by which neurons strengthen or weaken their connections depending on when signals arrive.\n\n“These are the properties you need if you want hardware that can learn and adapt, rather than just store bits,” said Bakhit.\n\nHowever, there are still some challenges to overcome. The current fabrication process requires temperatures of around 700°C — higher than standard semiconductor manufacturing tolerances. “This is currently the main challenge in our device fabrication process,” said Bakhit. “But we’re now working on ways to bring the temperature down to make it more compatible with standard industry processes.”\n\nDespite this, he believes the technology could ultimately be integrated into chip-scale systems. “If we can reduce the temperature and put these devices onto a chip, it would be a major step forward,” he said.\n\nBakhit, a materials physicist, said the breakthrough followed several years of unsuccessful experiments. The turning point came late last year when he tried a twist on the two‑stage deposition method, adding oxygen only after the first layer had been grown.\n\n“I spent almost three years on this,” he said. “There were a huge number of failures. But at the end of November, we saw the first really good results. It’s still early days of course, but if we can solve the temperature issue, this technology could be game-changing because the energy consumption is so much lower and at the same time, the device performance is highly promising.”\n\nThe research was supported in part by the Swedish Research Council (VR), the Royal Academy of Engineering, the Royal Society, and UK Research and Innovation (UKRI). A patent application has been filed by Cambridge Enterprise, the University’s innovation arm.\n\n \n\nReference:\n\nBabak Bakhit et al. ‘HfO2-based memristive synapses with asymmetrically extended p-n heterointerfaces for highly energy-efficient neuromorphic hardware.’ Science Advances (2026). DOI: 10.1126/sciadv.aec2324",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bakhit",
+      "brain",
+      "cambridge",
+      "cambridge enterprise",
+      "challenge",
+      "current",
+      "cycle",
+      "device",
+      "energy",
+      "highly",
+      "oxide",
+      "science",
+      "science advances",
+      "switch",
+      "temperature",
+      "the royal society",
+      "ukri",
+      "university"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": 6536,
+  "source": "DEV Community<",
+  "title": "I Built a Universal CLI Scaffolding Tool — Scaffy v1.0.1 is Live",
+  "url": "https://dev.to/tanvirhossen112/i-built-a-universal-cli-scaffolding-tool-scaffy-v101-is-live-27pd",
+  "published_at": "2026-03-28T16:13:20Z",
+  "fetched_at": "2026-03-28T16:20:29.078949+00:00",
+  "author": "Tanvir Hossen",
+  "summary": "<h2>\n  \n  \n  I Built a Universal CLI Scaffolding Tool — Scaffy v1.0.1 is Live\n</h2>\n\n<p>Every time I started a new project, I found myself doing the same thing —<br />\nGoogling \"how to install Laravel\", \"create-next-app flags\", \"Django setup<br />\nfrom scratch\". Not because I didn't know how, but because I couldn't<br />\nremember the exact commands every single time.</p>\n\n<p>So I built Scaffy.</p>\n<h2>\n  \n  \n  What is Scaffy?\n</h2>\n\n<p>Scaffy is an open source CLI tool that scaffolds any framework in one command<br />\nusing the framework's official installer — never stale templates, always fresh.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>npm <span class=\"nb\">install</span> <span class=\"nt\">-g</span> scaffy-tool\n\nscaffy laravel\nscaffy django\nscaffy next\nscaffy gin\n</code></pre>\n\n</div>\n\n\n\n<p>You pick the framework, answer a few questions, and Scaffy handles the rest.</p>\n\n<h2>\n  \n  \n  How it works\n</h2>\n\n<p>Scaffy is built around a simple p",
+  "full_text": "I Built a Universal CLI Scaffolding Tool — Scaffy v1.0.1 is Live\n\nEvery time I started a new project, I found myself doing the same thing —\n\nGoogling \"how to install Laravel\", \"create-next-app flags\", \"Django setup\n\nfrom scratch\". Not because I didn't know how, but because I couldn't\n\nremember the exact commands every single time.\n\nSo I built Scaffy.\n\n \n \n What is Scaffy?\n\nScaffy is an open source CLI tool that scaffolds any framework in one command\n\nusing the framework's official installer — never stale templates, always fresh.\n\nnpm install -g scaffy-tool\n\nscaffy laravel\nscaffy django\nscaffy next\nscaffy gin\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYou pick the framework, answer a few questions, and Scaffy handles the rest.\n\n \n \n How it works\n\nScaffy is built around a simple plugin system. Every framework is exactly\n\n3 files:\n\nplugin.json — metadata, requirements, version info\n\nquestions.js — what to ask the user\n\nscaffold.js — what to run\n\nThat's it. Anyone can add a new framework in 3 files and open a PR.\n\n \n \n What's in v1.0.1\n\nAfter 3 sprints of development, v1.0.1 ships with 10 frameworks across\n\n4 languages:\n\nLanguage\nFrameworks\n\nPHP\nLaravel v13, v12, v11 · Symfony v7\n\nPython\nDjango v5 · FastAPI\n\nGo\nGin v1\n\nJavaScript\nExpressJS v4 · NextJS v14 · NestJS v11 · VueJS v3\n\n \n \n What makes it different\n\nIt uses official installers. Scaffy never ships its own templates.\n\nscaffy laravel runs composer create-project laravel/laravel. \n\nscaffy next runs npx create-next-app@14. You always get the freshest,\n\nmost up-to-date project structure the framework team ships.\n\nIt checks requirements first. Before running anything, Scaffy checks\n\nthat you have the right tools installed at the right versions. No more\n\ncryptic errors halfway through setup.\n\nIt detects your package manager. For JavaScript frameworks, Scaffy\n\nchecks which of npm, yarn, or pnpm you have installed and offers only\n\nthe ones available on your system.\n\n \n \n The tech stack\n\nNode.js 18+ with full ESM\n\nCommander.js for CLI parsing\n\nInquirer.js for interactive prompts\n\nJest for testing (150+ tests)\n\nGitHub Actions CI on Node 18, 20, 22\n\n \n \n What's next\n\nscaffy add github:user/plugin — install community plugins\n\nAI mode — describe what you want, Scaffy picks the framework\n\nVS Code extension\n\nPlugin marketplace\n\n \n \n Try it\n\nnpm install -g scaffy-tool\nscaffy list\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGitHub: https://github.com/TanvirHossen112/scaffy\n\nnpm: https://www.npmjs.com/package/scaffy-tool\n\nWould love feedback, issues, and PRs. If you want to add a framework,\n\nthe plugin system makes it straightforward — open an issue and let's\n\nbuild it together.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "build",
+      "cli",
+      "commander.js",
+      "esm",
+      "framework",
+      "fullscreen",
+      "inquirer.js",
+      "instal",
+      "install",
+      "javascript",
+      "laravel",
+      "mode",
+      "node",
+      "npm",
+      "opensource",
+      "plugin",
+      "scaffolding",
+      "scaffy"
+    ],
+    [
+      "node",
+      "opensource"
+    ]
+  ]
+}

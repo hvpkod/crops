@@ -1,0 +1,31 @@
+{
+  "id": 6615,
+  "source": "Slashdot",
+  "title": "IBM Quantum Computer Simulates Real Magnetic Materials and Matches Lab Data",
+  "url": "https://slashdot.org/story/26/03/28/0339224/ibm-quantum-computer-simulates-real-magnetic-materials-and-matches-lab-data?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-28T21:34:00Z",
+  "fetched_at": "2026-03-28T22:20:49.000442+00:00",
+  "author": "EditorDavid",
+  "summary": "\"IBM says its quantum computer can now simulate real magnetic materials and match actual lab experiment results,\" writes Slashdot reader BrianFagioli, \"which is something people have been waiting years to see.\"\n\nInstead of just theoretical output, the system reproduced neutron scattering data from a known material, meaning it lines up with real world physics. It still relies on a mix of quantum and classical computing and this is a narrow use case for now, but it is one of the first times quantum hardware has produced results that scientists can directly validate against experiments, which makes it a lot more interesting than the usual hype. \n\nClassical computers \"are not great at modeling quantum systems,\" according to this article at Nerds.xyz. \"The math gets messy fast, and scientists end up relying on approximations... Quantum computers are supposed to solve that problem...\"\n\n\nIf this direction continues, it could start to matter in areas like superconductors, battery tech, and eve",
+  "full_text": "\"IBM says its quantum computer can now simulate real magnetic materials and match actual lab experiment results,\" writes Slashdot reader BrianFagioli\n\n, \"which is something people have been waiting years to see.\"\n\nInstead of just theoretical output, the system reproduced neutron scattering data from a known material, meaning it lines up with real world physics. It still relies on a mix of quantum and classical computing and this is a narrow use case for now, but it is one of the first times quantum hardware has produced results that scientists can directly validate against experiments, which makes it a lot more interesting than the usual hype. \n\nClassical computers \"are not great at modeling quantum systems,\" according to this article at Nerds.xyz\n\n. \"The math gets messy fast, and scientists end up relying on approximations... Quantum computers are supposed to solve that problem...\"\n\nIf this direction continues, it could start to matter in areas like superconductors, battery tech, and even drug development. Those are the kinds of problems where better simulations can actually lead to better outcomes, not just nicer charts in a research paper.\n \n\n\"I am extremely excited about what this means for science,\" said study co-author Allen Scheie from the Los Alamos National Laboratory. In an announcement from IBM\n\n, Scheie calls this \"the most impressive match I've seen between experimental data and qubit simulation, and it definitely raises the bar for what can be expected from quantum computers.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "brianfagioli",
+      "classical",
+      "computer",
+      "datum",
+      "ibm",
+      "magnetic",
+      "match",
+      "nerds.xyz",
+      "quantum",
+      "real",
+      "scheie",
+      "simulates",
+      "well"
+    ],
+    []
+  ]
+}

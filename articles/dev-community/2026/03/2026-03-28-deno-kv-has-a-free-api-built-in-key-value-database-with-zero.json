@@ -1,0 +1,36 @@
+{
+  "id": 6543,
+  "source": "DEV Community<",
+  "title": "Deno KV Has a Free API: Built-In Key-Value Database with Zero Configuration",
+  "url": "https://dev.to/0012303/deno-kv-has-a-free-api-built-in-key-value-database-with-zero-configuration-9ai",
+  "published_at": "2026-03-28T16:09:20Z",
+  "fetched_at": "2026-03-28T16:20:40.482325+00:00",
+  "author": "Alex Spinov",
+  "summary": "<h2>\n  \n  \n  What is Deno KV?\n</h2>\n\n<p><a href=\"https://deno.com/kv\" rel=\"noopener noreferrer\">Deno KV</a> is a <strong>built-in key-value database</strong> that ships with the Deno runtime. No installation, no configuration, no connection strings. Just <code>Deno.openKv()</code> and you have a globally distributed database.</p>\n\n<p>Free on Deno Deploy: <strong>unlimited reads, 1 GB storage</strong>.</p>\n\n<h2>\n  \n  \n  Quick Start\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight typescript\"><code><span class=\"kd\">const</span> <span class=\"nx\">kv</span> <span class=\"o\">=</span> <span class=\"k\">await</span> <span class=\"nx\">Deno</span><span class=\"p\">.</span><span class=\"nf\">openKv</span><span class=\"p\">();</span>\n\n<span class=\"c1\">// Set</span>\n<span class=\"k\">await</span> <span class=\"nx\">kv</span><span class=\"p\">.</span><span class=\"nf\">set</span><span class=\"p\">([</span><span class=\"dl\">\"</span><span class=\"s2\">users</span><span class=\"dl\">\"</span><span class=",
+  "full_text": "What is Deno KV?\n\nDeno KV is a built-in key-value database that ships with the Deno runtime. No installation, no configuration, no connection strings. Just Deno.openKv() and you have a globally distributed database.\n\nFree on Deno Deploy: unlimited reads, 1 GB storage.\n\n \n \n Quick Start\n\nconst kv = await Deno.openKv();\n\n// Set\nawait kv.set([\"users\", \"user_123\"], {\n name: \"Alice\",\n email: \"alice@example.com\",\n plan: \"pro\",\n});\n\n// Get\nconst user = await kv.get([\"users\", \"user_123\"]);\nconsole.log(user.value); // {name: \"Alice\", ...}\n\n// Delete\nawait kv.delete([\"users\", \"user_123\"]);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. No npm install, no database setup.\n\n \n \n Hierarchical Keys\n\n// Keys are arrays — naturally hierarchical\nawait kv.set([\"posts\", \"2026\", \"03\", \"my-post\"], { title: \"Hello\", body: \"...\" });\nawait kv.set([\"posts\", \"2026\", \"03\", \"another\"], { title: \"World\", body: \"...\" });\n\n// List all March 2026 posts\nconst posts = kv.list({ prefix: [\"posts\", \"2026\", \"03\"] });\nfor await (const entry of posts) {\n console.log(entry.key, entry.value.title);\n}\n\n// List all posts ever\nconst allPosts = kv.list({ prefix: [\"posts\"] });\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Atomic Operations\n\n// Transfer money atomically\nconst sender = await kv.get([\"accounts\", \"alice\"]);\nconst receiver = await kv.get([\"accounts\", \"bob\"]);\n\nconst result = await kv.atomic()\n .check(sender) // Ensure no concurrent modification\n .check(receiver)\n .set([\"accounts\", \"alice\"], { balance: sender.value.balance - 100 })\n .set([\"accounts\", \"bob\"], { balance: receiver.value.balance + 100 })\n .commit();\n\nif (!result.ok) {\n console.log(\"Conflict — retry\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Queues (Built-In)\n\n// Enqueue a task\nawait kv.enqueue({\n type: \"send_email\",\n to: \"user@example.com\",\n subject: \"Welcome!\",\n});\n\n// Process queue\nkv.listenQueue(async (message) => {\n if (message.type === \"send_email\") {\n await sendEmail(message.to, message.subject);\n }\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Secondary Indexes\n\n// Store user with email index\nasync function createUser(user) {\n const result = await kv.atomic()\n .set([\"users\", user.id], user)\n .set([\"users_by_email\", user.email], user.id)\n .commit();\n return result;\n}\n\n// Lookup by email\nasync function getUserByEmail(email) {\n const entry = await kv.get([\"users_by_email\", email]);\n if (!entry.value) return null;\n const user = await kv.get([\"users\", entry.value]);\n return user.value;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n HTTP Server with KV\n\nconst kv = await Deno.openKv();\n\nDeno.serve(async (req) => {\n const url = new URL(req.url);\n\n if (url.pathname === \"/api/visits\") {\n // Atomic counter\n const current = await kv.get([\"visits\"]);\n const count = (current.value as number || 0) + 1;\n await kv.set([\"visits\"], count);\n return Response.json({ visits: count });\n }\n\n if (url.pathname.startsWith(\"/api/users/\")) {\n const id = url.pathname.split(\"/\")[3];\n const user = await kv.get([\"users\", id]);\n if (!user.value) return new Response(\"Not found\", { status: 404 });\n return Response.json(user.value);\n }\n\n return new Response(\"OK\");\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Deploy to Deno Deploy\n\ndeployctl deploy --project=my-app main.ts\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYour KV database automatically becomes globally distributed — replicated across 35+ regions.\n\n \n \n Deno KV vs Redis vs DynamoDB\n\nFeature\nDeno KV\nRedis\nDynamoDB\n\nSetup\nZero (built-in)\nInstall/Docker\nAWS Console\n\nTransactions\nAtomic ops\nMULTI/EXEC\nTransactWriteItems\n\nQueues\nBuilt-in\nSeparate (Bull)\nSQS\n\nGlobal replication\nAutomatic\nManual\nGlobal Tables\n\nFree tier\n1 GB\nSelf-host\n25 GB\n\nLatency\n<10ms edge\n<1ms local\n<10ms\n\nNeed edge-first backend or Deno deployment help?\n\n📧 spinov001@gmail.com\n\n🔧 My tools on Apify Store\n\nRedis or Deno KV — which key-value store do you prefer?",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "atomic",
+      "automatic",
+      "await",
+      "const",
+      "database",
+      "deno",
+      "enter",
+      "exit",
+      "fullscreen",
+      "install/docker",
+      "javascript",
+      "kv.set([\"posts",
+      "mode",
+      "return",
+      "sqs",
+      "tutorial"
+    ],
+    [
+      "tutorial"
+    ]
+  ]
+}

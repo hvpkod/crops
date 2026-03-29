@@ -1,0 +1,44 @@
+{
+  "id": 6503,
+  "source": "DEV Community<",
+  "title": "SAGE — A Notion MCP Academic Co-Pilot for Filipino University Students",
+  "url": "https://dev.to/kuyacarlo/sage-a-notion-mcp-academic-co-pilot-for-filipino-university-students-3lmb",
+  "published_at": "2026-03-28T13:12:44Z",
+  "fetched_at": "2026-03-28T13:20:21.371508+00:00",
+  "author": "John Carlo Santos",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/notion-2026-03-04\">Notion MCP Challenge</a></em></p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>SAGE — Student Agent for Guided Education — is an academic co-pilot built for Filipino university students. You connect your Notion account, tell it your program, year, and semester, and it builds your entire academic workspace for you: course pages, topic breakdowns, task databases, and study prompts, all structured and ready to go.</p>\n\n<p>It's built on Notion MCP, FastAPI, Supabase, and Qwen on Vultr Inference. The workspace it creates is seeded with real curriculum data from Ghost Commons, a pre-built registry covering all six BSCPE Year 2 Semester 1 courses — Differential Equations, Engineering Data Analysis, Circuits, and more.</p>\n\n<p>The frustration behind it is real: as a computer engineering student in the Philippines, my tasks come from Teams, Google Classroom, Canvas, and Blackboard all at once. I forget things. I d",
+  "full_text": "Notion MCP Challenge Submission 🧠\n\n \n \n\n \n\nThis is a submission for the Notion MCP Challenge\n\n \n \n What I Built\n\nSAGE — Student Agent for Guided Education — is an academic co-pilot built for Filipino university students. You connect your Notion account, tell it your program, year, and semester, and it builds your entire academic workspace for you: course pages, topic breakdowns, task databases, and study prompts, all structured and ready to go.\n\nIt's built on Notion MCP, FastAPI, Supabase, and Qwen on Vultr Inference. The workspace it creates is seeded with real curriculum data from Ghost Commons, a pre-built registry covering all six BSCPE Year 2 Semester 1 courses — Differential Equations, Engineering Data Analysis, Circuits, and more.\n\nThe frustration behind it is real: as a computer engineering student in the Philippines, my tasks come from Teams, Google Classroom, Canvas, and Blackboard all at once. I forget things. I don't know where to start. SAGE is the one place I wished existed.\n\n \n \n Video Demo\n\n VIDEO\n\n \n \n Show us the code\n\ngithub.com/kuya-carlo/sage-mcp\n\n \n \n How I Used Notion MCP\n\nNotion MCP is the core of SAGE — not a wrapper, not an afterthought. Every workspace action goes through it: creating the root page, spinning up course databases with full property schemas, inserting topic rows, and querying workspace state for the load monitor.\n\nThe hardest part was making it stable at scale. Building a full semester workspace means dozens of concurrent MCP calls — course pages, Topics databases, Tasks databases, individual topic entries — all in parallel. I implemented a global semaphore, persistent SSE connection pooling via an async context manager, and inter-course delays to keep the MCP server stable.\n\nWhat Notion MCP unlocks here is genuine multi-tenant isolation: every student authorizes their own Notion workspace via OAuth, and SAGE writes only to the pages they explicitly grant access to. Tokens are AES-encrypted at rest. No shared state, no data leakage.\n\nThe result is a workspace that feels like it was built by hand — because structurally, it was. SAGE just does it in one shot.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "academic",
+      "ai",
+      "build",
+      "canvas",
+      "course",
+      "devchallenge",
+      "differential equations",
+      "engineering data analysis",
+      "filipino",
+      "ghost commons",
+      "mcp",
+      "notion",
+      "notion mcp",
+      "notionchallenge",
+      "philippines",
+      "sage",
+      "semester",
+      "student",
+      "supabase",
+      "teams",
+      "topic",
+      "vultr inference",
+      "workspace"
+    ],
+    [
+      "devchallenge",
+      "notionchallenge"
+    ]
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 6480,
+  "source": "DEV Community<",
+  "title": "Smart Mechanic AI Workflow System",
+  "url": "https://dev.to/joshua_solomon_ed05d6cb51/smart-mechanic-ai-workflow-system-1fm6",
+  "published_at": "2026-03-28T10:09:10Z",
+  "fetched_at": "2026-03-28T10:20:37.613387+00:00",
+  "author": "Joshua Solomon",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/notion-2026-03-04\">Notion MCP Challenge</a></em></p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>&lt; I built a Smart Mechanic AI Workflow System using Notion to help mechanics manage their daily workshop operations more efficiently.<br />\nThis system is designed for real-world use, especially for local mechanics who struggle with tracking jobs, pricing services correctly, and managing customers.<br />\nThe workflow includes:<br />\nA Customer Job Tracker to log car issues, services, and payment status<br />\nA Daily Earnings Dashboard to monitor income and growth<br />\nA Smart Pricing Assistant to guide mechanics on how much to charge<br />\nAn AI-powered Diagnosis Helper that suggests possible faults based on symptoms<br />\nThis solution helps mechanics move from manual, unorganized work to a structured and professional system.&gt;</p>\n\n<h2>\n  \n  \n  Video Demo\n</h2>\n\n<p>&lt; In my demo video, I walk through:<br />\nHow I log ",
+  "full_text": "Notion MCP Challenge Submission 🧠\n\n \n \n\n \n\nThis is a submission for the Notion MCP Challenge\n\n \n \n What I Built\n\n< I built a Smart Mechanic AI Workflow System using Notion to help mechanics manage their daily workshop operations more efficiently.\n\nThis system is designed for real-world use, especially for local mechanics who struggle with tracking jobs, pricing services correctly, and managing customers.\n\nThe workflow includes:\n\nA Customer Job Tracker to log car issues, services, and payment status\n\nA Daily Earnings Dashboard to monitor income and growth\n\nA Smart Pricing Assistant to guide mechanics on how much to charge\n\nAn AI-powered Diagnosis Helper that suggests possible faults based on symptoms\n\nThis solution helps mechanics move from manual, unorganized work to a structured and professional system.>\n\n \n \n Video Demo\n\n< In my demo video, I walk through:\n\nHow I log a new customer and their car issue\n\nHow the system tracks job progress and payment\n\nHow I use AI prompts inside Notion to assist diagnosis and pricing\n\nHow I track my daily income and performance\n\nThe video shows how this system can improve efficiency and increase earnings for mechanics.>\n\nWatch my real-life car diagnostic process here:\n\nhttps://youtube.com/shorts/xOXmXyvG6Ig?feature=share\n\nThis video proves that my solution is already being used in real-life scenarios, making it practical, scalable, and impactful.\n\n \n \n Show us the code\n\n< This project is built using Notion, so there is no traditional code repository.\n\nHowever, the structure includes:\n\nNotion databases (tables) for jobs, customers, and earnings\n\nPre-written AI prompts for diagnosis and pricing\n\nA clean, easy-to-use interface for daily workflow.>\n\n \n \n How I Used Notion MCP\n\n< I used Notion as a central system to organize and manage all workshop activities.\n\nWith AI-assisted workflows, this system acts like a “human-in-the-loop” assistant by:\n\nHelping make better decisions on pricing and repairs\n\nReducing guesswork in diagnosing vehicle problems\n\nKeeping all records in one place for easy access and tracking\n\nThis unlocks a smarter way of working where mechanics can focus more on fixing cars while the system helps manage information and decisions.>\n\nWhy This Matters.\n\nMany skilled workers in developing environments lack digital tools to grow their business.\n\nThis project bridges that gap by combining real-world mechanical work with AI-powered organization, helping small business owners scale their operations and income.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "build",
+      "daily",
+      "devchallenge",
+      "diagnosis",
+      "earning",
+      "help",
+      "mcp",
+      "mechanic",
+      "notion",
+      "notionchallenge",
+      "payments",
+      "pricing",
+      "smart",
+      "system"
+    ],
+    [
+      "devchallenge",
+      "notionchallenge"
+    ]
+  ]
+}

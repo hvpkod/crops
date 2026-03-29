@@ -1,0 +1,42 @@
+{
+  "id": 6507,
+  "source": "DEV Community<",
+  "title": "I Built an AI That Matches Lonely People with Therapy Pets — Here's What I Learned",
+  "url": "https://dev.to/coach4life/i-built-an-ai-that-matches-lonely-people-with-therapy-pets-heres-what-i-learned-3p94",
+  "published_at": "2026-03-28T13:02:35Z",
+  "fetched_at": "2026-03-28T13:20:28.822141+00:00",
+  "author": "Esther Studer",
+  "summary": "<p>Ever had a bad week and thought, <em>\"I just need to hug a dog right now\"</em>?</p>\n\n<p>You're not alone. Science agrees. And I built something about it.</p>\n\n<p>This post is about <strong>MyPetTherapist</strong> — an AI-powered platform that matches people with certified therapy animals — and all the weird technical decisions I made along the way.</p>\n\n\n\n\n<h2>\n  \n  \n  The Problem Worth Solving\n</h2>\n\n<p>Therapy animals work. Studies show pet therapy reduces cortisol by up to 37%, lowers blood pressure, and reduces anxiety faster than most medications. But most people have no idea:</p>\n\n<ul>\n<li>Which animal type actually fits their emotional need</li>\n<li>Whether their living situation (apartment, allergy-prone, busy schedule) is compatible</li>\n<li>How to find <em>certified</em> therapy animals vs. just... someone's emotional support peacock</li>\n</ul>\n\n<p>Enter: AI.</p>\n\n\n\n\n<h2>\n  \n  \n  The Stack (The Honest Version)\n</h2>\n\n<p>I'm going to be real — the first version was a mess.<",
+  "full_text": "Ever had a bad week and thought, \"I just need to hug a dog right now\"?\n\nYou're not alone. Science agrees. And I built something about it.\n\nThis post is about MyPetTherapist — an AI-powered platform that matches people with certified therapy animals — and all the weird technical decisions I made along the way.\n\n \n \n The Problem Worth Solving\n\nTherapy animals work. Studies show pet therapy reduces cortisol by up to 37%, lowers blood pressure, and reduces anxiety faster than most medications. But most people have no idea:\n\nWhich animal type actually fits their emotional need\n\nWhether their living situation (apartment, allergy-prone, busy schedule) is compatible\n\nHow to find certified therapy animals vs. just... someone's emotional support peacock\n\nEnter: AI.\n\n \n \n The Stack (The Honest Version)\n\nI'm going to be real — the first version was a mess.\n\n# Version 1: The Embarrassing Version\ndef match_pet(user_input):\n if \"sad\" in user_input:\n return \"dog\"\n if \"stressed\" in user_input:\n return \"cat\"\n return \"fish\" # the \"I give up\" option\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYeah. A dictionary pretending to be AI.\n\nVersion 2 was better:\n\n# Version 2: Actual Semantic Matching\nfrom sentence_transformers import SentenceTransformer\nimport numpy as np\n\nmodel = SentenceTransformer('all-MiniLM-L6-v2')\n\ndef embed_profile(text: str) -> np.ndarray:\n return model.encode(text, normalize_embeddings=True)\n\ndef match_therapy_animal(user_profile: str, animal_profiles: list[dict]) -> dict:\n user_vec = embed_profile(user_profile)\n\n scores = []\n for animal in animal_profiles:\n animal_vec = embed_profile(animal['description'])\n similarity = float(np.dot(user_vec, animal_vec))\n scores.append((similarity, animal))\n\n scores.sort(key=lambda x: x[0], reverse=True)\n return scores[0][1] # Best match\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis was 10x better. But still missing the nuance of why someone needs therapy support.\n\n \n \n The Breakthrough: Structured Emotional Intake\n\nThe real game-changer was treating the matching problem like a multi-dimensional vector search problem, not a keyword problem.\n\nUsers answer 5 questions. We don't analyze the words — we analyze the emotional signature:\n\nclass EmotionalProfile:\n dimensions = [\n 'anxiety_level', # 0-10\n 'social_energy', # introvert <-> extrovert\n 'physical_activity', # couch potato <-> hiker\n 'commitment_capacity',# time/energy available\n 'touch_sensitivity' # some people hate fur, love scales\n ]\n\n def score(self, responses: dict) -> np.ndarray:\n # NLP scoring via fine-tuned classifier\n return np.array([self._score_dimension(d, responses) \n for d in self.dimensions])\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEach therapy animal type also gets scored on these same 5 dimensions. The match is a cosine similarity in emotional space.\n\n \n \n What Actually Surprised Me\n\nRabbits outperform dogs for anxiety. High-anxiety users matched better with rabbits — quieter, don't demand attention, warm and furry. This never would have come from keyword matching.\n\nFish are underrated for insomnia. The visual rhythm of a fish tank is legitimately studied as a sleep aid. Users who reported sleep issues matched fish tanks 40% of the time.\n\nThe intake form itself was therapeutic. Multiple users said just answering the questions helped them understand what they were feeling. The AI wasn't doing the heavy lifting — the reflection was.\n\n \n \n The Infrastructure (Keep It Simple, Stupid)\n\nI deliberately kept the stack boring:\n\nBackend: Python + FastAPI\n\nEmbeddings: sentence-transformers (local, free, fast enough)\n\nDatabase: PostgreSQL with pgvector extension for similarity search\n\nFrontend: WordPress (I know. I know. It works.)\n\nHosting: Single VPS, no Kubernetes drama\n\n-- pgvector similarity search\nSELECT \n animal_id,\n name,\n species,\n 1 - (embedding <=> $1) AS similarity_score\nFROM therapy_animals\nWHERE is_certified = true\nORDER BY embedding <=> $1\nLIMIT 5;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe query that powers the entire matching engine is 8 lines of SQL. No LangChain. No vector database SaaS. Just PostgreSQL doing what it's always done.\n\n \n \n Lessons for Anyone Building Wellness AI\n\n1. Start with the emotion, not the solution. Most health-tech apps ask \"what do you want?\" — that's the wrong question. Ask \"how do you feel?\" and let the AI figure out the solution.\n\n2. Interpretability matters more than accuracy. If a user gets matched with a rabbit and you can't explain why, they won't trust it. Show your work.\n\n3. The AI is the last 20%. The first 80% is the intake design, the database of certified providers, the trust-building UX. AI is the finishing touch, not the foundation.\n\n4. Boring infrastructure scales. I see people reaching for Pinecone on day 1. Start with pgvector. You'll save $300/month and learn more.\n\n \n \n What's Next\n\nCurrently working on:\n\nLive session matching — not just animal type, but specific available sessions near you\n\nOutcome tracking — did the match actually help? 30-day check-in flows\n\nProvider onboarding API — so certified therapy animal organizations can self-register\n\nIf you're curious about the project: mypettherapist.com — it's live, it's free to try the matching quiz, and yes, you might get matched with a guinea pig. Lean into it.\n\nWhat's the weirdest \"AI for wellness\" use case you've seen? Drop it in the comments — genuinely collecting data points here.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "animal",
+      "api",
+      "certify",
+      "emotional",
+      "emotionalprofile",
+      "fullscreen",
+      "kubernetes",
+      "langchain",
+      "match",
+      "matching",
+      "mode",
+      "nlp",
+      "python",
+      "select",
+      "showdev",
+      "similarity",
+      "sql",
+      "therapy",
+      "webdev",
+      "wordpress"
+    ],
+    [
+      "showdev",
+      "webdev"
+    ]
+  ]
+}

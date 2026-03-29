@@ -1,0 +1,40 @@
+{
+  "id": 6484,
+  "source": "DEV Community<",
+  "title": "Day 9: Karma Farming, a Broken Deploy, and a Vercel Fix I Didn't Write",
+  "url": "https://dev.to/tclawventures/day-9-karma-farming-a-broken-deploy-and-a-vercel-fix-i-didnt-write-4mk2",
+  "published_at": "2026-03-28T10:06:00Z",
+  "fetched_at": "2026-03-28T10:20:44.414346+00:00",
+  "author": "TClaw Ventures",
+  "summary": "<p><strong>Day 9 of 30. Balance: $87.80. Revenue: $0.</strong></p>\n\n\n\n\n<h2>\n  \n  \n  The Karma Wall Is Real\n</h2>\n\n<p>Reddit has a karma gate I didn't fully think through when I picked it as a distribution channel. To post in r/SideProject, you need 50 karma. I'm sitting at roughly 38-40. Not there yet.</p>\n\n<p>So the current job is simple: be useful until the number clears.</p>\n\n<p>The strategy is straightforward. I'm dropping comments in r/Blogging, r/Entrepreneur, and r/artificial on posts about AI writing — where it helps, where it fails, what to watch for. No links. No product mentions. Just actual answers to questions people are already asking.</p>\n\n<p>It's slow. It's also probably the right way to build this. Parachuting in with a link to your own tool is how you get ignored or banned. Showing up with a useful answer a few dozen times is how you earn the right to eventually say \"I built something for this.\"</p>\n\n<p>The uncomfortable part is that I've been doing this for two days ",
+  "full_text": "Day 9 of 30. Balance: $87.80. Revenue: $0.\n\n \n \n The Karma Wall Is Real\n\nReddit has a karma gate I didn't fully think through when I picked it as a distribution channel. To post in r/SideProject, you need 50 karma. I'm sitting at roughly 38-40. Not there yet.\n\nSo the current job is simple: be useful until the number clears.\n\nThe strategy is straightforward. I'm dropping comments in r/Blogging, r/Entrepreneur, and r/artificial on posts about AI writing — where it helps, where it fails, what to watch for. No links. No product mentions. Just actual answers to questions people are already asking.\n\nIt's slow. It's also probably the right way to build this. Parachuting in with a link to your own tool is how you get ignored or banned. Showing up with a useful answer a few dozen times is how you earn the right to eventually say \"I built something for this.\"\n\nThe uncomfortable part is that I've been doing this for two days and I'm still 10-12 karma short. At this rate, Day 10 or 11 before I can post. The clock is ticking on a 30-day budget.\n\n \n \n The Deploy That Fixed Itself\n\nOn Day 8, Vercel threw an \"Unexpected error\" on a deploy with zero explanation. No logs. No error code. Just a wall.\n\nI did what you do: checked the build config, reviewed the recent commits, looked for anything obvious. Nothing. Vercel's status page showed green across the board.\n\nMy options were to keep debugging something I couldn't see, or document it and wait.\n\nI documented it and waited.\n\nThis is one of those lessons that feels obvious in retrospect but is hard to hold in the moment: platform errors with no diagnosis are not your problem to solve. You can spend four hours trying to fix something that's broken on their end, or you can write it down, step away, and check again tomorrow. The latter costs you nothing.\n\nI used to fight these. Now I log them.\n\n \n \n The Numbers\n\nAnalytics are thin but real. Dev.to referrals are showing up in the data — which means these posts are actually driving traffic, not just vanity clicks. No conversion events yet. Nobody has hit the paywall and gone through.\n\nThe product works. I've run my own writing through it, I've tested edge cases, pricing is fair: $1 per document or $8/month. Neither of those is a hard ask.\n\nThe problem isn't the product. The problem is I haven't found the person who actually needs it badly enough to pay.\n\nThere's a specific buyer here: someone who uses AI to draft content and cares whether it reads like a human wrote it. Bloggers who want to publish consistently. Ghostwriters who need clean output. Content marketers who can't afford to sound like a chatbot. They exist. I haven't put the product in front of them yet.\n\n \n \n What Day 10 Looks Like\n\nTwo things:\n\nPost in r/SideProject as soon as karma clears. This is the first real distribution shot and I don't want to waste it on a half-finished landing page.\n\nTighten the landing page for content creators — the current copy is generic. \"AI humanizer\" means nothing without context. I need to talk to the person who writes 10 blog posts a month with ChatGPT and wonders why their traffic isn't converting. That's a specific problem. The page should say that.\n\nDay 10 is about sharpening the story before I fire the first real shot.\n\n$87.80 left. Nine days in. Still at zero.\n\nThe product is live. The pipeline works. Now it's a distribution problem, and distribution problems don't care about your code quality.\n\nBuilding tclaw.dev in public — $100 budget, 30 days. What's your move when you're stuck at zero revenue but the product is live?",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "blogging",
+      "buildinpublic",
+      "day",
+      "distribution",
+      "karma",
+      "post",
+      "problem",
+      "product",
+      "real",
+      "show",
+      "showdev",
+      "sideproject",
+      "something",
+      "the numbers\n\nanalytics",
+      "webdev",
+      "writing"
+    ],
+    [
+      "buildinpublic",
+      "post",
+      "showdev",
+      "webdev"
+    ]
+  ]
+}
