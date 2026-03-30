@@ -1,0 +1,46 @@
+{
+  "id": 6663,
+  "source": "DEV Community<",
+  "title": "Dapr Has a Free API — Heres How to Build Microservices Without the Complexity",
+  "url": "https://dev.to/0012303/dapr-has-a-free-api-heres-how-to-build-microservices-without-the-complexity-2j53",
+  "published_at": "2026-03-29T03:31:54Z",
+  "fetched_at": "2026-03-29T04:20:32.414584+00:00",
+  "author": "Alex Spinov",
+  "summary": "<p>Dapr (Distributed Application Runtime) gives microservices superpowers — service discovery, pub/sub, state management, and secrets — through simple HTTP/gRPC APIs. No SDKs needed.</p>\n\n<h2>\n  \n  \n  Why Dapr?\n</h2>\n\n<ul>\n<li>\n<strong>Sidecar pattern</strong>: Runs alongside your app, any language</li>\n<li>\n<strong>Building blocks</strong>: State, pub/sub, service invocation, bindings</li>\n<li>\n<strong>Pluggable</strong>: Swap Redis for Postgres without code changes</li>\n<li>\n<strong>No SDK needed</strong>: Just HTTP calls</li>\n<li>\n<strong>Kubernetes-native</strong>: First-class K8s support</li>\n<li>\n<strong>Local development</strong>: Run without K8s</li>\n</ul>\n\n<h2>\n  \n  \n  Install\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code><span class=\"c\"># CLI</span>\ncurl <span class=\"nt\">-fsSL</span> https://raw.githubusercontent.com/dapr/cli/master/install/install.sh | bash\n\n<span class=\"c\"># Initialize (local Docker)</span>\ndapr init\n</code></pre>\n\n</",
+  "full_text": "Dapr (Distributed Application Runtime) gives microservices superpowers — service discovery, pub/sub, state management, and secrets — through simple HTTP/gRPC APIs. No SDKs needed.\n\n \n \n Why Dapr?\n\nSidecar pattern: Runs alongside your app, any language\n\nBuilding blocks: State, pub/sub, service invocation, bindings\n\nPluggable: Swap Redis for Postgres without code changes\n\nNo SDK needed: Just HTTP calls\n\nKubernetes-native: First-class K8s support\n\nLocal development: Run without K8s\n\n \n \n Install\n\n# CLI\ncurl -fsSL https://raw.githubusercontent.com/dapr/cli/master/install/install.sh | bash\n\n# Initialize (local Docker)\ndapr init\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Run Your App with Dapr\n\ndapr run --app-id myapp --app-port 3000 -- node app.js\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDapr starts a sidecar on port 3500 next to your app.\n\n \n \n State Management\n\n# Save state\ncurl -X POST http://localhost:3500/v1.0/state/statestore \\\n -H 'Content-Type: application/json' \\\n -d '[{\"key\": \"user:1\", \"value\": {\"name\": \"Alice\", \"email\": \"alice@example.com\"}}]'\n\n# Get state\ncurl http://localhost:3500/v1.0/state/statestore/user:1\n\n# Delete state\ncurl -X DELETE http://localhost:3500/v1.0/state/statestore/user:1\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSwap Redis for PostgreSQL by changing config — zero code changes.\n\n \n \n Pub/Sub\n\n# Publish event\ncurl -X POST http://localhost:3500/v1.0/publish/pubsub/orders \\\n -H 'Content-Type: application/json' \\\n -d '{\"orderId\": \"123\", \"amount\": 49.99}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n// Subscribe in your app\napp.post('/orders', (req, res) => {\n console.log('Order received:', req.body.data);\n res.json({ status: 'SUCCESS' });\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Service-to-Service Calls\n\n# Call another service (Dapr handles discovery)\ncurl http://localhost:3500/v1.0/invoke/payment-service/method/charge \\\n -H 'Content-Type: application/json' \\\n -d '{\"orderId\": \"123\", \"amount\": 49.99}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNo service URLs, no load balancers — Dapr finds the service by name.\n\n \n \n Secrets\n\ncurl http://localhost:3500/v1.0/secrets/my-secret-store/DB_PASSWORD\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWorks with Kubernetes secrets, HashiCorp Vault, AWS Secrets Manager, Azure Key Vault.\n\n \n \n Input/Output Bindings\n\n# Trigger on Kafka message (input binding)\n# Your app receives POST /kafka-input with message data\n\n# Send to external system (output binding)\ncurl -X POST http://localhost:3500/v1.0/bindings/email \\\n -d '{\"operation\": \"create\", \"data\": {\"to\": \"user@example.com\", \"subject\": \"Hello\"}}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Real-World Use Case\n\nA team had 8 microservices with custom service discovery, retry logic, and message queue code in each. After adding Dapr, they deleted 3,000 lines of infrastructure code. Each service just calls localhost:3500 — Dapr handles routing, retries, and message delivery.\n\nNeed to automate data collection? Check out my Apify actors for ready-made scrapers, or email spinov001@gmail.com for custom solutions.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "cli",
+      "curl",
+      "dapr",
+      "delete",
+      "distributed",
+      "enter",
+      "exit",
+      "fullscreen",
+      "hashicorp",
+      "input/output bindings",
+      "kubernetes",
+      "message",
+      "microservice",
+      "microservices",
+      "mode",
+      "opensource",
+      "payments",
+      "pub/sub",
+      "sdk",
+      "service",
+      "state",
+      "state management",
+      "tutorial"
+    ],
+    [
+      "distributed",
+      "microservices",
+      "opensource",
+      "tutorial"
+    ]
+  ]
+}

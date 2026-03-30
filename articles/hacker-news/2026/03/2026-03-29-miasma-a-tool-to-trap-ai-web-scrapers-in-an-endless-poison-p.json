@@ -1,0 +1,31 @@
+{
+  "id": 6722,
+  "source": "Hacker News",
+  "title": "Miasma: A tool to trap AI web scrapers in an endless poison pit",
+  "url": "https://github.com/austin-weeks/miasma",
+  "published_at": "2026-03-29T10:10:12Z",
+  "fetched_at": "2026-03-29T12:00:17.783610+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47561819\">Comments</a>",
+  "full_text": "AI companies continually scrape the internet at an enormous scale, swallowing up all of its contents to use as training data for their next models. If you have a public website, they are already stealing your work.\n\nMiasma is here to help you fight back! Spin up the server and point any malicious traffic towards it. Miasma will send poisoned training data from the poison fountain alongside multiple self-referential links. It's an endless buffet of slop for the slop machines.\n\nMiasma is very fast and has a minimal memory footprint - you should not have to waste compute resources fending off the internet's leeches.\n\n \n \n \n \n\nInstall with cargo (recommended):\n\nOr, download a pre-built binary from releases.\n\nStart Miasma with default configuration:\n\nView all available configuration options:\n\nLet's walk through an example of setting up a server to trap scrapers with Miasma. We'll pick /bots as our server's path to direct scraper traffic. We'll be using Nginx as our server's reverse proxy, but the same result can be achieved with many different setups.\n\nWhen we're done, scrapers will be trapped like so:\n\n \n \n \n \n\nWithin our site, we'll include a few hidden links leading to /bots.\n\n<a href=\"/bots\" style=\"display: none;\" aria-hidden=\"true\" tabindex=\"1\">\n Amazing high quality data here!\n</a>\n\nThe style=\"display: none;\", aria-hidden=\"true\", and tabindex=\"1\" attributes ensure links are totally invisible to human visitors and will be ignored by screen readers and keyboard navigation. They will only be visible to scrapers.\n\nConfiguring our Nginx Proxy\n\nSince our hidden links point to /bots, we'll configure this path to proxy Miasma. Let's assume we're running Miasma on port 9855.\n\nlocation ~ ^/bots($|/.*)$ {\n proxy_pass http://localhost:9855;\n}\n\nThis will match all variations of the /bots path -> /bots, /bots/, /bots/12345, etc.\n\nLastly, we'll start Miasma and specify /bots as the link prefix. This instructs Miasma to start links with /bots/, which ensures scrapers are properly routed through our Nginx proxy back to Miasma.\n\nWe'll also limit the number of max in-flight connections to 50. At 50 connections, we can expect 50-60 MB peak memory usage. Note that any requests exceeding this limit will immediately receive a 429 response rather than being added to a queue.\n\nmiasma --link-prefix '/bots' -p 9855 -c 50\n\nLet's deploy and watch as multi-billion dollar companies greedily eat from our endless slop machine!\n\n \n \n \n\nBe sure to protect friendly bots and search engines from Miasma in your robots.txt!\n\nUser-agent: Googlebot\nUser-agent: Bingbot\nUser-agent: DuckDuckBot\nUser-agent: Slurp\nUser-agent: SomeOtherNiceBot\nDisallow: /bots\nAllow: /\n\nMiasma can be configured via its CLI options:\n\nOption\nDefault\nDescription\n\nport\n9999\nThe port the server should bind to.\n\nhost\nlocalhost\nThe host address the server should bind to.\n\nmax-in-flight\n500\nMaximum number of allowable in-flight requests. Requests received when in flight is exceeded will receive a 429 response. Miasma's memory usage scales directly with the number of in-flight requests - set this to a lower value if memory usage is a concern.\n\nlink-prefix\n/\nPrefix for self-directing links. This should be the path where you host Miasma, e.g. /bots.\n\nlink-count\n5\nNumber of self-directing links to include in each response page.\n\nforce-gzip\nfalse\nAlways gzip responses regardless of the client's Accept-Encoding header. Forcing compression can help reduce egress costs.\n\npoison-source\nhttps://rnsaffn.com/poison2/\nProxy source for poisoned training data.\n\nContributions are welcome! Please open an issue for bugs reports or feature requests. Primarily AI-generated contributions will be automatically rejected.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "accept-encoding",
+      "cli",
+      "endless",
+      "link",
+      "memory",
+      "miasma",
+      "nginx",
+      "nginx proxy",
+      "path",
+      "proxy",
+      "scraper",
+      "server",
+      "slop"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": 6690,
+  "source": "Hacker News",
+  "title": "Technology: The (nearly) perfect USB cable tester does exist",
+  "url": "https://blog.literarily-starved.com/2026/02/technology-the-nearly-perfect-usb-cable-tester-does-exist/",
+  "published_at": "2026-03-25T23:35:47Z",
+  "fetched_at": "2026-03-29T08:00:22.781450+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47524778\">Comments</a>",
+  "full_text": "As probably everyone reading this blog, I have a lot of USB cables. I want to sort and categorize them. What the cable can and cannot do is an important factor. But how do I really find out what a cable supports? As I found out during this quest, your cable may successfully lie to your PC.\n\nPrevious attempts\n\nI always thought: The perfect USB cable tester doesn’t exist. Unitl now I used a cable tester that used LEDs that show the status of a USB cable.\n\nThis came with one major annoyance: every time I had to retrieve the manual what that specific pattern implies.\n\nAt least for USB C cables I thought I had found a very clever way to determine what speed was supported:\n\nI used it to connect a device that supported 20gbps (e.g. a SSD)\n\nThen I looked up what system_profiler SPUSBDataType on macOS told me about the connection speed.\n\nAt that point I discovered: my cables keep lying to my PC. The cable tester showed that a speed above USB 2.0 was physically impossible, but macOS still was happily reporting to have that disk connected with 10gbps. Some tests reading/writing that disk confirmed that “something is rotten in the state of Denmark USB.”\n\nThe Treedix USB Cable Tester with 2.4\" Color Screen\n\nThen one day I stumbled over the Treedix USB Cable Tester with 2.4\" Color Screen. It pressed all my buttons: wide range of supported plug types, clear and easy to parse information and a real deep dive what your cable says it does.\n\nPower supply is either a AAA battery or through an external USB C cable on a dedicated port. I guess that port also allows to update the system although all hints on that were just some posts on Reddit.\n\nWhat kind of cables can it check?\n\nSide A: USB-A or USB-C\n\nSide B: USB-C, Mini, Micro, Micro-B\n\nThe device has a mode button with which you can cycle through different modes:\n\nData and Power modes:\n\nConnected lanes:\n\nResistance values:\n\nCable eMarker\n\nThis is pretty easy to understand… or so it seemed.\n\nMy experience\n\nThen I started rating my cables. One of the cables that I expected to be rated quite high showed a contradictory output:\n\nData and Power modes are USB 2.0 and PD 3.0:\n\nThe connected lanes match to that output:\n\nBut the eMarker tells a completely different story: 20gbps and USB4 Gen2\n\nWhen I look at what my PC tells me when I connect it with an SSD through that cable: it shows what the eMarker says, despite missing the required SuperSpeed lanes. The cable lies to your PC and the PC believes it. As it turned out, that is not an exception. I found three cables that showed a similar behavior. Every single one of them was a USB C to USB C cable. At this point, the cable was no longer a passive piece of copper, but a rather unreliable narrator.\n\nIdentifying those cables already paid for the USB cable tester. I had a lot less “high quality” cables than I previously believed.\n\nI developed based on the result a marking standard for my cables and a method to sort them. But that is a story for another post.\n\nThe only downside of the USB cable tester is that I would love to support more plugs on the B side: USB-A (for my Frankencables) and USB B (which everyone but seems to think extinct).\n\nOverall I am very, very happy with this USB cable tester and can only recommend it. It costs about 45 US$.\n\nYou can comment on this post in the thread on Mastodon.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "aaa",
+      "cable",
+      "connected",
+      "denmark usb",
+      "emarker",
+      "find",
+      "mastodon",
+      "micro",
+      "perfect",
+      "plug",
+      "reddit",
+      "show",
+      "superspeed",
+      "support",
+      "tester",
+      "treedix",
+      "usb"
+    ],
+    []
+  ]
+}

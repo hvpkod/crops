@@ -1,0 +1,41 @@
+{
+  "id": 6758,
+  "source": "DEV Community<",
+  "title": "I Built AI-Powered Forms That Write Directly to Notion — Using MCP at Runtime",
+  "url": "https://dev.to/emmanuel_ngwandu/i-built-ai-powered-forms-that-write-directly-to-notion-using-mcp-at-runtime-1kod",
+  "published_at": "2026-03-29T16:10:02Z",
+  "fetched_at": "2026-03-29T16:20:20.376847+00:00",
+  "author": "Emmanuel Ng'wandu",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/notion-2026-03-04\">Notion MCP Challenge</a></em></p>\n\n<p>## What I Built</p>\n\n<p><strong>Formlink</strong> — AI-powered conversational intake forms that write directly to Notion.</p>\n\n<p>No static fields. Respondents have a back-and-forth chat with Claude. When enough info is collected, Claude calls Notion MCP and creates a structured row.<br />\n   No manual API wrapper. Claude decides when it has enough data.</p>\n\n<p>Two flows:</p>\n\n<ul>\n<li>\n<strong>Creator</strong> — connect Notion, pick a DB, chat with Claude to configure the form (field contexts, slug). Publish. Share link.</li>\n<li>\n<strong>Respondent</strong> — visit <code>/f/slug</code>, have a conversation, data lands in Notion.</li>\n</ul>\n\n<p><strong>Stack:</strong> TanStack Start · Anthropic Claude · Notion MCP (self-hosted on Railway) · Appwrite</p>\n\n<p>## Video Demo</p>\n\n<p><em>No video — here's a written walkthrough instead.</em></p>\n\n<p><strong>1. Cre",
+  "full_text": "Notion MCP Challenge Submission 🧠\n\n \n \n\n \n\nThis is a submission for the Notion MCP Challenge\n\n## What I Built\n\nFormlink — AI-powered conversational intake forms that write directly to Notion.\n\nNo static fields. Respondents have a back-and-forth chat with Claude. When enough info is collected, Claude calls Notion MCP and creates a structured row.\n\n No manual API wrapper. Claude decides when it has enough data.\n\nTwo flows:\n\nCreator — connect Notion, pick a DB, chat with Claude to configure the form (field contexts, slug). Publish. Share link.\n\nRespondent — visit /f/slug, have a conversation, data lands in Notion.\n\nStack: TanStack Start · Anthropic Claude · Notion MCP (self-hosted on Railway) · Appwrite\n\n## Video Demo\n\nNo video — here's a written walkthrough instead.\n\n1. Creator sets up a form\n\nAfter connecting Notion via OAuth, the dashboard shows all shared databases.\n\n Click \"Create Form\" on any database — this opens a two-panel setup screen.\n\nOn the left, Claude asks a few questions:\n\nWhat's this form for?\n\nWhich fields need extra context for the AI to ask smarter questions?\n\nAfter ~5 turns, Claude emits a form config. The creator picks a slug (/f/enterprise-software-dev-intake), reviews the field contexts, and hits Publish.\n\n2. Respondent fills it out\n\nVisiting https://formlink.appwrite.network/f/enterprise-software-dev-intake opens a clean chat interface — no fields, no dropdowns.\n\nThe AI asks one question at a time, follows up on vague answers, and skips fields that aren't relevant. When it has everything, it calls the Notion MCP\n\n tool directly and creates a structured row in the database.\n\n3. Data lands in Notion\n\nThe creator opens their Notion database and the row is there — every property filled, no manual sync, no Zapier, no webhook.\n\nThe submission is also recorded in the Formlink dashboard with a direct link to the Notion page.\n\n## Show us the code\n\nRepo: https://github.com/immanewel/formlink\n\n Live: https://formlink.appwrite.network\n\n## How I Used Notion MCP\n\nClaude connects to a self-hosted Notion MCP server at runtime via Anthropic's mcp_servers API parameter:\n\n const response = await anthropic.messages.create({\n model: 'claude-sonnet-4-20250514',\n system: buildSystemPrompt(form, schema),\n messages: history,\n mcp_servers: [{\n type: 'url',\n url: process.env.NOTION_MCP_URL,\n name: 'notion',\n authorization_token: notionToken\n }],\n tools: [{ type: 'mcp_toolset', mcp_server_name: 'notion' }]\n }, { headers: { 'anthropic-beta': 'mcp-client-2025-11-20' } })\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nClaude discovers notion_create_page dynamically — no manual tool schema. The system prompt tells it which database and what fields to collect. Claude\n\n handles the rest, including deciding when to write.\n\nWhat this unlocks: zero Notion API glue code. The AI decides when the form is complete and writes it. The app just checks for mcp_tool_result in the\n\n response.\n\nThree things that tripped me up:\n\nNotion OAuth returns a bot user — the human identity is in tokenResponse.owner.user\n\nMCP response blocks are mcp_tool_use / mcp_tool_result, not the regular tool_use types\n\nSystem prompt must explicitly pass parent: { database_id } or Notion returns 400\n---",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "chat",
+      "claude",
+      "creator",
+      "devchallenge",
+      "directly",
+      "field",
+      "formlink",
+      "manual",
+      "mcp",
+      "notion",
+      "notion mcp",
+      "notionchallenge",
+      "publish",
+      "railway",
+      "respondent",
+      "submission",
+      "tanstack",
+      "the notion mcp"
+    ],
+    [
+      "devchallenge",
+      "notionchallenge"
+    ]
+  ]
+}

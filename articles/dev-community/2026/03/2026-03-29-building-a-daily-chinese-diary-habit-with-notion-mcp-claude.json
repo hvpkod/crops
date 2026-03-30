@@ -1,0 +1,41 @@
+{
+  "id": 6730,
+  "source": "DEV Community<",
+  "title": "Building a Daily Chinese Diary Habit with Notion MCP + Claude",
+  "url": "https://dev.to/enoki85/building-a-daily-chinese-diary-habit-with-notion-mcp-claude-l3n",
+  "published_at": "2026-03-29T12:56:09Z",
+  "fetched_at": "2026-03-29T13:20:20.467816+00:00",
+  "author": "enoki",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/notion-2026-03-04\">Notion MCP Challenge</a></em></p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>I built an automated workflow for my daily Chinese learning habit called <strong>\"中国語3行日記\" (3-Line Chinese Diary)</strong>. Every day, I write a 3-sentence Chinese diary entry based on a daily theme, get it corrected by Claude, and post it to Bluesky — all without leaving Claude's chat UI.</p>\n\n<p>The system is powered by <strong>Notion + Claude MCP + GitHub Actions</strong>:</p>\n\n<ul>\n<li>\n<strong>Notion</strong> stores the daily themes (Questions DB) and my answers with correction notes (Answers DB)</li>\n<li>\n<strong>Claude MCP</strong> fetches the day's theme, corrects my Chinese, records the answer and notes back to Notion, and helps me analyze my writing patterns over time</li>\n<li>\n<strong>GitHub Actions</strong> runs a daily cron job at 21:00 JST to automatically post scheduled answers to Bluesky</li>\n</ul>\n\n<p>As of tod",
+  "full_text": "Notion MCP Challenge Submission 🧠\n\n \n \n\n \n\nThis is a submission for the Notion MCP Challenge\n\n \n \n What I Built\n\nI built an automated workflow for my daily Chinese learning habit called \"中国語3行日記\" (3-Line Chinese Diary). Every day, I write a 3-sentence Chinese diary entry based on a daily theme, get it corrected by Claude, and post it to Bluesky — all without leaving Claude's chat UI.\n\nThe system is powered by Notion + Claude MCP + GitHub Actions:\n\nNotion stores the daily themes (Questions DB) and my answers with correction notes (Answers DB)\n\nClaude MCP fetches the day's theme, corrects my Chinese, records the answer and notes back to Notion, and helps me analyze my writing patterns over time\n\nGitHub Actions runs a daily cron job at 21:00 JST to automatically post scheduled answers to Bluesky\n\nAs of today, I've kept this habit going for over 225 days.\n\n \n \n Video Demo\n\n VIDEO\n\n \n \n Show us the code\n\ngithub.com/enoki-85/3-line-diary-scheduler\n\n \n \n How I Used Notion MCP\n\n \n \n The Daily Workflow\n\nEach session follows this flow entirely within Claude's chat UI:\n\nI tell Claude which day's theme to fetch → Claude retrieves it from the Notion Questions DB via MCP\n\nI write my 3-sentence Chinese diary entry\n\nClaude corrects my Chinese and explains the mistakes\n\nClaude registers the final answer, pinyin, and correction notes to the Notion Answers DB via MCP\n\nGitHub Actions picks it up at 21:00 JST and posts it to Bluesky automatically\n\n \n \n Looking Back at My Writing Patterns\n\nBeyond the daily workflow, I can ask Claude to retrieve past answers from Notion and review my correction notes. Since all notes are stored in Notion, I can look back at specific entries and spot recurring mistakes. I'm also planning to build a GitHub Actions workflow that summarizes each month's entries into a dedicated Notion page, which would make longer-term pattern analysis much easier.\n\n \n \n Why This Stack Works\n\nBefore this system, I went through a few iterations. I started by handwriting entries, then manually formatting and posting them. I later built a web app to streamline the process — but it required server costs, and since the themes are sourced from copyrighted material, I couldn't make the repo public. I was also using the Claude API separately, adding unnecessary cost on top of my Claude MAX plan.\n\nSwitching to Notion MCP + Claude solved all of this:\n\nNo extra server costs — GitHub Actions handles the automation for free\n\nNo API costs — everything runs within my Claude MAX plan\n\nNo friction — theme retrieval, correction, and Notion registration all happen in one chat\n\nThe repo is private-safe — theme data lives in Notion, not in the codebase\n\nThe most important shift was removing everything except the actual learning. Writing and getting corrected is the core habit. Everything else — fetching themes, formatting posts, storing notes, posting to Bluesky — is now invisible. On days when motivation is low, having a smaller, frictionless target makes all the difference. Over 225 days in — though the Notion MCP setup is only about a month old — I feel like I can keep this going for a long time to come.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "answer",
+      "api",
+      "bluesky",
+      "build",
+      "chinese",
+      "claude",
+      "correction",
+      "daily",
+      "devchallenge",
+      "diary",
+      "github actions",
+      "looking back",
+      "mcp",
+      "notion",
+      "notion mcp",
+      "notionchallenge",
+      "the daily workflow",
+      "the notion answers",
+      "theme"
+    ],
+    [
+      "devchallenge",
+      "notionchallenge"
+    ]
+  ]
+}

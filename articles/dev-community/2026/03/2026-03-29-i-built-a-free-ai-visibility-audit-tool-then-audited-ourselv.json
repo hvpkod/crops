@@ -1,0 +1,44 @@
+{
+  "id": 6840,
+  "source": "DEV Community<",
+  "title": "I built a free AI visibility audit tool — then audited ourselves. Here's what happened.",
+  "url": "https://dev.to/zeb_choudhry_eda2ce4ce1d3/i-built-a-free-ai-visibility-audit-tool-then-audited-ourselves-heres-what-happened-55n0",
+  "published_at": "2026-03-29T21:36:36Z",
+  "fetched_at": "2026-03-29T22:20:45.391867+00:00",
+  "author": "zeb choudhry",
+  "summary": "<p><em>Originally published at <a href=\"https://getvisus.com\" rel=\"noopener noreferrer\">getvisus.com</a></em><br />\nSix months ago I started building Visus — a free tool that scores websites on how easily ChatGPT, Perplexity and Google AI can find and recommend them.<br />\nThe idea came from a problem I saw firsthand. My wife owns Fozias, a Kashmiri restaurant in Liverpool. Despite great food, loyal customers and positive reviews, the restaurant was completely invisible when anyone asked an AI engine for restaurant recommendations in Liverpool. ChatGPT didn't mention it. Perplexity didn't mention it. It simply didn't exist in the AI world.<br />\nSo I built Visus to diagnose exactly why — and fix it.<br />\nThe Fozias experiment<br />\nBefore any optimisation, Fozias scored 23 out of 100 on the Visus AI visibility audit. The problems were clear:</p>\n\n<p>No schema markup telling AI engines what the business was<br />\nNo FAQ content matching the questions people ask AI<br />\nInconsistent bu",
+  "full_text": "Originally published at getvisus.com\n\nSix months ago I started building Visus — a free tool that scores websites on how easily ChatGPT, Perplexity and Google AI can find and recommend them.\n\nThe idea came from a problem I saw firsthand. My wife owns Fozias, a Kashmiri restaurant in Liverpool. Despite great food, loyal customers and positive reviews, the restaurant was completely invisible when anyone asked an AI engine for restaurant recommendations in Liverpool. ChatGPT didn't mention it. Perplexity didn't mention it. It simply didn't exist in the AI world.\n\nSo I built Visus to diagnose exactly why — and fix it.\n\nThe Fozias experiment\n\nBefore any optimisation, Fozias scored 23 out of 100 on the Visus AI visibility audit. The problems were clear:\n\nNo schema markup telling AI engines what the business was\n\nNo FAQ content matching the questions people ask AI\n\nInconsistent business listings across directories\n\nNo llms.txt file allowing AI crawlers access\n\nWeak entity definition — AI engines couldn't confidently identify what Fozias was\n\nWe fixed every one of those issues. Ninety days later Fozias scored 80 out of 100. They became the number one Perplexity result for Kashmiri restaurants in Liverpool. ChatGPT now includes them in dining recommendations for Liverpool.\n\nThat's a real restaurant. Real customers. Real results.\n\nThen we audited ourselves\n\nLast week I ran getvisus.com through its own audit. We scored 35 out of 100.\n\nThat was humbling. We had built a tool to help businesses become visible to AI — and our own product was largely invisible.\n\nThe problems Visus found on our own site:\n\nCanonical URL inconsistency between two domains\n\nNo llms.txt file\n\nMissing FAQ schema markup\n\nThin crawlable content — React apps are hard for AI crawlers to read\n\nNo external citations from trusted sources\n\nWe fixed everything in one session. Added comprehensive schema markup including SoftwareApplication, Organization, WebSite and FAQPage schemas. Created a detailed llms.txt file. Fixed all canonical URLs. Added eight FAQ entries covering every question someone might ask an AI about Visus.\n\nThe new score: 76 out of 100.\n\nA 41 point improvement in one session.\n\nWhat we learned\n\nAI visibility is not the same as Google SEO. You can rank on Google and be completely invisible to ChatGPT and Perplexity simultaneously. They have different signals, different trust mechanisms, and different ways of deciding who to recommend.\n\nThe businesses that act now — while most of their competitors are still ignoring AI search — will own those recommendations for years. The ones that wait will spend significantly more trying to catch up.\n\nThe five things that matter most for AI visibility:\n\nSchema markup — tell AI engines exactly what your business is in machine-readable format\n\nFAQ content — answer the specific questions people ask AI engines about your category\n\nEntity consistency — your business name, address and description must be identical everywhere\n\nExternal citations — trusted third-party sources mentioning your business build AI confidence\n\nllms.txt — a simple file that tells AI crawlers everything they need to know about you\n\nTry it on your own site\n\nVisus is free. No signup. No credit card. Enter your URL and get your score in under 60 seconds.\n\nIf you score below 50 — and most businesses do — you are largely invisible to AI search right now. Your competitors who fix this first will take the recommendations you should be getting.\n\ngetvisus.com\n\nBuilt in Liverpool. Helping local businesses get found by AI.\n\nTry it free at getvisus.com — \n\nno signup, no credit card, results in 60 seconds.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "ai\n\ninconsistent",
+      "build",
+      "business",
+      "crawler",
+      "engine",
+      "faq",
+      "fozias",
+      "google",
+      "google seo",
+      "kashmiri",
+      "liverpool",
+      "markup",
+      "news",
+      "payments",
+      "perplexity",
+      "recommendation",
+      "score",
+      "softwareapplication, organization",
+      "startup",
+      "visus",
+      "webdev"
+    ],
+    [
+      "news",
+      "startup",
+      "webdev"
+    ]
+  ]
+}

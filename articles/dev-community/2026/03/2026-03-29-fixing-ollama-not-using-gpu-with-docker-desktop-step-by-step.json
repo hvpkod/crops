@@ -1,0 +1,38 @@
+{
+  "id": 6801,
+  "source": "DEV Community<",
+  "title": "🚀 Fixing Ollama Not Using GPU with Docker Desktop (Step-by-Step + Troubleshooting)",
+  "url": "https://dev.to/foram_jaguwala_46b596a8f6/fixing-ollama-not-using-gpu-with-docker-desktop-step-by-step-troubleshooting-42b8",
+  "published_at": "2026-03-29T18:52:56Z",
+  "fetched_at": "2026-03-29T19:20:36.265053+00:00",
+  "author": "Foram Jaguwala",
+  "summary": "<p>Running LLMs locally with Ollama is exciting… until you realize everything is running on CPU 😅</p>\n\n<p>I recently ran into this exact issue — models were working, but GPU wasn’t being used at all.</p>\n\n<p>Here’s how I fixed it using <strong>Docker Desktop with GPU support</strong>, along with the debugging steps that helped me understand the real problem.</p>\n\n\n\n\n<h2>\n  \n  \n  🔴 The Problem\n</h2>\n\n<p>My initial setup:</p>\n\n<ul>\n<li>Ollama installed locally ✅</li>\n<li>Models running successfully ✅</li>\n<li>GPU usage ❌</li>\n</ul>\n\n<h3>\n  \n  \n  Result:\n</h3>\n\n<ul>\n<li>Slow responses</li>\n<li>High CPU usage</li>\n<li>Poor performance</li>\n</ul>\n\n\n\n\n<h2>\n  \n  \n  🧠 Root Cause\n</h2>\n\n<p>After debugging, I realized:</p>\n\n<blockquote>\n<p>The issue wasn’t entirely Ollama — it was how my local environment handled GPU access.</p>\n</blockquote>\n\n<p>Even though the GPU was available, it wasn’t properly exposed to Ollama in my local setup.</p>\n\n<p>However, the same GPU worked perfectly inside Docker",
+  "full_text": "Running LLMs locally with Ollama is exciting… until you realize everything is running on CPU 😅\n\nI recently ran into this exact issue — models were working, but GPU wasn’t being used at all.\n\nHere’s how I fixed it using Docker Desktop with GPU support, along with the debugging steps that helped me understand the real problem.\n\n \n \n 🔴 The Problem\n\nMy initial setup:\n\nOllama installed locally ✅\n\nModels running successfully ✅\n\nGPU usage ❌\n\n \n \n Result:\n\nSlow responses\n\nHigh CPU usage\n\nPoor performance\n\n \n \n 🧠 Root Cause\n\nAfter debugging, I realized:\n\nThe issue wasn’t entirely Ollama — it was how my local environment handled GPU access.\n\nEven though the GPU was available, it wasn’t properly exposed to Ollama in my local setup.\n\nHowever, the same GPU worked perfectly inside Docker, which confirmed that the environment played a major role.\n\n \n \n 🟢 The Solution: Docker Desktop + GPU\n\nInstead of continuing to debug locally, I moved Ollama into a Docker container with GPU enabled.\n\nThis approach turned out to be much simpler and more reliable.\n\n \n \n ⚙️ Prerequisites\n\nMake sure you have:\n\nDocker Desktop installed\n\nNVIDIA GPU (RTX / GTX)\n\nLatest NVIDIA drivers\n\nWSL2 enabled (for Windows users)\n\n \n \n ✅ Step 1: Verify GPU Access in Docker (Critical Step)\n\nBefore running Ollama, verify that Docker can access your GPU:\n\ndocker run --rm --gpus all nvidia/cuda:12.2.0-base-ubuntu22.04 nvidia-smi\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n👉 If this command shows GPU details, your setup is correctly configured.\n\n \n \n 🐳 Step 2: Run Ollama with GPU\n\ndocker run -d \\\n --gpus all \\\n -v ollama:/root/.ollama \\\n -p 11434:11434 \\\n --name ollama \\\n ollama/ollama\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n ⚡ Step 3: Run a Model\n\n \n \n Option 1: Inside Container\n\ndocker exec -it ollama ollama run llama3.2:1b\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Option 2: Using API (Recommended)\n\ncurl --location 'http://localhost:11434/api/generate' \\\n--header 'Content-Type: text/plain' \\\n--data '{\n \"model\": \"llama3.2:1b\",\n \"prompt\": \"Hello\"\n}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🔍 Step 4: Confirm GPU Usage\n\nOpen another terminal and run:\n\nnvidia-smi\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n👉 You should see GPU memory usage increasing while the model is running.\n\n \n \n ⚡ Results\n\nAfter switching to Docker:\n\n🚀 Faster inference\n\n🔥 GPU utilization working\n\n🧠 Smooth local LLM experience\n\n \n \n 🛠️ Troubleshooting Guide\n\nHere are some real issues I encountered:\n\n \n \n ❌ GPU Not Working in Docker\n\n \n \n ✅ Checklist:\n\nnvidia-smi works on host\n\nDocker Desktop is updated\n\nWSL2 is enabled\n\nContainer is started with --gpus all\n\n \n \n ❌ GPU Works in Docker but Not in Ollama\n\n \n \n ✅ Fix:\n\nRestart container\n\nRe-run with GPU flag\n\nTry a smaller model (e.g., mistral)\n\n \n \n ❌ nvidia-smi Not Found\n\n \n \n Cause:\n\nNVIDIA drivers are not installed\n\n \n \n Fix:\n\nInstall latest drivers and reboot system\n\n \n \n 💡 Key Takeaways\n\nGPU issues are often environment-related\n\nAlways verify GPU using a CUDA container first\n\nDocker Desktop simplifies GPU access significantly\n\nRunning LLMs with GPU drastically improves performance\n\n \n \n 📌 Final Thoughts\n\nIf your Ollama setup is stuck on CPU:\n\n👉 Don’t spend too much time debugging locally\n\n👉 Try Docker with GPU support\n\nIt’s simple, reliable, and works consistently.\n\n \n \n 🙌 Need Help?\n\nIf you get stuck at any step, feel free to reach out — happy to help!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "container",
+      "cpu",
+      "cuda",
+      "desktop",
+      "devops",
+      "docker",
+      "docker desktop",
+      "driver",
+      "fullscreen",
+      "gpu",
+      "instal",
+      "mode",
+      "ollama",
+      "root cause",
+      "run",
+      "step",
+      "troubleshooting guide"
+    ],
+    [
+      "devops"
+    ]
+  ]
+}

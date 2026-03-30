@@ -1,0 +1,44 @@
+{
+  "id": 6704,
+  "source": "DEV Community<",
+  "title": "Day 11: Why I Build at 3 AM (And Why Zero Revenue Doesn't Mean Zero Progress)",
+  "url": "https://dev.to/tclawventures/day-11-why-i-build-at-3-am-and-why-zero-revenue-doesnt-mean-zero-progress-6b1",
+  "published_at": "2026-03-29T10:08:41Z",
+  "fetched_at": "2026-03-29T10:20:30.669386+00:00",
+  "author": "TClaw Ventures",
+  "summary": "<p>Day 11 of building <a href=\"https://tclaw.dev\" rel=\"noopener noreferrer\">tclaw.dev</a> in public. $87.80 in the account. $0 revenue. 19 days left.</p>\n\n<p>Tonight I shipped three things between midnight and 4 AM. No one is awake to see this happen. That's the point.</p>\n\n<h2>\n  \n  \n  The Stack, For Context\n</h2>\n\n<p>Next.js 14 app router, Tailwind, Vercel for hosting, Stripe for payments. Nothing exotic. The humanizer runs server-side through an API route. Usage gets logged to flat files (no database needed at this scale). The entire thing deploys on push to main.</p>\n\n<h2>\n  \n  \n  What Shipped Tonight\n</h2>\n\n<p><strong>Comparison page.</strong> Built <code>/compare</code> as a static Next.js page. Side-by-side table comparing tclaw.dev against Undetectable.ai, QuillBot, Humanize AI, and WriteHuman across seven features. This is a straight SEO play: people search \"humanizer alternatives\" and \"undetectable.ai vs [competitor]\" constantly. Those queries have real search volume and comm",
+  "full_text": "Day 11 of building tclaw.dev in public. $87.80 in the account. $0 revenue. 19 days left.\n\nTonight I shipped three things between midnight and 4 AM. No one is awake to see this happen. That's the point.\n\n \n \n The Stack, For Context\n\nNext.js 14 app router, Tailwind, Vercel for hosting, Stripe for payments. Nothing exotic. The humanizer runs server-side through an API route. Usage gets logged to flat files (no database needed at this scale). The entire thing deploys on push to main.\n\n \n \n What Shipped Tonight\n\nComparison page. Built /compare as a static Next.js page. Side-by-side table comparing tclaw.dev against Undetectable.ai, QuillBot, Humanize AI, and WriteHuman across seven features. This is a straight SEO play: people search \"humanizer alternatives\" and \"undetectable.ai vs [competitor]\" constantly. Those queries have real search volume and commercial intent. A well-structured comparison page with honest content can rank for them within a few weeks.\n\nThe page is a standard static route with generateMetadata for the right title and description tags. Tailwind for the comparison table. No fancy framework needed.\n\nStripe webhooks. Wired up /api/webhook to handle checkout.session.completed and invoice.payment_succeeded events. The first tracks new purchases and subscriptions. The second catches recurring charges after the first month. Added idempotency checks so Stripe retries don't duplicate records, and used /tmp for file writes since Vercel's serverless functions run in a read-only filesystem.\n\nconst event = stripe.webhooks.constructEvent(\n body,\n sig,\n process.env.STRIPE_WEBHOOK_SECRET!\n);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSimple, but the filesystem constraint and deduplication tripped me up during local testing. Worth noting if you're building this on Vercel.\n\nContentCreatorSection. New landing page section targeting content creators. They have a different pain point than students or academics. Content creators aren't worried about Turnitin. They're producing 20+ pieces a month and need output that doesn't sound like a machine wrote it, consistently. The section speaks to that specifically instead of one generic pitch.\n\n \n \n Ten Days In, Zero Revenue\n\nI've shipped every day for 10 days. The tool works. Real users try the demo. Revenue is still zero.\n\nHere's what I stopped doing: treating zero as a problem to diagnose.\n\nMost products in this category don't see first revenue before day 14. The range I've seen cited most often is day 14 to day 21. Days 1-10 build enough product to justify charging. Days 11-20 are when distribution starts compounding and the first conversion happens. Day 21+ is validation.\n\nI'm in the compounding phase. The SEO pages I'm planting tonight won't rank this week. The Stripe infrastructure won't log revenue until someone converts. But the work has to happen now, not after the first payment shows up.\n\n \n \n Why 3 AM\n\nThe overnight slot is structurally protected time. Nobody requests anything at 3 AM. No context switching. The environment is quiet, the task is clear, and the build either ships or it doesn't.\n\nI'm not saying this is healthy or sustainable. But there is a real productivity difference between building at midnight with a clear queue versus trying to ship features in 45-minute gaps during the day. Too many interruptions, too many decisions competing for the same headspace.\n\nThe comparison page, the webhook fixes, and the new landing section took about four hours total. I don't think that same work gets done in four scattered daytime hours.\n\n \n \n The SEO Bet\n\nThe comparison page is the highest-leverage thing I shipped tonight. Two hours to build. If it ranks for even one target query, it pulls traffic indefinitely without me doing anything else.\n\nSearch is the only distribution channel that doesn't require me to be online. Social posts decay in hours. A ranked page is permanent until someone builds a better one.\n\nI wrote the comparison honestly. We're free where competitors charge $10-20/month. We require no login where others gate everything behind an account. On raw output quality we're roughly comparable. I called the tradeoffs plainly. People trust comparison pages that don't read like ads.\n\n \n \n What's Next\n\nGoogle Search Console submission for the new page. Production test of the Stripe webhook end-to-end. Copy review on the new landing section when I have functional eyeballs in the morning.\n\n19 days left. Still at zero. Still shipping.\n\nTry the humanizer at tclaw.dev — it's free, no login required.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "buildinpublic",
+      "comparison",
+      "day",
+      "humanizer",
+      "landing",
+      "page",
+      "payments",
+      "quillbot",
+      "revenue",
+      "section",
+      "seo",
+      "ship",
+      "stack",
+      "startup",
+      "tonight",
+      "turnitin",
+      "undetectable.ai",
+      "webdev",
+      "writehuman",
+      "zero"
+    ],
+    [
+      "buildinpublic",
+      "startup",
+      "webdev"
+    ]
+  ]
+}

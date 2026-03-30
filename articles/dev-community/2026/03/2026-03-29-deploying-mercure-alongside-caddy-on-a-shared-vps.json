@@ -1,0 +1,37 @@
+{
+  "id": 6795,
+  "source": "DEV Community<",
+  "title": "Deploying Mercure alongside Caddy on a shared VPS",
+  "url": "https://dev.to/jonesrussell/deploying-mercure-alongside-caddy-on-a-shared-vps-736",
+  "published_at": "2026-03-29T19:12:10Z",
+  "fetched_at": "2026-03-29T19:20:26.907582+00:00",
+  "author": "Russell Jones",
+  "summary": "<p>Ahnii!</p>\n\n<p><a href=\"https://mercure.rocks/\" rel=\"noopener noreferrer\">Mercure</a> is a real-time push protocol built on server-sent events (SSE). It ships as a standalone binary that embeds its own <a href=\"https://caddyserver.com/\" rel=\"noopener noreferrer\">Caddy</a> server. If you already run Caddy as your web server, you now have two Caddy processes fighting over ports. This post covers how to deploy both on the same VPS using <a href=\"https://www.ansible.com/\" rel=\"noopener noreferrer\">Ansible</a>, with solutions for every gotcha that came up.</p>\n\n<h2>\n  \n  \n  Prerequisites\n</h2>\n\n<ul>\n<li>A VPS with Caddy already serving your sites</li>\n<li>Ansible for deployment automation</li>\n<li>The <a href=\"https://mercure.rocks/docs/hub/install\" rel=\"noopener noreferrer\">Mercure binary</a> installed on the server</li>\n<li>A domain with DNS pointed at your VPS</li>\n</ul>\n\n<h2>\n  \n  \n  Resolving the port conflict\n</h2>\n\n<p>Mercure's embedded Caddy wants to bind to port 443 and run its ",
+  "full_text": "Ahnii!\n\nMercure is a real-time push protocol built on server-sent events (SSE). It ships as a standalone binary that embeds its own Caddy server. If you already run Caddy as your web server, you now have two Caddy processes fighting over ports. This post covers how to deploy both on the same VPS using Ansible, with solutions for every gotcha that came up.\n\n \n \n Prerequisites\n\nA VPS with Caddy already serving your sites\n\nAnsible for deployment automation\n\nThe Mercure binary installed on the server\n\nA domain with DNS pointed at your VPS\n\n \n \n Resolving the port conflict\n\nMercure's embedded Caddy wants to bind to port 443 and run its own admin API on port 2019. Your main Caddy already owns both. The fix is to disable auto-HTTPS on Mercure and bind it to a localhost-only port:\n\n{\n auto_https off\n admin localhost:2039\n}\n\nhttp://localhost:3080 {\n mercure {\n publisher_jwt {env.MERCURE_JWT_SECRET}\n subscriber_jwt {env.MERCURE_JWT_SECRET}\n cors_origins https://minoo.live\n publish_origins *\n anonymous\n }\n respond /healthz 200\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nauto_https off prevents Mercure's Caddy from requesting certificates. admin localhost:2039 moves the admin API off port 2019 where your main Caddy is already listening. Mercure listens on localhost:3080 where only your main Caddy can reach it.\n\nPick a port that is not already in use on your server. Port 3080 is a safe default since common tools like Docker tend to claim ports in the 3000 range.\n\n \n \n Proxying SSE through your main Caddy\n\nYour main Caddy reverse-proxies the Mercure hub URL to the local Mercure instance. The critical detail is flush_interval -1, which tells Caddy to flush response bytes immediately instead of buffering:\n\n@mercure_hub {\n path /.well-known/mercure*\n}\nhandle @mercure_hub {\n reverse_proxy localhost:3080 {\n flush_interval -1\n header_up X-Forwarded-For {remote_host}\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWithout flush_interval -1, Caddy buffers the SSE stream and your clients never receive events. This is the single most common issue when proxying SSE through any reverse proxy.\n\n \n \n Excluding SSE routes from gzip\n\nCaddy's encode directive compresses responses. Compressed SSE streams break because the client cannot decompress a stream that never ends. Exclude the Mercure routes from compression:\n\n@not_mercure {\n not path /.well-known/mercure*\n}\nencode @not_mercure gzip zstd\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis applies gzip to everything except the SSE endpoint. If you do not have Mercure configured, the template falls back to the simpler encode gzip zstd without the matcher.\n\n \n \n JWT secret configuration\n\nBoth the publisher (your PHP app) and the subscriber (your frontend) authenticate with Mercure using JWTs signed with a shared secret. Store the secret in Ansible Vault:\n\n# defaults/main.yml\nmercure_jwt_secret: \"{{ vault_mercure_jwt_secret }}\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe environment file that Mercure reads at startup is minimal:\n\nMERCURE_JWT_SECRET=your-secret-here\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBoth publisher_jwt and subscriber_jwt in the Caddyfile reference this same environment variable. Your PHP publisher generates JWTs with the same secret:\n\n$header = base64UrlEncode(json_encode(['alg' => 'HS256', 'typ' => 'JWT']));\n$payload = base64UrlEncode(json_encode([\n 'mercure' => ['publish' => ['*']],\n 'iat' => time(),\n 'exp' => time() + 3600,\n]));\n$signature = base64UrlEncode(\n hash_hmac('sha256', \"{$header}.{$payload}\", $jwtSecret, true)\n);\n\nreturn \"{$header}.{$payload}.{$signature}\";\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis generates a JWT that grants publish access to all topics. The exp claim means each token is valid for one hour.\n\n \n \n BoltDB data directory\n\nMercure uses BoltDB for persistence. The Ansible role creates the data directory under the deploy user's home:\n\n- name: Create Mercure BoltDB data directory\n ansible.builtin.file:\n path: \"/home/{{ deploy_user }}/.local/share/caddy\"\n state: directory\n mode: \"0755\"\n owner: \"{{ deploy_user }}\"\n group: \"{{ deploy_user }}\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nMercure's embedded Caddy writes its BoltDB files here. If the directory does not exist, Mercure fails silently on startup and events are not persisted.\n\n \n \n Running as a systemd service\n\nThe Ansible role deploys a systemd unit that reads the environment file:\n\n[Service]\nType=simple\nExecStart=/usr/local/bin/mercure run --config /etc/mercure/Caddyfile\nEnvironmentFile=/etc/mercure/mercure.env\nUser={{ deploy_user }}\nRestart=always\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSet the User to your deploy user so Mercure can access its BoltDB directory.\n\n \n \n Health check\n\nThe Mercure Caddyfile includes a /healthz endpoint that returns 200. Use this for monitoring:\n\ncurl -s -o /dev/null -w \"%{http_code}\" http://localhost:3080/healthz\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf you get anything other than 200, Mercure is down. Wire this into your monitoring tool of choice.\n\nBaamaapii",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ansible",
+      "api",
+      "boltdb",
+      "caddy",
+      "directory",
+      "dns",
+      "enter",
+      "exit",
+      "fullscreen",
+      "gzip\n\ncaddy's",
+      "jwt",
+      "mercure",
+      "mercure's caddy",
+      "mode",
+      "port",
+      "proxying sse",
+      "sse",
+      "vps",
+      "vps ahnii"
+    ],
+    []
+  ]
+}

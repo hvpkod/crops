@@ -1,0 +1,40 @@
+{
+  "id": 6654,
+  "source": "Slashdot",
+  "title": "Do Emergency Microsoft, Oracle Patches Point to Wider Issues?",
+  "url": "https://it.slashdot.org/story/26/03/28/2013229/do-emergency-microsoft-oracle-patches-point-to-wider-issues?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-29T03:34:00Z",
+  "fetched_at": "2026-03-29T03:40:25.519018+00:00",
+  "author": "EditorDavid",
+  "summary": "\"Emergency out-of-band fixes issued by enterprise IT giants Microsoft and Oracle have shone a spotlight on issues around both update cycles and patching,\" reports Computer Weekly:\n\n\nMicrosoft's emergency update, KB5085516, addresses an issue that arose after installing the mandatory cumulative updates pushed live on Patch Tuesday earlier this month. According to Microsoft, it has since emerged that many users experienced problems signing into applications with a Microsoft account, seeing a \"no internet\" error message even though the device had a working connection. This had the effect of preventing access to multiple services and applications. It should be noted that organisations using Entra ID did not experience the issue. \n\nBut Microsoft's emergency patch comes just days after it doubled down on a commitment to software quality, reliability and stability. In a blog post published just 24 hours prior to the latest update, Pavan Davuluri of Microsoft's Windows Insider Program Team sai",
+  "full_text": "\"Emergency out-of-band fixes issued by enterprise IT giants Microsoft and Oracle have shone a spotlight on issues around both update cycles and patching,\" reports Computer Weekly\n\n:\n\nMicrosoft's emergency update, KB5085516, addresses an issue that arose after installing the mandatory cumulative updates pushed live on Patch Tuesday earlier this month. According to Microsoft, it has since emerged that many users experienced problems signing into applications with a Microsoft account, seeing a \"no internet\" error message even though the device had a working connection. This had the effect of preventing access to multiple services and applications. It should be noted that organisations using Entra ID did not experience the issue. \n \n\nBut Microsoft's emergency patch comes just days after it doubled down on a commitment to software quality, reliability and stability. In a blog post published just 24 hours prior to the latest update, Pavan Davuluri of Microsoft's Windows Insider Program Team said updates should be \"predictable and easy to plan around\". \n\nMichael Bell, founder/CEO of Suzu Labs tells Computer Weekly\n\n that Microsoft's patch for the sign-in bug follows \"separate hotpatches for RRAS remote code execution flaws and a Bluetooth visibility bug. Three emergency fixes in eight days does not shout reliability era.\"\n\nOracle's patch, meanwhile, addresses CVE-2026-21992, a remote code execution flaw in the REST:WebServices component of Oracle Identity Manager and the Web Services Security component of Oracle Web Services Manager in Oracle Fusion Middleware. It carries a CVSS score of 9.8 and can be exploited by an unauthenticated attacker with network access over HTTP.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "bug",
+      "computer weekly",
+      "day",
+      "emergency",
+      "entra id",
+      "execution",
+      "fix",
+      "microsoft",
+      "oracle",
+      "oracle fusion middleware",
+      "oracle identity",
+      "oracle patches point",
+      "oracle web services",
+      "patch",
+      "reliability",
+      "rras",
+      "services",
+      "suzu labs",
+      "update",
+      "weekly"
+    ],
+    [
+      "bug"
+    ]
+  ]
+}

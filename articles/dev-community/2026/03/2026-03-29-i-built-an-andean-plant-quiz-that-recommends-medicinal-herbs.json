@@ -1,0 +1,44 @@
+{
+  "id": 6667,
+  "source": "DEV Community<",
+  "title": "I Built an Andean Plant Quiz That Recommends Medicinal Herbs Based on Your Health Profile",
+  "url": "https://dev.to/botanica_andina/i-built-an-andean-plant-quiz-that-recommends-medicinal-herbs-based-on-your-health-profile-17pn",
+  "published_at": "2026-03-29T03:20:50Z",
+  "fetched_at": "2026-03-29T04:20:37.495158+00:00",
+  "author": "Botánica Andina",
+  "summary": "<p>Have you ever wondered which Andean medicinal plant might help with your specific health concern? I built a free interactive quiz that recommends plants like maca, uña de gato, or muña based on your lifestyle and needs.</p>\n\n<h2>\n  \n  \n  Why I Built This\n</h2>\n\n<p>I work on <a href=\"https://botanicaandina.com\" rel=\"noopener noreferrer\">Botánica Andina</a>, an evidence-based encyclopedia of Andean medicinal herbs. We already had a <a href=\"https://botanicaandina.com/herramientas/verificador/\" rel=\"noopener noreferrer\">herb-drug interaction checker</a> that cross-references 503+ documented interactions — but users kept asking: <em>\"Which plant should I actually try?\"</em></p>\n\n<p>The problem is that most \"which supplement should I take\" quizzes are thinly disguised product pages. I wanted to build something that:</p>\n\n<ol>\n<li>Recommends based on <strong>published research</strong>, not marketing</li>\n<li>Links to actual <strong>PubMed studies</strong> for every recommendation</li>\n<l",
+  "full_text": "Have you ever wondered which Andean medicinal plant might help with your specific health concern? I built a free interactive quiz that recommends plants like maca, uña de gato, or muña based on your lifestyle and needs.\n\n \n \n Why I Built This\n\nI work on Botánica Andina, an evidence-based encyclopedia of Andean medicinal herbs. We already had a herb-drug interaction checker that cross-references 503+ documented interactions — but users kept asking: \"Which plant should I actually try?\"\n\nThe problem is that most \"which supplement should I take\" quizzes are thinly disguised product pages. I wanted to build something that:\n\nRecommends based on published research, not marketing\n\nLinks to actual PubMed studies for every recommendation\n\nWarns about contraindications (not just benefits)\n\nWorks entirely client-side — no data collection, no tracking\n\n \n \n How It Works\n\nThe quiz asks 7 questions about:\n\nYour primary health goal (energy, immunity, digestion, stress, etc.)\n\nCurrent medications (to flag interactions)\n\nDietary preferences (vegan-compatible options)\n\nAge range and activity level\n\n \n \n The Scoring Algorithm\n\nEach Andean plant has a profile vector across health dimensions:\n\nconst plants = {\n maca: {\n energy: 0.9, immunity: 0.3, digestion: 0.2,\n stress: 0.6, cognition: 0.5, hormonal: 0.8,\n contraindications: [\"hormone-sensitive conditions\", \"thyroid disorders\"]\n },\n cat_claw: {\n energy: 0.2, immunity: 0.9, digestion: 0.4,\n stress: 0.1, cognition: 0.2, hormonal: 0.1,\n contraindications: [\"immunosuppressants\", \"anticoagulants\"]\n },\n muna: {\n energy: 0.3, immunity: 0.4, digestion: 0.9,\n stress: 0.3, cognition: 0.2, hormonal: 0.1,\n contraindications: []\n }\n // ... 12 plants total\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nUser answers create a \"need vector\" that gets dot-producted against each plant profile. The top 3 matches get shown with:\n\nA confidence score (how well the plant matches your profile)\n\nKey benefits backed by specific studies\n\nWarnings if any of your medications interact\n\n \n \n The Interaction Safety Check\n\nThis is the part I'm most proud of. Before showing results, the quiz cross-references your medication list against our interaction database:\n\nfunction checkSafety(plant, medications) {\n const interactions = interactionDB[plant.id] || [];\n const warnings = [];\n\n for (const med of medications) {\n const match = interactions.find(i =>\n i.drug_class.some(dc => med.toLowerCase().includes(dc))\n );\n if (match) {\n warnings.push({\n severity: match.severity,\n mechanism: match.mechanism,\n source: match.pubmed_id\n });\n }\n }\n return warnings;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf a severe interaction is detected, the plant gets removed from recommendations entirely — not just flagged. I've seen too many supplement sites that bury warnings in footnotes.\n\n \n \n Technical Stack\n\nThe entire quiz runs as a single HTML file — zero dependencies, no build step:\n\nVanilla JavaScript (~400 lines)\n\nCSS animations for smooth transitions between questions\n\nSchema.org FAQPage markup for SEO\n\nResponsive design (works on mobile)\n\nTotal page weight: 18KB (including all plant data). Lighthouse score: 100/100 across all categories.\n\n \n \n Why No Framework?\n\nI considered React, but for a 7-question quiz with static data, a framework adds complexity without benefit. The entire state is just:\n\nlet currentQuestion = 0;\nlet answers = {};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNo need for Redux, Context, or even useState. Sometimes the best framework is no framework.\n\n \n \n What I Learned\n\n \n \n 1. Ethnobotany data is messy\n\nPlant names vary wildly across regions. \"Uña de gato\" in Peru is Uncaria tomentosa, but in Mexico it refers to a completely different plant (Mimosa pudica). I had to normalize everything to binomial nomenclature to avoid confusion.\n\n \n \n 2. Confidence scoring needs calibration\n\nMy first version used simple keyword matching, which led to maca being recommended for literally everything (it scores moderately on every axis). I added normalization so plants only rank high when they have a strong signal, not just an average-across-the-board signal.\n\n \n \n 3. Medical disclaimers are non-negotiable\n\nEven with \"this is not medical advice\" banners, I added specific contraindication checks that actively prevent dangerous recommendations. The quiz refuses to recommend uña de gato if you're on immunosuppressants, period. No checkbox can override this.\n\n \n \n Results So Far\n\nThe quiz has been live for 3 weeks:\n\nAverage completion rate: 89% (most people finish all 7 questions)\n\nMost common health goal: \"Energy and fatigue\" (34%)\n\nMost recommended plant: Maca (28% of results)\n\nInteraction warnings triggered: 12% of sessions\n\nThe high completion rate surprised me — I expected drop-off after question 3-4. I think the progress bar and the \"personalized\" feel keeps people engaged.\n\n \n \n Try It\n\nTake the Andean Plant Quiz\n\nIt takes about 90 seconds. No signup, no email collection, no tracking.\n\nIf you're interested in the herb-drug interaction data behind it, check out the Interaction Checker — it covers 503+ documented interactions between medicinal herbs and pharmaceutical drugs, all sourced from PubMed, EMA, and WHO databases.\n\nThe full plant database (12 Andean species with evidence profiles) is available on Botánica Andina.\n\nWhat health tools have you built? I'd love to hear about projects at the intersection of tech and wellness.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "andean",
+      "botánica andina",
+      "checker",
+      "css",
+      "fullscreen",
+      "health",
+      "html",
+      "interaction",
+      "javascript",
+      "match.severity",
+      "medicinal",
+      "opensource",
+      "plant",
+      "pubmed",
+      "quiz",
+      "react",
+      "recommends",
+      "schema.org",
+      "seo\n\nresponsive",
+      "showdev",
+      "technical stack",
+      "the scoring algorithm",
+      "warning"
+    ],
+    [
+      "opensource",
+      "showdev"
+    ]
+  ]
+}

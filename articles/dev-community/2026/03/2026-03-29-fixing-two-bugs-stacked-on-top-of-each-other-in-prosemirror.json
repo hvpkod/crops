@@ -1,0 +1,37 @@
+{
+  "id": 6640,
+  "source": "DEV Community<",
+  "title": "fixing two bugs stacked on top of each other in ProseMirror",
+  "url": "https://dev.to/nalalou/why-bold-bleeds-when-you-join-blocks-in-prosemirror-1ob7",
+  "published_at": "2026-03-29T00:38:49Z",
+  "fetched_at": "2026-03-29T01:20:39.181798+00:00",
+  "author": "Nora Alalou",
+  "summary": "<p>i'm building a markdown editor built on Milkdown (which wraps ProseMirror). i hit a bug in how marks behave when you join blocks together.</p>\n\n<h2>\n  \n  \n  the bug\n</h2>\n\n<p>type a bold heading. move your cursor to the start of it. press Backspace. the heading joins into the paragraph above, but the bold marks bleed into the previously-unstyled paragraph text.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr8y0aa0l5d8fur9yoy7r.gif\"><img alt=\"heading joins with par\" height=\"609\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr8y0aa0l5d8fur9yoy7r.gif\" width=\"800\" /></a></p>\n\n<p>i assumed this was a bug in <code>joinTextblockBackward</code>. it wasn't.</p>\n\n<h2>\n  \n  \n  what's actually",
+  "full_text": "i'm building a markdown editor built on Milkdown (which wraps ProseMirror). i hit a bug in how marks behave when you join blocks together.\n\n \n \n the bug\n\ntype a bold heading. move your cursor to the start of it. press Backspace. the heading joins into the paragraph above, but the bold marks bleed into the previously-unstyled paragraph text.\n\ni assumed this was a bug in joinTextblockBackward. it wasn't.\n\n \n \n what's actually going on\n\nwhen you press Backspace at position 0 of a textblock, joinTextblockBackward fires. under the hood, joinTextblocksAround calls:\n\nreplaceStep(state.doc, beforePos, afterPos, Slice.empty)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nthis deletes the boundary between the two blocks. the Fitter algorithm stitches the content of the second block into the first. it doesn't touch inline marks. the text nodes transfer as-is, bold and all.\n\nthere's a clearIncompatible function that strips marks disallowed by the target node type, but paragraphs allow bold, so nothing gets stripped. there's also splitBlockKeepMarks which handles the reverse operation (Enter), but that's about storedMarks — cursor behavior for the next typed character. different problem.\n\nso the marks survive the join, and they're supposed to. consider two paragraphs:\n\nShe said the results were\n**statistically significant** and could not be ignored.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\npress Backspace at the start of the second paragraph. they merge into one. the bold must survive because you put it there intentionally. if ProseMirror stripped marks on join, it would destroy user content.\n\nthe heading case feels wrong for a different reason. in a markdown editor, # **Bold Heading** has explicit bold marks on the text nodes because that's what the markdown source says. you see the boldness as part of the heading, like a visual property of the block. but ProseMirror sees it as an inline mark that happens to sit inside a heading node. the markdown editor stores the heading's visual weight in two places: the node type and the inline marks. when the heading unwraps into a paragraph, only the node type changes. the marks stay because ProseMirror doesn't know they were \"heading-ness\" and not \"the user explicitly wanted bold.\"\n\nnot a ProseMirror bug. a modeling problem specific to markdown editors.\n\n \n \n the fix\n\ni intercept joinTextblockBackward's dispatch. before the transaction reaches the editor state, i snapshot the heading content range, then append removeMark calls for the region that used to be the heading. i also clear storedMarks so the cursor doesn't inherit marks either. everything lands in one transaction, so undo reverses it atomically.\n\nhere's the standalone plugin:\n\nimport { Plugin, PluginKey } from \"prosemirror-state\";\nimport { joinTextblockBackward } from \"prosemirror-commands\";\n\nconst headingBackspacePlugin = new Plugin({\n key: new PluginKey(\"heading-backspace\"),\n props: {\n handleKeyDown(view, event) {\n if (event.key !== \"Backspace\") return false;\n\n const { state, dispatch } = view;\n const headingType = state.schema.nodes.heading;\n if (!headingType) return false;\n\n const { $from, empty } = state.selection;\n if (\n !empty ||\n $from.parentOffset !== 0 ||\n $from.node().type !== headingType\n )\n return false;\n\n // Snapshot before the join mutates anything.\n const headingContentSize = $from.node().content.size;\n const prevEnd = $from.before();\n\n const wrappedDispatch = (tr: typeof state.tr) => {\n // Map prevEnd through the join's ReplaceStep to find where\n // the heading content now sits inside the merged paragraph.\n const from = tr.mapping.map(prevEnd);\n const to = from + headingContentSize;\n\n // Strip every mark type from the former-heading range.\n for (const markType of Object.values(state.schema.marks)) {\n tr.removeMark(from, to, markType);\n }\n\n // Clear storedMarks so the cursor doesn't inherit marks.\n tr.setStoredMarks([]);\n\n dispatch(tr);\n };\n\n return joinTextblockBackward(state, wrappedDispatch, view);\n },\n },\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n$from.before() gives the position just before the heading's opening token — after the join's ReplaceStep deletes the block boundary, tr.mapping.map(prevEnd) gives the new position where the heading content starts inside the merged paragraph. headingContentSize is stable because the join doesn't change the heading's content, just moves it. tr.removeMark is safe to call multiple times on the same transaction and tr.setStoredMarks([]) clears cursor marks so typing after the join doesn't inherit bold/italic. the whole thing is one transaction — Ctrl+Z undoes the join and the mark removal together.\n\nif you're using Milkdown or Tiptap, register this through the framework's plugin API. the ProseMirror logic is identical.\n\n \n \n related discussion",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "beforepos",
+      "bold",
+      "const",
+      "cursor",
+      "editors",
+      "fullscreen",
+      "heading",
+      "join",
+      "mark",
+      "markdown",
+      "node",
+      "pluginkey",
+      "prosemirror",
+      "replacestep",
+      "storedmark",
+      "typescript"
+    ],
+    [
+      "editors"
+    ]
+  ]
+}

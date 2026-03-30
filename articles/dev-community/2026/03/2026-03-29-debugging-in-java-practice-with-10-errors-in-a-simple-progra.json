@@ -1,0 +1,44 @@
+{
+  "id": 6676,
+  "source": "DEV Community<",
+  "title": "Debugging in Java: Practice with 10 Errors in a Simple Program",
+  "url": "https://dev.to/harini_magesh_fa40041cf8d/debugging-in-java-practice-with-10-errors-in-a-simple-program-2bln",
+  "published_at": "2026-03-29T07:08:45Z",
+  "fetched_at": "2026-03-29T07:20:22.746077+00:00",
+  "author": "Harini",
+  "summary": "<p>When learning Java, writing code is just one part. The real skill comes from debugging errors.</p>\n\n<p><strong>Error Example 1: Incorrect Keyword Case</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight java\"><code><span class=\"nc\">Public</span> <span class=\"kd\">class</span> <span class=\"nc\">Home</span><span class=\"o\">{</span>\n    <span class=\"nc\">Public</span> <span class=\"kd\">static</span> <span class=\"kt\">void</span> <span class=\"nf\">main</span><span class=\"o\">(</span><span class=\"nc\">String</span><span class=\"o\">[]</span> <span class=\"n\">arg</span><span class=\"o\">){</span>\n        <span class=\"nc\">System</span><span class=\"o\">.</span><span class=\"na\">out</span><span class=\"o\">.</span><span class=\"na\">println</span><span class=\"o\">(</span><span class=\"s\">\"Hello world\"</span><span class=\"o\">);</span>\n    <span class=\"o\">}</span>\n<span class=\"o\">}</span>\n</code></pre>\n\n</div>\n\n\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dy",
+  "full_text": "When learning Java, writing code is just one part. The real skill comes from debugging errors.\n\nError Example 1: Incorrect Keyword Case\n\nPublic class Home{\n Public static void main(String[] arg){\n System.out.println(\"Hello world\");\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nErrors in the Code:\n\n1. Incorrect Keyword Case \n\nJava is case-sensitive.\n\nPublic should be written as public.\n\n2. Main Method Keyword Error\n\nPublic static void main should be public static void main.\n\nError Example 2: Missing static Keyword\n\npublic class Home{\n public void main(String[] args){\n System.out.println(\"Hello world\");\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nError in the Code:\n\n1. Missing static Keyword\n\nThe main method is declared as public void main instead of public static void main.\n\nThe JVM looks specifically for the static main method as the entry point.\n\n2. Runtime Error\n\nThe program may compile, but it will not run.\n\nYou may see an error like:\n\nMain method is not static in class Home, please define the main method as: public static void main(String[] args)\n\nError Example 3: Wrong Data Type (string vs String)\n\npublic class Home{\n public static void main(string[] args){\n System.out.println(\"Hello world\");\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nError in the Code:\n\n1. Incorrect Data Type (string)\n\nJava is case-sensitive.\n\nstring is incorrect and will cause a compilation error.\n\nThe correct data type is String (with a capital S).\n\nError Example 4: Incorrect Main Method Parameter\n\npublic class Home{\n public static void main(String args){\n System.out.println(\"Hello world\");\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nError in the Code:\n\n1. Incorrect Main Method Parameter\n\nThe main method should accept an array of strings.\n\nHere, String args is used instead of String[] args.\n\nBecause of this, the JVM will not recognize this method as the entry point.\n\nError Example 5: Case-Sensitive Class Name Issue\n\npublic class Home{\n public static void main(String[] args){\n system.out.println(\"Hello world\");\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nError in the Code:\n\n1. Incorrect Class Name (system)\n\nJava is case-sensitive.\n\nsystem is incorrect and will cause a compilation error.\n\nThe correct class name is System (with a capital S).\n\nError Example 6: Missing Double Quotes\n\npublic class Home{\n public static void main(String[] args){\n System.out.println(Hello world);\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nError in the Code:\n\n1. Missing Double Quotes\n\nHello world is not enclosed in double quotes.\n\nJava treats it as a variable or identifier, which is not defined.\n\nThis will cause a compilation error.\n\nError Example 7: Unclosed String Literal\n\npublic class Home{\n public static void main(String[] args){\n System.out.println(\"Hello world);\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nError in the Code:\n\n1. Unclosed String Literal\n\nThe string \"Hello world is missing the closing double quote.\n\nThis results in a compilation error called unclosed string literal.\n\nError Example 8: Missing Semicolon\n\npublic class Home{\n public static void main(String[] args){\n System.out.println(\"Hello world\")\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nError in the Code:\n\n1. Missing Semicolon (;)\n\nThe statement System.out.println(\"Hello world\") does not end with a semicolon.\n\nJava requires a semicolon at the end of each statement.\n\nError Example 9: Missing Parenthesis\n\npublic class Home{\n public static void main(String[] args){\n System.out.println(\"Hello world\"\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nError in the Code:\n\n1. Missing Closing Parenthesis )\n\nThe method System.out.println() is missing a closing parenthesis.\n\nThis results in a compilation error.\n\n2. Syntax Issue in Statement\n\nBecause of the missing ), the statement is incomplete and invalid.\n\nError Example 10: Missing Curly Brace\n\npublic class Home{\n public static void main(String[] args){\n System.out.println(\"Hello world\");\n }\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nError in the Code:\n\n1. Missing Closing Curly Brace }\n\nThe class Home is not properly closed.\n\nOne closing brace } is missing at the end of the program.\n\nThis leads to a compilation error.\n\nCorrect Code:\n\npublic class Home{\n public static void main(String[] args){\n System.out.println(\"Hello world\");\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\nExplanation of the Code:\n\n1. Class Declaration\n\npublic class Home defines a class named Home.\n\nThe program execution starts from this class.\n\n2. Main Method\n\npublic static void main(String[] args) is the entry point of the program.\n\nThe JVM starts executing the code from this method.\n\n3. Print Statement\n\nSystem.out.println(\"Hello world\"); is used to print output to the console.\n\nIt displays the message Hello world.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "beginners",
+      "class",
+      "coding",
+      "error",
+      "fullscreen",
+      "home",
+      "incorrect",
+      "incorrect data type",
+      "java",
+      "main",
+      "miss",
+      "missing curly brace",
+      "missing double quotes",
+      "mode",
+      "programming",
+      "public",
+      "statement",
+      "static",
+      "syntax",
+      "void",
+      "wrong data type"
+    ],
+    [
+      "beginners",
+      "coding",
+      "java",
+      "programming"
+    ]
+  ]
+}

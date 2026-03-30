@@ -1,0 +1,36 @@
+{
+  "id": 6658,
+  "source": "DEV Community<",
+  "title": "SOLID Principle: Theory and Implementation in Swift",
+  "url": "https://dev.to/cakoko/solid-principle-theory-and-implementation-in-swift-4pmi",
+  "published_at": "2026-03-29T03:53:26Z",
+  "fetched_at": "2026-03-29T04:20:22.619702+00:00",
+  "author": "cakoko",
+  "summary": "<p>This is a series about the <strong>SOLID principles</strong> introduced by Uncle Bob (Robert C. Martin). SOLID is a set of design principles that help us write code that is easier to understand, maintain, and evolve over time.</p>\n\n<p>SOLID consists of five principles:</p>\n\n<ul>\n<li>\n<strong>S - Single Responsibility Principle</strong>\n\n<ul>\n<li>read here : <a href=\"https://dev.to/cakoko/single-responsibility-principle-srp-theory-and-implementation-in-swift-3f83\">https://dev.to/cakoko/single-responsibility-principle-srp-theory-and-implementation-in-swift-3f83</a>\n</li>\n</ul>\n\n\n</li>\n\n<li><strong>O - Open Closed Principle</strong></li>\n\n<li><strong>L - Liskov Substitution Principle</strong></li>\n\n<li><strong>I - Interface Segregation Principle</strong></li>\n\n<li><strong>D - Dependency Inversion Principle</strong></li>\n\n</ul>\n\n<p>Each of these principles tries to solve a different kind of design problem, but they all share the same goal: </p>\n\n<blockquote>\n<p>helping us write code tha",
+  "full_text": "This is a series about the SOLID principles introduced by Uncle Bob (Robert C. Martin). SOLID is a set of design principles that help us write code that is easier to understand, maintain, and evolve over time.\n\nSOLID consists of five principles:\n\nS - Single Responsibility Principle\n\nO - Open Closed Principle\n\nL - Liskov Substitution Principle\n\nI - Interface Segregation Principle\n\nD - Dependency Inversion Principle\n\nEach of these principles tries to solve a different kind of design problem, but they all share the same goal: \n\nhelping us write code that stays manageable as the system grows.\n\n \n \n Why I’m Writing This Series\n\nThis article series is created while I’m working on my other series:\n\nWhat I’m Learning About Writing Better Structured Code\n\nWhile writing that series, I realized something. Many of the ideas I want to explain are closely related to SOLID. But explaining them properly requires a deeper discussion about these principles themselves.\n\nSo instead of trying to squeeze everything into that series, I decided to write a more focused set of articles about SOLID. Later, I can reference these articles whenever the topic appears again.\n\n \n \n A Small Personal Story\n\nThis series is also a bit personal for me.\n\nAround three years ago, I wrote two article series on Medium about SOLID:\n\nLooking back at them now, I can see that some parts were weak, some parts were missing important context, and some parts were simply wrong.\n\nBut honestly, that realization is actually the fun part. It means that over the past few years I’ve gone through a lot of learn, unlearn, and relearn moments. When I read those old articles now, I can clearly see how surface-level my understanding was back then.\n\nAnd that also means I’ve improved.\n\nThis series is my attempt to revisit SOLID again, with a clearer understanding and better explanations.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "architecture",
+      "article",
+      "code",
+      "mobile",
+      "part",
+      "principle",
+      "series",
+      "softwaredevelopment",
+      "solid",
+      "swift",
+      "understanding",
+      "well",
+      "write"
+    ],
+    [
+      "architecture",
+      "mobile",
+      "softwaredevelopment",
+      "swift"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": 6723,
+  "source": "Hacker News",
+  "title": "Monado became the foundation for OpenXR runtimes",
+  "url": "https://www.collabora.com/news-and-blog/news-and-events/how-monado-became-the-foundation-for-openxr-runtimes.html",
+  "published_at": "2026-03-26T19:58:19Z",
+  "fetched_at": "2026-03-29T12:00:20.020384+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47534953\">Comments</a>",
+  "full_text": "Frederic Plourde \nMarch 26, 2026\n\nGoogle's AndroidXR. Qualcomm's Snapdragon Spaces. NVIDIA CloudXR. What do they have in common? Monado, the Open Source, cross-platform OpenXR runtime Collabora launched as an alternative to proprietary XR stacks.\n\nWhen we started Monado, the goal was simple: bring the OpenGL model to XR. Give the industry a shared, high-performance foundation instead of fragmented vendor lock-in. Today, that vision isn't just proven: it's powering the industry's most significant SDKs.\n\nGoogle's AndroidXR, Hololight Stream, NVIDIA CloudXR, Pico's runtime (Neo3 and Pico4), PortalVR, and Qualcomm's Snapdragon Spaces all leverage Monado's components as their technical foundation. This shift isn't about \"using Open Source\" — it's a strategic choice for technical robustness.\n\nWhy developers & OEMs choose Monado\n\nMonado is more than a runtime; it's a modular construction kit for building OpenXR stacks. Here's why it's become the industry's preferred foundation:\n\nHigh Modularity: Monado is architected as reusable components. Need a specialized compositor, custom controller driver, specific distortion mesh, SLAM algorithm, or ML-based hand-tracking? Enable what you need, disable what you don't. Monado's build system makes it effortless.\n\nHigh Quality: Following the Mesa state-tracker philosophy, Monado cleanly separates the OpenXR API from its implementation. Rigorous argument validation ensures the runtime stays stable and predictable.\n\nPermissive Licensing: Our license supports diverse business models, with easy integration for both Open Source projects and commercial proprietary products, and no legal friction.\n\nLower Barrier to Entry: Debug the actual stack instead of reverse-engineering a black box. Teams ship faster by focusing on their unique hardware value-adds rather than wrestling with runtime mysteries.\n\nA shared win for the XR ecosystem\n\nEvery bug fix and contribution our customers make to Monado flows back to the community, benefiting everyone from indie developers to global tech giants. Seeing Monado become the industry standard for quality and robustness is the ultimate validation of our mission.\n\nGet Started\n\nExplore Monado: Visit the official Monado website for documentation or dive into the code on Freedesktop GitLab.\n\nWork with us: Need OpenXR compliance or specialized tracking solutions (SLAM, hand-tracking)? Our XR team can help. Get in touch.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "developer",
+      "google",
+      "mesa",
+      "monado",
+      "monado\n\nmonado",
+      "open",
+      "openxr",
+      "pico",
+      "proprietary",
+      "runtime",
+      "slam",
+      "snapdragon",
+      "snapdragon spaces",
+      "specialized",
+      "start",
+      "validation"
+    ],
+    []
+  ]
+}

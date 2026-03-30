@@ -1,0 +1,41 @@
+{
+  "id": 6710,
+  "source": "DEV Community<",
+  "title": "It's not about AI token costs. It's about prototyping.",
+  "url": "https://dev.to/icegaming/its-not-about-ai-token-costs-its-about-prototyping-47a1",
+  "published_at": "2026-03-29T10:00:11Z",
+  "fetched_at": "2026-03-29T10:20:44.125947+00:00",
+  "author": "iCe Gaming",
+  "summary": "<p>It's not about the spending of AI tokens, it's about the potential of prototyping.</p>\n\n<p>I like to build things in my free time.</p>\n\n<p>Not necessarily products. Not necessarily monetization ideas. Just things I want to exist, things that benefit myself, or maybe others.</p>\n\n<p>And I use AI a lot for it.</p>\n\n<p>Because it's no longer about writing the best possible code upfront.<br />\nIt's about having a prototype ready, fast, in some kind of MVP state. Then iterating.</p>\n\n<h2>\n  \n  \n  Building with AI + your own vision\n</h2>\n\n<p>I recently redid my website for my weekend projects:</p>\n\n<p><a href=\"https://icegaming.org/\" rel=\"noopener noreferrer\">iCeGaming.org</a></p>\n\n<p>I have to say, when you combine your own visual idea with AI, it gets really close to what you actually had in mind.</p>\n\n<p>This is not a promotional post.<br />\nIt's more about showcasing how empowered we are now to just… build.</p>\n\n<p>Small note though:</p>\n\n<blockquote>\n<p>Yes, humans are still accounta",
+  "full_text": "It's not about the spending of AI tokens, it's about the potential of prototyping.\n\nI like to build things in my free time.\n\nNot necessarily products. Not necessarily monetization ideas. Just things I want to exist, things that benefit myself, or maybe others.\n\nAnd I use AI a lot for it.\n\nBecause it's no longer about writing the best possible code upfront.\n\nIt's about having a prototype ready, fast, in some kind of MVP state. Then iterating.\n\n \n \n Building with AI + your own vision\n\nI recently redid my website for my weekend projects:\n\niCeGaming.org\n\nI have to say, when you combine your own visual idea with AI, it gets really close to what you actually had in mind.\n\nThis is not a promotional post.\n\nIt's more about showcasing how empowered we are now to just… build.\n\nSmall note though:\n\nYes, humans are still accountable for the code.\n\nI don't expect AI to write production-ready systems. Not without iteration, validation, and actually understanding what’s going on.\n\n \n \n What I’ve been building\n\nI’ve always had multiple projects going on. Games, tools, apps… always something upcoming.\n\n \n \n 🎮 Games\n\nMain idea:\n\nplayable in the browser\n\nno login\n\nno tracking\n\njust open and play\n\nI care more about the experience than anything else.\n\nI started with Warlocks, inspired by the Warcraft 3 days.\n\nPure chaos: pushing, dodging fireballs, shrinking safe zone.\n\nOnce I hit stable 60 FPS, I kept pushing:\n\nbigger maps\n\nmore players\n\nmore interaction\n\nThen came something inspired by Pudge Wars-style gameplay:\n\nMortar Mayhem\n\n16 players, 8v8, blind mortar shots across the map, fog-of-war feeling, upgrades based on performance.\n\nThen:\n\nPirate Ships deathmatch, 9 players, real-time aiming and prediction\n\nTank Blitz, same idea, but with powerups, turret alignment, charged shots affecting accuracy\n\nAt some point it became a pattern:\n\nBoats. Tanks. Submarines. Planes. Bicycles.\n\nCharacters with bows. Pistols on horses. Whatever.\n\nThe constraint is always the same:\n\n60 FPS in the browser.\n\n \n \n 🛠️ Tools\n\nThese usually come from real needs.\n\nllm-schema-guard:\n\nStrict schema validation + enforcing correct shapes + observability\n\ncommerce-orchestrator-api:\n\nMoving towards agentic commerce, a layer in front of backend systems so agents don’t integrate directly with everything\n\nApex-Edge:\n\nOne problem I’ve seen everywhere:\n\nWhat happens when the internet goes down? Or AWS/GCP?\n\nRetail just… stops.\n\nIdea:\n\nlocal hub per store or region\n\nprocess transactions locally\n\nsync later\n\ndon’t push all complexity into POS devices\n\n \n \n 📱 Apps\n\nSometimes it’s just solving annoyances.\n\nthe-fuse\n\nI was streaming and didn’t always have people to play with → so I built something to match creators for collaborations\n\nwhat-i-paid\n\nI got tired of not tracking prices across stores\n\n→ take a picture of a receipt\n\n→ AI extracts everything\n\n→ track, manage, share\n\nFree, simple, low friction.\n\nAnd a lot more…\n\nThere are a lot of other ideas in progress.\n\nSome go more into AI:\n\nlocal assistants\n\nmulti-device control\n\nsomething like a lightweight “brain” coordinating things\n\nSome go bigger into games.\n\n \n \n What I learned\n\nAdapt to AI and iterate fast.\n\nThat’s it.\n\nPrototyping is cheap now.\n\nYou don’t need to sit on ideas for weeks anymore. You can build something in hours or days, see if it works, and move on or improve it.\n\nJust don’t forget:\n\nIf you ship it, you own it.\n\nAI doesn’t change that.\n\n(Quick note: I only linked the hub page because this isn’t a promo post. I just wanted to share the mindset and the joy of building fast with AI. The more we all build and iterate, the better it gets for everyone.)",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "big",
+      "build",
+      "building",
+      "fps",
+      "gamedev",
+      "idea",
+      "inspire",
+      "mortar",
+      "mvp",
+      "necessarily",
+      "productivity",
+      "quick",
+      "shot",
+      "something",
+      "thing",
+      "track",
+      "warlocks",
+      "webdev"
+    ],
+    [
+      "gamedev",
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

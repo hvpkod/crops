@@ -1,0 +1,45 @@
+{
+  "id": 6712,
+  "source": "DEV Community<",
+  "title": "Building Zero-Touch Parametric Insurance for Gig Workers - What Phase 2 Taught Us About AI, Fraud, and UX",
+  "url": "https://dev.to/mekala_maria_sanjith/building-zero-touch-parametric-insurance-for-gig-workers-what-phase-2-taught-us-about-ai-fraud-3cjc",
+  "published_at": "2026-03-29T09:53:21Z",
+  "fetched_at": "2026-03-29T10:20:48.958872+00:00",
+  "author": "Mekala Maria Sanjith Reddy",
+  "summary": "<p>India has over 12 million gig delivery workers. When it rains too hard, <br />\nthey stop earning. No insurance covers this. We are building one.</p>\n\n<p>This is what we learned building <strong>RiskShield-Gig</strong> in Phase 2 of <br />\nGuidewire DEVTrails 2026.</p>\n\n\n<h2>\n  \n  \n  What Is RiskShield-Gig?\n</h2>\n\n<p>A parametric insurance platform that pays gig delivery workers <br />\nautomatically when external disruptions hit their zone - rain, floods, <br />\ncurfews. No claim form. No waiting. The payout arrives before the <br />\nworker even knows a claim was processed.</p>\n\n<p>Workers pay a weekly premium (₹20-₹40 based on zone risk). When a <br />\ntrigger fires, money hits their UPI wallet in minutes.</p>\n\n\n<div class=\"ltag-github-readme-tag\">\n  <div class=\"readme-overview\">\n    <h2>\n      <img alt=\"GitHub logo\" src=\"https://assets.dev.to/assets/github-logo-5a155e1f9a670af7944dd5e12375bc76ed542ea80224905ecaf878b9157cdefc.svg\" />\n      <a href=\"https://github.com/Mekala-Sanjith3",
+  "full_text": "India has over 12 million gig delivery workers. When it rains too hard, \n\nthey stop earning. No insurance covers this. We are building one.\n\nThis is what we learned building RiskShield-Gig in Phase 2 of \n\nGuidewire DEVTrails 2026.\n\n \n \n What Is RiskShield-Gig?\n\nA parametric insurance platform that pays gig delivery workers \n\nautomatically when external disruptions hit their zone - rain, floods, \n\ncurfews. No claim form. No waiting. The payout arrives before the \n\nworker even knows a claim was processed.\n\nWorkers pay a weekly premium (₹20-₹40 based on zone risk). When a \n\ntrigger fires, money hits their UPI wallet in minutes.\n\n \n\n \n \n\n AI-powered parametric insurance platform for gig delivery workers. Automatically detects disruptions (rain, floods, curfews) and pays out income loss to Swiggy/Zomato partners instantly - no claims, no forms, no waiting.\n \n \n \n\n \n\nRiskShield-Gig 🛡️\n\nAI-Powered Parametric Insurance for Gig Delivery Workers\n\nGuidewire DEVTrails 2026 | Team: Prime AutoBots\n\n📌 The Problem\n\nIndia has over 12 million gig delivery workers. Most of them earn between ₹10,000 and ₹15,000 a month - roughly ₹600 to ₹800 a day - working for platforms like Swiggy and Zomato. When a heavy rainstorm hits, when a city-wide curfew is announced, or when flooding shuts down entire zones, these workers simply stop earning. There is no compensation. No claim to file. No safety net.\n\nA worker in Hyderabad during the 2024 monsoon season could lose 8 to 10 working days. That is anywhere between ₹4,800 and ₹8,000 gone - with no recourse. Traditional insurance products do not address this. They are too expensive, too complex, and built for a workforce that earns a salary, not a daily wage.\n\nRiskShield-Gig exists to close that gap.\n\n💡 Proposed Solution\n\nRiskShield-Gig…\n \n \n\n \n \n What We Shipped in Phase 2\n\n \n \n 1. Worker Registration and AI Risk Profiling\n\nOnboarding collects phone number, Aadhaar ID, delivery platform ID, \n\nand UPI handle. The moment a worker registers, our Random Forest model \n\nscores their zone using:\n\nHistorical rainfall and flood data\n\nAverage AQI over the past 6 months\n\nDelivery activity density in their area\n\nThis produces a weekly premium tier - Low (₹20), Medium (₹30), \n\nor High (₹40).\n\nThe key decision: hyper-local pricing over city-level pricing.\n\nA worker in Kondapur and a worker in LB Nagar face completely different \n\nflood risks even though both are in Hyderabad. City-level pricing \n\novercharges one and undercharges the other.\n\n \n \n 2. Dynamic Premium Calculation\n\nThe model recalculates premiums weekly as new data comes in. Workers \n\nin zones with a clean week see their score nudge down. Zones that had \n\ndisruptions nudge up. Premiums are capped at 5% of average weekly \n\nincome to stay affordable.\n\n \n \n 3. Automated Parametric Triggers\n\nWe integrated 4 live triggers:\n\nTrigger\nThreshold\nAPI\n\nHeavy rainfall\nAbove 50mm/hr\nOpenWeatherMap\n\nSevere pollution\nAQI above 350\nOpenAQ\n\nFlood alert\nRed alert issued\nIMD mock\n\nCurfew\nZone shutdown confirmed\nGovernment mock\n\nWhen any trigger fires in an active subscriber's zone — the claim \n\npipeline starts. Automatically. The worker does nothing.\n\n \n \n 4. Claims Management\n\nPolicy creation is fully automated. Workers never \"apply\" for coverage. \n\nThe system creates and manages their policy from the moment they \n\nsubscribe.\n\nWorkers can view:\n\nActive coverage period (Monday to Sunday)\n\nWhich triggers are active in their zone right now\n\nFull payout history\n\n \n \n The Hardest Problem: GPS Spoofing\n\nThe biggest challenge was not building the happy path. It was \n\nprotecting against organized fraud rings using GPS spoofing apps to \n\nfake their location inside a disruption zone while sitting safely at home.\n\nA syndicate of 500 workers doing this simultaneously can drain a \n\nliquidity pool in hours.\n\nOur solution: GPS accounts for less than 20% of the fraud risk score.\n\nThe remaining weight comes from signals a spoofer cannot easily fake:\n\nMovement patterns - real bike speed vs static position\n\nDevice sensors - accelerometer confirms physical motion\n\nCell tower triangulation - cross-validated against GPS coordinates\n\nPlatform activity - active orders vs zero activity during claim\n\nCrowd intelligence - are all nearby workers behaving consistently?\n\nWe use Isolation Forest for anomaly detection to catch:\n\nSudden location jumps (5km+ in under 1 minute)\n\nSynchronized claim spikes from the same geo-cluster\n\nFirst-time accounts claiming only during major disruption events\n\n \n \n The Fairness Problem\n\nA genuine worker in heavy rain has poor GPS signal and slow network \n\nconnectivity - which looks identical to spoofing on the surface.\n\nBinary approve/reject would hurt honest workers. We designed a \n\ntiered response instead:\n\nFraud Score\nResponse\n\n0 – 40\nInstant payout, no action needed\n\n41 – 70\nOTP + selfie (60 seconds)\n\n71 – 100\nManual review with one-tap appeal\n\nWorkers with long clean claim histories get extra trust weight. A worker \n\nwith 12 months of clean claims is treated very differently from an \n\naccount created 3 days ago.\n\n \n \n What We Learned\n\nParametric insurance lives or dies on its fraud layer. Automated \n\npayouts without robust validation is just a money tap. Fraud \n\narchitecture is not a feature - it is the foundation.\n\nDesign for zero patience. Every extra step is a drop-off for this \n\nuser base. Onboarding under 3 minutes. Zero worker action for claims. \n\nIf it is not instant, it does not work.\n\nWeekly pricing builds trust. Workers who see a small predictable \n\n₹20–₹40 deduction every Monday stay subscribed far longer than those \n\nasked for a monthly lump sum.\n\n \n \n What Is Next\n\nPhase 3 focuses on advanced GPS spoofing defense in production, \n\ninstant payouts via Razorpay test mode, and intelligent dashboards \n\nfor workers and insurers.\n\nFinal DemoJam at DevSummit 2026 is the goal.\n\nTeam Prime AutoBots - Guidewire DEVTrails 2026\n\nGitHub: https://github.com/Mekala-Sanjith3/RiskShield-Gig",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "aadhaar id",
+      "ai",
+      "autobots",
+      "claim",
+      "delivery",
+      "devtrails",
+      "disruption",
+      "fraud",
+      "guidewire",
+      "hackathon",
+      "hyderabad",
+      "india",
+      "insurance",
+      "lb nagar",
+      "parametric",
+      "premium",
+      "random forest",
+      "riskshield",
+      "spoof",
+      "swiggy",
+      "swiggy/zomato",
+      "worker",
+      "zone"
+    ],
+    [
+      "devtrails",
+      "guidewire",
+      "hackathon"
+    ]
+  ]
+}

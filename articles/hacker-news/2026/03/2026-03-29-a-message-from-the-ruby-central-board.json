@@ -1,0 +1,31 @@
+{
+  "id": 6809,
+  "source": "Hacker News",
+  "title": "A Message from the Ruby Central Board",
+  "url": "https://rubycentral.org/news/a-message-from-the-ruby-central-board/",
+  "published_at": "2026-03-29T19:28:36Z",
+  "fetched_at": "2026-03-29T20:00:20.106901+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47566362\">Comments</a>",
+  "full_text": "Over the past several months, there has been significant discussion, disagreement, and concern about RubyGems, Bundler, and Ruby Central’s role in stewarding RubyGems and supporting the Ruby ecosystem.\n\nBecause this matter has involved ongoing legal discussions, we have been limited in what we could say publicly. Our priority has been to resolve the situation responsibly and avoid escalating a conflict that affects the broader Ruby ecosystem.\n\nWith several new board members joining Ruby Central in recent months, it has also taken time to come up to speed on a complicated situation and begin charting a path forward.\n\nRuby Central’s actions during this period were taken in response to a breakdown in a working relationship with an individual who had significant access to infrastructure and code. Our responsibility is to protect the stability and security of services that the Ruby ecosystem depends on, including RubyGems.org.\n\nAt the time, we believed a serious risk had been introduced to RubyGems and related services. As stewards of services relied upon by millions of developers, we took that risk seriously and made the decision to act quickly to protect that infrastructure.\n\nA full, independent security audit has now been completed. The review was ultimately inconclusive because key logs required for a complete analysis were no longer available. We recognize that this creates continued uncertainty.\n\nA detailed incident report will be published next week to provide additional context on what occurred, who was involved, and how decisions were made.\n\nOur intent was to stabilize a situation that was quickly escalating to work toward an amicable resolution. Ruby Central did not initiate litigation and has consistently sought a path that would allow the community to move forward without prolonged conflict.\n\nAt the same time, we recognize that aspects of how this situation was handled and communicated did not meet the expectations of the community. Decisions were made quickly, and we did not engage the existing maintainers or the broader community in the way we should have. This created confusion and frustration, and we take responsibility for that. \n\nRuby Central’s mission is to support and sustain the Ruby ecosystem and the infrastructure it relies on. The Ruby ecosystem has thrived for decades because of the contributions of maintainers, volunteers, companies, and community members across the world, and Ruby Central is committed to ensuring that stewardship of RubyGems reflects that collaborative spirit.\n\nLooking forward, we want RubyGems to be shaped and supported by a broader group of maintainers, contributors, and companies so that no single person or organization is ever a point of failure.\n\nIn the coming weeks, we will share concrete steps we are taking to strengthen governance, improve transparency, and expand community participation in the stewardship of RubyGems. We will also outline how we plan to work more collaboratively with maintainers and the broader community to improve RubyGems and support continued innovation across the Ruby ecosystem.\n\nWe, as a Board, are committed to ensuring RubyGems remains stable, secure, and a strong foundation for the Ruby community. We are committed to working together to build a stronger and more resilient future for RubyGems.\n\nFreedom Dumlao, President\nBrandon Weaver, Secretary\nRan Craycraft, Treasurer\non behalf of the board and in support of the staff and volunteers of Ruby Central",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "board",
+      "broad",
+      "bundler",
+      "central",
+      "commit",
+      "community",
+      "ecosystem",
+      "escalate",
+      "member",
+      "ruby",
+      "ruby central",
+      "rubygems",
+      "situation"
+    ],
+    []
+  ]
+}

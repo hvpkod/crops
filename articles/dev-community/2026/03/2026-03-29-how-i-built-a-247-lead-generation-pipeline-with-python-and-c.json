@@ -1,0 +1,46 @@
+{
+  "id": 6664,
+  "source": "DEV Community<",
+  "title": "How I Built a 24/7 Lead Generation Pipeline with Python and Claude Code at 21",
+  "url": "https://dev.to/patrickpatrick27/how-i-built-a-247-lead-generation-pipeline-with-python-and-claude-code-at-21-18mm",
+  "published_at": "2026-03-29T03:22:18Z",
+  "fetched_at": "2026-03-29T04:20:33.567935+00:00",
+  "author": "Dave Patrick Bulaso",
+  "summary": "<p>I'm 21, based in the Philippines, and I work as a software engineer for a UK consultancy. One of my tasks was building a lead generation system that could find and enrich business profiles automatically.</p>\n\n<p>Instead of doing it manually, I built a pipeline that runs 24/7 on a $150 mini PC sitting in my room. Here's how.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>My client needed enriched profiles of C-suite executives — names, companies, roles, LinkedIn URLs. Doing this manually would take forever.</p>\n\n<h2>\n  \n  \n  The Stack\n</h2>\n\n<ul>\n<li>\n<strong>Python</strong> — all scripts</li>\n<li>\n<strong>Playwright</strong> — browser automation for scraping</li>\n<li>\n<strong>Claude Code</strong> — my primary development tool (I built the entire system with it)</li>\n<li>\n<strong>Beelink Mini-S</strong> — a tiny Ubuntu server running 24/7</li>\n<li>\n<strong>Docker</strong> — for containerized services</li>\n<li>\n<strong>Google Sheets API</strong> — for syncing data to the client's spreadsheet",
+  "full_text": "I'm 21, based in the Philippines, and I work as a software engineer for a UK consultancy. One of my tasks was building a lead generation system that could find and enrich business profiles automatically.\n\nInstead of doing it manually, I built a pipeline that runs 24/7 on a $150 mini PC sitting in my room. Here's how.\n\n \n \n The Problem\n\nMy client needed enriched profiles of C-suite executives — names, companies, roles, LinkedIn URLs. Doing this manually would take forever.\n\n \n \n The Stack\n\nPython — all scripts\n\nPlaywright — browser automation for scraping\n\nClaude Code — my primary development tool (I built the entire system with it)\n\nBeelink Mini-S — a tiny Ubuntu server running 24/7\n\nDocker — for containerized services\n\nGoogle Sheets API — for syncing data to the client's spreadsheet\n\n \n \n How It Works\n\nThe pipeline runs in stages, each as a separate script:\n\nScrape — Pull company and executive data from public sources (Companies House API, corporate websites)\n\nClean — Deduplicate, normalize names, validate data\n\nEnrich — Cross-reference with LinkedIn and other data sources\n\nSync — Push to Google Sheets via API\n\nEach stage runs independently. If one fails, the others keep going. The whole thing runs via cron jobs on the Beelink.\n\n \n \n Results\n\nBuilt a pipeline that generates hundreds of profiles per day automatically\n\nRuns unattended 24/7 while I sleep\n\nTotal infrastructure cost: ~$3/month in electricity\n\n \n \n What I Learned\n\nClaude Code changed how I work. I didn't write this system line by line. I described what I needed, Claude Code generated it, I reviewed and refined. My output speed is probably 3-5x what it would be without it.\n\nA $150 mini PC is a legitimate server. It runs Ubuntu, Docker, cron jobs, Python scripts — everything a cloud VPS does, but with no monthly bill.\n\nAutomation compounds. The time I spent building this system paid for itself within the first day. Everything after that is free output.\n\n \n \n My Setup\n\nI'm currently running:\n\nLead generation pipeline (Python/Playwright)\n\nJob monitoring bot (scans 3 platforms every 5 minutes)\n\nGoogle Workspace integrations (Calendar, Gmail, Sheets)\n\nAI assistant infrastructure (OpenClaw + Claude Code)\n\nAll on one mini PC, all 24/7, all from my room in the Philippines.\n\nI'm Dave. I build systems that run without me. If you have questions about automation, Claude Code, or running infrastructure on cheap hardware, ask in the comments.\n\nGitHub | Portfolio | LinkedIn",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "automation",
+      "beelink",
+      "build",
+      "claude",
+      "claudecode",
+      "datum",
+      "generation",
+      "google sheets",
+      "infrastructure",
+      "linkedin",
+      "mini",
+      "openclaw",
+      "philippines",
+      "pipeline",
+      "profile",
+      "python",
+      "python/playwright",
+      "results\n\nbuilt",
+      "run",
+      "system",
+      "the stack\n\npython",
+      "ubuntu,",
+      "vps"
+    ],
+    [
+      "automation",
+      "claudecode",
+      "infrastructure"
+    ]
+  ]
+}

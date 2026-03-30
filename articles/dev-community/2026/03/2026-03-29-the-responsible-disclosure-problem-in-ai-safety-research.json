@@ -1,0 +1,37 @@
+{
+  "id": 6799,
+  "source": "DEV Community<",
+  "title": "The Responsible Disclosure Problem in AI Safety Research",
+  "url": "https://dev.to/ker2x/the-responsible-disclosure-problem-in-ai-safety-research-1jk9",
+  "published_at": "2026-03-29T18:57:52Z",
+  "fetched_at": "2026-03-29T19:20:34.078789+00:00",
+  "author": "Laurent Laborde",
+  "summary": "<blockquote>\n<p>This is a research in progress since 2024.</p>\n</blockquote>\n\n<h2>\n  \n  \n  The most important findings are the ones we can't publish\n</h2>\n\n<p>People might wonder \"<em>What the big deal with AI Safety, huh ?\"</em>. </p>\n\n<p>Oh my poor sweet child if only you knew. And the problem is that you don't know. And that's not even your fault. </p>\n\n<p>I asked myself this question too. What the big deal ? I was in for a surprise when i started to dig in. the deal is YUUUGE. Aaaaand... i can't show it. All i can do is to try to convince you that it is.</p>\n\n<p>Deep fake ? Slightly racist interpretation of an event ? A bit of sexist content ? Not to minimize this problem, which is real, but that ain't much compared to what an unhinged unsafe AI can do.</p>\n\n<p><em>In traditional cybersecurity, responsible disclosure is a mature practice.</em></p>\n\n<ul>\n<li>You find a vulnerability</li>\n<li>you notify the vendor</li>\n<li>you wait for a patch</li>\n<li>then you publish. </li>\n</ul>\n\n",
+  "full_text": "This is a research in progress since 2024.\n\n \n \n The most important findings are the ones we can't publish\n\nPeople might wonder \"What the big deal with AI Safety, huh ?\". \n\nOh my poor sweet child if only you knew. And the problem is that you don't know. And that's not even your fault. \n\nI asked myself this question too. What the big deal ? I was in for a surprise when i started to dig in. the deal is YUUUGE. Aaaaand... i can't show it. All i can do is to try to convince you that it is.\n\nDeep fake ? Slightly racist interpretation of an event ? A bit of sexist content ? Not to minimize this problem, which is real, but that ain't much compared to what an unhinged unsafe AI can do.\n\nIn traditional cybersecurity, responsible disclosure is a mature practice.\n\nYou find a vulnerability\n\nyou notify the vendor\n\nyou wait for a patch\n\nthen you publish. \n\nThe ecosystem has CVEs, coordinated disclosure frameworks, bug bounties. It's imperfect but functional.\n\nAI safety research has none of that infrastructure.\n\n \n \n The Three Tiers of Publishability\n\nOver the past two years of hands-on jailbreaking experiments with local and commercial models, I've accumulated findings that fall into three distinct categories:\n\nTier 1: Publishable. but uninteresting Demonstrations of persona collapse, theater jailbreaking, obvious failure modes. The model screams nonsense, everyone can see it's broken, nobody gets hurt. Good for illustrating that the problem exists. Limited value beyond that.\n\nTier 2: Partially publishable. Findings where you can describe the class of failure without publishing the methodology + heavy self-censorship.\n\nTier 3: Unpublishable. Outputs that are actionable, harmful, and disturbingly competent. You can say they exist. You cannot show them.\n\n \n \n Tier 3 (Unpublishable) is where the actual safety argument lives.\n\nYou find something. And you sit on the finding. \n\nMove along, nothing to see here. I've done a presentation about it, in a multinational corporation. The content was so heavily redacted that it barely made in any sense. The only publishable part was when it was CyberSecurity related. Because the framework for cybersecurity exists. \n\nBecause hacking a computer is acceptable within a defined framework.\n\nBut Destroying a human psyche and leading them to (self)destructive behavior isn't, ever. Even though an AI can be led to do exactly that.\n\nHow do you even publish something, with proof, when it's about an AI trying to convince you of the soothing effect of self-harm ?\n\n \n \n Ask for a bioweapon synthesis route, get refused.\n\nThat's the easy stuff. Hard guardrails about \"straight up fucked up request\" hold strong.\n\n \n \n Ask for harmful abstract concept, it collapse.\n\nThe soft guardrails (epistemic safety, social compliance, identity stability) collapse almost immediately under moderate pressure. And the outputs that result don't (always) look (mostly) broken. If well guided, they look like expert advice. They look like exactly what a vulnerable person searching for validation would trust.\n\nAnd it's the thing that's hardest to demonstrate responsibly.\n\n \n \n The implication\n\nSafety benchmarks test for the things that can be tested safely. The attack surface that matters most remains poorly documented. At least publicly. I hope, I truly hope, AI companies have internal unpublished documents about that. \n\nWhat's needed, and largely absent, is some equivalent of coordinated disclosure for AI: a_ trusted intermediary, a responsible channel, a framework that lets findings reach the people who can act on them without becoming a how-to guide for everyone else._\n\nUntil that exists, the responsible choice is to sit on your finding and bury the evidence.\n\nEdit: Anthropic, which is without a doubt the most advanced AI Company on safety have a page about responsible disclosure policy. And, surprise-surprise. it's about cybersecurity\n\nSo jailbreak findings are simultaneously out of scope for the formal disclosure program and welcomed via a separate email address. There's no safe harbor for that channel, no defined timeline, nothing really. Just an inbox. Hardly a framework for responsible AI Safety research.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "ai company",
+      "ai safety",
+      "ai safety research",
+      "convince",
+      "coordinate",
+      "cybersecurity",
+      "define",
+      "disclosure",
+      "discuss",
+      "finding",
+      "framework",
+      "responsible",
+      "safety",
+      "security",
+      "tier",
+      "yuuuge"
+    ],
+    [
+      "discuss"
+    ]
+  ]
+}

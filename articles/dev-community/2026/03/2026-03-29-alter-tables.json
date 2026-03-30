@@ -1,0 +1,38 @@
+{
+  "id": 6757,
+  "source": "DEV Community<",
+  "title": "Alter Tables",
+  "url": "https://dev.to/anjana_rk_fbdea7abbdf13/alter-tables-5hj9",
+  "published_at": "2026-03-29T16:11:49Z",
+  "fetched_at": "2026-03-29T16:20:19.437888+00:00",
+  "author": "Anjana R.K.",
+  "summary": "<p>Hi!<br />\n<strong>1. You have a table customers with a column email that currently allows NULL values. Modify the table so that future entries must always have an email.</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight sql\"><code><span class=\"k\">ALTER</span> <span class=\"k\">TABLE</span> <span class=\"n\">customers</span> <span class=\"k\">ALTER</span> <span class=\"k\">COLUMN</span> <span class=\"n\">email</span> <span class=\"k\">SET</span> <span class=\"k\">NOT</span> <span class=\"k\">NULL</span><span class=\"p\">;</span>\n</code></pre>\n\n</div>\n\n\n\n<p>here the alter is used to set the column email that should not be blank.<br />\n<strong>2. In the users table, ensure that the username column is unique across all records using an ALTER statement.</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight sql\"><code><span class=\"k\">ALTER</span> <span class=\"k\">TABLE</span> <span class=\"n\">users</span> <span class=\"k\">ADD</span> <span class",
+  "full_text": "Hi!\n\n1. You have a table customers with a column email that currently allows NULL values. Modify the table so that future entries must always have an email.\n\nALTER TABLE customers ALTER COLUMN email SET NOT NULL;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nhere the alter is used to set the column email that should not be blank.\n\n2. In the users table, ensure that the username column is unique across all records using an ALTER statement.\n\nALTER TABLE users ADD CONSTRAINT unique_username UNIQUE (username);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nhere an new contraint unique_name is used to keep unique user name thus ensure that the username column is unique across all records.\n\n3. In the products table, enforce that price must always be greater than 0 using an ALTER command.\n\nALTER TABLE products ADD CONSTRAINT price CHECK (price>0);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nhere the table prducts is altered with price that has values greater than 0.\n\n4. Modify the orders table so that the status column defaults to 'pending' if no value is provided during insertion.\n\nALTER TABLE orders ALTER COLUMN status SET DEFAULT 'pending';\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nthe oders table is modified by setting the default value of status with pending.\n\n5. Alter the employees table by adding a new column salary such that,It cannot be NULL,It must always be greater than 10,000\n\nALTER TABLE employees ADD COLUMN salary NOT NULL CHECK (salary>10000);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nthe column salary is added and it should not be null and check condition that salary >10000.\n\n6. Modify the foreign key constraint between employees and departments so that when a department is deleted, all related employees are automatically removed.\n\nALTER TABLE employees ADD CONSTRAINT employees_department_id FOREIGN KEY (department_id) REFERENCES departments(id) ON DELETE CASCADE;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nthe on delete cascade is used so that when a department is deleted,all related employees are automatically removed .\n\n7. In the accounts table, remove an existing CHECK constraint that enforces balance >= 0\n\nALTER TABLE accounts DROP CONSTRAINT accounts_balance;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n8. In the payments table, ensure that the combination of user_id and transaction_id is unique using an ALTER TABLE statement.\n\nALTER TABLE payments ADD CONSTRAINT unique_transaction UNIQUE (user_id, transaction_id);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\ncreates a Unique Constraint on table payments.It ensures that the exact same user_id and transaction_id combination can never be recorded twice, effectively preventing duplicate payment entries for the same transaction.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "alter",
+      "alter column",
+      "alter table",
+      "check",
+      "column",
+      "constraint",
+      "employee",
+      "enter",
+      "exit",
+      "fullscreen",
+      "key",
+      "mode",
+      "null",
+      "payments",
+      "table",
+      "transaction_id",
+      "unique",
+      "user_id"
+    ],
+    [
+      "column"
+    ]
+  ]
+}

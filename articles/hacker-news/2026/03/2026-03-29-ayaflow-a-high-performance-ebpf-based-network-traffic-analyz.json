@@ -1,0 +1,35 @@
+{
+  "id": 6777,
+  "source": "Hacker News",
+  "title": "AyaFlow: A high-performance, eBPF-based network traffic analyzer written in Rust",
+  "url": "https://github.com/DavidHavoc/ayaFlow",
+  "published_at": "2026-03-29T15:28:27Z",
+  "fetched_at": "2026-03-29T17:20:22.534842+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47563978\">Comments</a>",
+  "full_text": "A high-performance, eBPF-based network traffic analyzer written in Rust. Designed to run as a sidecarless DaemonSet in Kubernetes, providing kernel-native visibility into node-wide network traffic with minimal overhead.\n\nBuilt on the Aya eBPF framework.\n\nKernel: NIC --> TC Hook (eBPF, ingress + egress) --> RingBuf\n |\nUserspace: Tokio Event Loop\n / | \\\n DashMap SQLite Axum HTTP\n (live stats) (history) (API + /metrics)\n\nKernel-side: A TC (Traffic Control) classifier attached at both ingress and egress parses Ethernet/IPv4/TCP/UDP headers and pushes lightweight PacketEvent structs (with a direction tag) to a shared ring buffer.\n\nUserspace: An async Tokio agent polls the ring buffer, maintains live connection state in a DashMap, persists events to SQLite, and exposes a REST API with Prometheus metrics.\n\neBPF-native capture -- No libpcap, no privileged sidecar. Hooks directly into the kernel's traffic control subsystem.\n\nSidecarless DaemonSet -- One pod per node instead of one per application pod.\n\nReal-time monitoring -- Live dashboard via REST API + WebSocket streaming.\n\nPersistent history -- SQLite storage with configurable data retention and aggregation.\n\nDeep L7 inspection -- Optional TLS SNI and DNS query extraction for domain-level visibility into encrypted traffic.\n\nPrometheus /metrics -- Native exporter for ayaflow_packets_total, ayaflow_bytes_total, ayaflow_active_connections, ayaflow_domains_resolved_total, ayaflow_deep_inspect_packets_total.\n\nIP allowlist -- Restrict API/dashboard access by source CIDR.\n\nRust: Stable + nightly toolchain\n\nbpf-linker: cargo +nightly install bpf-linker\n\nLinux kernel: >= 5.8 with BTF support (for eBPF)\n\nCapabilities: CAP_BPF, CAP_NET_ADMIN, CAP_PERFMON\n\n# Install bpf-linker (one-time)\ncargo +nightly install bpf-linker\n\n# Build everything (eBPF + userspace)\ncargo xtask build\n\n# Requires root for eBPF attachment\nsudo ./target/debug/ayaflow --interface eth0\n\ncurl http://localhost:3000/api/health\ncurl http://localhost:3000/metrics\n\nFlag\nDescription\nDefault\n\n-i, --interface\nNetwork interface to attach eBPF on\neth0\n\n-p, --port\nAPI server port\n3000\n\n--db-path\nSQLite database path\ntraffic.db\n\n--connection-timeout\nStale connection cleanup (seconds)\n60\n\n--data-retention\nAuto-delete packets older than (seconds)\ndisabled\n\n--aggregation-window\nAggregate events per window (seconds)\n0 (off)\n\n--allowed-ips\nCIDR(s) allowed to access the API\nunrestricted\n\n-c, --config\nPath to YAML config file\n-\n\n-q, --quiet\nSuppress non-error logs\nfalse\n\n--deep-inspect\nEnable DNS + TLS SNI domain extraction\nfalse\n\nDeploy as a DaemonSet (see k8s/daemonset.yaml):\n\nkubectl apply -f k8s/daemonset.yaml\n\nThe DaemonSet uses hostNetwork: true and mounts /sys/fs/bpf. Prometheus scrape annotations are included by default.\n\nresources:\n requests:\n memory: \"32Mi\"\n cpu: \"50m\"\n limits:\n memory: \"128Mi\"\n cpu: \"500m\"\n\nEndpoint\nMethod\nDescription\n\n/api/health\nGET\nHealth check with basic counters\n\n/api/stats\nGET\nUptime, throughput, connection counts\n\n/api/live\nGET\nTop 50 active connections by packet count\n\n/api/history?limit=N\nGET\nRecent packets from SQLite (max 1000)\n\n/api/stream\nWS\nWebSocket push of stats every 1s\n\n/metrics\nGET\nPrometheus text-format metrics\n\nayaflow-common/ # Shared types (no_std, used by both kernel and userspace)\nayaflow-ebpf/ # eBPF kernel program (TC classifier)\nayaflow/ # Userspace agent (Aya loader + Tokio + Axum)\nxtask/ # Build orchestration (cargo xtask)\nk8s/ # Kubernetes DaemonSet manifest\n\nPerformance & Footprint\n\nMeasured on a minimal VM (Ubuntu 24.04, 2 vCPU, 2 GB RAM):\n\nMetric\nValue\n\nUserspace RSS (steady-state)\n~33 MB\n\neBPF program (xlated)\n784 B\n\neBPF program (JIT-compiled)\n576 B\n\neBPF program memlock\n4 KB\n\nEVENTS ring buffer\n256 KB\n\nPAYLOAD_EVENTS ring buffer\n256 KB (only used when --deep-inspect is on)\n\nRing buffer memlock\n~270 KB (540 KB with deep inspect)\n\nMemory growth over time\nNone observed (stable RSS)\n\nThe eBPF classifier is verified loaded via bpftool:\n\n$ sudo bpftool prog show name ayaflow\n430: sched_cls name ayaflow tag 0dabf78b3d068075 gpl\n loaded_at 2026-02-16T16:38:12+0100 uid 0\n xlated 784B jited 576B memlock 4096B map_ids 76\n\nOS: Ubuntu 24.04 LTS (aarch64)\n\nKernel: 6.x with BTF support\n\nHardware: 2 vCPU, 2 GB RAM (Lima VM)\n\nRust: nightly toolchain + bpf-linker\n\nThis project is licensed under either of:\n\nat your option.\n\nThe eBPF kernel components (ayaflow-ebpf) are licensed under GPL to ensure compatibility with the Linux kernel verifier.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "connection",
+      "daemonset",
+      "dashmap",
+      "davidhavoc",
+      "dns",
+      "ebpf",
+      "kernel",
+      "kubernetes",
+      "memlock",
+      "nic",
+      "packetevent",
+      "prometheus",
+      "ring",
+      "sqlite",
+      "tokio",
+      "tokio event loop",
+      "traffic"
+    ],
+    []
+  ]
+}

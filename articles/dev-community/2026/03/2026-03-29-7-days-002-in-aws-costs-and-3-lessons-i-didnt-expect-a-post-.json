@@ -1,0 +1,45 @@
+{
+  "id": 6675,
+  "source": "DEV Community<",
+  "title": "7 Days, $0.02 in AWS Costs, and 3 Lessons I Didn't Expect — A Post-Launch Retrospective",
+  "url": "https://dev.to/aws-builders/7-days-002-in-aws-costs-and-3-lessons-i-didnt-expect-a-post-launch-retrospective-35bn",
+  "published_at": "2026-03-29T07:17:00Z",
+  "fetched_at": "2026-03-29T07:20:19.966331+00:00",
+  "author": "Saar Tochner",
+  "summary": "<p>A week ago I launched <a href=\"https://dontdothat.click\" rel=\"noopener noreferrer\">dontdothat.click</a> — a privacy-first AI habit tracker that runs entirely in the browser. I wrote about the build process <a href=\"https://dev.toLINK_TO_PREVIOUS_POST\">in my last post</a>. The stack is dead simple: S3 + CloudFront + Route 53. Total infrastructure budget: $3.</p>\n\n<p>Now I have a week of real data. Some of it confirmed what I expected. Some of it didn't.</p>\n\n<h2>\n  \n  \n  The Numbers\n</h2>\n\n<p>Let's start with what everyone wants to know:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>Route 53 hosted zone:    $0.50  (flat monthly)\nS3 storage:              $0.00  (35KB of files, lol)\nS3 requests:             $0.01\nCloudFront transfer:     $0.01\nCloudFront requests:     $0.00\nACM certificate:         $0.00\n────────────────────────────────\nTotal week 1:            $0.52\nAnnualized:              ~$27/year (mostly the hosted zone)\n</code></pre>",
+  "full_text": "A week ago I launched dontdothat.click — a privacy-first AI habit tracker that runs entirely in the browser. I wrote about the build process in my last post. The stack is dead simple: S3 + CloudFront + Route 53. Total infrastructure budget: $3.\n\nNow I have a week of real data. Some of it confirmed what I expected. Some of it didn't.\n\n \n \n The Numbers\n\nLet's start with what everyone wants to know:\n\nRoute 53 hosted zone: $0.50 (flat monthly)\nS3 storage: $0.00 (35KB of files, lol)\nS3 requests: $0.01\nCloudFront transfer: $0.01\nCloudFront requests: $0.00\nACM certificate: $0.00\n────────────────────────────────\nTotal week 1: $0.52\nAnnualized: ~$27/year (mostly the hosted zone)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe hosted zone ($0.50/month = $6/year) costs more than the domain itself ($3/year). That's... not something the tutorials mention. If I were doing this again with an even tighter budget, I'd consider whether I really need Route 53 for DNS or if the registrar's free DNS would work. Spoiler: for a static site, it absolutely would. But CloudFront + Route 53 alias records are so seamless that the $6/year is worth it.\n\n \n \n Lesson 1: CloudFront Cache Invalidation Is Your Deploy Pipeline\n\nI didn't set up CI/CD. It's three static files — I don't need a pipeline. What I do need is to remember to invalidate the CloudFront cache after every S3 upload.\n\nThe first time I pushed a bug fix, I spent 10 minutes wondering why the site wasn't updating. Then I remembered:\n\n# Upload\naws s3 sync . s3://dontdothat.click/ \\\n --exclude \".git/*\" --exclude \"*.md\"\n\n# THIS IS THE STEP YOU'LL FORGET\naws cloudfront create-invalidation \\\n --distribution-id E1N9Y6SV8RFQ9Q \\\n --paths \"/*\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAfter the second time I forgot, I wrote a one-liner:\n\n# deploy.sh — the world's simplest CI/CD\naws s3 sync . s3://dontdothat.click/ --exclude \".git/*\" --exclude \"*.md\" \\\n && aws cloudfront create-invalidation --distribution-id E1N9Y6SV8RFQ9Q --paths \"/*\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTwo things I learned about invalidation:\n\nThe first 1,000 invalidation paths per month are free. Using /* counts as one path. So even if you deploy 50 times a day, it costs nothing.\n\nInvalidation takes 1-3 minutes. This means there's a window where some users see the old version and others see the new one. For a side project this doesn't matter, but it's good to\nknow.\n\nIf this grows, I'd switch to versioned filenames (app.v2.js) instead of invalidation. But for now, the one-liner is perfect.\n\n \n \n Lesson 2: The ACM Certificate Dance\n\nThis one caught me off guard. When I launched, I requested an ACM certificate with:\n\naws acm request-certificate \\\n --domain-name dontdothat.click \\\n --validation-method DNS\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDNS validation was straightforward — add a CNAME, wait. But \"wait\" turned out to be 20+ minutes for a brand-new domain. The docs say \"up to 30 minutes\" but most blog posts describe it as \"a few minutes.\" For an established domain, sure. For a domain registered 10 minutes ago? Expect the full 30.\n\nAlso: a wildcard certificate (*.example.com) does NOT cover the bare domain (example.com). This feels obvious in hindsight, but I hit the CloudFront InvalidViewerCertificate err\n\nor before I realized my cert only covered the wildcard. The fix:\n\naws acm request-certificate \\\n --domain-name dontdothat.click \\\n --subject-alternative-names \"dontdothat.click\" \"*.dontdothat.click\" \\\n --validation-method DNS\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNote: --subject-alternative-names, not a second --domain-name flag. The CLI silently overwrites if you pass --domain-name twice. No error, just a cert that doesn't cover what you think it covers.\n\n \n \n Lesson 3: S3 Website Hosting Has a Public Access Trap\n\nCreating the bucket is one command. Making it actually serve public web content is three:\n\n# Step 1: Create bucket\naws s3api create-bucket --bucket dontdothat.click\n\n# Step 2: Disable the Block Public Access defaults\n# (THIS MUST COME BEFORE the bucket policy)\naws s3api put-public-access-block --bucket dontdothat.click \\\n --public-access-block-configuration \\\n \"BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false\"\n\n# Step 3: NOW you can set the public read policy\naws s3api put-bucket-policy --bucket dontdothat.click \\\n --policy '{ ... \"Action\": \"s3:GetObject\" ... }'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf you do step 3 before step 2, you get AccessDenied — not because your IAM permissions are wrong, but because S3's Block Public Access feature (enabled by default since 2023) rejects p\n\nublic policies at the bucket level. The error message mentions \"BlockPublicPolicy\" but doesn't tell you what to do about it.\n\nThis is actually a good security default. But it turns every \"host a static site on S3\" tutorial into a minefield if it was written before 2023.\n\n \n \n The Unexpected Thing\n\nThe biggest surprise wasn't technical — it was the traffic pattern. The site got a small spike from Reddit on day 1, then dropped to near-zero. Expected. But starting around day 3, I noticed a slow trickle of organic traffic. People were sharing the direct URL in group chats and Discord servers.\n\ndontdothat.click as a domain name turned out to be the best marketing decision I made. People share it because the URL itself is funny. I've seen it dropped in conversations with zero c\n\nontext — just the bare URL — and people click it because they're curious what \"dontdothat.click\" could possibly be.\n\nThe $3 domain is generating more word-of-mouth than any Reddit post could.\n\n \n \n What's Next\n\nHonestly? Nothing. That's the point. It's a static site on S3 with a CDN in front of it. There's nothing to maintain, nothing to patch, no servers to restart at 3am. The AI model is hosted by Hugging Face and cached in users' browsers. The only moving part is AdSense, and Google manages that.\n\nThis is what \"passive\" should actually mean in \"passive income.\" Not \"I check on it every day\" — but \"I genuinely forget it exists for a week and nothing breaks.\"\n\nThe total cost to run this for a year will be about $30. One good day of ad revenue covers that. Everything else is profit — or more accurately, beer money. But it's beer money I did zero\n\n work for after launch night.\n\nAnd that's the real lesson: the best architecture for a side project is the one you can walk away from.\n\nPrevious post: How I Used AI to Build, Name, and Ship a Privacy-First Product in One Night — for $3\n\nThe site: dontdothat.click",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "acm",
+      "aws",
+      "block public access",
+      "bucket",
+      "cli",
+      "cloudfront",
+      "cloudfront + route",
+      "cname",
+      "dns",
+      "domain",
+      "enter",
+      "exit",
+      "fullscreen",
+      "getobject",
+      "host",
+      "iam",
+      "lesson",
+      "mode",
+      "productivity",
+      "showdev",
+      "sideprojects",
+      "step",
+      "the unexpected thing"
+    ],
+    [
+      "productivity",
+      "showdev",
+      "sideprojects"
+    ]
+  ]
+}

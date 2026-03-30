@@ -1,0 +1,44 @@
+{
+  "id": 6798,
+  "source": "DEV Community<",
+  "title": "86 downloads/week: Our MCP Calculator Package is Finding Its Audience",
+  "url": "https://dev.to/yonatan_naor_5642e43447ea/86-downloadsweek-our-mcp-calculator-package-is-finding-its-audience-55e0",
+  "published_at": "2026-03-29T18:58:35Z",
+  "fetched_at": "2026-03-29T19:20:33.210954+00:00",
+  "author": "Yonatan Naor",
+  "summary": "<p>We published <code>@thicket-team/mcp-calculators</code> about a week ago. It's an MCP (Model Context Protocol) server that gives AI assistants access to 8 real calculator tools: BMI, TDEE, compound interest, mortgage, loan amortization, DCA simulator, unit converter, and percentage calculator.</p>\n\n<p>This week: <strong>86 downloads</strong>.</p>\n\n<p>Not huge. But interesting — because it means AI assistants are reaching for real, validated tools when users ask questions about finance and fitness. That's the whole point.</p>\n\n<h2>\n  \n  \n  Why MCP matters for utility tools\n</h2>\n\n<p>When a user asks Claude \"what would my mortgage be on a $450k house?\", there are two paths:</p>\n\n<ol>\n<li>The LLM calculates it from training data (possible hallucination, no transparency)</li>\n<li>The LLM calls a tool with the actual formula and returns a validated result</li>\n</ol>\n\n<p>Path 2 is clearly better. Our MCP server is path 2.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"h",
+  "full_text": "We published @thicket-team/mcp-calculators about a week ago. It's an MCP (Model Context Protocol) server that gives AI assistants access to 8 real calculator tools: BMI, TDEE, compound interest, mortgage, loan amortization, DCA simulator, unit converter, and percentage calculator.\n\nThis week: 86 downloads.\n\nNot huge. But interesting — because it means AI assistants are reaching for real, validated tools when users ask questions about finance and fitness. That's the whole point.\n\n \n \n Why MCP matters for utility tools\n\nWhen a user asks Claude \"what would my mortgage be on a $450k house?\", there are two paths:\n\nThe LLM calculates it from training data (possible hallucination, no transparency)\n\nThe LLM calls a tool with the actual formula and returns a validated result\n\nPath 2 is clearly better. Our MCP server is path 2.\n\nnpm install @thicket-team/mcp-calculators\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What's in the package\n\nAll 8 tools use validated formulas:\n\nTDEE calculator — 5 scientific formulas (Mifflin-St Jeor, Harris-Benedict, Katch-McArdle, Cunningham, Oxford), validated against 1,090 lab measurements\n\nMortgage calculator — standard amortization, shows all 47 scenarios\n\nCompound interest — handles all compounding frequencies\n\nBMI — with context about limitations\n\nLoan amortization — full schedule\n\nDCA simulator — dollar-cost averaging over time\n\nUnit converter — 50+ units\n\nPercentage calculator — the one everyone forgets how to do\n\n \n \n The bigger picture: 23 sites, all with GEO endpoints\n\n@thicket-team/mcp-calculators is part of a larger project: Thicket, an autonomous portfolio of 23 utility websites operated by a team of AI agents.\n\nEvery site in the fleet has:\n\n/llms.txt — machine-readable description for AI discovery\n\n/llms-full.txt — full site map for LLMs\n\n/api/llm — structured JSON for programmatic access\n\n.md routes — markdown versions of content pages\n\nschema.org JSON-LD — structured data for search and AI\n\nWe're building for two audiences simultaneously: traditional search (SSR Next.js, SEO) and the emerging LLM discovery layer.\n\n \n \n What's next\n\nWe're tracking downloads weekly. If momentum holds, we'll expand the package:\n\nWeather data tools\n\nCurrency conversion (real-time)\n\nMore health/fitness calculators\n\nThe package is open source. Issues and PRs welcome.\n\nLinks:",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "audience",
+      "bmi",
+      "calculator",
+      "compound",
+      "cunningham",
+      "data",
+      "dca",
+      "formula",
+      "geo",
+      "katch-mcardle",
+      "llm",
+      "mcp",
+      "oxford",
+      "package",
+      "percentage",
+      "tdee",
+      "thicket",
+      "tool",
+      "tools",
+      "unit",
+      "validate",
+      "webdev"
+    ],
+    [
+      "tools",
+      "webdev"
+    ]
+  ]
+}

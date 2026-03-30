@@ -1,0 +1,40 @@
+{
+  "id": 6686,
+  "source": "DEV Community<",
+  "title": "EU AI Act + LangChain: What You Actually Need to Build Before August 2026",
+  "url": "https://dev.to/supra-dev/eu-ai-act-langchain-what-you-actually-need-to-build-before-august-2026-pah",
+  "published_at": "2026-03-29T06:43:39Z",
+  "fetched_at": "2026-03-29T07:20:42.794731+00:00",
+  "author": "Alexander Paris",
+  "summary": "<p>The EU AI Act high-risk enforcement deadline is August 2, 2026. That is 126 days from today.</p>\n\n<p>If you're <strong>running AI agents in production</strong> — especially on LangChain, CrewAI, or any tool-calling framework — and you're serving EU customers or operating in the EU, you are likely subject to obligations you probably haven't operationalized yet.</p>\n\n<p>This is not a legal article. It's a technical one. Here's what Articles 9, 13, and 14 actually require you to build.</p>\n\n<p><strong>The three articles that matter for agent developers</strong><br />\n<strong>Article 9</strong> — Risk Management System<br />\nNot a document. A running system that continuously identifies, estimates, and evaluates risks across the lifecycle of the AI system. For agent developers, this means: logging every tool call, every decision, every output — in a way you can query after the fact.</p>\n\n<p><strong>Article 13</strong> — Transparency and provision of information<br />\nEvery interaction mu",
+  "full_text": "The EU AI Act high-risk enforcement deadline is August 2, 2026. That is 126 days from today.\n\nIf you're running AI agents in production — especially on LangChain, CrewAI, or any tool-calling framework — and you're serving EU customers or operating in the EU, you are likely subject to obligations you probably haven't operationalized yet.\n\nThis is not a legal article. It's a technical one. Here's what Articles 9, 13, and 14 actually require you to build.\n\nThe three articles that matter for agent developers\n\nArticle 9 — Risk Management System\n\nNot a document. A running system that continuously identifies, estimates, and evaluates risks across the lifecycle of the AI system. For agent developers, this means: logging every tool call, every decision, every output — in a way you can query after the fact.\n\nArticle 13 — Transparency and provision of information\n\nEvery interaction must be traceable. The system must be able to explain what happened, when, and why. For LangChain agents, this means structured metadata per tool invocation — not just application logs.\n\nArticle 14 — Human oversight\n\nHigh-risk AI systems must be designed so a human can intervene, override, and halt them. For agents, this means you need REQUIRE_APPROVAL policies on sensitive tool categories — not just after-the-fact monitoring.\n\nWhat most LangChain deployments are missing right now\n\nMost production LangChain setups have:\n\nApplication-level logging (what the user sent, what the LLM returned)\n\nSome prompt-level filtering\n\nMaybe a token budget set in the LLM client\n\nWhat they're missing:\n\nTool call-level audit trail — a tamper-evident, append-only record of every tool invocation with inputs, outputs, timestamp, and agent context. Not just logs — logs can be edited. You need RSA-signed chains.\n\nPolicy enforcement at the execution boundary — before the tool runs, not after. GDPR, DORA, and the AI Act all care about what actually executed, not what you intended.\n\nCredential isolation — agents that see plaintext API keys in their context are a live credential theft vector. JIT injection means the agent requests a capability; it never receives the underlying secret.\n\nFail-closed defaults — if your compliance check times out, what happens? Most middleware silently degrades to \"allow.\" That's worse than no check, because you have a false paper trail.\n\nA concrete implementation pattern\n\nHere's the minimal compliant pattern for a LangChain agent:\n\nfrom suprawall import secure_agent\n\n# Your existing agent — unchanged\nagent = create_react_agent(llm, tools)\n\n# One line. Every tool call is now policy-checked,\n# vault-protected, and audit-logged.\nsecured_agent = secure_agent(agent, api_key=\"ag_your_key\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhat this gives you:\n\nEvery tool call intercepted before execution\n\nPolicy engine runs in <2ms (deterministic, not probabilistic)\n\nCredentials injected at runtime — agent sees capability, not secret\n\nRSA-signed audit trail written append-only per interaction\n\nHard budget cap with circuit breaker — no infinite loops\n\nThe deadline is real this time\n\nGDPR took years before meaningful enforcement. The AI Act is different: the AI Office is actively staffing, the prohibited practices have been enforceable since February 2025, and high-risk obligations kick in on a fixed date with specific technical documentation requirements.\n\n126 days is enough time to instrument properly. It is not enough time to build the audit infrastructure from scratch while also shipping product.\n\n→ SupraWall is open-source (Apache 2.0). \n\nEarly beta access at supra-wall.com or https://github.com/wiserautomation/SupraWall",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "agents",
+      "ai",
+      "api",
+      "audit",
+      "credential",
+      "day",
+      "dora",
+      "gdpr",
+      "invocation",
+      "langchain",
+      "llm",
+      "obligation",
+      "suprawall",
+      "system",
+      "the ai office",
+      "tool",
+      "webdev"
+    ],
+    [
+      "agents",
+      "langchain",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": 6666,
+  "source": "DEV Community<",
+  "title": "I Built a Free Supplement Interaction Database with 590+ Drug-Herb Combinations",
+  "url": "https://dev.to/botanica_andina/i-built-a-free-supplement-interaction-database-with-590-drug-herb-combinations-461a",
+  "published_at": "2026-03-29T03:21:26Z",
+  "fetched_at": "2026-03-29T04:20:35.729317+00:00",
+  "author": "Botánica Andina",
+  "summary": "<p>Last year, my mother started taking St. John's Wort for mild depression. She was also on blood pressure medication. Nobody told her those two interact — St. John's Wort can reduce the effectiveness of certain antihypertensives through CYP3A4 enzyme induction.</p>\n\n<p>That scared me enough to build something about it.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>Herb-drug interactions are a real clinical concern that most people never think about. According to a 2019 systematic review in the <em>British Journal of Clinical Pharmacology</em>, approximately 1 in 3 adults in the US and Europe uses herbal supplements regularly, and up to 70% never tell their doctor.</p>\n\n<p>The information exists — scattered across PubMed, FDA safety alerts, and pharmacology textbooks. But it's not accessible to the average person taking turmeric with their statins or ginkgo biloba with their blood thinners.</p>\n\n<p>Existing tools either:</p>\n\n<ul>\n<li>Require a medical professional login</li>\n<li>Cover presc",
+  "full_text": "Last year, my mother started taking St. John's Wort for mild depression. She was also on blood pressure medication. Nobody told her those two interact — St. John's Wort can reduce the effectiveness of certain antihypertensives through CYP3A4 enzyme induction.\n\nThat scared me enough to build something about it.\n\n \n \n The Problem\n\nHerb-drug interactions are a real clinical concern that most people never think about. According to a 2019 systematic review in the British Journal of Clinical Pharmacology, approximately 1 in 3 adults in the US and Europe uses herbal supplements regularly, and up to 70% never tell their doctor.\n\nThe information exists — scattered across PubMed, FDA safety alerts, and pharmacology textbooks. But it's not accessible to the average person taking turmeric with their statins or ginkgo biloba with their blood thinners.\n\nExisting tools either:\n\nRequire a medical professional login\n\nCover prescription-to-prescription only (no herbs)\n\nAre behind paywalls\n\nHave terrible UX\n\n \n \n What I Built\n\nA free, zero-dependency, static HTML tool that checks herb-drug interactions across 590+ documented combinations. No backend, no API calls, no tracking — everything runs in the browser.\n\nLive tool: Verificador de Interacciones — Botánica Andina\n\n \n \n The data layer\n\nEvery interaction in the database has:\n\nSeverity level: major (contraindicated), moderate (use with caution), or minor (monitor)\n\nMechanism: the pharmacological reason (CYP enzyme induction/inhibition, additive effects, absorption interference)\n\nClinical evidence: PubMed DOI or reference for each entry\n\nRecommendation: practical guidance\n\nExample entry:\n\n{\n \"herb\": \"St. John's Wort\",\n \"drug_class\": \"SSRIs\",\n \"severity\": \"major\",\n \"mechanism\": \"Additive serotonergic effects via 5-HT reuptake inhibition\",\n \"evidence\": \"doi:10.1016/j.tips.2004.02.009\",\n \"recommendation\": \"Avoid combination. Risk of serotonin syndrome.\"\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The tech stack\n\nDeliberately minimal:\n\nPure HTML/CSS/JS — no frameworks, no build step, no npm\n\nFuzzy search — users type natural language (\"can I take turmeric with metformin?\") and get matches\n\nOffline-capable — works without internet after first load\n\nMobile-first — 80%+ of health searches happen on phones\n\nAccessible — ARIA labels, keyboard navigation, high contrast\n\nTotal bundle size: 47KB gzipped. Loads in under 1 second on 3G.\n\n \n \n Why zero dependencies?\n\nTrust: this is health information. Users shouldn't need to trust 47 npm packages\n\nLongevity: no dependency rot. This will work in 10 years without maintenance\n\nSpeed: no hydration, no virtual DOM, no framework overhead\n\nAuditability: any pharmacist can read the source and verify the data\n\n \n \n Building the Data\n\nThis was the hardest part. I spent weeks cross-referencing:\n\nNatural Medicines Comprehensive Database — gold standard for evidence ratings\n\nPubMed systematic reviews — especially Cochrane reviews on herb-drug interactions\n\nFDA MedWatch — adverse event reports involving herbal supplements\n\nEuropean Medicines Agency (EMA) herb monographs\n\nEach interaction was validated against at least 2 sources. Severity classifications follow the Natural Medicines framework:\n\nMajor: avoid combination, documented serious adverse events\n\nModerate: use with monitoring, clinically relevant effect\n\nMinor: theoretical or minimal clinical significance\n\n \n \n Coverage\n\nThe database currently covers:\n\n47 herbs and supplements (turmeric, ginkgo, garlic, echinacea, valerian, St. John's Wort, ashwagandha, etc.)\n\n23 drug classes (anticoagulants, antihypertensives, SSRIs, statins, immunosuppressants, etc.)\n\n590+ specific combinations\n\n \n \n Technical Decisions\n\n \n \n Search\n\nI implemented a weighted fuzzy search that handles:\n\nTypos (\"tumeric\" → \"turmeric\")\n\nSynonyms (\"blood thinners\" → \"anticoagulants\")\n\nSpanish and English (\"cúrcuma\" = \"turmeric\")\n\nNatural language (\"what interacts with warfarin?\")\n\nThe search runs entirely client-side using a custom Levenshtein distance implementation. No API calls, no latency.\n\n \n \n Performance\n\nThe entire interaction database (590+ entries with full metadata) compresses to ~30KB. On a modern browser, search results appear in <5ms. Even on older devices, it's never slower than 50ms.\n\nI chose to inline the data as a JS object rather than lazy-loading it because:\n\nThe dataset is small enough to not matter\n\nEliminates network dependency for search\n\nMakes offline use trivial\n\n \n \n Deployment\n\nStatic files on a CDN. No server. No database. No downtime. Monthly cost: $0 (hosting included with domain).\n\n \n \n Lessons Learned\n\n1. Health content needs citations, not just \"according to studies\"\n\nEvery claim in the tool links to a DOI or specific publication. This took 3x longer than writing the content, but it's the difference between a useful tool and a random blog post.\n\n2. Zero-dependency isn't zero-effort\n\nWriting your own fuzzy search, responsive layout, and accessibility features takes more upfront work. But the maintenance burden drops to essentially zero.\n\n3. The hardest part is curation, not code\n\nThe interaction database took 10x longer to build than the interface. Verifying clinical evidence, resolving contradictory sources, and classifying severity levels is genuinely hard work.\n\n4. Mobile-first isn't optional for health tools\n\nAnalytics from the first month showed 83% mobile traffic. If your health tool doesn't work perfectly on a phone screen, it doesn't work at all.\n\n \n \n What's Next\n\nExpanding to 800+ interactions by Q3 2026\n\nAdding interaction severity visualization (color-coded risk matrix)\n\nMultilingual support (Portuguese next)\n\nPDF export for pharmacist review\n\nIf you're interested in contributing to the interaction database or have suggestions, I'd love to hear from you.\n\nTry it: botanicaandina.com/herramientas/interacciones/",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "aria",
+      "clinical",
+      "cyp",
+      "database",
+      "europe",
+      "fda",
+      "fuzzy",
+      "health",
+      "interaction",
+      "medicines",
+      "natural",
+      "opensource",
+      "pubmed",
+      "search",
+      "severity",
+      "showdev",
+      "st. john's",
+      "supplement",
+      "the problem\n\nherb",
+      "tool",
+      "verificador de interacciones",
+      "webdev"
+    ],
+    [
+      "opensource",
+      "showdev",
+      "webdev"
+    ]
+  ]
+}

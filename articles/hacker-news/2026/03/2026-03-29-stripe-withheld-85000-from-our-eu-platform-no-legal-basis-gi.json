@@ -1,0 +1,33 @@
+{
+  "id": 6789,
+  "source": "Hacker News",
+  "title": "Stripe withheld $85,000 from our EU platform – no legal basis given",
+  "url": "https://news.ycombinator.com/item?id=47565502",
+  "published_at": "2026-03-29T18:01:41Z",
+  "fetched_at": "2026-03-29T18:40:26.639871+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47565502\">Comments</a>",
+  "full_text": "I'm the founder of Zorq AI (zorqai.com), an AI video and image generation platform based in Sweden. I want to share what happened to us as a warning to other founders, and to seek advice from anyone who has been through something similar. We launched in November 2025 and grew quickly. On March 24, Stripe flagged our account for a routine credit review due to a spike in volume. We submitted all requested documents. On March 28, Stripe closed our account permanently citing \"unacceptable level of risk.\" Our current Stripe balance is 803,043 SEK (~$85,000 USD):\nAvailable: 556,906 SEK Pending: 246,136 SEK\n\nThe critical part: Stripe support confirmed in writing: \"If a balance still remains in your account after eligible payments have been refunded, it will not be made available to you.\" No specific legal basis. No policy violation cited. Why disputes occurred — being fully transparent: There were two real technical issues on our end that we want to be honest about:\n\nOur Stripe webhook handler was being rate-limited by Cloudflare (429 errors), causing credits not to be delivered to some customers after payment. We fixed this with retry logic and manually resolved every affected customer same day. Our infrastructure provider unexpectedly went down, forcing a 25-hour emergency migration. We built a recovery system so customers could restore their credits using their Stripe receipt number. Every customer who reached out received credits or a full refund.\n\nWe acknowledge these issues caused disputes. We have resolved all of them. Why this is legally questionable: Stripe Technology Europe Limited is regulated by the Central Bank of Ireland as an EMI under PSD2. We are in the EU. The permanent withholding of merchant funds without a documented legal basis is questionable under EU payment regulations. Stripe has not cited which specific clause or policy we violated. What we are doing:\n\nSubmitted a formal appeal with full documentation to Stripe Contacted lawyers regarding PSD2 implications Filing complaints with Finansinspektionen (Sweden) and Central Bank of Ireland\n\nHas anyone successfully challenged Stripe's fund withholding in the EU? Has anyone worked with lawyers experienced in this specifically?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "anyone",
+      "cloudflare",
+      "credit",
+      "customer",
+      "emi",
+      "lawyer",
+      "legal",
+      "payments",
+      "policy",
+      "resolve",
+      "stripe",
+      "stripe contacted",
+      "submit",
+      "sweden",
+      "withholding"
+    ],
+    []
+  ]
+}

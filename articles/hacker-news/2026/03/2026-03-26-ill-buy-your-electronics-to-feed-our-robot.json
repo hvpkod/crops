@@ -1,0 +1,29 @@
+{
+  "id": 6846,
+  "source": "Hacker News",
+  "title": "I'll buy your electronics to feed our robot",
+  "url": "https://www.dayworkx.com/",
+  "published_at": "2026-03-26T19:45:29Z",
+  "fetched_at": "2026-03-29T23:20:25.350224+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47534812\">Comments</a>",
+  "full_text": "We turn retired electronics into verified, reusable components.\n\nDX Harverster Prototype Demo\n\nDaywork helps hardware teams keep electronics running when components are hard or impossible to buy.\n\nWe're building DX Harvester 1, a robotic system that extracts and verifies components from retired hardware - with the goal of reducing downtime from months to days. Each recovered component will include auditable provenance and test evidence, so teams can avoid gray-market risk and costly redesigns.\n\nWho is it for\nRepair and sustainment teams, hardware startups, OEMs, and electronics processors managing supply constraints and returns\n\nHow it works\nTell us the parts you need (or send a BOM)\nShip boards or assemblies for evaluation\nWe extract, clean, inspect, and test\nReceive recovered parts + verification report\n\nTypical pilot turnaround: 3-5 weeks\nPilot use: evaluation and repair/sustainment. Mission-critical qualification is handled case-by-case.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "bom",
+      "component",
+      "daywork",
+      "electronics",
+      "evaluation",
+      "hardware",
+      "part",
+      "pilot",
+      "recover",
+      "retired",
+      "test"
+    ],
+    []
+  ]
+}

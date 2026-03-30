@@ -1,0 +1,44 @@
+{
+  "id": 6642,
+  "source": "DEV Community<",
+  "title": "Gas Fees Killed Our First Demo. Here's What We Did About It.",
+  "url": "https://dev.to/kavinkimcreator/gas-fees-killed-our-first-demo-heres-what-we-did-about-it-4gid",
+  "published_at": "2026-03-29T00:35:31Z",
+  "fetched_at": "2026-03-29T01:20:42.193171+00:00",
+  "author": "Kavin Kim",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Flhcch79tj3f7d211wpj1.png\"><img alt=\"cover\" height=\"800\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Flhcch79tj3f7d211wpj1.png\" width=\"800\" /></a></p>\n\n<p>The investor meeting was going perfectly. We had built an AI agent that could autonomously pay for API calls, route micro-transactions across services, and settle in real time. Then we ran the live demo.</p>\n\n<p>The transaction confirmed in 14 seconds. The room was impressed. Then our lead investor leaned forward and said: \"What did that just cost?\"</p>\n\n<p>The answer was $8.40 in gas fees. For a $0.15 API call. The demo was dead.</p>\n\n<p>The Gas Fee Math Nobody Talks About</p>\n\n<p>Ethereum m",
+  "full_text": "The investor meeting was going perfectly. We had built an AI agent that could autonomously pay for API calls, route micro-transactions across services, and settle in real time. Then we ran the live demo.\n\nThe transaction confirmed in 14 seconds. The room was impressed. Then our lead investor leaned forward and said: \"What did that just cost?\"\n\nThe answer was $8.40 in gas fees. For a $0.15 API call. The demo was dead.\n\nThe Gas Fee Math Nobody Talks About\n\nEthereum mainnet gas fees are priced in gwei per unit of gas. A simple ETH transfer uses 21,000 gas units. An ERC-20 token transfer uses 45,000-65,000 gas units. During the demo, mainnet was running at 80 gwei base fee with a 10 gwei priority fee.\n\n# Gas cost formula\ngas_units = 65000\nbase_fee_gwei = 80\npriority_fee_gwei = 10\neth_price_usd = 3200\n\ntotal_gwei = gas_units * (base_fee_gwei + priority_fee_gwei)\ntotal_eth = total_gwei / 1e9\ngas_cost_usd = total_eth * eth_price_usd\n\nprint(f\"Gas cost: ${gas_cost_usd:.2f}\") # Gas cost: $18.72\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow scale that to an AI agent fleet doing 10,000 transactions per day. At $8-10 per transaction, you are spending $80,000-$100,000 per day just on gas. Before you pay for a single actual service.\n\nWhy Gas Fees Are Especially Brutal for AI\n\nHuman users can abort a transaction before it confirms. If a person sees the gas estimate is absurd, they cancel and wait. AI agents do not work that way.\n\nAn autonomous agent has a task to complete. It has been authorized to spend up to a certain amount. If the gas fee eats 98% of the transaction value, the agent does not know to stop. It just executes.\n\nWe built a fee monitor that would pause transactions when mainnet gas exceeded a threshold. It helped, but it introduced a new problem: the agent would get stuck mid-workflow, waiting for gas to drop, with no way to continue or fail gracefully.\n\nThe Fix: Move the Problem Somewhere It Does Not Exist\n\nThe real solution was not to manage gas better. It was to stop using a network where gas is a first-class variable cost.\n\nWe moved to Base (Coinbase's L2) and the math changed completely:\n\n# Same transaction on Base L2\ngas_units = 65000\nbase_fee_gwei = 0.005\npriority_fee_gwei = 0.001\neth_price_usd = 3200\n\ntotal_gwei = gas_units * (base_fee_gwei + priority_fee_gwei)\ntotal_eth = total_gwei / 1e9\nl2_cost_usd = total_eth * eth_price_usd\n\nprint(f\"Gas cost: ${l2_cost_usd:.6f}\") # Gas cost: $0.001248\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSub-cent transaction costs. Consistent. Predictable. An AI agent running 10,000 transactions per day now spends $12.48 in gas instead of $84,000.\n\nHow We Handle Gas Abstraction\n\nAfter moving to L2, we still had a developer experience problem. Our team was spending engineering time managing gas wallets, estimating fees, and handling gas-related failures.\n\nRosud (rosud.com) handles gas abstraction so developers never think about it. The SDK manages gas estimation, L2 routing, and fee sponsorship automatically.\n\n// Before: manual gas management\nconst gasEstimate = await provider.estimateGas(txData);\nconst feeData = await provider.getFeeData();\nconst gasPrice = feeData.gasPrice * BigInt(120) / BigInt(100);\n\nawait wallet.sendTransaction({\n gasLimit: gasEstimate,\n maxFeePerGas: gasPrice,\n maxPriorityFeePerGas: feeData.maxPriorityFeePerGas,\n});\n\n// After: Rosud handles it\nawait rosud.pay({\n amount: 0.15,\n currency: 'USDC',\n to: serviceAddress,\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nUnder the hood, Rosud routes to the optimal L2, manages gas wallets, sponsors fees when appropriate, and retries on failure. Your agent just calls pay().\n\nThe Broader Lesson\n\nThe investor who killed our demo did us a favor. It forced us to confront the core question: can you build reliable autonomous payment infrastructure on top of variable-cost networks?\n\nThe answer is yes, but only if you abstract away the variability. Gas fees are an implementation detail. They should never surface as a business cost that makes a $0.15 API call cost $8.40.\n\nRosud is payment infrastructure for AI agents. Gas abstraction, multi-chain routing, and sub-cent transaction costs. Learn more at rosud.com.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "agents",
+      "ai",
+      "api",
+      "await",
+      "blockchain",
+      "coinbase",
+      "eth",
+      "fee",
+      "fullscreen",
+      "gasestimate",
+      "gasprice",
+      "gwei",
+      "handle",
+      "mainnet",
+      "mode",
+      "payments",
+      "provider.estimategas(txdata",
+      "rosud",
+      "sdk",
+      "the broader lesson",
+      "transaction",
+      "usdc"
+    ],
+    [
+      "agents",
+      "blockchain"
+    ]
+  ]
+}

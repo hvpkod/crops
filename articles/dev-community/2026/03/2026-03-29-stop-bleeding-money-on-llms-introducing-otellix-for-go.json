@@ -1,0 +1,43 @@
+{
+  "id": 6831,
+  "source": "DEV Community<",
+  "title": "Stop bleeding money on LLMs: Introducing Otellix for Go",
+  "url": "https://dev.to/oluwajubelo1/stop-bleeding-money-on-llms-introducing-otellix-for-go-500c",
+  "published_at": "2026-03-29T22:08:01Z",
+  "fetched_at": "2026-03-29T22:20:26.708980+00:00",
+  "author": "Oluwajubelo",
+  "summary": "<p>Working with Large Language Models (LLMs) in production is magic. The honeymoon phase usually lasts about a month—right until you get the inevitable API bill.</p>\n\n<p>If you’ve ever accidentally put an LLM generation call inside a deeply nested background loop (don't lie, we've all done it), or if you just want to prevent one heavy user from eating your organization's daily budget, then you probably know the pain.</p>\n\n<p>Current LLM observability platforms are either heavy SaaS products with their own per-event pricing, or they completely lack hard budget enforcement. I wanted something free, OpenTelemetry-native, and focused on hard budget limits for cost-constrained applications in Go.</p>\n\n<p>So, I built <strong><a href=\"https://github.com/oluwajubelo1/otellix\" rel=\"noopener noreferrer\">Otellix</a></strong>.</p>\n\n<h2>\n  \n  \n  What is Otellix?\n</h2>\n\n<p>Otellix is a production-grade LLM observability SDK for Go built entirely on top of OpenTelemetry. It wraps the official SDKs fo",
+  "full_text": "Working with Large Language Models (LLMs) in production is magic. The honeymoon phase usually lasts about a month—right until you get the inevitable API bill.\n\nIf you’ve ever accidentally put an LLM generation call inside a deeply nested background loop (don't lie, we've all done it), or if you just want to prevent one heavy user from eating your organization's daily budget, then you probably know the pain.\n\nCurrent LLM observability platforms are either heavy SaaS products with their own per-event pricing, or they completely lack hard budget enforcement. I wanted something free, OpenTelemetry-native, and focused on hard budget limits for cost-constrained applications in Go.\n\nSo, I built Otellix.\n\n \n \n What is Otellix?\n\nOtellix is a production-grade LLM observability SDK for Go built entirely on top of OpenTelemetry. It wraps the official SDKs for Anthropic, OpenAI, Gemini, and Ollama, allowing you to intercept and track costs without drastically altering your codebase.\n\n \n \n 1. Unified Tracing & Metrics\n\nEvery LLM generation call emits unified OTel spans and Prometheus metrics. Wait exactly how many input tokens, output tokens, and cached tokens did that user generate last week? Otellix handles all of that out of the box, standardizing the response payloads of 4 completely different vendors.\n\n \n \n 2. Zero-Latency Cost Engine\n\nDifferent LLM providers have very different pricing models depending on context-window caching. Otellix ships with an in-memory Cost Engine synced to 2026-era USD pricing models. The cost of a request is immediately available in the returning CallResult struct, meaning you deal with pennies, not abstract tokens.\n\nres, err := otellix.Trace(ctx, cfg, provider, params)\nfmt.Printf(\"That request cost $%.6f\\n\", res.CostUSD)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 3. Hard Budget Guardrails\n\nThis is the core feature. What do you do when a user hits their $5/day LLM quota?\n\nInstead of building complex Redis limiters yourself, you can plug in Otellix's BudgetEnforcer.\n\nIt ships with three fallback mechanisms:\n\nFallbackBlock: Immediately stops the LLM execution and returns an otellix.ErrBudgetExceeded error instead of hitting the vendor API.\n\nFallbackNotify: Allows the request to go through, but triggers an asynchronous onLimitReached callback webhook (perfect for Slack alerts).\n\nFallbackDowngrade: (My personal favorite) If a user runs out of \"premium\" tokens for claude-3-opus, Otellix will automatically intercept the request and execute it via a cheaper provider/model like gemini-1.5-flash or a locally hosted ollama container instead.\n\n \n \n Code Example\n\nHere's how easy it is to wrap your existing OpenAI logic:\n\nstore := otellix.NewInMemoryBudgetStore(map[string]float64{\n \"user_123\": 2.50, // Hard limit of $2.50\n})\nenforcer := otellix.NewBudgetEnforcer(store, otellix.FallbackBlock, nil)\n\ncfg := otellix.NewConfig(\n otellix.WithBudgetEnforcer(enforcer),\n)\n\n// Your existing OpenAI client logic\np, _ := openai.NewClient(\"sk-...\") \n\n// Wrap the request in Otellix!\nres, err := otellix.Trace(ctx, cfg, p, params)\nif err != nil {\n log.Fatalf(\"LLM tracking failed: %v\", err)\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Getting Started\n\nOtellix is fully open source (MIT) and available now! Oh, and the repository even includes a full docker-compose environment complete with Prometheus and Grafana dashboards for local testing.\n\nDrop a star if you find it useful:\n\n👉 GitHub: oluwajubelo1/otellix\n\nI’d love to know how you're currently dealing with rogue LLM costs in your Go backends—let me know in the comments below!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "budget",
+      "build",
+      "callresult",
+      "cost",
+      "fullscreen",
+      "gemini",
+      "go",
+      "hard",
+      "observability",
+      "ollama",
+      "openai",
+      "opensource",
+      "opentelemetry",
+      "otel",
+      "otellix",
+      "prometheus",
+      "request",
+      "sdk",
+      "usd",
+      "wrap"
+    ],
+    [
+      "go",
+      "opensource"
+    ]
+  ]
+}

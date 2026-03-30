@@ -1,0 +1,40 @@
+{
+  "id": 6661,
+  "source": "DEV Community<",
+  "title": "GPT4All Has a Free API: Run Private LLMs Locally with Python Bindings",
+  "url": "https://dev.to/0012303/gpt4all-has-a-free-api-run-private-llms-locally-with-python-bindings-4pdo",
+  "published_at": "2026-03-29T03:41:12Z",
+  "fetched_at": "2026-03-29T04:20:28.411640+00:00",
+  "author": "Alex Spinov",
+  "summary": "<p>GPT4All is an open-source ecosystem for running powerful LLMs locally on consumer hardware. With native Python, TypeScript, and C++ bindings, you can integrate private AI into any application without cloud costs.</p>\n\n<h2>\n  \n  \n  What Is GPT4All?\n</h2>\n\n<p>GPT4All by Nomic AI provides a desktop chat application and programming libraries to run LLMs on CPU and GPU. It supports models from 1B to 70B+ parameters and requires no internet connection after model download.</p>\n\n<p><strong>Key Features:</strong></p>\n\n<ul>\n<li>Runs on CPU (no GPU required)</li>\n<li>Python, TypeScript, C++ bindings</li>\n<li>Local document RAG (LocalDocs)</li>\n<li>GPU acceleration (CUDA, Metal)</li>\n<li>GGUF model support</li>\n<li>Desktop chat application</li>\n<li>Embeddings generation</li>\n</ul>\n\n<h2>\n  \n  \n  Python API\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight python\"><code><span class=\"kn\">from</span> <span class=\"n\">gpt4all</span> <span class=\"kn\">import</span> <span class=\"",
+  "full_text": "GPT4All is an open-source ecosystem for running powerful LLMs locally on consumer hardware. With native Python, TypeScript, and C++ bindings, you can integrate private AI into any application without cloud costs.\n\n \n \n What Is GPT4All?\n\nGPT4All by Nomic AI provides a desktop chat application and programming libraries to run LLMs on CPU and GPU. It supports models from 1B to 70B+ parameters and requires no internet connection after model download.\n\nKey Features:\n\nRuns on CPU (no GPU required)\n\nPython, TypeScript, C++ bindings\n\nLocal document RAG (LocalDocs)\n\nGPU acceleration (CUDA, Metal)\n\nGGUF model support\n\nDesktop chat application\n\nEmbeddings generation\n\n \n \n Python API\n\nfrom gpt4all import GPT4All\n\n# Download and load model (first run downloads ~4GB)\nmodel = GPT4All(\"Meta-Llama-3-8B-Instruct.Q4_0.gguf\")\n\n# Simple generation\noutput = model.generate(\n \"Write a Python function to validate email addresses\",\n max_tokens=500,\n temp=0.7\n)\nprint(output)\n\n# Chat session with context\nwith model.chat_session():\n response1 = model.generate(\"What is Docker?\")\n print(response1)\n response2 = model.generate(\"How does it differ from VMs?\")\n print(response2) # Remembers previous context\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Streaming Responses\n\nmodel = GPT4All(\"Phi-3-mini-4k-instruct.Q4_0.gguf\")\n\n# Stream tokens as they generate\nfor token in model.generate(\n \"Explain Kubernetes in simple terms\",\n streaming=True\n):\n print(token, end=\"\", flush=True)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Embeddings for RAG\n\nfrom gpt4all import Embed4All\n\nembedder = Embed4All()\n\ntexts = [\n \"Kubernetes orchestrates containers at scale\",\n \"Docker packages applications into containers\",\n \"Terraform manages infrastructure as code\"\n]\n\nembeddings = embedder.embed(texts)\nfor i, emb in enumerate(embeddings):\n print(f\"Text {i}: {len(emb)} dimensions\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Local Document RAG\n\nfrom gpt4all import GPT4All\n\nmodel = GPT4All(\"Meta-Llama-3-8B-Instruct.Q4_0.gguf\")\n\n# Load documents for context\nmodel.enable_local_docs(\"/path/to/documents\")\n\n# Ask questions about your documents\nresponse = model.generate(\n \"What are the key findings in the Q1 report?\",\n max_tokens=500\n)\nprint(response)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n OpenAI-Compatible Server\n\n# Start OpenAI-compatible server\npython -m gpt4all.server --model Meta-Llama-3-8B-Instruct.Q4_0.gguf --port 4891\n\n# Use with any OpenAI client\ncurl http://localhost:4891/v1/chat/completions \\\n -H \"Content-Type: application/json\" \\\n -d x27{\"model\": \"Meta-Llama-3-8B-Instruct\", \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}]}x27\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n GPU Acceleration\n\n# Use GPU for faster inference\nmodel = GPT4All(\n \"Meta-Llama-3-8B-Instruct.Q4_0.gguf\",\n device=\"gpu\", # or \"cuda\" or \"metal\"\n n_ctx=4096\n)\n\nresponse = model.generate(\n \"Write a REST API in FastAPI\",\n max_tokens=1000\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Resources\n\nNeed web data for your local AI models? Check out my web scraping tools on Apify — production-ready actors for Reddit, Google Maps, and more. Questions? Email me at spinov001@gmail.com",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "apify",
+      "application",
+      "cpu",
+      "document",
+      "embedding",
+      "enter",
+      "exit",
+      "fullscreen",
+      "gpu",
+      "gpu acceleration",
+      "llm",
+      "localdocs",
+      "mode",
+      "model",
+      "nomic ai",
+      "opensource",
+      "python",
+      "reddit",
+      "typescript"
+    ],
+    [
+      "opensource"
+    ]
+  ]
+}

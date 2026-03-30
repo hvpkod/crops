@@ -1,0 +1,42 @@
+{
+  "id": 6829,
+  "source": "DEV Community<",
+  "title": "Migrando SPAs do Azure Static Web Apps para Cloudflare Pages: Por que e como?",
+  "url": "https://dev.to/josefsjunior/migrando-spas-do-azure-static-web-apps-para-cloudflare-pages-por-que-e-como-5lm",
+  "published_at": "2026-03-29T22:12:11Z",
+  "fetched_at": "2026-03-29T22:20:22.450847+00:00",
+  "author": "José Fernandes",
+  "summary": "<p>Recentemente, decidi migrar meus projetos frontend (SPAs) que rodavam no <strong>Azure Static Web Apps (SWA)</strong> para o <strong>Cloudflare Pages</strong>. Como alguém que preza por uma <strong>Developer Experience (DX)</strong> eficiente, essa mudança simplificou muito meu workflow.</p>\n\n<p>Neste post falo sobre os motivos técnicos e o que você ganha com essa troca.</p>\n\n<h2>\n  \n  \n  Por que sair do Azure SWA?\n</h2>\n\n<p>O Azure SWA é excelente para quem já está no ecossistema Microsoft, mas ele traz algumas \"fricções\":</p>\n\n<ul>\n<li>\n<strong>Configuração de CI/CD:</strong> Você fica dependente de arquivos <code>.yml</code> no GitHub Actions.</li>\n<li>\n<strong>Limites de Banda:</strong> O plano gratuito tem um teto de 100GB/mês.</li>\n</ul>\n\n<h2>\n  \n  \n  O que o Cloudflare Pages entrega de diferente?\n</h2>\n\n<h3>\n  \n  \n  1. Deploy Nativo e Transparente\n</h3>\n\n<p>Diferente do Azure, o Cloudflare Pages não exige que você gerencie o workflow do GitHub Actions. Ele detecta o framework",
+  "full_text": "Recentemente, decidi migrar meus projetos frontend (SPAs) que rodavam no Azure Static Web Apps (SWA) para o Cloudflare Pages. Como alguém que preza por uma Developer Experience (DX) eficiente, essa mudança simplificou muito meu workflow.\n\nNeste post falo sobre os motivos técnicos e o que você ganha com essa troca.\n\n \n \n Por que sair do Azure SWA?\n\nO Azure SWA é excelente para quem já está no ecossistema Microsoft, mas ele traz algumas \"fricções\":\n\nConfiguração de CI/CD: Você fica dependente de arquivos .yml no GitHub Actions.\n\nLimites de Banda: O plano gratuito tem um teto de 100GB/mês.\n\n \n \n O que o Cloudflare Pages entrega de diferente?\n\n \n \n 1. Deploy Nativo e Transparente\n\nDiferente do Azure, o Cloudflare Pages não exige que você gerencie o workflow do GitHub Actions. Ele detecta o framework, faz o build e publica automaticamente. O repositório fica mais limpo, sem \"ruído\" de infraestrutura.\n\n \n \n 2. Banda Ilimitada\n\nPara quem busca escala sem custos iniciais, a largura de banda ilimitada do plano free é um divisor de águas.\n\n \n \n 3. Edge Network Global\n\nA infraestrutura da Cloudflare está espalhada por todo o canto. Na prática, o site é servido pelo servidor mais próximo do usuário, o que faz o carregamento ser praticamente instantâneo.\n\n \n \n Conclusão\n\nA migração é simples: conecte o Git, configure o comando de build (ex: npm run build) e aponte o domínio. Se você já usa o DNS da Cloudflare, o processo de SSL e ativação leva menos de 2 minutos.\n\nVale a pena testar se você busca menos tempo lidando com YAML e mais tempo focando no código.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "architecture",
+      "azure",
+      "cloudflare",
+      "cloudflare pages",
+      "comando de build",
+      "conclusão",
+      "configuração de ci",
+      "dns da cloudflare",
+      "essa",
+      "está",
+      "faz",
+      "fica",
+      "github actions",
+      "ilimitada",
+      "mais",
+      "microsoft",
+      "no github actions",
+      "para",
+      "quem",
+      "você",
+      "webdev"
+    ],
+    [
+      "architecture",
+      "webdev"
+    ]
+  ]
+}

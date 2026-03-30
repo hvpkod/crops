@@ -1,0 +1,36 @@
+{
+  "id": 6773,
+  "source": "Hacker News",
+  "title": "Figma's MCP Update Reflects a Larger Industry Shift",
+  "url": "https://metedata.substack.com/p/a-small-figma-update-and-a-big-signal",
+  "published_at": "2026-03-29T15:46:26Z",
+  "fetched_at": "2026-03-29T16:40:29.214507+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47564159\">Comments</a>",
+  "full_text": "Earlier this week, Figma introduced a way for AI agents to design directly in the Figma canvas based on your prompts. From Figma’s own blogpost:\n\nWith Figma’s MCP server, agents can now write directly to your Figma files, extending the standards you’ve carefully established over time. Via the use_figma tool, Claude Code, Codex, and other MCP clients can generate and modify design assets that are linked to your design system\n\nWhat’s notable here is that Figma already had MCP tools, but they were read-only. In practice, this meant your AI agents could read your Figma files but they couldn’t write to them. This update gives them write access - a small update on the surface. Or is it?\n\nIf I had to guess, Figma was betting on their own AI creation tools like Figma Make to be the primary interface for “vibe-designing” - designing through prompting. From personal experience as well as that of many of my peers in the industry, the results from Figma Make are a resounding “meh”. It’s good demo-ware but fails pretty quickly as you try to get closer to any specific vision you have. It’s a tool most designers tried after their design VP mandated that everyone use AI tools in their work. Most didn’t return.\n\nIn parallel with all this, we’re seeing another fundamental shift in product development - more often than not, it now starts in Claude Code / Codex / Antigravity or whatever AI agent one may use. It’s now faster to prototype 10 directions with Claude Code than to mock up one wireframe in Figma. And that’s truly dangerous for Figma, because Figma is the place where product development used to start and live until engineering hand-off.\n\nFigma, along with a large swath of SaaS tools can see both of these things clearly - their home-grown AI agents are collecting dust in their UI while people are falling head over heels for Claude Code and using it for everything.\n\nThere are two interesting powers at play here:\n\nClaude Code becoming the consumer preference among builders and hence the integration point for other tools. In Ben Thompson’s framework, they’re becoming an aggregator.\n\nClaude Code’s differentiation is in deeply integrating their proprietary agent harness with their own models. Figma, Canva, Slack, and everyone else have access to the same model Anthropic does (Opus 4.6 being the current state-of-the-art) - yet, they can’t seem to replicate the magic of Claude Code within their own tools.\n\nThe immediate reaction of every SaaS company after they got caught like a deer in the AI headlights was to plug an AI agent into their app. “Our proprietary data is the secret sauce that will make our AI agent special” they thought. But that thought is now running into three harsh realities:\n\nThe most valuable data in any SaaS tool is your company’s context, which is almost always exposed with APIs for any other tool to use. Any metadata around actual usage patterns of said data & your tool is unlikely to be valuable enough to make any AI agent meaningfully more useful.\n\nAny individual SaaS company’s context is mostly useless without broader organizational context. Context has network effects - it gets exponentially more valuable the more complete it is and becomes almost useless when it’s limited. Your Figma files / Slack chats / Amplitude dashboards / JIRA tickets alone don’t give AI agents a complete picture of your business. But taken altogether, they’re extremely valuable.\n\nThe software development process is moving from a discrete model - clear steps with explicit handoff at each step - to a more fluid model with no gates, stages, or handoffs as the process gets increasingly absorbed by the AI itself. Most SaaS tools were either designed to simplify a specific step and/or to improve the handoff between them. So what happens when those steps collapse into a process that needs no handoff?\n\nAs this harsh reality is slowly (or rapidly?) crystallizing for every SaaS company out there, they’re now facing a fork in the road - become “the everything tool” to own this new fluid process or get commoditized as another plugin into Claude or ChatGPT.\n\nFigma and most others have no choice but to submit to the latter. Assuming Claude and other premier agents continue to aggregate demand at this rate, companies like Figma lose a direct relationship with the user - they become suppliers vs a branded destination. Others, like Linear, are trying to disrupt themselves and become both the universal context store and the agent living on top of it. Realistically, all of them will continue to desperately pursue the goal of remaining the main destination while begrudgingly opening up their tools to 3rd party AI agents to hedge their bets.\n\nA few of them will face a more existential question - if your tool was designed for a discrete step in yesterday’s software development process and AI is making this step optional, what are your prospects for the future? As a designer who spent the last 10 years of my career in Figma (and Sketch before that), I’m now in the world where I’m shipping products without touching Figma at all or only tangentially. It’s no longer the starting point or a singular source of truth for my work (I’m not alone).\n\nEvery SaaS company built for yesterday’s process now faces the same binary: reinvent what you are or accept what you’re becoming. There’s no third option where the old world comes back. The tools that defined how we built software for the last decade don’t get to coast on muscle memory forever. The agent is the new starting point. If you’re not that, you’re a supplier. And suppliers are, by definition, replaceable.\n\nP.S. This article started as one of 3 thoughts in my next edition of the weekly Metedata Digest. But as I kept writing, it took on a life of its own, so I decided to split it out and keep the Digest more brief and readable for you tomorrow. Let me know if you like this format better (or not)!",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "a big signal",
+      "agent",
+      "canva, slack",
+      "claude",
+      "design",
+      "digest",
+      "figma",
+      "figma make",
+      "handoff",
+      "linear",
+      "mcp",
+      "metedata digest",
+      "p.s.",
+      "process",
+      "saas",
+      "step",
+      "tool",
+      "valuable"
+    ],
+    []
+  ]
+}

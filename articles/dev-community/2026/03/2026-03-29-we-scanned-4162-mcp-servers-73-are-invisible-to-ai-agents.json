@@ -1,0 +1,39 @@
+{
+  "id": 6638,
+  "source": "DEV Community<",
+  "title": "We scanned 4,162 MCP servers. 73% are invisible to AI agents.",
+  "url": "https://dev.to/imhiroki/we-scanned-4162-mcp-servers-73-are-invisible-to-ai-agents-2i8c",
+  "published_at": "2026-03-29T00:46:39Z",
+  "fetched_at": "2026-03-29T01:20:37.161234+00:00",
+  "author": "Hiroki Honda",
+  "summary": "<p>There are 4,162 MCP servers registered on Smithery right now. The Python and TypeScript SDKs see 97 million monthly downloads. Every major AI provider has adopted MCP.</p>\n\n<p>But nobody had measured the <strong>quality</strong> of these tools.</p>\n\n<p>We built <a href=\"https://toolrank.dev\" rel=\"noopener noreferrer\">ToolRank</a>, an open-source scoring engine that analyzes MCP tool definitions across four dimensions. Then we pointed it at the entire Smithery registry.</p>\n\n<p><strong>The biggest finding wasn't about quality. It was about visibility.</strong></p>\n\n<h2>\n  \n  \n  73% of MCP servers are invisible\n</h2>\n\n<p>Out of 4,162 registered servers, only <strong>1,122 expose tool definitions</strong> that agents can read.</p>\n\n<p>The remaining 3,040 — <strong>73%</strong> — have no tool definitions at all. They're registered, but when an AI agent searches for tools, these servers don't exist. They have no name, no description, no schema. They are invisible.</p>\n\n<p>This is the equ",
+  "full_text": "There are 4,162 MCP servers registered on Smithery right now. The Python and TypeScript SDKs see 97 million monthly downloads. Every major AI provider has adopted MCP.\n\nBut nobody had measured the quality of these tools.\n\nWe built ToolRank, an open-source scoring engine that analyzes MCP tool definitions across four dimensions. Then we pointed it at the entire Smithery registry.\n\nThe biggest finding wasn't about quality. It was about visibility.\n\n \n \n 73% of MCP servers are invisible\n\nOut of 4,162 registered servers, only 1,122 expose tool definitions that agents can read.\n\nThe remaining 3,040 — 73% — have no tool definitions at all. They're registered, but when an AI agent searches for tools, these servers don't exist. They have no name, no description, no schema. They are invisible.\n\nThis is the equivalent of having a website with no indexable content. Google can't rank what it can't read. Agents can't select what they can't see.\n\n \n \n Among the visible: average score 84.7/100\n\nFor the 1,122 servers that do expose tool definitions, we scored each one across four dimensions:\n\nDimension\nWeight\nWhat it measures\n\nFindability (25%)\nCan agents discover you?\nRegistry presence, naming\n\nClarity (35%)\nCan agents understand you?\nDescription quality, purpose, context\n\nPrecision (25%)\nIs your schema precise?\nTypes, enums, required fields\n\nEfficiency (15%)\nAre you token-efficient?\nDefinition size, tool count\n\nAverage ToolRank Score: 84.7/100\n\nLevel\nScore\nCount\n%\n\nDominant\n85-100\n677\n60%\n\nPreferred\n70-84\n406\n36%\n\nSelectable\n50-69\n39\n3.5%\n\nVisible\n25-49\n0\n0%\n\nAbsent\n0-24\n0\n0%\n\nThe average is higher than expected. But there's a survivorship bias: servers that bother to expose tool definitions tend to be better maintained overall. The real quality problem is the 73% that expose nothing.\n\n \n \n Top scoring servers\n\nRank\nServer\nScore\n\n1\nmicrosoft/learn_mcp\n96.5\n\n2\ndocfork/docfork\n96.5\n\n3\nbrave (Brave Search)\n94.7\n\n4\nLinkupPlatform/linkup-mcp-server\n93.5\n\n5\nsmithery-ai/national-weather-service\n93.3\n\nWhat do top servers do differently? They start descriptions with clear action verbs. They include usage context (\"Use this when...\"). They define required fields, enums, and defaults. They keep tool count under 15.\n\n \n \n The most common defects\n\nAmong the 1,122 scored servers, the most frequent issues:\n\nMissing usage context — Description says what the tool does, but not when to use it. Agents need \"Use this when...\" to decide between competing tools.\n\nNo return value described — Agents can't predict what they'll get back. This leads to incorrect downstream handling.\n\nMissing parameter descriptions — Schema has types but no explanations. An agent sees \"query\": {\"type\": \"string\"} but doesn't know what format the query should be in.\n\nNo required fields defined — Agents guess which parameters are mandatory, leading to failed executions.\n\nDescription too short — Under 50 characters. Not enough information for reliable selection.\n\n \n \n What does this mean?\n\nAcademic research backs up why this matters. A study of 10,831 MCP servers (arXiv 2602.18914) found that tools with quality-compliant descriptions achieve 72% selection probability vs 20% for non-compliant ones. That's a 3.6x advantage.\n\nThe fixes are trivial. Adding \"Use this when...\" to a description. Defining required fields. Starting the description with a verb. These are 5-minute changes with measurable impact.\n\n \n \n We're calling this ATO\n\nATO (Agent Tool Optimization) is the practice of optimizing tools so AI agents autonomously discover, select, and execute them.\n\nSEO optimized for search engines. LLMO optimized for LLM citations. ATO optimizes for agent tool selection.\n\nThe key difference: SEO and LLMO result in mentions and links. ATO results in your API being called and transactions occurring. LLMO is Stage 1 of ATO — necessary but not sufficient.\n\nFull ATO framework →\n\n \n \n Try it yourself\n\nScore your tools: toolrank.dev/score — paste your tool definition JSON. Includes \"Try example\" buttons so you can see how scoring works instantly.\n\nEcosystem ranking: toolrank.dev/ranking — live rankings updated weekly.\n\nScoring engine: github.com/imhiroki/toolrank — fully open source. The scoring logic is transparent.\n\n \n \n Methodology\n\nData source: Smithery Registry API (registry.smithery.ai)\n\nScan date: March 28, 2026\n\nServers in registry: 4,162\n\nServers with tool definitions: 1,122 (27%)\n\nScoring level: Level A (rule-based, 14 checks, zero LLM cost)\n\nRequest interval: 2 seconds (respectful to Smithery infrastructure)\n\nFull scan time: ~2 hours\n\nCode: Open source\n\nData updates weekly via automated scanning. Daily differential scans catch new servers.\n\nBuilt by @imhiroki. Questions, feedback, or want to improve your score? Open an issue on GitHub.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "agents",
+      "ai",
+      "api",
+      "ato",
+      "definition",
+      "description",
+      "expose",
+      "llmo",
+      "mcp",
+      "opensource",
+      "require",
+      "scoring",
+      "selectable",
+      "server",
+      "smithery",
+      "tool",
+      "typescript"
+    ],
+    [
+      "agents",
+      "opensource"
+    ]
+  ]
+}

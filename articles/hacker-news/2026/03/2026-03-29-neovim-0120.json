@@ -1,0 +1,28 @@
+{
+  "id": 6788,
+  "source": "Hacker News",
+  "title": "Neovim 0.12.0",
+  "url": "https://github.com/neovim/neovim/releases/tag/v0.12.0",
+  "published_at": "2026-03-29T17:39:55Z",
+  "fetched_at": "2026-03-29T18:40:25.413506+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47565316\">Comments</a>",
+  "full_text": "NVIM v0.12.0\nBuild type: Release\nLuaJIT 2.1.1774638290\n\nRelease notes\n\nInstall\n\nWindows\n\nZip\n\nDownload nvim-win64.zip (or nvim-win-arm64.zip for ARM)\n\nExtract the zip\n\nRun nvim.exe in your terminal\n\nMSI\n\nDownload nvim-win64.msi (or nvim-win-arm64.msi for ARM)\n\nRun the MSI\n\nRun nvim.exe in your terminal\n\nNote: On Windows \"Server\" you may need to install vcruntime140.dll.\n\nmacOS (x86_64)\n\nDownload nvim-macos-x86_64.tar.gz\n\nRun xattr -c ./nvim-macos-x86_64.tar.gz (to avoid \"unknown developer\" warning)\n\nExtract: tar xzvf nvim-macos-x86_64.tar.gz\n\nRun ./nvim-macos-x86_64/bin/nvim\n\nmacOS (arm64)\n\nDownload nvim-macos-arm64.tar.gz\n\nRun xattr -c ./nvim-macos-arm64.tar.gz (to avoid \"unknown developer\" warning)\n\nExtract: tar xzvf nvim-macos-arm64.tar.gz\n\nRun ./nvim-macos-arm64/bin/nvim\n\nLinux (x86_64)\n\nIf your system does not have the required glibc version, try the (unsupported) builds for older glibc.\n\nAppImage\n\nDownload nvim-linux-x86_64.appimage\n\nRun chmod u+x nvim-linux-x86_64.appimage && ./nvim-linux-x86_64.appimage\n\nIf your system does not have FUSE you can extract the appimage:\n\n./nvim-linux-x86_64.appimage --appimage-extract\n./squashfs-root/usr/bin/nvim\n\nTarball\n\nDownload nvim-linux-x86_64.tar.gz\n\nExtract: tar xzvf nvim-linux-x86_64.tar.gz\n\nRun ./nvim-linux-x86_64/bin/nvim\n\nLinux (arm64)\n\nAppImage\n\nDownload nvim-linux-arm64.appimage\n\nRun chmod u+x nvim-linux-arm64.appimage && ./nvim-linux-arm64.appimage\n\nIf your system does not have FUSE you can extract the appimage:\n\n./nvim-linux-arm64.appimage --appimage-extract\n./squashfs-root/usr/bin/nvim\n\nTarball\n\nDownload nvim-linux-arm64.tar.gz\n\nExtract: tar xzvf nvim-linux-arm64.tar.gz\n\nRun ./nvim-linux-arm64/bin/nvim\n\nOther",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "appimage",
+      "avoid",
+      "chmod",
+      "download",
+      "extract",
+      "fuse",
+      "nvim",
+      "tarball",
+      "xattr",
+      "xzvf"
+    ],
+    []
+  ]
+}

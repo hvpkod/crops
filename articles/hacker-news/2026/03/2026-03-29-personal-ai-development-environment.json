@@ -1,0 +1,36 @@
+{
+  "id": 6810,
+  "source": "Hacker News",
+  "title": "Personal AI Development Environment",
+  "url": "https://github.com/rbren/personal-ai-devbox",
+  "published_at": "2026-03-29T19:21:06Z",
+  "fetched_at": "2026-03-29T20:00:21.134728+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47566268\">Comments</a>",
+  "full_text": "Personal AI Development Environment\n\nIf you're the kind of person that likes tweaking your dotfiles, your tmux config, your vim setup, your VS Code plugins--this is maybe the most fun you'll ever have building something. It's the first time I've felt a sustained flow state while coding with AI.\n\nThe goal is to create a personalized AI-powered development environment.\nSomething that works the way you want it to.\n\nThe setup described here encourages live coding: you modify the interface while you're using it.\nThis can get a little funky--you may need to drop back down to the command line if you break\nthings too badly. But the live feedback loop is addictive.\n\nThis project is released as Open Prompt, rather than Open Source. There are a few reasons:\n\nYou'll have more fun this way\n\nMy code is hyper-tailored to my own needs\n\nand it's vibecoded mess that happens to mostly work\n\nYou don't want my vibecoded mess. You want your vibecoded mess, whose intricacies and quirks and powers only you know.\n\nYou can start by giving this README to the coding agent of your choice.\nJust paste the URL and hit go I guess.\n\nIt'll probably do something like:\n\nRead AGENTS.md\n\nRead architecture.md\n\nSend out subagents for each of the subpages\n\nMake you a fully semi probably not yet functional but very ambitious AI-powered development environment\n\nYou can wiggum it from there.\n\nWhat's really fun is that once the app is semi-functional, you can live-code it while you're using it.\nYou can just say \"reskin to 1990s hacker style\" and watch it morph in real time.\n\nI've tried to architect things to make this easier:\nall the pages run as separate apps, so you can muck around with one part without breaking everything.\n\nIf you're a human you should also read\nMANUAL.md and learn about a few things you'll have to do by hand. And security. Please think of the security.\nIn case you think security doesn't really matter, here's me catching the agent backdooring its way into the app so it could take\nthe screenshots below:\n\ngood luck have fun\n\nChat UI for creating and streaming agent conversations using the OpenHands SDK.\n\nKanban board of conversations organized by project and execution status.\n\nDraggable card dashboard for monitoring live conversations in real time.\n\nSettings page for choosing an LLM provider, model, and API key.\n\nKey-value secret store injected into new conversations.\n\nGit repository overview for all projects under ~/git/.\n\nCron-based scheduler that launches agent conversations on a timer.\n\nCRUD editor for agent skills stored in the agentskills.io format.\n\nConfiguration editor for Model Context Protocol servers.\n\nTwilio webhook that creates agent conversations from incoming text messages.\n\nLive system monitor showing CPU, memory, disk, processes, and network.\n\nMulti-tab browser terminal backed by real PTY processes.\n\nFile browser and text editor for the server's filesystem.\n\nLog viewer with live tailing and syntax highlighting.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "api",
+      "cod",
+      "conversation",
+      "cpu",
+      "cron",
+      "crud",
+      "development",
+      "editor",
+      "kanban",
+      "live",
+      "llm",
+      "model context protocol",
+      "project",
+      "real",
+      "the openhands sdk",
+      "thing",
+      "vibecoded"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": 6699,
+  "source": "Hacker News",
+  "title": "Tell HN: GitHub's Dependabot REST API is silently returning incomplete results",
+  "url": "https://news.ycombinator.com/item?id=47543531",
+  "published_at": "2026-03-27T15:05:56Z",
+  "fetched_at": "2026-03-29T10:00:27.389406+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47543531\">Comments</a>",
+  "full_text": "As of this morning (March 27, 2026), the GitHub Dependabot Alerts REST API endpoint (GET /repos/{owner}/{repo}/dependabot/alerts) is silently returning empty or partial results.\n\nOur app hits this endpoint across hundreds of GitHub orgs. Starting around 07:00 UTC today, we noticed massive drops in alert counts. Digging in, we confirmed the API simply isn't returning alerts that are clearly visible in the GitHub UI.\n\nReproducible example on our own org:\n\n $ gh api repos/{org}/{repo}/dependabot/alerts\n []\n\nMeanwhile https://github.com/{org}/{repo}/security/dependabot\n\n shows 9 open alerts.\n\nKey details:\n- The REST API returns [] or a fraction of the real count\n- The GraphQL API still returns correct results\n- The GitHub UI shows the right number\n- No error, no rate limit, no 4xx, just silently incomplete data\n- We're seeing this across many orgs, not just one\n\nThis is particularly nasty because there's no signal that anything is wrong. If you're relying on this endpoint for compliance or any automation, you're getting stale data right now and you won't know unless you cross-check.\n\nNothing on https://www.githubstatus.com as of writing.\n\nAnyone else seeing this?",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "alert",
+      "api",
+      "dependabot",
+      "endpoint",
+      "github",
+      "incomplete",
+      "rest",
+      "return",
+      "see",
+      "show",
+      "silently",
+      "utc"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": 6744,
+  "source": "Ars Technica Science",
+  "title": "Polygraphs have major flaws. Are there better options?",
+  "url": "https://arstechnica.com/science/2026/03/polygraphs-have-major-flaws-are-there-better-options/",
+  "published_at": "2026-03-29T11:01:46Z",
+  "fetched_at": "2026-03-29T14:40:17.915745+00:00",
+  "author": "Sarah Scoles, Undark Magazine",
+  "summary": "<p>When George W. Maschke applied to work for the FBI in 1994, he had already held a security clearance for over 11 years. The government had deemed him trustworthy through his career in the Army. But soon, a machine and a man would not come to the same conclusion.</p>\n<p>His application to be a special agent had passed initial muster. And so, in the spring of 1995, according to his account, he found himself sitting across from an FBI polygraph examiner, answering questions about his life and loyalties.</p>\n<p>He told the truth, he said in an interview with Undark. But in a blog post on his website, he recalled the examiner told him that the polygraph machine—which measured some of Maschke’s physiological responses—indicated that he was being deceptive about keeping classified information secret, and about his contacts with foreign intelligence agencies.</p><p><a href=\"https://arstechnica.com/science/2026/03/polygraphs-have-major-flaws-are-there-better-options/\">Read full article</a></",
+  "full_text": "To start, he built a neural predictor to tell whether someone was lying. It seemed to work. But in a second experiment, he and his research team used that neural lie detector to look at people who were telling the truth, but truths that were selfish. It threw a wrench in: “And then we show that brain decoder, that lie detector that we thought we had, can also predict when somebody’s just being selfish,” he said.\n\nIn the final stage of the experiment, though, the researchers wanted to see if they could subtract out the brain activity that represented selfishness and separate it from the lying part. They could. In the future, Lee said, they might find out that the remaining signal they thought was simply “lying” is still entangled with another mental state, like arousal. After finding and excising all entanglements, he said, what’s left must be straight lying. Theoretically, at least. “It could also be an empirical result that if we take enough of these compounded processes away, deception disintegrates,” he said. There might not be a straight-lying state, in other words; maybe lying is just the sum of many parts.\n\nScientists like Lee may be getting closer to an accurate lie detector, and improving on the traditional polygraph. But there’s currently no superhero solution. And the problem, as Lee’s research hints, may be ontological, not technological.\n\nThat’s definitely Maschke’s view. “It’s all pseudoscience,” he said. “There is no lie detector. So my thinking is that it’s better not to pretend that you can detect lies, because it’s a way of deceiving yourself.”\n\nMaybe it’s true no one can know, for sure, if another person is lying. After all, humans are, famously, individuals. “Everybody’s so different in how they tell their lie,” said Denkinger. And, apparently, in how they tell their truths.\n\nThis article was originally published on Undark. Read the original article.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "brain",
+      "detector",
+      "lie",
+      "maschke",
+      "maybe",
+      "neural",
+      "polygraph",
+      "polygraphs",
+      "predictor",
+      "science",
+      "syndication",
+      "tell",
+      "think",
+      "undark",
+      "well"
+    ],
+    [
+      "syndication"
+    ]
+  ]
+}

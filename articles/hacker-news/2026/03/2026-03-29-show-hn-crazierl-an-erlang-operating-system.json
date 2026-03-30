@@ -1,0 +1,32 @@
+{
+  "id": 6824,
+  "source": "Hacker News",
+  "title": "Show HN: Crazierl – An Erlang Operating System",
+  "url": "https://crazierl.org/demo/",
+  "published_at": "2026-03-29T20:38:26Z",
+  "fetched_at": "2026-03-29T21:20:17.385421+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47567049\">Comments</a>",
+  "full_text": "You can join your friends in a dist cluster, by sharing a url with the\nsame hashtag, and enabling dist with the checkbox below the terminal.\n\nHashtag (for linking) \n\n Please wait while the emulator starts. Javascript is required.\n \n\nWarnings\n\nThere is no security barrier between nodes in a dist cluster; you should\nonly use dist between nodes you control and trust\n\nThis demo uses gen_tcp_dist which communicates in plain text; you should\nonly use this on a network you control and trust\n\nThis demo uses wss://relay.widgetry.org to provide networking service;\nchances are you don't control that.\n\n\"no one in their right mind would run the unencrypted and\nunauthenticated Erlang distribution unsecured over the internet.\" --\njhogberg, Erlang Core Team in\nthread\n\nMaybe you got a link from not a friend, and you're\nconnecting to a totally random person\n\nIf someone malicious can dist connect to your crazierl node, they can\ncontrol it, and if there's a v86 vm escape, they could also control your browser window\n\nDo not use credentials or enter sensitive information or PII\n\nChatting with people on the internet can be dangerous.\n\nThis operating system has not been modified to comply with California's Digital Age Assurance Act\n(2025 AB 1043), and may not be suitable for use in your jurisdiction.\n\nI understand the risk,\nbut let's play dist with friends anyway\n\nTry chat:start(). after you're dist connected!\n\nMore info about crazierl. This demo shows crazierl\nrunning on an emulated x86 PC in your browser (courtesy of v86).\n\nThanks \n\nv86: https://copy.sh/v86/ https://github.com/copy/v86\n\nxterm.js: https://xtermjs.org/ https://github.com/xtermjs/xterm.js",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "browser",
+      "california",
+      "control",
+      "crazierl",
+      "demo",
+      "dist",
+      "erlang",
+      "erlang core team",
+      "friend",
+      "operating",
+      "pii\n\nchatting",
+      "trust",
+      "use",
+      "wss://relay.widgetry.org"
+    ],
+    []
+  ]
+}

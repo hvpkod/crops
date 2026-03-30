@@ -1,0 +1,27 @@
+{
+  "id": 6806,
+  "source": "Slashdot",
+  "title": "Bluesky's Newest Product: an AI Tool That Gives You Custom Feeds",
+  "url": "https://tech.slashdot.org/story/26/03/29/1832200/blueskys-newest-product-an-ai-tool-that-gives-you-custom-feeds?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-29T18:34:00Z",
+  "fetched_at": "2026-03-29T19:40:24.211207+00:00",
+  "author": "EditorDavid",
+  "summary": "\"What happens when you can describe the social experience you want and have it built for you...?\" asks Bluesky? \"We've just started experimenting, but we're sharing it now because we want you to build alongside us.\" \n\nCalled \"Attie\" &mdash; because it's built with Bluesky's decentralized publishing framework, AT Protocol (which is open source) &mdash; the new assistant turns natural language prompts into social feeds, without users having to know how to code. (It's part of Bluesky's mission to \"develop and drive large-scale adoption of technologies for open and decentralized public conversation.\") \n\nEngadget reports:\n\nOn the Attie website, examples include prompts like, \"Show me electronic music and experimental sound from people in my network\" or \"Builders working on agent infrastructure and open protocol design.\" \n\n\"It feels more like having a conversation than configuring software,\" [writes Bluesky's former CEO/current chief innovation officer, Jay Graber, in a blog post]. \"You desc",
+  "full_text": "\"What happens when you can describe the social experience you want and have it built for you\n\n...?\" asks Bluesky? \"We've just started experimenting, but we're sharing it now\n\n because we want you to build alongside us.\" \n\nCalled \"Attie\" — because it's built with Bluesky's decentralized publishing framework, AT Protocol (which is open source) — the new assistant turns natural language prompts into social feeds, without users having to know how to code. (It's part of Bluesky's mission to \"develop and drive large-scale adoption of technologies for open and decentralized public conversation.\") \n\nEngadget reports\n\n:\n\nOn the Attie website, examples include prompts like, \"Show me electronic music and experimental sound from people in my network\" or \"Builders working on agent infrastructure and open protocol design.\" \n \n\n\"It feels more like having a conversation than configuring software,\" [writes Bluesky's former CEO/current chief innovation officer, Jay Graber, in a blog post]. \"You describe the sort of posts you want to see, and the coding agent builds the feed you described.\"\n \n\nGraber added that Attie is a separate app from Bluesky and users don't have to use the new AI assistant if they don't want to. However, since Attie and Bluesky were built on the same framework, it could mean there will be some cross-app implementation between the two or any other app built on the AT Protocol. \n\n\"Attie is open for beta signups today\n\n, and we'll be sharing what we learn along the way,\" Graber writes in the blog post\n\n. \"To learn more about Attie, visit: Attie.AI\n\n. Come help us find out what this can be.\" \n\nThe blog post warns that \"Right now, AI is undermining human agency at the same time it's enhancing it,\" since \"The proliferation of low-quality AI-generated content is making public social networks noisier and less trustworthy...\" And in a world where \"signal is getting harder to find... The major platforms aren't trying to fix this problem.\"\n\nThey're using AI to increase the time users spend on-platform, to harvest training data, and to shape what users see and believe through systems they can't inspect and didn't choose. We think AI should serve people, not platforms... \n \n\nAn open protocol puts this power directly in users' hands. You can use it to build your own feeds, create software that works the way you want it to, and find signal in the noise. We built the AT Protocol so anyone could build any app they imagine on top of it, but until recently \"anyone\" really meant \"anyone who can code.\" Agentic coding tools change that. For the first time, an open protocol can be genuinely open to everyone...\n \n\nThe Atmosphere [Bluesky's interoperable ecosystem] is an open data layer with a clearly defined schema for applications, which makes it uniquely well-suited for coding agents to build on... Bluesky will continue to evolve as a social app millions of people rely on. Attie will be where we experiment with agentic social.\n \n\nAI is an accelerant on whatever it's applied to. I want it to accelerate decentralizing social and putting power back in users' hands. But I don't think the most interesting things built on AT Protocol will come from us. They're going to come from everyone who picks up these tools and starts building.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "attie",
+      "bluesky",
+      "build",
+      "cod",
+      "have",
+      "open",
+      "protocol",
+      "social",
+      "user"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": 6847,
+  "source": "Hacker News",
+  "title": "There is No Spoon. A software engineers primer for demystified ML",
+  "url": "https://github.com/dreddnafious/thereisnospoon",
+  "published_at": "2026-03-29T22:28:11Z",
+  "fetched_at": "2026-03-29T23:20:26.054939+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47568080\">Comments</a>",
+  "full_text": "A machine learning primer built from first principles.\nWritten for engineers who want to reason about ML systems the way they reason about software systems.\n\nYou're a strong engineer. You can draw a software system on a whiteboard from your own hard-earned mental model. You understand tradeoffs — maintenance vs elegance, performance vs complexity.\n\nYou have a gut for software design. You don't have that gut for machine learning yet.\n\nYou know the tools exist but you can't feel when to reach for which. This primer builds that intuition.\n\n💡 What Makes This Different\n\nThis isn't a textbook or a tutorial. It's a mental model — the abstractions you need to reason about ML systems the way you already reason about software systems.\n\nEvery concept is anchored in physical and engineering analogies:\n\nNeurons as polarizing filters\n\nDepth as paper folding\n\nGradient flow as pipeline valves\n\nThe chain rule as a gear train\n\nProjections as shadows\n\nThese analogies aren't decorative — they're the primary explanation, with math as the supporting detail.\n\nThe focus is when to reach for which tool and why — not just what each tool does, but the design decision it represents and the tradeoffs it implies.\n\nThe primer is organized in three parts:\n\n🧱 Part 1 — Fundamentals\n\nThe neuron, composition (depth and width as paper folding), learning as optimization (derivatives, chain rule, backprop), generalization, and representation (features as directions, superposition).\n\n🏗️ Part 2 — Architectures\n\nThe combination rule family (dense, convolution, recurrence, attention, graph ops, SSMs), the transformer in depth (self-attention, FFN as volumetric lookup, residual connections), encoding, learning rules beyond backprop, training frameworks (supervised, self-supervised, RL, GANs, diffusion), and matching topology to problem.\n\n🚦 Part 3 — Gates as Control Systems\n\nGate primitives (scalar, vector, matrix), soft logic composition, branching and routing, recursion within a forward pass, and the geometric math toolbox (projection, masking, rotation, interpolation).\n\nThe primer is a single markdown file with inline visualizations:\n\nJump to a specific topic:\n\nTopic\nWhat it covers\n\n⚡\nThe Neuron\nStart here — dot product, bias, nonlinearity\n\n📄\nComposition\nWhat depth buys you — the paper folding model\n\n📉\nLearning\nDerivatives, chain rule, backprop, loss landscape\n\n🎯\nGeneralization\nWhy overparameterized networks work at all\n\n🧠\nRepresentation\nFeatures as directions, superposition\n\n🔀\nCombination Rules\nConvolution vs attention vs recurrence vs graph vs SSM\n\n🤖\nThe Transformer\nSelf-attention, FFN, residual connections\n\n🏋️\nFrameworks\nSupervised, self-supervised, RL, GANs, diffusion\n\n🗺️\nTopology\nMatching architecture to problem — worked examples\n\n🧩\nDesign Patterns\nCommon problems → which tool to reach for\n\n🚦\nGates\nThe practitioner's gating and control toolkit\n\n🔧\nDiagnostics\nLoss curve symptoms, sanity checks, LR tuning\n\nThe syllabus shows the full topic map: SYLLABUS.md\n\nThis primer was built through conversation — one concept at a time, each stress-tested with questions until the mental model held up. You can use it two ways:\n\n📚 Solo reading\n\nRead it front to back, section by section. When something doesn't click, stop and re-read the section it depends on.\n\nThe primer is designed so that each section builds load-bearing intuition for the next. Don't skip ahead — the later sections assume you've internalized the earlier ones, not just read them.\n\n💬 Interactive exploration with an AI agent\n\nThis is the more powerful approach, and closer to how the primer was actually built. Feed the primer (or a section of it) to your preferred AI coding assistant and explore it conversationally:\n\nRead ml-primer.md. I'm an engineer learning ML fundamentals.\nWalk me through the section on [topic]. I want to understand\nit well enough to reason about design decisions, not just\nrecite definitions. Push back if I get something wrong.\n\nAsk \"why\" questions. Propose wrong answers and see if the agent catches them. Ask for concrete examples. Ask what would happen if you changed one thing. Ask how two concepts relate.\n\nThe primer gives both you and the agent a shared vocabulary and a correct conceptual framework — the conversation fills in everything a static document can't.\n\nThe primer is the map. The conversation is the territory.\n\n12 figures covering neurons, activation functions, paper folding, derivatives, chain rule, attention, FFN volumetric lookup, residual connections, dot products, loss landscapes, combination rules, and gating operations.\n\nAll generated from Python scripts in scripts/. To regenerate:\n\npython3 scripts/01_neuron_hyperplane.py\npython3 scripts/02_activation_functions.py\n# ... etc\n\nRequires matplotlib and numpy.\n\nBuilt through an extended conversational exploration between a software engineer and Claude, where every concept was stress-tested through questions, analogies were iterated until they landed, and misconceptions were corrected in real time.\n\nThe result is closer to a distilled mentorship than a reference document.\n\nPRs welcome. The goal is high signal — if you can explain a concept more clearly, fix an error, or add a section that fills a gap, open a PR.\n\nKeep the tone:\n\nDirect, concrete\n\nAnalogies over notation\n\nWhen-to-use over how-it-works\n\nMIT",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "analogy",
+      "backprop",
+      "build",
+      "chain",
+      "concept",
+      "control systems",
+      "design patterns\ncommon",
+      "ffn",
+      "learn",
+      "mit",
+      "primer",
+      "python",
+      "reason",
+      "residual",
+      "section",
+      "software"
+    ],
+    []
+  ]
+}

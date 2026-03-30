@@ -1,0 +1,35 @@
+{
+  "id": 6851,
+  "source": "Hacker News",
+  "title": "About the Atmosphere",
+  "url": "https://toni.org/2026/03/27/about-the-atmosphere/",
+  "published_at": "2026-03-27T23:10:36Z",
+  "fetched_at": "2026-03-30T00:00:19.395918+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47549586\">Comments</a>",
+  "full_text": "I’m writing this from the beautiful UBC campus in Vancouver where ATmosphereConf 2026 is taking place. It’s a gathering of developers, researchers, and entrepreneurs who are passionate about keeping the web and our online conversations free and open. The mood here is excited and very collaborative, and I’ve been meeting many of the people who are building products in the Atmosphere. But what exactly is this Atmosphere that I’ve been mentioning in my posts?\n\nIt’s the thriving ecosystem of over a thousand interoperable social apps and services that run on the AT Protocol (atproto). Bluesky is one of the apps in the Atmosphere. You can use Bluesky on its own as a vibrant, well-run social network that’s free of ads and lets you control your own algorithms. But because it’s built on an open protocol, your Bluesky login is actually an Atmosphere login and the key to many other apps and tools. There are far too many to list but here’s a sampling to give you an idea.\n\nUse your login on Flashes, a photo app, and your Bluesky social graph travels with you. Use it on Skylight, and the same thing again. Every Atmosphere app you sign into already knows who you know. That’s not magic. It’s what happens when your identity belongs to you instead of to the platform. \n\nAnd that’s just the start. As more apps integrate with each other, new experiences are emerging.\n\nSay you write a long post on any Atmosphere-compatible publishing platform— Leaflet, Pckt, or Offprint are emerging native ones. If you’re committed to WordPress, you can plug-in via standard.site. Posts written on any of these platforms are interoperable with each other. And if you cross-post to Bluesky, engagement can flow back. For example, if someone likes your post in Bluesky, that activity shows up on Leaflet, too. You don’t have to manage multiple accounts. You just post, and your community finds it wherever they already are.\n\nWhen you look at your Bluesky feed today, you might already be seeing posts that originated on several different apps without realizing it. Feeds themselves are an open layer. Graze lets anyone build a custom feed by topic, community, or curation style, and those feeds work across Bluesky and other Atmosphere clients. Surf, from the Flipboard team, takes this further, letting you blend Atmosphere content with the broader open web. The idea of “the algorithm” as something a platform imposes on you starts to dissolve when the feed layer is open and composable.\n\nThe social layer is becoming community-specific too. Blacksky built curated feeds and moderation tools specifically for Black social media users and runs its own independent infrastructure on the same protocol. Gander Social did something similar for Canada. Eurosky, a European non-profit, built an independent Atmosphere home server so European users can have their social data hosted in Europe, under European law. None of these projects required permission from Bluesky, the company. They just built.\n\nEven the developer community itself is moving onto the Atmosphere. Developers are using Tangled to collaborate on code and build the very tools that make the rest of the ecosystem possible. And Germ brought end-to-end encrypted messaging to the Atmosphere, integrated directly into Bluesky and picked up by Blacksky too.\n\nWhat strikes me being here in Vancouver is how much of this is happening simultaneously, in parallel, by independent teams who mostly know each other through the network they’re building on. The protocol and the underlying infrastructure are here, individuals are doing the rest. It doesn’t feel like a product roadmap. It feels more like a city filling in. Someone opens a coffee shop, someone else opens a bookstore across the street, and suddenly there’s a neighborhood.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "app",
+      "atmosphere",
+      "blacksky",
+      "bluesky",
+      "build",
+      "canada",
+      "europe",
+      "feed",
+      "independent",
+      "leaflet",
+      "login",
+      "open",
+      "pckt",
+      "skylight",
+      "social",
+      "vancouver",
+      "wordpress"
+    ],
+    []
+  ]
+}

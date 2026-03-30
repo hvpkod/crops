@@ -1,0 +1,37 @@
+{
+  "id": 6639,
+  "source": "DEV Community<",
+  "title": "DAG vs Langraph Nodes",
+  "url": "https://dev.to/ma_uttaram_f822b3b02ec546/dag-vs-langraph-nodes-3en2",
+  "published_at": "2026-03-29T00:39:21Z",
+  "fetched_at": "2026-03-29T01:20:38.671163+00:00",
+  "author": "Ma Uttaram",
+  "summary": "<p>When we have DAG that represents our tasks and its dependencies do we still need Langraph nodes?</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpavz85becb7fws0kmr3y.png\"><img alt=\" \" height=\"795\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpavz85becb7fws0kmr3y.png\" width=\"800\" /></a></p>\n\n<p>LangGraph nodes are most valuable when your flow has cycles — loops, retries, HITL resume, conditional branching back to earlier steps. A pure DAG has none of that, so LangGraph's core value proposition doesn't apply.</p>\n\n<p>So are they mutually exclusive? No! They can complement each other. See the beautiful project to understand why.</p>\n\n<p>LangGraph nodes for the orchestration layer: inte",
+  "full_text": "When we have DAG that represents our tasks and its dependencies do we still need Langraph nodes?\n\nLangGraph nodes are most valuable when your flow has cycles — loops, retries, HITL resume, conditional branching back to earlier steps. A pure DAG has none of that, so LangGraph's core value proposition doesn't apply.\n\nSo are they mutually exclusive? No! They can complement each other. See the beautiful project to understand why.\n\nLangGraph nodes for the orchestration layer: intent_parser → entity_extractor → plan_builder → hitl_plan → cot_builder → hitl_confirm. This is the stateful, cyclic part.\n\nYour own DAG executor for task execution: takes the confirmed TaskGraph, runs a topological sort, fans out independent tasks with asyncio, collects results. Twenty to thirty lines of plain Python. No framework.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "agents",
+      "ai",
+      "architecture",
+      "conditional",
+      "confirm",
+      "cyclic",
+      "dag",
+      "dependency",
+      "early",
+      "hitl",
+      "langgraph",
+      "langraph",
+      "llm",
+      "mutually",
+      "node",
+      "task"
+    ],
+    [
+      "agents",
+      "architecture"
+    ]
+  ]
+}

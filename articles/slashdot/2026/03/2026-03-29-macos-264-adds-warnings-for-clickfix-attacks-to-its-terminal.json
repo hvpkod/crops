@@ -1,0 +1,35 @@
+{
+  "id": 6649,
+  "source": "Slashdot",
+  "title": "MacOS 26.4 Adds Warnings For ClickFix Attacks to Its Terminal App",
+  "url": "https://apple.slashdot.org/story/26/03/28/2055255/macos-264-adds-warnings-for-clickfix-attacks-to-its-terminal-app?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-29T01:34:00Z",
+  "fetched_at": "2026-03-29T02:20:22.244677+00:00",
+  "author": "EditorDavid",
+  "summary": "An anonymous Slashdot reader writes: ClickFix attacks are ramping up. These attacks have users copy and paste a string to something that can execute a command line &mdash; like the Windows Run dialog, or a shell prompt. \n\nBut MacRumors reports that macOS 26.4 Tahoe (updated earlier this week) introduces a new feature to its Terminal app where it will detect ClickFix attempts and stop them by prompting the user if they really wanted to run those commands. \n\nAccording to MacRumors, the warning readers \"Possible malware, Paste blocked.\" \n\n\"Your Mac has not been harmed. Scammers often encourage pasting text into Terminal to try and harm your Mac or compromise your privacy....\" \n\nThere is also a \"Paste Anyway\" option if users still wish to proceed.<p><div class=\"share_submission\">\n<a class=\"slashpop\" href=\"http://twitter.com/home?status=MacOS+26.4+Adds+Warnings+For+ClickFix+Attacks+to+Its+Terminal+App%3A+https%3A%2F%2Fapple.slashdot.org%2Fstory%2F26%2F03%2F28%2F2055255%2F%3Futm_source%3Dtwi",
+  "full_text": "An anonymous Slashdot reader writes: ClickFix attacks are ramping up. These attacks have users copy and paste a string to something that can execute a command line — like the Windows Run dialog, or a shell prompt.\n \n\nBut MacRumors reports that macOS 26.4 Tahoe (updated earlier this week) introduces a new feature to its Terminal app where it will detect ClickFix attempts and stop them by prompting the user if they really wanted to run those commands. \n\nAccording to MacRumors, the warning readers \"Possible malware, Paste blocked.\" \n\n\"Your Mac has not been harmed. Scammers often encourage pasting text into Terminal to try and harm your Mac or compromise your privacy....\" \n\nThere is also a \"Paste Anyway\" option if users still wish to proceed.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "attack",
+      "clickfix",
+      "clickfix attacks",
+      "early",
+      "mac",
+      "macos",
+      "macrumors",
+      "paste",
+      "prompt",
+      "ramp",
+      "security",
+      "terminal",
+      "user",
+      "warning",
+      "windows run"
+    ],
+    [
+      "mac"
+    ]
+  ]
+}

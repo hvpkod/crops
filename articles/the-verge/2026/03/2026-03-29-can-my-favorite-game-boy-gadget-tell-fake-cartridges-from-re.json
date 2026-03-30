@@ -1,0 +1,41 @@
+{
+  "id": 6748,
+  "source": "The Verge",
+  "title": "Can my favorite Game Boy gadget tell fake cartridges from real?",
+  "url": "https://www.theverge.com/games/902910/epilogue-gb-operator-phone-counterfeit-fake-cartridge-detection",
+  "published_at": "2026-03-29T15:00:00Z",
+  "fetched_at": "2026-03-29T15:20:16.166139+00:00",
+  "author": "Sean Hollister",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/DJI_20260327180743_0236_D.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tThe GB Operator. | Photo by Sean Hollister / The Verge\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">The $50 Epilogue GB Operator has a brand-new trick up its sleeve. In addition to backing up Game Boy, Game Boy Color and Game Boy Advance cartridges and saves to a PC, it can now plug into your phone with a <a href=\"https://www.epilogue.co/software/retrace\">brand-new Retrace app for Android and iOS</a>. The idea: check if cartridges are legit, and how much they're worth, before you buy or sell them. </p>\n<p class=\"has-text-align-none\">Is it reliable? I plugged around 50 cartridges into the app, and… it could use some work. While most of my English and Japanese library was detected without a hitch, it also called a few counterfeit cartridges \"authentic,\" a number of authentic cartridges \"count",
+  "full_text": "The $50 Epilogue GB Operator has a brand-new trick up its sleeve. In addition to backing up Game Boy, Game Boy Color and Game Boy Advance cartridges and saves to a PC, it can now plug into your phone with a brand-new Retrace app for Android and iOS. The idea: check if cartridges are legit, and how much they’re worth, before you buy or sell them.\n\nIs it reliable? I plugged around 50 cartridges into the app, and… it could use some work. While most of my English and Japanese library was detected without a hitch, it also called a few counterfeit cartridges “authentic,” a number of authentic cartridges “counterfeit” or “possible counterfeit,” and about a tenth of my cartridges required multiple scans to detect anything at all. One legit cartridge never managed to scan.\n\nYou don’t have to take my word for it, because I took quite a few photos along the way! Here’s a gallery with captions:\n\nI think Epilogue should have stuck to its previous terminology of “Official,” “Unofficial” and “Unrecognized” instead of “authentic” and “counterfeit,” because a romhack or a new game from Incube8 or ModRetro is still “authentic” even if it wasn’t released by Nintendo. The “confidence percentages” seem silly too; I never saw a score lower than 95 percent, and the score changes even if you scan the same cartridge again.\n\nBut I do really like the idea of knowing what a game is, and what it’s worth, simply by plugging it in. The price would definitely save me a search, and the identification might come in handy for games with titles I can’t read — either because they’re in a language I don’t speak, or because they’re currently missing their label. Maybe Analogue could add links to reviews or video clips so people can discover titles they’d like to play?\n\nFor now, it seems the only foolproof way to truly identify a legit Nintendo Game Boy cart is with a screwdriver (GameBit 3.8mm for GB/GBC, tri-wing Y0 for GBA) a sharp eye, and a search for the alphanumeric code on the ROM chip. But the next best thing is to look for a two-digit number imprinted into the cart’s label. See examples of both in my gallery.\n\nBTW, I’m looking very forward to trying the SN Operator, the Super Nintendo / Super Famicom reader from the same company, coming out next month. It will also be compatible with this app.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "analogue",
+      "android",
+      "cartridge",
+      "epilogue",
+      "game",
+      "gaming",
+      "hands-on",
+      "legit",
+      "modretro",
+      "nintendo",
+      "reviews",
+      "rom",
+      "save",
+      "scan",
+      "score",
+      "super",
+      "tech",
+      "title"
+    ],
+    [
+      "gaming",
+      "hands-on",
+      "reviews",
+      "tech"
+    ]
+  ]
+}

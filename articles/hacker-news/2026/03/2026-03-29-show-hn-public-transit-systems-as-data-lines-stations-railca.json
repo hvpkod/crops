@@ -1,0 +1,24 @@
+{
+  "id": 6701,
+  "source": "Hacker News",
+  "title": "Show HN: Public transit systems as data – lines, stations, railcars, and history",
+  "url": "https://publictransit.systems",
+  "published_at": "2026-03-29T07:38:58Z",
+  "fetched_at": "2026-03-29T10:00:30.729754+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47561132\">Comments</a>",
+  "full_text": "$query --list systems\n\nFound 9 transit systems in database\n\n>Displaying public transit information...",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "database",
+      "find",
+      "information",
+      "public",
+      "system",
+      "transit"
+    ],
+    []
+  ]
+}

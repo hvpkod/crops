@@ -1,0 +1,42 @@
+{
+  "id": 6836,
+  "source": "DEV Community<",
+  "title": "I Built an Agent That Assembles Incident War Rooms in Notion Through MCP",
+  "url": "https://dev.to/lewisawe/i-built-an-agent-that-assembles-incident-war-rooms-in-notion-through-mcp-2idk",
+  "published_at": "2026-03-29T21:48:42Z",
+  "fetched_at": "2026-03-29T22:20:37.723424+00:00",
+  "author": "Lewis Sawe",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/notion-2026-03-04\">Notion MCP Challenge</a></em></p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>Incident Runbook is an agent that turns Notion into a living incident response system. It watches an Incidents database, and when a new SEV1 or SEV2 appears, it cross-references three other databases (Services, Runbooks, On-Call), assembles a War Room page with everything the responder needs, and writes it back to Notion. When the incident is marked resolved, it generates an AI post-mortem with Gemini 2.5 Flash.</p>\n\n<p>The whole thing runs through Notion's MCP server. No REST calls, no webhooks, no middleware layer.</p>\n\n<p>I built this because incident response at most companies is still a manual scramble. The runbook exists somewhere, the on-call schedule is in a different tool, and the service dependency map is in someone's head. This agent pulls all of that together in seconds.</p>\n\n<h2>\n  \n  \n  Video Demo\n</h2>\n\n<p>  \n  \n",
+  "full_text": "Notion MCP Challenge Submission 🧠\n\n \n \n\n \n\nThis is a submission for the Notion MCP Challenge\n\n \n \n What I Built\n\nIncident Runbook is an agent that turns Notion into a living incident response system. It watches an Incidents database, and when a new SEV1 or SEV2 appears, it cross-references three other databases (Services, Runbooks, On-Call), assembles a War Room page with everything the responder needs, and writes it back to Notion. When the incident is marked resolved, it generates an AI post-mortem with Gemini 2.5 Flash.\n\nThe whole thing runs through Notion's MCP server. No REST calls, no webhooks, no middleware layer.\n\nI built this because incident response at most companies is still a manual scramble. The runbook exists somewhere, the on-call schedule is in a different tool, and the service dependency map is in someone's head. This agent pulls all of that together in seconds.\n\n \n \n Video Demo\n\n VIDEO\n\n \n \n Show us the code\n\n \n \n\n \n\n🚨 Incident Runbook — AI-Powered Incident Response for Notion\n\nBuilt for the Notion MCP Hackathon — zero direct API calls, 100% MCP.\n\nThe Problem\n\nWhen a SEV1 hits at 2am, engineers scramble: \"Where's the runbook? Who's on-call? What depends on this service?\" They're copy-pasting from scattered docs, pinging Slack, and losing precious minutes. Incident response shouldn't require tribal knowledge — it should be automated.\n\nThe Solution\n\nIncident Runbook turns your Notion workspace into a living incident response system. Log an incident → a full war room assembles itself in seconds.\n\nIt connects to Notion entirely through the Model Context Protocol (MCP) — reading databases, assembling pages, and writing post-mortems without a single direct API call.\n\nHow It Works\n\nDetect — Scans your Incidents database for new SEV1/SEV2/SEV3 entries\n\nLookup — Finds the affected service, pulls its runbook, maps dependencies\n\nAssemble — Creates a War Room page with\n\n \n \n\n \n \n How I Used Notion MCP\n\n \n \n The four-database pattern\n\nThe agent coordinates across four Notion databases in a single scan: Incidents, Services, Runbooks, and On-Call. Each scan starts with notion-search on the Incidents database to find new or resolved entries. For each incident, it follows the \"Affected Service\" relation to the Services database, then follows the \"Runbook\" relation from that service to the Runbooks database, and pulls contacts from the On-Call database filtered by role.\n\nThis means a single incident triggers reads across all four databases. The MCP call pattern looks like:\n\nnotion-fetch on the database ID to get the collection:// data source URL\n\nnotion-search with that URL to get page IDs\n\nnotion-fetch on each page to get properties and content\n\nFor a scan with 1 incident, 3 services, 2 runbooks, and 4 on-call contacts, that's roughly 20 MCP calls. Chatty, but each call is fast and the total scan takes a few seconds.\n\n \n \n Relation resolution was the trickiest part\n\nNotion MCP returns relation properties as arrays of page URLs, not IDs. So an incident's \"Affected Service\" looks like [\"https://www.notion.so/abc123def456\"] rather than a clean ID. Matching that to the actual service record means parsing the URL, stripping dashes, and normalizing to a consistent format across all four databases.\n\nI spent more time debugging ID mismatches than writing the actual war room assembly. Services fetched from the database had IDs in one format, while the relation URLs from incidents had them in another. The fix was normalizing everything to dashless hex strings on read.\n\n \n \n Writing Markdown back to Notion\n\nThe war room page is a single Markdown string that Notion renders natively. It includes a details table, on-call contacts list, the full runbook steps, dependent services, a timeline, and an action checklist with checkboxes. Creating it is one notion-create-pages call with the incident page as the parent.\n\nThe post-mortem works the same way. The agent calculates MTTR from the incident creation time to resolution, feeds the incident details and timeline to Gemini 2.5 Flash, and writes the AI output into a new page.\n\n \n \n Watch mode and connection reuse\n\nThe agent has a watch mode that polls every 30 seconds. An early version spawned a new mcp-remote process on every poll cycle, which ate system resources fast. The fix was extracting the scan logic into a function that accepts an existing MCP client, so watch creates one connection and reuses it across all cycles.\n\n \n \n What I'd do differently\n\nThe property parsing is fragile. Properties come back inside a <properties> XML block as JSON, and the key names are case-sensitive and sometimes inconsistent (I found both \"status\" and \"Status\" depending on how the database was configured). A more robust version would normalize property keys on read. But for a hackathon, regex and case-checking got the job done",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "assemble",
+      "build",
+      "database",
+      "devchallenge",
+      "incident",
+      "markdown",
+      "mcp",
+      "notion",
+      "notion\n\nthe war",
+      "notionchallenge",
+      "page",
+      "relation",
+      "room",
+      "runbook",
+      "runbooks",
+      "scan",
+      "slack",
+      "the \"affected service",
+      "writing markdown"
+    ],
+    [
+      "devchallenge",
+      "notionchallenge"
+    ]
+  ]
+}

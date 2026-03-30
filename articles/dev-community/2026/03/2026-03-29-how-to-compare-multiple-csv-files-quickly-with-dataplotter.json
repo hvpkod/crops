@@ -1,0 +1,38 @@
+{
+  "id": 6765,
+  "source": "DEV Community<",
+  "title": "How to Compare Multiple CSV Files Quickly with Dataplotter",
+  "url": "https://dev.to/adhibot/how-to-compare-multiple-csv-files-quickly-with-dataplotter-4m6c",
+  "published_at": "2026-03-29T15:52:14Z",
+  "fetched_at": "2026-03-29T16:20:33.248501+00:00",
+  "author": "Adhiseshan Manickaguptha",
+  "summary": "<h2>\n  \n  \n  How to Compare Multiple CSV Files Quickly (Without Manual Work)\n</h2>\n\n<p>Recently I ran into a small but surprisingly time consuming problem.</p>\n\n<p>I didn’t have just one CSV file to look at…<br />\nI had a <strong>whole folder full of them</strong>.</p>\n\n<p>At first I thought, “okay, this should be quick.”<br />\nI just wanted to compare them and see how things differ.</p>\n\n<p>But it wasn’t as straightforward as I expected.</p>\n\n\n\n\n<h2>\n  \n  \n  Where It Gets Messy\n</h2>\n\n<p>Most tools are great when you’re working with a single file.</p>\n\n<p>But the moment you have multiple files, things start to feel… clunky.</p>\n\n<p>I found myself:</p>\n\n<ul>\n<li>Opening files one by one</li>\n<li>Trying to line things up manually</li>\n<li>Losing track of what I was even comparing</li>\n</ul>\n\n<p>None of this was hard — just unnecessarily tedious.</p>\n\n<p>And it completely broke the flow.</p>\n\n\n\n\n<h2>\n  \n  \n  What I Actually Wanted\n</h2>\n\n<p>Honestly, something very simple:</p>\n\n<p>Upload",
+  "full_text": "How to Compare Multiple CSV Files Quickly (Without Manual Work)\n\nRecently I ran into a small but surprisingly time consuming problem.\n\nI didn’t have just one CSV file to look at…\n\nI had a whole folder full of them.\n\nAt first I thought, “okay, this should be quick.”\n\nI just wanted to compare them and see how things differ.\n\nBut it wasn’t as straightforward as I expected.\n\n \n \n Where It Gets Messy\n\nMost tools are great when you’re working with a single file.\n\nBut the moment you have multiple files, things start to feel… clunky.\n\nI found myself:\n\nOpening files one by one\n\nTrying to line things up manually\n\nLosing track of what I was even comparing\n\nNone of this was hard — just unnecessarily tedious.\n\nAnd it completely broke the flow.\n\n \n \n What I Actually Wanted\n\nHonestly, something very simple:\n\nUpload a folder → pick a few files → see everything together\n\nThat’s it.\n\nNo combining data manually.\n\nNo switching back and forth between files.\n\n \n \n So I Ended Up Adding It\n\nSince I was already working on DataPlotter, I decided to add this as a feature.\n\nNow you can:\n\nUpload an entire folder of CSV or Excel files\n\nSelect multiple files\n\nPlot them together in one chart\n\n👉 https://dataplotter.de\n\nI built it mainly because I needed it myself, but it turned out to be useful more often than I expected.\n\n \n \n How I Use It\n\n \n \n 1. Upload the Folder\n\nInstead of selecting files one by one, I just upload the whole folder.\n\nEverything shows up at once, which already saves time.\n\n \n \n 2. Pick What I Want to Compare\n\nI select a few files that I’m interested in.\n\nEach one becomes its own line in the chart.\n\n \n \n 3. Choose X and Y\n\nSame as usual:\n\nPick the X-axis\n\nPick the Y-axis\n\nAnd that’s it — everything gets plotted together.\n\n \n \n 4. Look at the Differences\n\nThis is the part I actually care about.\n\nOnce everything is in one place, it’s much easier to:\n\nNotice trends\n\nSpot differences\n\nSee what’s changing across files\n\nNo jumping between tabs. No guessing.\n\n \n \n Where This Has Been Useful\n\nI’ve ended up using this in a few situations already:\n\nComparing reports from different days\n\nLooking at repeated experiment results\n\nChecking patterns across similar datasets\n\nBasically, any time there are multiple files with the same structure.\n\n \n \n Why This Made a Difference for Me\n\nThe biggest thing wasn’t adding new functionality — it was removing friction.\n\nI didn’t have to think about how to prepare the data anymore.\n\nI could just focus on what the data was actually telling me.\n\n \n \n Final Thought\n\nIt’s a small feature, but it solved a very real annoyance.\n\nIf you’ve ever had a folder full of CSV files and just wanted to compare them quickly, you’ll probably relate.\n\n \n \n Try it here\n\nhttps://dataplotter.de",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "compare",
+      "csv",
+      "data",
+      "dataplotter",
+      "difference",
+      "everything",
+      "file",
+      "folder",
+      "multiple",
+      "pick",
+      "productivity",
+      "showdev",
+      "thing",
+      "tooling",
+      "upload",
+      "want"
+    ],
+    [
+      "productivity",
+      "showdev",
+      "tooling"
+    ]
+  ]
+}

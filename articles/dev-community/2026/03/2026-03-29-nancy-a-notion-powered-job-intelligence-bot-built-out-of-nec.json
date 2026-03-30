@@ -1,0 +1,44 @@
+{
+  "id": 6678,
+  "source": "DEV Community<",
+  "title": "Nancy: A Notion-Powered Job Intelligence Bot Built Out of Necessity",
+  "url": "https://dev.to/juvet_manga/nancy-a-notion-powered-job-intelligence-bot-built-out-of-necessity-2hhe",
+  "published_at": "2026-03-29T07:06:58Z",
+  "fetched_at": "2026-03-29T07:20:27.815836+00:00",
+  "author": "juvet manga",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/notion-2026-03-04\">Notion MCP Challenge</a></em></p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>Nancy is an automated Dribbble job intelligence system. It monitors Dribbble for new design job postings, summarizes them using AI, fires real-time alerts to a Telegram channel, and now, powered by Notion MCP, stores every opportunity in a structured Notion workspace with full application pipeline tracking.</p>\n\n<p>The idea was to give my brother an edge: see a new job posting before almost anyone else in the world, apply immediately, and track the whole pipeline in one place.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fju81t04kjaeow8cw3oed.png\"><img alt=\" \" height=\"509\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgr",
+  "full_text": "Notion MCP Challenge Submission 🧠\n\n \n \n\n \n\nThis is a submission for the Notion MCP Challenge\n\n \n \n What I Built\n\nNancy is an automated Dribbble job intelligence system. It monitors Dribbble for new design job postings, summarizes them using AI, fires real-time alerts to a Telegram channel, and now, powered by Notion MCP, stores every opportunity in a structured Notion workspace with full application pipeline tracking.\n\nThe idea was to give my brother an edge: see a new job posting before almost anyone else in the world, apply immediately, and track the whole pipeline in one place.\n\nCore capabilities:\n\nScrapes Dribbble job listings on demand via a REST API trigger\n\nSummarizes job descriptions using HuggingFace (facebook/bart-large-cnn)\n\nSends formatted Telegram alerts with one-tap apply buttons\n\nStores all jobs in a Notion database with status tracking\n\nReads its own configuration live from Notion — no redeployment needed to change behavior\n\nTech stack: Python 3.11, FastAPI, BeautifulSoup4, HuggingFace Inference API, python-telegram-bot, notion-client, deployed on Render.\n\n \n \n Video Demo\n\n VIDEO\n\n \n \n Show us the code\n\nGitHub: github.com/juv85/Nancy-v2-alt\n\nThe Notion integration lives in notion/notion_integration.py. The key entry points:\n\n# scraper/scraper.py — reads live config from Notion on every run\nconfig = notion_tracker.get_config()\n\nif config.get(\"active\", \"true\").lower() == \"false\":\n return {\"status\": \"paused\", \"detail\": \"Nancy is paused via Notion config.\"}\n\nmax_pages = int(config.get(\"max_pages\", 2))\nkeywords = [k.strip().lower() for k in config.get(\"keywords\", \"\").split(\",\") if k.strip()]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n# After scraping, each new job is saved to Notion and marked notified\nif notion_tracker.enabled:\n page_id = notion_tracker.add_job(job)\n notion_tracker.mark_telegram_sent(page_id)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTo run your own instance, clone the repo and set the environment variables required in the .env.example\n\n \n \n How I Used Notion MCP\n\nMost Notion integrations use Notion as a destination — a place to dump output. Nancy uses it as both input and output: Notion is the control plane Nancy reads from, and the data layer Nancy writes to.\n\n \n \n Notion as control plane (input)\n\nNancy reads a Config database in Notion before every single run:\n\nSetting\nExample\nWhat it does\n\nactive\n\ntrue / false\n\nKill switch — pause Nancy without touching code\n\nkeywords\ndesigner, UX, product\nOnly alert on jobs matching these terms\n\njob_types\nFull-time, Contract\nFilter by employment type\n\nmax_pages\n3\nHow many Dribbble pages to scrape per run\n\nWant Nancy to focus on freelance roles this week? Edit one cell in Notion. Want to pause it while you're traveling? Flip active to false. No terminal, no redeployment.\n\n \n \n Notion as data layer (output)\n\n[SCREENSHOT: Nancy Jobs database — Pipeline Board (Kanban) with columns New / Notified / Reviewing / Applied / Archived]\n\nEvery job Nancy finds is saved to a Jobs database with full metadata and a status workflow:\n\nNew → Notified → Reviewing → Applied → Archived\n\nThis turns Notion into an actual application tracker. Nancy handles discovery; you handle decisions. The Pipeline Board makes it immediately obvious where each opportunity stands.\n\n \n \n The full flow\n\n/trigger-scraper\n\n → read config FROM Notion (active? max_pages? keywords? job_types?)\n\n → if active=false → return \"paused\"\n\n → fetch existing job URLs from Notion (deduplication)\n\n → scrape Dribbble up to max_pages\n\n → for each new job matching filters:\n\n → summarize via HuggingFace\n\n → send Telegram alert\n\n → save to Notion Jobs DB (Status = New)\n\n → update Status → Notified, tick Telegram Sent\n\nTwo new API endpoints complete the picture:\n\nGET /config — returns the live Notion config on demand\n\nGET /jobs — returns all jobs from Notion, filterable by status\n\n \n \n What's Next\n\nI want to be honest: what Nancy does today with Notion is not yet even close to the full power of what MCP makes possible.\n\nAnyway the vision is to build an autonomous job application agent.\n\nNotion becomes the agent's long-term memory. Not just a database of scraped jobs, but a living context store with an overview of the user's identity and metadata on jobs that matter to the user. \n\nThe agent this way will know what is relevant to highlight when drafting assets to apply, and also what to apply.\n\nThanks for reading\n\nJuvet Manga",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "alert",
+      "config",
+      "contract\nfilter",
+      "database",
+      "devchallenge",
+      "dribbble",
+      "huggingface",
+      "huggingface inference api",
+      "job",
+      "mcp",
+      "nancy",
+      "notified",
+      "notion",
+      "notion mcp",
+      "notion_tracker.add_job(job",
+      "notionchallenge",
+      "pipeline board",
+      "render",
+      "scrapes dribbble",
+      "status",
+      "summarizes",
+      "telegram"
+    ],
+    [
+      "devchallenge",
+      "notionchallenge"
+    ]
+  ]
+}

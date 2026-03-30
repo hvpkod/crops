@@ -1,0 +1,46 @@
+{
+  "id": 6729,
+  "source": "DEV Community<",
+  "title": "How I Reimplemented LÖVE2D in Rust to Play Balatro in a Terminal",
+  "url": "https://dev.to/4rh1t3ct0r/how-i-reimplemented-love2d-in-rust-to-play-balatro-in-a-terminal-2ag2",
+  "published_at": "2026-03-29T12:57:02Z",
+  "fetched_at": "2026-03-29T13:20:19.161869+00:00",
+  "author": "Artem Lytkin",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fvu98zdy6b8r1yg433ls9.gif\"><img alt=\" \" height=\"1024\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fvu98zdy6b8r1yg433ls9.gif\" width=\"1024\" /></a></p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8odxhu4p4sr5xobs1aut.png\"><img alt=\" \" height=\"485\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8odxhu4p4sr5xobs1aut.png\" width=\"800\" /></a><br />\nA few",
+  "full_text": "A few weeks ago, I wondered: what would it take to run a full commercial game in a terminal? Not a text-based approximation — the actual game, with real graphics, shaders,\n\nand UI.\n\nThe answer turned out to be ~9,800 lines of Rust.\n\n—\n\nThe idea\n\nBalatro is built on LÖVE2D, a Lua game framework. The game’s logic is entirely in Lua; LÖVE2D provides the graphics, audio, and input APIs. My idea: reimplement those APIs in\n\nRust, but instead of rendering to a GPU-backed window, render to a terminal.\n\n—\n\nArchitecture\n\nThe project has three crates:\n\nlove-terminal: The binary — CLI parsing, terminal setup, game loop.\n\nlove-api: The core — implements ˷80 LÖVE2D API functions. graphics.rs alone is 3,400+\n\nlines covering a full software rasterizer: anti-aliased rectangles, ellipses, polygons, thick\n\nlines, sprite rendering with bilinear filtering, TTF text via fontdue, transform stack, canvas\n\nsystem, stencil buffer, and blend modes.\n\nsprite-to-text: The renderer — takes the RGBA pixel buffer and converts it to terminal\n\noutput.\n\n—\n\nThree ways to render pixels in a terminal\n\nSixel graphics (best quality)\nThe Sixel protocol, dating back to DEC terminals in the 1980s, encodes actual pixel data inline in the terminal stream. Modern terminals (Windows Terminal 1.22+, WezTerm, foot,\nkitty, mlterm) support it.\nThe internal canvas can be 700×350+ pixels. I control the resolution via TUI_PIXELBUDGET — the canvas auto-scales to stay within a pixel budget. At 250K pixels (default), I get\n~707×354 at 50-60 FPS on CPU. Each frame is quantized to 256 colors.\n\nUnicode octant characters\nUnicode 13.0 added octant characters (U+1FB00–U+1FB3B) that divide each cell into a 2×4 grid. Each of the 8 sub-cells can be on or off, giving 256 possible patterns per cell.\nI pair each octant pattern with a foreground and background color, choosing the combination that minimizes error via gamma-correct downsampling. The result: 2×4 sub-\npixel resolution per cell, which is dramatically better than half-blocks.\nRequires Cascadia Code 2404.23+ (or another font with octant support).\n\nHalf-block fallback\nThe classic approach: ▀ (U+2580) with the top pixel as foreground, bottom pixel as background. 2× vertical resolution. Works on any terminal with 24-bit color.\n—\n\nShader emulation\n\nBalatro uses several GLSL shaders for visual effects. Since there’s no GPU, every shader is emulated per-pixel in Rust. Some highlights:\n\nThe CRT shader extracts bright pixels, applies a 5-tap Gaussian blur for bloom, then adjusts github.com/4RH1T3CT0R7/balatro-port-tui contrast and adds a vignette.\n\nThe holographic shader combines an HSL rainbow shift with a hexagonal grid pattern and a noise field.\n\nThe polychrome shader uses animated noise to rotate hues in HSL space with boosted saturation.\n\nThere are 11 shaders total, all ported from the original GLSL.\n\n—\n\nCompatibility tricks\n\nA few things needed special handling:\n\nlove.system.getOS() returns “Linux” to skip Steam initialization. A require \"luasteam\" stub returns a dummy module. The bit library (present in LuaJIT but missing in Lua 5.1) is implemented in Rust. Balatro’s custom love.run() returns a per-frame closure instead of using standard callbacks.\n\nAnd keyboard events are mapped to gamepad events, since Balatro’s UI is designed around gamepad input.\n\n—\n\nTry it yourself\n\nYou need a copy of Balatro. The engine reads game files from Balatro.exe (which is a zip archive).\n\ncargo build --release && cargo run --release -- \"path/to/Balatro.exe\"\n\nGitHub: https://github.com/4RH1T3CT0R7/balatro-port-tui\n\nFree and open-source under Apache 2.0. Feedback welcome!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "balatro",
+      "canvas",
+      "cli",
+      "cpu",
+      "dec",
+      "gamedev",
+      "gamepad",
+      "glsl",
+      "gpu",
+      "lua",
+      "octant",
+      "opensource",
+      "pixel",
+      "rust",
+      "shader",
+      "showdev",
+      "sixel",
+      "terminal",
+      "ttf",
+      "unicode",
+      "use",
+      "windows terminal"
+    ],
+    [
+      "gamedev",
+      "opensource",
+      "rust",
+      "showdev"
+    ]
+  ]
+}

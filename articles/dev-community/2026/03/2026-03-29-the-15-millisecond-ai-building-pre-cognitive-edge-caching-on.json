@@ -1,0 +1,42 @@
+{
+  "id": 6792,
+  "source": "DEV Community<",
+  "title": "The 15-Millisecond AI: Building \"Pre-Cognitive\" Edge Caching on AWS",
+  "url": "https://dev.to/dhananjay_lakkawar/the-15-millisecond-ai-building-pre-cognitive-edge-caching-on-aws-ad7",
+  "published_at": "2026-03-29T19:17:07Z",
+  "fetched_at": "2026-03-29T19:20:20.678843+00:00",
+  "author": "Dhananjay Lakkawar",
+  "summary": "<p>If you want to watch a product manager's soul leave their body, sit in on a live demo of a Generative AI feature where the model takes 12 seconds to generate a response. </p>\n\n<p><em>Typing... typing... typing...</em> </p>\n\n<p>In the world of AI product development, <strong>latency is the ultimate UX killer.</strong> You can have the smartest prompt and the most expensive foundational model in the world, but if your users have to stare at a spinning loading wheel for 10 seconds every time they click a button, they will abandon your app. </p>\n\n<p>Most engineering teams try to solve this by streaming tokens to the frontend or switching to smaller, less capable models. But as a cloud architect, I prefer a different approach. </p>\n\n<p>What if we stopped waiting for the user to ask the question? </p>\n\n<p>What if we used the user's application state to predict what they are going to ask, generated the answer in the background, and pushed it to a CDN edge location before their mouse even h",
+  "full_text": "If you want to watch a product manager's soul leave their body, sit in on a live demo of a Generative AI feature where the model takes 12 seconds to generate a response. \n\nTyping... typing... typing... \n\nIn the world of AI product development, latency is the ultimate UX killer. You can have the smartest prompt and the most expensive foundational model in the world, but if your users have to stare at a spinning loading wheel for 10 seconds every time they click a button, they will abandon your app. \n\nMost engineering teams try to solve this by streaming tokens to the frontend or switching to smaller, less capable models. But as a cloud architect, I prefer a different approach. \n\nWhat if we stopped waiting for the user to ask the question? \n\nWhat if we used the user's application state to predict what they are going to ask, generated the answer in the background, and pushed it to a CDN edge location before their mouse even hovers over the button?\n\nWhen I sketch this out for engineering leaders, the reaction is almost always the same: \"Wait, we can pre-generate AI responses in the background and cache them at the CDN level to completely bypass inference latency?\"\n\nYes. Here is how to build a \"Pre-Cognitive\" AI architecture using AWS Step Functions, Amazon Bedrock, and Amazon CloudFront with Lambda@Edge.\n\n \n \n The Concept: From Reactive AI to Proactive Caching\n\nThink about your favorite SaaS dashboard. When a user logs in on Monday morning, their \"next best actions\" are highly predictable. \n\nThey are going to ask for a summary of weekend alerts.\n\nThey are going to ask for the status of their latest deployment.\n\nThey are going to ask for a draft reply to their most urgent ticket.\n\nInstead of waiting for the user to click \"Summarize Alerts\" and forcing them to wait 8 seconds for an LLM to read the data, we move the LLM inference out of the synchronous request path and into an asynchronous background job. \n\nWe generate the responses, store them as key-value pairs, and push them to the network edge. When the user finally clicks the button, the response loads in 15 milliseconds. It feels like magic. \n\n \n \n The Architecture: Phase 1 (Background Generation)\n\nTo make this work without slowing down the initial user login, we decouple the generation using an event-driven flow.\n\n1. The Trigger: When the user logs in (or enters a specific workflow), your backend fires an event to AWS EventBridge.\n\n2. The Orchestrator: AWS Step Functions takes over. It acts as the background traffic cop, ensuring your API doesn't hang. \n\n3. The Inference: A Lambda function analyzes the user's state, grabs the required context, and fires off 3 concurrent prompts to Amazon Bedrock (using a fast, cheap model like Claude 3 Haiku). \n\n4. The Edge Push: Once Bedrock returns the generated text, Lambda pushes these pre-computed AI responses into Amazon CloudFront KeyValueStore (a globally distributed datastore designed specifically for edge functions) keyed by UserID_ActionID.\n\n \n \n The Architecture: Phase 2 (The 15ms Delivery)\n\nNow, the user is looking at their dashboard. They see a button that says \"✨ Generate Morning Briefing.\" They click it.\n\nBecause we are using CloudFront and Lambda@Edge (or CloudFront Functions), the request never even reaches your primary backend servers in us-east-1. \n\n1. The Interception: The user's HTTPS request hits the closest AWS Edge location (e.g., a server in London, Tokyo, or New York). Lambda@Edge intercepts the request.\n\n2. The Edge Lookup: Lambda@Edge checks the attached CloudFront KeyValueStore for the user's pre-generated response. \n\n3. Instant Delivery: If the response is there, it is returned instantly. The user experiences sub-20ms latency for a complex Generative AI task. \n\n4. The Fallback: If the user asks a completely custom question that we didn't predict, Lambda@Edge simply forwards the request to your standard API Gateway/Bedrock backend to generate the response synchronously. \n\n \n \n The CTO Perspective: Tradeoffs and Reality Checks\n\nAs a technology strategist, I will be the first to tell you that \"magic\" always comes with an engineering invoice. You should only use this pattern if you understand the tradeoffs.\n\n \n \n 1. The Cost of Wasted Compute\n\nBy predicting 3 things the user might ask, you are generating tokens that might never be read. You are trading compute cost for user experience. \n\nThe Mitigation: Only use this pattern with ultra-cheap, highly efficient models like Claude 3 Haiku or Llama 3 8B. Do not use Claude 3 Opus or GPT-4o for speculative background generation, or you will torch your AWS bill.\n\n \n \n 2. State Invalidation\n\nWhat happens if you pre-generate a \"Deployment Summary\" at 9:00 AM, but at 9:05 AM a deployment fails, and the user clicks the button at 9:06 AM? The cached AI response is now lying to them.\n\nThe Mitigation: Tie your cache invalidation to your application's critical state changes. If a critical DB row updates, fire an EventBridge rule that immediately deletes the stale key from the CloudFront KeyValueStore. \n\n \n \n 3. Build Complexity vs. Product Value\n\nDon't build this for a general-purpose chatbox. Humans are too unpredictable. Build this for highly structured, high-value UX checkpoints—like daily briefings, code review summaries, or personalized dashboard greetings. \n\n \n \n The Bottom Line\n\nWhen we build AI applications, we often forget that the rules of distributed systems still apply. You don't have to accept the latency of a foundational model as a fixed constraint. \n\nBy aggressively predicting user intent and leveraging AWS edge networking primitives like CloudFront and Lambda@Edge, you can completely mask LLM latency. \n\nIt takes your application from feeling like a \"cool AI wrapper\" to feeling like a deeply integrated, hyper-responsive superpower. \n\nHave you struggled with GenAI latency in your production applications? Are you using streaming, or have you started exploring asynchronous generation? Let me know your architecture in the comments below.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "amazon bedrock",
+      "amazon cloudfront",
+      "api",
+      "aws",
+      "aws eventbridge",
+      "aws step functions",
+      "backend",
+      "background",
+      "cdn",
+      "cloudfront",
+      "cloudfront functions",
+      "completely",
+      "edge",
+      "generate",
+      "latency",
+      "llm",
+      "reactive ai",
+      "request",
+      "response",
+      "serverless",
+      "user"
+    ],
+    [
+      "serverless"
+    ]
+  ]
+}

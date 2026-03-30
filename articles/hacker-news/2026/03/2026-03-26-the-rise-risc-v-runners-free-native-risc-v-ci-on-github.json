@@ -1,0 +1,32 @@
+{
+  "id": 6776,
+  "source": "Hacker News",
+  "title": "The RISE RISC-V Runners: free, native RISC-V CI on GitHub",
+  "url": "https://riseproject.dev/2026/03/24/announcing-the-rise-risc-v-runners-free-native-risc-v-ci-on-github/",
+  "published_at": "2026-03-26T15:17:17Z",
+  "fetched_at": "2026-03-29T17:20:20.807155+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47531576\">Comments</a>",
+  "full_text": "by Ludovic Henry, RISE\n\nToday, we are excited to announce the Early Availability of the RISE RISC-V Runners, a free, managed GitHub Actions runner service that gives any open source project access to real RISC-V hardware in their CI pipelines. No emulation, no cross-compilation hacks, no waitlist. Install a GitHub App, change one line in your workflow, and your jobs run on physical RISC-V boards.\n\nWhy this matters\n\nOne of the key barriers to RISC-V adoption is the classic chicken-and-egg problem: software projects won’t add RISC-V support without hardware to test on, and hardware adoption slows when the software ecosystem isn’t ready. Emulators like QEMU are invaluable for development, but they can’t catch the real-world issues (performance regressions, architecture-specific compiler bugs, kernel quirks) that only show up on actual silicon.\n\nUntil now, most open source projects that wanted to test on RISC-V hardware had to source their own boards, manage their own infrastructure, or rely on limited and oversubscribed shared resources. That’s a lot to ask of a maintainer who just wants to know if their library builds and passes tests on riscv64.\n\nThe RISE RISC-V Runners remove that barrier entirely. As part of the RISE Project’s mission to accelerate the RISC-V software ecosystem, we are providing this service free of charge to any open source project on GitHub.\n\nHow it works\n\nGetting started takes minutes. There are two GitHub Apps depending on where you want to use the runners:\n\nInstall the one that fits your setup, then use the `ubuntu-24.04-riscv` label in your workflow:\njobs:\nbuild:\n runs-on: ubuntu-24.04-riscv\n steps:\n - uses: actions/checkout@v4\n - run: uname -m # prints riscv64\n\nThat’s it. Behind the scenes, when your workflow triggers, a webhook is sent to our backend, which provisions a fresh Kubernetes pod on a dedicated RISC-V node. The pod registers as an ephemeral just-in-time GitHub Actions runner, executes your job, and is cleaned up automatically afterward. Every job gets a clean environment, and Docker-in-Docker is available out of the box, so docker build, docker run, Docker Compose, and Buildx all work as expected.\n\nThere is no approval process and no allowlist. If your project is on GitHub, you can start using RISC-V runners today.\n\nWhat’s under the hood\n\nThe runners execute on bare-metal RISC-V servers provided by Scaleway, whose EM-RV1 instances have been central to RISE’s infrastructure efforts. Each node runs at most one job at a time, ensuring consistent and predictable performance for every run.\n\nThe entire platform is open source and spans four repositories:\n\nWho is this for?\n\nIf you maintain an open source project and have ever wondered “does this work on RISC-V?”, this service is for you. Whichever project you maintain, adding a RISC-V CI job is now as simple as adding a new entry to your workflow matrix.\n\nWe’ve designed the runner environment to be as close to GitHub’s standard hosted runners as possible, so existing workflows should require minimal changes beyond the runs-on label.\n\nGet started and get involved\n\nWe want the RISC-V software ecosystem to grow, and that starts with making it easy for projects to test on real hardware. Here’s how you can help:\n\nTry it out. Install the GitHub App on your organization or personal account and add runs-on: ubuntu-24.04-riscv to your CI.\n\nAdd RISC-V CI to your favorite projects. If you contribute to an open source project, consider opening a PR that adds a RISC-V job to their GitHub Actions workflow. The more projects that test on RISC-V, the stronger the ecosystem becomes.\n\nContribute. The entire platform is open source. Found a bug? Have an idea for a new runner label or feature? Missing a package in the base image? Open an issue or a pull request on the riscv-runner repository.\n\nSpread the word. Star the repository, share this post, and let other maintainers know that free RISC-V CI is available today.\n\nFull documentation, including installation instructions, workflow configuration, runner labels, and architecture details, is available at riseproject-dev.github.io/riscv-runner.\n\nWe believe that accessible CI infrastructure is one of the important things we can provide to accelerate RISC-V adoption. We look forward to seeing what you build, and what you break, on RISC-V.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ecosystem",
+      "github",
+      "github actions",
+      "hardware",
+      "kubernetes",
+      "node",
+      "open",
+      "project",
+      "qemu",
+      "rise",
+      "runner",
+      "source",
+      "test",
+      "the rise project’s"
+    ],
+    []
+  ]
+}

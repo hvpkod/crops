@@ -1,0 +1,39 @@
+{
+  "id": 6665,
+  "source": "DEV Community<",
+  "title": "ANSI Spinners, Progress Bars, Decorations — All Gone",
+  "url": "https://dev.to/ji_ai/ansi-spinners-progress-bars-decorations-all-gone-2p0j",
+  "published_at": "2026-03-29T03:22:09Z",
+  "fetched_at": "2026-03-29T04:20:34.882252+00:00",
+  "author": "jidonglab",
+  "summary": "<p>Watch your terminal during <code>npm install</code>. See that spinning dot? That progress bar crawling across the screen? Those are ANSI animations — cursor movements that redraw the same line hundreds of times.</p>\n\n<p>You see one line updating smoothly. Your AI sees hundreds of cursor movement commands stacked on top of each other.</p>\n\n<h2>\n  \n  \n  How Terminal Animations Work\n</h2>\n\n<p>A spinner works by:</p>\n\n<ol>\n<li>Print <code>⠋ Loading...</code>\n</li>\n<li>Move cursor to start of line (<code>\\x1b[G</code>)</li>\n<li>Print <code>⠙ Loading...</code>\n</li>\n<li>Move cursor to start of line</li>\n<li>Repeat 200 times</li>\n</ol>\n\n<p>Your terminal shows one smooth animation. The raw output is 200 lines of text with cursor movement codes. Your AI ingests all 200.</p>\n\n<p>A progress bar is worse:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight console\"><code><span class=\"go\">\\x1b[2K\\x1b[1A\\x1b[2K\\x1b[G⸨░░░░░░░░░░░░░░░░░░░░⸩ 5%\n\\x1b[2K\\x1b[1A\\x1b[2K\\x1b[G⸨█░░",
+  "full_text": "Watch your terminal during npm install. See that spinning dot? That progress bar crawling across the screen? Those are ANSI animations — cursor movements that redraw the same line hundreds of times.\n\nYou see one line updating smoothly. Your AI sees hundreds of cursor movement commands stacked on top of each other.\n\n \n \n How Terminal Animations Work\n\nA spinner works by:\n\nPrint ⠋ Loading...\n\nMove cursor to start of line (\\x1b[G)\n\nPrint ⠙ Loading...\n\nMove cursor to start of line\n\nRepeat 200 times\n\nYour terminal shows one smooth animation. The raw output is 200 lines of text with cursor movement codes. Your AI ingests all 200.\n\nA progress bar is worse:\n\n\\x1b[2K\\x1b[1A\\x1b[2K\\x1b[G⸨░░░░░░░░░░░░░░░░░░░░⸩ 5%\n\\x1b[2K\\x1b[1A\\x1b[2K\\x1b[G⸨█░░░░░░░░░░░░░░░░░░░⸩ 10%\n\\x1b[2K\\x1b[1A\\x1b[2K\\x1b[G⸨██░░░░░░░░░░░░░░░░░░⸩ 15%\n... (17 more updates)\n\\x1b[2K\\x1b[1A\\x1b[2K\\x1b[G⸨████████████████████⸩ 100%\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n20 versions of the same progress bar. Each with 30+ bytes of escape codes. Your AI reads them all.\n\n \n \n After ContextZip\n\nadded 847 packages in 12s\n💾 contextzip: 12,847 → 142 chars (99% saved)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAll spinner frames → gone. All progress bar updates → gone. All cursor movement codes → gone. The final result preserved.\n\n99% savings on animation-heavy output. This is where ANSI stripping alone (which RTK does) falls short — you need to understand that cursor movement codes mean \"this line replaces the previous one\" and collapse them.\n\ncargo install contextzip\neval \"$(contextzip init)\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGitHub: github.com/contextzip/contextzip\n\nPart of the ContextZip Daily series. Follow for daily tips on optimizing your AI coding workflow.\n\nInstall: npx contextzip | GitHub: jee599/contextzip",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "ansi",
+      "claudecode",
+      "contextzip",
+      "cursor",
+      "cursor movement",
+      "fullscreen",
+      "github",
+      "line",
+      "mode",
+      "movement",
+      "productivity",
+      "programming",
+      "progress",
+      "rtk",
+      "spinner",
+      "terminal"
+    ],
+    [
+      "claudecode",
+      "productivity",
+      "programming"
+    ]
+  ]
+}

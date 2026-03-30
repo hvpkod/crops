@@ -1,0 +1,42 @@
+{
+  "id": 6641,
+  "source": "DEV Community<",
+  "title": "I Built a Private Voice Chat App Because I Was Done Giving Discord My Conversations",
+  "url": "https://dev.to/shynsec/i-built-a-private-voice-chat-app-because-i-was-done-giving-discord-my-conversations-1h8h",
+  "published_at": "2026-03-29T00:37:17Z",
+  "fetched_at": "2026-03-29T01:20:40.616768+00:00",
+  "author": "shyn",
+  "summary": "<p>description: Squawk is a self-hosted, open source voice and text chat app for gaming groups. Here's why I built it and what I learned along the way.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F51n0q8md9zu5tchxxyfl.png\"><img alt=\" \" height=\"443\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F51n0q8md9zu5tchxxyfl.png\" width=\"800\" /></a>---</p>\n\n<p>I play games with a small group of friends. We've been using Discord for years. It works fine — but at some point I started thinking about what \"works fine\" actually means.</p>\n\n<p>Every conversation we have passes through Discord's servers. Every voice session, every message, every \"we're planning this at this time\" — all of it sitting in",
+  "full_text": "description: Squawk is a self-hosted, open source voice and text chat app for gaming groups. Here's why I built it and what I learned along the way.\n\n---\n\nI play games with a small group of friends. We've been using Discord for years. It works fine — but at some point I started thinking about what \"works fine\" actually means.\n\nEvery conversation we have passes through Discord's servers. Every voice session, every message, every \"we're planning this at this time\" — all of it sitting in a database I have no visibility into. For most people that's a totally acceptable trade-off. For me it started to feel like an unnecessary one.\n\nSo I built something.\n\n \n \n What is Squawk?\n\nSquawk is a self-hosted voice and text chat app built for small private groups. You run it on your own machine. Your friends connect through Tailscale — a zero-config private VPN. Nobody else can reach the server. No accounts needed, no data leaving your network.\n\nThe core features:\n\n🎤 Peer-to-peer voice chat via WebRTC (audio never touches a server)\n\n💬 Real-time text chat with typing indicators\n\n👑 Channel ownership and permissions (kick, rename, delete)\n\n🔔 Sound notifications for joins, leaves, messages\n\n📱 Mobile-friendly with a voice/chat tab switcher\n\n🐳 Docker support — two commands to get running\n\nYou can find it here: github.com/shynsec/squawk\n\n \n \n Why build it instead of just using something else?\n\nMumble exists. TeamSpeak exists. I know.\n\nBut I wanted something that felt modern — a clean UI, text chat alongside voice, mobile support — without the overhead of running a full Mumble server and without sending my friends through a sign-up flow.\n\nI also wanted to actually build something. There's a difference between knowing how WebRTC works and having shipped something that uses it. This project closed that gap for me.\n\n \n \n What I learned\n\n \n \n WebRTC is surprisingly approachable, until it isn't\n\nThe basics of WebRTC — creating a peer connection, exchanging offers and answers, adding ICE candidates — clicked pretty quickly. The browser APIs are well documented and the happy path is straightforward.\n\nWhere it gets interesting is the signaling layer. WebRTC handles the audio transport but it doesn't handle how peers find each other. You need a signaling server to broker that initial handshake. I used Socket.io for this, which made it clean to implement but also introduced an interesting security question: what stops a client from relaying WebRTC signals to peers in a completely different room?\n\nThe answer is nothing, by default. You have to explicitly enforce it. I ended up checking that both the sender and recipient are in the same room before relaying any offer, answer, or ICE candidate. Simple fix, but easy to miss.\n\n \n \n Security on a \"private\" app still matters\n\nIt's tempting to think that because Squawk runs behind a private VPN, you don't need to worry much about security. That thinking is wrong for a few reasons.\n\nFirst, anyone on your Tailscale tailnet can connect — and you might invite people you don't fully trust. Second, if you ever open the app to a wider audience, you want the security foundations already in place. Third, good habits are good habits regardless of the threat model.\n\nThings I ended up implementing that I hadn't originally planned:\n\nRate limiting per socket connection (30 events per 5 seconds)\n\nInput sanitisation on all usernames, channel names, and messages\n\nPrototype pollution protection using Object.create(null) for state objects\n\nStrict CORS limited to localhost and Tailscale IP ranges\n\nSecurity headers (CSP, X-Frame-Options, Referrer-Policy)\n\nNon-root Docker user\n\nNone of these are complicated individually. But thinking through all the surfaces that need covering took longer than I expected.\n\n \n \n Ownership is harder than it sounds\n\nThe permissions system in Squawk is simple: whoever creates a channel owns it. They can kick users, rename the channel, delete it. But even that simple model has edge cases.\n\nWhat happens when the owner leaves? Ownership has to transfer to someone. What if the owner renames themselves mid-session? The ownership record tied to their old name breaks. What if two people have the same display name — does one accidentally inherit the other's permissions?\n\nThese are the kinds of details that only surface when you actually try to use the thing with real people. Designing permissions on paper is one thing. Watching them break in practice teaches you something different.\n\n \n \n Ship it before it's perfect\n\nThe first version of Squawk was a single HTML file and about 100 lines of server code. It worked. It was ugly. It did the one thing I needed it to do.\n\nEvery feature I added after that — text chat, typing indicators, mobile layout, Docker support, security hardening, the permissions system — came from actually using it and noticing what was missing. If I'd tried to design all of that upfront I'd probably still be planning.\n\n \n \n What's next\n\nSquawk is open source under MIT. If you want to self-host your own private voice chat, the setup is genuinely quick — especially with Docker:\n\ngit clone https://github.com/shynsec/squawk.git\ncd squawk\n# Edit Caddyfile with your IP or domain\ndocker compose up -d\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThings I'm thinking about adding next:\n\nUser avatars\n\nPush-to-talk mode\n\nChannel passwords\n\nPersistent message history\n\nIf any of that sounds interesting, or you have ideas, the repo is open. Issues and pull requests welcome.\n\nBuilt by shynsec",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "build",
+      "chat",
+      "csp",
+      "discord",
+      "html",
+      "mit",
+      "opensource",
+      "ownership",
+      "privacy",
+      "private",
+      "security",
+      "selfhosted",
+      "squawk",
+      "tailscale",
+      "tailscale ip",
+      "teamspeak",
+      "text",
+      "think",
+      "voice",
+      "webrtc"
+    ],
+    [
+      "opensource",
+      "privacy",
+      "selfhosted"
+    ]
+  ]
+}

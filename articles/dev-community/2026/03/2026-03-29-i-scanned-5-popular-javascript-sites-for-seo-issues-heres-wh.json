@@ -1,0 +1,41 @@
+{
+  "id": 6832,
+  "source": "DEV Community<",
+  "title": "I Scanned 5 Popular JavaScript Sites for SEO Issues — Here's What I Found",
+  "url": "https://dev.to/jsvisible/i-scanned-5-popular-javascript-sites-for-seo-issues-heres-what-i-found-22ob",
+  "published_at": "2026-03-29T22:07:53Z",
+  "fetched_at": "2026-03-29T22:20:27.969248+00:00",
+  "author": "JSVisible",
+  "summary": "<p>Everyone assumes big tech companies have flawless SEO. I decided to test that. I scanned five well-known JavaScript-heavy sites — react.dev, vercel.com, stripe.com/docs, linear.app, and shopify.com — running 19 SEO health checks across 10 pages each.</p>\n\n<p>Every single site had issues. Some had a lot of them.</p>\n\n<h2>\n  \n  \n  The Scores\n</h2>\n\n<ul>\n<li>\n<strong>react.dev — 74/100</strong> (Best of the group)</li>\n<li>\n<strong>vercel.com — 71/100</strong> (Solid but sloppy on details)</li>\n<li>\n<strong>stripe.com/docs — 60/100</strong> (Surprising for Stripe)</li>\n<li>\n<strong>linear.app — 57/100</strong> (Heavy SPA showing its seams)</li>\n<li>\n<strong>shopify.com — 39/100</strong> (The biggest surprise)</li>\n</ul>\n\n<h2>\n  \n  \n  react.dev — 74/100\n</h2>\n\n<p>React's docs scored highest. Strong internal linking (3.5 avg links/page, zero orphan pages), all pages indexable, proper canonicals and OG tags.</p>\n\n<p>Weak spots: zero structured data on every page, meta descriptions too sho",
+  "full_text": "Everyone assumes big tech companies have flawless SEO. I decided to test that. I scanned five well-known JavaScript-heavy sites — react.dev, vercel.com, stripe.com/docs, linear.app, and shopify.com — running 19 SEO health checks across 10 pages each.\n\nEvery single site had issues. Some had a lot of them.\n\n \n \n The Scores\n\nreact.dev — 74/100 (Best of the group)\n\nvercel.com — 71/100 (Solid but sloppy on details)\n\nstripe.com/docs — 60/100 (Surprising for Stripe)\n\nlinear.app — 57/100 (Heavy SPA showing its seams)\n\nshopify.com — 39/100 (The biggest surprise)\n\n \n \n react.dev — 74/100\n\nReact's docs scored highest. Strong internal linking (3.5 avg links/page, zero orphan pages), all pages indexable, proper canonicals and OG tags.\n\nWeak spots: zero structured data on every page, meta descriptions too short on 9/10 pages, and a JavaScript file that failed to load on /versions. The irony of React's docs having a broken JS file is hard to ignore.\n\n \n \n vercel.com — 71/100\n\nThe Next.js creators get SSR right — all pages indexable, good content depth, OG tags everywhere. But the details slip: missing meta description on /abuse, missing canonical on /academy, missing H1 on a subpage, and 9 orphan pages out of 10 scanned.\n\nInternal linking was surprisingly weak — 0.0 average links per page in the scanned set.\n\n \n \n stripe.com/docs — 60/100\n\nI expected Stripe to ace this. They nail the fundamentals — titles, meta descriptions, H1s, canonicals, OG tags, proper heading hierarchy. Zero orphan pages.\n\nBut: zero structured data on all 10 pages (huge missed opportunity for docs), 7/10 pages missing image alt text, 8/10 pages loading over 3 seconds, and API requests failed on every single page. That last one means some content may not be loading for crawlers.\n\n \n \n linear.app — 57/100\n\nBeautiful product, but SEO tells a different story. Zero structured data, every meta description too short, 8/10 titles too short, all 10 pages slow to load, 4 orphan pages.\n\nThe internal link average was just 0.5/page — the SPA architecture isn't generating proper crawlable links between pages. JS console errors on 2 pages, failed API requests on 2 more.\n\n \n \n shopify.com — 39/100\n\nThe lowest score and the biggest company. The crawler landed on their Dutch locale pages, revealing issues you'd miss checking only the English site.\n\n8/10 pages orphaned. Failed API requests on 7/10 pages. Missing H1s on 2 pages. No structured data on 8/10 pages. Even Shopify has SEO gaps.\n\n \n \n Key Patterns Across All 5 Sites\n\nStructured data is universally neglected. 4 out of 5 sites had zero Schema.org markup on every page scanned. This is free real estate for rich snippets that everyone leaves on the table.\n\nMeta descriptions are an afterthought. Short, generic, or missing. These directly affect click-through rates from search results.\n\nImage alt text is consistently missing. Every site had pages with images lacking alt text. Easy 2-minute fix per image with high accessibility and SEO impact.\n\nInternal linking is weak on SPAs. Linear and Shopify had most pages orphaned. Server-rendered sites (Stripe, React) did better because links exist in the initial HTML.\n\nPage speed is a universal problem. Most pages across all sites took over 3 seconds to load. JavaScript-heavy sites consistently struggle here.\n\nAI crawlers see even less. These scores reflect what Googlebot sees after JS rendering. AI crawlers from ChatGPT and Perplexity don't render JS at all — they only see raw HTML. Sites using client-side rendering are invisible to AI search.\n\n \n \n What You Can Do\n\nCheck your page source. Right-click → View Page Source. If your content isn't in the raw HTML, crawlers aren't seeing it.\n\nAdd structured data. 20-30 minutes per page type, huge ROI for rich snippets.\n\nWrite proper meta descriptions. 150-160 characters, unique per page.\n\nAdd alt text to every image. 2 minutes per image.\n\nFix internal linking. Every important page needs 2-3 internal links. Use real <a href> tags, not JS click handlers.\n\nUse SSR for important pages. Critical now that AI crawlers don't render JavaScript.\n\nNote: these are 10-page scans — a snapshot, not a full audit. But the patterns are consistent and verifiable by viewing page source on any of these sites.\n\nI built JSVisible to automate these checks — it renders pages as both a user and Googlebot and compares the results. Free tier available if you want to try it on your own site.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "crawler",
+      "fail",
+      "internal",
+      "javascript",
+      "key patterns across",
+      "linear",
+      "miss",
+      "orphan",
+      "page",
+      "proper",
+      "react",
+      "schema.org",
+      "seo",
+      "site",
+      "spa",
+      "ssr",
+      "structured",
+      "vercel.com",
+      "webdev",
+      "zero"
+    ],
+    [
+      "webdev"
+    ]
+  ]
+}

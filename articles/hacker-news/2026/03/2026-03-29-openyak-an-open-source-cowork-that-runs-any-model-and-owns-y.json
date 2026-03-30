@@ -1,0 +1,40 @@
+{
+  "id": 6668,
+  "source": "Hacker News",
+  "title": "OpenYak – An open-source Cowork that runs any model and owns your filesystem",
+  "url": "https://github.com/openyak/desktop",
+  "published_at": "2026-03-29T04:26:13Z",
+  "fetched_at": "2026-03-29T05:20:16.769511+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47560380\">Comments</a>",
+  "full_text": "中文\n\n \n\nYour local AI agent — private, powerful, personal.\n\n \n\n OpenYak is an open-source desktop AI assistant that runs entirely on your machine.\n\n Manage files, analyze data, draft documents, and automate office workflows — all without uploading anything to the cloud.\n\nOffice Automation — Batch rename, sort, and clean up files across folders with auditable change logs. No more manual filing.\n\nData Analysis — Parse spreadsheets, CSVs, and documents locally. Spot anomalies, track trends, and export decision-ready reports — without uploading a single file.\n\nContent & Writing — Turn rough notes into polished documents. Draft memos, policy updates, and professional communications in a consistent company tone.\n\nTeam Operations — Merge notes from PDFs, DOCX, and CSVs into structured briefings. Auto-extract action items, assign owners, and track deadlines.\n\nIM Integration — Connect 8+ messaging platforms — WhatsApp, Discord, Telegram, Slack, Feishu, Signal, iMessage — through OpenClaw. Let your AI assistant receive and reply to messages across all your channels from one place.\n\nAutomations — Schedule recurring tasks with cron-based triggers. Daily data digests, weekly reports, automated file cleanup — set it once and let Yak handle it.\n\nRemote Workflows — Start on your desktop, continue on your phone. One-click secure tunnel with QR code access from any device.\n\n100% Local-First — Your data stays on your machine. No cloud storage, no telemetry. Every conversation is yours alone.\n\n100+ AI Models — Access the latest models through OpenRouter — Claude Opus 4.6 & Sonnet 4.6, DeepSeek V3.2, Gemini 3 Flash, GPT-4.1, MiniMax M2.5, Step 3.5 Flash, MiMo-V2-Pro, and more.\n\n20+ BYOK Providers — Bring your own API key for OpenAI, Anthropic, Google, Groq, DeepSeek, Mistral, xAI, and more — including Chinese providers like Qwen, Kimi, MiniMax, and ZhiPu.\n\nChatGPT Subscription — Already paying for ChatGPT? Connect your ChatGPT subscription directly — no extra API costs.\n\n20+ Built-in Tools — File read/write/edit, bash execution, glob/grep search, web fetch, long-term memory, and more.\n\n7 Agent Modes — Specialized agents for building, planning, exploring, and more — with multi-step tool calling and sub-agent nesting.\n\nLong-term Memory — Yak remembers your preferences, work context, and key facts across conversations. Your memory, stored locally.\n\nMCP Connectors — Integrate external tools and services via Model Context Protocol. Connect to any MCP-compatible server.\n\nFree to Start — 1M tokens/week on free models. Pay-as-you-go at OpenRouter prices with zero markup. Or bring your own API key.\n\nDownload the installer for Windows or macOS\n\nConnect a model — use free models instantly, top up for premium models, bring your own API key from 20+ providers, or run locally via Ollama\n\nStart working — manage files, analyze local data, and generate office-ready outputs\n\nLooking for technical details, project structure, or development setup? See frontend/README.md and backend/README.md.\n\n \n \n \n \n\nAGPL-3.0",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "analyze",
+      "automation",
+      "bring",
+      "connect",
+      "content & writing",
+      "datum",
+      "discord",
+      "feishu",
+      "free",
+      "manage",
+      "model",
+      "openrouter",
+      "openyak",
+      "provider",
+      "signal",
+      "slack",
+      "telegram",
+      "upload",
+      "whatsapp",
+      "workflows"
+    ],
+    [
+      "automation"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 6819,
+  "source": "Hacker News",
+  "title": "The \"Vibe Coding\" Wall of Shame",
+  "url": "https://crackr.dev/vibe-coding-failures",
+  "published_at": "2026-03-29T19:42:26Z",
+  "fetched_at": "2026-03-29T20:40:18.319913+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47566491\">Comments</a>",
+  "full_text": "These failures share a common root cause: code was shipped by people who did not understand it. AI generated something that looked correct, passed a cursory check, and went to production. The result was exposed databases, lost orders, and vulnerabilities that required zero user interaction to exploit.\n\nThe pattern is accelerating. CVE entries attributed to AI-generated code jumped from 6 in January 2026 to 35+ in March. A Tenzai study found 69 vulnerabilities across 15 apps built by 5 major AI coding tools. Every single app lacked CSRF protection. Every tool introduced SSRF vulnerabilities.\n\nThe antidote is the same as it has always been: understand your code. Data structures, algorithms, system design, and the ability to reason about what software is actually doing. AI is a powerful tool when wielded by someone who understands the output. Without that understanding, it is a liability.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "attribute",
+      "cod",
+      "cursory",
+      "entry",
+      "failure",
+      "go",
+      "look",
+      "ship",
+      "tenzai",
+      "understand",
+      "vibe coding failures",
+      "vulnerability"
+    ],
+    [
+      "go"
+    ]
+  ]
+}

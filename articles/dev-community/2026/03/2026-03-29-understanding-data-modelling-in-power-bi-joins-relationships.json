@@ -1,0 +1,39 @@
+{
+  "id": 6803,
+  "source": "DEV Community<",
+  "title": "Understanding Data Modelling in Power BI: Joins, Relationships and Schemas Explained.",
+  "url": "https://dev.to/gabriel_njoroge_5be6652c3/understanding-data-modelling-in-power-bi-joins-relationships-and-schemas-explained-29g5",
+  "published_at": "2026-03-29T18:47:45Z",
+  "fetched_at": "2026-03-29T19:20:38.527413+00:00",
+  "author": "Gabriel Njoroge",
+  "summary": "<p>Data Modelling is the most important aspect of a Business Intelligence Implementation. Without a proper data model, <br />\nthe business will not get a true picture of the data. Data Modelling is a process of organizing the data elements and defining how they relate with each other. A good data model adheres to the business rules and assists in quick decision making.<br />\n<strong>Combining Queries Using Joins</strong><br />\nPower BI Supports combining queries using the merge queries option in Query Editor. It supports all the different types<br />\nof SQL Joins. Joins are used to display the data from multiple tables or when merging two tables based on a join condition. These are the various types of joins present in Power BI</p>\n\n<ul>\n<li><p><strong>Inner Join:</strong> Only the matching rows between the two tables are returned, else it returns zero rows.</p></li>\n<li><p><strong>Left Join:</strong>It returns all the rows from the first table and only the matching rows from the secon",
+  "full_text": "Data Modelling is the most important aspect of a Business Intelligence Implementation. Without a proper data model, \n\nthe business will not get a true picture of the data. Data Modelling is a process of organizing the data elements and defining how they relate with each other. A good data model adheres to the business rules and assists in quick decision making.\n\nCombining Queries Using Joins\n\nPower BI Supports combining queries using the merge queries option in Query Editor. It supports all the different types\n\nof SQL Joins. Joins are used to display the data from multiple tables or when merging two tables based on a join condition. These are the various types of joins present in Power BI\n\nInner Join: Only the matching rows between the two tables are returned, else it returns zero rows.\n\nLeft Join:It returns all the rows from the first table and only the matching rows from the second table.\n\nRight Join: Right join is opposite to the left join. It returns all the rows from the second table and only the matching rows from the first table.\n\nFull Outer Join:It returns all the rows present in the first and the second table.\n\nLeft Anti:It returns all the rows from the first table which do not have a match in the second table.\n\nRight Anti:It returns all the rows from the second table which do not have a match in the first table.\n\nPower BI Relationships\n\nRelationship in Power BI is an important activity while creating a data model. Relationship between two tables work by matching the data in the Key Columns. In a typical environment, two tables are created based on the Primary Key on one table and foreign Key on another table. Usually the columns/fields having the same name between the tables are assumed to be related, though this may be true/not.\n\nThere are three Kinds of relationships/cardinalities between the tables which are as follows\n\nMany to one(*:1):This is the default relationship and means that many rows in one table relates to one row in another table.\n\nOne to One(1:1):In this relationship, one row in the first table is related to one row in the second table.\n\nMany to Many:In this relationship, many rows in the first table relates to many rows in the second table\n\nKey Concepts to Consider in Data Relationships\n\nCross Filter Direction\n\nActive/Inactive Relationship\n\nActive-used by default in visuals \n\nInactive-Must be activated by DAX\n\n(USERELATIONSHIP()) \n\nThe Main difference between Joins and Relationship is a join combines tables into one single table while a relationship \n\nlinks tables but keeps them separate\n\nDIMENSION AND FACT TABLES\n\nDimensions and Facts: Dimension and Fact tables are the \n\nmain ingredients of any Business Intelligence implementation.\n\nThey are used to form the Star or the Snowflake Schemas which\n\nare designed as part of building a data warehouse or a data\n\nmart.\n\nDimension table:It contains the qualitative/descriptive \n\nattribute of the data. For example, Customer Dimension may contain information about the Customer such as Customer Name,\n\naddress, contact number and so on. The dimensions field contain\n\nthe textual/character type of data. It contains the Primary Key\n\nwith the respective foreign key in the fact table.\n\nThere are different types of Dimension Tables, some of the commonly used ones are as follows\n\nSlowly Changing Dimensions(SCD):It is a dimension table where the row of data in the table varies with time. It is used\n\nto track current and historical data.\n\nConformed Dimensions:A dimension table is said to be conformed if it has the same context and content when used with \n\nthe different fact tables\n\nRole-Playing dimensions:A Single dimension table can be joined many times to a fact table. This can be done by creating\n\nmultiple copies of the dimension.\n\nFact Table:It contains the foreign keys of the dimensions table. It stores the quantitative attribute of the data.\n\nSome of the other common fact tables are\n\nFact-less fact-table:This fact table contains only the foreign keys of the dimension tables and does not contain any\n\nmeasure values.\n\nConformed fact tables:Similar to the conformed dimensions,\n\nthe conformed fact tables are used across multiple dimension\n\nmodels.\n\nThe dimension table and fact table are the basis of the star schema.\n\nStar Schema\n\nStar Schemas are created in a data warehouse and data mart \n\nenvironments. It consists of the fact and dimension tables. The\n\nshape of the star schema is such that the fact table is in the\n\nmiddle, surrounded by multiple dimension tables. The Schema\n\nassumes the shape of a star and hence the name.\n\nA star schema supports querying huge amount of data stored in\n\na typical data warehouse storage system. The queries run against\n\nthe star schema are faster due to the reduced number of joins to\n\nquery the data. Since the fact table contains the foreign keys of\n\nthe dimensions table, during the ETL Process, the dimension tables\n\nare loaded before the fact tables.\n\nSnowflake Schema\n\nIt is also used in the data warehouse and data marts. It is an extension of the star schema. In a star schema, each dimension is\n\nstored in a single dimension table, whereas in a snowflake schema,\n\na dimension explodes or has a lookup table.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bi supports",
+      "conformed",
+      "contain",
+      "data",
+      "data modelling",
+      "database",
+      "dimension",
+      "fact",
+      "kinds",
+      "power bi",
+      "query",
+      "relationship",
+      "row",
+      "schema",
+      "sql",
+      "star",
+      "table",
+      "the key columns",
+      "the primary key",
+      "understanding data modelling",
+      "userelationship"
+    ],
+    []
+  ]
+}

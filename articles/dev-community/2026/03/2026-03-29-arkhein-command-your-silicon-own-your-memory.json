@@ -1,0 +1,45 @@
+{
+  "id": 6735,
+  "source": "DEV Community<",
+  "title": "Arkhein: Command Your Silicon. Own Your Memory.",
+  "url": "https://dev.to/melasistema/arkhein-command-your-silicon-own-your-memory-egg",
+  "published_at": "2026-03-29T12:28:06Z",
+  "fetched_at": "2026-03-29T13:20:27.512900+00:00",
+  "author": "Luca Visciola",
+  "summary": "<p><strong>Sovereign macOS Agent · Local-first, zero-cloud intelligence · Alpha v0.0.4</strong></p>\n\n\n\n\n<p>Most AI tools make a trade you didn't explicitly agree to. You send a query, it travels to a remote server, gets processed alongside millions of others, and an answer comes back. The model learns. The platform profits. Your data stays theirs.</p>\n\n<p>Arkhein is built on a different premise entirely: what if the intelligence lived on your machine, reported to no one, and cost you nothing beyond the hardware you already own?</p>\n\n\n\n\n<h2>\n  \n  \n  What Is Arkhein?\n</h2>\n\n<p>Arkhein is a native macOS application — built with <a href=\"https://nativephp.com/\" rel=\"noopener noreferrer\">NativePHP</a> on top of Laravel, Vue 3, and TypeScript — that runs a complete AI reasoning pipeline entirely on your local hardware. No API keys. No cloud dependency. No data ever crosses the hardware boundary.</p>\n\n<p>It is described simply as a <em>Sovereign macOS Agent</em>: local-first, zero-cloud intel",
+  "full_text": "Sovereign macOS Agent · Local-first, zero-cloud intelligence · Alpha v0.0.4\n\nMost AI tools make a trade you didn't explicitly agree to. You send a query, it travels to a remote server, gets processed alongside millions of others, and an answer comes back. The model learns. The platform profits. Your data stays theirs.\n\nArkhein is built on a different premise entirely: what if the intelligence lived on your machine, reported to no one, and cost you nothing beyond the hardware you already own?\n\n \n \n What Is Arkhein?\n\nArkhein is a native macOS application — built with NativePHP on top of Laravel, Vue 3, and TypeScript — that runs a complete AI reasoning pipeline entirely on your local hardware. No API keys. No cloud dependency. No data ever crosses the hardware boundary.\n\nIt is described simply as a Sovereign macOS Agent: local-first, zero-cloud intelligence powered by Ollama for local inference and Vektor for vector search. The entire codebase is open source under the MIT License and available on GitHub.\n\n \n \n The Architecture\n\nArkhein is composed of four interlocking systems, each designed to keep intelligence local and the operator in control.\n\n \n \n 1. The Vantage Hub — Verticalized Knowledge Silos\n\nRather than dumping all documents into a single shared vector pool, Arkhein organizes knowledge into Sovereign Silos — isolated, physical partitions that follow a strict hierarchy:\n\nSilo (Folder) → Vessel (Document) → Fragment (Chunk)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis structure enables Parent-Aware RAG: before retrieving a single fragment, the agent already understands the document summary and the subfolder depth. The result is 100% topical isolation — your medical research never bleeds into your client contracts, and Project A never contaminates Project B.\n\nYou authorize exactly which folders Arkhein can access. Everything else on your filesystem remains untouched.\n\n \n \n 2. The Mind — Local Inference via Ollama\n\nInference is handled entirely by Ollama, running locally on your Mac. But Arkhein doesn't simply prompt a model and relay the output — it runs a Multi-Stage Sovereign Arbiter pipeline: a JSON-based reasoning engine that classifies query intent before triggering any retrieval.\n\nA dedicated Dispatcher module determines what kind of query you're making — retrieval, synthesis, filesystem command, or creative generation — and routes it accordingly. The agent thinks before it acts.\n\nTwo compute profiles let you match the workload to your hardware:\n\nProfile\nModels\nRecommended RAM\n\nEfficient\nMistral + Nomic Embed\n8 GB – 16 GB\n\nElite\nQwen3 Suite\n32 GB+\n\nThe agent also mirrors your language automatically — write in English, Italian, French, or any other language, and the Archivist responds in kind, without any configuration required.\n\n \n \n 3. The Memory — Self-Healing SSOT\n\nThe memory layer uses a two-component architecture designed for reliability and zero-downtime operation:\n\nSQLite serves as the Single Source of Truth. All document chunks, metadata, and hierarchy information live here — inspectable, portable, and entirely under your control.\n\nVektor acts as the binary accelerator layer — a disposable vector index built on top of SQLite. If the index becomes inconsistent (for example, due to a dimensional mismatch after switching models), Arkhein automatically detects the issue, discards the index, and rebuilds it using shadow partitions — without taking the system offline.\n\nThe archive remains accessible throughout any rebuild. No data loss, no service interruption.\n\n \n \n 4. The Hand — Filesystem Control\n\nArkhein can issue filesystem commands — /create, /move, /organize, /delete — with surgical precision. Every action, however, requires a verified Strategic Plan that the operator explicitly approves before execution.\n\nThis Human-in-the-Loop model is a core design principle. The agent proposes; you decide; Arkhein executes. You remain the final authority at every step.\n\n \n \n The Sovereign Archivist\n\nAbove the individual silos sits the Sovereign Archivist: a centralized module for global RAG and system-wide intelligence. Use it to search across all authorized silos simultaneously, or to analyze the system architecture itself. It provides a high-level summary view of everything Arkhein has indexed, and routes cross-silo queries for maximum relevance.\n\n \n \n Getting Started\n\nPrerequisites: macOS (Apple Silicon), Ollama, PHP 8.4, Node 22.\n\nStep 1 — Pull the inference models:\n\n# Efficient Profile (Standard — 8GB–16GB RAM)\nollama pull mistral\nollama pull nomic-embed-text\n\n# Elite Profile (Optional — 32GB+ RAM)\nollama pull qwen3\nollama pull qwen3:8b\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nStep 2 — Initialize the application:\n\ncomposer install && npm install\nphp artisan native:migrate\nphp artisan native:serve\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nStep 3 — Configure:\n\nOpen Settings, authorize your knowledge silos, select a compute profile, and monitor the System Heartbeat to confirm all services are active.\n\n \n \n The Stack\n\nLayer\nTechnology\n\nDesktop Runtime\nNativePHP\n\nBackend\nLaravel (PHP 8.4)\n\nFrontend\nVue 3 + TypeScript\n\nLocal Inference\nOllama\n\nVector Search\nVektor\n\nDatabase\nSQLite\n\nBuild Tooling\nVite + Node 22\n\nLicense\nMIT\n\n \n \n Current Status\n\nArkhein v0.0.4 Alpha is available now for Apple Silicon Macs. The architecture is stable and the core pipeline is fully operational. As an alpha release, rough edges remain — this is software built in the open, not after the fact.\n\nThe alpha .dmg is available for direct download from the official website. The full source is available on GitHub, check it out.\n\n \n \n Download & Links",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agents",
+      "ai",
+      "alpha",
+      "api",
+      "architecture",
+      "arkhein",
+      "build",
+      "filesystem",
+      "inference",
+      "laravel",
+      "ollama",
+      "ollama\n\ninference",
+      "parent-aware rag",
+      "privacy",
+      "project a",
+      "pull",
+      "silo",
+      "slm",
+      "sovereign",
+      "the architecture\n\narkhein",
+      "the mit license",
+      "typescript"
+    ],
+    [
+      "agents",
+      "architecture",
+      "privacy",
+      "slm"
+    ]
+  ]
+}
