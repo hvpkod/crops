@@ -1,0 +1,44 @@
+{
+  "id": 6937,
+  "source": "DEV Community<",
+  "title": "LinkedIn Uses 2.4 GB of RAM Across Two Tabs. We All Just Shrugged.",
+  "url": "https://dev.to/adioof/linkedin-uses-24-gb-of-ram-across-two-tabs-we-all-just-shrugged-chi",
+  "published_at": "2026-03-30T10:17:56Z",
+  "fetched_at": "2026-03-30T10:20:20.496609+00:00",
+  "author": "Aditya Agarwal",
+  "summary": "<p>LinkedIn is using 2.4 GB of RAM across two tabs. Two tabs. Not twenty. Two.</p>\n\n<p>A Hacker News thread over the weekend hit 600+ points as developers shared their horror stories. One person saw a single LinkedIn tab at 3.2 GB while every other tab sat under 200 MB. One watched its memory climb to 42 GB, traced to a third-party bot prevention service merrily running in the background.</p>\n\n<p>And you know what? Nobody was surprised. That's the problem.</p>\n\n\n\n\n<h2>\n  \n  \n  We Have Normalized This\n</h2>\n\n<p>The median web page now ships 780 KB of JavaScript according to HTTP Archive data from February 2026. That's up from 540 KB just a couple of years ago — a 44% increase. The median page itself weighs 2.2 MB and fires off 24 JavaScript requests before it even renders.</p>\n\n<p>But it's the edges that are truly absurd. One major news site was caught serving 49 MB of data for four headlines. That's roughly the size of Windows 95. Loading it required 422 network requests and took two f",
+  "full_text": "LinkedIn is using 2.4 GB of RAM across two tabs. Two tabs. Not twenty. Two.\n\nA Hacker News thread over the weekend hit 600+ points as developers shared their horror stories. One person saw a single LinkedIn tab at 3.2 GB while every other tab sat under 200 MB. One watched its memory climb to 42 GB, traced to a third-party bot prevention service merrily running in the background.\n\nAnd you know what? Nobody was surprised. That's the problem.\n\n \n \n We Have Normalized This\n\nThe median web page now ships 780 KB of JavaScript according to HTTP Archive data from February 2026. That's up from 540 KB just a couple of years ago — a 44% increase. The median page itself weighs 2.2 MB and fires off 24 JavaScript requests before it even renders.\n\nBut it's the edges that are truly absurd. One major news site was caught serving 49 MB of data for four headlines. That's roughly the size of Windows 95. Loading it required 422 network requests and took two full minutes.\n\n \n \n We Got Here on Purpose\n\nThis isn't a bug. This is the natural result of every team shipping features without anyone asking \"what does this cost the user?\"\n\nThe Standish Group found that 64% of software features are rarely or never used. Pendo's research puts it at 80%. Yet every one of those unused features still loads JavaScript, registers event listeners, and leaks memory.\n\nSingle-page architectures made it worse. SPAs front-load massive bundles, create labyrinthine state trees, and rarely clean up after themselves.\n\n→ React components that don't unmount properly\n\n→ Timers that never get cleared\n\n→ Caches that grow forever\n\nWe optimized for developer experience and shipping speed. The user's browser got the bill.\n\n \n \n The Part That Actually Hurts\n\nWeb bloat isn't just annoying. According to HTTP Archive and the Web Sustainability Guidelines community, the internet produces roughly 1 billion tons of CO2 annually — on par with the global aviation industry. Data centers consumed 460 terawatt-hours in 2022 and projections point to 620–1,050 TWh by 2026.\n\nFor users on lower-end devices, some \"simple\" web pages now run worse than PUBG, according to a Tom's Hardware analysis. That's not a joke. A web page. Running worse than a battle royale game.\n\nAnd for businesses, Google's Core Web Vitals directly penalize bloated sites in search rankings. Every extra second of load time costs conversions.\n\n \n \n The Web Used to Be Light\n\nI remember when a 100 KB page was considered heavy. When developers debated whether to include jQuery because 30 KB felt like a lot.\n\nNow we ship 780 KB of JavaScript as a baseline and call it \"normal.\" We build pages that need more RAM than desktop applications from five years ago. We treat performance optimization as a nice-to-have instead of a requirement.\n\nLinkedIn isn't the exception. It's the norm. And that's what should scare every developer reading this.\n\nThe question isn't \"why does LinkedIn use 2.4 GB of RAM?\" It's \"why did we all decide that was acceptable?\"\n\nWhat's the most bloated website you've dealt with, and did anything actually get done about it? 👇",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bad",
+      "bloated",
+      "core web vitals",
+      "developer",
+      "discuss",
+      "google",
+      "hacker news",
+      "http",
+      "javascript",
+      "linkedin",
+      "median",
+      "page",
+      "pendo",
+      "programming",
+      "ram",
+      "rarely",
+      "react",
+      "run",
+      "shipping",
+      "the standish group",
+      "timers",
+      "webdev"
+    ],
+    [
+      "discuss",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

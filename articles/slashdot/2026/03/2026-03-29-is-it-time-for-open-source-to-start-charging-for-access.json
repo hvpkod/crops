@@ -1,0 +1,37 @@
+{
+  "id": 6852,
+  "source": "Slashdot",
+  "title": "Is It Time For Open Source to Start Charging For Access?",
+  "url": "https://developers.slashdot.org/story/26/03/29/2343236/is-it-time-for-open-source-to-start-charging-for-access?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-29T23:46:00Z",
+  "fetched_at": "2026-03-30T01:00:26.424953+00:00",
+  "author": "EditorDavid",
+  "summary": "\"It's time to charge for access,\" argues a new opinion piece at The Register. Begging billion-dollar companies to fund open source projects just isn't enough, writes long-time tech reporter Steven J. Vaughan-Nichols:\n\n\nScrew fair. Screw asking for dimes. You can't live off one-off charity donations... Depending on what people put in a tip jar is no way to fund anything of value... [A]ccording to a 2024 Tidelift maintainer report, 60 percent of open source maintainers are unpaid, and 60 percent have quit or considered quitting, largely due to burnout and lack of compensation. Oh, and of those getting paid, only 26 percent earn more than $1,000 a year for their work. They'd be better paid asking \"Would you like fries with that?\" at your local McDonald's... \n\nSome organizations do support maintainers, for example, there's HeroDevs and its $20 million Open Source Sustainability Fund. Its mission is to pay maintainers of critical, often end-of-life open source components so they can keep sh",
+  "full_text": "\"It's time to charge for access,\" argues a new opinion piece at The Register\n\n. Begging billion-dollar companies to fund open source projects just isn't enough, writes long-time tech reporter Steven J. Vaughan-Nichols:\n\nScrew fair. Screw asking for dimes. You can't live off one-off charity donations... Depending on what people put in a tip jar is no way to fund anything of value... [A]ccording to a 2024 Tidelift maintainer report, 60 percent of open source maintainers are unpaid, and 60 percent have quit or considered quitting, largely due to burnout and lack of compensation. Oh, and of those getting paid, only 26 percent earn more than $1,000 a year for their work. They'd be better paid asking \"Would you like fries with that?\" at your local McDonald's...\n \n\nSome organizations do support maintainers, for example, there's HeroDevs and its $20 million Open Source Sustainability Fund. Its mission is to pay maintainers of critical, often end-of-life open source components so they can keep shipping patches without burning out. Sentry's Open Source Pledge/Fund has given hundreds of thousands of dollars per year directly to maintainers of the packages Sentry depends on. Sentry is one of the few vendors that systematically maps its dependency tree and then actually cuts checks to the people maintaining that stack, as opposed to just talking about \"giving back.\" \n \n\nSentry is on to something. We have the Linux Foundation to manage commercial open source projects, the Apache Foundation to oversee its various open source programs, the Open Source Initiative (OSI) to coordinate open source licenses, and many more for various specific projects. It's time we had an organization with the mission of ensuring that the top programmers and maintainers of valuable open source projects get a cut of the tech billionaire pie. \n \n\nWe must realign how businesses work with open source so that payment is no longer an optional charitable gift but a cost of doing business. To do that, we need an organization to create a viable, supportable path from big business to individual programmer. It's time for someone to step up and make this happen. Businesses, open source software, and maintainers will all be better off for it.\n \n\nOne possible future... Bruce Perens wrote the original Open Source definition in 1997, and now proposes a not-for-profit corporation developing \"the Post Open Collection\" of software\n\n, distributing its licensing fees to developers while providing services like user support, documentation, hardware-based authentication for developers, and even help with government compliance and lobbying.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ask",
+      "maintainer",
+      "mcdonald",
+      "open",
+      "opensource",
+      "organization",
+      "osi",
+      "payments",
+      "screw",
+      "sentry",
+      "source",
+      "tech",
+      "the apache foundation",
+      "the linux foundation",
+      "various",
+      "well"
+    ],
+    [
+      "opensource",
+      "tech"
+    ]
+  ]
+}

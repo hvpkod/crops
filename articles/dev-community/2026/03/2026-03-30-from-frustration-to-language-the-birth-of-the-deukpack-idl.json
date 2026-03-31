@@ -1,0 +1,42 @@
+{
+  "id": 6912,
+  "source": "DEV Community<",
+  "title": "From Frustration to Language: The Birth of the DeukPack IDL",
+  "url": "https://dev.to/joygram/from-frustration-to-language-the-birth-of-the-deukpack-idl-6m7",
+  "published_at": "2026-03-30T06:54:41Z",
+  "fetched_at": "2026-03-30T07:20:29.820886+00:00",
+  "author": "joygram",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fiwlb0d9rcomdpo4xphyt.png\"><img alt=\"DeukPack Brand Image\" height=\"446\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fiwlb0d9rcomdpo4xphyt.png\" width=\"800\" /></a></p>\n\n<p>\"Why not just use Thrift? What about Protobuf?\"</p>\n\n<p>These are the first questions we hear whenever we introduce DeukPack. And they're fair questions. Thrift and Protobuf are proven, battle-tested tools. We used them successfully for years. The problem was what started <strong>becoming visible only after we'd used them well</strong>.</p>\n\n<p>This is not an article about introducing a new IDL tool. It's an engineering story about <strong>how the friction we accumulated fighti",
+  "full_text": "\"Why not just use Thrift? What about Protobuf?\"\n\nThese are the first questions we hear whenever we introduce DeukPack. And they're fair questions. Thrift and Protobuf are proven, battle-tested tools. We used them successfully for years. The problem was what started becoming visible only after we'd used them well.\n\nThis is not an article about introducing a new IDL tool. It's an engineering story about how the friction we accumulated fighting with legacy tools solidified into a design philosophy—and how that philosophy was eventually realized in code.\n\n \n \n 1. Where the Problem Started: \"Nobody Knows What This message Is\"\n\nAs our systems grew, we started to feel the limits of what the word message could communicate.\n\n// Legacy Protobuf IDL — Is this a DB table? A network packet? Excel data?\nmessage Item {\n int64 item_id = 1;\n string name = 2;\n int32 quantity = 3;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIn production, this single Item was being used in three different places simultaneously:\n\nServer: As an inventory query response payload sent to the client\n\nDesigner Tools: As a row in the item master data that designers managed in Excel\n\nDatabase: As a row in a table storing per-user inventory state\n\nBut the .proto file makes zero distinction between these three contexts. When you ask an AI coding assistant to \"write code that handles this Item,\" the AI guesses which of the three contexts you mean—and that guess is often wrong.\n\nThe deeper problem: it takes time to realize the guess was wrong.\n\n \n \n 2. Searching for a Solution: \"Should We Just Abandon Legacy Tools?\"\n\nAt first, the fix seemed simple. \"What if we used a more expressive IDL? Or differentiated contexts with comments?\"\n\nTwo realities shut that down quickly.\n\nThe Weight of Legacy: Tens of thousands of lines of .proto or .thrift files had accumulated. Telling the team \"let's throw it all away and migrate to a new IDL\" was simply not a realistic option.\n\nComments Don't Enforce Anything: Expressing intent through comments provides no enforcement. The AI, the compiler, and your colleagues can all ignore them freely.\n\nThis is where the design direction crystallized:\n\n\"We don't discard legacy. Instead, we layer what legacy cannot express on top of it.\"\n\n \n \n 3. Design Philosophy: Embedding a 'Data Identity Card' into IDL Syntax\n\nThis philosophy led to DeukPack's Declaration Kinds design.\n\nWhere legacy IDLs lumped everything into struct, DeukPack distinguishes data by its purpose at the syntax level.\n\nnamespace game\n\n// Item master data — read from files, managed in Excel.\nrecord ItemMaster {\n 1> int64 itemId\n 2> string name\n 3> int32 maxStack\n}\ntable<ItemMaster> = { key: \"itemId\" }\n\n// Inventory DB row — manages per-user persistent state.\nentity UserInventory {\n 1> [key] int64 userId\n 2> int64 itemId\n 3> int32 quantity\n}\n\n// Item query response packet — a one-way transient payload.\nkeyword message_scope 10000\nmessage<10001> ItemQueryResponse {\n 1> list<ItemInfo> items\n 2> int32 totalCount\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis distinction produces tangible changes in three directions at once:\n\nThe Compiler: Generates Excel serialization code for table, DB mapping code for entity, and optimized binary serialization for message<N>—each one correct and different.\n\nAI Coding Tools: The declaration keyword alone tells the AI what context this data lives in. The surface area for generating wrong-context code shrinks dramatically.\n\nDevelopers: Someone reading the code for the first time doesn't waste time guessing what this struct is for.\n\n \n \n 4. \"What About Legacy?\" — The Mixed Architecture Answer\n\nOnce the philosophy was set, the next question was unavoidable:\n\n\"What do we do with existing .proto or .thrift files that are already running in production?\"\n\nThe DeukPack engine was designed to read .proto, .thrift, and .deuk files simultaneously. Existing files are imported with include and DeukPack features are layered on top—no modifications required.\n\n// Include the existing Protobuf file as-is — zero file modifications\ninclude \"legacy/item_base.proto\"\n\n// Use the legacy record directly, just register it as a table\ntable<item_base.Item> = { key: \"item_id\" }\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe legacy files are untouched—not a single line changed. The DeukPack engine parses both files together, merges them into a single Unified AST, and generates code in the target language (C#, TypeScript, C++, and more) from that shared representation.\n\n \n \n 5. \"How Is This Even Possible?\" — The Technical Foundation of the Unified AST\n\nThe reason all of this works is that inside the DeukPack engine, every IDL—regardless of origin—is transformed into a single, common AST structure.\n\n [Input Sources] [Unified AST Hub] [Output Code]\n\n legacy.proto (Protobuf) ----+\n |\n legacy.thrift (Thrift) ----+--> [ DeukPack Engine ] --> C# / TS / C++\n | (AST)\n new_logic.deuk (Deuk) ----+\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThere's a dedicated parser for .thrift files and a separate one for .deuk files—but both parsers produce the same DeukPackAST as output. The code generators look only at the AST; they don't care what the source format was.\n\nThe AST carries more than type information. It embeds declarationKind (record, entity, message, table), bracket attributes ([key], [split], etc.), and doc comments—all preserved. Generators read this rich metadata to produce code that precisely matches each declaration's Intent.\n\n \n \n Conclusion: Accumulated Frustration Becomes Design, Which Becomes Language\n\nThe reason DeukPack IDL looks superficially similar to Thrift or Protobuf—while carrying a fundamentally different philosophy inside—is that it was designed to precisely target the problems legacy tools left unsolved.\n\nThrowing everything out and starting fresh is easy. Preserving what works, while carefully filling in what was always missing on top of it—that's harder, and in practice, far more valuable.\n\nContinues in the next article:\n\n[Designing the Unified AST Hub: Making Multi-Protocol Co-existence Possible] goes deeper into how the engine that makes this mixed architecture possible is structured internally.\n\n \n \n 🔗 DeukPack Ecosystem\n\nDeukPack aims for a technical ecosystem where AI and human developers grow together, preventing fragmentation in complex systems.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "architecture",
+      "ast",
+      "code",
+      "deuk",
+      "deukpack",
+      "deukpack engine",
+      "devlogs",
+      "doc",
+      "exist",
+      "file",
+      "fullscreen",
+      "item",
+      "legacy",
+      "mode",
+      "philosophy",
+      "programming",
+      "protobuf",
+      "syntax",
+      "the technical foundation",
+      "typescript",
+      "userinventory"
+    ],
+    [
+      "devlogs",
+      "programming"
+    ]
+  ]
+}

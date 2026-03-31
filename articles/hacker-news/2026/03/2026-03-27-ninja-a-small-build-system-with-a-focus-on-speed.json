@@ -1,0 +1,34 @@
+{
+  "id": 6931,
+  "source": "Hacker News",
+  "title": "ninja: a small build system with a focus on speed",
+  "url": "https://github.com/ninja-build/ninja",
+  "published_at": "2026-03-27T10:23:38Z",
+  "fetched_at": "2026-03-30T08:00:41.057952+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47540903\">Comments</a>",
+  "full_text": "Ninja is a small build system with a focus on speed.\nhttps://ninja-build.org/\n\nSee the manual or\ndoc/manual.asciidoc included in the distribution for background\nand more details.\n\nBinaries for Linux, Mac and Windows are available on\nGitHub.\nRun ./ninja -h for Ninja help.\n\nInstallation is not necessary because the only required file is the\nresulting ninja binary. However, to enable features like Bash\ncompletion and Emacs and Vim editing modes, some files in misc/ must be\ncopied to appropriate locations.\n\nIf you're interested in making changes to Ninja, read\nCONTRIBUTING.md first.\n\nYou can either build Ninja via the custom generator script written in Python or\nvia CMake. For more details see\nthe wiki.\n\n./configure.py --bootstrap\n\nThis will generate the ninja binary and a build.ninja file you can now use\nto build Ninja with itself.\n\nIf you have a GoogleTest source directory, you can build the tests\nby passing its path with --gtest-source-dir=PATH option, or the\nGTEST_SOURCE_DIR environment variable, e.g.:\n\n./configure.py --bootstrap --gtest-source-dir=/path/to/googletest\n./ninja all # build ninja_test and other auxiliary binaries\n./ninja_test # run the unit-test suite.\n\nUse the CMake build below if you want to use a preinstalled binary\nversion of the library.\n\nTo build the ninja binary without building the unit tests, disable test building\nby setting BUILD_TESTING to OFF:\n\ncmake -Bbuild-cmake -DBUILD_TESTING=OFF\ncmake --build build-cmake\n\nThe ninja binary will now be inside the build-cmake directory (you can\nchoose any other name you like).\n\nTo run the unit tests, omit the -DBUILD_TESTING=OFF option, and after\nbuilding, run:\n\nYou must have asciidoc and xsltproc in your PATH, then do:\n\n./configure.py\nninja manual doc/manual.html\n\nWhich will generate doc/manual.html.\n\nTo generate the PDF version of the manual, you must have dblatext in your PATH\nthen do:\n\n./configure.py # only if you didn't do it previously.\nninja doc/manual.pdf\n\nWhich will generate doc/manual.pdf.\n\nIf you have doxygen installed, you can build documentation extracted from C++\ndeclarations and comments to help you navigate the code. Note that Ninja is a\nstandalone executable, not a library, so there is no public API, all details\nexposed here are internal.\n\n./configure.py # if needed\nninja doxygen\n\nThen open doc/doxygen/html/index.html in a browser to look at it.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "binary",
+      "build",
+      "cmake",
+      "doc",
+      "doc/doxygen/html/index.html",
+      "doc/manual.html",
+      "doxygen",
+      "file",
+      "generate",
+      "googletest",
+      "manual",
+      "ninja",
+      "path",
+      "pdf",
+      "unit",
+      "windows"
+    ],
+    []
+  ]
+}

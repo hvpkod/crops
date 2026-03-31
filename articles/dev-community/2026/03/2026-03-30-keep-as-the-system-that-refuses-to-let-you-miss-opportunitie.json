@@ -1,0 +1,43 @@
+{
+  "id": 6853,
+  "source": "DEV Community<",
+  "title": "Keep_AS — The System That Refuses to Let You Miss Opportunities",
+  "url": "https://dev.to/asamaes/keepas-the-system-that-refuses-to-let-you-miss-opportunities-57hg",
+  "published_at": "2026-03-30T01:08:55Z",
+  "fetched_at": "2026-03-30T01:20:16.430679+00:00",
+  "author": "Asmae",
+  "summary": "<p>This is a submission for the Notion MCP Challenge</p>\n\n\n\n\n<h1>\n  \n  \n  🧠 Keep_AS — The system that refuses to let you fail\n</h1>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>There is a moment we all know.</p>\n\n<p>You find an opportunity.<br />\nA job. A scholarship. A hackathon.</p>\n\n<p>You tell yourself:<br />\n“I’ll do it later.”</p>\n\n<p>Later becomes tomorrow.<br />\nTomorrow becomes never.</p>\n\n<p>And nothing crashes.<br />\nNo error message.<br />\nNo alarm.</p>\n\n<p>Just… silence.</p>\n\n<p>And another opportunity dies.</p>\n\n\n\n\n<p><strong>Keep_AS was born from that frustration.</strong></p>\n\n<p>Not because we lack talent.<br />\nBut because we lack <em>execution systems</em>.</p>\n\n\n\n\n<h3>\n  \n  \n  💡 The Idea\n</h3>\n\n<p>Keep_AS is not a productivity app.</p>\n\n<p>It’s an <strong>AI-powered execution system</strong> that:</p>\n\n<ul>\n<li>Takes an opportunity (job, project, goal)</li>\n<li>Breaks it into structured, actionable tasks</li>\n<li>Tracks your behavior</li>\n<li>Pushes you to act</li>\n<li>And ",
+  "full_text": "Notion MCP Challenge Submission 🧠\n\n \n \n\n \n\nThis is a submission for the Notion MCP Challenge\n\n \n \n 🧠 Keep_AS — The system that refuses to let you fail\n\n \n \n What I Built\n\nThere is a moment we all know.\n\nYou find an opportunity.\n\nA job. A scholarship. A hackathon.\n\nYou tell yourself:\n\n“I’ll do it later.”\n\nLater becomes tomorrow.\n\nTomorrow becomes never.\n\nAnd nothing crashes.\n\nNo error message.\n\nNo alarm.\n\nJust… silence.\n\nAnd another opportunity dies.\n\nKeep_AS was born from that frustration.\n\nNot because we lack talent.\n\nBut because we lack execution systems.\n\n \n \n 💡 The Idea\n\nKeep_AS is not a productivity app.\n\nIt’s an AI-powered execution system that:\n\nTakes an opportunity (job, project, goal)\n\nBreaks it into structured, actionable tasks\n\nTracks your behavior\n\nPushes you to act\n\nAnd refuses to let you ignore what matters\n\n \n \n 🎥 Video Demo\n\n \n \n 💻 Show us the code\n\n \n \n ⚙️ How It Works\n\n \n \n 1. Input: Raw Opportunity\n\nUser pastes something like:\n\n“Software Engineer Internship — Deadline March 30 — Requires CV, cover letter, portfolio”\n\n \n \n 2. AI Parsing\n\nWe use an AI parser to extract:\n\nDeadline\n\nRequired documents\n\nSkills\n\nPriority\n\n \n \n 3. Task Generation\n\nThe system transforms it into a task graph:\n\nPrepare CV\n\nWrite Cover Letter\n\nBuild Portfolio\n\nSubmit Application\n\nTrack Deadline\n\n \n \n 4. Notion MCP Integration (Core of this project)\n\nThis is where the magic happens.\n\nUsing Notion MCP, Keep_AS becomes a real system:\n\n \n \n 🔹 A Notion Database is created automatically\n\nEach task becomes a structured entry:\n\nTask\nStatus\nPriority\nDue Date\n\nPrepare CV\nTodo\nHigh\nMarch 28\n\n \n \n 🔹 Real-time updates\n\nTasks are updated as you progress\n\nStatus changes trigger behavior tracking\n\n \n \n 🔹 Human-in-the-loop system\n\nNotion acts as:\n\nThe interface\n\nThe memory\n\nThe control system\n\n \n \n 🧩 System Architecture\n\n User Input (Opportunity)\n │\n ▼\n┌─────────────────────┐\n│ AI Parser │\n└─────────────────────┘\n │\n ▼\n┌─────────────────────┐\n│ Task Graph Generator│\n└─────────────────────┘\n │\n ▼\n┌─────────────────────┐\n│ Notion MCP │\n│ (Database + Pages) │\n└─────────────────────┘\n │\n ▼\n┌─────────────────────┐\n│ Momentum Engine │\n│ (Behavior Tracking) │\n└─────────────────────┘\n │\n ▼\n┌─────────────────────┐\n│ User Feedback Loop │\n└─────────────────────┘\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis creates:\n\nAccountability\n\nUrgency\n\nPsychological pressure (the good kind)\n\n \n \n 🔥 What Makes This Special\n\nMost tools:\n\n→ Store tasks\n\nKeep_AS:\n\n→ Forces execution\n\n \n \n 🚫 No more:\n\n“I forgot”\n\n“I’ll do it later”\n\n“I didn’t have time”\n\n \n \n ✅ Instead:\n\nStructured action\n\nClear path\n\nConstant pressure\n\nVisible progress\n\n \n \n 🧠 Why Notion MCP Was Critical\n\nWithout Notion:\n\n→ This is just another AI demo\n\nWith Notion MCP:\n\n→ This becomes a living system\n\nNotion provides:\n\nPersistent structured data\n\nReal-time updates\n\nHuman interaction layer\n\nVisual clarity\n\nIt turns AI output into actionable reality\n\n \n \n ❤️ The Real Problem We’re Solving\n\nThis isn’t about productivity.\n\nIt’s about missed opportunities.\n\nPeople don’t fail because they are not smart.\n\nThey fail because:\n\nThey don’t start\n\nThey don’t continue\n\nThey don’t finish\n\n \n \n 🚀 What’s Next\n\nReal-time reminders\n\nCalendar integration\n\nMobile notifications\n\nMulti-opportunity tracking\n\nAI coaching layer\n\n \n \n 🏁 Final Thought\n\nKeep_AS is not here to organize your tasks.\n\nIt’s here to make sure:\n\nyou don’t abandon your future silently.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "become",
+      "database + pages",
+      "deadline",
+      "devchallenge",
+      "execution",
+      "fail",
+      "final thought",
+      "hackathon",
+      "mcp",
+      "notion",
+      "notionchallenge",
+      "opportunity",
+      "refuse",
+      "skills\n\npriority",
+      "structured",
+      "system",
+      "task",
+      "┌─────────────────────",
+      "┌─────────────────────┐",
+      "┌─────────────────────┐\n│",
+      "┌─────────────────────┐\n│ task"
+    ],
+    [
+      "devchallenge",
+      "notionchallenge"
+    ]
+  ]
+}

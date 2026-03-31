@@ -1,0 +1,40 @@
+{
+  "id": 6977,
+  "source": "DEV Community<",
+  "title": "Your Figma Color System Is Manual. Here's Why That Breaks at Scale.",
+  "url": "https://dev.to/andresclavijo/your-figma-color-system-is-manual-heres-why-that-breaks-at-scale-4b8j",
+  "published_at": "2026-03-30T13:10:20Z",
+  "fetched_at": "2026-03-30T13:20:16.679265+00:00",
+  "author": "Andres Clavijo Reyes",
+  "summary": "<h2>\n  \n  \n  The Reality No One Talks About\n</h2>\n\n<p>You start a project with three brand colors. Six months later, your Figma file has 42 <br />\ndifferent shades of \"slightly different light grey\" and your accessibility contrast <br />\nratios are a disaster.</p>\n\n<p>Building a color system isn't about picking hex codes. It's about logic, scalability, <br />\nand accessibility from day one. But why is the process still entirely manual?</p>\n\n\n\n\n<h2>\n  \n  \n  Three Mistakes That Break Every Color System\n</h2>\n\n<p><strong>1. The Eyeball Method</strong></p>\n\n<p>Picking shades by moving the cursor until it looks right. The result: perceptual <br />\ninconsistency across displays and zero reproducibility when someone else opens the file.</p>\n\n<p><strong>2. Accessibility as an Afterthought</strong></p>\n\n<p>Checking contrast ratios after the design is finished only to discover your primary <br />\nbrand color fails WCAG. Now you're making late-stage decisions with downstream <br />\nconsequences a",
+  "full_text": "The Reality No One Talks About\n\nYou start a project with three brand colors. Six months later, your Figma file has 42 \n\ndifferent shades of \"slightly different light grey\" and your accessibility contrast \n\nratios are a disaster.\n\nBuilding a color system isn't about picking hex codes. It's about logic, scalability, \n\nand accessibility from day one. But why is the process still entirely manual?\n\n \n \n Three Mistakes That Break Every Color System\n\n1. The Eyeball Method\n\nPicking shades by moving the cursor until it looks right. The result: perceptual \n\ninconsistency across displays and zero reproducibility when someone else opens the file.\n\n2. Accessibility as an Afterthought\n\nChecking contrast ratios after the design is finished only to discover your primary \n\nbrand color fails WCAG. Now you're making late-stage decisions with downstream \n\nconsequences across every component.\n\n3. Naming Debt\n\nBlue-Light-1, Blue-Light-Final-v2, Blue-Light-Final-FINAL. Without a systematic token approach, your color library becomes archaeology within a year.\n\n \n \n What a Generative System Actually Solves\n\nTo scale, you need a system that generates shades from mathematical curves, not vibes.\n\nPerceptual uniformity Every \"500\" weight shade feels equivalent to the human \neye across your entire palette.\n\nInstant iteration Change one base color; the full shade scale updates.\n\nDeveloper-ready output Your tokens exist the moment the palette does. No translation step.\n\n \n \n Why I Built Paletta\n\nThe gap between \"I have a brand color\" and \"my system is dev ready\" was still entirely manual. I built Paletta to close it.\n\nThe workflow is three steps: Generate. Validate. Implement.\n\nShade scales from 50–900, generated mathematically.\n\nNo more eyeballing. Paletta generates the full spectrum from your base color perceptually uniform, systematically named, ready to use.\n\nAccessibility lens built into the palette view.\n\nRun vision simulations (deuteranopia, protanopia, tritanopia, achromatopsia) directly on your palette before you design a single component. WCAG contrast validation isn't a separate step — it's built into color selection.\n\nExport to CSS variables, Tailwind config, or design tokens.\n\nOne palette, three export formats. Frontend engineers get production-ready output without translation overhead.\n\nFigma plugin (currently in Community review).\n\nBuild your palette in Paletta, push it into your Figma file. No copy-paste. No drift.\n\n \n \n The Shift Worth Making\n\nThe era of \"picking colors\" is ending. The era of managing color systems is here.\n\nIf you want to spend less time tweaking hex codes and more time on actual UX problems, the system should handle the math. Paletta does.\n\nTry Paletta\n\nusepaletta.io — free tier available\n\nThe Figma plugin is in Community review. Follow @andresmclavijo on X for launch updates.\n\nI'm documenting the full build process here on dev.to — follow for the next post on design token architecture.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "accessibility",
+      "achromatopsia",
+      "ai",
+      "blue-light-final-final",
+      "build",
+      "color",
+      "community",
+      "contrast",
+      "css",
+      "cursor",
+      "design",
+      "designsystem",
+      "figma",
+      "paletta",
+      "pick",
+      "protanopia",
+      "shade",
+      "system",
+      "tritanopia",
+      "wcag"
+    ],
+    [
+      "designsystem"
+    ]
+  ]
+}

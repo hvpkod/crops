@@ -1,0 +1,38 @@
+{
+  "id": 7071,
+  "source": "DEV Community<",
+  "title": "Your Resume Might Not Even Be Seen by a Human",
+  "url": "https://dev.to/madhurjya_gogoi/your-resume-might-not-even-be-seen-by-a-human-5561",
+  "published_at": "2026-03-30T18:54:57Z",
+  "fetched_at": "2026-03-30T19:00:21.538903+00:00",
+  "author": "Madhurjya Gogoi",
+  "summary": "<p><strong>What is ATS?</strong><br />\nBefore a recruiter sees your resume, it usually goes through something called an ATS (Applicant Tracking System).<br />\nIt checks your resume for keywords, skills, and structure.<br />\nIf it doesn’t understand your resume properly, it may reject it automatically.</p>\n\n<p><strong>The Problem</strong><br />\nYour resume might be getting rejected before a human even reads it.<br />\nMany times, keywords are either missing or not written in the right way. Sometimes the formatting is too complex, so the ATS cannot read it properly.</p>\n\n<p>Because of this, your actual skills and experience are not recognized. Even if you are a good fit, your resume might still get filtered out.</p>\n\n<p><strong>The Solution</strong><br />\nThe solution is simple — keep your resume clean and structured.<br />\nUse clear headings, simple formatting, and proper keywords based on the job role. Avoid too many designs, columns, or fancy layouts.<br />\nTo make this easier, I creat",
+  "full_text": "What is ATS?\n\nBefore a recruiter sees your resume, it usually goes through something called an ATS (Applicant Tracking System).\n\nIt checks your resume for keywords, skills, and structure.\n\nIf it doesn’t understand your resume properly, it may reject it automatically.\n\nThe Problem\n\nYour resume might be getting rejected before a human even reads it.\n\nMany times, keywords are either missing or not written in the right way. Sometimes the formatting is too complex, so the ATS cannot read it properly.\n\nBecause of this, your actual skills and experience are not recognized. Even if you are a good fit, your resume might still get filtered out.\n\nThe Solution\n\nThe solution is simple — keep your resume clean and structured.\n\nUse clear headings, simple formatting, and proper keywords based on the job role. Avoid too many designs, columns, or fancy layouts.\n\nTo make this easier, I created a simple resume template using Overleaf + LaTeX. It follows a clean structure and works well with ATS systems.\n\n👉 You can use it here:\n\nHow to Create an ATS Friendly Resume Using Overleaf (LaTeX)\n\nHow to Use It\n\nClick the link\n\n• Make a copy\n\n• Replace the content with your details\n\n• Use the LaTeX code in Overleaf\n\n• Export it as a clean PDF\n\nIt’s simple — just copy once and update your information.\n\nConclusion\n\nIf you are planning to update your resume, don’t focus only on design.\n\nMake sure your resume is easy for ATS to read. Small changes in structure can make a big difference.\n\nA good resume is not just about looking nice — it should also get you past the first step.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "applicant tracking system",
+      "ats",
+      "career",
+      "clean",
+      "copy",
+      "keyword",
+      "overleaf",
+      "overleaf\n\n•",
+      "overleaf + latex.",
+      "pdf",
+      "resume",
+      "see",
+      "simple",
+      "softwareengineering",
+      "solution",
+      "structure",
+      "update"
+    ],
+    [
+      "career",
+      "softwareengineering"
+    ]
+  ]
+}

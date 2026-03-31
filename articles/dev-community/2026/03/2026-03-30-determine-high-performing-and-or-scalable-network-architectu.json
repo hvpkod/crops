@@ -1,0 +1,44 @@
+{
+  "id": 7075,
+  "source": "DEV Community<",
+  "title": "Determine High-Performing And / Or Scalable Network Architectures",
+  "url": "https://dev.to/aws-builders/determine-high-performing-and-or-scalable-network-architectures-2pe8",
+  "published_at": "2026-03-30T18:46:33Z",
+  "fetched_at": "2026-03-30T19:00:30.589775+00:00",
+  "author": "Ntombizakhona Mabaso",
+  "summary": "<p><strong>Exam Guide:</strong> Solutions Architect - Associate<br />\n<strong>⚡ Domain 3: Design High-Performing Architectures</strong><br />\n📘 <em>Task Statement 3.4</em></p>\n\n<h3>\n  \n  \n  🎯 <strong><em>Determining High-Performing And / Or Scalable Network Architectures</em></strong> is about designing networks that:\n</h3>\n\n<p><strong>1</strong> Perform well: <em>low latency, high throughput, predictable routing</em><br />\n<strong>2</strong> Scale cleanly: <em>more users, more subnets, more Regions</em><br />\n<strong>3</strong> Support common patterns: <em>multi-tier, hybrid, global</em><br />\n<strong>4</strong> Use the right “front door”: <em>CloudFront/ALB/API Gateway and the right connectivity (VPN/DX/PrivateLink)</em></p>\n\n<blockquote>\n<p>Start with <strong>where users are</strong> (global vs regional), then pick the <strong>ingress pattern</strong>, then design the <strong>VPC topology</strong>, then pick <strong>connectivity</strong> and <strong>load balancing</strong>.</p>\n</bl",
+  "full_text": "Exam Guide: Solutions Architect - Associate\n\n⚡ Domain 3: Design High-Performing Architectures\n\n📘 Task Statement 3.4\n\n \n \n 🎯 Determining High-Performing And / Or Scalable Network Architectures is about designing networks that:\n\n1 Perform well: low latency, high throughput, predictable routing\n\n2 Scale cleanly: more users, more subnets, more Regions\n\n3 Support common patterns: multi-tier, hybrid, global\n\n4 Use the right “front door”: CloudFront/ALB/API Gateway and the right connectivity (VPN/DX/PrivateLink)\n\nStart with where users are (global vs regional), then pick the ingress pattern, then design the VPC topology, then pick connectivity and load balancing.\n\n \n \n Knowledge\n\n \n \n 1 | Edge Networking Services\n\n \n \n CloudFront & Global Accelerator\n\n \n \n 1.1 Amazon CloudFront (CDN)\n\nUse CloudFront when you need:\n\n1 Lower latency for global users: cache close to them\n\n2 Reduced load on origins: cache + compression\n\n3 Better security integrations: WAF, Shield, TLS\n\n4 Static content acceleration: and some dynamic acceleration patterns\n\n“Global users downloading static content” → CloudFront.\n\n \n \n 1.2 AWS Global Accelerator\n\nUse Global Accelerator when you need:\n\n1 Faster, more reliable global routing for TCP/UDP or non-cacheable traffic\n\n2 Improved latency by using the AWS global network (Anycast IPs)\n\n3 Health-based routing to regional endpoints\n\n“Improve global performance for a latency-sensitive app that can’t be cached” → Global Accelerator.\n\n \n \n 2 | How To Design Network Architecture (\n\n \n \n Subnet Tiers, Routing, IP Addressing\n\n \n \n 2.1 Subnet Tiers\n\n1 Public subnet: route to an Internet Gateway (IGW). Often hosts ALB, NAT GW.\n\n2 Private subnet: no IGW route because the app tier typically lives here.\n\n3 Isolated subnet: no IGW route and often no NAT route because the DB tier often lives here.\n\n \n \n 2.2 Routing\n\nRouting decides where traffic can go:\n\n1 IGW for public inbound/outbound\n\n2 NAT GW for private outbound\n\n3 VPC endpoints for private access to AWS services\n\n \n \n 2.3 IP Addressing\n\nYou should plan CIDR ranges so you can grow:\n\n1 Enough IPs per subnet for scaling targets: ECS tasks, EKS pods, EC2\n\n2 Room for future subnets: new tiers, new AZs, new services\n\n3 Avoid overlapping CIDRs if you’ll connect VPCs/on-prem later\n\n \n \n 3 | Load Balancing Concepts\n\n \n \n 3.1 Application Load Balancer (ALB)\n\n1 HTTP/HTTPS workloads\n\n2 Path/host-based routing: microservices routing\n\n3 Integrations: WAF, authentication, target groups\n\n“HTTP routing based on path /api vs /images” → ALB \n\n \n \n 3.2 Network Load Balancer (NLB)\n\n1 Very high performance / low latency L4 traffic like TCP/UDP/TLS.\n\n2 Static IP support which is often helpful for allowlists\n\n3 Non-HTTP protocols\n\n“TCP, extreme performance, static IP, or non-HTTP” → *NLB * \n\n \n \n 4 | Network Connection Options\n\n \n \n VPN, Direct Connect, PrivateLink\n\n \n \n 4.1 AWS Site-to-Site VPN\n\nEncrypted tunnel over the internet\n\nFast to deploy, good baseline hybrid connectivity\n\n \n \n 4.2 AWS Direct Connect\n\nDedicated private connection, more consistent latency/throughput\n\nOften used for large data transfer or steady hybrid traffic\n\n“Consistent throughput / private circuit” → Direct Connect.\n\n \n \n 4.3 AWS PrivateLink\n\nPrivate connectivity to services across VPCs/accounts without exposing to the public internet\n\nOften used for “consumer VPC connects to provider service privately”\n\n“Expose an internal service to other VPCs privately” → PrivateLink.\n\n \n \n Skills\n\n \n \n A | Create A Network Topology For Various Architectures\n\n \n \n Global, Hybrid, Multi-tier\n\n \n \n Multi-Tier Regional Topology\n\nCloudFront → ALB in public subnets → app in private subnets → DB in isolated subnets\n\n \n \n Hybrid Topology\n\nOn-prem ↔ (VPN or Direct Connect) ↔ VPC private subnets\n\nUse routing and security to restrict what on-prem can reach\n\n \n \n Global Topology\n\nCloudFront (cacheable) or Global Accelerator (non-cacheable/latency-sensitive)\n\nMulti-region endpoints with health-based routing \n\n \n \n B | Determine Network Configurations That Scale For Future Needs\n\n1 Plan CIDR blocks with growth in mind\n\n2 Use multiple subnets across AZs\n\n3 Avoid hard dependencies on single IPs (use load balancers/DNS)\n\n4 Consider VPC endpoint usage to reduce NAT bottlenecks and cost\n\n \n \n C | Determine Appropriate Placement Of Resources\n\n \n \n Common Placement Rules:\n\n1 Public-facing entry points (ALB, CloudFront origin) are public\n\n2 App tiers and databases are private/isolated\n\n3 Use separate subnets per AZ for HA and scaling\n\n4 Put NAT Gateways in public subnets (often one per AZ for resilience)\n\n \n \n D | Select The Appropriate Load Balancing Strategy\n\n \n \n Choose Based On Protocol And Routing Needs:\n\n1 ALB for HTTP/HTTPS and advanced routing\n\n2 NLB for TCP/UDP/TLS and extreme performance\n\n3 Gateway Load Balancer for virtual appliances\n\n \n \n Cheat Sheet\n\nRequirement\nChoice\n\nGlobal users, cacheable content\nCloudFront\n\nGlobal users, non-cacheable TCP/UDP or low-latency routing\nGlobal Accelerator\n\nHTTP/HTTPS, path-based routing\nALB\n\nTCP/UDP, static IPs, extreme performance\nNLB\n\nOn-prem to AWS quickly (encrypted)\nSite-to-Site VPN\n\nOn-prem to AWS with consistent bandwidth/latency\nDirect Connect\n\nPrivate service exposure across VPCs/accounts\nPrivateLink\n\nNeed private access to AWS services (S3, etc.)\nVPC endpoints\n\n \n \n Recap Checklist ✅\n\n1. [ ] I can choose CloudFront vs Global Accelerator based on caching vs routing needs\n\n2. [ ] VPCs are designed with public/private/isolated subnet tiers where appropriate\n\n3. [ ] Route tables, NAT, and endpoints are used intentionally (not accidentally)\n\n4. [ ] IP addressing (CIDR) is planned for scaling and future connectivity (no overlaps)\n\n5. [ ] Resource placement matches requirements (public entry, private app/data)\n\n6. [ ] Load balancer choice matches protocol and routing needs (ALB vs NLB)\n\n7. [ ] Hybrid connectivity uses the right option (VPN vs Direct Connect vs PrivateLink) \n\n \n \n AWS Whitepapers And Official Documentation\n\n \n \n Edge Networking\n\n1. CloudFront\n\n2. Global Accelerator\n\n \n \n VPC Design Fundamentals\n\n1. Amazon VPC\n\n2. Route tables\n\n3. VPC CIDR blocks\n\n4. NAT gateway \n\n5. VPC endpoints\n\n6. AWS PrivateLink\n\n \n \n Load Balancing\n\nApplication Load Balancer\n\nNetwork Load Balancer\n\n \n \n Hybrid Connectivity\n\nSite-to-Site VPN\n\nDirect Connect\n\n🚀",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "accelerator",
+      "amazon cloudfront",
+      "aws",
+      "cdn",
+      "certification",
+      "cloud",
+      "cloudfront",
+      "cloudfront/alb/api gateway",
+      "connectivity",
+      "edge networking services",
+      "endpoint",
+      "global",
+      "load",
+      "network",
+      "private",
+      "routing",
+      "shield",
+      "solutionsarchitect",
+      "subnet",
+      "subnet tiers, routing",
+      "tcp/udp",
+      "vpc"
+    ],
+    [
+      "certification",
+      "cloud",
+      "solutionsarchitect"
+    ]
+  ]
+}

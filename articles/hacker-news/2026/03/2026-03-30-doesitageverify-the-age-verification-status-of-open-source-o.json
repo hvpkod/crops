@@ -1,0 +1,39 @@
+{
+  "id": 6872,
+  "source": "Hacker News",
+  "title": "DoesItAgeVerify: The age verification status of Open Source Operating Systems",
+  "url": "https://github.com/BryanLunduke/DoesItAgeVerify",
+  "published_at": "2026-03-30T00:52:06Z",
+  "fetched_at": "2026-03-30T02:40:25.547231+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47569167\">Comments</a>",
+  "full_text": "This page is a running list of Open Source Operating Systems (Linux & *BSD distributions, etc.) and what their current status is regarding age verification.\n\nThere are several locales which have laws (in various stages) which require Operating Systems themselves to perform some level of age verification and reporting.\n\nPassed OS-Level Age Verification Laws: Brazil, & California.\n\nProposed OS-Level Age Verification Laws: Colorado, Illinois, New York, & Michigan\n\nOperating Systems Not Implementing Age Verification\n\nThe developers or publishers of these open source Operating Systems have decided to not implement Age Verification, or are currently restricting access in regions with Age Verification laws.\n\nOperating Systems Planning to Implement Age Verification\n\nThe developers or publishers of these Open Source Operating Systems have made plans and/or statements that they intend to comply with new Age Verification laws. But, as yet, that Age Verfication functionality is not fully implemented.\n\nOperating Systems Which Have Already Implemented Age Verification\n\nAs of the most recent update to this document, no known Open Source Operating Systems have fully complied with legal Age Verification requirements for Brazil or California.",
+  "tags": [
+    [
+      "& california",
+      "200-words",
+      "2026",
+      "brazil",
+      "bryanlunduke/doesitageverify",
+      "bsd",
+      "california",
+      "colorado",
+      "developer",
+      "fully",
+      "illinois",
+      "implement",
+      "new york",
+      "open",
+      "operating",
+      "operating systems",
+      "publisher",
+      "source",
+      "status",
+      "systems",
+      "verification"
+    ],
+    [
+      "systems"
+    ]
+  ]
+}

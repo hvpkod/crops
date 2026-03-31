@@ -1,0 +1,41 @@
+{
+  "id": 6891,
+  "source": "DEV Community<",
+  "title": "🚀 Day 10 of My Cloud Journey: Setting Up Kubernetes with Kind & kubectl on AWS EC2",
+  "url": "https://dev.to/avinashwagh/day-10-of-my-cloud-journey-setting-up-kubernetes-with-kind-kubectl-on-aws-ec2-4oi7",
+  "published_at": "2026-03-30T03:45:16Z",
+  "fetched_at": "2026-03-30T04:20:30.438132+00:00",
+  "author": "Avinash wagh",
+  "summary": "<p>After getting hands-on with Docker, the next natural step in my journey was <strong>Kubernetes</strong> — the backbone of modern container orchestration.</p>\n\n<p>Today, I took my first step into Kubernetes by setting up a cluster using <strong>Kind</strong> and <strong>kubectl</strong> on an AWS EC2 instance ☁️</p>\n\n\n\n\n<h2>\n  \n  \n  🧩 Why Kubernetes?\n</h2>\n\n<p>While Docker helps us run containers, managing multiple containers across environments becomes complex.</p>\n\n<p>👉 That’s where Kubernetes comes in:</p>\n\n<ul>\n<li>Automates deployment and scaling</li>\n<li>Ensures high availability</li>\n<li>Manages container lifecycle efficiently</li>\n</ul>\n\n<p>This is exactly what real-world systems use in production.</p>\n\n\n\n\n<h2>\n  \n  \n  ⚙️ My Setup (AWS EC2)\n</h2>\n\n<p>Instead of using local machine, I chose AWS EC2 to simulate a real-world environment.</p>\n\n<p>🔹 Why EC2?</p>\n\n<ul>\n<li>Closer to production setup</li>\n<li>Better for remote access and testing</li>\n<li>Helps understand cloud infra",
+  "full_text": "After getting hands-on with Docker, the next natural step in my journey was Kubernetes — the backbone of modern container orchestration.\n\nToday, I took my first step into Kubernetes by setting up a cluster using Kind and kubectl on an AWS EC2 instance ☁️\n\n \n \n 🧩 Why Kubernetes?\n\nWhile Docker helps us run containers, managing multiple containers across environments becomes complex.\n\n👉 That’s where Kubernetes comes in:\n\nAutomates deployment and scaling\n\nEnsures high availability\n\nManages container lifecycle efficiently\n\nThis is exactly what real-world systems use in production.\n\n \n \n ⚙️ My Setup (AWS EC2)\n\nInstead of using local machine, I chose AWS EC2 to simulate a real-world environment.\n\n🔹 Why EC2?\n\nCloser to production setup\n\nBetter for remote access and testing\n\nHelps understand cloud infrastructure\n\n \n \n 🛠️ Tools I Installed\n\n \n \n 1. kubectl (Kubernetes CLI)\n\nkubectl is the command-line tool used to interact with Kubernetes clusters.\n\n🔹 Install latest version:\n\ncurl -LO \"https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl\"\nchmod +x kubectl\nsudo mv kubectl /usr/local/bin/\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n🔹 Verify:\n\nkubectl version --client\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 2. Kind (Kubernetes in Docker)\n\nKind allows us to run Kubernetes clusters inside Docker containers.\n\n🔹 Install stable version:\n\ncurl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.31.0/kind-linux-amd64\nchmod +x ./kind\nsudo mv ./kind /usr/local/bin/kind\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n🔹 Verify:\n\nkind --version\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🚀 Creating My First Kubernetes Cluster\n\nOnce both tools were installed, I created my first cluster:\n\nkind create cluster\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n⏳ It took a couple of minutes to set up everything automatically.\n\n \n \n ✅ Verifying the Cluster\n\nkubectl get nodes\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\nkind-control-plane Ready control-plane\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n✔️ My Kubernetes cluster is now up and running!\n\n \n \n 🔥 First Deployment (Nginx)\n\nTo test everything, I deployed a simple Nginx application:\n\nkubectl create deployment nginx --image=nginx\nkubectl expose deployment nginx --type=NodePort --port=80\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCheck resources:\n\nkubectl get pods\nkubectl get svc\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🌐 Accessing the Application\n\nSince I'm using EC2, I used port forwarding:\n\nkubectl port-forward service/nginx 8080:80\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow accessible via:\n\n👉 http://:8080\n\n \n \n 💡 Key Takeaways\n\nkubectl is used to interact with Kubernetes\n\nKind makes it easy to run local clusters using Docker\n\nKubernetes abstracts infrastructure and manages containers efficiently\n\nSetting up on EC2 gives a more real-world experience\n\n \n \n 🔄 My Learning Reflection\n\nToday’s learning shifted my mindset from:\n\n👉 “Running containers with Docker”\n\nto\n\n👉 “Orchestrating containers using Kubernetes”\n\nThis feels like a big step toward becoming a Cloud/DevOps Engineer 🚀\n\n \n \n 📘 Learning in Public\n\nI’m documenting my journey as I transition from .NET Developer to Cloud Engineer.\n\n🔗 LinkedIn → https://www.linkedin.com/in/avinashwagh-\n\n🔗 GitHub → https://github.com/Avinash8600\n\n \n \n 💬 Let’s Connect\n\nIf you're learning Kubernetes, DevOps, or Cloud — let’s grow together 🙌\n\nWould love feedback, suggestions, or tips from the community!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "aws",
+      "cloudcomputing",
+      "cluster",
+      "container",
+      "docker",
+      "docker\n\nkubernetes",
+      "enter",
+      "exit",
+      "first deployment (nginx",
+      "fullscreen",
+      "kind",
+      "kubectl",
+      "kubernetes",
+      "kubernetes\n\nkind",
+      "kubernetes cli",
+      "learn",
+      "mode",
+      "my setup",
+      "nginx",
+      "nodeport",
+      "verifying the cluster"
+    ],
+    [
+      "cloudcomputing"
+    ]
+  ]
+}

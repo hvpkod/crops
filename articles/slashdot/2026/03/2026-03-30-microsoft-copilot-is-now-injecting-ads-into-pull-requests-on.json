@@ -1,0 +1,36 @@
+{
+  "id": 7066,
+  "source": "Slashdot",
+  "title": "Microsoft Copilot Is Now Injecting Ads Into Pull Requests On GitHub",
+  "url": "https://slashdot.org/story/26/03/30/1649230/microsoft-copilot-is-now-injecting-ads-into-pull-requests-on-github?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-30T17:00:00Z",
+  "fetched_at": "2026-03-30T18:20:27.754236+00:00",
+  "author": "BeauHD",
+  "summary": "Microsoft Copilot is reportedly injecting promotional \"tips\" into GitHub pull requests, with Neowin claiming more than 1.5 million PRs have been affected by messages advertising integrations like Raycast, Slack, Teams, and various IDEs. From the report: According to Melbourne-based software developer Zach Manson, a team member used the AI to fix a simple typo in a pull request. Copilot did the job, but it also took the liberty of editing the PR's description to include this message: \"Quickly spin up Copilot coding agent tasks from anywhere on your macOS or Windows machine with Raycast.\" A quick search of that phrase on GitHub shows that the same promotional text appears in over 11,000 pull requests across thousands of repositories. Even merge requests on GitLab aren't safe from the injection.\n \nSo what's happening? Well, Raycast has a Copilot extension that can do things like create pull requests from a natural language command. The ad directly names Raycast, so you might think that Ra",
+  "full_text": "Microsoft Copilot is reportedly injecting promotional \"tips\" into GitHub pull requests\n\n, with Neowin claiming more than 1.5 million PRs have been affected by messages advertising integrations like Raycast, Slack, Teams, and various IDEs. From the report: According to Melbourne-based software developer Zach Manson, a team member used the AI to fix a simple typo in a pull request. Copilot did the job, but it also took the liberty of editing the PR's description to include this message: \"Quickly spin up Copilot coding agent tasks from anywhere on your macOS or Windows machine with Raycast.\" A quick search of that phrase on GitHub shows that the same promotional text appears in over 11,000 pull requests across thousands of repositories. Even merge requests on GitLab aren't safe from the injection.\n\n \n\nSo what's happening? Well, Raycast has a Copilot extension that can do things like create pull requests from a natural language command. The ad directly names Raycast, so you might think that Raycast is injecting the promo into the PRs to market its own app. But it is more likely that Microsoft is the one doing the injecting. If you look at the raw markdown of the affected pull requests, there is a hidden HTML comment, \"START COPILOT CODING AGENT TIPS\" placed right just before the ad tip. This suggests Microsoft is using the comment to insert a \"tip\" that points back to its own developer ecosystem or partner integrations.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "advertising",
+      "affected",
+      "cod",
+      "copilot",
+      "github",
+      "gitlab",
+      "html",
+      "injecting",
+      "melbourne",
+      "microsoft",
+      "microsoft copilot",
+      "promotional",
+      "pull",
+      "raycast",
+      "request",
+      "slack"
+    ],
+    [
+      "advertising"
+    ]
+  ]
+}

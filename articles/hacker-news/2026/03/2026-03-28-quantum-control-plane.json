@@ -1,0 +1,39 @@
+{
+  "id": 6876,
+  "source": "Hacker News",
+  "title": "Quantum Control Plane",
+  "url": "https://github.com/mareksuchodolski12-hash/kwantowy",
+  "published_at": "2026-03-28T11:56:27Z",
+  "fetched_at": "2026-03-30T03:20:30.643615+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47553766\">Comments</a>",
+  "full_text": "Quantum Control Plane (QCP)\n\nAn open developer platform for quantum computing — submit QASM circuits, orchestrate multi-step experiments, benchmark providers, and visualise results. Think MLflow or Airflow, but for quantum.\n\n┌──────────────────────────────────────────────────────┐\n│ Developer Platform: SDK · CLI · REST API (/v1/) │\n├──────────────────────────────────────────────────────┤\n│ Control Plane: Experiments · Workflows · Cost Gov │\n├──────────────────────────────────────────────────────┤\n│ Execution Plane: Workers · Providers · Simulators │\n├──────────────────────────────────────────────────────┤\n│ Dashboard: Experiments · Leaderboard · Demo · Runs │\n└──────────────────────────────────────────────────────┘\n\nLayer\nComponents\n\nControl Plane\nFastAPI API, experiments, workflows, cost governance, circuit optimisation\n\nExecution Plane\nAsync workers, provider adapters, local/Aer simulators, IBM Runtime\n\nDeveloper Platform\nPython SDK, qcp CLI, OpenAPI REST API\n\nDashboard\nNext.js 14 web console, provider leaderboard, interactive demo\n\nInfrastructure\nPostgreSQL, Redis queue, Prometheus, Grafana, OpenTelemetry\n\nPrerequisites: Python ≥ 3.11, Node 20, Docker\n\nmake bootstrap # Install all dependencies (SDK, CLI, API, web)\nmake up # Start Postgres + Redis (infrastructure only)\nmake migrate # Apply database migrations\nmake api # Start API server on port 8000 (terminal 1)\nmake worker # Start job worker (terminal 2)\nmake web # Start web console on port 3000 (terminal 3)\n\nTip: For zero-Docker local development using SQLite + fakeredis, run\npython start_local.py (or make dev) instead of steps 2–5 above, then\nmake web in a separate terminal. start_local.py automatically creates\napps/web/.env.local with the API key so the frontend can authenticate.\n\nTo run all services (including observability) via Docker:\n\nmake up-all # Start all services in Docker (postgres, redis, api, worker, web, prometheus, grafana, loki)\n\nTo start infrastructure and observability only (then run api/worker/web locally):\n\nmake up-infra # Start Postgres, Redis, Prometheus, Grafana, Loki\nmake migrate\nmake api # terminal 1\nmake worker # terminal 2\nmake web # terminal 3\n\n# Generate an API key\ncurl -X POST http://localhost:8000/v1/api-keys \\\n -H \"Content-Type: application/json\" \\\n -d '{\"name\": \"dev\"}' | python3 -m json.tool\n\nexport QCP_API_KEY=qcp_...\n\npip install -e packages/sdk\n\nfrom quantum_sdk import QCPClient\n\nclient = QCPClient(api_key=\"qcp_...\")\njob = client.run_experiment(\n name=\"bell\",\n qasm=open(\"bell.qasm\").read(),\n shots=1024,\n)\nresult = client.wait_for_result(job[\"job\"][\"id\"])\nprint(result[\"result\"][\"counts\"])\n\npip install -e packages/cli\n\nqcp login\nqcp experiment run bell.qasm --provider local_simulator\nqcp experiment list\nqcp run status <job_id>\nqcp result show <job_id>\n\nAll endpoints are under /v1/ with OpenAPI documentation at /docs.\n\nMethod\nEndpoint\nDescription\n\nPOST\n/v1/api-keys\nCreate API key\n\nPOST\n/v1/experiments\nSubmit experiment\n\nGET\n/v1/experiments\nList experiments\n\nGET\n/v1/jobs/{id}\nGet job status\n\nGET\n/v1/results/{id}\nGet results\n\nGET\n/v1/providers\nList providers\n\nPOST\n/v1/providers/select\nSmart provider routing\n\nPOST\n/v1/benchmarks\nRun benchmark\n\nGET\n/v1/benchmarks\nList benchmarks\n\nPOST\n/v1/workflows\nCreate workflow\n\nPOST\n/v1/budgets\nCreate budget\n\nPOST\n/v1/circuits/optimise\nOptimise circuit\n\nPOST\n/v1/results/compare\nCompare results\n\n├── services/api/ # FastAPI control plane\n├── workers/\n│ ├── quantum-runner/ # Job execution worker\n│ └── benchmark-runner/ # Auto-benchmark worker\n├── apps/web/ # Next.js dashboard\n├── packages/\n│ ├── sdk/ # Python SDK\n│ ├── cli/ # CLI tool (qcp)\n│ └── contracts/ # Shared Pydantic models\n├── plugins/providers/ # External provider plugins\n├── docs/ # Documentation\n├── infra/ # Helm, Terraform, observability\n└── examples/ # Quickstart scripts\n\nCreates a maximally entangled pair of qubits using a Hadamard gate followed by a CNOT gate. Demonstrates quantum entanglement — measurement results are correlated: both qubits always agree (00 or 11, each ≈ 50%).\n\nExtends the Bell State to 3 qubits using a Hadamard gate and two successive CNOT gates. Produces the Greenberger–Horne–Zeilinger state where all three qubits are entangled: only 000 and 111 appear (each ≈ 50%). No partial correlations exist, demonstrating genuine multipartite entanglement.\n\nImplements Grover's search algorithm on 2 qubits to find a marked item in an unsorted list of 4 elements with a single query. Demonstrates quadratic quantum speedup over classical search.\n\nExternal providers can be added under plugins/providers/:\n\nfrom plugins.providers.base import BaseProvider, ProviderInfo\n\nclass MyProvider(BaseProvider):\n name = \"my_provider\"\n def info(self) -> ProviderInfo: ...\n async def execute(self, qasm: str, shots: int) -> dict[str, int]: ...\n\nIncluded examples: aws_braket (stub), custom_simulator.\n\nmake lint # ruff + eslint\nmake typecheck # mypy + tsc\nmake test # pytest\nmake format # ruff format\nmake benchmark # Run auto-benchmark worker\n\nTarget\nDescription\n\nmake bootstrap\nInstall all Python and Node dependencies\n\nmake up\nStart Postgres + Redis only\n\nmake up-infra\nStart Postgres, Redis, Prometheus, Grafana, Loki\n\nmake up-all\nStart all services via Docker Compose\n\nmake down\nStop all Docker services\n\nmake migrate\nApply database migrations (Alembic)\n\nmake api\nStart API server locally (port 8000)\n\nmake worker\nStart job worker locally\n\nmake web\nStart web console locally (port 3000)\n\nmake dev\nStart API + worker locally (SQLite + fakeredis, no Docker)\n\nmake lint\nRun ruff + eslint\n\nmake typecheck\nRun mypy + tsc\n\nmake test\nRun pytest\n\nmake build\nBuild Docker images\n\nmake benchmark\nRun auto-benchmark worker",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "benchmark",
+      "cli",
+      "docker",
+      "experiment",
+      "ibm",
+      "locally",
+      "prometheus",
+      "provider",
+      "python",
+      "qasm",
+      "qcp",
+      "quantum control plane",
+      "qubit",
+      "result",
+      "sdk",
+      "start",
+      "worker",
+      "┌──────────────────────────────────────────────────────"
+    ],
+    [
+      "python"
+    ]
+  ]
+}

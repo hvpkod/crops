@@ -1,0 +1,41 @@
+{
+  "id": 6855,
+  "source": "DEV Community<",
+  "title": "Gleam Has a Free Type-Safe Language That Runs on the BEAM — Erlang's Power, Modern Syntax",
+  "url": "https://dev.to/0012303/gleam-has-a-free-type-safe-language-that-runs-on-the-beam-erlangs-power-modern-syntax-1ml3",
+  "published_at": "2026-03-30T00:49:44Z",
+  "fetched_at": "2026-03-30T01:20:21.252976+00:00",
+  "author": "Alex Spinov",
+  "summary": "<h2>\n  \n  \n  The BEAM Problem\n</h2>\n\n<p>Erlang powers WhatsApp (2 billion users, 50 engineers). Elixir made it beautiful. But both have a secret weakness: <strong>no static types.</strong></p>\n\n<p>Your Elixir app works great — until production reveals a type mismatch that the compiler never caught.</p>\n\n<p><strong>Gleam fixes this.</strong> Full static types. Runs on the BEAM. Zero runtime overhead.</p>\n\n<h2>\n  \n  \n  What Gleam Gives You\n</h2>\n\n<h3>\n  \n  \n  Type-Safe Erlang/Elixir Interop\n</h3>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>import gleam/io\nimport gleam/int\n\npub fn main() {\n  let answer = add(20, 22)\n  io.println(\"The answer is: \" &lt;&gt; int.to_string(answer))\n}\n\nfn add(a: Int, b: Int) -&gt; Int {\n  a + b\n}\n</code></pre>\n\n</div>\n\n\n\n<p>Every function has types. The compiler catches mistakes before runtime.</p>\n\n<h3>\n  \n  \n  Pattern Matching\n</h3>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>pub",
+  "full_text": "The BEAM Problem\n\nErlang powers WhatsApp (2 billion users, 50 engineers). Elixir made it beautiful. But both have a secret weakness: no static types.\n\nYour Elixir app works great — until production reveals a type mismatch that the compiler never caught.\n\nGleam fixes this. Full static types. Runs on the BEAM. Zero runtime overhead.\n\n \n \n What Gleam Gives You\n\n \n \n Type-Safe Erlang/Elixir Interop\n\nimport gleam/io\nimport gleam/int\n\npub fn main() {\n let answer = add(20, 22)\n io.println(\"The answer is: \" <> int.to_string(answer))\n}\n\nfn add(a: Int, b: Int) -> Int {\n a + b\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEvery function has types. The compiler catches mistakes before runtime.\n\n \n \n Pattern Matching\n\npub type Shape {\n Circle(radius: Float)\n Rectangle(width: Float, height: Float)\n}\n\npub fn area(shape: Shape) -> Float {\n case shape {\n Circle(r) -> 3.14159 *. r *. r\n Rectangle(w, h) -> w *. h\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nForget a case? Compiler error. Not a runtime crash at 3 AM.\n\n \n \n Use All of Erlang's Libraries\n\n// Call Erlang's crypto module directly\n@external(erlang, \"crypto\", \"strong_rand_bytes\")\nfn random_bytes(size: Int) -> BitArray\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGleam compiles to Erlang. Every OTP library works. GenServers, supervisors, ETS tables — all available.\n\n \n \n Also Compiles to JavaScript\n\ngleam build --target javascript\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSame code, runs in Node.js or the browser. One language, two runtimes.\n\n \n \n Quick Start\n\ncurl -sSf https://gleam.run/install | sh\ngleam new my_project\ncd my_project\ngleam run\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Why This Matters\n\nThe BEAM VM is the best runtime for concurrent, fault-tolerant systems. Gleam adds the one thing it was missing: a modern type system that catches bugs at compile time.\n\nIf you're building APIs, real-time systems, or anything that needs 99.999% uptime — Gleam deserves a look.\n\nNeed to collect data for your BEAM applications? Check out my web scraping actors on Apify Store — structured data, ready to process. For custom solutions, email spinov001@gmail.com.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "apify store",
+      "beam",
+      "compiler",
+      "enter",
+      "erlang",
+      "exit",
+      "fullscreen",
+      "functional",
+      "genservers",
+      "gleam",
+      "javascript",
+      "mode",
+      "node.js",
+      "otp",
+      "pattern matching",
+      "run",
+      "runtime",
+      "type",
+      "webdev",
+      "whatsapp"
+    ],
+    [
+      "functional",
+      "webdev"
+    ]
+  ]
+}

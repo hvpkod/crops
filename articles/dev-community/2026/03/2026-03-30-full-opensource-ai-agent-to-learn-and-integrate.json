@@ -1,0 +1,34 @@
+{
+  "id": 6945,
+  "source": "DEV Community<",
+  "title": "Full Opensource AI-Agent to learn and integrate",
+  "url": "https://dev.to/stepan_rutz/full-opensource-ai-agent-to-learn-and-integrate-3llp",
+  "published_at": "2026-03-30T10:03:24Z",
+  "fetched_at": "2026-03-30T10:20:37.448641+00:00",
+  "author": "Stepan Rutz",
+  "summary": "<p><a href=\"https://github.com/srutz/cagent\" rel=\"noopener noreferrer\">https://github.com/srutz/cagent</a></p>\n\n<p>Cagent is a coding-agent ... a TypeScript implementation of an autonomous agent framework that can interact with language models, execute tools, and perform tasks based on user input.</p>\n\n<p>It is free, opensource and MIT Licensed, so you can do with it as you like.</p>\n\n<p>It designed to be simple and modular. Also it is meant to be a starting point for including it into your own projects. Think of shadcn approach and copy it into your projects, just like I do.</p>\n\n<p>Running it like this will show you how tools actually work from an LLM-Perpective:</p>\n\n<p><code>cagent --verbose list files in current dir<br />\n</code></p>",
+  "full_text": "https://github.com/srutz/cagent\n\nCagent is a coding-agent ... a TypeScript implementation of an autonomous agent framework that can interact with language models, execute tools, and perform tasks based on user input.\n\nIt is free, opensource and MIT Licensed, so you can do with it as you like.\n\nIt designed to be simple and modular. Also it is meant to be a starting point for including it into your own projects. Think of shadcn approach and copy it into your projects, just like I do.\n\nRunning it like this will show you how tools actually work from an LLM-Perpective:\n\ncagent --verbose list files in current dir",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "agents",
+      "ai",
+      "base",
+      "cagent",
+      "design",
+      "include",
+      "integrate",
+      "interact",
+      "mean",
+      "opensource",
+      "shadcn",
+      "starting",
+      "typescript"
+    ],
+    [
+      "agents",
+      "opensource"
+    ]
+  ]
+}

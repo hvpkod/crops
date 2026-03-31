@@ -1,0 +1,42 @@
+{
+  "id": 6861,
+  "source": "DEV Community<",
+  "title": "Organizing a Legacy React Project Without Blocking Delivery",
+  "url": "https://dev.to/xavierbruno/organizing-a-legacy-react-project-without-blocking-delivery-3ji0",
+  "published_at": "2026-03-30T00:23:59Z",
+  "fetched_at": "2026-03-30T01:20:29.898126+00:00",
+  "author": "Bruno Xavier",
+  "summary": "<p>Rewriting everything from scratch often looks like the cleanest solution. In reality, it is usually the most expensive, slowest, and riskiest option. What consistently works in production environments is incremental <strong>refactoring driven by impact</strong>.</p>\n\n<h2>\n  \n  \n  <strong>1. Diagnose before changing anything</strong>\n</h2>\n\n<p>Before reorganizing folders or introducing patterns, identify where the real cost is.</p>\n\n<p>Common signals:</p>\n\n<ul>\n<li>Components with 200–500+ lines</li>\n<li>Business logic mixed with rendering</li>\n<li>\n<code>useEffect</code> handling multiple responsibilities</li>\n<li>Duplicated logic across the codebase</li>\n<li>Implicit dependencies (scattered global state)</li>\n</ul>\n\n<p>Without this mapping, refactoring becomes superficial.</p>\n\n<h2>\n  \n  \n  <strong>2. Define a minimum standard and stop the bleed</strong>\n</h2>\n\n<p>Before fixing legacy code, prevent it from growing.</p>\n\n<p>A simple baseline already improves consistency:</p>\n\n<p>Com",
+  "full_text": "Rewriting everything from scratch often looks like the cleanest solution. In reality, it is usually the most expensive, slowest, and riskiest option. What consistently works in production environments is incremental refactoring driven by impact.\n\n \n \n 1. Diagnose before changing anything\n\nBefore reorganizing folders or introducing patterns, identify where the real cost is.\n\nCommon signals:\n\nComponents with 200–500+ lines\n\nBusiness logic mixed with rendering\n\nuseEffect handling multiple responsibilities\n\nDuplicated logic across the codebase\n\nImplicit dependencies (scattered global state)\n\nWithout this mapping, refactoring becomes superficial.\n\n \n \n 2. Define a minimum standard and stop the bleed\n\nBefore fixing legacy code, prevent it from growing.\n\nA simple baseline already improves consistency:\n\nComponents → UI only\n\nHooks → logic and state\n\nServices → API communication\n\nRule: new code must follow the standard, even if old code does not.\n\n \n \n 3. Structure by feature, not by type\n\nLegacy projects often use a “by type” structure (components/, utils/, etc.), which increases coupling.\n\nA feature-based structure scales better:\n\nsrc/\n features/\n users/\n components/\n hooks/\n services/\n dashboard/\n shared/\n components/\n hooks/\n utils/\n app/\n routes/\n providers/\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis reduces cross-dependencies and improves ownership by domain.\n\n \n \n 4. Incremental refactoring (the only viable strategy)\n\nAvoid large, batch refactors. The risk rarely justifies the cost.\n\nEffective approach:\n\nIf you touch code → improve that part\n\nIf you see duplication → extract it\n\nIf logic is mixed → move it into a hook\n\nSmall, continuous improvements compound over time.\n\n \n \n 5. Separate responsibilities clearly\n\nOne of the main issues in legacy code is mixed responsibilities.\n\nTypical example:\n\nfunction Dashboard() {\n const [data, setData] = useState([])\n\n useEffect(() => {\n fetch('/api/data')\n .then(res => res.json())\n .then(setData)\n }, [])\n\n function processData() {\n // complex logic\n }\n\n return <div>{/* UI + logic */}</div>\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nRefactored:\n\n// hook\nexport function useDashboardData() {\n const [data, setData] = useState([])\n\n useEffect(() => {\n fetch('/api/data')\n .then(res => res.json())\n .then(setData)\n }, [])\n\n return { data }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n// component\nfunction Dashboard() {\n const { data } = useDashboardData()\n return <DashboardView data={data} />\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe gain is not aesthetic—it is lower coupling and higher predictability.\n\n \n \n 6. Centralize side effects\n\nLegacy projects often suffer from duplicated requests and inconsistent state.\n\nStandardizing with tools like React Query (TanStack) or SWR provides:\n\nAutomatic caching\n\nData synchronization\n\nLess manual useEffect logic\n\nResult: fewer bugs and less boilerplate.\n\n \n \n 7. Test where it matters\n\nFull coverage in legacy systems is rarely efficient.\n\nPrioritize:\n\nHooks (business logic)\n\nServices (rules and integrations)\n\nLower priority:\n\n \n \n 8. Strategy comparison\n\n \n \n Conclusion\n\nOrganizing a legacy React project is not about achieving perfect architecture. It is about continuously reducing complexity without stopping delivery.\n\nClear separation of responsibilities, feature-based structure, and incremental refactoring consistently deliver the best results with the lowest risk.\n\nOver time, this transforms unpredictable code into a system that is easier to maintain, test, and scale.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "= usedashboarddata(",
+      "api",
+      "conclusion\n\norganizing",
+      "dashboardview",
+      "frontend",
+      "fullscreen",
+      "function",
+      "hook",
+      "incremental",
+      "legacy",
+      "logic",
+      "mixed",
+      "mode",
+      "react",
+      "react query",
+      "refactoring",
+      "structure",
+      "swr",
+      "tanstack",
+      "webdev"
+    ],
+    [
+      "frontend",
+      "refactoring",
+      "webdev"
+    ]
+  ]
+}

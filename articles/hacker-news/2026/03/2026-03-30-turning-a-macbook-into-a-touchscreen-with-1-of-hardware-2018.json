@@ -1,0 +1,35 @@
+{
+  "id": 7120,
+  "source": "Hacker News",
+  "title": "Turning a MacBook into a touchscreen with $1 of hardware (2018)",
+  "url": "https://anishathalye.com/macbook-touchscreen/",
+  "published_at": "2026-03-30T19:22:33Z",
+  "fetched_at": "2026-03-30T20:20:16.277464+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47578572\">Comments</a>",
+  "full_text": "We turned a MacBook into a touchscreen using only $1 of hardware and a little\nbit of computer vision. The proof-of-concept, dubbed “Project Sistine” after\nour recreation of the famous painting in the Sistine Chapel, was prototyped\nby me, Kevin, Guillermo, and Logan in about 16 hours.\n\nThe basic principle behind Sistine is simple. Surfaces viewed from an angle\ntend to look shiny, and you can tell if a finger is touching the surface by\nchecking if it’s touching its own reflection.\n\nKevin, back in middle school, noticed this phenomenon and built ShinyTouch,\nutilizing an external webcam to build a touch input system requiring virtually\nno setup. We wanted to see if we could miniaturize the idea and make it work\nwithout an external webcam. Our idea was to retrofit a small mirror in front of\na MacBook’s built-in webcam, so that the webcam would be looking down at the\ncomputer screen at a sharp angle. The camera would be able to see fingers\nhovering over or touching the screen, and we’d be able to translate the video\nfeed into touch events using computer vision.\n\nOur hardware setup was simple. All we needed was to position a mirror at the\nappropriate angle in front of the webcam. Here is our bill of materials:\n\nSmall mirror\n\nRigid paper plate\n\nDoor hinge\n\nHot glue\n\nAfter some iteration, we settled on a design that could be assembled in minutes\nusing a knife and a hot glue gun.\n\nHere’s the finished product:\n\nThe first step in processing video frames is detecting the finger. Here’s a\ntypical example of what the webcam sees:\n\nThe finger detection algorithm needs to find the touch/hover point for further\nprocessing. Our current approach uses classical computer vision techniques. The\nprocessing pipeline consists of the following steps:\n\nFilter for skin colors and binary threshold\n\nFind contours\n\nFind the two largest contours and ensure that the contours overlap in the\nhorizontal direction and the smaller one is above the larger one\n\nIdentify the touch/hover point as the midpoint of the line connecting the\ntop of the bottom contour and the bottom of the top contour\n\nDistinguish between touch and hover based on the vertical distance between\nthe two contours\n\nShown above is the result of applying this process to a frame from the webcam.\nThe finger and reflection (contours) are outlined in green, the bounding box is\nshown in red, and the touch point is shown in magenta.\n\nThe final step in processing the input is mapping the touch/hover point from\nwebcam coordinates to on-screen coordinates. The two are related by a\nhomography. We compute the homography matrix through a calibration process\nwhere the user is prompted to touch specific points on the screen. After we\ncollect data matching webcam coordinates with on-screen coordinates, we can\nestimate the homography robustly using RANSAC. This gives us a projection\nmatrix that maps webcam coordinates to on-screen coordinates.\n\nThe video above demonstrates the calibration process, where the user has to\nfollow a green dot around the screen. The video includes some debug\ninformation, overlaid on live video from the webcam. The touch point in webcam\ncoordinates is shown in magenta. After the calibration process is complete, the\nprojection matrix is visualized with red lines, and the software switches to a\nmode where the estimated touch point is shown as a blue dot.\n\nIn the current prototype, we translate hover and touch into mouse events,\nmaking existing applications instantly touch-enabled.\n\nIf we were writing our own touch-enabled apps, we could directly make use of\ntouch data, including information such as hover height.\n\nProject Sistine is a proof-of-concept that turns a laptop into a touchscreen\nusing only $1 of hardware, and for a prototype, it works pretty well! With some\nsimple modifications such as a higher resolution webcam (ours was 480p) and a\ncurved mirror that allows the webcam to capture the entire screen, Sistine\ncould become a practical low-cost touchscreen system.\n\nOur Sistine prototype is open source, released under the MIT License.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "contours",
+      "coordinate",
+      "logan",
+      "macbook",
+      "macbook’s",
+      "magenta",
+      "mirror",
+      "point",
+      "ransac",
+      "shinytouch",
+      "show",
+      "sistine",
+      "the mit license",
+      "touch",
+      "touchscreen",
+      "video",
+      "webcam"
+    ],
+    []
+  ]
+}

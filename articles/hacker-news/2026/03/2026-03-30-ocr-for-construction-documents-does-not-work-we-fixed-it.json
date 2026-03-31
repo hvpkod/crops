@@ -1,0 +1,32 @@
+{
+  "id": 7057,
+  "source": "Hacker News",
+  "title": "OCR For construction documents does not work, we fixed it",
+  "url": "https://www.getanchorgrid.com/developer/docs/endpoints/drawings-doors",
+  "published_at": "2026-03-30T16:05:46Z",
+  "fetched_at": "2026-03-30T17:20:37.969180+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47576055\">Comments</a>",
+  "full_text": "Door detection processing time (free tier)\n\nThis applies only to door detection (POST /v1/drawings/detection/doors).\n\nFree-tier door detection typically completes in 2–4 minutes per job. Processing time scales mainly with page count and drawing complexity — a dense multi-page set takes longer than a single sheet.\n\nNeed it faster? Pro and Enterprise plans run detection on dedicated GPU infrastructure.Upgrade your plan →\n\nDocs/Endpoints/POST /drawings/detection/doors\n\nPOST/v1/drawings/detection/doors\n\nDetect doors in architectural floor-plan PDFs. Accepts a previously uploaded document_id, enqueues inference, and returns a job you poll for results. Detections are returned as bounding boxes in PDF coordinate space.\n\nFloor plansAsync · 2022 credits / page\n\nExample run▶ Run\n\nInput\n\nRequest\n\nAuth via X-API-Key header. Body is JSON — this endpoint does not accept file uploads directly.\n\ndocument_idreq\n\nstring (UUID)\n\nID of the uploaded PDF. Must belong to this account and not be expired.\n\npage_numbers\n\nint[]\n\n1-based page indices to scan. Omit to scan all pages. Out-of-range values are skipped by the worker but still billed.\n\nwebhook_url\n\nstring\n\nURL to POST the completed job payload to. Delivered on developer, pro, and enterprise tiers only.\n\nℹ\n\nCredits are charged on submission based on len(page_numbers) (or the document's total page count when omitted) — not on pages that actually contain doors. Send only valid page indices to avoid over-billing.\n\nCode examples\n\ncurlpythonnode.jscurl -X POST https://api.anchorgrid.ai/v1/drawings/detection/doors \\\n -H \"X-API-Key: <your-api-key>\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\n \"document_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n \"page_numbers\": [1, 2, 3]\n }'\n\nResponse — 202 Accepted\n\nThe job is enqueued immediately. Poll GET /v1/jobs/{job_id} until status is complete or failed.\n\njob_id\n\nstring (UUID)\n\nUse this to poll for results.\n\nstatus\n\nstring\n\nAlways queued on this response.\n\npoll_url\n\nstring\n\nPath only — prepend https://api.anchorgrid.ai to build the full URL.\n\nResult shape\n\nWhen status === \"complete\" and model === \"door-detector\", the result field on the job contains:\n\ndocument_id\n\nstring\n\nUUID of the source document.\n\ndoors\n\narray\n\nFiltered list of door detections. Each item has id, page, and bbox.\n\ndoors[].id\n\nstring\n\nStable identifier — \"door_\" + 12 hex chars.\n\ndoors[].page\n\ninteger\n\n1-based PDF page index where the door was detected.\n\ndoors[].bbox\n\nobject\n\nAxis-aligned bounding box in PDF coordinate space: x1, y1, x2, y2.\n\ndoors_found\n\ninteger\n\nCount of items in doors after server-side geometry filtering.\n\npages_analyzed\n\ninteger\n\nNumber of pages the worker actually scanned.\n\nmodel_version\n\nstring\n\ne.g. door-detector-v1.0.0\n\nprocessing_time_ms\n\ninteger\n\nWall time for the inference task.\n\nℹ\n\nThe doors list is post-filtered by a geometry and median-area pipeline before being returned. doors_found always reflects the filtered count — raw unfiltered counts are not exposed.\n\nCredits & rate limits\n\nCost\n\n2 credits × pages billed\n\nRate limit\n\nTier RPM (5 / 60 / 120 / 300)\n\nfree\n\nLifetime credit cap — 402 FREE_TIER_LIMIT_REACHED when exceeded.\n\ndeveloper / pro\n\nMonthly pool — 429 QUOTA_EXCEEDED when exceeded.\n\nenterprise\n\nNo quota check.\n\nRate-limit 429s include retry_after_seconds in the body. Quota 429s and rate-limit 429s return the same status code — check the error body to distinguish them.\n\nErrors\n\n401\n\nMissing or invalid X-API-Key.\n\n402\n\nFree tier lifetime credit cap reached.\n\n404\n\ndocument_id not found or expired.\n\n422\n\nValidation error — malformed UUID or invalid body.\n\n429\n\nRate limit or monthly quota exceeded.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "anchorgrid",
+      "count",
+      "credit",
+      "detection",
+      "door",
+      "gpu",
+      "integer",
+      "page",
+      "pdf",
+      "poll",
+      "quota",
+      "status",
+      "string",
+      "uuid"
+    ],
+    []
+  ]
+}

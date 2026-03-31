@@ -1,0 +1,31 @@
+{
+  "id": 7123,
+  "source": "Hacker News",
+  "title": "Recover Apple Keychain",
+  "url": "https://arkoinad.com/posts/apple_keychain_recovery.html",
+  "published_at": "2026-03-30T17:21:49Z",
+  "fetched_at": "2026-03-30T20:20:23.679823+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47577120\">Comments</a>",
+  "full_text": "I had the misfortune of locking myself out of my work MacBook.\n\nYou’d be justified in asking: Don’t you use it every day?\n\nYes, I do—and probably more than I should admit. But a few things led to this situation. For one, I’d gotten too used to relying on Touch ID. As a result, if my muscle memory failed me, I was stuck. On top of that, I kept entering my office Active Directory (AD) password instead of my Mac password—again, muscle memory at work. By the time I realized what I was doing wrong, I was locked out.\n\nSo, like every corporate employee, I reached out to IT. I’ll spare you the rant about how useful—or not—that decision was.\n\nUsing macOS recovery options, I managed to reset my laptop’s password—without fully understanding the ramifications. When I logged back in with the new password, boom: all my keychain data and some local user data were gone, and syncing had stopped.\n\nIt turns out that this data was encrypted using my old password, and the reset utility doesn’t decrypt and re-encrypt it with the new one. In hindsight, that makes sense from a security standpoint. Still, I had assumed there might be some kind of master key that would handle this automatically during a password reset.\n\nAfter the reset, macOS gave me the option to resync with my old data. Unfortunately, I had already exhausted the allowed attempts to enter my old password. Every time I tried to resync, I was met with the dreaded “delete iCloud data” prompt.\n\ndelete_data\n\nAs a long-time Linux (Arch Linux) tinkerer, I figured there had to be a way to either:\n\nReset the failed login attempt counter, or\n\nRecover the data directly\n\nBut since this was Apple, I knew it wouldn’t be straightforward.\n\nAfter some digging, I found that keychain data is stored at:\n~/Library/Keychains\n\nThe main file is:\nlogin.keychain-db\n\nDuring the password reset, macOS had moved the original keychain to:\nlogin_renamed_1.keychain-db\n\nand created a fresh login.keychain-db.\n\nRestoring my old data turned out to be surprisingly simple: replace the new keychain file with the old one.\n\nSteps to restore keychain data\n\nNavigate to:\n~/Library/Keychains\n\nRemove the newly created keychain (make sure it doesn’t contain anything important):\nrm login.keychain-db\n\nRename the old keychain back to the default:\nmv login_renamed_1.keychain-db login.keychain-db\n\nVoilà—data restored.\n\nWhen I opened Keychain Access, it prompted me for my old password. After entering it, everything synced correctly and updated to use the new password going forward.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "apple",
+      "create",
+      "datum",
+      "enter",
+      "fail",
+      "keychain",
+      "keychain access",
+      "macbook",
+      "macos",
+      "memory",
+      "password",
+      "recover",
+      "reset"
+    ],
+    []
+  ]
+}

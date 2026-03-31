@@ -1,0 +1,45 @@
+{
+  "id": 6859,
+  "source": "DEV Community<",
+  "title": "Day 24: Agentic AI in DevOps & MLOps ⚙️🚀",
+  "url": "https://dev.to/swatigoyal911/day-24-agentic-ai-in-devops-mlops-1bf9",
+  "published_at": "2026-03-30T00:30:00Z",
+  "fetched_at": "2026-03-30T01:20:25.955776+00:00",
+  "author": "swati goyal",
+  "summary": "<h2>\n  \n  \n  Executive Summary\n</h2>\n\n<p>DevOps and MLOps are where <strong>agentic AI becomes real infrastructure.</strong></p>\n\n<p>Unlike research or product agents, DevOps/MLOps agents:</p>\n\n<ul>\n<li>touch production systems 🧨\n</li>\n<li>trigger deployments\n</li>\n<li>modify infrastructure\n</li>\n<li>influence reliability, cost, and security\n</li>\n</ul>\n\n<p>This makes them:</p>\n\n<ul>\n<li>extremely powerful\n</li>\n<li>extremely dangerous if designed poorly\n</li>\n</ul>\n\n<p>This chapter goes deep into:</p>\n\n<ul>\n<li>where agentic AI fits in DevOps &amp; MLOps\n</li>\n<li>safe architectural patterns\n</li>\n<li>concrete implementations\n</li>\n<li>observability, analytics, and cost controls\n</li>\n<li>real-world use cases and failure modes\n</li>\n</ul>\n\n<p>Think of these agents as <strong>junior SREs that never sleep — and must never panic.</strong></p>\n\n\n\n\n<h2>\n  \n  \n  Why DevOps &amp; MLOps Are Agent-Native Domains 🧠\n</h2>\n\n<p>DevOps/MLOps work is:</p>\n\n<ul>\n<li>procedural\n</li>\n<li>reactive\n</li",
+  "full_text": "Executive Summary\n\nDevOps and MLOps are where agentic AI becomes real infrastructure.\n\nUnlike research or product agents, DevOps/MLOps agents:\n\ntouch production systems 🧨\n\ntrigger deployments\n\nmodify infrastructure\n\ninfluence reliability, cost, and security\n\nThis makes them:\n\nextremely powerful\n\nextremely dangerous if designed poorly\n\nThis chapter goes deep into:\n\nwhere agentic AI fits in DevOps & MLOps\n\nsafe architectural patterns\n\nconcrete implementations\n\nobservability, analytics, and cost controls\n\nreal-world use cases and failure modes\n\nThink of these agents as junior SREs that never sleep — and must never panic.\n\n \n \n Why DevOps & MLOps Are Agent-Native Domains 🧠\n\nDevOps/MLOps work is:\n\nprocedural\n\nreactive\n\nsignal-driven\n\nrepetitive under pressure\n\nClassic loop:\n\nObserve → Diagnose → Decide → Act → Verify\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis maps perfectly to agentic systems.\n\nBut mistakes here cause:\n\noutages\n\ndata corruption\n\nmassive cloud bills 💸\n\nSo autonomy must be earned, not assumed.\n\n \n \n What DevOps Agents SHOULD and SHOULD NOT Do 🚦\n\n \n \n SHOULD\n\ndetect anomalies early 📈\n\ncorrelate logs, metrics, traces\n\npropose remediation actions\n\nautomate low-risk responses\n\n \n \n SHOULD NOT\n\ndeploy to prod unreviewed ❌\n\nchange infra topology autonomously\n\nbypass incident processes\n\nDefault stance: read-only, then graduate.\n\n \n \n Canonical Architecture: DevOps Agent System 🏗️\n\nSignals (Metrics, Logs, Traces)\n ↓\n Observation Agent\n ↓\n Diagnosis Agent\n ↓\n Decision Agent\n ↓\n Action Validator & Policy Engine\n ↓\n Execution Agent\n ↓\n Verification & Rollback\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAutonomy increases layer by layer.\n\n \n \n Core Signals Ingested 📥\n\nSignal\nSystems\n\nMetrics\nPrometheus, Datadog\n\nLogs\nELK, OpenSearch\n\nTraces\nJaeger, Tempo\n\nDeployments\nArgoCD, Spinnaker\n\nML Metrics\nEvidently, WhyLabs\n\nAgents reason across signals humans rarely correlate manually.\n\n \n \n Use Case 1: Incident Triage Agent 🚨🧑‍🚒\n\n \n \n Problem\n\nalerts fire without context\n\nengineers wake up blind\n\n \n \n Agent Flow\n\nAlert → Log correlation → Change detection → Hypothesis → Suggested action\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Outcome\n\nfaster MTTR\n\nfewer false escalations\n\n \n \n Use Case 2: Deployment Risk Assessment 🧪📦\n\nBefore deployment, an agent evaluates:\n\nrecent incidents\n\ntest coverage changes\n\ntraffic patterns\n\nProduces:\n\nrisk score\n\ndeploy / delay recommendation\n\nHumans still approve.\n\n \n \n Use Case 3: MLOps Drift Detection & Response 📉🧠\n\nAgents monitor:\n\ndata drift\n\nprediction drift\n\nperformance decay\n\nAgent actions:\n\nretraining proposal\n\nrollback suggestion\n\nalert routing\n\n \n \n Example: Incident Diagnosis Agent (Pseudo-Code) 💻\n\ndef diagnose_incident(metrics, logs, traces):\n anomalies = detect_anomalies(metrics)\n correlated_logs = correlate_logs(logs, anomalies)\n recent_changes = find_recent_deployments()\n\n hypothesis = generate_hypothesis(\n anomalies,\n correlated_logs,\n recent_changes\n )\n return hypothesis\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDiagnosis > reaction.\n\n \n \n Policy-Gated Execution (Critical) 🔐\n\nNo agent action should skip policy checks.\n\nIF action == \"restart\"\nAND service_tier == \"critical\"\nTHEN require human approval\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPolicies protect uptime and engineers.\n\n \n \n Tool Wrapping Pattern 🧩\n\nAgent → Safe Wrapper → kubectl / API\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWrappers enforce:\n\nenvironment checks\n\nblast radius limits\n\nrollback readiness\n\nNever expose raw infrastructure tools.\n\n \n \n Observability for DevOps Agents 👀📊\n\nTrack:\n\nagent suggestions vs approvals\n\nautomated actions taken\n\nrollback frequency\n\nfalse positive rate\n\nThese metrics define trust.\n\n \n \n Cost & Performance Analytics 💸📉\n\nAgents can:\n\ndetect over-provisioning\n\nrecommend scale-downs\n\nflag runaway jobs\n\nBut scaling actions must be staged and reversible.\n\n \n \n Failure Modes Seen in Production 🚨\n\nFailure\nCause\n\nAlert storms\nPoor signal filtering\n\nWrong remediation\nShallow diagnosis\n\nAutomation fear\nNo explainability\n\nAgents must explain why before acting.\n\n \n \n Case Study: SRE Assist Agent at Scale 🧑‍💻📊\n\nContext\n\nMulti-region SaaS platform\n\nAgent Role\n\nincident correlation\n\nremediation suggestions\n\nResults\n\n35% MTTR reduction\n\nfewer night-time escalations\n\nKey choice\n\nSuggestions first. Automation later.\n\n \n \n Tooling Ecosystem 🧰\n\nCategory\nTools\n\nInfra\nKubernetes, Terraform\n\nCI/CD\nGitHub Actions, ArgoCD\n\nObservability\nPrometheus, Datadog\n\nMLOps\nMLflow, Kubeflow\n\nAgents integrate — they don’t replace.\n\n \n \n Gradual Autonomy Model 📈\n\nObserve → Suggest → Execute (Low Risk) → Execute (High Risk)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nMost systems should never reach full autonomy.\n\n \n \n Final Takeaway\n\nAgentic AI in DevOps & MLOps is about resilience, not heroics.\n\nThe best teams:\n\nautomate safely\n\nexplain every action\n\ndesign for rollback\n\nAn agent that can deploy must also know how to stop 🛑.\n\n \n \n Test Your Skills\n\n \n \n 🚀 Continue Learning: Full Agentic AI Course\n\n👉 Start the Full Course: https://quizmaker.co.in/study/agentic-ai",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "action",
+      "agent",
+      "agentic",
+      "ai",
+      "canonical architecture",
+      "devops",
+      "devops & mlops",
+      "devops agents should",
+      "elk",
+      "exit",
+      "fullscreen",
+      "incident",
+      "learning",
+      "logs",
+      "mlops",
+      "mode",
+      "opensearch",
+      "programming",
+      "rollback",
+      "signal\nsystems\n\nmetrics",
+      "tutorial",
+      "🚀 executive summary"
+    ],
+    [
+      "devops",
+      "learning",
+      "programming",
+      "tutorial"
+    ]
+  ]
+}

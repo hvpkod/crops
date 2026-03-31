@@ -1,0 +1,29 @@
+{
+  "id": 6858,
+  "source": "DEV Community<",
+  "title": "How to Build a Bank Ledger in Golang with PostgreSQL using the Double-Entry Accounting Principle",
+  "url": "https://dev.to/paulbabatuyi/how-to-build-a-bank-ledger-in-golang-with-postgresql-using-the-double-entry-accounting-principle-2npi",
+  "published_at": "2026-03-30T00:36:56Z",
+  "fetched_at": "2026-03-30T01:20:25.585861+00:00",
+  "author": "Paul Babatuyi",
+  "summary": "<p>I wrote a detailed tutorial on FreeCodeCamp about building a secure bank ledger backend in Golang with PostgreSQL, using double-entry accounting principles.<br />\ncheck it out here.<br />\nfreecodecamp tutorial ink: <a href=\"https://www.freecodecamp.org/news/build-a-bank-ledger-in-go-with-postgresql-using-the-double-entry-accounting-principle/\" rel=\"noopener noreferrer\">https://www.freecodecamp.org/news/build-a-bank-ledger-in-go-with-postgresql-using-the-double-entry-accounting-principle/</a><br />\nBackend GitHub repo :<br />\n<a href=\"https://github.com/PaulBabatuyi/double-entry-bank-Go\" rel=\"noopener noreferrer\">https://github.com/PaulBabatuyi/double-entry-bank-Go</a><br />\nLive demo: <a href=\"https://golangbank.app\" rel=\"noopener noreferrer\">https://golangbank.app</a><br />\nFrontend Nextjs Typescript : <a href=\"https://github.com/PaulBabatuyi/double-entry-bank\" rel=\"noopener noreferrer\">https://github.com/PaulBabatuyi/double-entry-bank</a><br />\nAnd incase you want to check out my ",
+  "full_text": null,
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "accounting",
+      "bank",
+      "build",
+      "docker",
+      "go",
+      "golang",
+      "ledger",
+      "postgres",
+      "postgresql",
+      "principle",
+      "the double-entry accounting"
+    ],
+    []
+  ]
+}

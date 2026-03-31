@@ -1,0 +1,32 @@
+{
+  "id": 6919,
+  "source": "Hacker News",
+  "title": "Douglas Lenat's Automated Mathematician Source Code",
+  "url": "https://github.com/white-flame/am",
+  "published_at": "2026-03-25T16:31:11Z",
+  "fetched_at": "2026-03-30T07:20:47.392946+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47519622\">Comments</a>",
+  "full_text": "Douglas Lenat's AM from SAIL archives circa 1977\n\nThese files are extracted from the SAILDART archive maintained by Bruce Baumgart, in Douglas Lenat's AM section here: https://www.saildart.org/[AM,DBL]/\n\nThe accompanying PhD thesis can be found here: https://apps.dtic.mil/sti/pdfs/ADA155378.pdf\n\nQuoted from the thesis, page 124:\n\nMachine: SUMEX, PDP-10, KI-10 uniprocessor, 256k core memory.\n\nLanguage: Interlisp, January '75 release, which occupies 140k of the total 256k, but which\nprovides a surplus \"shadow space\" of 256k additional words available for holding compiled\ncode.\n\nLT is the initial loader file, which will load the others. While the thesis notes that the file TOP6 will be loaded, at some point this was split into loading TA and TB.\n\nThe CON6 file is much newer than the others. While I grabbed the newest version, older versions still exist on the archive above and might be required instead.\n\nAny other applicable files found in the SAILDART archive such as documentation or demonstration logs should be committed here as well. A general description of the DBL areas can be found in the EURISKO project wiki.\n\nThis should be in the public domain, or international equivalent, as it was funded by the USA government through ARPA. The thesis additionally encourages others to copy, modify, and use the software.\n\nDiscord: https://discord.gg/vhsmVCwgvK",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "archive",
+      "arpa",
+      "circa",
+      "dbl",
+      "douglas",
+      "extract",
+      "file",
+      "find",
+      "loader",
+      "sail",
+      "saildart",
+      "sumex",
+      "thesis",
+      "usa"
+    ],
+    []
+  ]
+}

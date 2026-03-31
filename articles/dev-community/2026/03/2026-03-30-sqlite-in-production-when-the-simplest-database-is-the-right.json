@@ -1,0 +1,44 @@
+{
+  "id": 6864,
+  "source": "DEV Community<",
+  "title": "SQLite in Production: When the Simplest Database Is the Right One",
+  "url": "https://dev.to/michael_sun_18a5c4c96768d/sqlite-in-production-when-the-simplest-database-is-the-right-one-5enl",
+  "published_at": "2026-03-30T00:18:33Z",
+  "fetched_at": "2026-03-30T01:20:33.647474+00:00",
+  "author": "Michael Sun",
+  "summary": "<p>For years the advice was automatic: SQLite is for prototypes, mobile apps, and test suites. If you're building anything \"real,\" you need PostgreSQL. That advice was reasonable in 2015. It's increasingly wrong in 2026.</p>\n\n<p>SQLite powers every iPhone, every Android device, every Firefox and Chrome installation. The engine processes more queries per day than every other database engine combined. What changed isn't SQLite's reliability — it's the ecosystem around it.</p>\n\n<h2>\n  \n  \n  What Actually Changed\n</h2>\n\n<p><strong>Litestream</strong> solved SQLite's most critical production gap. Ben Johnson's tool continuously replicates SQLite databases to S3-compatible storage by streaming WAL changes in near-real-time. Recovery point objectives drop to seconds. There's no cron job, no pg_dump window, no backup interval to worry about — just a single sidecar binary and a bucket policy.</p>\n\n<p><strong>LiteFS</strong> from Fly.io uses a FUSE-based filesystem to replicate SQLite across mul",
+  "full_text": "For years the advice was automatic: SQLite is for prototypes, mobile apps, and test suites. If you're building anything \"real,\" you need PostgreSQL. That advice was reasonable in 2015. It's increasingly wrong in 2026.\n\nSQLite powers every iPhone, every Android device, every Firefox and Chrome installation. The engine processes more queries per day than every other database engine combined. What changed isn't SQLite's reliability — it's the ecosystem around it.\n\n \n \n What Actually Changed\n\nLitestream solved SQLite's most critical production gap. Ben Johnson's tool continuously replicates SQLite databases to S3-compatible storage by streaming WAL changes in near-real-time. Recovery point objectives drop to seconds. There's no cron job, no pg_dump window, no backup interval to worry about — just a single sidecar binary and a bucket policy.\n\nLiteFS from Fly.io uses a FUSE-based filesystem to replicate SQLite across multiple nodes. A primary handles writes; replicas in Tokyo, London, or São Paulo serve reads locally. For read-heavy applications, the latency improvement over a centralized Postgres instance is measurable and real.\n\nlibSQL / Turso forked SQLite to add a network protocol, native replication primitives, and user-defined functions without recompiling. You get embedded local performance and the ability to access the database over HTTP for tooling and admin use.\n\n \n \n The Concurrency Misconception\n\nThe most persistent myth about SQLite is that it can't handle concurrent access. Under WAL mode — which should be your default for any production deployment — concurrent readers never block writers and writers never block readers.\n\nThe real constraint is serialized writes: SQLite processes one write transaction at a time. On modern NVMe storage, that single writer can sustain tens of thousands of write transactions per second. For the vast majority of web applications (where reads outnumber writes 10:1 or more), this isn't a bottleneck.\n\nThe essential WAL mode setup:\n\nPRAGMA journal_mode=WAL;\nPRAGMA busy_timeout=5000;\nPRAGMA synchronous=NORMAL;\nPRAGMA cache_size=-64000;\nPRAGMA foreign_keys=ON;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe busy_timeout pragma is critical — without it, concurrent write attempts return SQLITE_BUSY immediately instead of retrying.\n\n \n \n Where SQLite Beats PostgreSQL\n\nRead-heavy single-server apps: When your dataset fits in memory or on fast NVMe, every query is a local function call. Latency drops from milliseconds to microseconds.\n\nEdge deployments: Apps on Fly.io or Cloudflare benefit enormously from a database that lives on the same machine as the application.\n\nInternal tools and dashboards: The operational overhead of a dedicated Postgres instance for a five-person admin panel is hard to justify.\n\nBounded data volumes: If your SaaS tool generates a few gigabytes per tenant at most, SQLite's theoretical ceiling is irrelevant.\n\n \n \n Where PostgreSQL Still Wins\n\nWrite-heavy transactional workloads (payments, inventory), multi-server horizontal scaling, and complex queries with CTEs and window functions are still PostgreSQL territory. The choice isn't ideological — it's workload-specific.\n\n \n \n Three Key Takeaways\n\nWAL mode changes the concurrency equation. Default journal mode SQLite and WAL mode SQLite are meaningfully different tools. Always use WAL for production.\n\nLitestream is the unlock. The backup and disaster recovery story that made SQLite unsuitable for production is solved. A single binary handles continuous replication to object storage.\n\nMatch the database to the deployment model. SQLite's advantages are most pronounced on single-server or edge deployments. The moment you need genuine multi-writer horizontal scaling, move to PostgreSQL.\n\nRead the full article at novvista.com for a detailed workload comparison table, LiteFS setup walkthrough, and an honest assessment of where SQLite still falls short.\n\nOriginally published at NovVista",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "android",
+      "backend",
+      "cloudflare",
+      "concurrent",
+      "database",
+      "handle",
+      "libsql /",
+      "london",
+      "mode",
+      "normal",
+      "payments",
+      "postgres",
+      "postgresql",
+      "pragma",
+      "production",
+      "query",
+      "sqlite",
+      "tokyo",
+      "wal",
+      "webdev",
+      "write"
+    ],
+    [
+      "android",
+      "backend",
+      "database",
+      "webdev"
+    ]
+  ]
+}

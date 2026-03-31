@@ -1,0 +1,39 @@
+{
+  "id": 6946,
+  "source": "DEV Community<",
+  "title": "Frontend Art Submission — Gender Beyond Boundaries 👨‍🦰👩‍🦳",
+  "url": "https://dev.to/usman_awan/frontend-art-submission-gender-beyond-boundaries-4jck",
+  "published_at": "2026-03-30T10:02:37Z",
+  "fetched_at": "2026-03-30T10:20:37.865435+00:00",
+  "author": "Muhammad Usman Awan",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/wecoded-2026\">2026 WeCoded Challenge</a>: Frontend Art</em></p>\n\n<h2>\n  \n  \n  👨‍🦰👩‍🦳 Frontend Art Submission — Gender Beyond Boundaries\n</h2>\n\n<p>I built an interactive 3D experience using <strong>Next.js</strong> and <strong>Three.js</strong> that visually represents gender equality across professions.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fn4cp946cds91qvgw8ww4.png\"><img alt=\" \" height=\"386\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fn4cp946cds91qvgw8ww4.png\" width=\"800\" /></a></p>\n\n<p>The project features two avatars — a male on the left and a female on the right — dynamically showcasing <strong>10 diff",
+  "full_text": "WeCoded 2026: Frontend Art 💜\n\n \n \n\n \n\nThis is a submission for the 2026 WeCoded Challenge: Frontend Art\n\n \n \n 👨‍🦰👩‍🦳 Frontend Art Submission — Gender Beyond Boundaries\n\nI built an interactive 3D experience using Next.js and Three.js that visually represents gender equality across professions.\n\nThe project features two avatars — a male on the left and a female on the right — dynamically showcasing 10 different professions. Alongside the visuals, contextual metadata appears, including real-world role models for each gender, reinforcing that capability and excellence are not defined by gender.\n\n👉 Live Preview\n\n👉 Github\n\n \n \n 💡 Inspiration\n\nThis project is a tribute to gender equality — a statement that professions, skills, and ambitions belong to everyone.\n\nGrowing up, many of us are subtly (or explicitly) told what we can or cannot become based on gender. I wanted to challenge that narrative using immersive web technology.\n\nEach profession highlights real individuals who broke barriers, showing that talent, courage, and intelligence are universal traits. The dual-avatar system visually reinforces a simple but powerful idea:\n\nThere is no “male job” or “female job” — only human potential.\n\n \n \n 🧠 Featured Professions & Role Models\n\n \n \n 📰 Journalist\n\nA fearless seeker of truth shaping public narratives.\n\nMale: James Baldwin\n\nFemale: Nellie Bly\n\n \n \n 🌾 Farmer\n\nThe backbone of global food security and sustainability.\n\nMale: George Washington Carver\n\nFemale: Karen Washington\n\n \n \n 🚒 Firefighter\n\nA symbol of courage and selfless service.\n\nMale: Patrick Hardison\n\nFemale: Molly Williams\n\n \n \n 💻 Software Engineer\n\nArchitects of the digital world.\n\nMale: Alan Turing\n\nFemale: Ada Lovelace\n\n \n \n 🔧 Mechanic\n\nMasters of machines and precision engineering.\n\nMale: Henry Ford\n\nFemale: Patrice Banks\n\n \n \n 🏥 Nurse\n\nThe heartbeat of healthcare systems.\n\nMale: James Derham\n\nFemale: Florence Nightingale\n\n \n \n ✈️ Pilot\n\nLeaders navigating the skies.\n\nMale: Charles Lindbergh\n\nFemale: Amelia Earhart\n\n \n \n 👮 Police Officer\n\nGuardians of justice and public safety.\n\nMale: August Vollmer\n\nFemale: Alice Stebbins Wells\n\n \n \n 🛍️ Retail Salesperson\n\nDrivers of commerce and community connection.\n\nMale: Marshall Field\n\nFemale: Madam C.J. Walker\n\n \n \n 🩺 Doctor\n\nLeaders in healing and medical innovation.\n\nMale: Jonas Salk\n\nFemale: Elizabeth Blackwell\n\n \n \n 💻 My Code\n\nBuilt with:\n\nNext.js for structure and performance\n\nThree.js for immersive 3D rendering\n\nCustom logic for dynamic avatar switching and metadata display\n\n👉 Source Code\n\n \n \n ✨ Final Thought\n\nThis project isn’t just about visuals — it’s about perspective.\n\nBy placing male and female avatars side by side in every profession, I wanted users to feel equality, not just read about it. Technology has the power to shape narratives, and this is my small contribution toward a more inclusive one.\n\n \n \n 🚀 Performance & Optimization Note\n\nAs of this submission, I am actively working on further optimizing the asset delivery. Since high-quality Avatar GLB files can be heavy, they currently take a moment to fully render depending on the connection.\n\nThanks for reading! 🙌\n\nUntil next time, 🫡\n\nUsman Awan (your friendly dev 🚀)",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "avatar",
+      "boundaries",
+      "build",
+      "css",
+      "devchallenge",
+      "frontend",
+      "gender",
+      "glb",
+      "mechanic\n\nmasters",
+      "profession",
+      "software engineer\n\narchitects",
+      "submission",
+      "visually",
+      "want",
+      "wecoded",
+      "🦳 wecoded"
+    ],
+    [
+      "devchallenge",
+      "frontend",
+      "gender",
+      "wecoded"
+    ]
+  ]
+}

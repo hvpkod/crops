@@ -1,0 +1,30 @@
+{
+  "id": 7167,
+  "source": "Slashdot",
+  "title": "Microsoft Plans To Build 100% Native Apps For Windows 11",
+  "url": "https://tech.slashdot.org/story/26/03/30/2245259/microsoft-plans-to-build-100-native-apps-for-windows-11?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-30T23:00:00Z",
+  "fetched_at": "2026-03-30T23:40:24.704847+00:00",
+  "author": "BeauHD",
+  "summary": "Microsoft is reportedly shifting Windows 11 app development back toward fully native apps. Rudy Huyn, a Partner Architect at Microsoft working on the Store and File Explorer, said in a post on X that he is building a new team to work on Windows apps. \"You don't need prior experience with the platform.. what matters most is strong product thinking and a deep focus on the customer,\" he wrote. \"If you've built great apps on any platform and care about crafting meaningful user experiences, I'd love to hear from you.\" Huyn later said in a reply on X that the new Windows 11 apps will be \"100% native.\" TechSpot reports: The description stands out at a time when many of Microsoft's built-in tools, including Clipchamp and Copilot, rely on web technologies and Progressive Web App architectures. The company's commitment to native performance suggests that some long-standing frustrations around responsiveness, memory use, and interface consistency could finally be addressed.\n \nFor Windows develope",
+  "full_text": "Microsoft is reportedly shifting Windows 11 app development back toward fully native apps\n\n. Rudy Huyn, a Partner Architect at Microsoft working on the Store and File Explorer, said in a post\n\n on X that he is building a new team to work on Windows apps. \"You don't need prior experience with the platform.. what matters most is strong product thinking and a deep focus on the customer,\" he wrote. \"If you've built great apps on any platform and care about crafting meaningful user experiences, I'd love to hear from you.\" Huyn later said in a reply on X that the new Windows 11 apps will be \"100% native.\" TechSpot reports: The description stands out at a time when many of Microsoft's built-in tools, including Clipchamp and Copilot, rely on web technologies and Progressive Web App architectures. The company's commitment to native performance suggests that some long-standing frustrations around responsiveness, memory use, and interface consistency could finally be addressed.\n\n \n\nFor Windows developers, Huyn's comments hint at a change in direction. Microsoft's recent development priorities have leaned heavily on web-based approaches, with Progressive Web Apps (PWAs) replacing or supplementing many native programs. [...] Exactly which applications will be rebuilt, or how strictly \"100% native\" will be enforced, remains unclear. Some current Microsoft apps classified as native still depend on WebView for specific features. But the renewed emphasis already has developers paying attention.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "app",
+      "clipchamp and copilot",
+      "craft",
+      "development",
+      "huyn",
+      "matter",
+      "microsoft",
+      "native",
+      "progressive",
+      "shift",
+      "webview",
+      "windows"
+    ],
+    []
+  ]
+}

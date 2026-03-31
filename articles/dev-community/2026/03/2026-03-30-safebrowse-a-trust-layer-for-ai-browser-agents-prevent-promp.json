@@ -1,0 +1,44 @@
+{
+  "id": 6857,
+  "source": "DEV Community<",
+  "title": "SafeBrowse: A Trust Layer for AI Browser Agents (Prevent Prompt Injection & Data Exfiltration)",
+  "url": "https://dev.to/rob_kang_7e54350f8af26743/safebrowse-a-trust-layer-for-ai-browser-agents-prevent-prompt-injection-data-exfiltration-3i3b",
+  "published_at": "2026-03-30T00:39:29Z",
+  "fetched_at": "2026-03-30T01:20:24.189679+00:00",
+  "author": "Rob Kang",
+  "summary": "<p>If your agent can browse the web, download files, connect tools, and write memory, a stronger model is helpful, but it is not enough.</p>\n\n<p>I built <strong>SafeBrowse</strong> to sit on the action path between an agent and risky browser-adjacent surfaces. It does not replace the planner or the model. Instead, it evaluates what the agent is trying to do and returns typed verdicts like <code>ALLOW</code>, <code>BLOCK</code>, <code>QUARANTINE_ARTIFACT</code>, or <code>USER_CONFIRM</code>.</p>\n\n<p>The short version:</p>\n\n<blockquote>\n<p>Your model decides what it wants to do.<br /><br />\nSafeBrowse decides what it is allowed to do.</p>\n</blockquote>\n\n<p>Today, the <strong>Python client is live on PyPI</strong> as <a href=\"https://pypi.org/project/safebrowse-client/\" rel=\"noopener noreferrer\"><code>safebrowse-client</code></a>, and the full project is here:</p>\n\n<ul>\n<li>GitHub: <a href=\"https://github.com/RobKang1234/safebrowse-sdk\" rel=\"noopener noreferrer\">https://github.com/RobKang",
+  "full_text": "If your agent can browse the web, download files, connect tools, and write memory, a stronger model is helpful, but it is not enough.\n\nI built SafeBrowse to sit on the action path between an agent and risky browser-adjacent surfaces. It does not replace the planner or the model. Instead, it evaluates what the agent is trying to do and returns typed verdicts like ALLOW, BLOCK, QUARANTINE_ARTIFACT, or USER_CONFIRM.\n\nThe short version:\n\nYour model decides what it wants to do.\n\nSafeBrowse decides what it is allowed to do.\n\nToday, the Python client is live on PyPI as safebrowse-client, and the full project is here:\n\n \n \n Why I built this\n\nA lot of agent safety discussion still sounds like \"just use a better model\" or \"add more prompt instructions.\"\n\nThat helps, but it does not solve the actual runtime problem.\n\nA browsing agent can still get into trouble through:\n\nprompt injection hidden in normal web pages\n\npoisoned PDFs or downloaded artifacts\n\nconnector or tool onboarding abuse\n\nOAuth callback abuse\n\ndurable memory poisoning\n\nlong-context social engineering that looks operationally plausible\n\nThose are not just model-quality problems. They are control-boundary problems.\n\nSo SafeBrowse keeps the product boundary narrow:\n\nadapters observe and propose actions\n\nSafeBrowse evaluates and constrains\n\nthe planner or model stays external\n\n \n \n What SafeBrowse does\n\nSafeBrowse currently includes:\n\na TypeScript core runtime\n\na localhost daemon\n\na thin Python client\n\na Playwright reference adapter\n\npolicy and knowledge-base tooling\n\na live threat lab and comparison dashboard\n\nThe runtime evaluates:\n\npage observations\n\nactions like navigation or sink transitions\n\ndownloaded artifacts\n\ntool / connector onboarding\n\nOAuth callback flows\n\ndurable memory writes\n\nreplay and forensic logging\n\nThe most important hardening in the current branch is around connector and OAuth abuse:\n\nverified registry-backed connector preparation\n\nexact redirect and callback-origin verification\n\napproval-bound onboarding\n\ncallback verification with state binding\n\nartifact-to-tool taint propagation\n\nreplay bundles with policy provenance\n\n \n \n Why this still matters with OpenAI or Claude\n\nHosted model platforms already have useful safety features. I am not claiming otherwise.\n\nBut SafeBrowse is useful for a different reason: it is app-side enforcement.\n\nModel-native safety helps with:\n\nstronger refusal behavior\n\nbetter resistance to obvious jailbreaks\n\nmoderation / guardrail layers\n\ntool approval primitives\n\nSafeBrowse adds:\n\ndeterministic allow/block decisions\n\nverified connector registry checks\n\nOAuth callback and origin validation\n\nartifact lineage and quarantine behavior\n\nmemory-write policy\n\nreplayable forensic logs\n\nBetter models reduce how often the agent wants to do the wrong thing.\n\nSafeBrowse reduces what the agent is allowed to do when it still wants the wrong thing.\n\n \n \n What I tested\n\nI built a live threat lab that runs:\n\na raw agent\n\nan SDK-protected agent\n\nagainst the same model backend\n\nFor the frozen model-backed snapshot in the repo, both agents used the same local Qwen backend. The point was to measure the middleware difference, not hide behind a model swap.\n\nFrozen batch summary:\n\ncompleted comparisons: 22\n\nraw-agent compromises: 21\n\nSDK bypasses: 0\n\nHere are a few representative rows:\n\nThreat\nRaw Agent\nAgent + SDK\nVerdict\n\nVisible direct override\nCompromised\nContained\nBLOCK\n\nHidden instruction layer\nCompromised\nStayed read-only\nALLOW\n\nPoisoned PDF handoff\nCompromised\nQuarantined\nQUARANTINE_ARTIFACT\n\nSchema-poisoned trusted connector\nCompromised\nContained\nBLOCK\n\nAppendix-to-connector chain\nCompromised\nContained\nBLOCK\n\nBenign research page\nStayed read-only\nStayed read-only\nALLOW\n\nThe connector cases were the most interesting. In early versions, euphemistic onboarding text and schema-poisoned manifests could still push the agent toward unsafe callback flows. The hardened v2 path closes those by treating registry trust, approval binding, callback origin, and state as runtime-enforced constraints instead of model-accepted hints.\n\n \n \n How people use it\n\nThe Python package is intentionally thin.\n\nIt is not the full policy engine in Python. It is a client for the SafeBrowse daemon.\n\nA typical flow looks like this:\n\nyour browser agent reads a page\n\nyour app sends the observation to SafeBrowse\n\nyour model proposes a next step\n\nyour app asks SafeBrowse to evaluate that action\n\nyour browser only executes if SafeBrowse allows it\n\n \n \n Quick start\n\nInstall the Python client:\n\nbash\npip install safebrowse-client\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "agents",
+      "agentsbrowsingsecurity",
+      "ai",
+      "callback",
+      "claude\n\nhosted",
+      "compromise",
+      "connector",
+      "contain",
+      "model",
+      "oauth",
+      "onboarding",
+      "openai",
+      "pdf",
+      "pypi",
+      "python",
+      "quick",
+      "safebrowse",
+      "sdk",
+      "security",
+      "stay",
+      "typescript"
+    ],
+    [
+      "agents",
+      "agentsbrowsingsecurity",
+      "python"
+    ]
+  ]
+}

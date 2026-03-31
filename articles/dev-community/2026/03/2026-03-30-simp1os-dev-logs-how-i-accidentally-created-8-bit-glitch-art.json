@@ -1,0 +1,38 @@
+{
+  "id": 6887,
+  "source": "DEV Community<",
+  "title": "🗓️ Simp1OS Dev Logs – How I Accidentally Created 8-Bit Glitch Art While Trying to Build Kernel",
+  "url": "https://dev.to/arush179/simp1os-dev-logs-how-i-accidentally-created-8-bit-glitch-art-while-trying-to-build-kernel-3pe0",
+  "published_at": "2026-03-30T03:59:07Z",
+  "fetched_at": "2026-03-30T04:20:24.680994+00:00",
+  "author": "Arush Tripathi",
+  "summary": "<p>So, I decided to build an Operating System. Why? Because I thought, \"Hey, how hard can it be to tell a CPU what to do?\"</p>\n\n<p>Narrator: It was very hard.</p>\n\n<p>I’m 11, I’ve got exams coming up, and I spent my weekend arguing with a linker script that treated me like I didn't exist. Here is the saga of Simp1OS v0.01.</p>\n\n<p>The Victory: The Yellow Screen of Destiny<br />\nMost people get a Blue Screen of Death. I started with the Yellow Screen of Life. I managed to bypass every \"command not found\" error, set up a cross-compiler, and actually painted the screen a beautiful pastel yellow.</p>\n\n<p>I even drew a white box. A perfect, sharp, professional white box. I was feeling like a boss. I was ready to type my name in lights.</p>\n\n<p>The Disaster: The Screen Scramble<br />\nThen, I tried to add text. I wrote a font engine. I mapped out the bits for 'S', 'i', 'm', 'p', and '1'. I clicked run, expecting a glorious welcome message.</p>\n\n<p>Instead, I got... a glitch masterpiece.</p>\n\n",
+  "full_text": "So, I decided to build an Operating System. Why? Because I thought, \"Hey, how hard can it be to tell a CPU what to do?\"\n\nNarrator: It was very hard.\n\nI’m 11, I’ve got exams coming up, and I spent my weekend arguing with a linker script that treated me like I didn't exist. Here is the saga of Simp1OS v0.01.\n\nThe Victory: The Yellow Screen of Destiny\n\nMost people get a Blue Screen of Death. I started with the Yellow Screen of Life. I managed to bypass every \"command not found\" error, set up a cross-compiler, and actually painted the screen a beautiful pastel yellow.\n\nI even drew a white box. A perfect, sharp, professional white box. I was feeling like a boss. I was ready to type my name in lights.\n\nThe Disaster: The Screen Scramble\n\nThen, I tried to add text. I wrote a font engine. I mapped out the bits for 'S', 'i', 'm', 'p', and '1'. I clicked run, expecting a glorious welcome message.\n\nInstead, I got... a glitch masterpiece.\n\nMy OS didn't just print text; it threw the text into a blender. Because of a math error called \"Memory Pitch,\" my letters decided they wanted to be italic and started leaning at a 45-degree angle until they vibrated off the screen. It looked like my computer was possessed by a demon that only speaks in scrambled ASCII.\n\nWhy I (Almost) Quit\n\nI’m not going to lie—I looked at that scrambled mess, thought about my math homework, and almost deleted the whole folder. I even said \"I'm out. I'm retiring at 11.\"\n\nBut then I realized: That scrambled mess is actually alive. The CPU isn't ignoring me anymore. It's just confused because I'm giving it instructions in a language it barely understands. That glitch isn't a failure; it's a puzzle I haven't solved yet.\n\nThe Plan: Slow and Steady (Between Classes)\n\nI’m not quitting. I have way too much potential to let a tilted 'S' defeat me. But I am going slow.\n\nGoal 1: Stop the text from looking like it's sliding down a slide.\n\nGoal 2: Don't let my OS dev habits ruin my science grades.\n\nGoal 3: Actually make a \"Start\" button that doesn't explode the kernel.\n\nSimp1OS v0.01 is currently in \"Abstract Art Mode.\" Stay tuned for v0.02, where I hopefully discover how to draw a straight line.\n\nHay there if you feel temptation to download the iso of Simp1OS download the iso at \n\nhttps://simp1os.netlify.app",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "actually",
+      "ascii",
+      "beginners",
+      "cpu",
+      "decide",
+      "glitch",
+      "goal",
+      "look",
+      "math",
+      "operating system",
+      "osdev",
+      "scramble",
+      "screen",
+      "showdev",
+      "start",
+      "yellow"
+    ],
+    [
+      "beginners",
+      "osdev",
+      "showdev"
+    ]
+  ]
+}

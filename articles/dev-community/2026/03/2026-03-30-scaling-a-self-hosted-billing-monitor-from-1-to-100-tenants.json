@@ -1,0 +1,40 @@
+{
+  "id": 6895,
+  "source": "DEV Community<",
+  "title": "Scaling a Self-Hosted Billing Monitor from 1 to 100 Tenants",
+  "url": "https://dev.to/qcautomation/scaling-a-self-hosted-billing-monitor-from-1-to-100-tenants-1ah1",
+  "published_at": "2026-03-30T03:27:15Z",
+  "fetched_at": "2026-03-30T04:20:34.531058+00:00",
+  "author": "Ray",
+  "summary": "<p>When I built <a href=\"https://github.com/rmbell09-lang/billingwatch\" rel=\"noopener noreferrer\">BillingWatch</a>, I designed it for a single Stripe account. Then people started asking about multi-tenant support. Here's what the architecture looks like when you scale from 1 to 100 tenants.</p>\n\n<h2>\n  \n  \n  The Core Multi-Tenancy Pattern\n</h2>\n\n<p>The simplest approach: row-level tenant isolation with a <code>tenant_id</code> on every table. BillingWatch uses FastAPI + SQLite (upgradeable to Postgres), with every query scoped to the requesting tenant:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight python\"><code><span class=\"kn\">from</span> <span class=\"n\">fastapi</span> <span class=\"kn\">import</span> <span class=\"n\">FastAPI</span><span class=\"p\">,</span> <span class=\"n\">Header</span><span class=\"p\">,</span> <span class=\"n\">HTTPException</span>\n<span class=\"kn\">from</span> <span class=\"n\">sqlalchemy.orm</span> <span class=\"kn\">import</span> <span class=\"n\">",
+  "full_text": "When I built BillingWatch, I designed it for a single Stripe account. Then people started asking about multi-tenant support. Here's what the architecture looks like when you scale from 1 to 100 tenants.\n\n \n \n The Core Multi-Tenancy Pattern\n\nThe simplest approach: row-level tenant isolation with a tenant_id on every table. BillingWatch uses FastAPI + SQLite (upgradeable to Postgres), with every query scoped to the requesting tenant:\n\nfrom fastapi import FastAPI, Header, HTTPException\nfrom sqlalchemy.orm import Session\n\napp = FastAPI()\n\ndef get_tenant_id(x_tenant_id: str = Header(...)):\n if not x_tenant_id:\n raise HTTPException(status_code=401, detail=\"Missing tenant header\")\n return x_tenant_id\n\n@app.get(\"/anomalies\")\ndef list_anomalies(tenant_id: str = Depends(get_tenant_id), db: Session = Depends(get_db)):\n return db.query(Anomaly).filter(Anomaly.tenant_id == tenant_id).all()\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEvery webhook endpoint, every query, every dashboard call is scoped this way. It's boring and it works.\n\n \n \n Webhook Routing at Scale\n\nThe tricky part is routing Stripe webhooks when you have 100 different Stripe accounts. The clean solution: each tenant gets their own webhook endpoint with a unique path token:\n\n@app.post(\"/webhook/{tenant_token}\")\nasync def stripe_webhook(tenant_token: str, request: Request):\n tenant = db.query(Tenant).filter(Tenant.webhook_token == tenant_token).first()\n if not tenant:\n raise HTTPException(status_code=404)\n\n # Verify Stripe signature against THIS tenant's secret\n payload = await request.body()\n sig = request.headers.get(\"stripe-signature\")\n try:\n event = stripe.Webhook.construct_event(payload, sig, tenant.webhook_secret)\n except stripe.error.SignatureVerificationError:\n raise HTTPException(status_code=400)\n\n process_event(event, tenant.id)\n return {\"status\": \"ok\"}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis means each tenant registers https://yourdomain.com/webhook/<unique-token> in their Stripe dashboard. Clean separation, no shared secrets.\n\n \n \n Deduplication: Don't Process Twice\n\nStripe retries webhooks on failure. At 100 tenants you'll hit duplicate events. A simple idempotency table:\n\nclass ProcessedEvent(Base):\n __tablename__ = \"processed_events\"\n event_id = Column(String, primary_key=True)\n tenant_id = Column(String, nullable=False)\n processed_at = Column(DateTime, default=datetime.utcnow)\n\ndef process_event(event, tenant_id):\n existing = db.query(ProcessedEvent).filter_by(\n event_id=event.id, tenant_id=tenant_id\n ).first()\n if existing:\n return # already processed\n\n # ... process the event ...\n\n db.add(ProcessedEvent(event_id=event.id, tenant_id=tenant_id))\n db.commit()\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAdd a composite index on (event_id, tenant_id) and this query is fast even at millions of rows.\n\n \n \n Database Considerations\n\nFor 100 tenants with moderate webhook volume, SQLite holds up fine if you enable WAL mode:\n\n@event.listens_for(Engine, \"connect\")\ndef set_sqlite_pragma(dbapi_connection, connection_record):\n cursor = dbapi_connection.cursor()\n cursor.execute(\"PRAGMA journal_mode=WAL\")\n cursor.execute(\"PRAGMA synchronous=NORMAL\")\n cursor.close()\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFor higher scale, the row-level isolation pattern migrates cleanly to Postgres — the application code doesn't change, just the connection string.\n\n \n \n Rate Limiting Per Tenant\n\nYou don't want one tenant flooding your webhook processor. A simple in-memory rate limiter per tenant_id:\n\nfrom collections import defaultdict\nfrom time import time\n\nrequest_counts = defaultdict(list)\n\ndef check_rate_limit(tenant_id: str, limit=100, window=60):\n now = time()\n request_counts[tenant_id] = [t for t in request_counts[tenant_id] if now - t < window]\n if len(request_counts[tenant_id]) >= limit:\n raise HTTPException(status_code=429, detail=\"Rate limit exceeded\")\n request_counts[tenant_id].append(now)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What I'd Do Differently\n\nStart with row-level isolation from day one — retrofitting is painful\n\nUse unique webhook tokens immediately, not shared secrets\n\nAdd the deduplication table before you need it — much easier than adding later\n\nThe full BillingWatch source, including the multi-tenant webhook handling, is at github.com/rmbell09-lang/billingwatch.\n\nAnything you'd handle differently at scale? I'm particularly curious about Postgres schema-per-tenant vs row-level at 1000+ tenants.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "database considerations",
+      "depends(get_tenant_id",
+      "devops",
+      "enter",
+      "exit",
+      "fullscreen",
+      "import",
+      "isolation",
+      "mode",
+      "postgres",
+      "python",
+      "raise",
+      "selfhosted",
+      "sqlite",
+      "stripe",
+      "tenant",
+      "webhook"
+    ],
+    [
+      "devops",
+      "isolation",
+      "python",
+      "selfhosted"
+    ]
+  ]
+}

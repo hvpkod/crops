@@ -1,0 +1,28 @@
+{
+  "id": 7082,
+  "source": "Hacker News",
+  "title": "A sea of sparks: Seeing radioactivity",
+  "url": "https://maurycyz.com/projects/spinthariscope/",
+  "published_at": "2026-03-30T18:34:47Z",
+  "fetched_at": "2026-03-30T19:00:46.945862+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47577979\">Comments</a>",
+  "full_text": "A sea of sparks: Seeing radioactivity\n2025-12-14 — 2026-01-25 (Ionizing Radiation) (Physics) \n\nAtoms are very small[citation needed].\nSeeing individual atoms is completly impossible:\nThey are thousands of times smaller smaller then the wavelength of light.\n\n... but is it possible to see an atom do something?\n\nLots of chemical reactions glow, but none of them are bright enough to see single atoms...\nbut what about nuclear reactions...\n\nHeavy elements like uranium often decay by the emission of a helium nucleus.\nThis alpha particle is ejected with around a picojoule of kinetic energy:\njust about enough to produce a visible flash. \n\nFrom left to right: Alpha source, scintillation screen and magnifying glass.\n\nI used a 37 kBq of americium from a smoke detector as a source of alpha particles.\nOther options are old radium paint or pieces of uranium ore with exposed mineralization.\n\nSmall quantities of radioactive material aren't super dangerous, but can be harmful if ingested.\nThey should be handled with the same care as any other poisonous chemicals.\n\nTo convert the particle's energy into light, I used a square of plastic that came out of a broken alpha probe.\nIt has a white coating of zinc sulfide, which glows when struck by the particles. \n\nThe magnifying glass helps direct the light into the eye's pupil.\nThis is important because each alpha particle only produce a couple thousand photons. \n\nLong exposure photo of the source sitting on the scintillation screen.\n\nTo see scintillation, I put an alpha source within a few millimeters of the screen, and turned off the lights. \nBecause the glow is very faint, I had let my eyes adapt to perfect darkness for several minutes.\nAfter a while, I was able to see a dim glow around the alpha source.\n\nWith magnification, this glow resolved into thousands of momentary points of light.\nIt looked like a roiling sea of sparks:\neach \"spark\" is light produced using the energy released by a single atom. \n\nExperiment notes.\n\nFull dark adaptation takes upwards of 20 minutes, but I'm usually able to see the glow after five.\n\nIt helps to use averted vision:\nLook to the side of the source to exploit the higher light sensitivity of the \nrod cells in peripheral regions of your retina. \nThis same \"look-at-it-but-don't-look-at-it\" trick is very useful in astronomy.\n\nWith weaker sources the diffuse glow may not be visible:\nIf you can't see it, go straight to the magnifying glass. \n\nAlpha particles can only travel a few centimeters in air, and loose energy with every millimeter.\nThe source must be close to the scintillation material for flashes to be visible.\n\nA scintillation screen usually has just one side coated with zinc sulfide:\nonly the matte side will glow when exposed to alpha particles. \n\nThis effect is impossible to film: \nThe only way to see it is to do the experiment yourself. \n\nIf you don't want to mess around with three different things in a perfectly dark room,\nyou can by a pre-assembled spinthariscope for around $60.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "alpha",
+      "atom",
+      "glow",
+      "magnifying",
+      "particle",
+      "scintillation",
+      "see",
+      "side",
+      "source",
+      "thousand"
+    ],
+    []
+  ]
+}

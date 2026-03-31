@@ -1,0 +1,34 @@
+{
+  "id": 7145,
+  "source": "DEV Community<",
+  "title": "Cosine Similarity vs Dot Product in Attention Mechanisms",
+  "url": "https://dev.to/rijultp/cosine-similarity-vs-dot-product-in-attention-mechanisms-1m9h",
+  "published_at": "2026-03-30T21:35:34Z",
+  "fetched_at": "2026-03-30T22:00:26.702639+00:00",
+  "author": "Rijul Rajesh",
+  "summary": "<p>For comparing the hidden states between the encoder and decoder, we need a <strong>similarity score</strong>.</p>\n\n<p>Two common approaches to calculate this are:</p>\n\n<ul>\n<li>Cosine similarity</li>\n<li>Dot product</li>\n</ul>\n\n\n\n\n<h4>\n  \n  \n  Cosine Similarity\n</h4>\n\n<p>It performs a dot product on the vectors and then normalizes the result.</p>\n\n<p><strong>Example</strong></p>\n\n<p>Encoder output:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight json\"><code><span class=\"p\">[</span><span class=\"mf\">-0.76</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"mf\">0.75</span><span class=\"p\">]</span><span class=\"w\">\n</span></code></pre>\n\n</div>\n\n\n\n<p>Decoder output:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight json\"><code><span class=\"p\">[</span><span class=\"mf\">0.91</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"mf\">0.38</span><span class=\"p\">]</span><span class=\"w\">\n</span></code></pre>\n\n</div>\n",
+  "full_text": "For comparing the hidden states between the encoder and decoder, we need a similarity score.\n\nTwo common approaches to calculate this are:\n\nCosine similarity\n\nDot product\n\n \n \n Cosine Similarity\n\nIt performs a dot product on the vectors and then normalizes the result.\n\nExample\n\nEncoder output:\n\n[-0.76, 0.75]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDecoder output:\n\n[0.91, 0.38]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCosine similarity ≈ -0.39\n\nClose to 1 → very similar → strong attention\n\nClose to 0 → not related\n\nNegative → opposite → low attention\n\nThis is useful when:\n\nValues can vary a lot in size\n\nYou want a consistent scale (-1 to 1)\n\nThe problem is that it’s a bit expensive. It requires extra calculations (division, square roots), and in attention we don’t always need that.\n\n \n \n Dot Product\n\nDot product is much simpler. It does the following:\n\nMultiply corresponding values\n\nAdd them up\n\nExample\n\n(-0.76 × 0.91) + (0.75 × 0.38) = -0.41\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDot product is preferred in attention because:\n\nIt’s fast\n\nIt’s simple\n\nIt gives good relative scores\n\nEven if the numbers are not normalized, the model can still figure out:\n\nWhich words are more important\n\nWhich words to ignore\n\nLooking for an easier way to install tools, libraries, or entire repositories?\n\nTry Installerpedia: a community-driven, structured installation platform that lets you install almost anything with minimal hassle and clear, reliable guidance.\n\nJust run:\n\nipm install repo-name\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n… and you’re done! 🚀\n\n🔗 Explore Installerpedia here",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "attention",
+      "cosine",
+      "cosine similarity",
+      "encoder",
+      "enter",
+      "exit",
+      "fullscreen",
+      "install",
+      "installerpedia",
+      "machinelearning",
+      "mode",
+      "product",
+      "similarity"
+    ],
+    [
+      "machinelearning"
+    ]
+  ]
+}

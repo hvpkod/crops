@@ -1,0 +1,34 @@
+{
+  "id": 7039,
+  "source": "Hacker News",
+  "title": "Bitwarden Integrates with OneCLI Agent Vault",
+  "url": "https://www.onecli.sh/blog/bitwarden-agent-access-sdk-onecli",
+  "published_at": "2026-03-30T15:59:01Z",
+  "fetched_at": "2026-03-30T16:40:39.630521+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47575950\">Comments</a>",
+  "full_text": "Bitwarden just launched their Agent Access SDK, letting AI agents access credentials from Bitwarden's vault with human approval. OneCLI is the open-source gateway that puts it to work: it sits between your agent and the APIs it calls, injecting credentials into requests at the network layer. Until now, agents had to hold API keys in memory to make authenticated calls. Now they don't.\n\nWhy this matters\n\nMost agent credential setups today work like this: you store your API keys somewhere (env vars, a secrets manager, a password vault), the agent fetches the key, and from that point on the key lives in the agent's context. Extractable. Loggable. Leakable via prompt injection.\n\nSecrets managers solve storage. They do not solve what happens after the agent has the key.\n\nBitwarden's Agent Access SDK takes a different approach. Every credential request goes through a human-in-the-loop approval flow. The agent asks for access, the user approves it through the Bitwarden CLI, and the credential gets injected without the agent ever seeing the raw value in plaintext.\n\nWhere OneCLI fits\n\nOneCLI sits between the agent and the external services it calls. It intercepts API requests, pulls the credential from Bitwarden's vault via their SDK, injects it into the outgoing request, and forwards it. The agent never holds the key. The LLM provider never sees it.\n\nThis is the same gateway architecture we use with every credential source, but Bitwarden adds something we did not have before: a mature approval workflow backed by enterprise key management. When Bitwarden's user approves a credential request, OneCLI handles the injection and policy enforcement on every subsequent API call.\n\n# Configure Bitwarden as credential source\nonecli provider add bitwarden \\\n --vault-url \"https://vault.bitwarden.com\"\n\n# Rate-limit API calls per service\nonecli rules create \\\n --name \"Stripe rate limit\" \\\n --host-pattern \"api.stripe.com\" \\\n --action rate_limit \\\n --rate-limit 10 \\\n --rate-window 1h\n\n# Configure Bitwarden as credential source\nonecli provider add bitwarden \\\n --vault-url \"https://vault.bitwarden.com\"\n\n# Rate-limit API calls per service\nonecli rules create \\\n --name \"Stripe rate limit\" \\\n --host-pattern \"api.stripe.com\" \\\n --action rate_limit \\\n --rate-limit 10 \\\n --rate-window 1h\n\nWhat users get\n\nWith the Bitwarden + OneCLI integration:\nCredentials stay in Bitwarden's encrypted vault until explicitly approved by a human.\nOneCLI proxies every API call the agent makes, injecting credentials at the network layer.\nRate limiting and policy enforcement apply to every proxied request.\nAudit trail covers both the approval (Bitwarden side) and the usage (OneCLI side).\n\nThis works with any agent framework. If your agent makes HTTP calls to external services, OneCLI can proxy them regardless of whether you are running NanoClaw, OpenClaw, or something custom.\n\nTry it\n\nBoth projects are open source. The integration is live in alpha.\n\nIf you are running agents in production and thinking about how to handle credentials safely, this is worth looking at. The combination of human-in-the-loop approval with runtime policy enforcement is the closest thing to a real trust layer we have seen.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "api",
+      "approval",
+      "bitwarden",
+      "bitwarden integrates",
+      "call",
+      "credential",
+      "enforcement",
+      "inject",
+      "key",
+      "llm",
+      "nanoclaw",
+      "onecli",
+      "sdk",
+      "the bitwarden cli",
+      "vault"
+    ],
+    []
+  ]
+}

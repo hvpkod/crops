@@ -1,0 +1,44 @@
+{
+  "id": 6916,
+  "source": "DEV Community<",
+  "title": "Rio: An AI Agent That Lives Inside Notion — Voice Task Live Notion Memory",
+  "url": "https://dev.to/gowshik/rio-an-ai-agent-that-lives-inside-notion-voice-task-live-notion-memory-4pej",
+  "published_at": "2026-03-30T06:38:40Z",
+  "fetched_at": "2026-03-30T07:20:36.959336+00:00",
+  "author": "Gowshik S",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/notion-2026-03-04\">Notion MCP Challenge</a></em></p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>Rio is a voice-controlled multi-agent AI system. You speak a task — Rio's agents plan it, execute it on your desktop, research it on the web, and write the result. Every single step of that process lives in your Notion workspace, written in real time, structured, searchable, and yours.</p>\n\n<p>Notion isn't a plugin here. It's the <strong>mind</strong> Rio thinks in.</p>\n\n\n\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>AI agents are powerful and invisible. They spin up, do work, disappear. You get a final answer with no trace of how it got there — no audit trail, no structured memory, nothing you can build on top of.</p>\n\n<p>Rio solves that by making Notion the surface where agents think out loud. Every task claimed, every browser step taken, every report written — it all lands in structured Notion databases as it happens, not after the f",
+  "full_text": "Notion MCP Challenge Submission 🧠\n\n \n \n\n \n\nThis is a submission for the Notion MCP Challenge\n\n \n \n What I Built\n\nRio is a voice-controlled multi-agent AI system. You speak a task — Rio's agents plan it, execute it on your desktop, research it on the web, and write the result. Every single step of that process lives in your Notion workspace, written in real time, structured, searchable, and yours.\n\nNotion isn't a plugin here. It's the mind Rio thinks in.\n\n \n \n The Problem\n\nAI agents are powerful and invisible. They spin up, do work, disappear. You get a final answer with no trace of how it got there — no audit trail, no structured memory, nothing you can build on top of.\n\nRio solves that by making Notion the surface where agents think out loud. Every task claimed, every browser step taken, every report written — it all lands in structured Notion databases as it happens, not after the fact.\n\n \n \n Demo\n\nWhat you'll see:\n\nA pending task sitting in the Rio Task Queue database\n\nA voice command to Rio — \"Research the top 3 AI agent frameworks and write a comparison\"\n\nThe Rio Logs database populating live — one row per agent step, in real time\n\nThe Creative Agent writing a full formatted Notion page as the final deliverable\n\nThe task row flipping to done\n\n \n \n How Notion MCP Is Core\n\nThere are two distinct ways Notion is used — and both matter.\n\n1. Notion as memory\n\nEvery agent writes structured logs as it works. Not at the end — during. The Orchestrator logs when it claims a task. The UI Navigator logs each browser action. The Creative Agent writes the full report as a Notion page.\n\n# Every logger.info() becomes this\nawait memory.log_step(\"ui_navigator\", \"browser_step\", action, \"done\")\n# → live Notion row: agent name, event, detail, status, timestamp\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n2. Notion as a reasoning tool (via MCP)\n\nAgents actively query and write Notion during execution — not just at completion. The Orchestrator polls the Task Queue for new jobs. The Creative Agent searches existing pages before writing.\n\ntools, toolset = await MCPToolset.from_server(\n connection_params=SseServerParams(\n url=\"https://mcp.notion.com/sse\",\n headers={\"Authorization\": f\"Bearer {user_token}\"}\n ),\n tool_filter=[\"notion-search\", \"notion-create-pages\", \"query-database\"]\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n No .env Tokens. Anyone Can Use This.\n\nRio uses a full OAuth 2.0 + PKCE flow. A user clicks \"Connect Notion,\" approves access, and their token lives in session memory. No database IDs are hardcoded anywhere. The moment they connect, Rio auto-creates their Rio Logs and Rio Task Queue databases — zero manual Notion setup.\n\nUser clicks Connect Notion\n → /oauth/start — PKCE verifier generated, redirect to Notion login\n → /oauth/callback — code exchanged, token stored in session memory\n → auto_setup() — Rio Logs DB + Task Queue DB created in their workspace\n → WebSocket init — agents get NotionMemory + MCPToolset injected\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe only things in .env are your app's own client_id and client_secret from notion.so/my-integrations.\n\n \n \n Architecture\n\nRIO — SYSTEM ARCHITECTURE\n==========================\n\n User\n |\n Voice Input\n |\n v\n +-------------------------+\n | Orchestrator Agent |\n | polls Notion Task |\n | Queue for pending jobs |\n +-------------------------+\n | | |\n v v v\n +------------+ +----------+ +-----------------+\n | Live Agent | | UI Navi- | | Creative Agent |\n | voice STT | | gator | | research, write |\n | + TTS | | browser | | full Notion |\n | | | desktop | | pages + reports |\n +------------+ +----------+ +-----------------+\n | | |\n v v v\n +---------------------------------------+\n | NotionMemory |\n | writes every step live to Notion |\n | via REST API (httpx async) |\n | |\n | Rio Logs DB Task Queue DB |\n | Agent / Event Task / Status |\n | Detail / Status Agent / Result |\n +---------------------------------------+\n |\n v\n +---------------------------------------+\n | MCPToolset |\n | lets agents query + search Notion |\n | during execution (SSE transport) |\n | |\n | notion-search query-database |\n | notion-create append-block |\n +---------------------------------------+\n |\n v\n +-------------------------+\n | User Notion Workspace |\n | connected via OAuth |\n | PKCE — no env tokens |\n +-------------------------+\n\nOAUTH FLOW\n----------\n\n User clicks \"Connect Notion\"\n |\n v\n /oauth/start\n generate code_verifier + code_challenge (PKCE S256)\n |\n v\n api.notion.com/v1/oauth/authorize\n user approves Rio access in their own browser\n |\n v\n /oauth/callback\n exchange code + verifier for access_token\n store token in session (in-memory, per user)\n |\n v\n NotionMemory.setup()\n auto-creates Rio Logs DB + Task Queue DB\n in the user workspace if not already present\n |\n v\n MCPToolset.from_server()\n connects to mcp.notion.com/sse\n with user access_token — agents ready\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nStack: Python · Google ADK · FastAPI · WebSockets · Notion REST API · Notion MCP (SSE) · httpx async · Google Cloud Run\n\n \n \n What I Learned\n\nBuilding agents is easy. Building agents with observable, persistent memory is what actually makes them useful.\n\nThe shift from logger.info() to await memory.log_step() sounds trivial — but it completely changes the character of the system. Rio's work is no longer ephemeral. It accumulates. You can go back, search it, build on it, share it. That's what Notion gives it.\n\nThe OAuth decision was also non-negotiable. An agent that only works with hardcoded tokens is a demo. An agent that any person can authorize with their own workspace is a product.\n\nRio Notion Live Web - Rio-Notion Live Web\n\n \n \n Source Code",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai",
+      "devchallenge",
+      "fullscreen",
+      "live",
+      "logs",
+      "mcp",
+      "mcptoolset.from_server",
+      "mode",
+      "notion",
+      "notionchallenge",
+      "notionmemory",
+      "pkce",
+      "queue",
+      "rio",
+      "rio logs",
+      "stt",
+      "task",
+      "the task queue",
+      "ui navigator",
+      "user",
+      "websocket",
+      "write"
+    ],
+    [
+      "devchallenge",
+      "notionchallenge"
+    ]
+  ]
+}

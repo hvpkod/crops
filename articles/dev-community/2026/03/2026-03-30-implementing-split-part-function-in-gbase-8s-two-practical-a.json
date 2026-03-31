@@ -1,0 +1,38 @@
+{
+  "id": 7015,
+  "source": "DEV Community<",
+  "title": "Implementing split_part Function in GBase 8s: Two Practical Approaches",
+  "url": "https://dev.to/michaelfv/implementing-splitpart-function-in-gbase-8s-two-practical-approaches-i8e",
+  "published_at": "2026-03-30T15:41:50Z",
+  "fetched_at": "2026-03-30T16:00:23.847439+00:00",
+  "author": "Michael",
+  "summary": "<p>GBase 8s does not provide a built‑in split_part function like PostgreSQL. However, using the existing SUBSTRING_INDEX function or manual character parsing, we can easily achieve the same functionality. This article introduces two implementation methods with practical examples.</p>\n\n<ol>\n<li>What Does split_part Do?\nThe split_part function splits a string by a delimiter and returns the n‑th field.</li>\n</ol>\n\n<p>Example:<br />\n<code>split_part('aa,bb,cc,dd', ',', 3) → 'cc'</code></p>\n\n<ol>\n<li>Method 1: Using SUBSTRING_INDEX\nGBase 8s provides SUBSTRING_INDEX, which extracts a substring up to a specified number of occurrences. This makes the implementation very straightforward.\n</li>\n</ol>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight sql\"><code><span class=\"k\">DROP</span> <span class=\"k\">FUNCTION</span> <span class=\"n\">IF</span> <span class=\"k\">EXISTS</span> <span class=\"n\">split_part2</span><span class=\"p\">;</span>\n\n<span class=\"k\">CREATE</span> <span class=\"k\">FU",
+  "full_text": "GBase 8s does not provide a built‑in split_part function like PostgreSQL. However, using the existing SUBSTRING_INDEX function or manual character parsing, we can easily achieve the same functionality. This article introduces two implementation methods with practical examples.\n\nWhat Does split_part Do?\nThe split_part function splits a string by a delimiter and returns the n‑th field.\n\nExample:\n\nsplit_part('aa,bb,cc,dd', ',', 3) → 'cc'\n\nMethod 1: Using SUBSTRING_INDEX\nGBase 8s provides SUBSTRING_INDEX, which extracts a substring up to a specified number of occurrences. This makes the implementation very straightforward.\n\nDROP FUNCTION IF EXISTS split_part2;\n\nCREATE FUNCTION split_part2(\n str_in lvarchar(2048),\n separator_in CHAR(1),\n field_in INT\n) RETURNING VARCHAR(255);\n\n DEFINE str_len INT;\n DEFINE pos_curr INT;\n DEFINE count_field INT;\n DEFINE pos_char CHAR(1);\n\n IF field_in <= 0 THEN RETURN NULL; END IF;\n\n LET count_field = 1;\n LET str_len = LENGTH(str_in);\n\n -- Count delimiters to know total fields\n FOR pos_curr = 1 TO str_len\n LET pos_char = SUBSTR(str_in, pos_curr, 1);\n IF pos_char = separator_in THEN\n LET count_field = count_field + 1;\n END IF;\n END FOR;\n\n -- If requested field exceeds actual count, return NULL\n IF field_in > count_field THEN\n RETURN NULL;\n ELSE\n -- Take the first `field_in` segments, then the last one\n RETURN SUBSTRING_INDEX(\n SUBSTRING_INDEX(str_in, separator_in, field_in),\n separator_in,\n -1\n );\n END IF;\n\nEND FUNCTION;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPros: Simple logic, uses built‑in functions, easy to read.\n\nCons: Requires one pass to count delimiters (negligible for most strings).\n\nMethod 2: Pure Character Parsing\nThis version does not rely on SUBSTRING_INDEX — it manually scans the string to locate the desired field.\n\nDROP FUNCTION IF EXISTS split_part;\n\nCREATE FUNCTION split_part(\n str_in lvarchar(2048),\n separator_in CHAR(1),\n field_in INT\n) RETURNING VARCHAR(255);\n\n DEFINE res VARCHAR(255);\n DEFINE str_len INT;\n DEFINE pos_curr INT;\n DEFINE substr_start INT;\n DEFINE substr_length INT;\n DEFINE pos_char CHAR(1);\n\n IF field_in <= 0 THEN RETURN ''; END IF;\n\n LET res = '';\n LET substr_start = 0;\n LET substr_length = 0;\n LET str_len = LENGTH(str_in);\n\n FOR pos_curr = 1 TO str_len\n LET pos_char = SUBSTR(str_in, pos_curr, 1);\n IF pos_char = separator_in THEN\n LET field_in = field_in - 1;\n END IF;\n\n -- Locate start of the target field\n IF field_in = 1 AND substr_start = 0 THEN\n LET substr_start = pos_curr + DECODE(pos_char, separator_in, 1, 0);\n END IF;\n\n -- Locate end of the target field\n IF field_in <= 0 THEN\n LET substr_length = pos_curr;\n EXIT FOR;\n END IF;\n END FOR;\n\n -- Handle edge cases (field is the last one or string ends)\n IF substr_length = 0 THEN\n LET substr_length = str_len + 1;\n END IF;\n IF substr_start = 0 THEN\n LET substr_start = str_len + 1;\n END IF;\n IF substr_length < substr_start THEN\n LET substr_length = 0;\n ELSE\n LET substr_length = substr_length - substr_start;\n END IF;\n\n RETURN NVL(SUBSTRING(str_in FROM substr_start FOR substr_length), '');\n\nEND FUNCTION;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPros: No dependency on SUBSTRING_INDEX; fully portable logic.\n\nCons: More complex code; requires careful handling of positions.\n\nExample Usage\nTake the string:'aa,bb,cc,dd'\nCall both functions to get the third field:\n\nSELECT split_part2('aa,bb,cc,dd', ',', 3) FROM dual;\nSELECT split_part('aa,bb,cc,dd', ',', 3) FROM dual;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBoth return:\n\ncc\n\nSummary\nAlthough GBase 8s lacks a native split_part, we’ve built two reliable implementations.\n\nMethod 1 is shorter and cleaner — ideal for most cases.\n\nMethod 2 offers independence from any specific built‑in function.\n\nBoth functions have been tested and are ready to use in your GBase 8s environment. Have other string processing needs? Feel free to drop a comment below! 👇",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "database",
+      "define",
+      "end",
+      "field",
+      "fullscreen",
+      "function",
+      "gbase",
+      "int",
+      "locate",
+      "method",
+      "mode",
+      "null\n if",
+      "postgresql",
+      "return",
+      "select split_part('aa",
+      "string",
+      "数据库"
+    ],
+    [
+      "database",
+      "数据库"
+    ]
+  ]
+}

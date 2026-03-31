@@ -1,0 +1,35 @@
+{
+  "id": 6918,
+  "source": "DEV Community<",
+  "title": "Stop the Awkward Silence: Signals to Classic Orchestration",
+  "url": "https://dev.to/balagmadhu/stop-the-awkward-silence-signals-to-classic-orchestration-129i",
+  "published_at": "2026-03-30T06:30:30Z",
+  "fetched_at": "2026-03-30T07:20:40.205821+00:00",
+  "author": "Bala Madhusoodhanan",
+  "summary": "<p><strong>Intro</strong>:<br />\nIf you’ve used generative orchestration in Copilot Studio, you’ve seen the comforting “thinking” animation while the copilot works. Classic orchestration doesn’t do that out of the box. So when you kick off a longer task—like a RAG lookup or a flow call—the chat can look empty. No typing dots. Just silence.<br />\nThat silence is a UX bug, not a feature. The fix is quick: send a Typing event immediately before the slow step, then add a short acknowledgement message to set expectations.</p>\n\n<p><strong>Configuration</strong>:</p>\n\n<ul>\n<li><p>Locate the slow step or Topic where you have user feedback on the poor UX expereince (May be based on the user activity we might have logic  where the heavy work starts: Create generative answers, a flow, or an HTTP/API call.)</p></li>\n<li><p>Set <a href=\"https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-send-event-activities\" rel=\"noopener noreferrer\">Event type</a> to Typing.</p></li>\n</ul>\n\n<p>T",
+  "full_text": "Intro:\n\nIf you’ve used generative orchestration in Copilot Studio, you’ve seen the comforting “thinking” animation while the copilot works. Classic orchestration doesn’t do that out of the box. So when you kick off a longer task—like a RAG lookup or a flow call—the chat can look empty. No typing dots. Just silence.\n\nThat silence is a UX bug, not a feature. The fix is quick: send a Typing event immediately before the slow step, then add a short acknowledgement message to set expectations.\n\nConfiguration:\n\nLocate the slow step or Topic where you have user feedback on the poor UX expereince (May be based on the user activity we might have logic where the heavy work starts: Create generative answers, a flow, or an HTTP/API call.)\n\nSet Event type to Typing.\n\nThe example below the timer is set as 2100 ( milliseconds) \n\nAdd a brief acknowledgement message Right after the Typing event, add a normal message to set expectations. Keep it human and specific:\n\n“Got it — searching our knowledge base. This may take a few seconds.”\n“Working on your request — I’ll be right back with the details.”\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGood UX patterns to include:\n\nTime cue: “This usually takes ~5–10 seconds.” It sets expectations and reduces anxiety.\n\nSpecific context: “Checking SAP invoices…” feels more reassuring than generic “Working…”\n\nChannel-aware: Typing events are short-lived (around 2-4 seconds). Always send an acknowledgement text so users see something even if the channel ignores Typing.\n\nClosing Notes:\n\nA great bot isn’t just smart — it’s considerate. In classic orchestration, adding a Typing event plus a short acknowledgement transforms a “silent” wait into a clear, reassuring experience. It takes less than a minute to wire up and pays off immediately in user confidence and perceived speed.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "acknowledgement",
+      "classic",
+      "copilotstudio",
+      "event",
+      "generative",
+      "immediately",
+      "message",
+      "orchestration",
+      "powerfuldevs",
+      "powerplatform",
+      "reassure",
+      "type",
+      "user"
+    ],
+    [
+      "copilotstudio",
+      "powerfuldevs",
+      "powerplatform"
+    ]
+  ]
+}

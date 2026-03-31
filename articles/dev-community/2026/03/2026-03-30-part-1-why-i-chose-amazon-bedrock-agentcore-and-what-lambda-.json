@@ -1,0 +1,39 @@
+{
+  "id": 7149,
+  "source": "DEV Community<",
+  "title": "Part 1: Why I Chose Amazon Bedrock AgentCore (And What Lambda Gets Wrong for AI Agents)",
+  "url": "https://dev.to/rajmurugan/part-1-why-i-chose-amazon-bedrock-agentcore-and-what-lambda-gets-wrong-for-ai-agents-jm3",
+  "published_at": "2026-03-30T21:30:54Z",
+  "fetched_at": "2026-03-30T22:00:35.317060+00:00",
+  "author": "Raj Murugan",
+  "summary": "<p>I built a production AI agent on AWS. Not a demo, not a proof of concept — a real system with persistent memory, guardrails, CI/CD pipelines, and users who depend on it not going down at 2am.</p>\n\n<p>The thing nobody tells you: <strong>the hard part isn't the AI</strong>. The hard part is the infrastructure around it.</p>\n\n<p>This series is my attempt to document everything I had to figure out the hard way — from architecture decisions in Part 1 all the way to cost optimisation in Part 6. The companion demo repo is at <a href=\"https://github.com/rajmurugan01/bedrock-agentcore-starter\" rel=\"noopener noreferrer\">github.com/rajmurugan01/bedrock-agentcore-starter</a>.</p>\n\n<p>Let's start at the beginning: why Amazon Bedrock AgentCore, and why not the \"obvious\" serverless approach.</p>\n\n\n\n\n<h2>\n  \n  \n  The obvious approach: Lambda + Bedrock\n</h2>\n\n<p>If you've shipped anything serverless on AWS, your first instinct is Lambda. You know it, it has great tooling, CDK support is mature, and ",
+  "full_text": "I built a production AI agent on AWS. Not a demo, not a proof of concept — a real system with persistent memory, guardrails, CI/CD pipelines, and users who depend on it not going down at 2am.\n\nThe thing nobody tells you: the hard part isn't the AI. The hard part is the infrastructure around it.\n\nThis series is my attempt to document everything I had to figure out the hard way — from architecture decisions in Part 1 all the way to cost optimisation in Part 6. The companion demo repo is at github.com/rajmurugan01/bedrock-agentcore-starter.\n\nLet's start at the beginning: why Amazon Bedrock AgentCore, and why not the \"obvious\" serverless approach.\n\n \n \n The obvious approach: Lambda + Bedrock\n\nIf you've shipped anything serverless on AWS, your first instinct is Lambda. You know it, it has great tooling, CDK support is mature, and it scales to zero.\n\nFor a simple Bedrock wrapper — get a message, call InvokeModel, return a response — Lambda is fine. But the moment you add conversational state, it starts to crack.\n\nHere's what a real conversational AI agent needs:\n\nSession state — the agent needs to remember what happened earlier in the conversation\n\nLong-running processing — LLMs can take 30-90 seconds for complex multi-tool chains\n\nMemory across sessions — the agent should know who the user is from previous conversations\n\nStreaming responses — users expect tokens to appear progressively, not wait 60 seconds for a blob\n\nLet's look at how Lambda handles each of these.\n\n \n \n Problem 1: Lambda's 15-minute timeout\n\nLambda has a hard maximum execution timeout of 15 minutes. For a simple Q&A, that's fine. But for an agentic loop — where the model calls tools, processes results, calls more tools, and reasons over everything — you can easily hit 5-10 minutes per complex interaction.\n\nAnd I haven't even mentioned the user's session. If a user comes back after 20 minutes and continues the conversation, that's a new Lambda invocation with zero context.\n\n \n \n Problem 2: Session state storage\n\nLambda is stateless by design. Every invocation is independent. For conversational state, you need to:\n\nStore session state somewhere (DynamoDB, ElastiCache, S3)\n\nLoad it at the start of every Lambda invocation\n\nSave it at the end of every invocation\n\nHandle the edge case where the Lambda times out mid-session\n\nBuild a session expiry and cleanup mechanism\n\nThat's a lot of undifferentiated infrastructure for a problem that isn't your core business.\n\n \n \n Problem 3: Cross-session memory\n\nBeyond session state, real assistants need memory — the ability to remember that a user's preferred contact method is email, that they're a premium customer, that they had a billing dispute last month.\n\nWith Lambda, you'd need to build this yourself: a vector database for semantic recall, a summarisation pipeline to consolidate old sessions, a retrieval step before each invocation. Entirely custom, entirely your problem to maintain.\n\n \n \n What AgentCore actually does\n\nAmazon Bedrock AgentCore is AWS's managed infrastructure for running AI agents. It's designed specifically for the workload pattern that Lambda handles poorly.\n\nHere's the mental model: AgentCore is a managed container orchestrator for long-running, stateful AI agent sessions. You ship a Docker container with your agent code. AgentCore handles:\n\nContainer lifecycle — starts, stops, scales, and restarts containers\n\nSession routing — routes each user session to the right container instance\n\nMemory persistence — built-in Semantic, Summary, and UserPreference memory strategies\n\nJWT validation — validates Cognito (or custom) JWTs before your code even runs\n\nVPC networking — runs your containers inside your VPC without cold start penalties\n\nSSE streaming — handles the HTTP connection and SSE protocol for you\n\nThe architectural difference:\n\nLambda approach:\n User message → API Gateway → Lambda (cold start?) → load session from DynamoDB →\n call Bedrock → save session to DynamoDB → return response → Lambda exits\n\nAgentCore approach:\n User message → AgentCore Runtime (JWT validated) → your container (already warm) →\n call Bedrock → response streams back → container stays warm for next message\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The architecture we're building\n\n┌────────────────────────────────────────────────────────────────┐\n│ GitHub Actions (OIDC) │\n│ ├── Build Docker (linux/amd64) │\n│ ├── Push to ECR (:latest + :<sha>) │\n│ └── update-agent-runtime CLI │\n└──────────────────────────────┬─────────────────────────────────┘\n │\n CDK v2 TypeScript deploys:\n │\n┌──────────────────────────────▼─────────────────────────────────┐\n│ AWS Infrastructure (us-east-1) │\n│ │\n│ AgentCore Runtime │\n│ ├── Cognito JWT authoriser │\n│ ├── AG-UI HTTP protocol (SSE streaming) │\n│ └── Container: Python agent on port 8080 │\n│ │\n│ AgentCore Memory (3 strategies) │\n│ Bedrock Guardrail (prompt injection + PII) │\n│ CloudWatch alarms (token count + latency) │\n└────────────────────────────────────────────────────────────────┘\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPrimary model: Claude Sonnet 4.6 with prompt caching\n\nBackground model: Amazon Nova Pro (cheap classification/summarisation)\n\nCI/CD: GitHub Actions OIDC — no stored AWS credentials\n\n \n \n Series roadmap\n\nPart\nTopic\n\nPart 1 (this post)\nArchitecture & why AgentCore\n\nPart 2\nFull CDK stack + 9 deployment gotchas\n\nPart 3\nPython agent with Strands SDK + prompt caching\n\nPart 4\nDocker local dev loop\n\nPart 5\nGitHub Actions OIDC + ECR + Runtime updates\n\nPart 6\nCost breakdown + alarms\n\nFull demo repo: github.com/rajmurugan01/bedrock-agentcore-starter\n\nOriginally published at rajmurugan.com. This is Part 1 of the Ultimate Guide to Building AI Agents on AWS with Bedrock AgentCore series.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "agentcore",
+      "aiagents",
+      "amazon bedrock agentcore",
+      "aws",
+      "bedrock",
+      "cdk",
+      "container",
+      "docker",
+      "elasticache",
+      "invocation",
+      "invokemodel",
+      "lambda",
+      "memory",
+      "part",
+      "q&a",
+      "semantic",
+      "session",
+      "user"
+    ],
+    [
+      "aiagents"
+    ]
+  ]
+}

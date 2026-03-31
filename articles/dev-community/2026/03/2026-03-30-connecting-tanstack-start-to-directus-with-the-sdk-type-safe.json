@@ -1,0 +1,41 @@
+{
+  "id": 6892,
+  "source": "DEV Community<",
+  "title": "Connecting TanStack Start to Directus with the SDK — Type-Safe Data Fetching in One File",
+  "url": "https://dev.to/wadethomastt/connecting-tanstack-start-to-directus-with-the-sdk-type-safe-data-fetching-in-one-file-1e0c",
+  "published_at": "2026-03-30T03:45:05Z",
+  "fetched_at": "2026-03-30T04:20:31.550891+00:00",
+  "author": "Wade Thomas",
+  "summary": "<p>If you're using Directus as your headless CMS and TanStack Start for your frontend, you don't need to write manual fetch calls or build your own auth headers. The Directus SDK handles all of it cleanly.</p>\n\n<p>Here's how I structure a single <code>directus.ts</code> file that covers authentication, typed data fetching, filtering, CRUD operations and file uploads.</p>\n\n<h2>\n  \n  \n  Installing the SDK\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>npm <span class=\"nb\">install</span> @directus/sdk\n</code></pre>\n\n</div>\n\n\n\n<h2>\n  \n  \n  Setting Up the Client\n</h2>\n\n<p>Create the client once and export it. Passing your schema type as a generic is what unlocks end-to-end type safety across every request.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight typescript\"><code><span class=\"k\">import</span> <span class=\"kd\">type</span> <span class=\"p\">{</span> <span class=\"nx\">Product</span><span class=\"p\">,</span> <span class=\"nx\"",
+  "full_text": "If you're using Directus as your headless CMS and TanStack Start for your frontend, you don't need to write manual fetch calls or build your own auth headers. The Directus SDK handles all of it cleanly.\n\nHere's how I structure a single directus.ts file that covers authentication, typed data fetching, filtering, CRUD operations and file uploads.\n\n \n \n Installing the SDK\n\nnpm install @directus/sdk\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Setting Up the Client\n\nCreate the client once and export it. Passing your schema type as a generic is what unlocks end-to-end type safety across every request.\n\nimport type { Product, Navigation, CartItem, Order } from '@/types';\nimport {\n authentication,\n createDirectus,\n rest,\n readItems,\n createItem,\n updateItem,\n deleteItem,\n readMe,\n updateMe,\n deleteUser,\n uploadFiles,\n registerUser as registerUserDirectus,\n} from '@directus/sdk';\n\nconst directusUrl =\n import.meta.env.VITE_DIRECTUS_URL ??\n process.env.VITE_DIRECTUS_URL ??\n 'https://your-directus-url.com';\n\nconst directus = createDirectus(directusUrl)\n .with(authentication('session', { credentials: 'include' }))\n .with(rest({ credentials: 'include' }));\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nUsing authentication('session') with credentials: 'include' means cookies are handled automatically — no manual token management needed.\n\n \n \n Fetching Data with Full Type Safety\n\nEach collection gets its own exported async function with a typed return value.\n\nexport async function getProducts(): Promise<Product[]> {\n const items = await directus.request(readItems('products'));\n return items as Product[];\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Filtering is First-Class\n\nThe SDK's filter syntax maps directly to Directus's query engine — no raw query strings, no URL building.\n\nexport async function getProductsByCategory(\n category: string\n): Promise<Product[]> {\n const items = await directus.request(\n readItems('products', {\n filter: { category: { _eq: category } },\n })\n );\n return items as Product[];\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What Else is Covered\n\nThe same client and pattern covers the full CRUD surface:\n\nreadItems — fetch collections\n\ncreateItem — insert records\n\nupdateItem — update records\n\ndeleteItem — delete records\n\nuploadFiles — handle file uploads\n\nreadMe / updateMe / deleteUser — user profile management\n\nregisterUser — user registration\n\nAll importable directly from @directus/sdk, all typed.\n\n \n \n Using it in a TanStack Start Loader\n\nTanStack Start's file-based routing and loader pattern pairs perfectly with this setup. Data is fetched server-side and ready before the component renders.\n\nexport const Route = createFileRoute('/products')({\n loader: () => getProducts()\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNo boilerplate, no custom wrappers, no type assertions. One file, full coverage.\n\nIf you're evaluating Directus as a headless CMS for a TanStack Start project this setup gets you up and running quickly with a clean, maintainable data layer from day one.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "@directus",
+      "cartitem",
+      "cms",
+      "const",
+      "crud",
+      "datum",
+      "directus",
+      "directus sdk",
+      "exit",
+      "export",
+      "fetching data",
+      "fullscreen",
+      "item",
+      "mode",
+      "navigation",
+      "sdk",
+      "tanstack",
+      "tanstack start",
+      "type",
+      "typescript",
+      "webdev"
+    ],
+    [
+      "webdev"
+    ]
+  ]
+}

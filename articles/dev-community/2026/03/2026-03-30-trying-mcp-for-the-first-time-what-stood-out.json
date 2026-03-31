@@ -1,0 +1,37 @@
+{
+  "id": 7078,
+  "source": "DEV Community<",
+  "title": "Trying MCP for the First Time — What Stood Out",
+  "url": "https://dev.to/akdevcraft/trying-mcp-for-the-first-time-what-stood-out-1451",
+  "published_at": "2026-03-30T18:40:40Z",
+  "fetched_at": "2026-03-30T19:00:34.948309+00:00",
+  "author": "AK DevCraft",
+  "summary": "<h2>\n  \n  \n  Introduction\n</h2>\n\n<p>I spent some time exploring the Model Context Protocol (MCP). Not a deep dive—just a hands-on attempt to understand how it actually works.</p>\n\n<p>So I built a minimal client + server setup:<br />\n👉 <a href=\"https://github.com/an1meshk/claude-chat-cli\" rel=\"noopener noreferrer\">https://github.com/an1meshk/claude-chat-cli</a></p>\n\n<blockquote>\n<p>In a real-world project, we will build client and server separately; however, as this was just a demo project, everything was built in the same project</p>\n</blockquote>\n\n<p>A few things stood out more than I expected.</p>\n\n<h2>\n  \n  \n  Demo\n</h2>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fbk5c6md5pfg4r1gofkk3.gif\"><img alt=\"demo\" height=\"449\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2",
+  "full_text": "Introduction\n\nI spent some time exploring the Model Context Protocol (MCP). Not a deep dive—just a hands-on attempt to understand how it actually works.\n\nSo I built a minimal client + server setup:\n\n👉 https://github.com/an1meshk/claude-chat-cli\n\nIn a real-world project, we will build client and server separately; however, as this was just a demo project, everything was built in the same project\n\nA few things stood out more than I expected.\n\n \n \n Demo\n\n \n \n 🧠 Context\n\nThe goal wasn’t to learn everything about MCP. It was to answer a simpler question:\n\nHow hard is it to actually build something with it?\n\nBefore moving further, here is a quick MCP client and server architecture diagram:\n\n \n \n ⚙️ What I Tried\n\nWent through the MCP intro course - link\n\nBuilt a minimal client and server in Python using the course’s startup kit\n\nConnected it to a simple CLI chat client that already came with the startup kit\n\nNothing complex—but enough to see how things fit together.\n\n \n \n 💡 What Stood Out\n\n \n \n 1. Setup Is Simpler Than Expected\n\nI was expecting some heavy setup. But, instead:\n\nBasic server setup was straightforward\n\nThe Python MCP library abstracts most of the complexity\n\n👉 It felt closer to:\n\n“Define a few handlers, and you’re up.”\n\nthan:\n\n“learn a new framework.”\n\n \n \n 2. The Real Concept Is Context Flow\n\nThe interesting part wasn’t the server setup. It was understanding:\n\nHow context flows\n\nHow tools are exposed\n\nHow the model interacts with them\n\nThat’s where the mental shift is.\n\n \n \n 🧠 What Helped Me Understand It\n\nThis simple mental model made things click:\n\nimage credit Anthropic academy course\n\nClient → MCP Server → Tool → Response → Client\n\nClient sends a request\n\nMCP server routes it\n\nThe tool executes logic\n\nExposing resources\n\nResponse flows back\n\nOnce this clicked, everything else made more sense\n\n \n \n ⚡ If You Want to Try It\n\nThe setup is intentionally minimal:\n\nBasic MCP server using Python\n\nA simple tool\n\nCLI client to trigger it\n\nThat’s enough to understand the core idea\n\nRepo:\n\nhttps://github.com/an1meshk/claude-chat-cli\n\nYou will need an Anthropic API key, as this project uses Claude\n\n \n \n ⚙️ One More Thing That Helped\n\nProject uses uv for dependency management. That helps in a few ways:\n\nFast installs\n\nClean environment setup\n\nMinimal friction\n\nIt removes a lot of the usual setup overhead\n\n \n \n ⚠️ What I Haven’t Explored Yet\n\nThis was just a first pass. Still curious about:\n\nStructuring tools cleanly\n\nScaling MCP servers\n\nReal production use cases\n\n \n \n 🧠 Initial Take\n\nMy early impression:\n\nMCP isn’t hard to start with\n\nBut the real value is in how you design interactions\n\nThe setup is easy.\n\nThe thinking is where the work is.\n\n \n \n 🏁 Final Thought\n\nSometimes the best way to understand a new concept is:\n\nBuild the simplest possible version of it\n\nThis was one of those cases.\n\nIf you have reached here, then I have made a satisfactory effort to keep you reading. Please be kind enough to leave any comments or share any corrections.\n\n \n \n My Other Blogs:",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "build",
+      "cli",
+      "client",
+      "final thought\n\nsometimes",
+      "machinelearning",
+      "mcp",
+      "minimal",
+      "python",
+      "python mcp",
+      "server",
+      "setup",
+      "simple",
+      "stand",
+      "tool",
+      "understand"
+    ],
+    [
+      "machinelearning",
+      "python"
+    ]
+  ]
+}

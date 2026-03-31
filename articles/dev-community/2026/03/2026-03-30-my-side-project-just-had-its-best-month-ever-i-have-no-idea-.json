@@ -1,0 +1,38 @@
+{
+  "id": 6987,
+  "source": "DEV Community<",
+  "title": "My side project just had its best month ever. I have no idea why. Here's what happened.",
+  "url": "https://dev.to/genglin-bulkpictools/my-side-project-just-had-its-best-month-ever-i-have-no-idea-why-heres-what-happened-353j",
+  "published_at": "2026-03-30T12:50:00Z",
+  "fetched_at": "2026-03-30T13:20:34.250110+00:00",
+  "author": "Genglin Zheng",
+  "summary": "<p>Okay so this is a little embarrassing to admit —</p>\n\n<p>I launched bulkpictools.com three months ago and genuinely forgot to check <br />\nthe analytics for like two weeks straight.</p>\n\n<p>When I finally opened Google Search Console, I had to look twice.</p>\n\n<p>Month 3 traffic was more than Month 1 and Month 2 put together.</p>\n\n<p>I'm not going to pretend I have a clean explanation for this. I did some SEO <br />\nwork around the end of Month 2 — rewrote a bunch of meta descriptions, cleaned <br />\nup the page content so it actually matched what people were searching for, <br />\nstopped being lazy about alt text. Basic stuff. The kind of stuff you tell <br />\nyourself you'll do later and then actually do later.</p>\n\n<p>Did that cause the jump? Maybe. Probably? Google took its time, which, honestly, <br />\nvery on-brand for Google.</p>\n\n\n\n<p>But while I was waiting for the SEO stuff to kick in (or not), I shipped <br />\nsomething that I've been wanting to build for a while.</p>\n\n<p",
+  "full_text": "Okay so this is a little embarrassing to admit —\n\nI launched bulkpictools.com three months ago and genuinely forgot to check \n\nthe analytics for like two weeks straight.\n\nWhen I finally opened Google Search Console, I had to look twice.\n\nMonth 3 traffic was more than Month 1 and Month 2 put together.\n\nI'm not going to pretend I have a clean explanation for this. I did some SEO \n\nwork around the end of Month 2 — rewrote a bunch of meta descriptions, cleaned \n\nup the page content so it actually matched what people were searching for, \n\nstopped being lazy about alt text. Basic stuff. The kind of stuff you tell \n\nyourself you'll do later and then actually do later.\n\nDid that cause the jump? Maybe. Probably? Google took its time, which, honestly, \n\nvery on-brand for Google.\n\nBut while I was waiting for the SEO stuff to kick in (or not), I shipped \n\nsomething that I've been wanting to build for a while.\n\nA background remover. Except the whole model runs in the browser.\n\nNo server. Zero backend calls. The image never goes anywhere.\n\nI know \"client-side AI\" sounds like it should be complicated but the actual \n\ncore of it is pretty straightforward once you get ONNX Runtime Web set up:\n\nconst session = await ort.InferenceSession.create('./model.onnx');\nconst tensor = preprocessImage(imageData);\nconst { output } = await session.run({ input: tensor });\napplyAlphaMask(canvas, originalImage, output);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe annoying part wasn't the model. It was memory. When someone tries to \n\nprocess 10 high-res photos back to back, things get ugly fast. Still working \n\nthrough that. Releasing > perfect, etc.\n\nThe thing nobody mentions about client-side inference is how weird it feels \n\nthe first time it actually works. You drag in a photo, the model loads, \n\nand suddenly the background is just... gone. Locally. No spinner waiting \n\non a server response. It's fast in a way that feels slightly wrong.\n\nPrivacy-wise it's also just cleaner. I don't have to store anything, \n\nprocess anything server-side, or explain to users where their photos go. \n\nThey go nowhere. That's the whole point.\n\nQuick note on how this actually gets built:\n\nI have a full-time job. This entire project gets worked on during my commute — \n\nphone in one hand, trying not to miss my stop with the other. Most of the \n\ntesting happens on my phone screen, which is a chaotic way to do QA but \n\nalso weirdly effective because if it works on a moving subway, it works.\n\nI'm not romanticizing the grind or whatever. It's just the actual situation. \n\nYou ship with the time you have.\n\nAnyway. Month 4 starts now. Continuing to validate the AI tools, \n\nfix what's broken, and figure out which features people actually use \n\nvs which ones I thought they'd use (always humbling).\n\nIf you've built anything client-side AI recently — especially anything \n\ndealing with image processing in the browser — drop a comment. \n\nI'm curious what models you're running and what memory headaches \n\nyou've run into.\n\nbulkpictools.com — go break something and tell me what breaks.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actual",
+      "actually",
+      "ai",
+      "anything",
+      "background",
+      "const",
+      "google",
+      "google search console",
+      "javascript",
+      "model",
+      "productivity",
+      "seo",
+      "stuff",
+      "tensor",
+      "wait",
+      "webdev",
+      "whole"
+    ],
+    [
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

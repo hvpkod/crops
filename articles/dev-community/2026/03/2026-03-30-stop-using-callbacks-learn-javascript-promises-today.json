@@ -1,0 +1,41 @@
+{
+  "id": 6893,
+  "source": "DEV Community<",
+  "title": "Stop Using Callbacks! Learn JavaScript Promises Today",
+  "url": "https://dev.to/mohana_kumar_m/stop-using-callbacks-learn-javascript-promises-today-noj",
+  "published_at": "2026-03-30T03:32:49Z",
+  "fetched_at": "2026-03-30T04:20:32.637510+00:00",
+  "author": "Mohana Kumar",
+  "summary": "<h2>\n  \n  \n  Introduction\n</h2>\n\n<p>Handling asynchronous operations is one of the most important parts of JavaScript. Before promises, developers relied heavily on callbacks, which often led to messy and hard-to-read code.</p>\n\n<p>That’s where <strong>Promises</strong> come in.</p>\n\n<p>A Promise in JavaScript is an object that represents the <strong>eventual completion (or failure)</strong> of an asynchronous operation.</p>\n\n\n\n\n<h2>\n  \n  \n  What is a Promise?\n</h2>\n\n<p>A <strong>Promise</strong> is like a guarantee that something will happen in the future.</p>\n\n<h3>\n  \n  \n  Real-Life Analogy:\n</h3>\n\n<p>Imagine you ordered food online </p>\n\n<ul>\n<li>\n<strong>Pending</strong> → Food is being prepared</li>\n<li>\n<strong>Fulfilled</strong> → Food delivered</li>\n<li>\n<strong>Rejected</strong> → Order canceled</li>\n</ul>\n\n\n\n\n<h2>\n  \n  \n  Promise States\n</h2>\n\n<p>A Promise has three states:</p>\n\n<ol>\n<li>\n<strong>Pending</strong>  → Initial state</li>\n<li>\n<strong>Fulfilled</strong>  → Operat",
+  "full_text": "Introduction\n\nHandling asynchronous operations is one of the most important parts of JavaScript. Before promises, developers relied heavily on callbacks, which often led to messy and hard-to-read code.\n\nThat’s where Promises come in.\n\nA Promise in JavaScript is an object that represents the eventual completion (or failure) of an asynchronous operation.\n\n \n \n What is a Promise?\n\nA Promise is like a guarantee that something will happen in the future.\n\n \n \n Real-Life Analogy:\n\nImagine you ordered food online \n\nPending → Food is being prepared\n\nFulfilled → Food delivered\n\nRejected → Order canceled\n\n \n \n Promise States\n\nA Promise has three states:\n\nPending → Initial state\n\nFulfilled → Operation successful\n\nRejected → Operation failed\n\n \n \n Creating a Promise\n\nYou can create a Promise using the Promise constructor.\n\n```javascript id=\"y9m9y5\"\n\nconst myPromise = new Promise((resolve, reject) => {\n\n let success = true;\n\nif (success) {\n\n resolve(\"Operation successful!\");\n\n } else {\n\n reject(\"Operation failed!\");\n\n }\n\n});\n\n---\n\n## Consuming a Promise\n\nYou handle promises using `.then()` and `.catch()`.\n\n```javascript id=\"b7y6cf\"\nmyPromise\n .then((result) => {\n console.log(result);\n })\n .catch((error) => {\n console.log(error);\n });\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Promise Chaining\n\nPromises allow chaining multiple async operations cleanly.\n\n```javascript id=\"u5q7w2\"\n\nnew Promise((resolve) => {\n\n resolve(2);\n\n})\n\n .then((num) => {\n\n return num * 2;\n\n })\n\n .then((num) => {\n\n return num * 3;\n\n })\n\n .then((num) => {\n\n console.log(num); // 12\n\n });\n\n---\n\n## Handling Errors\n\nErrors can be handled using `.catch()`.\n\n```javascript id=\"8j9k2x\"\nnew Promise((resolve, reject) => {\n reject(\"Something went wrong!\");\n})\n .then((res) => console.log(res))\n .catch((err) => console.log(err));\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Promise vs Callback\n\nFeature\nCallback\nPromise\n\nReadability\nHard (callback hell)\nClean & structured\n\nError Handling\nDifficult\nEasy with .catch()\n\nChaining\nNot easy\nEasy\n\n \n \n Why Use Promises?\n\n✔ Avoid callback hell\n\n✔ Better readability\n\n✔ Easier error handling\n\n✔ Cleaner async code\n\n \n \n When to Use Promises\n\nAPI calls \n\nDatabase operations \n\nFile handling \n\nTimers \n\n \n \n Conclusion\n\nPromises simplify asynchronous programming in JavaScript\n\nThey replace messy callbacks with clean, readable code",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "asynchronous",
+      "beginners",
+      "callback",
+      "chain",
+      "clean &",
+      "easy",
+      "fulfil",
+      "handle",
+      "javascript",
+      "mypromise",
+      "operation",
+      "programming",
+      "promise",
+      "real-life analogy:",
+      "reject",
+      "stop using callbacks",
+      "timers",
+      "webdev"
+    ],
+    [
+      "beginners",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

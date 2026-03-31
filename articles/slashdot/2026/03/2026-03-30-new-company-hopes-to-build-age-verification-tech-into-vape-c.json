@@ -1,0 +1,35 @@
+{
+  "id": 6957,
+  "source": "Slashdot",
+  "title": "New Company Hopes to Build Age-Verification Tech into Vape Cartridges",
+  "url": "https://yro.slashdot.org/story/26/03/30/0639249/new-company-hopes-to-build-age-verification-tech-into-vape-cartridges?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-30T11:34:00Z",
+  "fetched_at": "2026-03-30T11:40:30.207435+00:00",
+  "author": "EditorDavid",
+  "summary": "Their goal is to use biometric data and blockchain to build age-verification measures directly into disposable vape cartridges. \n\n Wired reports on a partnership between vape/cartridge manufacturer Ispire Technology and regulatory consulting company Chemular (which specializes in the nicotine market) &mdash; which they've named \"Ike Tech\":\n\n[Using blockchain-based security, the e-cig cartridge] would use a camera to scan some form of ID and then also take a video of the user's face. Once it verifies your identity and determines you're old enough to vape, it translates that information into anonymized tokens. That info goes to an identity service like ID.me or Clear. If approved, it bounces back to the app, which then uses a Bluetooth signal to give the vape the OK to turn on. \n\n\"Everything is tokenized,\" [says Ispire CEO Michael Wang]. \"As a result of this process, we don't communicate consumer personal private information.\" He says the process takes about a minute and a half... After ",
+  "full_text": "Their goal is to use biometric data and blockchain to build age-verification measures directly into disposable vape cartridges. \n\n Wired reports on a partnership\n\n between vape/cartridge manufacturer Ispire Technology and regulatory consulting company Chemular (which specializes in the nicotine market) — which they've named \"Ike Tech\":\n\n[Using blockchain-based security, the e-cig cartridge] would use a camera to scan some form of ID and then also take a video of the user's face. Once it verifies your identity and determines you're old enough to vape, it translates that information into anonymized tokens. That info goes to an identity service like ID.me or Clear. If approved, it bounces back to the app, which then uses a Bluetooth signal to give the vape the OK to turn on.\n \n\n\"Everything is tokenized,\" [says Ispire CEO Michael Wang]. \"As a result of this process, we don't communicate consumer personal private information.\" He says the process takes about a minute and a half... After that onetime check, the Bluetooth connection on the phone will recognize when the vape cartridge is nearby and keep it unlocked. Move the vape too far away from the phone, and it shuts off again. Based on testing, the companies behind Ike Tech claim this process has a 100 percent success rate in age verification, more or less calling the tech infallible. \"The FDA told us it's the holy grail technology they were looking for,\" Wang says. \"That's word-for-word what they said when we met with them....\"\n \n\nWang says the goal is to implement additional features in the verification process, like geo-fencing, which would force the vape to shut off while near a school or on an airplane. In the future, the plan is to license this biometric verification tech to other e-cig companies. The tech may also grow to include fingerprint readers and expand to other product categories; Wang suggests guns, which have a long history of age-verification features not quite working.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "biometric",
+      "bluetooth",
+      "cartridge",
+      "chemular",
+      "fda",
+      "goal",
+      "id.me",
+      "identity",
+      "ispire",
+      "ispire technology",
+      "privacy",
+      "shut",
+      "tech",
+      "vape",
+      "wang"
+    ],
+    [
+      "tech"
+    ]
+  ]
+}

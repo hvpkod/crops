@@ -1,0 +1,34 @@
+{
+  "id": 6984,
+  "source": "DEV Community<",
+  "title": "I built a trading card game of GitHub repositories",
+  "url": "https://dev.to/davizgarzia/i-built-a-trading-card-game-of-github-repositories-4i75",
+  "published_at": "2026-03-30T12:56:51Z",
+  "fetched_at": "2026-03-30T13:20:29.279607+00:00",
+  "author": "David",
+  "summary": "<p>Hello, I'm David, from Valencia (Spain) :)</p>\n\n<p>I'm not a developer. I'm a product designer who always wanted to build his own things but never quite got there.</p>\n\n<p>That changed recently. With a bit of vibe coding and a lot of AI assistance, I've been shipping actual products for the first time in my life. It's been equal parts terrifying and addictive.</p>\n\n<p>The latest one is RepoCards.</p>\n\n<p>  \n  \n</p>\n\n<h1>\n  \n  \n  The idea\n</h1>\n\n<p>Discovering interesting open source projects always felt like homework. Trending on GitHub, random Reddit posts, word of mouth. Nothing that felt fun.</p>\n\n<p>One evening I thought — what if finding repos felt like opening a pack of cards?</p>\n\n<p>So I built it.</p>\n\n<h1>\n  \n  \n  What it is\n</h1>\n\n<p><a href=\"https://playrepocards.com?ref=devto\" rel=\"noopener noreferrer\">RepoCards</a> is a gacha-style collectible card game where every card is a real GitHub repository with live stats — stars, forks, language, description. Rarity tiers go fr",
+  "full_text": "Hello, I'm David, from Valencia (Spain) :)\n\nI'm not a developer. I'm a product designer who always wanted to build his own things but never quite got there.\n\nThat changed recently. With a bit of vibe coding and a lot of AI assistance, I've been shipping actual products for the first time in my life. It's been equal parts terrifying and addictive.\n\nThe latest one is RepoCards.\n\n VIDEO\n\n \n \n The idea\n\nDiscovering interesting open source projects always felt like homework. Trending on GitHub, random Reddit posts, word of mouth. Nothing that felt fun.\n\nOne evening I thought — what if finding repos felt like opening a pack of cards?\n\nSo I built it.\n\n \n \n What it is\n\nRepoCards is a gacha-style collectible card game where every card is a real GitHub repository with live stats — stars, forks, language, description. Rarity tiers go from N to UR, anime gacha style. You open packs, build your collection, complete daily missions, unlock achievements.\n\nFree to play. Sign in with GitHub to save your progress, or just try it as a guest.\n\nWould love to hear what you think — especially from other designers making the jump into building.\n\nThank you in advance!\n\nBest regards,\n\nDavid",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "build",
+      "card",
+      "discover",
+      "feel",
+      "gamedev",
+      "github",
+      "late",
+      "open",
+      "repocards",
+      "showdev",
+      "spain",
+      "terrifying",
+      "want"
+    ],
+    [
+      "gamedev",
+      "showdev"
+    ]
+  ]
+}

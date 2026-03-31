@@ -1,0 +1,36 @@
+{
+  "id": 7151,
+  "source": "DEV Community<",
+  "title": "A neccessary review",
+  "url": "https://dev.to/wills1979/a-neccessary-review-1h00",
+  "published_at": "2026-03-30T21:30:35Z",
+  "fetched_at": "2026-03-30T22:00:39.229821+00:00",
+  "author": "wills1979",
+  "summary": "<p>In our first class I was behind the ball in the first 5 minutes. Even remembering how to start up my test server was a distant memory from App Dev I. Throughout the class the material started to look familiar as the rust began to fall off. </p>\n\n<p>To aid in my review I'm documenting building out the <code>directors:</code> model and sharing some learnings along the way.</p>\n\n<h2>\n  \n  \n  Our goal\n</h2>\n\n<p>Develop a symetrical functionality to the <code>movies:</code> model for directors using idiomatic (at least as far as I know at this point...) Ruby.</p>\n\n<p>Key Functions:</p>\n\n<ul>\n<li>Display an index of directors that links to each director's page</li>\n<li>Show each director's details on their own page</li>\n<li>Allow edits to each director</li>\n<li>Delete a director entry</li>\n</ul>\n\n<h2>\n  \n  \n  Model\n</h2>\n\n<p>We can use <code>rails g model Director &lt;items&gt;</code> to generate the model for the new functionality.</p>\n\n<p>Let's try<br />\n</p>\n\n<div class=\"highlight js-c",
+  "full_text": "In our first class I was behind the ball in the first 5 minutes. Even remembering how to start up my test server was a distant memory from App Dev I. Throughout the class the material started to look familiar as the rust began to fall off. \n\nTo aid in my review I'm documenting building out the directors: model and sharing some learnings along the way.\n\n \n \n Our goal\n\nDevelop a symetrical functionality to the movies: model for directors using idiomatic (at least as far as I know at this point...) Ruby.\n\nKey Functions:\n\nDisplay an index of directors that links to each director's page\n\nShow each director's details on their own page\n\nAllow edits to each director\n\nDelete a director entry\n\n \n \n Model\n\nWe can use rails g model Director <items> to generate the model for the new functionality.\n\nLet's try\n\nrails g model Director name dob style\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWe can then add some requirements to the database such as\n\nvalidates :name, presence: true\nvalidates :dob, presence: true\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow if we try to create a record in our database without these attributes filled in the action will fail and throw an error.\n\n \n \n R(outes)\n\nStarting in the routes file helps us to understand the functions that we will need to implement across the app. \n\nWe can use the shortcut in ruby resources :directors to generate all the idiomatic routes. This is equivalent to\n\nget \"/directors\" => \"directors#index\"\n\n# CREATE\npost \"/directors\" => \"directors#create\", as: :directors\nget \"/directors/new\" => \"directors#new\", as: :new_director\n\n# READ\nget \"/directors\" => \"directors#index\"\nget \"/directors/:id\" => \"directors#show\", as: :director\n\n# UPDATE\npatch \"/directors/:id\" => \"directors#update\"\nget \"directors/:id/edit\" => \"directors#edit\", as: :edit_director\n\n# DELETE\ndelete \"directors/:id\" => \"directors#destroy\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAnd before that we did this\n\nget(\"/directors\", { controller: \"directors\", action: \"index\" })\n\n# CREATE\npost(\"/directors\", controller: \"directors\", action: \"create\")\nget(\"/directors/new\", controller: \"directors\", action: \"new\")\n\n# READ\nget(\"/directors\", controller: \"directors\", action: \"index\")\nget(\"/directors/:id\", controller: \"directors\", action: \"show\")\n\n# UPDATE\npatch(\"/directors/:id\", controller: \"directors\", action: \"update\")\nget(\"/directors/:id/edit\", controller: \"directors\", action: \"edit\" )\n\n# DELETE\ndelete(\"/directors/:id\", controller: \"directors\", action: \"destroy\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n C(ontroller)\n\nAfter some tinkering here is my controller. I changed one thing which was redirecting to the individual page for each director after they are created.\n\nclass DirectorsController < ApplicationController\n def new\n @director = Director.new\n end\n\n def index\n @directors = Director.all.order(:created_at, name: :desc)\n\n respond_to do |format|\n format.json do\n render json: @directors\n end\n\n format.html\n end\n end\n\n def show\n @director = Director.find(params.fetch(:id))\n end\n\n def create\n director_attributes = params.expect(director: [:name, :dob, :style])\n @director = Director.new(director_attributes)\n\n if @director.valid?\n @director.save\n redirect_to(director_url(@director.id), notice: \"Director was successfully created.\")\n end\n end\n\n def edit\n @director = Director.find(params.fetch(:id))\n end\n\n def update\n\n director_attributes = params.expect(director: [:name, :dob, :style])\n director = Director.find(params.fetch(:id))\n\n director.name = params.fetch(:director).fetch(:name)\n director.dob = params.fetch(:director).fetch(:dob)\n director.style = params.fetch(:director).fetch(:style)\n\n if director.valid?\n director.save\n redirect_to(director_url, notice: \"Director updated successfully.\")\n else\n redirect_to(director_url, alert: \"Director failed to update successfully.\")\n end\n end\n\n def destroy\n director = Director.find(params.fetch(:id))\n\n director.destroy\n\n redirect_to(directors_url, notice: \"Director deleted successfully.\")\n end\nend\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n A(ctions)\n\nNo actions yet!\n\n \n \n V(iews)\n\nView are quite similar to the views for movies so I'm omitting that for now!\n\n \n \n Conclusion\n\nAnd now everything seems to be working! It is certainly easier to work from the idiomatic Ruby, but it can be more confusing at times!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "@director.valid",
+      "create",
+      "delete",
+      "desc",
+      "director",
+      "directorscontroller",
+      "enter",
+      "exit",
+      "fullscreen",
+      "idiomatic",
+      "learning",
+      "mode",
+      "model",
+      "update",
+      "webdev"
+    ],
+    [
+      "learning",
+      "webdev"
+    ]
+  ]
+}

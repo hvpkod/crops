@@ -1,0 +1,45 @@
+{
+  "id": 6939,
+  "source": "DEV Community<",
+  "title": "I Built a Hosting Diagnostic Tool on Cloudflare Workers",
+  "url": "https://dev.to/shumatsumonobu/i-built-a-hosting-diagnostic-tool-on-cloudflare-workers-ao4",
+  "published_at": "2026-03-30T10:12:19Z",
+  "fetched_at": "2026-03-30T10:20:25.079585+00:00",
+  "author": "shumatsumonobu",
+  "summary": "<h2>\n  \n  \n  The Problem\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code><span class=\"nv\">$ </span>hostme <span class=\"nt\">--why</span>\n</code></pre>\n\n</div>\n\n\n\n<p>Every time I finish building something, I hit the same wall: <em>where do I deploy this?</em></p>\n\n<p>Vercel? Netlify? Cloudflare? Railway? The options keep growing, and each one has different pricing, limits, and trade-offs. I wanted a tool that could cut through the noise — something fast, transparent, and opinionated enough to actually help.</p>\n\n<p>So I built <a href=\"https://hostme.dev/lp?l=en\" rel=\"noopener noreferrer\">hostme</a>.</p>\n\n<h2>\n  \n  \n  What It Does\n</h2>\n\n<p>hostme is a terminal-style web tool that asks you 7 questions about your project and scores 10 hosting services to recommend your TOP 3.</p>\n\n<p>The whole flow takes about 30 seconds. No signup. No tracking.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%",
+  "full_text": "The Problem\n\n$ hostme --why\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEvery time I finish building something, I hit the same wall: where do I deploy this?\n\nVercel? Netlify? Cloudflare? Railway? The options keep growing, and each one has different pricing, limits, and trade-offs. I wanted a tool that could cut through the noise — something fast, transparent, and opinionated enough to actually help.\n\nSo I built hostme.\n\n \n \n What It Does\n\nhostme is a terminal-style web tool that asks you 7 questions about your project and scores 10 hosting services to recommend your TOP 3.\n\nThe whole flow takes about 30 seconds. No signup. No tracking.\n\n \n \n The Tech Stack\n\nNext.js (App Router) + TypeScript\n\nTailwind CSS v4 — runtime theme variables via CSS custom properties\n\nframer-motion — scroll animations on the landing page\n\nCloudflare Workers via @opennextjs/cloudflare\n\nDynamic OGP — next/og ImageResponse\n\n \n \n Building the Terminal UI\n\nThe entire UI is designed to look like a terminal. Here's the approach:\n\nTyping animation: A custom TypingText component renders text character by character. Speed scales with text length — short strings type slower (more dramatic), long strings type faster (less tedious).\n\nKeyboard navigation: Every page responds to keyboard input. Number keys select options, Enter confirms, Backspace goes back. The goal: you should be able to complete the entire diagnosis without touching the mouse.\n\nCSS theming: All colors are CSS custom properties in :root. The terminal green (#00ff41 on #0a1a0a) gives that retro feel while maintaining WCAG contrast ratios.\n\n \n \n The Scoring Algorithm\n\nEach of the 7 questions maps to a score matrix: every answer awards 0–3 points to each of the 10 services.\n\nscoreMatrix[question][answer][service] → 0 | 1 | 2 | 3\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n3 = ideal match\n\n2 = good fit\n\n1 = acceptable\n\n0 = not recommended\n\nRegion bonuses are applied separately — e.g., Cloudflare Workers gets +2 in Asia due to its edge network.\n\nThe scoring logic is fully transparent: users can view the complete matrix on the /about page.\n\n \n \n Dynamic OGP on Cloudflare Workers\n\nThis was the trickiest part. I wanted each diagnosis result to generate a unique OGP image showing the user's #1 recommendation.\n\nThe problem: next/og (powered by Satori) works on Cloudflare Workers, but font loading via self-referencing fetch fails silently. Workers block loopback requests.\n\nThe solution: Load fonts from Google Fonts CDN with a try-catch fallback:\n\nlet fontData: ArrayBuffer | undefined;\ntry {\n const res = await fetch(\"https://fonts.gstatic.com/s/jetbrainsmono/...\");\n if (res.ok) fontData = await res.arrayBuffer();\n} catch {\n // Fall back to default font\n}\n\nreturn new ImageResponse(<OgpComponent />, ogpOptions(fontData));\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf the font fetch fails, the image still renders with a default font. No 500 errors.\n\n \n \n Lightweight i18n\n\nInstead of heavy i18n libraries, all UI text lives in a simple Record<Lang, TextMap>:\n\nexport const uiText: Record<Lang, UiText> = {\n ja: { start: \"診断スタート\", ... },\n en: { start: \"Start Diagnosis\", ... },\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nLanguage is determined by URL parameter (?l=ja), and document.documentElement.lang is set dynamically. Total i18n code: ~200 lines across 2 files.\n\n \n \n What I Learned\n\nCloudflare Workers have quirks — no loopback fetch, Edge Runtime not always better than Node.js runtime\n\nTerminal UIs are surprisingly engaging — keyboard navigation makes the tool feel fast and fun\n\nTransparent scoring builds trust — showing the algorithm removes the \"black box\" skepticism\n\n \n \n Try It\n\n→ hostme.dev — find your ideal hosting in 30 seconds\n\nThe scoring logic is fully transparent — check the /about page to see exactly how it works.\n\nWhat's your go-to hosting for side projects? I'm curious how you decide. Drop a comment — I'd love to compare notes.\n\nBuilt by @shumatsumonobu. We ship on Sundays.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "arraybuffer",
+      "asia",
+      "build",
+      "cloudflare",
+      "cloudflare workers",
+      "css",
+      "edge runtime",
+      "enter",
+      "fetch(\"https://fonts.gstatic.com/s",
+      "font",
+      "fullscreen",
+      "google fonts",
+      "host",
+      "imageresponse",
+      "mode",
+      "nextjs",
+      "record<lang",
+      "runtime",
+      "scoring",
+      "showdev",
+      "wcag",
+      "webdev",
+      "workers"
+    ],
+    [
+      "nextjs",
+      "showdev",
+      "webdev"
+    ]
+  ]
+}

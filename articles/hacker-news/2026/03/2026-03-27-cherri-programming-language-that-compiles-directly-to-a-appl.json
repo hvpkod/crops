@@ -1,0 +1,37 @@
+{
+  "id": 7058,
+  "source": "Hacker News",
+  "title": "Cherri – programming language that compiles directly to a Apple Shortuct",
+  "url": "https://github.com/electrikmilk/cherri",
+  "published_at": "2026-03-27T23:39:44Z",
+  "fetched_at": "2026-03-30T17:20:39.403716+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47549824\">Comments</a>",
+  "full_text": "Cherri (pronounced cherry) is a Shortcuts programming language that compiles directly to a valid runnable Shortcut.\n\nThe primary goal is to make it practical to create large Shortcut projects (within the limitations of Shortcuts) and maintain them long term.\n\n🖥️ Laptop/Desktop-based development (CLI, VSCode extension, macOS app)\n\n🎓 Easy to learn and syntax similar to other languages\n\n🐞 1-1 translation to Shortcut actions as much as possible to make debugging easier\n\n🥾 Half-bootstrapped: Most actions and types are written in the language\n\n💻 Import actions on your Mac\n\n📦 Package manager: Remote Git repo-based package manager built in, allowing for automatic inclusion and updates.\n\n🪄 No magic variables syntax, they're constants instead\n\n🪶 Optimized to create as small as possible Shortcuts and reduce memory usage at runtime\n\n#️⃣ Include files within others for large Shortcut projects\n\n🔧 Define actions with type checking, enums, optionals, default values, raw identifiers, and raw keys.\n\n🔄 Define functions to run within their own scope at the top of your Shortcut to reduce duplicate actions.\n\n📋 Copy-paste actions automatically\n\n🥩 Enter action identifier and parameters manually using Raw Actions.\n\n❓ Define import questions\n\n📇 Generate VCards for menus\n\n📄 Embed files in base64\n\n🔀 Convert Shortcuts from an iCloud link with the --import= option\n\n🔢 Type system and type inference\n\n🔏 Signs using macOS, falls back on HubSign or another server that uses scaxyz/shortcut-signing-server.\n\nYou can install Cherri by downloading the latest release or via the Homebrew or Nix package managers:\n\nIf you have Homebrew installed, you can run:\n\nAdd Tap:\n\nbrew tap electrikmilk/cherri\n\nInstall:\n\nbrew install electrikmilk/cherri/cherri\n\nIf you have Nix installed, you can run:\n\nnix profile install github:electrikmilk/cherri\n\nAlternatively, you can use nix-direnv to get an isolated, effortless dev environment where cherri is available based on which directory you're in. Then you would use_flake and add Cherri to flake.nix:\n\n{\n inputs.cherri.url = \"github:electrikmilk/cherri\";\n\n { # outputs.packages.${system}.default = pkgs.mkShell etc - omitted for brevity\n buildInputs = [\n inputs.cherri.packages.${system}.cherri\n ]\n }\n}\n\nThen run direnv allow in the directory with the flake.nix file.\n\nRun cherri without any arguments to see all options and usage. For development, use the --debug (or -d) option to print\nstack traces, debug information, and output a .plist file.\n\nWhy another Shortcuts language?\n\nBecause it's fun :)\n\nSome languages have been abandoned, don't work well, or no longer work. I don't want Shortcuts languages to die.\nThere should be more, not less.\n\nPlus, some stability comes with this project being on macOS and not iOS, and I'm not aware of another Shortcuts language with macOS as its platform other than Buttermilk.\n\nCommunity\n\nThe original Workflow app assigned a code name to each release. Cherri is named after the second-to-last\nupdate \"Cherries\" (also cherry is one of my favorite flavors).\n\nThis project started on October 5, 2022.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "actions",
+      "buttermilk",
+      "cherri",
+      "cli",
+      "define",
+      "generate vcards",
+      "language",
+      "laptop/desktop",
+      "macos",
+      "nix",
+      "package",
+      "programming",
+      "project",
+      "raw actions",
+      "shortcuts",
+      "type",
+      "vscode"
+    ],
+    [
+      "programming"
+    ]
+  ]
+}

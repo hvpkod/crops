@@ -1,0 +1,43 @@
+{
+  "id": 7069,
+  "source": "DEV Community<",
+  "title": "🚀 Big update drop for The Coffee Timer! ☕",
+  "url": "https://dev.to/adrianbailador/big-update-drop-for-the-coffee-timer-2heb",
+  "published_at": "2026-03-30T19:00:00Z",
+  "fetched_at": "2026-03-30T19:00:17.597497+00:00",
+  "author": "Adrián Bailador",
+  "summary": "<p>I've been heads-down building new features and polishing the experience — Here's what's new:</p>\n\n<p>☕ Redesigned coffee cup: A fully SVG-based ceramic mug with realistic porcelain gradients, a 3D handle, crema/foam with latte art details, and smooth steam animations. It even fills up as your The Coffee Timer session progresses.</p>\n\n<p>🎵 Spotify integration (Premium) Connect your Spotify account and play playlists, songs, or artists directly inside the app while you focus. Full search + library browsing — no need to switch tabs.</p>\n\n<p>🔔 Background push notifications: The timer now sends a system notification even when the tab is closed or minimised. Never miss the end of a session again.</p>\n\n<p>📱 Mobile responsiveness overhaul: Bigger touch targets, responsive layouts, no more overflow on small screens. The app now feels at home on any device.</p>\n\n<p>⚡ Instant premium status Subscription state loads from cache instantly — no more waiting spinner before the UI unlocks.</p>\n\n<p>🔒",
+  "full_text": "I've been heads-down building new features and polishing the experience — Here's what's new:\n\n☕ Redesigned coffee cup: A fully SVG-based ceramic mug with realistic porcelain gradients, a 3D handle, crema/foam with latte art details, and smooth steam animations. It even fills up as your The Coffee Timer session progresses.\n\n🎵 Spotify integration (Premium) Connect your Spotify account and play playlists, songs, or artists directly inside the app while you focus. Full search + library browsing — no need to switch tabs.\n\n🔔 Background push notifications: The timer now sends a system notification even when the tab is closed or minimised. Never miss the end of a session again.\n\n📱 Mobile responsiveness overhaul: Bigger touch targets, responsive layouts, no more overflow on small screens. The app now feels at home on any device.\n\n⚡ Instant premium status Subscription state loads from cache instantly — no more waiting spinner before the UI unlocks.\n\n🔒 Smart feature gating Non-premium users see a teaser of the Spotify player (blurred, with a lock icon) to show what they're missing. Guests get a \"Sign in to unlock\" CTA, and free users get \"Upgrade to Premium\".\n\nThe Coffee Timer is a productivity app built with React + TypeScript, .NET backend, Supabase, and Stripe — designed to make focused work feel a little more enjoyable.\n\nhttps://thecoffeetimer.com/\n\nIf you want to try it or give feedback, drop a comment 👇",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "coffee",
+      "csharp",
+      "dotnet",
+      "drop",
+      "feature",
+      "mobile",
+      "polish",
+      "porcelain",
+      "programming",
+      "react + typescript",
+      "redesign",
+      "session",
+      "smart",
+      "spotify",
+      "supabase",
+      "svg",
+      "the coffee timer",
+      "timer",
+      "webdev",
+      "📱 mobile"
+    ],
+    [
+      "csharp",
+      "dotnet",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

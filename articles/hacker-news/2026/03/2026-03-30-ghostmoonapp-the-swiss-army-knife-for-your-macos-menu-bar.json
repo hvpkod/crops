@@ -1,0 +1,37 @@
+{
+  "id": 6961,
+  "source": "Hacker News",
+  "title": "Ghostmoon.app – The Swiss Army Knife for your macOS menu bar",
+  "url": "https://www.mgrunwald.com/ghostmoon/",
+  "published_at": "2026-03-30T11:25:50Z",
+  "fetched_at": "2026-03-30T12:00:37.629046+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47572910\">Comments</a>",
+  "full_text": "Every feature you need. Two clicks away.\n\nThe essential powertool for macOS.\n\n \n\nGain access to system functionalities buried deep in System Settings or ones that require writing Terminal commands. Control the macOS User Interface. Keep the Mac awake during long tasks and quickly turn off displays when needed. Mass Eject External Drives in a safe way. Quickly switch Audio Output devices. Mute the Internal Microphone for privacy. Measure the speed and latency of your internet connection. Quickly restart the Network Stack. Reset internal macOS databases. Empty the Trash when it doesn't want to cooperate. Refresh the system without logging you out. Generate cryptographically Secure Passwords and Unique Identifiers. Battery Health. Essential System Stats. It's all there.\n\n \n\nMicroscopic app size & resource usage.\n\n \n\nApple Silicon and Intel processors.\n\nmacOS 13 Ventura or newer.\n\n Download for Free\n\n \n\n IMPORTANT\nThis is a pre-release. The App is not yet signed/notarized, so after launching it for the first time - which will give you the typical macOS Gatekeeper warning - you'll have to go to System Settings > Privacy & Security, scroll to the bottom and click \"Open Anyway\".\n\n Alternatively, copy & paste the following command into the macOS Terminal after copying the App to the Applications folder:\n\n sudo xattr -rd com.apple.quarantine /Applications/Ghostmoon.app\n \n\n \n\nIf you intend to use Ghostmoon in a commercial setting (e.g., work computer, company, studio) or simply appreciate the App and would like to support the Project, please consider making a Donation of any amount.\n\n \n\nAs a thank you gift, you will receive a Supporter Certificate which unlocks Ghostmoon XE with additional features within the App.\n\n \n\nGhostmoon XE\n\n \n\nQuickly switch Audio Input devices. Mass Eject Time Machine Volumes.\nDisplay Mac Hostname and copy to clipboard. Battery cycles.\nExtended Password Generator.\n\n \n\nFor Project Supporters.Donate →",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "app",
+      "applications",
+      "eject",
+      "essential",
+      "ghostmoon",
+      "ghostmoon.app",
+      "intel",
+      "mac",
+      "macos",
+      "mass",
+      "passwords",
+      "powertool",
+      "quickly",
+      "settings",
+      "system",
+      "terminal",
+      "the macos terminal",
+      "trash",
+      "ventura"
+    ],
+    []
+  ]
+}

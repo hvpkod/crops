@@ -1,0 +1,36 @@
+{
+  "id": 6906,
+  "source": "Hacker News",
+  "title": "15 years, one server, 8GB RAM and 500k users – how Webminal refuses to die",
+  "url": "https://community.webminal.org/t/15-years-one-server-8gb-ram-and-500k-users-how-webminal-refuses-to-die/8803",
+  "published_at": "2026-03-30T06:08:53Z",
+  "fetched_at": "2026-03-30T06:40:17.012841+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47570940\">Comments</a>",
+  "full_text": "The server\n\nwebminal.org runs on a single CentOS Linux box with 8GB RAM. That’s it. No Kubernetes, no microservices, no auto-scaling. One server since 2011. It has survived:\n\nA datacenter fire in 2021 (we lost 150k user accounts)\n\nMultiple power outages in the Netherlands\n\nThat one time in 2017 when a Spanish tech blog sent 10,000 users in one day\n\nMy friend Freston’s insistence that Slackware is the only real distro\n\nThe idea\n\nThe idea was simple. I was sitting at my Windows machine at work, wanting to learn Linux. What if I could open a browser, practice on a real Linux terminal - no “Run” button, no “Execute” button, just a real server- gain the confidence, and then spin my chair to a real Linux machine and actually use it? No fear, no hesitation, because I already know what I’m doing.\n\nWhat’s new\n\nWe just gave the entire site a redesign. Every page, from scratch. Here’s what changed:\n\nNew modern UI - clean, fast, no Bootstrap or jQuery CDN dependencies. Self-hosted fonts, mobile responsive.\n\nRoot Lab - practice real sysadmin skills with full root access. We use User Mode Linux to give you a complete kernel with real block devices. Practice fdisk, LVM, RAID, mkfs, systemctl,crontab, firewalld, SSH keys, awk & sed - things you can’t do on a shared terminal.\n\nLive command ticker - that scrolling bar on the homepage? It’s real. Powered by eBPF (execsnoop) tracing commands in real-time. 28 million and counting.\n\nThe journey\nLinode → DigitalOcean → AWS → GCP → OVH → IBM Cloud → Linode\n\nFull circle. Along the way we built: a browser IDE with VS Code/Theia, Docker-over-LXC root environments, Asciinema screencasting, a shared file pool, ttyrec-to-GIF publishing, a custom useradd binary (the default was too slow with 300k+ users), and an OpenVZ-based VM provisioning system. Some still running, some killed by time or money.\n\nThe co-founder I never saw\n\nI’m from India. Freston is from the Netherlands. We met on LinuxForums.org in 2010. Until 2015, we had never seen each other’s face — not even on Skype. All communication happened over SSH into our server in a screen session.\n$ screen -x chat\n$ cat > /dev/null\nhey, should we add MySQL support?\n\nThat’s how an entire platform was built. No Slack, no Zoom, no Jira tickets. Just two guys writing messages in a terminal.\n\nThe tech stack nobody recommends\nPython: 2.7 (yes, really)\nFramework: Flask 0.12.5\nTerminal: Shellinabox (abandoned in 2017, still works perfectly)\nRoot labs: User Mode Linux (a technology from 2001)\nMonitoring: eBPF/execsnoop (the only modern thing)\nDatabase: MySQL on a server that survived a fire\nFrontend: No React, no Vue, no npm. Just HTML and inline CSS.\n\nEvery tech conference talk would tell you this stack is wrong. But it serves 500k users and has been up for 15 years.\n\nShellinabox vs the world\n\nWe tried replacing Shellinabox with the modern WebSocket-based terminal. It lasted a few hours in production before users reported blank screens and Firefox incompatibility.\n\nShellinabox is from 2005. It’s ugly, it’s slow, and it works through every firewall, proxy, and corporate network on earth. We switched back. Sometimes the old thing is the right thing.\n\nUser Mode Linux — the technology nobody uses\n\nEveryone uses Docker. We use User Mode Linux — a full Linux kernel running in userspace, created by Jeff Dike in 2001.\n\nWhy? Because when a student types fdisk /dev/sdb, they need a real block device. Docker can’t give you that. UML can.\n\nEach user gets:\n\nA full Linux kernel (not a container, an actual kernel)\n\n4 virtual block devices (64MB each) for practicing LVM, RAID, fdisk\n\n256MB RAM\n\nCopy-on-write overlay - one golden image shared by everyone\n\nWhen the student types poweroff, the UML exits, and they’re back in their normal shell. Total isolation. Zero risk to the host.\n\nThe COW overlay means 100 concurrent users add only ~2GB of disk. The golden image is shared.\n\neBPF - the one modern thing\n\nThat 28,469,041 commands executed counter on the homepage? It’s real. We use execsnoop2 from bcc-tools.\n\nThe live ticker you see scrolling on the homepage — those are real commands being typed by real users right now. Anonymized, safe commands only. No arguments, no paths, no passwords. Just $ ls, $ gcc, $ vim flowing by like a heartbeat.\n\nThe Linux kernel itself tells us when someone runs their first ls.\n\nWhat users say\n\n“I am a Windows system admin without a lot of free time and this site has really helped me get familiar with Linux. I even use the site on my tablet. The tutorials you offer are really great too. Thanks for all you do.”\n\n“I am a student studying Electronic Engineering in Korea. I am studying Linux by your site and it really helped me a lot!”\n\n“The tutorial is great! I also laughed at some points. Your site is absolutely amazing. Please make more! Keep the great work up!”\n\nCost\n\nWebminal has zero revenue. No ads, no tracking, no VC funding. I pay for the server from my savings. I’ve spent more money on this project than on personal or family stuff.\n\nMore than once, I thought about killing it. 15 years is a long time. There were months when I was between jobs, watching my savings shrink, and the server bill kept coming. Every month I’d think - maybe this is the month I pull the plug. Then I’d get a job, the thought would go away, and Webminal would live another year. I applied to YC. Rejected. Tried to monetize - PayPal, Stripe, paid plans. Never worked. The users who need Webminal most are students who can’t afford $4/month. So it stays free.\n\n500,000 people have typed their first ls on Webminal. Some of them are sysadmins now. Some run their own servers. One of them probably manages more infrastructure than I ever will.\n\nAs long as it helps a single student, Webminal will run.\n\nIf you want to help to upgrade from 8GB to 128GB so more students can run root labs at the same time. Every bit counts: Sponsor @Lakshmipathi on GitHub Sponsors · GitHub\n\n.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "bootstrap",
+      "command",
+      "linode",
+      "linux",
+      "modern",
+      "ram",
+      "real",
+      "root",
+      "server",
+      "shellinabox",
+      "slackware",
+      "ssh",
+      "student",
+      "sysadmin",
+      "the netherlands",
+      "ui - clean",
+      "user",
+      "webminal"
+    ],
+    []
+  ]
+}

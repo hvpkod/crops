@@ -1,0 +1,45 @@
+{
+  "id": 7016,
+  "source": "DEV Community<",
+  "title": "I'm rebuilding a 90s LAN game in Rust to finally learn it",
+  "url": "https://dev.to/tomerl1/im-rebuilding-a-90s-lan-game-in-rust-to-finally-learn-it-5eo8",
+  "published_at": "2026-03-30T15:39:05Z",
+  "fetched_at": "2026-03-30T16:00:25.225442+00:00",
+  "author": "Tomer Levy",
+  "summary": "<p>In the late 90s, my brother, my cousin, and I would crowd around a single PC and play Atomic Bomberman for hours. Arrow keys and WASD, elbows bumping, trash talk flying. It was chaotic and it was perfect.</p>\n\n<p>I've been thinking about that game a lot lately. Not just the nostalgia, but the idea of playing it again — with them, over the internet this time. So I decided to build it.</p>\n\n<p>My first instinct was to vibe code the whole thing. Pick a framework, lean on AI, ship something in a weekend. But as I started talking through the idea with Gemini — and later Claude, who became my main AI mentor — I realized I was holding something more interesting: a real excuse to learn Rust.</p>\n\n<h2>\n  \n  \n  the hard path\n</h2>\n\n<p>I'm a senior fullstack engineer. Most of my career has been in the JavaScript ecosystem — browser, Node, React, the whole stack. I could build this in TypeScript and have it running by Sunday.</p>\n\n<p>But I've been curious about what happens below the abstractio",
+  "full_text": "In the late 90s, my brother, my cousin, and I would crowd around a single PC and play Atomic Bomberman for hours. Arrow keys and WASD, elbows bumping, trash talk flying. It was chaotic and it was perfect.\n\nI've been thinking about that game a lot lately. Not just the nostalgia, but the idea of playing it again — with them, over the internet this time. So I decided to build it.\n\nMy first instinct was to vibe code the whole thing. Pick a framework, lean on AI, ship something in a weekend. But as I started talking through the idea with Gemini — and later Claude, who became my main AI mentor — I realized I was holding something more interesting: a real excuse to learn Rust.\n\n \n \n the hard path\n\nI'm a senior fullstack engineer. Most of my career has been in the JavaScript ecosystem — browser, Node, React, the whole stack. I could build this in TypeScript and have it running by Sunday.\n\nBut I've been curious about what happens below the abstraction layers I usually work in. What if I didn't have to hope the garbage collector stays out of the way at the wrong moment? Rust has been on my list for a long time — a multiplayer game with a 60Hz server loop felt like the right reason to finally jump in.\n\nSo the plan became: Rust on the server, React and PixiJS on the client, WebSockets in between. Multiplayer-first from day one — no single-player prototype that I'd have to rip apart later.\n\n \n \n learning with AI, not through AI\n\nHere's the part that surprised me. I started this project with Claude as my AI mentor, and the first problem we hit wasn't technical — it was process.\n\nClaude moved fast. Too fast. It would jump straight into code before I'd even digested the architecture. I'd end up with working code I didn't understand, which is the opposite of the point. We had to stop, take a step back, and establish rules.\n\nWe ended up with a \"mentor-review\" loop: the AI specs the goal and introduces new concepts, I write the code, then we review together. No writing code on my behalf unless I'm stuck and ask for it. We established rules to keep things on track.\n\nThe goal was never to get the game done as fast as possible. The goal was to learn Rust — really learn it — while building something I actually want to play.\n\n \n \n what I'm building\n\nThe game is a multiplayer Atomic Bomberman clone. Here's what's already working:\n\nServer: Rust + Tokio, running a 60Hz authoritative game loop over WebSockets\n\nClient: React + PixiJS, rendering the game state the server sends down\n\nGameplay: Players move around a 15x13 grid, place bombs, blow up destructible walls, collect power-ups, and die in explosions\n\nNetworking: Client sends intent (direction, place bomb), server decides truth. No cheating possible because the client doesn't run any game logic\n\nIt's playable on localhost. Two players can connect, run around, and bomb each other. It's not pretty — everyone's a colored square — but the mechanics work.\n\n \n \n what's ahead\n\nThere's a big gap between \"works on localhost\" and \"a game I can actually play with my brother and cousin.\" Movement needs to feel better. There's no lobby or game flow. And the big one: client-side prediction, so it doesn't feel sluggish over a real internet connection.\n\nThis series will cover the journey — the Rust I'm learning, the multiplayer architecture decisions, the moments where things click and the moments where a deadlock silently freezes your game and you spend an hour staring at code that looks perfectly fine.\n\nNext up: what it's actually like to write Rust when you've spent most of your career in JavaScript.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actually",
+      "beginners",
+      "bomberman",
+      "career",
+      "code",
+      "game",
+      "gamedev",
+      "gemini",
+      "goal",
+      "javascript",
+      "lan",
+      "learn",
+      "multiplayer",
+      "node",
+      "pixijs",
+      "react",
+      "rust",
+      "start",
+      "typescript",
+      "webdev",
+      "websockets",
+      "websockets\n\nclient"
+    ],
+    [
+      "beginners",
+      "career",
+      "gamedev",
+      "webdev"
+    ]
+  ]
+}

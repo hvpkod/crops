@@ -1,0 +1,43 @@
+{
+  "id": 6863,
+  "source": "DEV Community<",
+  "title": "8 API Design Mistakes That Will Haunt You in Production",
+  "url": "https://dev.to/michael_sun_18a5c4c96768d/8-api-design-mistakes-that-will-haunt-you-in-production-36eb",
+  "published_at": "2026-03-30T00:19:35Z",
+  "fetched_at": "2026-03-30T01:20:32.307732+00:00",
+  "author": "Michael Sun",
+  "summary": "<p>APIs are permanent. That sounds dramatic until you've spent three weeks coordinating a breaking change across fourteen client teams while keeping the old endpoint alive in a compatibility shim nobody wants to maintain. Bad code can be refactored quietly. A bad API contract is a public debt that compounds interest every quarter.</p>\n\n<p>Here are eight patterns drawn from designs that looked reasonable at the time, shipped to production, and then caused real pain.</p>\n\n<h2>\n  \n  \n  Mistake 1: Not Versioning From Day One\n</h2>\n\n<p>The argument against early versioning sounds rational — you don't know what will change yet. The problem is that \"later\" arrives the moment a single external client goes to production. At that point, adding versioning requires a migration, not just a decision.</p>\n\n<p>URL path versioning (<code>/v1/users</code>, <code>/v2/users</code>) is the most explicit approach and the right default for most teams. It's easy to route at the infrastructure level and visibl",
+  "full_text": "APIs are permanent. That sounds dramatic until you've spent three weeks coordinating a breaking change across fourteen client teams while keeping the old endpoint alive in a compatibility shim nobody wants to maintain. Bad code can be refactored quietly. A bad API contract is a public debt that compounds interest every quarter.\n\nHere are eight patterns drawn from designs that looked reasonable at the time, shipped to production, and then caused real pain.\n\n \n \n Mistake 1: Not Versioning From Day One\n\nThe argument against early versioning sounds rational — you don't know what will change yet. The problem is that \"later\" arrives the moment a single external client goes to production. At that point, adding versioning requires a migration, not just a decision.\n\nURL path versioning (/v1/users, /v2/users) is the most explicit approach and the right default for most teams. It's easy to route at the infrastructure level and visible in any log file. Stripe uses it for good reason: its clarity is a significant part of why Stripe's API is considered one of the best-designed in the industry.\n\n \n \n Mistake 2: Inconsistent Naming Conventions\n\nMixing camelCase and snake_case in the same API is documentation debt. It forces consumers to resolve the ambiguity by trial and error. The choice of convention matters less than the consistency — pick one and enforce it at the serialization layer, not through convention and hope.\n\n \n \n Mistake 3: Returning Too Much Data by Default\n\nAn endpoint that returns everything it knows about a resource seems generous. In practice, it's a performance liability. When your /users/{id} returns the profile, preferences, billing history, and activity log, every mobile client pays the serialization cost for data it immediately discards.\n\nThe N+1 problem is the related trap: an /orders endpoint that fetches a full customer object per order will issue one query for the order list and one per order for the customer. Pagination should be the default, not an option — and for time-series data, cursor-based pagination is more reliable than offset-based.\n\n \n \n Mistake 4: Poor Error Responses\n\nA generic 500 with no body is an absence of information dressed as a response. Stripe's error format is the standard worth emulating: HTTP status code, machine-readable code field, human-readable message, and enough context to reproduce the problem. Validation errors should identify which fields failed and why, not just \"validation failed.\"\n\n \n \n Mistake 5: No Rate Limiting\n\nAn API without rate limits is an invitation to unintentional denial-of-service. A client with a buggy retry loop can bring down your service for everyone. The sliding window counter algorithm is the right default: approximates the accuracy of a full sliding log with the memory efficiency of fixed windows. Expose limits in response headers (X-RateLimit-Remaining, Retry-After) so well-behaved clients can adapt.\n\n \n \n Mistake 6: Ignoring Idempotency\n\nNetwork requests fail in ways that are indistinguishable from success. A timeout — did the server process it before responding failed? For write operations, a blind retry can create duplicate charges or inconsistent state. Stripe requires idempotency keys for all POST requests that modify financial data. Implement them before you have external clients, not after your first support ticket about a duplicate charge.\n\n \n \n Mistake 7: Authentication as an Afterthought\n\nAPI keys are appropriate for server-to-server communication. OAuth 2.0 is appropriate when acting on behalf of users. JWT is a token format, not an authentication scheme — and treating it as automatically secure is how you end up with the none algorithm vulnerability. Make the authentication decision before your first external consumer, because retrofitting it is painful.\n\n \n \n Mistake 8: Coupling Internal Models to API Responses\n\nSerializing database rows directly into API responses is efficient until your next refactoring. Rename a column and you've shipped a breaking change. Add an internal field like password_hash and you risk accidental exposure. Data Transfer Objects — explicit serializer classes that define the shape of each response — create a deliberate boundary between internal implementation and external contract.\n\n \n \n Three Key Takeaways\n\nThe structural decisions that can't wait are versioning, error format, authentication model, and the boundary between internal model and external contract. Retrofitting these is expensive. Everything else can be improved iteratively.\n\nAPI design failures are externalized. The pain of poor design is paid by consumers on a timeline you don't control. That asymmetry justifies more upfront care than most internal engineering decisions.\n\nStudy Stripe, GitHub, and Twilio. Not because they're famous, but because their design choices are deliberate and documented. The patterns they use for consistency, pagination, error handling, and versioning exist for good reasons.\n\nRead the full article at novvista.com for a detailed breakdown of each mistake, real implementation examples, and analysis of how Stripe, GitHub, and Twilio set the standard.\n\nOriginally published at NovVista",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "api design mistakes",
+      "authentication",
+      "backend",
+      "client",
+      "convention",
+      "coupling internal models",
+      "cursor",
+      "design",
+      "error",
+      "external",
+      "internal",
+      "jwt",
+      "mistake",
+      "novvista",
+      "programming",
+      "response",
+      "security",
+      "twilio",
+      "versione",
+      "webdev"
+    ],
+    [
+      "backend",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

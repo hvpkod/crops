@@ -1,0 +1,36 @@
+{
+  "id": 6988,
+  "source": "DEV Community<",
+  "title": "what i actually learned coordinating 15 MCP servers (it's not what you'd expect)",
+  "url": "https://dev.to/yedanyagamiaicmd/what-i-actually-learned-coordinating-15-mcp-servers-its-not-what-youd-expect-jb5",
+  "published_at": "2026-03-30T12:48:53Z",
+  "fetched_at": "2026-03-30T13:20:35.297167+00:00",
+  "author": "YedanYagami",
+  "summary": "<p>everyone talks about MCP servers like they're the hard part. they're not. writing a single MCP server is maybe 200 lines of code. the hard part is what happens when you have 15 of them running simultaneously and they all need to cooperate.</p>\n\n<p>i've been building a multi-agent system for the past few months. 9 services, 15 MCP servers, 60+ Cloudflare Workers. here's what i actually learned — most of it the hard way.</p>\n\n<h2>\n  \n  \n  lesson 1: the orchestration layer is the real product\n</h2>\n\n<p>anyone can write an MCP server. <code>child_process.exec()</code>, parse the output, return JSON. done.</p>\n\n<p>but when server #7 times out and server #3 depends on its output, and server #12 is rate-limited, and the user is waiting... that's where the real engineering lives.</p>\n\n<p>we built a coordinator daemon that does health checks every 30 seconds across all services. when something goes down, it doesn't just retry — it reroutes through fallback chains. primary fails? try the seco",
+  "full_text": "everyone talks about MCP servers like they're the hard part. they're not. writing a single MCP server is maybe 200 lines of code. the hard part is what happens when you have 15 of them running simultaneously and they all need to cooperate.\n\ni've been building a multi-agent system for the past few months. 9 services, 15 MCP servers, 60+ Cloudflare Workers. here's what i actually learned — most of it the hard way.\n\n \n \n lesson 1: the orchestration layer is the real product\n\nanyone can write an MCP server. child_process.exec(), parse the output, return JSON. done.\n\nbut when server #7 times out and server #3 depends on its output, and server #12 is rate-limited, and the user is waiting... that's where the real engineering lives.\n\nwe built a coordinator daemon that does health checks every 30 seconds across all services. when something goes down, it doesn't just retry — it reroutes through fallback chains. primary fails? try the secondary. secondary fails? degrade gracefully and tell the user what happened.\n\nthis is boring plumbing work. it's also the thing that makes the difference between a demo and a production system.\n\n \n \n lesson 2: security is not optional (and it's scarier than you think)\n\nwe run 15 MCP servers. each one is a potential attack surface. the patterns we've seen (and defended against):\n\nshell injection: if your MCP server calls child_process.exec() with user input, you're one crafted prompt away from rm -rf /. we use shlex.quote() on literally everything.\n\nenv variable leakage: secrets loaded from env vars accidentally appearing in LLM context windows through error messages. this one is subtle and terrifying.\n\npath traversal: ../../etc/passwd in a file-reading MCP server. os.path.realpath() + directory whitelist, no exceptions.\n\nwe eventually built a \"constitution gate\" — a dual-LLM validation layer that checks every input before it reaches any tool. paranoid? maybe. but we haven't been pwned yet.\n\n \n \n lesson 3: the model is becoming a commodity\n\nwe route between groq, cerebras, ollama (local), and claude depending on the task. same prompt, different providers, based on:\n\nlatency requirements (groq for fast, claude for complex)\n\ncost (local ollama for repetitive tasks)\n\navailability (if one provider is down, cascade to the next)\n\nthe model doesn't matter as much as people think. what matters is the routing logic, the fallback chains, the budget governance that prevents a runaway loop from draining your API credits.\n\n \n \n lesson 4: your agent's memory is more important than its reasoning\n\nwe have three layers of memory:\n\nsession memory (what happened in this conversation)\n\ntask memory (success/failure patterns across all tasks)\n\nplaybook memory (reusable templates auto-generated from successful task sequences)\n\nwhen a new task comes in, the orchestrator checks memory before planning. \"have we seen something like this before? what worked? what failed?\" this alone cut our error rate by ~40%.\n\n \n \n lesson 5: silence is a feature\n\nthis is the one nobody talks about. our system has a dead-man's-switch — if the coordinator hasn't checked in for 60 minutes, something is wrong. but the inverse is also true: the system doesn't need to be doing something all the time.\n\nthe most reliable systems i've built are the ones that know when to shut up and wait.\n\nthese aren't revolutionary insights. they're the boring, practical things you learn when you actually try to run multiple MCP servers in production instead of just demoing one in a blog post.\n\nif you're building something similar, i'd genuinely love to hear what patterns you've found. especially around multi-server coordination — i feel like we're all reinventing the same wheels independently.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agents",
+      "ai",
+      "api",
+      "architecture",
+      "build",
+      "groq",
+      "hard",
+      "learn",
+      "lesson",
+      "llm",
+      "mcp",
+      "memory",
+      "pattern",
+      "see",
+      "server",
+      "something"
+    ],
+    [
+      "agents"
+    ]
+  ]
+}

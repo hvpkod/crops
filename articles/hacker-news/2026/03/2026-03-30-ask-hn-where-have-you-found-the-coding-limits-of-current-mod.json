@@ -1,0 +1,28 @@
+{
+  "id": 6973,
+  "source": "Hacker News",
+  "title": "Ask HN: Where have you found the coding limits of current models?",
+  "url": "https://news.ycombinator.com/item?id=47573224",
+  "published_at": "2026-03-30T12:08:47Z",
+  "fetched_at": "2026-03-30T12:40:28.543048+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47573224\">Comments</a>",
+  "full_text": "Writing too much at once with under specified prompts.\n\nIf you stick to targeted problems with well-described prompts, acceptance criteria, and lots of linting, unit testing, and integration testing, you'll typically get what you want with code that looks okay. And when things start to stray, it's easy to get things back on track.\n\nIt's when you start trying to have LLMs write too much without a human review that you start getting unnecessary function chains, abstractions that aren't needed, code that doesn't really match the existing style, duplicate code, missing functionality, hallucinated functionality, tautological tests, etc.\n\nIt works best when there's regular feedback in the loop about what's good and what's not good. Testing and linting can fill in some of that, but we still need a human in the loop with \"taste\", so to speak.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "cod",
+      "hallucinate",
+      "human",
+      "linting",
+      "loop",
+      "start",
+      "tautological",
+      "thing",
+      "try",
+      "write"
+    ],
+    []
+  ]
+}

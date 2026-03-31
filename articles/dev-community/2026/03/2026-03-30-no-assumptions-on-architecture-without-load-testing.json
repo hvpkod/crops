@@ -1,0 +1,33 @@
+{
+  "id": 6913,
+  "source": "DEV Community<",
+  "title": "No Assumptions on Architecture Without Load Testing",
+  "url": "https://dev.to/arezvov/no-assumptions-on-architecture-without-load-testing-2gf7",
+  "published_at": "2026-03-30T06:50:29Z",
+  "fetched_at": "2026-03-30T07:20:31.668890+00:00",
+  "author": "Alex Rezvov",
+  "summary": "<p>Recently, a client asked how effective the proposed conceptual solution architecture was.</p>\n\n<p>We approached this question primarily from the perspective of load endurance. A reasonably confident answer can only be given after conducting load testing. For this, the following prerequisites are needed:</p>\n\n<ul>\n<li>  <strong>Representative data population</strong> in databases and data buses to simulate a real system.</li>\n<li>  <strong>Load indicators</strong> that the system should be able to withstand.</li>\n<li>  <strong>System usage scenarios</strong> to develop a load profile that closely mirrors real-world conditions.</li>\n<li>  <strong>Minimal infrastructure setup</strong> for testing, including computing power, key services, and load testing tools.</li>\n</ul>\n\n<p>Additionally, a qualified specialist is required to:</p>\n\n<ul>\n<li>  Define pass/fail criteria.</li>\n<li>  Configure tools like <strong>Gatling</strong>, <strong>Yandex Tank</strong>, or <strong>JMeter</strong>.</",
+  "full_text": "Recently, a client asked how effective the proposed conceptual solution architecture was.\n\nWe approached this question primarily from the perspective of load endurance. A reasonably confident answer can only be given after conducting load testing. For this, the following prerequisites are needed:\n\n Representative data population in databases and data buses to simulate a real system.\n\n Load indicators that the system should be able to withstand.\n\n System usage scenarios to develop a load profile that closely mirrors real-world conditions.\n\n Minimal infrastructure setup for testing, including computing power, key services, and load testing tools.\n\nAdditionally, a qualified specialist is required to:\n\n Define pass/fail criteria.\n\n Configure tools like Gatling, Yandex Tank, or JMeter.\n\n Analyze the results.\n\nIt’s crucial for the client to provide both:\n\n Functional requirements, such as data access scenarios.\n\n Non-functional requirements, such as target load indicators.\n\nOnly after successful load testing can we conclude that the solution architecture is capable of handling the required load.\n\nHowever, evaluating architecture doesn't stop there. The quality of the solution also depends on other critical factors, including:\n\n Scalability\n\n Maintainability\n\n Graceful degradation\n\n Other characteristics that require thorough analysis.\n\n \n \n ArchitectureQuality #LoadTesting #SoftwareArchitecture\n\nOriginally published: No Assumptions on Architecture Without Load Testing — Alex Rezvov's Blog",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "architecture",
+      "ask",
+      "assumption",
+      "client",
+      "datum",
+      "gatling, yandex tank",
+      "guide",
+      "jmeter",
+      "load",
+      "propose",
+      "require",
+      "solution",
+      "testing"
+    ],
+    [
+      "guide"
+    ]
+  ]
+}

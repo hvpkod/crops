@@ -1,0 +1,35 @@
+{
+  "id": 7013,
+  "source": "DEV Community<",
+  "title": "Triggered Stored Procedures in GBase 8s: Adding Complex Logic to Triggers",
+  "url": "https://dev.to/michaelfv/triggered-stored-procedures-in-gbase-8s-adding-complex-logic-to-triggers-3med",
+  "published_at": "2026-03-30T15:49:40Z",
+  "fetched_at": "2026-03-30T16:00:20.542905+00:00",
+  "author": "Michael",
+  "summary": "<p>In GBase 8s, triggers alone do not support features like RAISE EXCEPTION or conditional logic — those belong to stored procedures. But when you need such logic inside a trigger, you can use a triggered stored procedure. This article walks through an INSERT trigger example that validates data and throws an exception if needed.</p>\n\n<ol>\n<li>Create Sample Tables\nWe need two tables: tab1 (the target for inserts) and tab2 (to store existing IDs).\n</li>\n</ol>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight sql\"><code><span class=\"k\">CREATE</span> <span class=\"k\">TABLE</span> <span class=\"n\">tab1</span> <span class=\"p\">(</span>\n    <span class=\"n\">id</span> <span class=\"nb\">INTEGER</span><span class=\"p\">,</span>\n    <span class=\"n\">name</span> <span class=\"nb\">VARCHAR</span><span class=\"p\">(</span><span class=\"mi\">40</span><span class=\"p\">),</span>\n    <span class=\"k\">PRIMARY</span> <span class=\"k\">KEY</span> <span class=\"p\">(</span><span class=\"n\">id</span><span class=\"p",
+  "full_text": "In GBase 8s, triggers alone do not support features like RAISE EXCEPTION or conditional logic — those belong to stored procedures. But when you need such logic inside a trigger, you can use a triggered stored procedure. This article walks through an INSERT trigger example that validates data and throws an exception if needed.\n\nCreate Sample Tables\nWe need two tables: tab1 (the target for inserts) and tab2 (to store existing IDs).\n\nCREATE TABLE tab1 (\n id INTEGER,\n name VARCHAR(40),\n PRIMARY KEY (id)\n);\n\nCREATE TABLE tab2 (\n id INTEGER,\n name VARCHAR(40),\n uptime DATETIME YEAR TO SECOND DEFAULT CURRENT YEAR TO SECOND\n);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCreate the Stored Procedure\nThe stored procedure checks whether the new ID already exists in tab2. If it does, it raises an exception.\n\nCREATE PROCEDURE proc_tri_insert_tab1()\n REFERENCING NEW AS new FOR tab1;\n DEFINE pid INT;\n SELECT COUNT(id) INTO pid FROM tab2 WHERE id = new.id;\n IF pid = 1 THEN\n RAISE EXCEPTION -746, 0, 'ID exists!';\n END IF;\nEND PROCEDURE;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCreate the Trigger\nNow attach the stored procedure to the INSERT event on tab1.\n\nCREATE TRIGGER tri_insert_tab1 INSERT ON tab1\n FOR EACH ROW (\n EXECUTE PROCEDURE proc_tri_insert_tab1() WITH TRIGGER REFERENCES\n );\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTest It Out\n\nInsert a row into tab1 with an ID that already exists in tab2. The trigger fires, calls the stored procedure, and the exception is raised:\n\nINSERT INTO tab1 VALUES (2, 'testssdadsfas');\n\nOutput:\n\n746: ID exists!\n\nSummary\n\nWith triggered stored procedures, the gbase database extends the power of triggers — you can now include complex checks, conditionals, and even custom exceptions. This approach is invaluable for enforcing strict business rules at the data‑entry level.\n\nHave you used triggered stored procedures in your projects? Share your experience in the comments! 👇",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "create",
+      "database",
+      "data‑entry",
+      "exception",
+      "fullscreen",
+      "gbase",
+      "insert",
+      "int",
+      "integer",
+      "procedure",
+      "store",
+      "trigger",
+      "triggered stored procedures",
+      "数据库"
+    ],
+    [
+      "database",
+      "数据库"
+    ]
+  ]
+}

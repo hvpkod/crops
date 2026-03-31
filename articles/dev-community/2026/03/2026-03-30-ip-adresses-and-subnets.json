@@ -1,0 +1,39 @@
+{
+  "id": 7077,
+  "source": "DEV Community<",
+  "title": "IP adresses and Subnets",
+  "url": "https://dev.to/samantha_vincent_11/ip-adresses-and-subnets-2heg",
+  "published_at": "2026-03-30T18:41:16Z",
+  "fetched_at": "2026-03-30T19:00:34.305121+00:00",
+  "author": "Samantha Vincent",
+  "summary": "<h2>\n  \n  \n  IP ADDRESS\n</h2>\n\n<p>In real life, let's say you want to find a place or you want to reach a place you need to know the location or precisely the <em>address</em> of that place. Similarly in computers IP address is used to know or denote a particular computer that is connected under the same network. Basically, every node(device) connected under the same network has a unique address known as IP address. </p>\n\n<p>Example of an IP address: 10.1.32.12<br />\n Each part has 8 bits and can store 0-255 values.</p>\n\n<h2>\n  \n  \n  SUBNETS\n</h2>\n\n<p>In a large network, communication between different devices take too much time or is unnecessary. Here, Subnets helps separate or breakdown the network into different parts so that communication is easier and not unnecessary. Imagine in a college it has one Public IP(large network) here we use subnets for each block or department so that communication in the department is fast and effective.</p>\n\n<h2>\n  \n  \n  How Subnets and IP address wo",
+  "full_text": "IP ADDRESS\n\nIn real life, let's say you want to find a place or you want to reach a place you need to know the location or precisely the address of that place. Similarly in computers IP address is used to know or denote a particular computer that is connected under the same network. Basically, every node(device) connected under the same network has a unique address known as IP address. \n\nExample of an IP address: 10.1.32.12\n\n Each part has 8 bits and can store 0-255 values.\n\n \n \n SUBNETS\n\nIn a large network, communication between different devices take too much time or is unnecessary. Here, Subnets helps separate or breakdown the network into different parts so that communication is easier and not unnecessary. Imagine in a college it has one Public IP(large network) here we use subnets for each block or department so that communication in the department is fast and effective.\n\n \n \n How Subnets and IP address work\n\nEvery IP belongs to a subnet. Subnets tell you the number of ip's or the the range of IP addresses that are available or fall under that subnet.\n\nFor example lets take an IP address: 192.168.1.10\n\nThere are always two parts in an IP address\n\n-Network\n\n-Host\n\nHere 192.168.1 is network and 10 denotes host.\n\nTo know how many IP's are stored for networks and host we use a method called CIDR(Classless Inter Domain Routing).\n\nCIDR helps us to know how many devices one can connect under a subnet in an IP. The notation for CIDR is a.b.c.d/n\n\nExample: 10.1.32.12/24\n\nHere, /24 means 256 devices can be connected and is stored for networks.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "address",
+      "beginners",
+      "cidr",
+      "communication",
+      "computerscience",
+      "connect",
+      "denote",
+      "device",
+      "learning",
+      "network",
+      "networking",
+      "node(device",
+      "part",
+      "store",
+      "subnet",
+      "subnets ip address"
+    ],
+    [
+      "beginners",
+      "computerscience",
+      "learning",
+      "networking"
+    ]
+  ]
+}

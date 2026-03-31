@@ -1,0 +1,44 @@
+{
+  "id": 7021,
+  "source": "DEV Community<",
+  "title": "Building a Gantt Chart Component with Zero Dependencies",
+  "url": "https://dev.to/rgab/building-a-gantt-chart-component-with-zero-dependencies-2d65",
+  "published_at": "2026-03-30T15:33:03Z",
+  "fetched_at": "2026-03-30T16:00:33.865751+00:00",
+  "author": "Raffaele G.",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fps71hpxq6h9ruc2sdtg3.png\"><img alt=\" \" height=\"339\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fps71hpxq6h9ruc2sdtg3.png\" width=\"800\" /></a></p>\n\n<p>Most Gantt chart libraries are either too heavy (500KB+ with framework lock-in), too expensive ($900+/dev), or too complex for what you actually need.</p>\n\n<p>I spent the last two years building <strong>SchedulaCore</strong> — a lightweight resource scheduler that drops into any page with a single <code>&lt;script&gt;</code> tag.</p>\n\n<h2>\n  \n  \n  The problem\n</h2>\n\n<p>I needed a Gantt-style scheduler for a manufacturing planning application. The requirements:</p>\n\n<ul>\n<li>Show resources (machin",
+  "full_text": "Most Gantt chart libraries are either too heavy (500KB+ with framework lock-in), too expensive ($900+/dev), or too complex for what you actually need.\n\nI spent the last two years building SchedulaCore — a lightweight resource scheduler that drops into any page with a single <script> tag.\n\n \n \n The problem\n\nI needed a Gantt-style scheduler for a manufacturing planning application. The requirements:\n\nShow resources (machines, people) as rows, time as columns\n\nDrag tasks across resources and time slots\n\nCalendar-aware scheduling (working hours, holidays, per-resource exceptions)\n\nNo React/Vue/Angular dependency\n\nEvery library I evaluated was either framework-specific, overkill, or priced per-developer (which adds up fast with a team).\n\n \n \n The solution\n\nSchedulaCore is a vanilla JavaScript component. Here's the entire setup:\n\n<link rel=\"stylesheet\" href=\"schedula-core.css\">\n<div id=\"scheduler\"></div>\n<script src=\"schedula-core.min.js\"></script>\n\n<script>\nvar data = {\n Resources: [\n { Id: \"1\", Name: \"CNC Machine\", Items: [\n { Id: \"t1\", Text: \"Order #2601\", Offset: 0, Width: 2880, Color1: \"#2043D9\" },\n { Id: \"t2\", Text: \"Order #2602\", Offset: 2880, Width: 1440, Color1: \"#006BF7\" }\n ]},\n { Id: \"2\", Name: \"Welding Station\", Items: [\n { Id: \"t3\", Text: \"Frame assembly\", Offset: 1440, Width: 4320, Color1: \"#00AAB5\" }\n ]}\n ]\n};\n\nvar settings = new SchedulaSettings();\nsettings.date = new Date();\nvar scheduler = new SchedulaCore(\"scheduler\", data, settings);\nscheduler.init();\n</script>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. No npm install, no webpack config, no framework.\n\n \n \n Architecture: plugins all the way down\n\nThe core handles rendering, the rest is plugins:\n\nDefaultPopupPlugin — built-in task editor popup (free, auto-registered)\n\nDragDropPlugin — move and resize items (PRO)\n\nCalendarPlugin — working hours, holidays, per-resource exceptions (PRO)\n\nLinksPlugin — dependency arrows between tasks (PRO)\n\nContextMenuPlugin — customizable right-click menus (PRO)\n\nNotificationPlugin — event hooks for server integration (free)\n\nIconsPlugin — SVG icons on resources and items (PRO)\n\nEach plugin implements a simple interface:\n\ninterface ISchedulaPlugin {\n readonly name: string;\n init(core: ISchedulaCore): void;\n destroy(): void;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Calendar-aware scheduling\n\nThis is the feature I'm most proud of. In manufacturing, a \"3-day task\" doesn't mean 72 hours — it means 3 working days, accounting for:\n\nShift schedules (8h/day, 16h/day, 24h/day)\n\nWeekends\n\nHolidays\n\nPer-machine maintenance windows\n\nSchedulaCore distinguishes between Width (elapsed time including non-working periods) and Effort (net working minutes). The CalendarPlugin automatically calculates one from the other.\n\n \n \n Incremental updates\n\nVersion 1.1 added an API for real-time updates without full redraws:\n\nscheduler.addItem(\"resource-1\", newTask);\nscheduler.updateItem(\"resource-1\", \"task-id\", { Color1: \"#ff0000\" });\nscheduler.transferItem(\"task-id\", \"resource-1\", \"resource-2\");\nscheduler.deleteItem(\"resource-1\", \"task-id\");\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What's free, what's PRO\n\nThe free MIT bundle includes: rendering, themes, popup, animations, grouping, filtering, notifications. Everything you need to display a Gantt chart.\n\nThe PRO bundle adds interactivity: drag & drop, resize, calendar, links, context menus, icons, incremental API. One license per project (not per developer).\n\n \n \n Try it\n\nI'd love to hear what you think — especially what features you'd want in a Gantt component that existing libraries don't do well.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "calendarplugin",
+      "fullscreen",
+      "gantt",
+      "iconsplugin",
+      "incremental",
+      "javascript",
+      "library",
+      "mit",
+      "mode",
+      "notificationplugin",
+      "opensource",
+      "pro",
+      "productivity",
+      "resource",
+      "schedulacore",
+      "schedulasettings",
+      "scheduler",
+      "scheduling",
+      "svg",
+      "webdev",
+      "work"
+    ],
+    [
+      "opensource",
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 6862,
+  "source": "DEV Community<",
+  "title": "Rate Limiting Your API: Algorithms, Implementation, and the Strategic Thinking Behind It",
+  "url": "https://dev.to/michael_sun_18a5c4c96768d/rate-limiting-your-api-algorithms-implementation-and-the-strategic-thinking-behind-it-30dk",
+  "published_at": "2026-03-30T00:22:02Z",
+  "fetched_at": "2026-03-30T01:20:31.051504+00:00",
+  "author": "Michael Sun",
+  "summary": "<p>Every API you expose to the internet will eventually be abused. Automated scrapers, credential stuffing bots, misbehaving integrations, and sometimes just a well-meaning client with a loop that runs too fast. Without rate limiting, a single bad actor can consume all your server resources and degrade the experience for every other user.</p>\n\n<p>Rate limiting is one of those mechanisms that seems simple on the surface but reveals surprising depth when you implement it.</p>\n\n<h2>\n  \n  \n  What Rate Limiting Actually Protects\n</h2>\n\n<p>Before discussing algorithms, it's worth being explicit about the threats:</p>\n\n<ul>\n<li>\n<strong>Resource protection</strong>: Preventing any single client from consuming a disproportionate share of CPU, memory, database connections, or bandwidth.</li>\n<li>\n<strong>Cost control</strong>: If your API calls AI inference APIs, SMS providers, or payment processors, an unconstrained client can rack up significant charges in minutes.</li>\n<li>\n<strong>Abuse pre",
+  "full_text": "Every API you expose to the internet will eventually be abused. Automated scrapers, credential stuffing bots, misbehaving integrations, and sometimes just a well-meaning client with a loop that runs too fast. Without rate limiting, a single bad actor can consume all your server resources and degrade the experience for every other user.\n\nRate limiting is one of those mechanisms that seems simple on the surface but reveals surprising depth when you implement it.\n\n \n \n What Rate Limiting Actually Protects\n\nBefore discussing algorithms, it's worth being explicit about the threats:\n\nResource protection: Preventing any single client from consuming a disproportionate share of CPU, memory, database connections, or bandwidth.\n\nCost control: If your API calls AI inference APIs, SMS providers, or payment processors, an unconstrained client can rack up significant charges in minutes.\n\nAbuse prevention: Credential stuffing and enumeration attacks rely on volume. Rate limiting raises the cost for attackers significantly.\n\nFair access: In multi-tenant systems, rate limiting ensures one tenant's spike doesn't degrade everyone else's experience.\n\n \n \n The Four Algorithms That Matter\n\nFixed Window is the simplest: count requests per client in a fixed time interval, reject when the count exceeds the limit. Implementation in Redis is a single INCR with EXPIRE. The weakness is the boundary problem — a client can send the max at the end of one window and the max at the start of the next, effectively doubling their rate for a brief period.\n\nSliding Window Log eliminates the boundary problem by tracking timestamps of every request in the window. Accurate but memory-intensive: 1000 requests/minute × 10,000 clients = 10 million stored timestamps. Best suited for low-volume, high-value endpoints like login or password reset.\n\nSliding Window Counter is the recommended default. It maintains counters for the current and previous fixed windows, then computes a weighted count based on how far into the current window you are. Good balance of accuracy, memory efficiency, and implementation simplicity.\n\nToken Bucket models rate limiting as a bucket that fills at a steady rate. Two parameters — refill rate and bucket capacity — independently control sustained throughput and burst tolerance. This is the algorithm used by most cloud providers and maps naturally to tiered pricing models.\n\n \n \n Where to Rate Limit\n\nRate limiting should be layered:\n\nAt the edge or load balancer (Nginx, Cloudflare, AWS API Gateway): protects application servers from receiving excessive traffic at all. Your first line of defense against volumetric abuse.\n\nAt the API gateway or middleware: where you implement business-level limits by authenticated user, API key, subscription tier, or endpoint.\n\nAt individual services: in microservice architectures, prevents a misbehaving upstream service from overwhelming a downstream dependency.\n\nEach layer protects against different failure modes. Don't rely on just one.\n\n \n \n Communicating Limits to Clients\n\nGood rate limiting is transparent. Every response should carry headers like X-RateLimit-Limit, X-RateLimit-Remaining, and X-RateLimit-Reset. A 429 Too Many Requests response should include a Retry-After header that tells well-behaved clients exactly when to try again. This converts rate limiting from a blunt instrument into a collaboration between your API and your consumers.\n\n \n \n Three Key Takeaways\n\nThe sliding window counter is the right default for most APIs. It provides close-to-accurate rate limiting with minimal memory overhead, without the complexity of tracking individual request timestamps.\n\nIdentify clients by API key, not IP address. IP-based limiting is increasingly unreliable — users behind corporate proxies share addresses, and attackers with botnets distribute requests across thousands of IPs.\n\nRate limits are a product decision as much as a technical one. What you allow per tier, what gets a 429 versus a graceful degradation, and how generously you size burst capacity all affect your users' experience directly.\n\nRead the full article at novvista.com for complete algorithm implementations, Redis code examples, and a guide to designing rate limit tiers for subscription-based APIs.\n\nOriginally published at NovVista",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "backend",
+      "bucket",
+      "client",
+      "cloudflare",
+      "count",
+      "cpu",
+      "expire",
+      "fix",
+      "limit",
+      "limiting",
+      "nginx",
+      "novvista",
+      "payments",
+      "rate",
+      "redis",
+      "request",
+      "security",
+      "slide",
+      "sms",
+      "webdev",
+      "window"
+    ],
+    [
+      "backend",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": 7118,
+  "source": "Marginal Revolution",
+  "title": "Grade Caps are Not a Good Solution to Grade Inflation",
+  "url": "https://marginalrevolution.com/marginalrevolution/2026/03/grade-caps-are-not-a-good-solution-to-grade-inflation.html?utm_source=rss&utm_medium=rss&utm_campaign=grade-caps-are-not-a-good-solution-to-grade-inflation",
+  "published_at": "2026-03-30T11:17:49Z",
+  "fetched_at": "2026-03-30T20:00:18.304231+00:00",
+  "author": "Alex Tabarrok",
+  "summary": "<p>It&#8217;s well known that grade inflation has &#8220;degraded&#8221; the informational content of grades at many colleges. At Harvard, two-thirds of all undergraduate grades are now A&#8217;s—up from about a quarter two decades ago. In response, a Harvard faculty committee has proposed capping A grades at 20 percent of each class (plus a cushion for small courses). That may give professors some cover to resist further inflation, but it doesn&#8217;t solve the real problem.</p>\n<p>The real problem is not inflation per se. It&#8217;s that students are penalized for taking harder courses with stronger peers. A grade cap leaves that distortion intact—and can even amplify it. As Harvard economist Scott Kominers <a class=\"underline underline underline-offset-2 decoration-1 decoration-current/40 hover:decoration-current focus:decoration-current\" href=\"https://www.thecrimson.com/article/2026/3/27/kominers-harvard-grade-cap/\">argues</a>:</p>\n<blockquote><p>A grade cap systematically penaliz",
+  "full_text": "It’s well known that grade inflation has “degraded” the informational content of grades at many colleges. At Harvard, two-thirds of all undergraduate grades are now A’s—up from about a quarter two decades ago. In response, a Harvard faculty committee has proposed capping A grades at 20 percent of each class (plus a cushion for small courses). That may give professors some cover to resist further inflation, but it doesn’t solve the real problem.\n\nThe real problem is not inflation per se. It’s that students are penalized for taking harder courses with stronger peers. A grade cap leaves that distortion intact—and can even amplify it. As Harvard economist Scott Kominers argues:\n\nA grade cap systematically penalizes ambitious students for surrounding themselves with strong classmates. Perverse course-shopping incentives ensue as a result. A student who is prepared for an advanced course but concerned about landing in the bottom 80 percent may choose to drop down preemptively—seeking out a pond where they are a relatively bigger fish. As strong students move into lower-level courses, competition for A grades increases there while harder courses continue to shrink—reducing their A allocation further and driving more students away.\n\nThe underlying issue is informational. A grade tries to capture two things—student ability and course difficulty—with a single number. Gans and Kominers show that in general this is impossible: if some students take math and earn B’s while others take political science and earn A’s, there is no way, from grades alone, to tell whether the difference reflects ability or course difficulty.\n\nThere is, however, a solution in some cases. Clearly, if every student takes some math and political science courses, informative patterns can emerge. If math students tend to get B’s in math but A’s in political science, while political science students get A’s in their own field but C’s in math, you can begin to separate course difficulty from student ability.\n\nStudents don’t all overlap the same classes. But full overlap isn’t necessary—you just need a connected network. If Alice just takes math courses, Joe takes math and political science courses, and Bob just takes political science courses, then Alice and Bob can be compared through Joe. With enough of these links, the entire system can be stitched together. The more overlap, the more precise the estimates.\n\nValen Johnson proposed a practical method along these lines in 1997. Gans and Kominers embed the same intuition in a much more general framework, showing exactly what can and cannot be inferred, and under what conditions.\n\nThe great thing about achievement indexes based on relative comparisons is that they are robust to grade inflation and do not penalize students for taking hard classes or subjects. A political science student who chooses to take a tough math class instead of an easy-A intro to sociology course won’t be penalized because their low math grade will, in effect, by boosted by the difficulty of the course/quality of the students. That’s good for the student and also good for disciplines that have lost students over the years because they held the line on grade inflation.\n\nOne final point. Harvard’s cap proposal appears to have been developed with little engagement with researchers who have studied problems like these for decades in the mechanism and market design literature—people like Kominers, Gans, Budish, Roth, Maskin, and Sönmez, some of them at Harvard! Moreover, this isn’t a case of ignoring high-theory for practice. The high-theory of mechanism design has produced real-world systems including kidney exchanges, school choice mechanisms, physician-resident matching, even the assignment of students to courses at Harvard, as well as many other mechanisms. Mechanism design is practical.\n\nGrade inflation is a mechanism design problem—and we know a lot about how to solve it, if we want to solve it.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "budish",
+      "course",
+      "current affairs",
+      "design",
+      "economics",
+      "education",
+      "grade",
+      "harvard",
+      "inflation",
+      "kominers",
+      "math",
+      "mechanism",
+      "political",
+      "science",
+      "student",
+      "sönmez"
+    ],
+    [
+      "current affairs",
+      "economics",
+      "education",
+      "science"
+    ]
+  ]
+}

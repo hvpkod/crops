@@ -1,0 +1,38 @@
+{
+  "id": 7156,
+  "source": "Hacker News",
+  "title": "Android Developer Verification",
+  "url": "https://android-developers.googleblog.com/2026/03/android-developer-verification-rolling-out-to-all-developers.html",
+  "published_at": "2026-03-30T22:05:21Z",
+  "fetched_at": "2026-03-30T22:20:24.557801+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47580297\">Comments</a>",
+  "full_text": "Posted by Matthew Forsythe, Director Product Management, Android App Safety\n\nAndroid is for everyone. It’s built on a commitment to an open and safe platform. Users should feel confident installing apps, no matter where they get them from. However, our recent analysis found over 90 times more malware from sideloaded sources than on Google Play. So as an extra layer of security, we are rolling out Android developer verification to help prevent malicious actors from hiding behind anonymity to repeatedly spread harm. Over the past several months, we’ve worked closely with the community to improve the design so we account for the many ways people use Android to balance openness with safety.\n\nStart your verification today\n\nToday, we’re starting to roll out Android developer verification to all developers in both the new Android Developer Console and Play Console. This allows you to complete your verification and register your apps before user-facing changes begin later this year.\n\n \nIf you only distribute apps outside of Google Play, you can create an account in Android Developer Console today.\n \nIf you're on Google Play, check your Play Console account for updates over the next few weeks. If you’ve already verified your identity here, then you’re likely already set.\n\nMost of your users’ download experience will not change at all\n\nWhile verification tools are rolling out now, the experience for users downloading your apps will not change until later this year. The user side protections will first go live in Brazil, Indonesia, Singapore, and Thailand this September, before expanding globally in 2027. We’ve shared this timeline early to ensure you have ample time to complete your verification.\n\nFollowing this deadline, for the vast majority of users, the experience of installing apps will stay exactly the same. It’s only when a user tries to install an unregistered app that they’ll require ADB or advanced flow, helping us keep the broader community safe while preserving the flexibility for our power users.\n\nDevelopers can still choose where to distribute their apps. Most users’ download experience will not change\n\nTailoring the verification experience to your feedback\n\nTo balance the need for safety with our commitment to openness, we’ve improved the verification experience based on your feedback. We’ve streamlined the developer experience to be more integrated with existing workflows and maintained choice for power users.\n\n \nFor Android Studio developers: In the next two months, you’ll see your app's registration status right in Android Studio when you generate a signed App Bundle or APK.\n\nYou’ll see your app's registration status in Android Studio when you generate a signed App Bundle or APK.\n\n \nFor Play developers: If you've completed Play Console's developer verification requirements, your identity is already verified and we'll automatically register eligible Play apps for you. In the rare case that we are unable to register your apps for you, you will need to follow the manual app claim process. Over the next couple of weeks, more details will be provided in the Play Console and through email. Also, you’ll be able to register apps you distribute outside of Play in the Play Console too.\n\nThe Android developer verification page in your Play Console will show the registration status for each of your apps.\n\n \nFor students and hobbyists: To keep Android accessible to everyone, we're building a free, no government ID required, limited distribution account so you can share your work with up to 20 devices. You only need an email account to get started. Sign up for early access. We’ll send invites in June.\n \nFor power users: We are maintaining the choice to install apps from any source. You can use the new advanced flow for sideloading unregistered apps or continue using ADB. This maintains choice while protecting vulnerable users.\n\nWhat’s next?\n\nWe’re rolling this out carefully and working closely with developers, users, and our partners. In April, we’ll introduce Android Developer Verifier, a new Google system service that will be used to check if an app is registered to a verified developer.\n\n \nApril 2026: Users will start to see Android Developer Verifier in their Google Systems services settings.\n \nJune 2026: Early access: Limited distribution accounts for students and hobbyists.\n \nAugust 2026: \n \nSeptember 30, 2026: Apps must be registered by verified developers in order to be installed and updated on certified Android devices in Brazil, Indonesia, Singapore, and Thailand. Unregistered apps can be sideloaded with ADB or advanced flow.\n \n2027 and beyond: We will roll out this requirement globally.\n\nWe’re committed to an Android that is both open and safe. Check out our developer guides to get started today.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "account",
+      "android",
+      "android studio",
+      "apk",
+      "app",
+      "brazil",
+      "console",
+      "developer",
+      "experience",
+      "google",
+      "google systems",
+      "indonesia",
+      "play",
+      "roll",
+      "security",
+      "singapore",
+      "thailand",
+      "verification"
+    ],
+    [
+      "android"
+    ]
+  ]
+}

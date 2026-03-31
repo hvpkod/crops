@@ -1,0 +1,40 @@
+{
+  "id": 7019,
+  "source": "DEV Community<",
+  "title": "Why ReactFlow Edges Disappear in Next.js (Two Subtle CSS and Context Bugs)",
+  "url": "https://dev.to/nareshipme/why-reactflow-edges-disappear-in-nextjs-two-subtle-css-and-context-bugs-jno",
+  "published_at": "2026-03-30T15:35:31Z",
+  "fetched_at": "2026-03-30T16:00:29.596880+00:00",
+  "author": "nareshipme",
+  "summary": "<p>We were building a knowledge graph view — a React Flow canvas that shows topic chains and semantic links between video segments. Nodes rendered fine. But every time we loaded the view, the edges (the connecting lines between nodes) were simply gone.</p>\n\n<p>No errors in the console. Nodes in place. Just... no edges.</p>\n\n<p>Here's the two-bug chain that caused it.</p>\n\n\n\n\n<h2>\n  \n  \n  Bug 1: <code>overflow-hidden</code> creates a stacking context that clips SVG edges\n</h2>\n\n<p>The first culprit was this wrapper div:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight tsx\"><code><span class=\"c1\">// GraphView.tsx — BEFORE</span>\n<span class=\"p\">&lt;</span><span class=\"nt\">div</span> <span class=\"na\">className</span><span class=\"p\">=</span><span class=\"s\">\"rounded-xl overflow-hidden border border-gray-800\"</span> <span class=\"na\">style</span><span class=\"p\">=</span><span class=\"si\">{</span><span class=\"p\">{</span> <span class=\"na\">height</span><span class=\"p\">:<",
+  "full_text": "We were building a knowledge graph view — a React Flow canvas that shows topic chains and semantic links between video segments. Nodes rendered fine. But every time we loaded the view, the edges (the connecting lines between nodes) were simply gone.\n\nNo errors in the console. Nodes in place. Just... no edges.\n\nHere's the two-bug chain that caused it.\n\n \n \n Bug 1: overflow-hidden creates a stacking context that clips SVG edges\n\nThe first culprit was this wrapper div:\n\n// GraphView.tsx — BEFORE\n<div className=\"rounded-xl overflow-hidden border border-gray-800\" style={{ height: 420 }}>\n <VideoKnowledgeGraph ... />\n</div>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\noverflow-hidden in CSS does two things most people don't think about:\n\nIt clips content that overflows the box (the obvious thing)\n\nIt creates a new stacking context\n\nReactFlow renders its edges as an SVG layer that is absolutely positioned within the canvas container. When an ancestor has overflow: hidden, that SVG layer gets clipped — even if it's technically within the visible bounds — because the stacking context changes how the browser composites layers.\n\nThe fix: use overflow: clip instead.\n\n// GraphView.tsx — AFTER\n{/* overflow-clip instead of overflow-hidden: clips visually without creating a new\n stacking context that would cause ReactFlow's SVG edge layer to be invisible */}\n<div className=\"rounded-xl border border-gray-800\" style={{ height: 420, overflow: \"clip\" }}>\n <VideoKnowledgeGraph ... />\n</div>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\noverflow: clip behaves like overflow: hidden visually — content is clipped at the box boundary — but crucially it does not create a new stacking context. The SVG edge layer can now composite correctly.\n\nThis is one of those CSS properties that exists specifically because overflow: hidden has an unfortunate side effect that trips up complex rendering scenarios like SVG overlays, fixed-positioned children, and canvas-based UIs.\n\n \n \n Bug 2: Next.js dynamic() imports need an explicit ReactFlowProvider\n\nEven after fixing the overflow issue, edges were still missing in some cases. The second bug was more subtle.\n\nReactFlow uses React context internally. The <ReactFlow> component expects a ReactFlowProvider to be present somewhere up the tree. In most setups, you either wrap your app or page in a provider, or rely on React Flow's own internal provider being initialized before the component renders.\n\nThe problem: we were loading the graph component with Next.js dynamic():\n\n// project/page.tsx\nconst VideoKnowledgeGraph = dynamic(\n () => import('@/components/VideoKnowledgeGraph'),\n { ssr: false }\n);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWith dynamic(), the component is loaded in a separate chunk and initialized asynchronously. The issue is that when this happens, the ReactFlow context — specifically the provider that manages the internal store for nodes, edges, and the SVG renderer — can be absent or not yet initialized at the time the SVG edge layer tries to render.\n\nThe result: nodes render (they don't depend on the internal edge store in the same way), but edges don't.\n\nFix: explicitly wrap the dynamically imported component in <ReactFlowProvider>:\n\n// VideoKnowledgeGraph.tsx — AFTER\nimport { ReactFlow, ReactFlowProvider, ... } from '@xyflow/react';\n\nexport default function VideoKnowledgeGraph({ graph, ... }) {\n // ...\n return (\n // ReactFlowProvider is required here because this component is loaded via Next.js\n // dynamic() import. Without an explicit provider, the ReactFlow context (including\n // the SVG edge renderer) can be missing, causing edges to not render.\n <ReactFlowProvider>\n <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>\n {/* toolbar */}\n <div style={{ width: '100%', height: '100%', position: 'relative', flex: 1, minHeight: 0 }}>\n <ReactFlow\n nodes={nodesWithSelection}\n edges={edges}\n onNodesChange={onNodesChange}\n onEdgesChange={onEdgesChange}\n nodeTypes={nodeTypes}\n fitView\n fitViewOptions={{ padding: 0.2 }}\n minZoom={0.2}\n maxZoom={2}\n >\n <Background />\n <Controls />\n </ReactFlow>\n </div>\n </div>\n </ReactFlowProvider>\n );\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe rule of thumb: any ReactFlow component loaded via dynamic() should include its own ReactFlowProvider. Don't assume the context will be present from a parent — with async chunk loading, the initialization order isn't guaranteed.\n\n \n \n Why both bugs were needed to hide edges\n\nEither bug alone might have been survivable:\n\nJust the stacking context issue → edges might render in some browsers but get clipped in others\n\nJust the missing provider → React Flow might fall back to an ancestor provider if one existed up the tree\n\nTogether, they compounded: the SVG layer wasn't rendering at all (provider issue), and even if it had rendered, it would have been clipped (overflow issue).\n\nWhen debugging React Flow edge visibility, check these two things first:\n\nAny ancestor with overflow: hidden? Switch to overflow: clip or overflow: visible.\n\nIs the component loaded dynamically? Wrap it in <ReactFlowProvider>.\n\n \n \n Takeaway\n\noverflow: hidden is one of CSS's \"does more than it says\" properties — it's worth knowing that it triggers stacking context creation. And when using React Flow with Next.js dynamic(), always provide the context explicitly rather than hoping it exists up the tree.\n\nBoth are easy one-line fixes once you know what to look for. The hard part is knowing what to look for.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "clip",
+      "component",
+      "context",
+      "css",
+      "edge",
+      "fullscreen",
+      "layer",
+      "load",
+      "next.js",
+      "nextjs",
+      "react",
+      "react flow",
+      "react flow's",
+      "reactflow",
+      "stack",
+      "svg",
+      "takeaway",
+      "typescript",
+      "webdev"
+    ],
+    [
+      "nextjs",
+      "webdev"
+    ]
+  ]
+}
