@@ -1,0 +1,45 @@
+{
+  "id": 7302,
+  "source": "DEV Community<",
+  "title": "Distributed LLM Inference Across NVIDIA Blackwell and Apple Silicon Over 10GbE",
+  "url": "https://dev.to/ljkunal/distributed-llm-inference-across-nvidia-blackwell-and-apple-silicon-over-10gbe-2feg",
+  "published_at": "2026-03-31T12:15:15Z",
+  "fetched_at": "2026-03-31T12:40:39.320657+00:00",
+  "author": "Kunal Jaiswal",
+  "summary": "<p>I connected an NVIDIA DGX Spark to a Mac Studio with a direct 10-gigabit Ethernet cable and split a large language model across both GPUs. Here's what actually happened.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>I have two machines that are excellent at different things:</p>\n\n<ul>\n<li>\n<strong>NVIDIA DGX Spark</strong> (GB10 Blackwell, 120 GB unified memory) — screaming fast tensor cores, CUDA 13</li>\n<li>\n<strong>Mac Studio</strong> (M2 Ultra, 128 GB unified memory) — great Metal GPU, massive memory bandwidth</li>\n</ul>\n\n<p>Combined: <strong>248 GB</strong> of GPU-accessible memory. Enough to run models that don't fit on either machine alone — 100B+ parameter models at reasonable quantization levels.</p>\n\n<p>The question: can you actually get useful performance by splitting a model across heterogeneous GPUs over a network link?</p>\n\n<h2>\n  \n  \n  The Physical Setup\n</h2>\n\n<p>I connected both machines with a direct 10GbE cable — no switch, no router. Just a CAT6A cable between:</p>\n\n<u",
+  "full_text": "I connected an NVIDIA DGX Spark to a Mac Studio with a direct 10-gigabit Ethernet cable and split a large language model across both GPUs. Here's what actually happened.\n\n \n \n The Problem\n\nI have two machines that are excellent at different things:\n\nNVIDIA DGX Spark (GB10 Blackwell, 120 GB unified memory) — screaming fast tensor cores, CUDA 13\n\nMac Studio (M2 Ultra, 128 GB unified memory) — great Metal GPU, massive memory bandwidth\n\nCombined: 248 GB of GPU-accessible memory. Enough to run models that don't fit on either machine alone — 100B+ parameter models at reasonable quantization levels.\n\nThe question: can you actually get useful performance by splitting a model across heterogeneous GPUs over a network link?\n\n \n \n The Physical Setup\n\nI connected both machines with a direct 10GbE cable — no switch, no router. Just a CAT6A cable between:\n\nDGX: Realtek 10GbE NIC (enP7s7) → 192.168.100.2/24\n\nMac Studio: 10GbE port (en0) → 192.168.100.1/24\n\nMeasured throughput: 9.41 Gbps. Both machines keep WiFi for LAN/internet access — the direct cable is a dedicated inference-only link.\n\n \n \n Why llama.cpp RPC (and Why Not Exo)\n\nI tried two approaches:\n\n \n \n Exo (MLX Ring) — Failed\n\nExo is a distributed inference framework that uses MLX on both Metal and CUDA backends. I got peer discovery working, placed a 128 GB MiniMax M2.5 model across both nodes, but hit a wall: mx.distributed.init(backend=\"ring\") hangs indefinitely on the CUDA backend. The MLX CUDA ring implementation simply doesn't work yet (as of MLX 0.31.1). Even single-node ring init hangs on DGX.\n\nI fixed several other bugs along the way (election instability, edge oscillation, model path mismatches, Linux interface detection) and submitted a P2P model distribution PR, but the core distributed inference path is blocked until Apple adds CUDA ring support to MLX.\n\n \n \n llama.cpp RPC — Works\n\nllama.cpp's RPC backend takes a different approach. Instead of requiring the same ML framework on both ends, it exposes a simple RPC server that provides raw compute. The host machine (Mac Studio) runs llama-server, loads the model, and offloads layers to remote RPC servers (DGX) as needed.\n\n# DGX — start RPC server\ncd /home/kjaiswal/llama.cpp\nLD_LIBRARY_PATH=build/bin build/bin/rpc-server -H 192.168.100.2 -p 50052\n\n# Mac Studio — start llama-server with RPC\ncd /Users/chimpoo/llama.cpp\nbuild/bin/llama-server \\\n -m /path/to/model.gguf \\\n --rpc 192.168.100.2:50052 \\\n -ngl 99 \\\n --host 0.0.0.0 --port 9999 \\\n -c 4096\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBoth were built from the same commit (b0f0dd3e5) with their respective GPU backends:\n\nMac Studio: GGML_METAL=ON GGML_RPC=ON\n\nDGX: GGML_CUDA=ON GGML_RPC=ON\n\nThe model file only needs to exist on the Mac Studio. llama.cpp automatically splits layers across available compute based on memory.\n\n \n \n Benchmarks\n\n \n \n Qwen2.5-7B Q4_K_M (4.4 GB) — Fits one machine easily\n\nMode\nPrompt Processing\nToken Generation\n\nLocal Metal only\n76 tok/s\n92 tok/s\n\nRPC (Metal + CUDA)\n318 tok/s\n53 tok/s\n\n \n \n Qwen2.5-72B Q4_K_M (44.2 GB) — Fits Mac Studio alone\n\nMode\nPrompt Processing\nToken Generation\nModel Split\n\nLocal Metal only\n28 tok/s\n11 tok/s\n44 GB on Metal\n\nRPC (Metal + CUDA)\n30 tok/s\n6 tok/s\n31 GB Metal + 14 GB CUDA\n\n \n \n What the Numbers Mean\n\nPrompt processing (prefill) benefits from RPC. The DGX Blackwell tensor cores accelerate the matrix multiplications needed to process input tokens. For the 7B model, prefill was 4.2x faster with RPC. Even the 72B model saw a slight improvement.\n\nToken generation (decode) is slower with RPC. Each generated token requires a round-trip over the network to synchronize KV cache states. At 10 Gbps, this adds ~0.2ms per layer per token. With 80 layers, that's 16ms of network overhead per token — enough to cut generation speed roughly in half.\n\nFor models that fit one machine, local is faster. The 72B model runs at 11 tok/s locally vs 6 tok/s over RPC. The network overhead isn't worth it.\n\nThe real value is models that DON'T fit one machine. With 248 GB combined, I can run:\n\nMiniMax M2.5 Q4_K_M (138 GB) — 230B parameters, 10B active MoE\n\nQwen3-235B Q4_K_M (132 GB) — 235B parameters, 22B active MoE\n\nDeepSeek-R1 at higher quantization than either machine could handle alone\n\nAt Q4 quantization, a 200B+ MoE model should generate at ~4–8 tok/s across both machines. Not fast, but usable for batch processing, code review, and complex reasoning tasks.\n\n \n \n Lessons Learned\n\nDirect cables beat switches. A direct 10GbE link has lower latency and jitter than going through a network switch. For latency-sensitive distributed inference, every microsecond matters.\n\nPrefill and decode have opposite scaling characteristics. Prefill is embarrassingly parallel and benefits from more compute. Decode is sequential and bottlenecked by network latency. This suggests a potential disaggregated architecture: use the DGX for prefill, Mac Studio for decode.\n\nGGUF is the universal format. Ollama GGUFs have custom metadata that upstream llama.cpp can't read (e.g., rope.dimension_sections with wrong array length). Always use HuggingFace community GGUFs (bartowski, etc.) for llama.cpp.\n\nHeterogeneous distributed inference works today — but only with frameworks that abstract the GPU backend behind a network protocol (like llama.cpp RPC). Frameworks that require the same ML runtime on all nodes (like Exo with MLX) are blocked on backend parity.\n\n \n \n What's Next\n\nBenchmark MiniMax M2.5 (138 GB) split across both machines — the first model that actually needs distributed inference\n\nTest disaggregated prefill (DGX) + decode (Mac Studio) once both run the same framework\n\nExplore vLLM's distributed serving for production workloads\n\nThe full setup — including the Exo debugging saga and the 5 bugs I fixed — is documented in my infrastructure notes. Happy to share details if you're working on similar multi-GPU setups.\n\nIf you're working on similar multi-GPU setups, I'd love to hear what's working for you. The full setup notes and Exo bug fixes are on my GitHub.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "apple",
+      "apple silicon",
+      "cable",
+      "cuda",
+      "dgx",
+      "direct",
+      "distribute",
+      "gpu",
+      "homelab",
+      "inference",
+      "lan",
+      "llm",
+      "machine",
+      "machinelearning",
+      "metal",
+      "mlx",
+      "model",
+      "network",
+      "prefill",
+      "rpc",
+      "the mac studio",
+      "the physical setup"
+    ],
+    [
+      "ai",
+      "homelab",
+      "machinelearning"
+    ]
+  ]
+}

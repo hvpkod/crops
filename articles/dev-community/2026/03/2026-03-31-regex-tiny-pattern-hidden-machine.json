@@ -1,0 +1,47 @@
+{
+  "id": 7215,
+  "source": "DEV Community<",
+  "title": "Regex: Tiny Pattern, Hidden Machine",
+  "url": "https://dev.to/neuraldownload/regex-tiny-pattern-hidden-machine-13ha",
+  "published_at": "2026-03-31T03:26:03Z",
+  "fetched_at": "2026-03-31T04:00:25.206139+00:00",
+  "author": "Neural Download",
+  "summary": "<p><a href=\"https://www.youtube.com/watch?v=4xhxORnBeo4\" rel=\"noopener noreferrer\">https://www.youtube.com/watch?v=4xhxORnBeo4</a></p>\n\n\n\n\n<p>title: \"Regex: Tiny Pattern, Hidden Machine\"<br />\npublished: true</p>\n\n<h2>\n  \n  \n  tags: regex, computerscience, programming, beginners\n</h2>\n\n<p>You type a regex and it matches text. But under the hood, your regex engine is building and executing a full state machine — every single time.</p>\n\n<h2>\n  \n  \n  From Pattern to Machine\n</h2>\n\n<p>A regex like <code>a(b|c)*d</code> looks simple. Five characters. But when the engine compiles it, here's what actually happens:</p>\n\n<ol>\n<li>\n<strong>Each character</strong> becomes two states connected by a transition</li>\n<li>\n<strong>Concatenation</strong> chains state machines together</li>\n<li>\n<strong>Alternation</strong> (<code>|</code>) creates branching paths with epsilon transitions — free jumps that consume no input</li>\n<li>\n<strong>The star operator</strong> adds a loop from the accept state ba",
+  "full_text": "https://www.youtube.com/watch?v=4xhxORnBeo4\n\ntitle: \"Regex: Tiny Pattern, Hidden Machine\"\n\npublished: true\n\n \n \n tags: regex, computerscience, programming, beginners\n\nYou type a regex and it matches text. But under the hood, your regex engine is building and executing a full state machine — every single time.\n\n \n \n From Pattern to Machine\n\nA regex like a(b|c)*d looks simple. Five characters. But when the engine compiles it, here's what actually happens:\n\nEach character becomes two states connected by a transition\n\nConcatenation chains state machines together\n\nAlternation (|) creates branching paths with epsilon transitions — free jumps that consume no input\n\nThe star operator adds a loop from the accept state back to the start\n\nThis is Thompson's construction, invented in 1968. Your tiny pattern becomes a nondeterministic finite automaton (NFA) — a graph with multiple possible paths at every step.\n\n \n \n NFA → DFA: Removing the Guesswork\n\nAn NFA can be in multiple states at once. That's powerful but expensive to simulate. So most engines convert it to a deterministic finite automaton (DFA) — one state at a time, one transition per input character.\n\nThe conversion uses the subset construction algorithm: each DFA state represents a set of NFA states. The trade-off? The DFA can have exponentially more states, but each step is O(1).\n\n \n \n When Regex Goes Wrong\n\nNot all engines use DFAs. Many (including Python, Java, JavaScript, Ruby, and PHP) use backtracking — they try one path, and if it fails, they back up and try another.\n\nFor most patterns, this is fine. But for patterns with nested quantifiers over overlapping characters, the number of paths explodes exponentially.\n\nThe pattern (a+)+b matched against aaaaaaaaaaX forces the engine to explore every possible way to divide those as into groups. Ten as? About a thousand paths. Twenty? Over a million. Thirty? Over a billion.\n\nThis is ReDoS — Regular Expression Denial of Service. One carefully crafted string can pin a CPU at 100% for hours.\n\nReal incidents:\n\n2016: A regex crashed Cloudflare's servers for 27 minutes\n\n2019: A single regex took down npm for 6 hours\n\n \n \n The Fix\n\nAvoid nested quantifiers over overlapping patterns\n\nUse atomic groups or possessive quantifiers\n\nSwitch to an engine like RE2 that uses Thompson's NFA simulation — linear time, guaranteed\n\nYour regex is a program. And like any program, it can have performance bugs hiding in plain sight.\n\n \n \n Watch the Full Video\n\nThe video walks through NFA construction, DFA conversion, backtracking simulation, and the ReDoS attack — all animated step by step.\n\n \n \n References",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "backtrack",
+      "beginners",
+      "cloudflare",
+      "computerscience",
+      "cpu",
+      "dfa",
+      "engine",
+      "hidden machine",
+      "javascript",
+      "machine",
+      "pattern",
+      "pattern to machine",
+      "php",
+      "programming",
+      "quantifier",
+      "regex",
+      "state",
+      "the fix\n\navoid",
+      "the full video",
+      "thompson",
+      "tiny",
+      "transition",
+      "use"
+    ],
+    [
+      "beginners",
+      "cloudflare",
+      "computerscience",
+      "javascript",
+      "programming"
+    ]
+  ]
+}

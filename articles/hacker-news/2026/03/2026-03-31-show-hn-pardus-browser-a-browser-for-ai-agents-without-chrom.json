@@ -1,0 +1,38 @@
+{
+  "id": 7312,
+  "source": "Hacker News",
+  "title": "Show HN: Pardus Browser- a browser for AI agents without Chromium",
+  "url": "https://github.com/JasonHonKL/PardusBrowser/tree/main",
+  "published_at": "2026-03-31T10:21:33Z",
+  "fetched_at": "2026-03-31T12:40:52.495631+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47585192\">Comments</a>",
+  "full_text": "A headless browser built for AI agents. No pixels, no screenshots — just structured semantic state.\n\n$ pardus-browser navigate https://example.com\n\n00:00 pardus-browser navigate https://example.com\n00:05 connected — parsing semantic state…\n document [role: document]\n └── region [role: region]\n ├── heading (h1) \"Example Domain\"\n └── link \"Learn more\" → https://iana.org/domains/example\n00:05 semantic tree ready — 0 landmarks, 1 links, 1 headings, 1 actions\n00:05 agent-ready: structured state exposed · no pixel buffer · 0 screenshots\n\nAI agents don't need screenshots. They need to know what's on a page, what they can interact with, and where they can go. pardus-browser fetches a URL, parses the HTML, and outputs a clean semantic tree — landmarks, headings, links, buttons, forms, and their actions — in milliseconds, not seconds.\n\nNo Chromium binary. No Docker. No GPU. Just HTTP + HTML parsing.\n\nSemantic tree output — ARIA roles, headings, landmarks, interactive elements\n\n3 output formats — Markdown (default), tree, JSON\n\nNavigation graph — Internal routes, external links, form descriptors with fields\n\nInteractive-only mode — Strip static content, show only actionable elements\n\nAction annotations — Every interactive element tagged with navigate, click, fill, toggle, or select\n\nFast — HTTP GET + HTML parse, typically under 200ms\n\nZero dependencies on Chrome — Pure Rust, no browser binary needed\n\nFrom source (requires Rust 1.85+):\n\ngit clone https://github.com/user/pardus-browser.git\ncd pardus-browser\ncargo install --path crates/pardus-cli\n\n# Default: Markdown tree\npardus-browser navigate https://example.com\n\n# Raw tree format\npardus-browser navigate https://example.com --format tree\n\n# JSON with navigation graph\npardus-browser navigate https://example.com --format json --with-nav\n\n# Only interactive elements\npardus-browser navigate https://example.com --interactive-only\n\n# Custom headers\npardus-browser navigate https://api.example.com --header \"Authorization: Bearer token\"\n\n# Verbose logging\npardus-browser navigate https://example.com -v\n\nMarkdown (default) — clean semantic tree with role annotations:\n\ndocument [role: document]\n├── banner [role: banner]\n│ ├── link \"Home\" → /\n│ ├── link \"Products\" → /products\n│ └── button \"Sign In\"\n├── main [role: main]\n│ ├── heading (h1) \"Welcome to Example\"\n│ ├── region \"Hero\"\n│ │ ├── text \"The fastest way to build\"\n│ │ └── link \"Get Started\" → /signup\n│ └── form \"Search\" [role: form]\n│ ├── textbox \"Search...\" [action: fill]\n│ └── button \"Go\" [action: click]\n└── contentinfo [role: contentinfo]\n ├── link \"Privacy\" → /privacy\n └── link \"Terms\" → /terms\n\nJSON — structured data with full navigation graph:\n\npardus-browser navigate https://example.com --format json --with-nav\n\nReturns:\n\n{\n \"url\": \"https://example.com/\",\n \"title\": \"Example Domain\",\n \"semantic_tree\": {\n \"root\": { \"role\": \"document\", \"children\": [...] },\n \"stats\": { \"landmarks\": 4, \"links\": 12, \"headings\": 3, \"actions\": 2 }\n },\n \"navigation_graph\": {\n \"internal_links\": [\n { \"url\": \"/products\", \"label\": \"Products\" },\n { \"url\": \"/signup\", \"label\": \"Get Started\" }\n ],\n \"external_links\": [\"https://github.com/...\"],\n \"forms\": [\n {\n \"action\": \"/search\",\n \"method\": \"GET\",\n \"fields\": [\n { \"name\": \"q\", \"field_type\": \"text\", \"action\": \"fill\" },\n { \"name\": \"go\", \"field_type\": \"submit\", \"action\": \"click\" }\n ]\n }\n ]\n }\n}\n\n# Wipe everything\npardus-browser clean\n\n# Only cookies\npardus-browser clean --cookies-only\n\n# Only cache\npardus-browser clean --cache-only\n\npardus-browser\n├── crates/pardus-core Core library — HTML parsing, semantic tree, navigation graph\n├── crates/pardus-cdp CDP WebSocket server (planned)\n└── crates/pardus-cli CLI binary\n\npardus-core — The engine. Fetches pages via reqwest, parses HTML with scraper, builds a semantic tree mapping ARIA roles and interactive states. Outputs Markdown, tree, or JSON.\n\npardus-cdp — Chrome DevTools Protocol server (planned). Will expose a WebSocket endpoint for Playwright/Puppeteer integration, enabling JS-rendered pages and real-time interaction.\n\npardus-cli — The pardus-browser command-line tool.\n\nElement\nRole\nAction\n\n<a href>\nlink\nnavigate\n\n<button>\nbutton\nclick\n\n<input type=text>\ntextbox\nfill\n\n<input type=submit>\nbutton\nclick\n\n<input type=checkbox>\ncheckbox\ntoggle\n\n<select>\ncombobox\nselect\n\n<textarea>\ntextbox\nfill\n\n<img>\nimg\n—\n\n<h1>–<h6>\nheading (hN)\n—\n\n<nav>\nnavigation\n—\n\n<main>\nmain\n—\n\n<header>\nbanner\n—\n\n<footer>\ncontentinfo\n—\n\n<form>\nform\n—\n\n<article>\narticle\n—\n\n<ul>/<ol>\nlist\n—\n\n<table>\ntable\n—\n\n[role=...]\ncustom\nvaries\n\n[tabindex]\nvaries\nvaries\n\nMIT License",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "aria",
+      "cdp websocket",
+      "clean",
+      "cli",
+      "element",
+      "gpu",
+      "html",
+      "jasonhonkl",
+      "json",
+      "link",
+      "navigate",
+      "navigation",
+      "pardus-cdp",
+      "playwright/puppeteer",
+      "semantic",
+      "strip",
+      "textbox",
+      "tree",
+      "vary",
+      "websocket"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 7388,
+  "source": "The Verge",
+  "title": "The latest Matter update improves camera streaming",
+  "url": "https://www.theverge.com/tech/904361/matter-spec-update1-5-1-camera-video-streaming-heic-doorbell-chimes",
+  "published_at": "2026-03-31T17:01:45Z",
+  "fetched_at": "2026-03-31T17:20:16.386171+00:00",
+  "author": "Andrew Liszewski",
+  "summary": "<figure>\n\n<img alt=\"The Aqara G350 camera next to an Android smartphone.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/matter_cameras.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tThe Aqara G350 is the first camera you can buy that supports Matter. | <em>Photo by Jennifer Pattison Tuohy / The Verge</em>\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">The Connectivity Standards Alliance (CSA) <a href=\"https://csa-iot.org/newsroom/matter-1-5-1-enhancing-camera-performance-and-expanding-device-flexibility/\">released Matter 1.5.1 today</a>, building upon the <a href=\"https://www.theverge.com/tech/821707/matter-smart-home-standard-supports-cameras-apple-ring-google-nest\">camera and video doorbell support</a> added as part of the <a href=\"https://www.theverge.com/news/823466/matter-is-getting-camera-support\">Matter 1.5 update last November</a>. Although 1.5.1 is a minor update, it brings several improvements that will benefit both end ",
+  "full_text": "The Connectivity Standards Alliance (CSA) released Matter 1.5.1 today, building upon the camera and video doorbell support added as part of the Matter 1.5 update last November. Although 1.5.1 is a minor update, it brings several improvements that will benefit both end users and companies making these types of devices.\n\nThe most notable update is more efficient camera streaming that will help reduce bandwidth demands when multiple people or systems are accessing the same feed. With Matter 1.5.1, cameras can simultaneously deliver multiple video streams with quality settings tailored to what it’s being used for. A video recorder would get a high-resolution stream for archival purposes, while a lower resolution stream optimized for mobile devices would be provided to phones and tablets.\n\nOther improvements include added support for HEIC images that offer better quality and smaller file sizes than JPEGs, as well as the HLS and DASH streaming formats for “greater compatibility with the streaming technologies widely used by modern cloud and media platforms.” Matter 1.5.1 will also introduce improved positioning and movement for pan-tilt-zoom cameras, while doorbell devices will be able to play more than the default chime when the button is pressed – including fun seasonal alternatives – and trigger automations when the chime starts playing.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "add",
+      "camera",
+      "chime",
+      "csa",
+      "doorbell",
+      "heic",
+      "improvement",
+      "matter",
+      "news",
+      "smart home",
+      "stream",
+      "tech",
+      "update",
+      "video"
+    ],
+    [
+      "news",
+      "smart home",
+      "tech"
+    ]
+  ]
+}

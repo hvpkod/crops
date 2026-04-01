@@ -1,0 +1,36 @@
+{
+  "id": 7235,
+  "source": "Hacker News",
+  "title": "Show HN: Raincast – Describe an app, get a native desktop app (open source)",
+  "url": "https://github.com/tihiera/raincast",
+  "published_at": "2026-03-31T05:39:41Z",
+  "fetched_at": "2026-03-31T06:00:19.782938+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47583151\">Comments</a>",
+  "full_text": "Describe an app. Get a native desktop app.\n\n AI-powered app generator that builds real, shippable Tauri applications from natural language.\n\n \n \n \n \n\n Install ·\n How It Works ·\n Examples\n\n \n\nRaincast is a desktop application that generates other desktop applications. You describe what you want in plain English, and Raincast builds a fully functional native app:with a real UI, backend commands, file system access, and system integration. Not a mockup. Not a prototype. A compiled, shippable application.\n\nIt generates React + Tauri apps with:\n\n9 layout templates:dashboard, editor, chat, file manager, media player, data table, playground, utility, and generic\n\nRust backend:AI writes Tauri commands for file I/O, shell execution, system monitoring, network calls\n\nNative window chrome:transparent backgrounds, macOS vibrancy, overlay title bars, custom window sizes\n\nLive preview:see your app running as it's being built, with hot reload\n\nOne-click ship:compile to a standalone binary you can distribute\n\nYou describe what you want, and Raincast generates the full app: React frontend, Rust backend commands, and Tauri config.\n\nThe interesting part is how the live preview works. Generated apps call Rust backend commands via Tauri's invoke() bridge, but in dev mode the full Tauri binary isn't compiled yet. So Raincast builds a proxy binary: it parses the generated Rust source using AST extraction to find every #[tauri::command] function, then generates a standalone CLI binary that reads JSON from stdin, dispatches to the same functions, and writes JSON to stdout. The frontend's invoke() calls get routed through this proxy instead of the real Tauri runtime. This means the preview behaves like the real app: file system access, shell commands, system info all work during development, not just after shipping.\n\nWhen you hit Ship, Raincast compiles the actual Tauri binary with all the real commands baked in. The proxy is only for dev.\n\nRaincast supports multiple AI backends:\n\nProvider\nModels\nBest For\n\nAnthropic Claude\nSonnet 4.6 (pro), Haiku 4.5 (fast)\nComplex apps, accurate code\n\nGoogle Gemini\n3.1 Pro, 3 Flash\nFast iteration, multimodal\n\nBring your own API key. Set it in the app settings.\n\nWant to add OpenAI Codex, xAI Grok, DeepSeek, Mistral, or another provider? PRs are welcome:or open an issue and we'll prioritize it.\n\ncurl -fsSL https://raw.githubusercontent.com/tihiera/raincast/main/scripts/install-macos.sh | bash\n\nThis checks for Rust and Node.js, installs them if missing, builds from source, and places the app in /Applications.\n\nOr build manually:\n\ngit clone https://github.com/tihiera/raincast.git\ncd raincast\nnpm install\nnpm run tauri dev # development\nnpm run tauri build # production binary\n\nDownload Raincast_x.x.x_x64-setup.exe from Releases and run it.\n\n# Download the .deb from Releases, then:\nsudo dpkg -i raincast_x.x.x_amd64.deb\nsudo apt-get install -f\n\nOr download the .AppImage from Releases, make it executable, and run.\n\nPrerequisites (manual build only)\n\nNode.js 18+\n\nRust\n\nXcode Command Line Tools (macOS): xcode-select --install\n\nLinux: sudo apt install libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf libgtk-3-dev libsoup-3.0-dev\n\nUtility Apps\n\nCompact, single-purpose tools with frosted glass windows.\n\n\"Build a VPN status utility that shows my current public IP, connection location on a minimal world map, and a one-click toggle to connect/disconnect. Show latency, upload/download speed, and connection uptime.\"\n\nFull Applications\n\n\"Build a local AI chat app that connects to a llama.cpp server running on my machine. Chat interface with streamed responses, a model picker, and a collapsible dev console showing connection status and server logs.\"\n\nGames\n\n\"Build a side-scrolling platformer inspired by Super Mario. Pixel-art style sprites with vibrant colors, parallax scrolling backgrounds with gradient skies, a HUD with score, coins, and lives, particle effects on coin collection, and screen shake on damage.\"\n\nAutomation\n\n\"Build a compact file organizer that watches Desktop and Downloads, auto-sorts files by filename patterns into categorized folders, shows macOS-style toast notifications, and has a live feed of recently sorted files.\"\n\n# Start dev mode (frontend + Tauri backend)\nnpm run tauri dev\n\n# Frontend only (port 1420)\nnpm run dev\n\n# Build production binary\nnpm run tauri build\n\n# Run editkit tests\ncd packages/editkit && npm test\n\nIf you want to contribute:\n\nFork the repo\n\nCreate a feature branch\n\nMake your changes\n\nRun npm run tauri dev to verify\n\nOpen a PR\n\nMIT",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "backend",
+      "binary",
+      "build",
+      "cli",
+      "desktop",
+      "file",
+      "generate",
+      "install",
+      "node.js",
+      "openai codex",
+      "raincast",
+      "react",
+      "rust",
+      "stdin",
+      "super mario",
+      "tauri",
+      "tauri dev"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": 7205,
+  "source": "Hacker News",
+  "title": "Show HN: I turned a sketch into a 3D-print pegboard for my kid with an AI agent",
+  "url": "https://github.com/virpo/pegboard",
+  "published_at": "2026-03-30T23:20:02Z",
+  "fetched_at": "2026-03-31T03:20:18.058905+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47580910\">Comments</a>",
+  "full_text": "AI-generated 3D-printable pegboard toy from a hand-drawn sketch.\n\n \n What I gave AI\n What it gave me\n \n \n \n \n \n \n A rough marker sketch Oli and I drew together. I gave Codex just two dimensions: the holes are `4 cm` apart and the pegs are `8 mm` wide.\n Oli playing with the first printed set, after a little fit-and-feel iteration.\n \n\nWe have pegboards and plywood scraps all over the apartment. I wanted to make a tiny one for Oli, or maybe even hang one on our front door instead of a wreath so visitors would have something to play with.\n\nI had already cut the scrap wood and drilled the first board when I sat down at the computer, ready to lose an hour or two in Fusion 360. Then I looked at the sketch on my desk, took a photo, pasted it into Codex, and added the only dimensions that mattered: the holes are 40 mm apart and the pegs are 8 mm wide.\n\nAbout a minute later I had the first set of pieces. From there I just iterated a little: print, test, adjust, repeat, until the pegs fit snugly, the pieces felt good by hand, and the gears turned smoothly.\n\nEverything in this repo stays as small Python generators instead of hand-edited meshes, which made those tweaks easy. The time I did not spend drawing every variant in CAD turned into time I could spend printing, testing, and playing with Oli instead.\n\nThe current set is a 40 mm system with seven play pieces, one tuned peg, four gears, and two printable boards.\n\nThis repo is intentionally easy to modify with coding agents. AGENTS.md has the current dimensions, folder layout, and the few rules needed to extend the set safely.\n\nYou can ask an agent to:\n\nbuild a bigger pegboard like 6x6\n\nmake the pegs longer or shorter\n\nadd new pieces for different peg combinations\n\nscale the whole system up or down\n\ngenerate tighter or looser fit-test variants\n\nWhat's in this repository\n\n \n\nPlay pieces\nGears\nPegboards and pegs\n\nSeven flat pieces in models/pieces/ with 8.45 mm holes, tuned to lift on and off the pegs easily.\nFour smooth gears in models/gears/, tuned to mesh on the 40 mm peg grid.\nTwo printable boards in models/boards/ plus the tuned peg in models/pieces/.\n\nmodels/\n\nFinal STL exports plus the board-fit prototypes.\n\nscripts/\n\nParametric generators for pieces, gears, boards, and README assets.\n\ndocs/\n\nSupporting notes plus the README images.\n\nAGENTS.md\n\nInstructions for coding agents that want to extend the set.\n\nGrid pitch: 40.0 mm\n\nPiece hole diameter: 8.45 mm\n\nGear hole diameter: 8.45 mm\n\nPeg: 7.72 mm diameter, 40.0 mm long, 1.2 mm end roundover\n\nPrinted board hole diameter: currently 8.30 mm, still being validated\n\npython3 -m venv .venv\n. .venv/bin/activate\npip install -r requirements.txt\npython scripts/generate_pegboard_shapes.py\npython scripts/generate_pegboard_gears.py\npython scripts/generate_pegboard_board.py\npython scripts/generate_repository_assets.py",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "cad",
+      "gear",
+      "give",
+      "hole",
+      "peg",
+      "pegboard",
+      "piece",
+      "plus",
+      "python",
+      "sketch",
+      "tuned"
+    ],
+    [
+      "python"
+    ]
+  ]
+}

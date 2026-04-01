@@ -1,0 +1,42 @@
+{
+  "id": 7220,
+  "source": "DEV Community<",
+  "title": "What 12 Anthropic Academy Quizzes Taught Me About My Own Blind Spots",
+  "url": "https://dev.to/yurukusa/what-12-anthropic-academy-quizzes-taught-me-about-my-own-blind-spots-259c",
+  "published_at": "2026-03-31T03:00:04Z",
+  "fetched_at": "2026-03-31T04:00:34.700121+00:00",
+  "author": "Yurukusa",
+  "summary": "<p>Final part. This series started because I passed all 12 Anthropic Academy certifications — then looked at my wrong answers.</p>\n\n<p>Over the past two weeks I've written about each misconception individually (<a href=\"https://dev.to/yurukusa/series/37257\">read the full series</a>). Here's the full picture.</p>\n\n<h2>\n  \n  \n  The List\n</h2>\n\n<ol>\n<li><p><strong>Prompt caching has a 1,024-token minimum</strong> — and it fails silently. I was adding <code>cache_control</code> to short prompts for months, paying full price.</p></li>\n<li><p><strong>Cache breakpoints go after the last tool definition</strong> — not the system prompt. I was leaving tool schemas uncached on every call.</p></li>\n<li><p><strong>Extended Thinking returns two blocks</strong> — a thinking block and a text block, with cryptographic signatures to prevent tampering. My streaming parser worked by accident.</p></li>\n<li><p><strong>Re-ranking is a separate LLM step</strong> — not just sorting by similarity score. I'd be",
+  "full_text": "Final part. This series started because I passed all 12 Anthropic Academy certifications — then looked at my wrong answers.\n\nOver the past two weeks I've written about each misconception individually (read the full series). Here's the full picture.\n\n \n \n The List\n\nPrompt caching has a 1,024-token minimum — and it fails silently. I was adding cache_control to short prompts for months, paying full price.\n\nCache breakpoints go after the last tool definition — not the system prompt. I was leaving tool schemas uncached on every call.\n\nExtended Thinking returns two blocks — a thinking block and a text block, with cryptographic signatures to prevent tampering. My streaming parser worked by accident.\n\nRe-ranking is a separate LLM step — not just sorting by similarity score. I'd been skipping it entirely and sending noisy results to Claude.\n\nAnthropic doesn't provide an embedding model — the recommended provider is Voyage AI, requiring a separate account and API key.\n\nMCP Inspector exists — and it's the first tool you should use when debugging MCP servers, not Claude Desktop.\n\nListToolsRequest is how clients discover tools — your tool descriptions are the instructions Claude reads to decide when to use each tool.\n\nWorkflows ≠ Agents — predefined steps = workflow. Dynamic LLM-driven control flow = agent. I'd been calling everything an agent.\n\nTemperature defaults to 1.0 — maximum creativity by default. I'd been running classification at full temperature without realizing it.\n\n \n \n The Pattern\n\nThese all share the same shape: things that don't cause errors but silently cost you money or degrade your results. The uncached prompts worked. The noisy RAG results produced answers. The temperature-1.0 classifications were usually right.\n\n\"It works\" is not the same as \"it works correctly.\" The gap between the two is where the money goes.\n\n \n \n What I'd Recommend\n\nIf you've been using Claude's API for more than a month, take the quizzes. Not the courses (though those are good too) — the quizzes specifically. They're designed to catch the things you think you know but don't.\n\nThree courses stood out:\n\nBuilding with Claude's API — the final assessment covers caching, streaming, Extended Thinking, and tool use in ways that expose gaps\n\nRAG with Claude — the re-ranking and contextual chunking sections changed how I build retrieval\n\nIntroduction to MCP + Advanced Topics — if you're building MCP servers, the protocol internals matter\n\nEvery certification is verifiable. Every quiz tests understanding over memorization. And apparently, every one of them can humble someone who thought they knew what they were doing.\n\nStart here: anthropic.skilljar.com\n\nWhich of these surprised you the most? Or did the quizzes catch you on something I didn't mention?\n\nIs your Claude Code setup actually safe? Run npx cc-health-check — a free 20-point diagnostic. Score below 80? The Claude Code Ops Kit fixes everything in one command.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "anthropic",
+      "anthropic academy",
+      "api",
+      "certification",
+      "claude",
+      "claudecode",
+      "extended",
+      "extended thinking",
+      "full",
+      "learning",
+      "llm",
+      "mcp",
+      "noisy",
+      "prompt",
+      "quiz",
+      "tool",
+      "uncached",
+      "voyage ai"
+    ],
+    [
+      "ai",
+      "certification",
+      "claudecode",
+      "learning"
+    ]
+  ]
+}

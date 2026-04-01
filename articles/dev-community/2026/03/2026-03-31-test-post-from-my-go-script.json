@@ -1,0 +1,36 @@
+{
+  "id": 7358,
+  "source": "DEV Community<",
+  "title": "Test Post from My Go Script",
+  "url": "https://dev.to/abhishek_sharma_a9792aee8/test-post-from-my-go-script-562p",
+  "published_at": "2026-03-31T15:10:05Z",
+  "fetched_at": "2026-03-31T15:40:40.933225+00:00",
+  "author": "Abhishek Sharma",
+  "summary": "<h1>\n  \n  \n  Hello from my Go posting script!\n</h1>\n\n<p>This is a test post published directly from my VS Code terminal using a Go script I built while learning Go.</p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>A CLI tool that:</p>\n\n<ul>\n<li>Reads markdown with frontmatter</li>\n<li>Posts to dev.to via their API</li>\n<li>Supports both drafts and published articles</li>\n</ul>\n\n<p>More coming soon — follow along as I build a personal analytics backend in Go!</p>",
+  "full_text": "Hello from my Go posting script!\n\nThis is a test post published directly from my VS Code terminal using a Go script I built while learning Go.\n\n \n \n What I Built\n\nA CLI tool that:\n\nReads markdown with frontmatter\n\nPosts to dev.to via their API\n\nSupports both drafts and published articles\n\nMore coming soon — follow along as I build a personal analytics backend in Go!",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "api\n\nsupports",
+      "article",
+      "build",
+      "buildinpublic",
+      "cli",
+      "come",
+      "frontmatter",
+      "go",
+      "hello",
+      "posting",
+      "posts",
+      "publish",
+      "script",
+      "test",
+      "test post"
+    ],
+    [
+      "buildinpublic",
+      "go"
+    ]
+  ]
+}

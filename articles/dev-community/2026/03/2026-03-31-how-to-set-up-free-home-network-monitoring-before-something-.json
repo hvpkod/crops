@@ -1,0 +1,45 @@
+{
+  "id": 7184,
+  "source": "DEV Community<",
+  "title": "How to Set Up Free Home Network Monitoring (Before Something Breaks)",
+  "url": "https://dev.to/primghostdev/how-to-set-up-free-home-network-monitoring-before-something-breaks-520g",
+  "published_at": "2026-03-31T00:15:55Z",
+  "fetched_at": "2026-03-31T01:00:46.118921+00:00",
+  "author": "Prim Ghost",
+  "summary": "<p>Most homelab disasters follow the same pattern: you notice something's wrong when it's already too late. A drive fails silently. Your Plex server has been down all week. Your NAS is 97% full and has been for two months. The email you should have gotten never came.</p>\n\n<p>Home network monitoring doesn't have to cost anything. Here's how to set up real-time alerts and dashboards that actually tell you when something needs attention — before it becomes a problem.</p>\n\n<h2>\n  \n  \n  Why You Need This (Even for a Small Homelab)\n</h2>\n\n<p>Even a basic homelab — NAS, a couple of VMs, maybe a Pi or two — has more failure points than you think. Drives fail. Containers crash and don't restart. A botched config update takes something offline. RAM fills up and services start behaving weirdly.</p>\n\n<p>Without monitoring, you find out when something stops working. With monitoring, you find out immediately — and often you can fix it before anyone notices.</p>\n\n<h2>\n  \n  \n  Option 1: Uptime Kuma (T",
+  "full_text": "Most homelab disasters follow the same pattern: you notice something's wrong when it's already too late. A drive fails silently. Your Plex server has been down all week. Your NAS is 97% full and has been for two months. The email you should have gotten never came.\n\nHome network monitoring doesn't have to cost anything. Here's how to set up real-time alerts and dashboards that actually tell you when something needs attention — before it becomes a problem.\n\n \n \n Why You Need This (Even for a Small Homelab)\n\nEven a basic homelab — NAS, a couple of VMs, maybe a Pi or two — has more failure points than you think. Drives fail. Containers crash and don't restart. A botched config update takes something offline. RAM fills up and services start behaving weirdly.\n\nWithout monitoring, you find out when something stops working. With monitoring, you find out immediately — and often you can fix it before anyone notices.\n\n \n \n Option 1: Uptime Kuma (The Essential First Tool)\n\nUptime Kuma is the quickest win in homelabbing. It's a self-hosted monitoring tool that pings your services on a schedule and sends you an alert when something goes down. The setup takes 15 minutes.\n\nservices:\n uptime-kuma:\n image: louislam/uptime-kuma:1\n ports:\n - \"3001:3001\"\n volumes:\n - ./data:/app/data\n restart: unless-stopped\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOnce it's running at http://your-server:3001, you add monitors for every service you care about: your router, NAS, Plex, Home Assistant, whatever. Each monitor sends a notification (email, Telegram, Discord, Slack — your choice) when something goes down and when it recovers.\n\nThe status page it generates is actually nice enough to share. Some people expose it publicly so they can check their homelab from their phone without logging in.\n\nWhat it monitors well: HTTP/HTTPS endpoints, TCP ports, ping checks, DNS, Docker containers, databases.\n\nWhat it doesn't do: disk usage, memory pressure, CPU over time, drive health.\n\n \n \n Option 2: Netdata (Real-Time Performance)\n\nNetdata is a performance monitoring agent that gives you a full dashboard of CPU, RAM, disk I/O, network traffic, and more — updating in real-time. It installs in one command and starts giving you data immediately.\n\nwget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh\nsh /tmp/netdata-kickstart.sh\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe default dashboard at http://your-server:19999 shows everything you'd want: system resources, per-container metrics if you're running Docker, network interface stats. It's more information than you'll ever need, but it's excellent for diagnosing slowdowns.\n\nNetdata also has anomaly detection — it learns your normal patterns and alerts you when things deviate. It's not perfect, but it catches a lot of things that threshold-based alerts miss.\n\nBest use case: You want to know why your server felt slow earlier. Netdata keeps a rolling history that makes it easy to pinpoint when something spiked.\n\n \n \n Option 3: Grafana + Prometheus (The Full Stack)\n\nIf you want to get serious about monitoring — and store historical data, build custom dashboards, and set up complex alerting rules — the Grafana + Prometheus stack is the standard answer.\n\nPrometheus scrapes metrics from your services on a schedule and stores them. Grafana visualizes the data. Together they're powerful enough to monitor a small data center, which means they're probably overkill for most homelabs — but they're also genuinely satisfying to set up.\n\nservices:\n prometheus:\n image: prom/prometheus\n ports:\n - \"9090:9090\"\n volumes:\n - ./prometheus.yml:/etc/prometheus/prometheus.yml\n - prometheus_data:/prometheus\n restart: unless-stopped\n\n grafana:\n image: grafana/grafana\n ports:\n - \"3000:3000\"\n volumes:\n - grafana_data:/var/lib/grafana\n restart: unless-stopped\n\nvolumes:\n prometheus_data:\n grafana_data:\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe ecosystem of Prometheus exporters is huge — there are exporters for NVIDIA GPUs, Synology NAS, Home Assistant, network switches, basically anything. If you want to monitor it, someone's written an exporter for it.\n\nWhen this makes sense: You have 10+ services, you want to build dashboards that show everything in one place, and you want to be able to look at trends over weeks or months.\n\n \n \n Drive Health: The One You Can't Skip\n\nEverything above monitors your services. None of it tells you when a hard drive is about to die.\n\nSMART (Self-Monitoring, Analysis and Reporting Technology) is built into every modern drive and tracks error counts, temperature, reallocation events, and dozens of other metrics that predict failure. You need to read these regularly.\n\nInstall smartmontools and set up an automated check:\n\n# Install\nsudo apt install smartmontools\n\n# Check a drive immediately\nsudo smartctl -a /dev/sda\n\n# Run a short self-test\nsudo smartctl -t short /dev/sda\n\n# Schedule weekly short + monthly long tests via cron\n# Add to /etc/cron.d/smart\n0 2 * * 0 root smartctl -t short /dev/sda\n0 2 1 * * root smartctl -t long /dev/sda\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFor email alerts when SMART finds problems, configure smartd in /etc/smartd.conf:\n\n/dev/sda -a -o on -S on -s (S/../.././02|L/../../1/02) -m you@email.com -M exec /usr/share/smartmontools/smartd-runner\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf you're running a Synology or QNAP NAS, they have their own built-in SMART monitoring — make sure email alerts are enabled in the NAS settings.\n\n \n \n Putting It Together: A Practical Starting Point\n\nFor a typical homelab, this stack gives you good coverage without complexity:\n\nUptime Kuma — service up/down alerts (start here, takes 15 minutes)\n\nNetdata — performance visibility when you need to diagnose something\n\nSMART monitoring — drive health, non-negotiable if you have important data\n\nAdd Grafana + Prometheus when you outgrow the basics.\n\nThe goal isn't to watch dashboards. It's to make sure the right alert gets to you before something goes from \"would have been an easy fix\" to \"lost data.\"\n\nRunning a homelab? The Homelab Starter Guide covers setting this up plus 15 other essentials for running your own infrastructure reliably.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "alert",
+      "cpu",
+      "discord",
+      "dns",
+      "drive",
+      "fullscreen",
+      "homelab",
+      "linux",
+      "mode",
+      "monitoring",
+      "nas",
+      "netdata",
+      "networking",
+      "plex",
+      "prometheus",
+      "ram",
+      "real-time performance",
+      "run",
+      "selfhosted",
+      "slack",
+      "something",
+      "telegram"
+    ],
+    [
+      "homelab",
+      "monitoring",
+      "networking",
+      "selfhosted"
+    ]
+  ]
+}

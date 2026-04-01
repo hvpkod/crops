@@ -1,0 +1,40 @@
+{
+  "id": 7266,
+  "source": "DEV Community<",
+  "title": "I Built a Production Platform… Just to Write a Blog",
+  "url": "https://dev.to/lennardj/i-built-a-production-platform-just-to-write-a-blog-5b91",
+  "published_at": "2026-03-31T09:24:21Z",
+  "fetched_at": "2026-03-31T09:40:24.428808+00:00",
+  "author": "Lennard John",
+  "summary": "<p>I just wanted to write a blog.</p>\n\n<p>That’s it.</p>\n\n<p>No scaling requirements. No users. No revenue.<br />\nJust a place to write.</p>\n\n<p>So naturally, I built a 3-node Kubernetes cluster on bare metal, automated everything with Terraform and Ansible, added GitOps, monitoring, alerting, and exposed it to the internet using a zero-trust Cloudflare tunnel.</p>\n\n<p>Completely normal.</p>\n\n<p>🤔 Why Over-Engineer Something So Simple?</p>\n\n<p>Because the goal wasn’t the blog.</p>\n\n<p>The goal was to learn how real platforms are built.</p>\n\n<p>Not tutorials. Not “hello world” deployments.<br />\nBut the actual systems that sit behind production environments.</p>\n\n<p>So I treated this like a real platform:</p>\n\n<p>Fully automated<br />\nReproducible<br />\nObservable<br />\nSecure by design<br />\n⚙️ The One Command That Does Everything</p>\n\n<p>Everything starts with:</p>\n\n<p>docker compose up</p>\n\n<p>That single command:</p>\n\n<p>Provisions infrastructure (Terraform → Proxmox)<br />\nConfigur",
+  "full_text": "I just wanted to write a blog.\n\nThat’s it.\n\nNo scaling requirements. No users. No revenue.\n\nJust a place to write.\n\nSo naturally, I built a 3-node Kubernetes cluster on bare metal, automated everything with Terraform and Ansible, added GitOps, monitoring, alerting, and exposed it to the internet using a zero-trust Cloudflare tunnel.\n\nCompletely normal.\n\n🤔 Why Over-Engineer Something So Simple?\n\nBecause the goal wasn’t the blog.\n\nThe goal was to learn how real platforms are built.\n\nNot tutorials. Not “hello world” deployments.\n\nBut the actual systems that sit behind production environments.\n\nSo I treated this like a real platform:\n\nFully automated\n\nReproducible\n\nObservable\n\nSecure by design\n\n⚙️ The One Command That Does Everything\n\nEverything starts with:\n\ndocker compose up\n\nThat single command:\n\nProvisions infrastructure (Terraform → Proxmox)\n\nConfigures the cluster (Ansible → Kubernetes)\n\nDeploys platform services (Ingress, monitoring, GitOps)\n\nDeploys applications (WordPress + MariaDB)\n\nSets up public access (Cloudflare Tunnel)\n\nAbout 25 minutes later… the entire platform is live.\n\nNo manual steps. No SSH after bootstrap.\n\n🏗️ How It’s Actually Built\n\nAt a high level:\n\nGit → CI/CD → Terraform → VMs → Ansible → Kubernetes → Argo CD → Apps\n\nInfrastructure (Terraform)\n\nCreates 3 VMs on Proxmox (1 control plane, 2 workers)\n\nConfigures Cloudflare tunnel + DNS\n\nConfiguration (Ansible)\n\nBootstraps Kubernetes using kubeadm\n\nInstalls core services (Ingress, storage, networking)\n\nDeploys monitoring and applications\n\nGitOps (Argo CD)\n\nWatches the kubernetes/ directory\n\nAutomatically syncs changes to the cluster\n\nAfter the initial build, I don’t SSH into anything anymore.\n\nEverything is managed through Git.\n\n🔁 GitOps in Action\n\nThis is my favourite part.\n\nI change a file in Git → push → and Argo CD updates the cluster automatically.\n\nNo kubectl. No manual deploys.\n\nJust Git.\n\nThat shift — from “run commands” to “declare desired state” — completely changes how you think about systems.\n\n🔐 Zero Trust (No Open Ports)\n\nNothing in my home network is exposed directly.\n\nInstead, everything goes through a Cloudflare Tunnel:\n\nUser → Cloudflare Edge → Tunnel → Kubernetes Ingress → App\n\nNo port forwarding\n\nNo public IP exposure\n\nHTTPS handled at the edge\n\nIt’s simple, secure, and surprisingly powerful.\n\n📊 Observability (Because Things WILL Break)\n\nI added:\n\nPrometheus (metrics)\n\nGrafana (dashboards)\n\nAlertManager (email alerts)\n\nIf:\n\na pod crashes\n\na node goes down\n\nmemory spikes\n\nI get notified.\n\nBecause a platform you can’t observe… is a platform you don’t understand.\n\n💥 What Went Wrong (Important Part)\n\nThis didn’t work the first time.\n\nSome of the issues I hit:\n\nTerraform not returning VM IPs (guest agent problems)\n\nAnsible running before infrastructure was ready\n\nKubernetes probes killing WordPress before it stabilised\n\nInfinite HTTPS redirect loops behind Cloudflare\n\nPVC-related deployment deadlocks\n\nMost of these came down to one thing:\n\nI assumed things would be ready… when they weren’t.\n\n🧠 Biggest Lesson\n\nStop designing systems that depend on timing.\n\nStart designing systems that converge.\n\nInstead of:\n\n“wait 30 seconds and hope”\n\nDo:\n\nretry until ready\n\ncheck actual state\n\ndesign for failure\n\nThat shift alone made everything more reliable.\n\n🔁 Reproducibility (This Is the Real Win)\n\nThe entire platform can be:\n\nDestroyed\n\nRebuilt\n\nMoved\n\nUsing the same codebase.\n\nThat means:\n\nNo snowflake servers\n\nNo hidden config\n\nNo “it only works on my machine”\n\n🎯 What This Project Actually Demonstrates\n\nThis isn’t about WordPress.\n\nIt demonstrates:\n\nInfrastructure as Code (Terraform)\n\nConfiguration as Code (Ansible)\n\nGitOps (Argo CD)\n\nZero Trust Networking (Cloudflare)\n\nObservability-first design\n\nIn other words:\n\nHow modern platforms are actually built.\n\n🚀 What’s Next\n\nI’m planning to:\n\nMove this to a Talos-based cluster\n\nAdd multi-environment support (dev/staging/prod)\n\nImplement proper secrets management (SOPS or Vault)\n\nExplore multi-cluster deployments\n\n👋 Final Thoughts\n\nYes — this is overkill for a blog.\n\nBut that’s kind of the point.\n\nIf you can build something like this for a simple project…\n\nyou can build it for something that actually matters.\n\nIf you want to check it out:\n\n🌐 https://lennardjohn.org\n\n💻 https://github.com/Lennardj/homelab-blog\n\nI’m Lennard — currently transitioning into DevOps / Platform Engineering.\n\nIf you’re on the same journey, feel free to connect 👇",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actually",
+      "ansible",
+      "apps\n\ninfrastructure",
+      "build",
+      "cloudflare",
+      "cloudflare tunnel",
+      "cluster",
+      "devops",
+      "everything",
+      "gitops",
+      "infrastructure",
+      "installs",
+      "kubernetes",
+      "platform",
+      "reproducible\n\nobservable\n\nsecure",
+      "ssh",
+      "terraform",
+      "wordpress"
+    ],
+    [
+      "ansible",
+      "cloudflare",
+      "devops"
+    ]
+  ]
+}

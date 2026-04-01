@@ -1,0 +1,36 @@
+{
+  "id": 7471,
+  "source": "Hacker News",
+  "title": "Ministack (Replacement for LocalStack)",
+  "url": "https://ministack.org/",
+  "published_at": "2026-03-31T20:48:15Z",
+  "fetched_at": "2026-03-31T21:20:33.071898+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47593285\">Comments</a>",
+  "full_text": "Core AWS services plus real infrastructure — RDS runs actual databases, ElastiCache runs real\n Redis, ECS starts real Docker containers, Athena executes real SQL via DuckDB (when installed).\n \n\n \n\n \n\n🪣\n \n\nS3\n \n\nBuckets, objects, versioning, encryption, lifecycle, CORS, Object Lock, replicationREST/XML\n \n \n\n \n\n📨\n \n\nSQS\n \n\nQueues, FIFO, DLQ, batch, visibilityJSON+Query\n \n \n\n \n\n📢\n \n\nSNS\n \n\nTopics, subscriptions, fanout to SQS, batch publishQuery/XML\n \n \n\n \n\n🗃️\n \n\nDynamoDB\n \n\nTables, CRUD, query, scan, transactions, TTL, GSIJSON\n \n \n\n \n\n⚡\n \n\nLambda\n \n\nReal Python execution, warm workers, SQS event source mappingREST/JSON\n \n \n\n \n\n🔐\n \n\nIAM\n \n\nUsers, roles, policies, groups, instance profiles, OIDCQuery/XML\n \n \n\n \n\n🎫\n \n\nSTS\n \n\nCallerIdentity, AssumeRole, GetSessionTokenQuery/XML\n \n \n\n \n\n🔑\n \n\nSecrets Manager\n \n\nCRUD, versioning, rotation, resource policiesJSON\n \n \n\n \n\n📊\n \n\nCW Logs\n \n\nGroups, streams, retention, subscription filters, metric filters, InsightsJSON\n \n \n\n \n\n📐\n \n\nSSM Params\n \n\nString, SecureString, paths, labels, tagsJSON\n \n \n\n \n\n🚌\n \n\nEventBridge\n \n\nBuses, rules, targets, Lambda dispatch, archives, permissionsJSON\n \n \n\n \n\n🌊\n \n\nKinesis\n \n\nStreams, split/merge shards, consumers, encryption, monitoringJSON\n \n \n\n \n\n📈\n \n\nCW Metrics\n \n\nMetrics, alarms, composite alarms, dashboards, alarm historyQuery/CBOR\n \n \n\n \n\n✉️\n \n\nSES\n \n\nSend email/raw/templated, identities, configuration setsQuery/XML\n \n \n\n \n\n🔄\n \n\nStep Functions\n \n\nFull ASL engine, sync execution, task tokens, all state typesJSON\n \n \n\n \n\n🌐\n \n\nAPI Gateway v2\n \n\nHTTP APIs, Lambda proxy, path params, execute-api data planeREST/JSON\n \n \n\n \n\n🔌\n \n\nAPI Gateway v1\n \n\nREST APIs, resources, methods, integrations, stages, MOCK, Lambda proxy format 1.0REST/JSON\n \n \n\n \n\n🐘\n \n\nRDS\n \n\nReal Postgres/MySQL containersReal Docker\n \n \n\n \n\n🔴\n \n\nElastiCache\n \n\nReal Redis/Memcached containers, users, user groupsReal\n Docker\n \n \n\n \n\n🐳\n \n\nECS\n \n\nRunTask starts real containers, capacity providersReal Docker\n \n \n\n \n\n🧪\n \n\nGlue\n \n\nCatalog, crawlers, jobs, triggers, workflowsReal Exec\n \n \n\n \n\n🔍\n \n\nAthena\n \n\nReal SQL via DuckDB (optional), data catalogs, prepared statementsDuckDB\n \n \n\n \n\n🚒\n \n\nFirehose\n \n\nDelivery streams, PutRecord/PutRecordBatch, S3 delivery, encryption, tagsREST/JSON\n \n \n\n \n\n🌐\n \n\nRoute53\n \n\nHosted zones, record sets (CREATE/UPSERT/DELETE), health checks, tags, alias recordsREST/XML\n \n \n\n \n\n🔒\n \n\nCognito\n \n\nUser pools, auth flows, TOTP MFA, identity pools, federated credentialsJSON\n \n \n\n \n\n🖥️\n \n\nEC2\n \n\nInstances, VPCs, subnets, security groups, route tables, ENIs, elastic IPs, NAT gateways, NACLs, flow logs, VPC peering, DHCP options, egress-only IGWsQuery/XML\n \n \n\n \n\n⚡\n \n\nEMR\n \n\nClusters, steps, instance groups/fleets, bootstrap actions, tags — Pro-only on LocalStackJSON\n \n \n\n \n\n💾\n \n\nEBS\n \n\nVolumes, snapshots, attach/detach, modify, copy — Pro-only on LocalStackQuery/XML\n \n \n\n \n\n📁\n \n\nEFS\n \n\nFile systems, mount targets, access points, lifecycle, backup policy — Pro-only on LocalStackREST/JSON\n \n \n\n \n\n⚖️\n \n\nALB / ELBv2\n \n\nLoad balancers, target groups, listeners, rules, Lambda targets + live data-plane routing — Pro-only on LocalStackQuery/XML",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "athena",
+      "crud",
+      "data",
+      "dlq",
+      "docker",
+      "duckdb",
+      "ecs",
+      "elasticache",
+      "gateway",
+      "instance",
+      "lambda",
+      "metric",
+      "object lock",
+      "publishquery/xml",
+      "queues",
+      "real",
+      "sql",
+      "sqs"
+    ],
+    []
+  ]
+}

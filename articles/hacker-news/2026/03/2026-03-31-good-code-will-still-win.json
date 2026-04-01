@@ -1,0 +1,30 @@
+{
+  "id": 7392,
+  "source": "Hacker News",
+  "title": "Good code will still win",
+  "url": "https://www.greptile.com/blog/ai-slopware-future",
+  "published_at": "2026-03-31T14:32:26Z",
+  "fetched_at": "2026-03-31T17:20:22.453358+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47587953\">Comments</a>",
+  "full_text": "A couple of years ago, \"slop\" became the popular shorthand for unwanted, mindlessly generated AI content flooding the internet including images, text, and spam. Simon Willison helped popularize the term, though it had been circulating in engineering communities in the years prior.\n\nAt Greptile, we spend a lot of time thinking about questions like: Is slop the future? Are programming best practices now a thing of the past? Will there be any reason at all for AI coding tools to write what we call good code going forward?\n\nI want to argue that AI models will write good code because of economic incentives. Good code is cheaper to generate and maintain. Competition is high between the AI models right now, and the ones that win will help developers ship reliable features fastest, which requires simple, maintainable code. Good code will prevail, not only because we want it to (though we do!), but because economic forces demand it. Markets will not reward slop in coding, in the long-term.\n\nSoftware development is changing fast. A prominent recent example comes from Ryan Dahl, creator of Node.js, who wrote, \"The era of humans writing code is over. Disturbing for those of us who identify as SWEs, but no less true.\"\n\nMeanwhile, the complexity of the average piece of software is drastically increasing. Theo [1] pointed out this trend. He notes that this increased complexity was driven partly by AI making it easier to ship more code faster, and partly by economic pressure for companies to keep up with competitors. Theo points out that the number of PRs are going up, which is what we've noticed at Greptile as well. As we covered in our State of AI Coding report [2], published a couple of months ago, lines of code per developer grew from 4,450 to 7,839 as AI coding tools became standard practice. Median PR size increased 33% from March to November 2025, rising from 57 to 76 lines changed. Individual file changes became 20% larger and \"denser.\"\n\nThe stats suggest that devs are shipping more code with coding agents. The consequences may already be visible: analysis of vendor status pages [3] shows outages have steadily increased since 2022, suggesting software is becoming more brittle. Andrej Karpathy [4] describes: \"agents bloat abstractions, have poor code aesthetics, are very prone to copy pasting code blocks and it's a mess, but at this point I stopped fighting it too hard and just moved on.\"\n\nCollectively, software engineers are cranking out code at a high quantity. The approach driving much of this is brute force: generate code fast, iterate until it works, worry about simplicity and quality later (if at all).\n\nIn A Philosophy of Software Design [5], John Ousterhout argues that complexity is the #1 enemy of well-designed software. Bad code needs lots of context to understand. Good code is easy to understand, modify, and extend; it also hides implementation details, and creates deep modules with shallow interfaces. This simplicity also holds practical implications.\n\nGood code requires upfront thinking about architecture, design, edge cases, and clean abstractions. By Ousterhout's definition, good code will also be easier to understand and modify, because it requires less context, which makes it dramatically cheaper overall. We don't actually know the exact trade-off yet, but for any software that lives longer than a weekend, it will be cheaper overall to generate good code.\n\nBy contrast, complex code doesn't scale. It requires a lot of tokens and compute, and as codebases grow, it gets exponentially more expensive.\n\nEconomic pressure will drive AI models to generate good code because getting the architecture right upfront is cheaper than fixing it later. That pressure is already changing what AI-powered development looks like. Good code needs less context to understand, fewer changes for maintenance, and therefore fewer input and output tokens over the life of the codebase.\n\nWe're still early in the AI coding adoption curve. As the technology matures, economic forces will drive AI models toward generating good, simpler, code because it will be cheaper overall.\n\nThe world right now is focused on getting AI to work in the first place, not on optimizing its abilities. We are going through a particularly messy phase of innovation. Once AI code generation becomes ubiquitous, I believe that economic incentives will start to take effect and AI models will be forced to generate good code to stay competitive amongst software developers and companies.\n\nReference\n\n[1] Theo\n[2] State of AI Coding report\n[3] analysis of vendor status pages\n[4] Andrej Karpathy\n[5] A Philosophy of Software Design",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "cheap",
+      "code",
+      "coding",
+      "complexity",
+      "economic",
+      "generate",
+      "greptile",
+      "increase",
+      "node.js",
+      "require",
+      "software",
+      "theo"
+    ],
+    []
+  ]
+}

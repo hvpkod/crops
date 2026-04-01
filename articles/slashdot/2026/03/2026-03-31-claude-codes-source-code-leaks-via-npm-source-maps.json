@@ -1,0 +1,42 @@
+{
+  "id": 7402,
+  "source": "Slashdot",
+  "title": "Claude Code's Source Code Leaks Via npm Source Maps",
+  "url": "https://developers.slashdot.org/story/26/03/31/172257/claude-codes-source-code-leaks-via-npm-source-maps?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-31T17:05:00Z",
+  "fetched_at": "2026-03-31T18:20:36.758743+00:00",
+  "author": "BeauHD",
+  "summary": "Grady Martin writes: A security researcher has leaked a complete repository of source code for Anthropic's flagship command-line tool. The file listing was exposed via a Node Package Manager (npm) mapping, with every target publicly accessible on a Cloudflare R2 storage bucket. There's been a number of discoveries as people continue to pore over the code. The DEV Community outlines some of the leak's most notable architectural elements and the key technical choices: \nArchitecture Highlights \nThe Tool System (~40 tools): Claude Code uses a plugin-like tool architecture. Each capability (file read, bash execution, web fetch, LSP integration) is a discrete, permission-gated tool. The base tool definition alone is 29,000 lines of TypeScript.\n\nThe Query Engine (46K lines): This is the brain of the operation. It handles all LLM API calls, streaming, caching, and orchestration. It's by far the largest single module in the codebase.\n\nMulti-Agent Orchestration: Claude Code can spawn sub-agents ",
+  "full_text": "Grady Martin\n\n writes: A security researcher has leaked a complete repository of source code for Anthropic's flagship command-line tool. The file listing was exposed via a Node Package Manager (npm) mapping, with every target publicly accessible on a Cloudflare R2 storage bucket.\n\n There's been a number of discoveries\n\n as people continue to pore over the code\n\n. The DEV Community outlines some of the leak's most notable architectural elements and the key technical choices: \nArchitecture Highlights \nThe Tool System (~40 tools)\n\n: Claude Code uses a plugin-like tool architecture. Each capability (file read, bash execution, web fetch, LSP integration) is a discrete, permission-gated tool. The base tool definition alone is 29,000 lines of TypeScript.\n\nThe Query Engine (46K lines)\n\n: This is the brain of the operation. It handles all LLM API calls, streaming, caching, and orchestration. It's by far the largest single module in the codebase.\n\nMulti-Agent Orchestration\n\n: Claude Code can spawn sub-agents (they call them \"swarms\") to handle complex, parallelizable tasks. Each agent runs in its own context with specific tool permissions.\n\nIDE Bridge System\n\n: A bidirectional communication layer connects IDE extensions (VS Code, JetBrains) to the CLI via JWT-authenticated channels. This is how the \"Claude in your editor\" experience works.\n\nPersistent Memory System\n\n: A file-based memory directory where Claude stores context about you, your project, and your preferences across sessions.\n \nKey Technical Decisions Worth Noting \nBun over Node:\n\n They chose Bun as the JavaScript runtime, leveraging its dead code elimination for feature flags and its faster startup times.\nReact for CLI:\n\n Using Ink (React for terminals) is bold. It means their terminal UI is component-based with state management, just like a web app.\nZod v4 for validation:\n\n Schema validation is everywhere. Every tool input, every API response, every config file.\n~50 slash commands:\n\n From /commit to /review-pr to memory management -- there's a command system as rich as any IDE.\nLazy-loaded modules:\n\n Heavy dependencies like OpenTelemetry and gRPC are lazy-loaded to keep startup fast.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "claude",
+      "cli",
+      "code",
+      "context",
+      "handle",
+      "jetbrains",
+      "jwt",
+      "lsp",
+      "memory",
+      "multi-agent orchestration",
+      "node package",
+      "npm",
+      "programming",
+      "source",
+      "startup",
+      "system",
+      "technical",
+      "the dev community",
+      "the query engine",
+      "tool",
+      "typescript"
+    ],
+    [
+      "programming",
+      "startup"
+    ]
+  ]
+}

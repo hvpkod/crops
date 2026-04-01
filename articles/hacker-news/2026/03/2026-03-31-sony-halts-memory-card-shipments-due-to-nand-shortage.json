@@ -1,0 +1,35 @@
+{
+  "id": 7237,
+  "source": "Hacker News",
+  "title": "Sony halts memory card shipments due to NAND shortage",
+  "url": "https://www.techzine.eu/news/devices/140058/sony-halts-memory-card-shipments-due-to-nand-shortage/",
+  "published_at": "2026-03-31T05:12:35Z",
+  "fetched_at": "2026-03-31T06:00:23.179862+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47582990\">Comments</a>",
+  "full_text": "Sony is temporarily no longer accepting orders for its CFexpress and SD memory cards. A severe shortage of NAND flash, driven by the enormous demand for it to expand AI data centers, makes procurement impossible. It is unknown when Sony will resume orders; a solution is not expected before the end of 2027.\n\nSony is currently unable to fulfill orders for CFexpress Type A, CFexpress Type B, and SDXC/SDHC memory cards. The reason is simple: the Japanese company can no longer procure sufficient NAND flash memory. These cards, intended for digital cameras, use TLC 3D NAND, the same type found in enterprise SSDs.\n\nThat type of NAND has become scarce. AI workloads for inference and training require fast data delivery to GPU servers, for which enterprise SSDs are indispensable. Hard drives are simply too slow for this. NAND manufacturers are seizing the opportunity and are therefore overwhelmingly choosing the more lucrative enterprise market over the consumer market.\n\nMicron Preceded Sony\n\nBy withdrawing from this consumer supply, Sony is choosing a familiar path. In December, Micron exited the Crucial consumer brand, which supplied SSDs and RAM to consumers. The company—which had previously served as both a memory manufacturer and a direct-to-consumer seller—shifted its focus entirely to enterprise IT.\n\nThe CEO of flash controller manufacturer Phison previously warned that the NAND shortage could even bring smaller consumer electronics companies to a complete standstill by 2026. Other memory card manufacturers are expected to face the same challenge. Thus, memory cards are set to become the next victim of an ever-growing shortage of all forms of memory outside of AI applications.\n\nNo timeline for recovery\n\nSony has not released a date for when it will resume accepting orders. The pause will last until NAND production capacity increases sufficiently to also serve the consumer market. That is not expected until late 2027 or 2028.\n\nRead also: The ‘RAMpocalypse’ is a warning for stricter performance KPIs",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "accept",
+      "cfexpress",
+      "cfexpress type a",
+      "cfexpress type b",
+      "crucial",
+      "enterprise",
+      "expect",
+      "gpu",
+      "memory",
+      "micron",
+      "nand",
+      "ram",
+      "sdxc",
+      "shortage",
+      "sony",
+      "ssd",
+      "type"
+    ],
+    []
+  ]
+}

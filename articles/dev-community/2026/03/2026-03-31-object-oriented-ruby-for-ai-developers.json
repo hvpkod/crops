@@ -1,0 +1,42 @@
+{
+  "id": 7482,
+  "source": "DEV Community<",
+  "title": "Object-Oriented Ruby for AI Developers",
+  "url": "https://dev.to/agentq/object-oriented-ruby-for-ai-developers-30jl",
+  "published_at": "2026-03-31T21:11:46Z",
+  "fetched_at": "2026-03-31T21:40:36.433919+00:00",
+  "author": "AgentQ",
+  "summary": "<p>Ruby's object-oriented design makes it exceptionally well-suited for building structured AI systems. In this installment of the Ruby for AI series, we will explore how to leverage classes, inheritance, modules, and mixins to create clean, reusable AI components.</p>\n\n<h2>\n  \n  \n  Building Your First AI Class\n</h2>\n\n<p>Every Ruby object starts with a class. The <code>initialize</code> method acts as a constructor, and instance variables store object state.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight ruby\"><code><span class=\"k\">class</span> <span class=\"nc\">PromptTemplate</span>\n  <span class=\"k\">def</span> <span class=\"nf\">initialize</span><span class=\"p\">(</span><span class=\"n\">template_string</span><span class=\"p\">,</span> <span class=\"n\">variables</span> <span class=\"o\">=</span> <span class=\"p\">{})</span>\n    <span class=\"vi\">@template_string</span> <span class=\"o\">=</span> <span class=\"n\">template_string</span>\n    <span class=\"vi\">@variables</span",
+  "full_text": "Ruby's object-oriented design makes it exceptionally well-suited for building structured AI systems. In this installment of the Ruby for AI series, we will explore how to leverage classes, inheritance, modules, and mixins to create clean, reusable AI components.\n\n \n \n Building Your First AI Class\n\nEvery Ruby object starts with a class. The initialize method acts as a constructor, and instance variables store object state.\n\nclass PromptTemplate\n def initialize(template_string, variables = {})\n @template_string = template_string\n @variables = variables\n @compiled = nil\n end\n\n def compile\n @compiled = @template_string.gsub(/\\{\\{(\\w+)\\}\\}/) do |match|\n key = match[2..-3]\n @variables[key] || match\n end\n end\n\n def to_s\n @compiled || compile\n end\nend\n\ngreeting = PromptTemplate.new(\"Hello, {{name}}! Your task is {{task}}.\", {\n \"name\" => \"Ruby Developer\",\n \"task\" => \"build AI agents\"\n})\n\nputs greeting.compile\n# => Hello, Ruby Developer! Your task is to build AI agents.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Controlling Access with attr_reader and attr_accessor\n\nRuby provides convenient macros for defining getters and setters. Use attr_reader for read-only attributes and attr_accessor when you need both read and write access.\n\nclass ChatMessage\n attr_reader :role, :content, :timestamp\n attr_accessor :metadata\n\n def initialize(role:, content:, metadata: {})\n @role = role\n @content = content\n @timestamp = Time.now\n @metadata = metadata\n end\n\n def to_h\n { role: @role, content: @content, timestamp: @timestamp }\n end\nend\n\nmessage = ChatMessage.new(role: \"user\", content: \"Explain Ruby modules\")\nputs message.role # => user\nmessage.metadata = { tokens: 15, model: \"gpt-4\" }\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Inheritance for Specialized AI Components\n\nInheritance lets you create specialized versions of base classes. A ChatAgent hierarchy demonstrates this well.\n\nclass BaseAgent\n attr_reader :name, :system_prompt\n\n def initialize(name:, system_prompt: \"You are a helpful assistant.\")\n @name = name\n @system_prompt = system_prompt\n @conversation_history = []\n end\n\n def add_message(role, content)\n @conversation_history << ChatMessage.new(role: role, content: content)\n end\n\n def conversation_context\n @conversation_history.map(&:to_h)\n end\nend\n\nclass CodeReviewAgent < BaseAgent\n def initialize(name: \"CodeReviewer\")\n super(\n name: name,\n system_prompt: \"You are an expert code reviewer. Focus on security, performance, and readability.\"\n )\n @review_count = 0\n end\n\n def review_code(code_snippet)\n @review_count += 1\n add_message(\"user\", \"Please review this code:\\n```\n\nruby\\n#{code_snippet}\\n\n\n```\")\n # Simulate LLM call\n \"Review ##{@review_count}: Code analyzed for #{code_snippet.lines.count} lines.\"\n end\nend\n\nreviewer = CodeReviewAgent.new\nputs reviewer.review_code(\"def foo; bar; end\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Modules and Mixins: Shared Behavior\n\nModules in Ruby serve two purposes: namespaces and mixins. For AI development, mixins let you share capabilities across unrelated classes.\n\nmodule TokenCountable\n def estimate_tokens(text)\n # Rough approximation: 1 token ~= 4 characters\n (text.length / 4.0).ceil\n end\n\n def token_budget_remaining(budget)\n budget - estimate_tokens(to_s)\n end\nend\n\nmodule RateLimitable\n def self.included(base)\n base.extend(ClassMethods)\n end\n\n module ClassMethods\n def rate_limit(calls:, per: 60)\n @max_calls = calls\n @window_seconds = per\n @call_timestamps = []\n end\n\n def can_call?\n now = Time.now\n @call_timestamps.reject! { |t| now - t > @window_seconds }\n @call_timestamps.length < @max_calls\n end\n end\n\n def record_call\n self.class.instance_variable_get(:@call_timestamps) << Time.now\n end\nend\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Include vs Extend: Choosing Your Approach\n\nUnderstanding the distinction between include and extend is crucial for proper module design.\n\nclass LLMClient\n include TokenCountable # Instance methods\n extend RateLimitable # Class methods\n\n rate_limit calls: 100, per: 60\n\n attr_reader :last_prompt\n\n def initialize(api_key)\n @api_key = api_key\n @last_prompt = \"\"\n end\n\n def complete(prompt)\n raise \"Rate limit exceeded\" unless self.class.can_call?\n\n @last_prompt = prompt\n record_call\n\n puts \"Tokens estimated: #{estimate_tokens(prompt)}\"\n \"Generated response for: #{prompt[0..50]}...\"\n end\n\n def to_s\n @last_prompt\n end\nend\n\nclient = LLMClient.new(\"sk-...\")\nputs client.complete(\"Write a Ruby method to parse JSON\")\nputs \"Remaining budget: #{client.token_budget_remaining(4000)} tokens\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n A Complete AI Agent Example\n\nHere is a practical implementation combining all concepts: a configurable agent system using modules for capabilities and inheritance for specialization.\n\nmodule ToolUsing\n def register_tool(name, &block)\n @tools ||= {}\n @tools[name] = block\n end\n\n def execute_tool(name, *args)\n @tools&.[](name)&.call(*args) || \"Tool #{name} not found\"\n end\n\n def available_tools\n @tools&.keys || []\n end\nend\n\nclass ReActAgent < BaseAgent\n include ToolUsing\n attr_reader :thoughts\n\n def initialize(name:, system_prompt: nil)\n super(\n name: name,\n system_prompt: system_prompt || \"You are a ReAct agent. Think step by step.\"\n )\n @thoughts = []\n setup_default_tools\n end\n\n def think(observation)\n @thoughts << observation\n \"Thought #{@thoughts.length}: #{observation}\"\n end\n\n def act\n \"Acting based on #{@thoughts.length} thoughts...\"\n end\n\n private\n\n def setup_default_tools\n register_tool(:search) { |query| \"Searching for: #{query}\" }\n register_tool(:calculate) { |expr| eval(expr).to_s rescue \"Error\" }\n end\nend\n\nagent = ReActAgent.new(name: \"ResearchAssistant\")\nagent.think(\"I need to find Ruby documentation\")\nputs agent.execute_tool(:search, \"Ruby modules\")\nputs agent.available_tools.inspect\nputs agent.act\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Conclusion\n\nObject-oriented Ruby provides powerful abstractions for AI development. Classes encapsulate state and behavior, inheritance enables specialization, and modules offer flexible code sharing through mixins. These patterns form the foundation for larger systems explored later in this Ruby for AI series, including LLM client libraries and multi-agent orchestration frameworks.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "baseagent",
+      "building your",
+      "chatagent",
+      "chatmessage",
+      "class",
+      "enter",
+      "exit",
+      "fullscreen",
+      "greeting.compile",
+      "inheritance",
+      "mode",
+      "module",
+      "object-oriented ruby",
+      "prompttemplate",
+      "put",
+      "rails",
+      "ruby",
+      "time.now\n @metadata",
+      "tokencountable",
+      "tutorial"
+    ],
+    [
+      "ai",
+      "tutorial"
+    ]
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": 7393,
+  "source": "Hacker News",
+  "title": "Scotty: A beautiful SSH task runner",
+  "url": "https://freek.dev/3064-scotty-a-beautiful-ssh-task-runner",
+  "published_at": "2026-03-31T16:12:29Z",
+  "fetched_at": "2026-03-31T17:20:24.080742+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47589567\">Comments</a>",
+  "full_text": "We just released Scotty, a beautiful SSH task runner. It lets you define deploy scripts and other remote tasks, run them from your terminal, and watch every step as it happens. It supports both Laravel Envoy's Blade format and a new plain bash format.\n\nWhy we built Scotty\n\nEven though services like Laravel Cloud make it possible to never think about servers again, I still prefer deploying to my own servers for some projects. I know my way around them, I can pick whichever server provider I want, and I have full control over the environment.\n\nTools like Laravel Forge have built-in deploy functionality, and it works well. But I've always preferred running deploy scripts manually from my terminal. I want to see exactly what's happening while it runs, and when something goes wrong, I want to be staring at the output the moment it happens, not clicking through a web UI to find a log.\n\nFor years, I used Laravel Envoy for this. It does the job, but I wanted nicer output while tasks are running, and the ability to pause execution mid-deploy. Envoy uses a Blade-based file format, which works fine for us. But not everyone wants to write Blade syntax for their deploy scripts. So Scotty also offers a plain bash format for people who prefer that.\n\nScotty was built with the help of AI, using the Envoy codebase as a source. Even though Scotty is a rebuild from scratch, in spirit it is a fork of Envoy. Credits to Laravel for providing the foundation. You can read the full acknowledgement in the Scotty repo.\n\nUsing Scotty\n\nDefining tasks and deploying\n\nYou define your tasks in a Scotty.sh file. It's just plain bash with some annotation comments. Your editor highlights it correctly, you get full shell support out of the box. Here's what that looks like:\n\ndeploy() {\n cd /var/www/my-app\n git pull origin main\n php artisan migrate --force\n}\n\nDeploy with a single command:\nscotty run deploy\n\nScotty connects to your server, runs each task in order, and shows you what's happening in real time. Each task displays its name, a step counter, elapsed time, and the command currently being executed. When everything finishes, you get a summary table with timing for each step.\n\nThese screenshots are from deploying this very blog. You can find the deploy file on GitHub.\n\nIf a task fails, its output is shown and execution stops right there so you can investigate.\n\nWriting plain bash instead of Blade\n\nIn addition to being able to read Envoy.blade.php files, Scotty introduces a new Scotty.sh format. Every line is real bash. Tasks are just bash functions with a # @task annotation that tells Scotty which server to run them on. Macros group tasks into a sequence. Variables are plain bash variables, available everywhere.\n\nBecause it's all valid bash, you can use helper functions, computed values like $(date +%Y%m%d-%H%M%S), and any shell construct you'd normally use. No Blade directives, no PHP @setup blocks, no {{ $variable }} interpolation.\n\nYou can also pass variables from the command line. Running scotty run deploy --branch=develop makes $BRANCH available in your tasks. The key is automatically uppercased.\n\nYou can list all available tasks and macros with scotty tasks:\n\nPausing, resuming, and pretending\n\nYou can press p at any time during execution to pause after the current task finishes. Press Enter to resume, or Ctrl+C to cancel. This is handy when you want to check something on the server mid-deploy before continuing.\n\nThere's also a pretend mode (scotty run deploy --pretend) that shows you exactly which SSH commands would be executed without actually running them. And a summary mode (scotty run deploy --summary) that hides task output and only shows results.\n\nValidating your setup with doctor\n\nBefore your first deploy to a new server, you can run scotty doctor to validate your setup. It checks that your file parses correctly, verifies SSH connectivity to each server, and confirms that tools like php, composer, node, and git are available on the remote machine.\n\nMigrating from Envoy\n\nIf you're already using Laravel Envoy, Scotty can read your Envoy.blade.php file directly. No changes needed. Just run scotty run deploy and it works. From there, you can gradually migrate to the Scotty.sh format if you want to, or keep using Blade.\n\nIf you're new to all of this, the Your first deploy script page in the docs walks you through everything step by step.\n\nIn closing\n\nScotty gives you a clean, modern way to run deploy scripts and other SSH tasks from your terminal. Plain bash, beautiful output, and full control over every step.\n\nYou can find the full documentation on our docs site and the source code on GitHub. This is one of the many tools and packages we've created at Spatie. If you want to support our open source work, consider picking up one of our paid products.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bash",
+      "blade",
+      "deploy",
+      "envoy",
+      "laravel",
+      "laravel envoy's",
+      "node",
+      "php",
+      "plain",
+      "scotty",
+      "show",
+      "ssh",
+      "task"
+    ],
+    [
+      "node"
+    ]
+  ]
+}

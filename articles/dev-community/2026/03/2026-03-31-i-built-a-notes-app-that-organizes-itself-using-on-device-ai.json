@@ -1,0 +1,40 @@
+{
+  "id": 7211,
+  "source": "DEV Community<",
+  "title": "I built a notes app that organizes itself using on-device AI, and it's free!",
+  "url": "https://dev.to/akshat_saladi/i-built-a-notes-app-that-organizes-itself-using-on-device-ai-and-its-free-28ih",
+  "published_at": "2026-03-31T03:38:17Z",
+  "fetched_at": "2026-03-31T04:00:19.391384+00:00",
+  "author": "Akshat Saladi",
+  "summary": "<p>Hey everyone,</p>\n\n<p>Meet Fog, a fun little side project I’ve been working on.</p>\n\n<p>I struggle with organizing my notes, creating folders, figuring out what goes where, selecting things manually… the list goes on. So I built a simple app that aims to solve this with 4 core features:</p>\n\n<ul>\n<li>Auto-naming notes</li>\n<li>Auto grouping into clouds\n</li>\n<li>Auto cloud grouping\n</li>\n<li>Ask anything about your notes </li>\n</ul>\n\n<p>Built with SwiftUI + SwiftData, and powered by Apple’s on-device Foundations Model <strong>(requires a device with Apple Intelligence)</strong>. The AI runs entirely on your device — no third-party servers, no data harvesting. Your notes sync across your devices via iCloud, so they stay in your Apple ecosystem and nowhere else (works offline too).</p>\n\n<p>Available for free on the App Store! Let me know the good, bad, and ugly. I’m all ears.</p>\n\n\n<div class=\"crayons-card c-embed text-styles text-styles--secondary\">\n    <div class=\"c-embed__content\">",
+  "full_text": "Hey everyone,\n\nMeet Fog, a fun little side project I’ve been working on.\n\nI struggle with organizing my notes, creating folders, figuring out what goes where, selecting things manually… the list goes on. So I built a simple app that aims to solve this with 4 core features:\n\nAuto-naming notes\n\nAuto grouping into clouds\n\nAuto cloud grouping\n\nAsk anything about your notes \n\nBuilt with SwiftUI + SwiftData, and powered by Apple’s on-device Foundations Model (requires a device with Apple Intelligence). The AI runs entirely on your device — no third-party servers, no data harvesting. Your notes sync across your devices via iCloud, so they stay in your Apple ecosystem and nowhere else (works offline too).\n\nAvailable for free on the App Store! Let me know the good, bad, and ugly. I’m all ears.\n\n \n\n \n \n\n \n \n\n Download Fog by Akshat Saladi on the App Store. See screenshots, ratings and reviews, user tips, and more apps like Fog.\n \n \n\n \n\n apps.apple.com",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "apple",
+      "apple intelligence",
+      "auto",
+      "build",
+      "cloud",
+      "create",
+      "device",
+      "figure",
+      "go",
+      "group",
+      "ios",
+      "note",
+      "productivity",
+      "select",
+      "sideprojects"
+    ],
+    [
+      "ai",
+      "go",
+      "ios",
+      "productivity",
+      "sideprojects"
+    ]
+  ]
+}

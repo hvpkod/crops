@@ -1,0 +1,41 @@
+{
+  "id": 7410,
+  "source": "DEV Community<",
+  "title": "How I Built a Privacy-First Offline PWA Expense Tracker",
+  "url": "https://dev.to/pda-dp-shop/how-i-built-a-privacy-first-offline-pwa-expense-tracker-3kob",
+  "published_at": "2026-03-31T18:25:29Z",
+  "fetched_at": "2026-03-31T18:40:31.892461+00:00",
+  "author": "Patel Devansh",
+  "summary": "<h2>\n  \n  \n  What is Spendly?\n</h2>\n\n<p>Spendly is an offline-first expense tracker PWA I built. <br />\nNo server. No cloud. Everything stays on your device.</p>\n\n<h2>\n  \n  \n  Why I Built It\n</h2>\n\n<p>Most expense apps send your data to their servers.<br />\nI wanted something that works 100% offline with real encryption.</p>\n\n<h2>\n  \n  \n  Tech Stack\n</h2>\n\n<ul>\n<li>React + Vite (frontend)</li>\n<li>TailwindCSS (styling)</li>\n<li>Dexie.js (local IndexedDB)</li>\n<li>AES-256-GCM encryption</li>\n<li>WebAuthn (fingerprint/PIN lock)</li>\n</ul>\n\n<h2>\n  \n  \n  Cool Features\n</h2>\n\n<p><strong>3 Ways to Add Expenses:</strong></p>\n\n<ul>\n<li>Manual keypad entry</li>\n<li>Barcode scan (Open Food Facts API)</li>\n<li>Bill photo scan (Tesseract.js OCR)</li>\n</ul>\n\n<p><strong>Security:</strong></p>\n\n<ul>\n<li>AES-256-GCM encryption</li>\n<li>PBKDF2 with 600,000 iterations</li>\n<li>Zero data sent to any server</li>\n</ul>\n\n<h2>\n  \n  \n  Live Demo\n</h2>\n\n<p>👉 spendly-24hrs.pages.dev</p>\n\n<h2>\n  \n  \n  GitHub\n</h",
+  "full_text": "What is Spendly?\n\nSpendly is an offline-first expense tracker PWA I built. \n\nNo server. No cloud. Everything stays on your device.\n\n \n \n Why I Built It\n\nMost expense apps send your data to their servers.\n\nI wanted something that works 100% offline with real encryption.\n\n \n \n Tech Stack\n\nReact + Vite (frontend)\n\nTailwindCSS (styling)\n\nDexie.js (local IndexedDB)\n\nAES-256-GCM encryption\n\nWebAuthn (fingerprint/PIN lock)\n\n \n \n Cool Features\n\n3 Ways to Add Expenses:\n\nManual keypad entry\n\nBarcode scan (Open Food Facts API)\n\nBill photo scan (Tesseract.js OCR)\n\nSecurity:\n\nAES-256-GCM encryption\n\nPBKDF2 with 600,000 iterations\n\nZero data sent to any server\n\n \n \n Live Demo\n\n👉 spendly-24hrs.pages.dev\n\n \n \n GitHub\n\n👉 github.com/PDA-DP-Shop/spendly\n\nDrop a ⭐ if you find it useful!",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "barcode",
+      "build",
+      "cool features",
+      "datum",
+      "encryption",
+      "expense",
+      "github",
+      "javascript",
+      "offline",
+      "privacy",
+      "pwa",
+      "react",
+      "scan",
+      "spendly",
+      "stay",
+      "tracker",
+      "want",
+      "webauthn",
+      "webdev"
+    ],
+    [
+      "javascript",
+      "privacy",
+      "webdev"
+    ]
+  ]
+}

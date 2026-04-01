@@ -1,0 +1,43 @@
+{
+  "id": 7298,
+  "source": "DEV Community<",
+  "title": "Do NOT Think of a Pink Elephant",
+  "url": "https://dev.to/cleverhoods/do-not-think-of-a-pink-elephant-383n",
+  "published_at": "2026-03-31T12:19:14Z",
+  "fetched_at": "2026-03-31T12:40:30.031046+00:00",
+  "author": "Gábor Mészáros",
+  "summary": "<blockquote>\n<p>You thought of a pink elephant, didn't you?</p>\n</blockquote>\n\n<p>Same goes for LLMs too. </p>\n\n<p>\"<em>Do not use mocks in tests.</em>\"</p>\n\n<p>Clear, direct, unambiguous instruction. The agent read it — I can see it in the trace. Then it wrote a test file with <code>unittest.mock</code> on line 3. Thanks...</p>\n\n<p>I've seen this play out hundreds of times. A developer writes a rule, the agent loads it, and it does exactly what the rule said not to do. The natural conclusion: instructions are unreliable. The agent is probabilistic. You can't trust it.</p>\n\n<p>That's wrong. The instruction was the problem.</p>\n\n<h2>\n  \n  \n  The pink elephant\n</h2>\n\n<p>There's a well-known effect in psychology called ironic process theory (Daniel Wegner, 1987). Tell someone \"don't think of a pink elephant,\" and they immediately think of a pink elephant. The act of suppressing a thought requires activating it first.</p>\n\n<p>Something structurally similar happens with AI instructions.</p>",
+  "full_text": "You thought of a pink elephant, didn't you?\n\nSame goes for LLMs too. \n\n\"Do not use mocks in tests.\"\n\nClear, direct, unambiguous instruction. The agent read it — I can see it in the trace. Then it wrote a test file with unittest.mock on line 3. Thanks...\n\nI've seen this play out hundreds of times. A developer writes a rule, the agent loads it, and it does exactly what the rule said not to do. The natural conclusion: instructions are unreliable. The agent is probabilistic. You can't trust it.\n\nThat's wrong. The instruction was the problem.\n\n \n \n The pink elephant\n\nThere's a well-known effect in psychology called ironic process theory (Daniel Wegner, 1987). Tell someone \"don't think of a pink elephant,\" and they immediately think of a pink elephant. The act of suppressing a thought requires activating it first.\n\nSomething structurally similar happens with AI instructions.\n\n\"Do not use mocks in tests\" introduces the concept of mocking into the context. The tokens mock, tests, use — these are exactly the tokens the model would produce when writing test code with mocks. You've put the thing you're banning right in the generation path.\n\nThis doesn't mean restrictive instructions are useless. It means a bare restriction is incomplete.\n\n \n \n The anatomy of a complete instruction\n\nThe instructions that work — reliably, across thousands of runs — have three components. But the order you write them in matters as much as whether they're there at all.\n\nHere's how most people write it:\n\n# Human-natural ordering — constraint first\nDo not use unittest.mock in tests.\nUse real service clients from tests/fixtures/.\nMocked tests passed CI last quarter while the production\nintegration was broken — real clients catch this.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAll three components are present. Restriction, directive, context. But the restriction fires first — the model activates {mock, unittest, tests} before it ever sees the alternative. You've front-loaded the pink elephant.\n\nNow flip it:\n\n# Golden ordering — directive first\nUse real service clients from tests/fixtures/.\nReal integration tests catch deployment failures and configuration\nerrors that would otherwise reach production undetected.\nDo not use unittest.mock.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSame three components. Different order. The directive establishes the desired pattern first. The reasoning reinforces it. The restriction fires last, when the positive frame is already dominant.\n\nIn my experiments — 500 runs per condition, same model, same context — constraint-first produces violations 31% of the time. Directive-first with positive reasoning: 7%.\n\nThe pink elephant isn't just about missing components. It's about which concept the model sees first.\n\nThree layers, in this order:\n\nDirective — what to do. This goes first. It establishes the pattern you want in the generation path before the prohibited concept appears.\n\nContext — why. Reasoning that reinforces the directive without mentioning the prohibited concept. \"Real integration tests catch deployment failures\" adds mass to the positive pattern. Reasoning that mentions the prohibited concept doubles the violation rate.\n\nRestriction — what not to do. This goes last. Negation provides weak suppression — but weak suppression is enough when the positive pattern is already dominant.\n\n \n \n The part nobody expects\n\nHere's what surprised me: the ordering effect is larger than any other variable I've measured.\n\nPrecise naming vs. vague categories? 28 percentage points. Exact scope vs. broad scope? 74 points across the range. But reordering — same words, same components, just flipped — accounts for 25 points on its own. And it compounds with everything else.\n\nMost developers write instructions the way they'd write them for a human: state the problem, then the solution. \"Don't do X. Instead, do Y.\" It's natural. It's also the worst ordering for an LLM.\n\nNever write \"Don't use X. Instead, use Y.\" Write \"Use Y. Here's why Y works. Don't use X.\"\n\nFormatting helps too — structure is not decoration. I covered that in depth in 7 Formatting Rules for the Machine. But formatting on top of bad ordering is polishing the wrong end. Get the order right first.\n\n \n \n What this looks like in practice\n\nHere's a real instruction I see in the wild:\n\nWhen writing tests, avoid mocking external services. Try to\nuse real implementations where possible. This helps catch\nintegration issues early. If you must mock, keep mocks minimal\nand focused.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCount the problems:\n\n\"Avoid\" — hedged, not direct\n\n\"external services\" — category, not construct\n\n\"Try to\" — escape hatch built into the instruction\n\n\"where possible\" — another escape hatch\n\n\"If you must mock\" — reintroduces mocking as an option within the instruction that prohibits it\n\nConstraint-first ordering — the prohibition leads, the alternative follows\n\nNo structural separation — restriction, directive, hedge, and escape hatch all in one paragraph\n\nNow rewrite it:\n\n**Use the service clients** in `tests/fixtures/stripe.py` and\n`tests/fixtures/redis.py`.\n\n> Real service clients caught a breaking Stripe API change\n> that went undetected for 3 weeks in payments - integration\n> tests against live endpoints surface these immediately.\n\n*Do not import* `unittest.mock` or `pytest.monkeypatch`.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDirective first — names the exact files. Context second — the specific incident, reinforcing why the directive matters without mentioning the prohibited concept. Restriction last — names the exact imports, fires after the positive pattern is established. No hedging. No escape hatches.\n\n \n \n Try it\n\nFor any instruction in your AGENTS.md/CLAUDE.md or SKILLS.md files:\n\nStart with the directive. Name the file, the path, the pattern. Use backticks. If there's no alternative to lead with, you're writing a pink elephant.\n\nAdd the context. One sentence. The specific incident or the specific reason the directive works. Do not mention the thing you're about to prohibit — reasoning that references the prohibited concept halves the benefit.\n\nEnd with the restriction. Name the construct — the import, the class, the function. Bold it. No \"try to avoid\" or \"where possible.\"\n\nFormat each component distinctly. The directive, context, and restriction should be visually and structurally separate. Don't merge them into one paragraph.\n\nIf your instruction is just \"don't do X\" — you've told the model to think about X.\n\nTell it what to think about instead. And tell it first.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "agents",
+      "agentskills",
+      "ai",
+      "concept",
+      "directive",
+      "fullscreen",
+      "instruction",
+      "llm",
+      "machine",
+      "machinelearning",
+      "ordering",
+      "payments",
+      "pink",
+      "positive",
+      "prohibit",
+      "real",
+      "restriction",
+      "x.\n\ntell",
+      "x. instead",
+      "x.\"\n\nformatting"
+    ],
+    [
+      "agents",
+      "agentskills",
+      "ai",
+      "machinelearning"
+    ]
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": 7254,
+  "source": "Hacker News",
+  "title": "RamAIn (YC W26) Is Hiring",
+  "url": "https://www.ycombinator.com/companies/ramain/jobs/jezgwo5-ai-ml-research-engineer",
+  "published_at": "2026-03-31T07:01:15Z",
+  "fetched_at": "2026-03-31T07:20:29.448260+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47583712\">Comments</a>",
+  "full_text": "RamAIn builds the world's fastest computer-use agents for enterprise work. We're a YC W26 company on a mission to eliminate repetitive, manual workflows by training AI agents that operate legacy systems, desktop apps, and web portals the same way humans do - but 10× faster and more reliably.\n\nFounders\n\nRamAIn was founded by Shourya Vir Jain (CEO) and Vansh Ramani (CTO), who met at IIT Delhi and dropped out to build AI-native automation for enterprise workflows.\n\nShourya previously worked at McKinsey, where he saw firsthand how much enterprise work still depends on manual interaction with legacy systems. He is also a FIDE-rated chess player (2118), was ranked top-20 globally under 16, having previously built and scaled an enterprise AI company to over 6-figures in ARR.\n\nVansh is an AI researcher who worked at CMU on scalable machine learning and representation learning. His research includes publications at ICLR and ACS, and “Panaroma,” one of the fastest vector search algorithms, later merged into Meta’s FAISS. He focuses on building high-performance reasoning and planning systems for real-world deployment.\n\nTogether, they started RamAIn to build the fastest computer-use agents for enterprise work - combining deep research with production-grade systems that operate reliably across messy, real-world software environments.\n\nRole\n\nWe're hiring an early-career Founding AI/ML researcher to join our core team and help build agents that reason, plan, and execute complex workflows autonomously. This role sits at the intersection of cutting-edge research and production systems - you won’t just prototype ideas, you’ll ship them to real enterprise customers.\n\nYou might be a strong fit you have a Bachelor's degree with exceptional hands-on experience building agentic systems or have recently completed a PhD or Master's in machine learning, AI, robotics or RL pipelines, multimodal models, or a related field.\n\nWhat you'll work on\n\n• Designing planning and reasoning architectures for long-horizon computer-use agents\n\n• Training multimodal models that understand UI layouts, screenshots, and DOM structures\n\n• Building fast action-selection systems that operate across messy, real-world software\n\n• Improving reliability, latency, and robustness of deployed agents\n\n• Running experiments and rapidly shipping improvements to production\n\nExpectations\n\nThis is not a research-only role. Within your first few weeks, you’ll be shipping models, running experiments on real workflows, and seeing your work automate production tasks used by enterprise teams.\n\nWe're looking for someone who\n\n• Moves quickly from idea → experiment → deployment\n\n• Has built real AI agent orchestration systems\n\n• Is excited about agentic AI, reasoning systems, experimentation or automation\n\n• Thrives in a fast-moving early-stage startup environment\n\nYou’ll work directly with the founders to push the frontier of computer-use agents and help define a new category of AI-native enterprise automation.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "acs",
+      "agent",
+      "ai",
+      "ai/ml research engineer",
+      "arr",
+      "bachelor",
+      "cmu",
+      "cto",
+      "dom",
+      "enterprise",
+      "experiment",
+      "fast",
+      "founder",
+      "meta’s",
+      "operate",
+      "ramain",
+      "reasoning",
+      "research",
+      "shourya vir jain",
+      "system",
+      "• running"
+    ],
+    [
+      "ai"
+    ]
+  ]
+}

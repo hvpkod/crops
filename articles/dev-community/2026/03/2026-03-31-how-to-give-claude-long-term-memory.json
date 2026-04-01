@@ -1,0 +1,37 @@
+{
+  "id": 7473,
+  "source": "DEV Community<",
+  "title": "How to Give Claude Long-Term Memory",
+  "url": "https://dev.to/hjarni/how-to-give-claude-long-term-memory-4a6",
+  "published_at": "2026-03-31T21:37:04Z",
+  "fetched_at": "2026-03-31T21:40:19.782750+00:00",
+  "author": "Evert",
+  "summary": "<p>Every time you open your AI, you start over. You explain your project, your stack, the decision you made last Tuesday. Again.</p>\n\n<p>You can stop doing this. In five minutes.</p>\n\n<h2>\n  \n  \n  How it works\n</h2>\n\n<p><a href=\"https://hjarni.com\" rel=\"noopener noreferrer\">Hjarni</a> is a note app your AI can read. You write notes. Your AI searches and reads them. One URL to connect.</p>\n\n<h2>\n  \n  \n  Step 1: Create your first note\n</h2>\n\n<p>Sign up at <a href=\"https://hjarni.com/registration/new\" rel=\"noopener noreferrer\">hjarni.com</a>. Create a note about something you're tired of re-explaining.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>Title: Tech Stack\n\nRails 8 + SQLite.\nDeployed on Hetzner via Kamal.\nMCP server built into the app.\nTailwind + Turbo, no React.\nSolid Queue for background jobs.\n</code></pre>\n\n</div>\n\n\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-",
+  "full_text": "Every time you open your AI, you start over. You explain your project, your stack, the decision you made last Tuesday. Again.\n\nYou can stop doing this. In five minutes.\n\n \n \n How it works\n\nHjarni is a note app your AI can read. You write notes. Your AI searches and reads them. One URL to connect.\n\n \n \n Step 1: Create your first note\n\nSign up at hjarni.com. Create a note about something you're tired of re-explaining.\n\nTitle: Tech Stack\n\nRails 8 + SQLite.\nDeployed on Hetzner via Kamal.\nMCP server built into the app.\nTailwind + Turbo, no React.\nSolid Queue for background jobs.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Step 2: Connect to Claude\n\nGo to Settings. Find Connectors. Add a custom connector.\n\nName it \"Hjarni\" and paste https://hjarni.com/mcp as the URL. Done.\n\n \n \n Step 3: Ask Claude something\n\nStart a new conversation. Don't paste any context. Just ask something only your notes would know.\n\n\"Write me a pitch based on what you know about my product.\"\n\nClaude searches your notes. Finds the answer. No copy-pasting.\n\n \n \n What to save next\n\nIf you've typed it twice, save it. Project context. Decisions and their reasons. Research conclusions.\n\nEvery note you add makes the next conversation better. Ten notes in, you just talk to your AI like it's been on your team all along.\n\nThe free tier gives you 25 notes with full MCP access. No credit card.\n\n👉 Start writing free\n\nWorks with Claude and ChatGPT today.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "claude",
+      "decision",
+      "free",
+      "give",
+      "hjarni",
+      "mcp",
+      "note",
+      "paste",
+      "payments",
+      "productivity",
+      "react",
+      "save",
+      "something",
+      "start",
+      "step"
+    ],
+    [
+      "ai",
+      "productivity"
+    ]
+  ]
+}

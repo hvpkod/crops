@@ -1,0 +1,37 @@
+{
+  "id": 7356,
+  "source": "DEV Community<",
+  "title": "Truthy and Falsy Values in JavaScript",
+  "url": "https://dev.to/kavitha_krish/truthy-and-falsy-values-in-javascript-20hl",
+  "published_at": "2026-03-31T15:17:41Z",
+  "fetched_at": "2026-03-31T15:40:37.394021+00:00",
+  "author": "Kavitha",
+  "summary": "<p><strong>Truthy and Falsy Values in JavaScript</strong></p>\n\n<ul>\n<li>In JavaScript, values used inside a condition are automatically converted into either true or false.</li>\n<li>This concept is called Truthy and Falsy values.</li>\n<li>It is very important in conditional statements like if, else, and while.</li>\n</ul>\n\n<p><strong>What are Truthy Values?</strong></p>\n\n<ul>\n<li>A truthy value is any value that JavaScript treats as true when used inside a condition.\n<strong>Examples of Truthy Values</strong>\n</li>\n</ul>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>1\n-10\n\"Hello\"\n\"CSK\"\n[]\n{}\ntrue\n</code></pre>\n\n</div>\n\n\n\n<p><strong>Example Program</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code><span class=\"kd\">let</span> <span class=\"nx\">team</span> <span class=\"o\">=</span> <span class=\"dl\">\"</span><span class=\"s2\">CSK</span><span class=\"dl\">\"</span><span class=\"p\">;</span>\n\n<span class=\"k\">if </",
+  "full_text": "Truthy and Falsy Values in JavaScript\n\nIn JavaScript, values used inside a condition are automatically converted into either true or false.\n\nThis concept is called Truthy and Falsy values.\n\nIt is very important in conditional statements like if, else, and while.\n\nWhat are Truthy Values?\n\nA truthy value is any value that JavaScript treats as true when used inside a condition.\nExamples of Truthy Values\n\n1\n-10\n\"Hello\"\n\"CSK\"\n[]\n{}\ntrue\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nExample Program\n\nlet team = \"CSK\";\n\nif (team) {\n console.log(\"Team exists\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput\n\nTeam exists\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSince \"CSK\" is a non-empty string, JavaScript treats it as true.\n\nWhat are Falsy Values?\n\nA falsy value is any value that JavaScript treats as false in a condition.\n\nFalsy Values in JavaScript\n\nThere are only a few falsy values:\n\nfalse\n0\n\"\"\nnull\nundefined\nNaN\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nExample Program\n\nlet score = 0;\n\nif (score) {\n console.log(\"Pass\");\n} else {\n console.log(\"No score\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput\n\nNo score\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSince 0 is a falsy value, the else block runs.\n\nSimple Example\n\nlet name = \"\";\n\nif (name) {\n console.log(\"Welcome\");\n} else {\n console.log(\"Enter your name\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput\n\nEnter your name\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBecause an empty string \"\" is falsy, JavaScript executes the else block.\n\nWhy is it Important?\n\nTruthy and falsy values help in:\n\nchecking empty input fields\n\nvalidating forms\n\nchecking login details\n\nmaking decisions in programs\n\nConclusion\n\nTruthy and falsy values are the foundation of decision making in JavaScript.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "beginners",
+      "else",
+      "enter",
+      "example",
+      "exit",
+      "falsy",
+      "fullscreen",
+      "javascript",
+      "mode",
+      "nan",
+      "truthy",
+      "tutorial",
+      "value",
+      "webdev"
+    ],
+    [
+      "beginners",
+      "javascript",
+      "tutorial",
+      "webdev"
+    ]
+  ]
+}

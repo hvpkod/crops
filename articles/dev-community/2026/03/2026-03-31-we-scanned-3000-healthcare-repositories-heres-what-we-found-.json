@@ -1,0 +1,40 @@
+{
+  "id": 7239,
+  "source": "DEV Community<",
+  "title": "We scanned 3,000 healthcare repositories. Here's what we found in CDC, VA, NHS, and Google's code.",
+  "url": "https://dev.to/nirvahana/we-scanned-3000-healthcare-repositories-heres-what-we-found-in-cdc-va-nhs-and-googles-code-44a8",
+  "published_at": "2026-03-31T06:35:53Z",
+  "fetched_at": "2026-03-31T06:40:17.936360+00:00",
+  "author": "Satish Singh",
+  "summary": "<p>Healthcare software is failing compliance at the code level. Not in theory. Not in edge cases. Across the board.</p>\n\n<p>We built an AST-based static analysis engine that maps code patterns directly to HIPAA sections, GDPR articles, SOC 2 criteria, and India's DPDPA requirements. Then we pointed it at 3,000 public healthcare repositories across 9 programming languages.</p>\n\n<p>13,427 confirmed violations. 43.6% of repositories affected.</p>\n\n<p>Here are five findings that stood out.</p>\n\n\n\n\n<h2>\n  \n  \n  1. The VA suppressed a TLS security warning in its veteran SMS handler\n</h2>\n\n<p>The US Department of Veterans Affairs notification-api handles SMS, email, and push notifications for 9+ million veterans.</p>\n\n<p>One Lambda function disables TLS certificate verification with <code>verify=False</code>. The code includes an explicit <code># nosec</code> annotation — a Bandit security scanner suppression comment.</p>\n\n<p>The development team knew. They suppressed the warning anyway. All ",
+  "full_text": "Healthcare software is failing compliance at the code level. Not in theory. Not in edge cases. Across the board.\n\nWe built an AST-based static analysis engine that maps code patterns directly to HIPAA sections, GDPR articles, SOC 2 criteria, and India's DPDPA requirements. Then we pointed it at 3,000 public healthcare repositories across 9 programming languages.\n\n13,427 confirmed violations. 43.6% of repositories affected.\n\nHere are five findings that stood out.\n\n \n \n 1. The VA suppressed a TLS security warning in its veteran SMS handler\n\nThe US Department of Veterans Affairs notification-api handles SMS, email, and push notifications for 9+ million veterans.\n\nOne Lambda function disables TLS certificate verification with verify=False. The code includes an explicit # nosec annotation — a Bandit security scanner suppression comment.\n\nThe development team knew. They suppressed the warning anyway. All affected functions deploy to production via GitHub Actions across dev, staging, perf, and prod environments.\n\n \n \n 2. India's vaccination platform logged Aadhaar numbers to stdout\n\nIndia's DIVOC platform powered the national COVID vaccination certificate system.\n\nThe code serializes the entire certificate request to application logs — Aadhaar number, name, date of birth, gender, phone number, home address — for every single certificate created.\n\nProduction CoWIN URLs in the Kubernetes deployment configs confirm this code ran on India's national vaccination infrastructure. No log sanitization configured anywhere in the codebase.\n\nWe reported this to CERT-In on March 23, 2026.\n\n \n \n 3. OpenEMR writes patient SSNs to plaintext CSV files\n\nOpenEMR is the most widely deployed open-source EMR with 100,000+ installations.\n\nThe billing export feature writes patient Social Security Numbers, names, dates of birth, addresses, and phone numbers to a plaintext CSV via fwrite(). Zero encryption. No audit trail on the export.\n\nThe OpenEMR security team confirmed this is intended functionality, citing HIPAA's \"addressable\" specification. Every organization using this feature is generating unencrypted files containing the most sensitive category of patient data.\n\n \n \n 4. NHS England queries 58 million patient records with TLS disabled\n\nOpenSAFELY is a secure analytics platform for NHS England electronic health records.\n\nThe cohort-extractor tool unconditionally disables TLS certificate verification for its EMIS database connection. Security warnings are globally suppressed. A TODO comment in the code confirms the developers know:\n\n# TODO remove this when certificate verification reinstated\n\nThe TODO is still there.\n\n \n \n 5. Patient data flows into AI models without de-identification\n\nMetriport, a funded healthcare API company, sends patient medical record data to an AI model via Amazon Bedrock without visible de-identification or tokenization before the API call.\n\nThis is part of a broader pattern. Across 3,000 repositories, our MLPHI-001 rule detected 657 confirmed instances of patient data flowing into AI/ML pipelines without de-identification.\n\nTraditional security scanners were not built to detect this. Snyk and Semgrep won't catch it. This is an emerging compliance frontier.\n\n \n \n The systemic pattern\n\nThese five findings come from five different countries, five different types of organizations, five different categories of violation. One root cause: nobody checked the code.\n\nSecurity scanners find vulnerabilities. Compliance audits check policies. Neither examines whether application code actually implements the safeguards that regulations require.\n\n \n \n What you should check in your own codebase\n\nSearch for verify=False and # nosec in any code touching patient data\n\nAudit your data export features — billing exports frequently write PHI to plaintext files\n\nReview AI/ML pipeline code — de-identification must happen before data enters any model\n\nSearch application logs for PHI patterns\n\nUnderstand the difference between a clean Snyk scan and actual HIPAA compliance\n\nThe full Healthcare Code Compliance Security Index (2026 Edition) is available with detailed findings, file paths, line numbers, and compliance mappings for every named repository.\n\nAll affected organizations were notified through responsible disclosure channels prior to publication.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ast",
+      "bandit",
+      "cdc",
+      "certificate",
+      "code",
+      "compliance",
+      "confirm",
+      "cybersecurity",
+      "datum",
+      "gdpr",
+      "google",
+      "healthcare",
+      "hipaa",
+      "india",
+      "nhs",
+      "openemr",
+      "patient",
+      "plaintext",
+      "security",
+      "tls"
+    ],
+    [
+      "cybersecurity"
+    ]
+  ]
+}

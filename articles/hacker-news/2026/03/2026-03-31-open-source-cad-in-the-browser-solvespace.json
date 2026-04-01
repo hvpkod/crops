@@ -1,0 +1,28 @@
+{
+  "id": 7321,
+  "source": "Hacker News",
+  "title": "Open source CAD in the browser (Solvespace)",
+  "url": "https://solvespace.com/webver.pl",
+  "published_at": "2026-03-31T12:50:23Z",
+  "fetched_at": "2026-03-31T14:00:24.825348+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47586614\">Comments</a>",
+  "full_text": "EXPERIMENTAL WEB VERSION\n \n\nSolveSpace is developed primarily as normal desktop software. It's\ncompact enough that it runs surprisingly well when compiled with\nemscripten for the browser, though. There is some speed penalty and\nthere are many remaining bugs, but with smaller models the experience is\noften highly usable.\n\nIn keeping with the experimental status of this target, the version\nbelow is built from our latest development branch. You are likely to\nencounter issues that don't exist in the\nnormal desktop targets, but\nfeel free to\nreport\nbugs in the usual way.\n\nSTART EXPERIMENTAL WEB VERSION\n\nThis web version has no network dependencies after loading. To host your\nown copy,\nbuild\nand host the output like any other static web content.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "compile",
+      "desktop",
+      "emscripten",
+      "experimental",
+      "host",
+      "keep",
+      "normal",
+      "remain",
+      "solvespace",
+      "version"
+    ],
+    []
+  ]
+}

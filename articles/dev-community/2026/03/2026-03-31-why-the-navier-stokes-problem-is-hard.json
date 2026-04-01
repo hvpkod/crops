@@ -1,0 +1,41 @@
+{
+  "id": 7245,
+  "source": "DEV Community<",
+  "title": "Why the Navier-Stokes Problem Is Hard",
+  "url": "https://dev.to/navierstokesorg/why-the-navier-stokes-problem-is-hard-85e",
+  "published_at": "2026-03-31T06:28:36Z",
+  "fetched_at": "2026-03-31T06:40:31.299788+00:00",
+  "author": "Clay Leray",
+  "summary": "<p><em>The core mathematical obstacles standing in the way</em></p>\n\n<h2>\n  \n  \n  The nonlinearity trap\n</h2>\n\n<p>Many of the equations people first meet in physics are linear: double the input and the response doubles. Navier-Stokes is not like that.</p>\n\n<p>Navier-Stokes? <strong>Nonlinear</strong>. The fluid's velocity affects its own rate of change, which means the fluid pushes <em>itself</em>. Imagine trying to predict where a crowd will go when every single person's movement depends on what everyone around them is doing, and what those people are doing depends on everyone around <em>them</em>, spiraling outward forever. That's the situation you're staring at.</p>\n\n<p>The culprit is the self-interaction term $(u \\cdot \\nabla)u$. It creates feedback loops where small disturbances amplify into large ones, and it's why fluid turbulence is so wildly complex (see <a href=\"https://dev.to/navier-stokes-subproblems/\">subproblems</a> for more).</p>\n\n<h2>\n  \n  \n  Supercriticality: the scali",
+  "full_text": "The core mathematical obstacles standing in the way\n\n \n \n The nonlinearity trap\n\nMany of the equations people first meet in physics are linear: double the input and the response doubles. Navier-Stokes is not like that.\n\nNavier-Stokes? Nonlinear. The fluid's velocity affects its own rate of change, which means the fluid pushes itself. Imagine trying to predict where a crowd will go when every single person's movement depends on what everyone around them is doing, and what those people are doing depends on everyone around them, spiraling outward forever. That's the situation you're staring at.\n\nThe culprit is the self-interaction term $(u \\cdot \\nabla)u$. It creates feedback loops where small disturbances amplify into large ones, and it's why fluid turbulence is so wildly complex (see subproblems for more).\n\n \n \n Supercriticality: the scaling gap\n\nThe Navier-Stokes equations have a scaling symmetry. Zoom in on a solution, make everything smaller and faster by the right amounts, and you get another perfectly valid solution. That symmetry is mathematically natural, but analytically dangerous.\n\nWhy? The only quantity we can reliably control is the total energy of the fluid, and it sits at completely the wrong scale, telling us about the big picture but saying absolutely nothing about what's happening at the microscopic scales where a blowup would actually form.\n\nThink of monitoring a city's total electricity usage to detect one spark. Useful? Sure. Fine-grained enough? Not even close. That gap is the whole problem.\n\n \n \n Turbulence and the energy cascade\n\nWatch a river. Fluid motion goes chaotic. Turbulent. Big eddies shatter into smaller ones, which shatter into even smaller ones, cascading all the way down to microscopic scales where viscosity finally smooths things out.\n\nKolmogorov described this energy cascade in 1941, and the Navier-Stokes equations capture it beautifully. But here's what keeps people up at night: what if energy concentrates into smaller and smaller regions faster than viscosity can dissipate it? That's a blowup.\n\nCan it actually happen? Or does viscosity always win? That's the open question, full stop. For the physical bridge from Reynolds number to this small-scales picture, see Reynolds Number, Turbulence, and Why Small Scales Matter.\n\n \n \n The pressure problem\n\nPressure in the Navier-Stokes equations is strange. It's not an independent variable at all; the velocity completely determines it through a single constraint: the fluid is incompressible, so it can't be squeezed.\n\nThis makes pressure nonlocal. In the incompressible model, changing the velocity in one region affects the pressure field globally, because the pressure is determined by the whole velocity field at that time.\n\nFor analysis, that's devastating. You can't study what happens at a single point without accounting for the entire fluid at once. Local reasoning? Forget it.\n\n \n \n Why 3D is special\n\nFor the 2D incompressible Navier-Stokes equations in the standard settings, global smooth solutions are known; this was established in classical work including Ladyzhenskaya's (1969). See why 2D is easier.\n\nThree dimensions? Everything falls apart, and the reason comes down to one mechanism: vortex stretching. In 2D, vortices can spin and merge but they can't stretch. In 3D, fluid can grab vortex tubes and pull them thinner and thinner and thinner, potentially concentrating every last bit of energy into an infinitely thin filament.\n\nCan this stretching run away to infinity in finite time, or does viscosity always step in? That's the million-dollar question. Literally.\n\n \n \n Continue exploring\n\nThis article is part of The Problem.\n\nThese obstacles have led mathematicians to decompose the problem into subproblems and develop specialized approaches for each.\n\nFor context on why the viscous term helps but isn't enough, see Euler vs. Navier-Stokes.\n\nOriginally published on navier-stokes.org. The site covers the Navier-Stokes existence and smoothness problem with toggleable simple/rigorous explanations.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "energy",
+      "equation",
+      "fluid",
+      "fluiddynamics",
+      "ladyzhenskaya",
+      "math",
+      "navier-stokes",
+      "physics",
+      "pressure",
+      "problem",
+      "reynolds",
+      "reynolds number, turbulence",
+      "scales",
+      "science",
+      "small",
+      "subproblem",
+      "velocity",
+      "viscosity"
+    ],
+    [
+      "fluiddynamics",
+      "math",
+      "physics",
+      "science"
+    ]
+  ]
+}

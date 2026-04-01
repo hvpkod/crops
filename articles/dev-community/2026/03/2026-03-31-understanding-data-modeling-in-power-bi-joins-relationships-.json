@@ -1,0 +1,42 @@
+{
+  "id": 7217,
+  "source": "DEV Community<",
+  "title": "Understanding Data Modeling in Power BI: Joins, Relationships, and Schemas Explained",
+  "url": "https://dev.to/wambuijoan/understanding-data-modeling-in-power-bi-joins-relationships-and-schemas-explained-42ed",
+  "published_at": "2026-03-31T03:15:27Z",
+  "fetched_at": "2026-03-31T04:00:29.498021+00:00",
+  "author": "Joan Wambui",
+  "summary": "<h2>\n  \n  \n  What Is Data Modeling?\n</h2>\n\n<p>Data modeling refers to how one organises and connects their data so it can be analysed correctly. In Power BI, it defines how tables relate to each other, how filters move across visuals, and how your measures calculate results. </p>\n\n<h2>\n  \n  \n  Joins\n</h2>\n\n<p>Joins combine data from two tables based on a shared column. In Power BI, joins happen in Power Query Editor before data enters the model.<br />\n<strong>INNER JOIN</strong> - Returns only rows with a match in both tables. <br />\n<strong>LEFT JOIN</strong> - Returns all rows from the left table only.<br />\n<strong>RIGHT JOIN</strong> - Returns all rows from the right table only.<br />\n<strong>FULL OUTER JOIN</strong> - Returns everything from both tables. Useful for spotting data gaps.<br />\n<strong>LEFT ANTI JOIN</strong> - Returns only rows from the left table with no match on the right. <br />\n<strong>RIGHT ANTI JOIN</strong> - Returns only rows from the right table with no matc",
+  "full_text": "What Is Data Modeling?\n\nData modeling refers to how one organises and connects their data so it can be analysed correctly. In Power BI, it defines how tables relate to each other, how filters move across visuals, and how your measures calculate results. \n\n \n \n Joins\n\nJoins combine data from two tables based on a shared column. In Power BI, joins happen in Power Query Editor before data enters the model.\n\nINNER JOIN - Returns only rows with a match in both tables. \n\nLEFT JOIN - Returns all rows from the left table only.\n\nRIGHT JOIN - Returns all rows from the right table only.\n\nFULL OUTER JOIN - Returns everything from both tables. Useful for spotting data gaps.\n\nLEFT ANTI JOIN - Returns only rows from the left table with no match on the right. \n\nRIGHT ANTI JOIN - Returns only rows from the right table with no match on the left.\n\n \n \n Power BI Relationships\n\nRelationships connect tables inside the model without merging them. They control how filters move between tables when you interact with visuals.\n\nCardinality defines how rows relate across tables:\n\n• One-to-Many (1:M) - One customer, many orders. The most common type.\n\n• Many-to-Many (M:M) - Requires careful handling, best resolved with a bridge table.\n\n• One-to-One (1:1) - Usually means the tables can be merged.\n\nActive vs Inactive relationship - Only one active relationship is allowed between two tables. Inactive relationships are triggered using USERELATIONSHIP() in DAX when needed.\n\nCross-filter direction - Single direction is the default and safest. Bidirectional filters flow both ways but can cause performance issues if overused.\n\n \n \n Joins vs Relationships\n\n \n \n Fact Tables vs Dimension Tables\n\nFact tables hold measurable data such as sales and transactions. They are long with many rows and link out to dimension tables via foreign keys.\n\nDimension tables hold descriptive data such as customer names, product categories, dates. They give context to the numbers in your fact table.\n\nIn simple terms, your fact table is the center. Dimension tables surround it.\n\n \n \n Schemas\n\nStar Schema - One fact table connected directly to multiple dimension tables. Fast, clean, and what Power BI is optimised for. This should be used by default.\n\nSnowflake Schema - Dimension tables broken into sub-dimensions. This is more complex and slower in Power BI. It is recommended for one to use only it when source data is already normalised.\n\nFlat Table - Everything in one table. This is simple but it creates redundancy and performance problems at scale.\n\nPro Tip: \n\nA clean data model is what makes a Power BI report trustworthy. Start with a star schema, separate your facts from your dimensions, define your relationships carefully, and always build a proper Date table. The model is invisible to the end user, but it is what everything depends on.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "beginners",
+      "data",
+      "database",
+      "date",
+      "dimension",
+      "fact",
+      "in power bi",
+      "join",
+      "left",
+      "microsoft",
+      "power",
+      "power bi",
+      "power query",
+      "relationship",
+      "returns",
+      "row",
+      "schemas",
+      "table",
+      "tutorial",
+      "understanding data modeling",
+      "userelationship"
+    ],
+    [
+      "beginners",
+      "tutorial"
+    ]
+  ]
+}

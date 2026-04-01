@@ -1,0 +1,46 @@
+{
+  "id": 7475,
+  "source": "DEV Community<",
+  "title": "InsightAgent — Turn Any CSV Into AI-Powered Stories",
+  "url": "https://dev.to/njericodecraft/insightagent-turn-any-csv-into-ai-powered-stories-2m5f",
+  "published_at": "2026-03-31T21:31:40Z",
+  "fetched_at": "2026-03-31T21:40:21.762967+00:00",
+  "author": "Faith Njeri",
+  "summary": "<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>Every day, individuals and businesses collect data in spreadsheets and CSV files but lack the technical expertise to extract meaningful insights. Hiring data analysts is expensive, and most visualization tools require coding knowledge.</p>\n\n<h2>\n  \n  \n  The Solution\n</h2>\n\n<p>InsightAgent is an agentic AI system built with JavaScript that transforms any CSV dataset into actionable insights instantly. Simply upload your file and three specialized AI agents go to work:</p>\n\n<ul>\n<li>\n<strong>Agent 1 — Data Analyst:</strong> Reads your dataset and surfaces 3 specific insights</li>\n<li>\n<strong>Agent 2 — Business Advisor:</strong> Delivers one clear actionable recommendation</li>\n<li>\n<strong>Agent 3 — Chat Agent:</strong> Lets you have a real conversation about your data</li>\n</ul>\n\n<h2>\n  \n  \n  How It Works\n</h2>\n\n<ol>\n<li>User uploads a CSV file through the web interface</li>\n<li>The backend parses the file and sends data to Agent 1</li>\n<li>Agent 1 an",
+  "full_text": "The Problem\n\nEvery day, individuals and businesses collect data in spreadsheets and CSV files but lack the technical expertise to extract meaningful insights. Hiring data analysts is expensive, and most visualization tools require coding knowledge.\n\n \n \n The Solution\n\nInsightAgent is an agentic AI system built with JavaScript that transforms any CSV dataset into actionable insights instantly. Simply upload your file and three specialized AI agents go to work:\n\nAgent 1 — Data Analyst: Reads your dataset and surfaces 3 specific insights\n\nAgent 2 — Business Advisor: Delivers one clear actionable recommendation\n\nAgent 3 — Chat Agent: Lets you have a real conversation about your data\n\n \n \n How It Works\n\nUser uploads a CSV file through the web interface\n\nThe backend parses the file and sends data to Agent 1\n\nAgent 1 analyzes and returns structured insights\n\nAgent 2 generates a business recommendation\n\nChart.js renders the visualization automatically\n\nAgent 3 stays ready to answer follow-up questions\n\n \n \n How I Built It\n\nTech Stack\n\nFrontend: HTML, CSS, Vanilla JavaScript\n\nBackend: Node.js + Express\n\nAI: Groq API (LLaMA 3.3 70B)\n\nVisualizations: Chart.js\n\nFile handling: Multer\n\nArchitecture\n\nCSV Upload → Parse → Agent 1 → Agent 2 → UI Render → Agent 3 on standby\n\nResponsible AI Design\n\nNo user data stored — files deleted immediately after analysis\n\nAll AI outputs clearly labeled as AI-generated\n\nAgents only reference actual data values\n\n \n \n What I Learned\n\nBuilding InsightAgent taught me how to design multi-agent pipelines where each agent has a clear bounded responsibility. Chaining agents sequentially creates emergent intelligence greater than any single prompt could achieve.\n\n \n \n Try It Yourself",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "actionable",
+      "agent",
+      "ai",
+      "ai-powered stories",
+      "build",
+      "business",
+      "chart.js",
+      "chart.js\n\nfile",
+      "css",
+      "csv",
+      "data",
+      "file",
+      "insight",
+      "insightagent",
+      "javascript",
+      "node.js + express",
+      "opensource",
+      "parse",
+      "the solution\n\ninsightagent",
+      "vanilla javascript",
+      "visualization",
+      "webdev"
+    ],
+    [
+      "ai",
+      "business",
+      "javascript",
+      "opensource",
+      "webdev"
+    ]
+  ]
+}

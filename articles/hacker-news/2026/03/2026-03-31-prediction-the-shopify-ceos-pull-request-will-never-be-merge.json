@@ -1,0 +1,31 @@
+{
+  "id": 7311,
+  "source": "Hacker News",
+  "title": "Prediction: The Shopify CEO's Pull Request Will Never Be Merged nor Closed",
+  "url": "https://joshmoody.org/blog/shopify-ceo-autoresearch-pr/",
+  "published_at": "2026-03-31T11:12:34Z",
+  "fetched_at": "2026-03-31T12:40:51.908214+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47585645\">Comments</a>",
+  "full_text": "By Josh Moody —\nPublished: Mar 31, 2026 \n\nThe CEO of Shopify, Tobi Lütke, recently\nmade headlines\nby using the AI tool\nautoresearch to\nincrease Liquid parsing\nspeed by 53%.\n\nTurns out this was a case of\n“CEO Said A Thing!” journalism\nwhere no one checked the primary source and all nuance was lost.\n\nSome articles imply the code actually shipped\nand, well, works. Both false.\n\nI’ve dabbled in Liquid parsing myself,\nso I was compelled to read the code.\nHere’s Tobi’s actual pull request.\nIt makes the code significantly less readable, partially because\noptimizations tend to be confusing, but mostly because the code\nquality is just bad. See\nlib/liquid/variable.rb\nif you enjoy the feeling of your eyes glazing over.\n\nOn top of that, tests are failing.\n\nTo be fair, not that many are failing: only\n3 out of 4,192\nspecs. Tricky ones, though. The remaining failures are code\nquality related, like too many layers of nesting.\n\nIf I maintained Liquid, I wouldn’t bother cleaning this up\nbecause it seems unsalvageable. But I also wouldn’t have the\nguts to close a PR opened by the CEO. Therefore, I predict it\nwill stay open forever.\n\nDisclaimer\n\nThis post is not intended as a criticism of Tobi. I think\nautoresearch is a cool idea and I like the fact that AI coding\ntools are giving more people the opportunity to code. I am\ncritiquing the hype-based news coverage of this event and the\npublic’s lack of interest in primary sources.\n\nTL;DR\n\nIf most of your knowledge comes from headlines, you are less\ninformed than you think.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "autoresearch",
+      "code",
+      "less",
+      "liquid",
+      "merged",
+      "moody",
+      "parse",
+      "primary",
+      "pull",
+      "quality",
+      "shopify",
+      "tobi",
+      "tricky"
+    ],
+    []
+  ]
+}

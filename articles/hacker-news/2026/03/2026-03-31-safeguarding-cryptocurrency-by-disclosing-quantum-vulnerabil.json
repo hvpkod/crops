@@ -1,0 +1,32 @@
+{
+  "id": 7231,
+  "source": "Hacker News",
+  "title": "Safeguarding cryptocurrency by disclosing quantum vulnerabilities responsibly",
+  "url": "https://research.google/blog/safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly/",
+  "published_at": "2026-03-31T03:28:03Z",
+  "fetched_at": "2026-03-31T05:20:28.097265+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47582418\">Comments</a>",
+  "full_text": "Our approach to vulnerability disclosure\n \n \n \n \n\n \n\nDisclosure of security vulnerabilities is a controversial subject. On one hand, the \"No Disclosure\" position holds that publicizing vulnerabilities provides bad actors with instruction manuals for attacks. On the other, the \"Full Disclosure\" movement argues that knowledge of security vulnerabilities enables the public to exercise caution and protect itself while incentivizing security fixes. In computer security, the debate has converged around a set of compromises known as \"Responsible Disclosure\" and \"Coordinated Vulnerability Disclosure\". Both advocate disclosing the vulnerability with an embargo and some time allowing for security fixes to be rolled out to affected systems. Variants of Responsible Disclosure with strict deadlines have been adopted by premier security research institutions, such as CERT/CC at Carnegie Mellon University and Google's Project Zero, and have been adopted as an international standard ISO/IEC 29147:2018.\n\nDisclosure of security vulnerabilities in blockchain technologies is further complicated by the fact that cryptocurrencies are not simply decentralized data processing systems. Their value as digital assets derives both from the digital security of the network and the public confidence in the system. While their digital security can be attacked using CRQCs, public confidence can also be undermined using fear, uncertainty and doubt (FUD) techniques. Consequently, unscientific and unsubstantiated resource estimates for quantum algorithms breaking ECDLP-256 can themselves represent an attack on the system.\n\nThese considerations guide our careful disclosure of updated resource estimates for quantum attacks on blockchain technology based on elliptic curve cryptography. First, we reduce the FUD potential of our discussion by clarifying the areas where blockchains are immune to quantum attacks and by highlighting the progress that has already been achieved towards post-quantum blockchain security. Second, we substantiate our resource estimates without sharing the underlying quantum circuits by publishing a state-of-the-art cryptographic construction called a \"zero-knowledge proof\", which allows third parties to verify our claims without us leaking sensitive attack details.\n\nWe welcome further discussions with the quantum, security, cryptocurrency, and policy communities to align on responsible disclosure norms going forward.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "attack",
+      "blockchain",
+      "carnegie mellon university",
+      "cert/cc",
+      "disclose",
+      "disclosure",
+      "estimate",
+      "fud",
+      "google",
+      "project zero",
+      "quantum",
+      "resource",
+      "security",
+      "vulnerability"
+    ],
+    []
+  ]
+}

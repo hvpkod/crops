@@ -1,0 +1,43 @@
+{
+  "id": 7268,
+  "source": "DEV Community<",
+  "title": "How to Check Polish Company Insolvency Programmatically (KRZ Scraper)",
+  "url": "https://dev.to/ucptools/how-to-check-polish-company-insolvency-programmatically-krz-scraper-1m9h",
+  "published_at": "2026-03-31T09:24:13Z",
+  "fetched_at": "2026-03-31T09:40:27.424939+00:00",
+  "author": "Peter",
+  "summary": "<h2>\n  \n  \n  TL;DR\n</h2>\n\n<ul>\n<li>Poland's <strong>KRZ (Krajowy Rejestr Zadluzonych)</strong> tracks all bankruptcy, restructuring, and enforcement proceedings</li>\n<li>The government has <strong>never released a public API</strong> despite 4+ years of promises</li>\n<li>The only alternatives are <strong>manual web searches</strong> or <strong>MGBI's paid subscription</strong> (200-500 EUR/month)</li>\n<li>I built an <a href=\"https://apify.com/minute_contest/krz-debtor-scraper\" rel=\"noopener noreferrer\">Apify actor</a> that captures a JWT token from the portal and calls the internal REST API directly - giving you structured JSON for $0.05/entity check</li>\n</ul>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>If you work in credit risk, compliance, or debt collection in Poland, you need to check the KRZ constantly. Is this company in bankruptcy? Has restructuring been filed? Are there enforcement proceedings?</p>\n\n<p>The government portal at <a href=\"https://krz.ms.gov.pl\" rel=\"noopener noreferrer\"",
+  "full_text": "TL;DR\n\nPoland's KRZ (Krajowy Rejestr Zadluzonych) tracks all bankruptcy, restructuring, and enforcement proceedings\n\nThe government has never released a public API despite 4+ years of promises\n\nThe only alternatives are manual web searches or MGBI's paid subscription (200-500 EUR/month)\n\nI built an Apify actor that captures a JWT token from the portal and calls the internal REST API directly - giving you structured JSON for $0.05/entity check\n\n \n \n The Problem\n\nIf you work in credit risk, compliance, or debt collection in Poland, you need to check the KRZ constantly. Is this company in bankruptcy? Has restructuring been filed? Are there enforcement proceedings?\n\nThe government portal at krz.ms.gov.pl lets you search manually - one company at a time, through a slow AngularJS interface. There's no API, no bulk export, no way to automate it.\n\nThe only commercial provider, MGBI, charges 200-500 EUR/month for API access. Great for banks, overkill for everyone else.\n\n \n \n The Solution\n\nThe KRZ portal is a Single Page Application that loads Angular sub-apps in iframes. These sub-apps talk to REST APIs on the government's OpenShift backend. The APIs require a JWT token that's issued during app initialization.\n\nMy actor:\n\nLaunches a headless browser via Puppeteer\n\nLoads the KRZ portal and triggers the Angular sub-app\n\nCaptures the JWT token from the sub-app's first API request\n\nUses the JWT to call the REST API directly - no DOM interaction, no fragile selectors\n\nThe result: structured JSON from 9 different search endpoints, covering everything the KRZ portal offers.\n\n \n \n What You Can Search\n\nSearch Mode\nWhat It Finds\nExample Input\n\nentity\nCompanies with proceedings\n{\"entityName\": \"Getin\"}\n\nperson\nNatural persons by PESEL/NIP\n{\"identifier\": \"12345678901\"}\n\nsoleTrader\nSole traders (JDG)\n{\"entityName\": \"Uslugi budowlane\"}\n\nsignature\nBy court case signature\n{\"caseSignature\": \"WA1M/GUp/44/2023\"}\n\nannouncements\nCourt notices and rulings\n{\"entityName\": \"Getin\", \"dateFrom\": \"2024-01-01\"}\n\nshareholders\nPartners in personal companies\n{\"identifier\": \"0000585174\"}\n\nadvisors\nRestructuring advisors\n{\"entityName\": \"Nowak\"}\n\nproceedingDetails\nFull case deep-dive\n{\"proceedingId\": \"uuid-from-search\"}\n\n \n \n Step-by-Step: Check 100 Companies in 10 Minutes\n\n \n \n 1. Create a free Apify account\n\nGo to apify.com and sign up. You get $5 in free credits - enough for about 70 company checks.\n\n \n \n 2. Navigate to the actor\n\nOpen the KRZ Debtor Registry Scraper in the Apify Store.\n\n \n \n 3. Configure your input\n\nFor a single company check:\n\n{\n \"searchMode\": \"entity\",\n \"entityName\": \"Getin Noble Bank\",\n \"maxResults\": 10\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFor a batch check by KRS numbers, use the API:\n\nconst { ApifyClient } = require('apify-client');\nconst client = new ApifyClient({ token: 'YOUR_TOKEN' });\n\nconst krsNumbers = ['0000585174', '0000028860', '0000635012'];\n\nfor (const krs of krsNumbers) {\n const run = await client.actor('minute_contest/krz-debtor-scraper').call({\n searchMode: 'entity',\n identifier: krs,\n maxResults: 5,\n });\n const { items } = await client.dataset(run.defaultDatasetId).listItems();\n console.log(`KRS ${krs}: ${items.length} proceedings found`);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 4. Read the results\n\nEach result includes:\n\n{\n \"entityName\": \"GETIN RENT SPOLKA Z OGRANICZONA ODPOWIEDZIALNOSCIA\",\n \"nip\": \"8992777278\",\n \"krs\": \"0000585174\",\n \"proceedingId\": \"96dd6ffc-191c-41ce-bcc4-998524e4efd2\",\n \"proceedingType\": \"restructuring\",\n \"court\": \"Sad Rejonowy dla Wroclawia-Fabrycznej we Wroclawiu\"\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 5. Deep-dive into a specific proceeding\n\nTake the proceedingId from step 4 and get full details:\n\n{\n \"searchMode\": \"proceedingDetails\",\n \"proceedingId\": \"96dd6ffc-191c-41ce-bcc4-998524e4efd2\"\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis returns: case signature, court, start/end dates, all participants, judge history, advisor assignments, address history, and all announcements.\n\n \n \n Pricing\n\nVolume\nCost\nvs MGBI\n\n1 company\n$0.15\nFree trial vs 200 EUR/month\n\n100 companies\n$5.10\n30x cheaper\n\n1,000 companies/month\n$50\n3-7x cheaper\n\n10,000 companies/month\n$300 (GOLD tier)\nComparable, no contract\n\n \n \n Part of the Polish Business Data Suite\n\nThis actor is one of five covering Polish government registries:\n\nTogether, they give you a complete Polish company intelligence workflow:\n\nIs the company solvent? -> KRZ\nAny court proceedings? -> MSiG\nWhat's their financial health -> eKRS\nWho runs the company? -> KRS Board Members\nAre they properly licensed? -> KNF\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Technical Details\n\nFor those interested in how the reverse engineering works:\n\n1. Architecture discovery\n\nThe KRZ portal (krz.ms.gov.pl) is an AngularJS shell that loads Angular sub-apps via iframes from OpenShift backends (krz-rejpub-gui-krz-pub-prod.apps.ocp.prod.ms.gov.pl). Each module (entity search, announcements, advisors) is a separate Angular app on the same OpenShift cluster.\n\n2. JWT capture\n\nThe sub-app obtains a JWT during initialization. We intercept it from the Authorization: bearer ... header on the first API request using Puppeteer's request interception. The JWT is valid for about 30 minutes.\n\n3. API endpoints\n\n30+ REST endpoints discovered by searching the Angular bundle's compiled JavaScript for URL patterns matching krzPubApiUrl + \"...\". Key endpoints include:\n\npostepowanie/wyszukaj-po-podmiocie - entity search\n\npostepowanie/wyszukaj-po-of - person search\n\nobwieszczenie/wyszukaj-po-podmiocie - announcements\n\npostepowanie/szczegoly - proceeding details\n\nrdr-api/wyszukiwarka/doradcy - restructuring advisors (different backend)\n\n4. No DOM scraping\n\nAfter JWT capture, all data comes from direct HTTP calls. The browser is closed. This makes the actor fast (~1s per query after session setup) and resilient to UI changes.\n\n5. The encryption keys\n\nThe KRS board members portal (separate project) uses AES-128-CBC encryption with a static key TopSecretApiKey1 and a 512-character steganographic token that embeds the KRS number at specific array positions. Yes, the key is literally hardcoded in the frontend JavaScript.\n\nBuilt with Apify. Questions? Open an issue on the actor page.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actor",
+      "angular",
+      "api",
+      "apify",
+      "company",
+      "dom",
+      "fullscreen",
+      "javascript",
+      "jwt",
+      "krz",
+      "mgbi",
+      "mode",
+      "openshift",
+      "poland",
+      "polish",
+      "portal",
+      "proceeding",
+      "search",
+      "single page application",
+      "tutorial",
+      "webscraping"
+    ],
+    [
+      "javascript",
+      "tutorial",
+      "webscraping"
+    ]
+  ]
+}

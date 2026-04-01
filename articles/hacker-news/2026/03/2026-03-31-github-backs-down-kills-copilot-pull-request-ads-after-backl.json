@@ -1,0 +1,31 @@
+{
+  "id": 7236,
+  "source": "Hacker News",
+  "title": "GitHub backs down, kills Copilot pull-request ads after backlash",
+  "url": "https://www.theregister.com/2026/03/30/github_copilot_ads_pull_requests/",
+  "published_at": "2026-03-31T05:11:24Z",
+  "fetched_at": "2026-03-31T06:00:22.025858+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47582984\">Comments</a>",
+  "full_text": "Microsoft has done a 180. Following backlash from developers, GitHub has removed Copilot's ability to stick ads - what it calls \"tips\" - into any pull request that invokes its name. \n\nAustralian developer Zach Manson noted on Monday that, after a coworker asked Copilot to correct a typo in one of his pull requests, he was surprised to find a message from Copilot in the PR pushing readers to adopt productivity app Raycast. \n\n\"Quickly spin up Copilot coding agents from anywhere on your macOS or Windows machine with Raycast,\" the note read with a lightning bolt emoji and link to install Raycast.\n\n \n\n\"Initially I thought there was some kind of training data poisoning or novel prompt injection and the Raycast team was doing some elaborate proof of concept marketing,\" Manson told The Register in an email. \n\n \n\n \n\nBut no: Take a look around GitHub and you'll see more than 11,400 PRs with the same tip in them, all seemingly added by Copilot. Take a look at the PRs' code itself and search for the block invoking Copilot to add a tip and you'll find plenty more examples of different tips being inserted by Copilot. \n\nManson told us that he's not surprised to see GitHub doing this with an AI model, but he said it's pretty offensive to see the Raycast ad inserted by Copilot into his own PR like he wrote it. \n\n \n\n\"I wasn't even aware that the GitHub Copilot Review integration had the ability to edit other users' descriptions and comments,\" Manson told us. \"I can't think of a valid use case for that ability.\"\n\nGitHub backs down\n\nIt was only Monday morning when Microsoft watchers at Neowin picked up Manson's report that Copilot was injecting what developers saw as ads into PRs, and, by the afternoon, GitHub had decided a recent change to Copilot may have gone a bit too far.\n\nGitHub VP of developer relations Martin Woodward explained in a post on X later in the day Monday that Copilot inserting ads into PRs isn't actually new behavior - it's been doing so in the ones it creates for a while. Letting Copilot touch PRs it didn't create, but is mentioned in, on the other hand, is new behavior that hasn't really worked out. \n\n\"[When] we added the ability to have Copilot work on any PR by mentioning it the behaviour became icky,\" Woodward said. \n\nTim Rogers, principal product manager for Copilot at GitHub, took to Hacker News on Monday to say that giving Copilot the ability to add \"tips\" to PRs was intended \"to help developers learn new ways to use the agent in their workflow.\" \n\nHearing feedback from the community following Manson's post and the kerfuffle it generated, Rogers said, has helped him realize that \"on reflection,\" letting Copilot make changes to PRs written by a human without their knowledge \"was the wrong judgement call.\" \n\n\"We've now disabled these tips in pull requests created by or touched by Copilot, so you won't see this happen again,\" Rogers added. \n\n \n\nNeither Microsoft nor GitHub responded to questions for this story. ®",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ability",
+      "add",
+      "copilot",
+      "do",
+      "github",
+      "hacker news",
+      "insert",
+      "manson",
+      "microsoft",
+      "monday",
+      "neowin",
+      "the register",
+      "woodward"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 7279,
+  "source": "Hacker News",
+  "title": "Claude Code full source code leaked on NPM",
+  "url": "https://github.com/chatgptprojects/claude-code",
+  "published_at": "2026-03-31T09:40:12Z",
+  "fetched_at": "2026-03-31T10:00:26.019066+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47584850\">Comments</a>",
+  "full_text": "Claude Code (Unofficial Source Extraction)\n\nThis is NOT an official Anthropic repository.\n\nThis repository contains the extracted TypeScript source code of Anthropic's Claude Code CLI tool. The source was obtained by unpacking the source map (cli.js.map) bundled with the officially published npm package.\n\nAnthropic publishes Claude Code as a bundled JavaScript CLI on npm. The published package includes a source map file (cli.js.map) that contains the original TypeScript source. This repository simply extracts and preserves that source for easier reading and reference.\n\ngit clone git@github.com:chatgptprojects/claude-code.git\ncd claude-code\n\nOr extract it yourself from npm\n\nInstall the package:\n\nmkdir claude-code-extract && cd claude-code-extract\nnpm pack @anthropic-ai/claude-code@2.1.88\ntar -xzf anthropic-ai-claude-code-2.1.88.tgz\ncd package\n\nRun the unpack script:\n\nCreate a file called unpack.mjs:\n\nimport { readFileSync, writeFileSync, mkdirSync } from \"fs\";\nimport { dirname, join } from \"path\";\n\nconst mapFile = join(import.meta.dirname, \"cli.js.map\");\nconst outDir = join(import.meta.dirname, \"unpacked\");\n\nconsole.log(\"Reading source map...\");\nconst map = JSON.parse(readFileSync(mapFile, \"utf-8\"));\n\nconst sources = map.sources || [];\nconst contents = map.sourcesContent || [];\n\nconsole.log(`Found ${sources.length} source files.`);\n\nlet written = 0;\nlet skipped = 0;\n\nfor (let i = 0; i < sources.length; i++) {\n const src = sources[i];\n const content = contents[i];\n\n if (content == null) {\n skipped++;\n continue;\n }\n\n const outPath = join(outDir, src.replace(/^\\.\\.\\//g, \"\"));\n mkdirSync(dirname(outPath), { recursive: true });\n writeFileSync(outPath, content);\n written++;\n}\n\nconsole.log(`Done! Wrote ${written} files to ${outDir}`);\nif (skipped > 0) console.log(`Skipped ${skipped} files with no content.`);\n\nRun it:\n\nThe extracted source will be in the unpacked/ directory.\n\nsrc/\n├── cli/ # CLI entrypoint and argument parsing\n├── commands/ # Command implementations\n├── components/ # UI components (Ink/React)\n├── constants/ # App constants and configuration\n├── context/ # Context management\n├── hooks/ # React hooks\n├── ink/ # Terminal UI (Ink framework)\n├── services/ # Core services\n├── skills/ # Skill definitions\n├── tools/ # Tool implementations (file editing, search, etc.)\n├── types/ # TypeScript type definitions\n├── utils/ # Utility functions\n├── main.tsx # Main application entry\n├── query.ts # Query handling\n└── ...\n\nAll code in this repository is the intellectual property of Anthropic. This repository is provided for educational and reference purposes only. Please refer to Anthropic's license terms for usage restrictions.\n\nThis is not affiliated with, endorsed by, or supported by Anthropic.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "anthropic",
+      "bundle",
+      "claude code cli",
+      "cli",
+      "code",
+      "const",
+      "definition",
+      "extract",
+      "extracted",
+      "file",
+      "ink/react",
+      "npm",
+      "publish",
+      "readfilesync",
+      "repository",
+      "source",
+      "typescript",
+      "writefilesync"
+    ],
+    []
+  ]
+}

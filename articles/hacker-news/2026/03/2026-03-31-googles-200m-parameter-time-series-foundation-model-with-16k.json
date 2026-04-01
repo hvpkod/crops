@@ -1,0 +1,36 @@
+{
+  "id": 7234,
+  "source": "Hacker News",
+  "title": "Google's 200M-parameter time-series foundation model with 16k context",
+  "url": "https://github.com/google-research/timesfm",
+  "published_at": "2026-03-31T05:21:59Z",
+  "fetched_at": "2026-03-31T06:00:17.815435+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47583045\">Comments</a>",
+  "full_text": "TimesFM (Time Series Foundation Model) is a pretrained time-series foundation\nmodel developed by Google Research for time-series forecasting.\n\nThis open version is not an officially supported Google product.\n\nLatest Model Version: TimesFM 2.5\n\nArchived Model Versions:\n\n1.0 and 2.0: relevant code archived in the sub directory v1. You can pip install timesfm==1.3.0 to install an older version of this package to load\nthem.\n\nAdded back the covariate support through XReg for TimesFM 2.5.\n\nTimesFM 2.5 is out!\n\nComparing to TimesFM 2.0, this new 2.5 model:\n\nuses 200M parameters, down from 500M.\n\nsupports up to 16k context length, up from 2048.\n\nsupports continuous quantile forecast up to 1k horizon via an optional 30M\nquantile head.\n\ngets rid of the frequency indicator.\n\nhas a couple of new forecasting flags.\n\nAlong with the model upgrade we have also upgraded the inference API. This repo\nwill be under construction over the next few weeks to\n\nadd support for an upcoming Flax version of the model (faster inference).\n\nadd back covariate support.\n\npopulate more docstrings, docs and notebook.\n\nClone the repository:\n\ngit clone https://github.com/google-research/timesfm.git\ncd timesfm\n\nCreate a virtual environment and install dependencies using uv:\n\n# Create a virtual environment\nuv venv\n\n# Activate the environment\nsource .venv/bin/activate\n\n# Install the package in editable mode with torch\nuv pip install -e .[torch]\n# Or with flax\nuv pip install -e .[flax]\n# Or XReg is needed\nuv pip install -e .[xreg]\n\n[Optional] Install your preferred torch / jax backend based on your OS and accelerators\n(CPU, GPU, TPU or Apple Silicon).:\n\nimport torch\nimport numpy as np\nimport timesfm\n\ntorch.set_float32_matmul_precision(\"high\")\n\nmodel = timesfm.TimesFM_2p5_200M_torch.from_pretrained(\"google/timesfm-2.5-200m-pytorch\")\n\nmodel.compile(\n timesfm.ForecastConfig(\n max_context=1024,\n max_horizon=256,\n normalize_inputs=True,\n use_continuous_quantile_head=True,\n force_flip_invariance=True,\n infer_is_positive=True,\n fix_quantile_crossing=True,\n )\n)\npoint_forecast, quantile_forecast = model.forecast(\n horizon=12,\n inputs=[\n np.linspace(0, 1, 100),\n np.sin(np.linspace(0, 20, 67)),\n ], # Two dummy inputs\n)\npoint_forecast.shape # (2, 12)\nquantile_forecast.shape # (2, 12, 10): mean, then 10th to 90th quantiles.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "covariate",
+      "cpu",
+      "environment",
+      "forecastconfig",
+      "foundation",
+      "google",
+      "google research",
+      "gpu",
+      "install",
+      "model",
+      "optional] install",
+      "pretraine",
+      "support",
+      "timesfm",
+      "torch",
+      "tpu",
+      "xreg"
+    ],
+    []
+  ]
+}

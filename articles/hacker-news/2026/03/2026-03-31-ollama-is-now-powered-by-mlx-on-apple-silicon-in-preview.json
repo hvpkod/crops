@@ -1,0 +1,40 @@
+{
+  "id": 7225,
+  "source": "Hacker News",
+  "title": "Ollama is now powered by MLX on Apple Silicon in preview",
+  "url": "https://ollama.com/blog/mlx",
+  "published_at": "2026-03-31T03:40:45Z",
+  "fetched_at": "2026-03-31T04:40:17.921979+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47582482\">Comments</a>",
+  "full_text": "Today, we’re previewing the fastest way to run Ollama on Apple silicon, powered by MLX, Apple’s machine learning framework.\n\nThis unlocks new performance to accelerate your most demanding work on macOS:\n\nFastest performance on Apple silicon, powered by MLX\n\nOllama on Apple silicon is now built on top of Apple’s machine learning framework, MLX, to take advantage of its unified memory architecture.\n\nThis results in a large speedup of Ollama on all Apple Silicon devices. On Apple’s M5, M5 Pro and M5 Max chips, Ollama leverages the new GPU Neural Accelerators to accelerate both time to first token (TTFT) and generation speed (tokens per second).\n\nPrefill performance\n\n0\n500\n1000\n1500\n2000\ntokens/s\n\n1810\nOllama 0.19\n\n1154\nOllama 0.18\n\nDecode performance\n\n0\n40\n80\n120\n160\ntokens/s\n\n112\nOllama 0.19\n\n58\nOllama 0.18\n\nTesting was conducted on March 29, 2026, using Alibaba’s Qwen3.5-35B-A3B model quantized to `NVFP4` and Ollama’s previous implementation quantized to `Q4_K_M` using Ollama 0.18. Ollama 0.19 will see even higher performance (1851 token/s prefill and 134 token/s decode when running with `int4`).\n\nNVFP4 support: higher quality responses and production parity\n\nOllama now leverages NVIDIA’s NVFP4 format to maintain model accuracy while reducing memory bandwidth and storage requirements for inference workloads.\n\nAs more inference providers scale inference using NVFP4 format, this allows Ollama users to share the same results as they would in a production environment.\n\nIt further opens up Ollama to have the ability to run models optimized by NVIDIA’s model optimizer. Other precisions will be made available based on the design and usage intent from Ollama’s research and hardware partners.\n\nImproved caching for more responsiveness\n\nOllama’s cache has been upgraded to make coding and agentic tasks more efficient.\n\nLower memory utilization: Ollama will now reuse its cache across conversations, meaning less memory utilization and more cache hits when branching when using a shared system prompt with tools like Claude Code.\n\nIntelligent checkpoints: Ollama will now store snapshots of its cache at intelligent locations in the prompt, resulting in less prompt processing and faster responses.\n\nSmarter eviction: shared prefixes survive longer even when older branches are dropped.\n\nGet started\n\nDownload Ollama 0.19\n\nThis preview release of Ollama accelerates the new Qwen3.5-35B-A3B model, with sampling parameters tuned for coding tasks.\n\nPlease make sure you have a Mac with more than 32GB of unified memory.\n\nClaude Code:\n\nollama launch claude --model qwen3.5:35b-a3b-coding-nvfp4\n\nOpenClaw:\n\nollama launch openclaw --model qwen3.5:35b-a3b-coding-nvfp4\n\nChat with the model:\n\nollama run qwen3.5:35b-a3b-coding-nvfp4\n\nFuture models\n\nWe are actively working to support future models. For users with custom models fine-tuned on supported architectures, we will introduce an easier way to import models into Ollama. In the meantime, we will expand the list of supported architectures.\n\nAcknowledgments\n\nThank you to:\n\nThe MLX contributor team who built an incredible acceleration framework\n\nNVIDIA contributors to NVFP4 quantization, NVFP4 model optimizer, MLX CUDA support, Ollama optimizations and testing\n\nThe GGML & llama.cpp team who built a thriving local framework and community\n\nThe Alibaba Qwen team for open-sourcing excellent models and their collaboration",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "accelerate",
+      "ai",
+      "alibaba’s",
+      "apple",
+      "apple silicon",
+      "build",
+      "cache",
+      "gpu neural accelerators",
+      "inference",
+      "mac",
+      "memory",
+      "mlx",
+      "model",
+      "nvidia",
+      "ollama",
+      "ollama on apple",
+      "ollama’s",
+      "performance",
+      "power",
+      "silicon"
+    ],
+    [
+      "ai"
+    ]
+  ]
+}

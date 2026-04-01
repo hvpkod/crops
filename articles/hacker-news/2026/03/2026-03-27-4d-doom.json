@@ -1,0 +1,33 @@
+{
+  "id": 7472,
+  "source": "Hacker News",
+  "title": "4D Doom",
+  "url": "https://github.com/danieldugas/HYPERHELL",
+  "published_at": "2026-03-27T22:19:34Z",
+  "fetched_at": "2026-03-31T21:20:34.305506+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47549128\">Comments</a>",
+  "full_text": "Welcome to HYPERHELL, the first 4-Dimensional DOOM-Like of its kind.\n\nPlay the Demo Online\n\nNote: This demo requires WebGPU compatible hardware+browser (I've successfully tested it on Macbook M1, M2, and Nvidia GPUs + Chrome)\n\nOur feeble human minds can only comprehend up to 3 dimensions, so prepare to be disoriented as you descend into the 4-dimensional maze of HYPERHELL, and carve your way out through hordes of lost souls, demons and dark angels, to survive.\n\nIn this demo level, you will meet the Bargainer, who offers you an exchange that may be your only way out. Alter yourself to transcend the 3 dimensions you are bound to, or resign yourself to your fate. Your choice.\n\nThis game started as a question: can we understand 4-dimensional worlds intuitively?\n\nAfter some experimentation with rendering techniques for 4D worlds, I explored a new way to render 4D: through a 4D Eye, i.e. a camera with a 3D sensor.\n\nBecause I think we learn best by interacting, I then settled on creating a game that would use this new sensor rendering (which became the \"Unblink\" mechanic).\n\nFull Gameplay Video (Spoilers)\n\nDev Log #1: Simulating a 4D Eye",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "bargainer",
+      "comprehend",
+      "demo",
+      "disorient",
+      "feeble",
+      "github welcome",
+      "gpus",
+      "horde",
+      "hyperhell",
+      "nvidia",
+      "offer",
+      "render",
+      "webgpu",
+      "welcome",
+      "yourself"
+    ],
+    []
+  ]
+}

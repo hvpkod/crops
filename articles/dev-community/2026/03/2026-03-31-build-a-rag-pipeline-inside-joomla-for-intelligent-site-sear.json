@@ -1,0 +1,39 @@
+{
+  "id": 7412,
+  "source": "DEV Community<",
+  "title": "Build a RAG Pipeline Inside Joomla for Intelligent Site Search",
+  "url": "https://dev.to/albert_andrew_24878d43267/build-a-rag-pipeline-inside-joomla-for-intelligent-site-search-le",
+  "published_at": "2026-03-31T18:12:08Z",
+  "fetched_at": "2026-03-31T18:40:33.047817+00:00",
+  "author": "PHP CMS Framework",
+  "summary": "<p>Joomla's built-in search has always had the same fundamental limitation. It is keyword-based. A visitor types \"how do I reset my account\" and the search engine looks for articles containing those exact words. If your article uses the phrase \"recover your login credentials\" instead, it does not show up. The visitor gets no results, concludes your site does not have the answer, and leaves.</p>\n\n<p>This is not a Joomla problem specifically. It is what keyword search does. It matches strings, not meaning. RAG, Retrieval-Augmented Generation, solves this at the architecture level. Instead of matching keywords, it converts both your content and the search query into vector embeddings, finds content that is semantically similar, and uses an LLM to generate a direct answer from that content. A visitor asking \"how do I reset my account\" gets a proper answer even if none of your articles use those exact words.</p>\n\n<p>I will walk through the full implementation. We will cover the three main v",
+  "full_text": "Joomla's built-in search has always had the same fundamental limitation. It is keyword-based. A visitor types \"how do I reset my account\" and the search engine looks for articles containing those exact words. If your article uses the phrase \"recover your login credentials\" instead, it does not show up. The visitor gets no results, concludes your site does not have the answer, and leaves.\n\nThis is not a Joomla problem specifically. It is what keyword search does. It matches strings, not meaning. RAG, Retrieval-Augmented Generation, solves this at the architecture level. Instead of matching keywords, it converts both your content and the search query into vector embeddings, finds content that is semantically similar, and uses an LLM to generate a direct answer from that content. A visitor asking \"how do I reset my account\" gets a proper answer even if none of your articles use those exact words.\n\nI will walk through the full implementation. We will cover the three main vector storage options honestly so you can make the right choice for your setup, then go deep on building the complete RAG pipeline inside a custom Joomla component using PostgreSQL with pgvector and OpenAI.\n\nWhat you need: Joomla 4 or 5, PHP 8.1+, Composer, PostgreSQL with the pgvector extension installed, and an OpenAI API key.\n\nFor more details : https://www.phpcmsframework.com/2026/03/joomla-rag-pipeline-intelligent-site-search.html",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "article",
+      "exact",
+      "joomla",
+      "llm",
+      "openai",
+      "pgvector",
+      "pipeline",
+      "postgresql",
+      "programming",
+      "reset",
+      "search",
+      "use",
+      "vector",
+      "visitor",
+      "webdev"
+    ],
+    [
+      "ai",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 7208,
+  "source": "Slashdot",
+  "title": "AI Data Centers Can Warm Surrounding Areas By Up To 9.1C",
+  "url": "https://developers.slashdot.org/story/26/03/30/2337240/ai-data-centers-can-warm-surrounding-areas-by-up-to-91c?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-31T03:30:00Z",
+  "fetched_at": "2026-03-31T03:40:20.457882+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from New Scientist: Andrea Marinoni at the University of Cambridge, UK, and his colleagues saw that the amount of energy needed to run a data centre had been steadily increasing of late and was likely to \"explode\" in the coming years, so wanted to quantify the impact. The researchers took satellite measurements of land surface temperatures over the past 20 years and cross-referenced them against the geographical coordinates of more than 8400 AI data centers. Recognizing that surface temperature could be affected by other factors, the researchers chose to focus their investigation on data centers located away from densely populated areas.\n \nThey discovered that land surface temperatures increased by an average of 2C (3.6F) in the months after an AI data center started operations. In the most extreme cases, the increase in temperature was 9.1C (16.4F). The effect wasn't limited to the immediate surroundings of the data centers: the team found increased",
+  "full_text": "An anonymous reader quotes a report from New Scientist: Andrea Marinoni at the University of Cambridge, UK, and his colleagues saw that the amount of energy needed to run a data centre had been steadily increasing of late and was likely to \"explode\" in the coming years, so wanted to quantify the impact. The researchers took satellite measurements of land surface temperatures over the past 20 years and cross-referenced them against the geographical coordinates of more than 8400 AI data centers. Recognizing that surface temperature could be affected by other factors, the researchers chose to focus their investigation on data centers located away from densely populated areas.\n\n \n\nThey discovered that land surface temperatures increased by an average of 2C (3.6F) in the months after an AI data center started operations. In the most extreme cases, the increase in temperature was 9.1C (16.4F). The effect wasn't limited to the immediate surroundings of the data centers: the team found increased temperatures up to 10 kilometers away. Seven kilometers away, there was only a 30 percent reduction in the intensity. \"The results we had were quite surprising,\" says Marinoni. \"This could become a huge problem.\"\n\n \n\nUsing population data, the researchers estimate that more than 340 million people live within 10 kilometers of data centers, so live in a place that is warmer than it would be if the data centre hadn't been built there. Marinoni says that areas including the Bajio region in Mexico and the Aragon province in Spain saw a 2C (3.6F) temperature increase in the 20 years between 2004 and 2024 that couldn't otherwise be explained.\n\n University of Bristol researcher Chris Preist said the findings may be more complicated than they look. \"It would be worth doing follow-up research to understand to what extent it's the heat generated from computation versus the heat generated from the building itself,\" he says. For example, the building being heated by sunlight may be part of the effect.\n \n\nThe findings of the study, which has not yet been peer-reviewed, can be found on arXiv\n\n.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "aragon",
+      "bajio",
+      "center",
+      "datum",
+      "generate",
+      "increase",
+      "kilometer",
+      "marinoni",
+      "mexico",
+      "new scientist",
+      "researcher",
+      "spain",
+      "surface",
+      "surrounding",
+      "temperature",
+      "university of bristol"
+    ],
+    [
+      "ai"
+    ]
+  ]
+}

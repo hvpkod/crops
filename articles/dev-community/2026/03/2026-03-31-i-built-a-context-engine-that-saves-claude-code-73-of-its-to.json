@@ -1,0 +1,41 @@
+{
+  "id": 7305,
+  "source": "DEV Community<",
+  "title": "I built a context engine that saves Claude Code 73% of its tokens on large codebases",
+  "url": "https://dev.to/magnumstar/i-built-a-context-engine-that-saves-claude-code-73-of-its-tokens-on-large-codebases-3fke",
+  "published_at": "2026-03-31T12:03:06Z",
+  "fetched_at": "2026-03-31T12:40:44.533607+00:00",
+  "author": "Rocco Castoro",
+  "summary": "<ol>\n<li>\n<p><strong>The problem</strong></p>\n\n<ul>\n<li>LLM coding agents on large repos burn tokens scanning files. Claude Code on an 829-file codebase consumed 45K tokens just finding the right code. By turn 3 of a conversation, context is gone.</li>\n<li>Token cost compounds. 20 questions in a session at 45K each is 900K tokens -- nearly the entire 1M window. The agent degrades before your work is done.</li>\n</ul>\n</li>\n<li>\n<p><strong>What Mnemosyne does</strong></p>\n\n<ul>\n<li>Sits between your codebase and your LLM. Indexes into SQLite, scores every chunk with 6 retrieval signals (BM25, TF-IDF, symbol search, usage frequency, predictive prefetch, optional dense embeddings), compresses with AST awareness, delivers exactly within your token budget.</li>\n<li>Zero runtime dependencies. <code>pip install mnemosyne-engine</code>. No API keys, no cloud, no Docker. Works offline.</li>\n<li>Drop-in integration: add 3 lines to your CLAUDE.md or .cursorrules and the agent queries Mnemosyne bef",
+  "full_text": "The problem\n\nLLM coding agents on large repos burn tokens scanning files. Claude Code on an 829-file codebase consumed 45K tokens just finding the right code. By turn 3 of a conversation, context is gone.\n\nToken cost compounds. 20 questions in a session at 45K each is 900K tokens -- nearly the entire 1M window. The agent degrades before your work is done.\n\nWhat Mnemosyne does\n\nSits between your codebase and your LLM. Indexes into SQLite, scores every chunk with 6 retrieval signals (BM25, TF-IDF, symbol search, usage frequency, predictive prefetch, optional dense embeddings), compresses with AST awareness, delivers exactly within your token budget.\n\nZero runtime dependencies. pip install mnemosyne-engine. No API keys, no cloud, no Docker. Works offline.\n\nDrop-in integration: add 3 lines to your CLAUDE.md or .cursorrules and the agent queries Mnemosyne before reading files.\n\nThe benchmarks\n\nClaude Opus 4.6 with 1M context, tested against HCCValidatorAI (829 files, production codebase) and httpx (100 files, open-source).\n\nBaseline produces slightly more detailed answers by reading source directly. The optimal workflow combines both: Mnemosyne finds the files, Claude reads them.\n\nQuick start\n\n pip install mnemosyne-engine\n cd your-project\n mnemosyne init && mnemosyne ingest\n mnemosyne query \"How does auth work?\" --budget 8000\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nHow it retrieves\n\nSix signals fused via Reciprocal Rank Fusion. Link to ALGORITHMS.md for the deep dive.\n\nAST-aware chunking for Python, Go, Rust, C#, Java, Kotlin, JS/TS.\n\nIntegration examples\n\n“## Context Retrieval — MANDATORY\n\nBefore answering any question about this codebase, ALWAYS query the Mnemosyne index first:\n\n ! mnemosyne query \"<your question>\" --budget 8000\n\nUse the returned chunks as your primary context for answering. Only use Read, Grep, or Glob if the Mnemosyne chunks do not fully answer the question. Always cite which files and functions you found the answer in.”\n\nCursor, similar!\n\nAny agent that can shell out\n\nWhat it does NOT do\n\nNot a replacement for reading source files -- it is a file finder that saves you from grep-scanning\n\nDense embeddings are optional (requires onnxruntime) -- sparse retrieval handles most queries\n\nQuery latency is sub-500ms cold, sub-200ms warm -- not instant\n\nSmall repos (under ~50 files) see marginal savings; the value scales with codebase size\n\nConclusion\n\nOpen source, AGPL-3.0, commercial license available\n\nLinks: PyPI, GitHub\n\nTry it on your codebase and tell me what breaks",
+  "tags": [
+    [
+      "&& mnemosyne",
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "ast",
+      "chunk",
+      "claude",
+      "codebase",
+      "context",
+      "cursor",
+      "llm",
+      "mnemosyne",
+      "opensource",
+      "python",
+      "query",
+      "read",
+      "reciprocal rank fusion",
+      "retrieval",
+      "sqlite",
+      "token"
+    ],
+    [
+      "ai",
+      "opensource",
+      "python"
+    ]
+  ]
+}

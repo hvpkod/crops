@@ -1,0 +1,36 @@
+{
+  "id": 7228,
+  "source": "Hacker News",
+  "title": "Mr. Chatterbox is a Victorian-era ethically trained model",
+  "url": "https://simonwillison.net/2026/Mar/30/mr-chatterbox/",
+  "published_at": "2026-03-31T02:26:15Z",
+  "fetched_at": "2026-03-31T04:40:24.114208+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47582056\">Comments</a>",
+  "full_text": "Mr. Chatterbox is a (weak) Victorian-era ethically trained model you can run on your own computer\n\n30th March 2026\n\nTrip Venturella released Mr. Chatterbox, a language model trained entirely on out-of-copyright text from the British Library. Here’s how he describes it:\n\nMr. Chatterbox is a language model trained entirely from scratch on a corpus of over 28,000 Victorian-era British texts published between 1837 and 1899, drawn from a dataset made available by the British Library. The model has absolutely no training inputs from after 1899 — the vocabulary and ideas are formed exclusively from nineteenth-century literature.\n\nMr. Chatterbox’s training corpus was 28,035 books, with an estimated 2.93 billion input tokens after filtering. The model has roughly 340 million paramaters, roughly the same size as GPT-2-Medium. The difference is, of course, that unlike GPT-2, Mr. Chatterbox is trained entirely on historical data.\n\nGiven how hard it is to train a useful LLM without using vast amounts of scraped, unlicensed data I’ve been dreaming of a model like this for a couple of years now. What would a model trained on out-of-copyright text be like to chat with?\n\nThanks to Trip we can now find out for ourselves!\n\nThe model itself is tiny, at least by Large Language Model standards—just 2.05GB on disk. You can try it out using Trip’s HuggingFace Spaces demo:\n\nHonestly, it’s pretty terrible. Talking with it feels more like chatting with a Markov chain than an LLM—the responses may have a delightfully Victorian flavor to them but it’s hard to get a response that usefully answers a question.\n\nThe 2022 Chinchilla paper suggests a ratio of 20x the parameter count to training tokens. For a 340m model that would suggest around 7 billion tokens, more than twice the British Library corpus used here. The smallest Qwen 3.5 model is 600m parameters and that model family starts to get interesting at 2b—so my hunch is we would need 4x or more the training data to get something that starts to feel like a useful conversational partner.\n\nBut what a fun project!\n\nRunning it locally with LLM\n\nI decided to see if I could run the model on my own machine using my LLM framework.\n\nI got Claude Code to do most of the work—here’s the transcript.\n\nTrip trained the model using Andrej Karpathy’s nanochat, so I cloned that project, pulled the model weights and told Claude to build a Python script to run the model. Once we had that working (which ended up needing some extra details from the Space demo source code) I had Claude read the LLM plugin tutorial and build the rest of the plugin.\n\nllm-mrchatterbox is the result. Install the plugin like this:\nllm install llm-mrchatterbox\n\nThe first time you run a prompt it will fetch the 2.05GB model file from Hugging Face. Try that like this:\nllm -m mrchatterbox \"Good day, sir\"\n\nOr start an ongoing chat session like this:\nllm chat -m mrchatterbox\n\nIf you don’t have LLM installed you can still get a chat session started from scratch using uvx like this:\nuvx --with llm-mrchatterbox llm chat -m mrchatterbox\n\nWhen you are finished with the model you can delete the cached file using:\nllm mrchatterbox delete-model\n\nThis is the first time I’ve had Claude Code build a full LLM model plugin from scratch and it worked really well. I expect I’ll be using this method again in the future.\n\nI continue to hope we can get a useful model from entirely public domain data. The fact that Trip was able to get this far using nanochat and 2.93 billion training tokens is a promising start.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "chat",
+      "chatterbox",
+      "corpus",
+      "entirely",
+      "hugging face",
+      "language",
+      "llm",
+      "model",
+      "mrchatterbox",
+      "space",
+      "train",
+      "training",
+      "trip",
+      "trip’s huggingface spaces",
+      "venturella"
+    ],
+    [
+      "ai"
+    ]
+  ]
+}

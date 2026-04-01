@@ -1,0 +1,41 @@
+{
+  "id": 7518,
+  "source": "DEV Community<",
+  "title": "Cx Dev Log — 2026-03-25",
+  "url": "https://dev.to/commenterthe9/cx-dev-log-2026-03-25-5cj1",
+  "published_at": "2026-04-01T00:05:23Z",
+  "fetched_at": "2026-04-01T00:40:38.619097+00:00",
+  "author": "COMMENTERTHE9",
+  "summary": "<p>Two major threads converged today in the Cx language project, making a significant technical leap forward. The IR backend refactor has finally merged into main, transitioning the Backend trait interface from raw AST to a more robust IR. Simultaneously, over at submain, a newly introduced 301-line module resolver is set to redefine how we handle dependencies, circular imports, and topological sorting.</p>\n\n<h2>\n  \n  \n  IR is now the backend interface\n</h2>\n\n<p>March 24th saw the successful merge of PR #19, a union of four commits that ushered in Phase 0.5 of our backend architecture changes. The crux? Moving the Backend trait from using <code>&amp;Program</code> (AST) to <code>&amp;IrModule</code> (IR). With this one-way door, all backend development now requires IR input, no turning back to the AST-based approach. Cranelift and LLVM backends received immediate updates in response.</p>\n\n<p>The additional commits introduced vital debugging tools for the IR pipeline. These might not se",
+  "full_text": "Two major threads converged today in the Cx language project, making a significant technical leap forward. The IR backend refactor has finally merged into main, transitioning the Backend trait interface from raw AST to a more robust IR. Simultaneously, over at submain, a newly introduced 301-line module resolver is set to redefine how we handle dependencies, circular imports, and topological sorting.\n\n \n \n IR is now the backend interface\n\nMarch 24th saw the successful merge of PR #19, a union of four commits that ushered in Phase 0.5 of our backend architecture changes. The crux? Moving the Backend trait from using &Program (AST) to &IrModule (IR). With this one-way door, all backend development now requires IR input, no turning back to the AST-based approach. Cranelift and LLVM backends received immediate updates in response.\n\nThe additional commits introduced vital debugging tools for the IR pipeline. These might not seem groundbreaking, but when you need to diagnose a validation failure, having an automatic IR module dump can save a lot of headaches. There's also a new --backend=validate mode crafted for running IR lowering and validation sans any codegen backends. For a more granular look, the --debug-trace flag will now print each IR instruction as it gets emitted during lowering. These utilities make working on the IR pipeline significantly less of a chore, particularly with upcoming complexities like loops and structs.\n\n \n \n Module resolver on submain\n\nThe module resolver emerged as submain’s headline contribution. Clocking in at 301 lines, resolver.rs constructs dependency graphs, shines with circular import detection, and supports path-based topological sorting. Through ModuleId, ImportEdge, ResolvedFile, and ResolvedProgram, it ensures a verified process for relative ./ paths, and caps recursion depth at 100. Note that std/ imports without a local file aren't supported in v0.1 and will raise clear errors immediately.\n\nThe resolver has now threaded into main.rs, positioned squarely between parsing and semantic analysis. For single-file programs, you'll notice no difference. But when it comes to multi-file programs, missing imported files prompt clear error messages instead of cryptic failures.\n\nA third notable addition, the ExportTable struct arrived in semantic_types.rs, complete with maps for functions, structs, consts, and enums. This sets the stage for robust cross-file symbol resolution. Public symbols in a resolved module now populate the export table, effectively allowing importing files to reference them using alias.symbol.\n\nTests t65 and t66 on submain intentionally flipped to expected_fail to reflect the resolver's accuracy. On main, they would erroneously pass due to lack of meaningful import resolution.\n\n \n \n Design choices worth noting\n\nBuilding a real dependency graph was a deliberate choice despite the extra effort. It offers more than simple file loading by providing stable module IDs and import edges necessary for dead symbol elimination and circular import detection in the future. Possible ../ path traversals are permitted but will be managed better beyond v0.1.\n\n \n \n What's still in progress\n\nEverything implemented today resides in submain, pending a merge request to integrate onto the main branch. The ExportTable is present, yet it doesn't populate during analysis. Up next is populating the export table with symbols from the topologically ordered files, making these symbols available to files through alias mapping.\n\nTests t65 and t66 are yet to tackle real-world, multi-file test programs. Creating these programs, like stubs for player.cx and std/math, would help validate the full resolver-to-execution flow.\n\n \n \n What's next\n\nThe next big milestone? Bringing submain’s resolver and ExportTable onto the main branch. Prioritizing the integration of ExportTable into semantic analysis is vital for fully functional multi-file support. On the IR frontier, turning our attention to loop and struct lowering is crucial now that the debugging tools are in place and the backend expects &IrModule.\n\nThe good news? The test suite stands firm with 72 out of 72 tests green, signaling no regressions from today’s work.\n\nFollow the Cx language project:\n\nOriginally published at https://cx-lang.com/blog/2026-03-25",
+  "tags": [
+    [
+      "&irmodule",
+      "&program",
+      "1000-words",
+      "2026",
+      "ast",
+      "backend",
+      "circular",
+      "cx",
+      "exporttable",
+      "file",
+      "import",
+      "importedge",
+      "introduce",
+      "llvm",
+      "module",
+      "moduleid",
+      "programming",
+      "resolvedfile",
+      "resolvedprogram",
+      "resolver",
+      "symbol",
+      "test"
+    ],
+    [
+      "cx",
+      "programming"
+    ]
+  ]
+}

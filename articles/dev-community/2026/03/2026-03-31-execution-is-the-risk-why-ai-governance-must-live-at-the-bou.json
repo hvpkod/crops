@@ -1,0 +1,36 @@
+{
+  "id": 7219,
+  "source": "DEV Community<",
+  "title": "Execution Is the Risk: Why AI Governance Must Live at the Boundary",
+  "url": "https://dev.to/dan_evans_1/execution-is-the-risk-why-ai-governance-must-live-at-the-boundary-4f1a",
+  "published_at": "2026-03-31T03:08:08Z",
+  "fetched_at": "2026-03-31T04:00:33.937014+00:00",
+  "author": "Dan Evans",
+  "summary": "<p>Most AI governance conversations are still missing the point.</p>\n\n<p>The risk does not come from what the model says. It comes from what the system does next.</p>\n\n<p>There is a moment in every AI system where a proposed action turns into a real state change. A record is written. A payment is sent. An account is modified. That moment is the execution boundary. And right now, most systems treat it as an assumption, not a control point.</p>\n\n<p>They check policy before execution. They log what happened after execution. Some even add approvals in the middle. But none of that guarantees that the action that was evaluated is the same action that actually committed.</p>\n\n<p>That gap is where failures live.</p>\n\n<p>If anything changes between evaluation and execution, identity, inputs, system state, timing, then the original decision is no longer valid. But most systems carry that decision forward as if it still applies. That is not governance. That is hope.</p>\n\n<p>Real control requires ",
+  "full_text": "Most AI governance conversations are still missing the point.\n\nThe risk does not come from what the model says. It comes from what the system does next.\n\nThere is a moment in every AI system where a proposed action turns into a real state change. A record is written. A payment is sent. An account is modified. That moment is the execution boundary. And right now, most systems treat it as an assumption, not a control point.\n\nThey check policy before execution. They log what happened after execution. Some even add approvals in the middle. But none of that guarantees that the action that was evaluated is the same action that actually committed.\n\nThat gap is where failures live.\n\nIf anything changes between evaluation and execution, identity, inputs, system state, timing, then the original decision is no longer valid. But most systems carry that decision forward as if it still applies. That is not governance. That is hope.\n\nReal control requires something stricter.\n\nAt the moment of execution, authority has to be re-resolved against the current state. Not earlier. Not assumed. Not inferred. Proven. And the decision has to be bound to the action itself so that what executes is exactly what was authorized, nothing more, nothing less.\n\nThat means no drift between evaluation and commit. No silent changes. No second interpretation. The decision and the execution have to become the same thing.\n\nAnd when that happens, you can do something most systems cannot do today. You can prove it.\n\nYou can produce a verifiable record that shows exactly what was proposed, what was evaluated, what policy applied, what conditions existed, and why the system allowed or blocked the action. Not as a log. As a sealed artifact that can be independently verified and replayed.\n\nThis is the shift that needs to happen.\n\nGovernance cannot live in guidelines. It cannot live in logs. It cannot live in approvals. It has to live at the execution boundary, where actions become real.\n\nThe model proposes.\n\nThe system commits.\n\nControl exists only if authority is resolved at that exact moment, and the system can prove that what executed is exactly what was allowed.\n\nPrimeFormCalculus.com",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "action",
+      "ai",
+      "aiagents",
+      "aigovernance",
+      "cannot",
+      "control",
+      "decision",
+      "exactly",
+      "execution",
+      "governance",
+      "live",
+      "moment",
+      "payments",
+      "system"
+    ],
+    [
+      "ai",
+      "aiagents",
+      "aigovernance"
+    ]
+  ]
+}

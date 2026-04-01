@@ -1,0 +1,34 @@
+{
+  "id": 7361,
+  "source": "Hacker News",
+  "title": "GitHub Monaspace Case Study",
+  "url": "https://lettermatic.com/custom/monaspace-case-study",
+  "published_at": "2026-03-31T15:01:35Z",
+  "fetched_at": "2026-03-31T16:00:23.161064+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47588349\">Comments</a>",
+  "full_text": "Designing a Superfamily\n\nThe Monaspace superfamily contains five distinct typefaces, each with their own voice. Syntax highlighting, which in the past has relied on color and in some cases, bold or italics, now has an entirely separate dimension of emphasis to explore: typographic style.\n\nOur task was to satisfy all the constraints of making legible and successful monospace fonts, while allowing each design have its own unique identity. The fixed advance width of monospacing has a tendency to make all designs feel homogenous, even if they are wildly different in their construction. In general, fonts in code editors appear at smaller sizes, and details at this size can be lost if they’re not amplified in some way. For Monaspace, we knew we needed designs that differentiated themselves, pushing the experimental shift in genre to less expected places, and indeed to voices that have rarely been tried before in the context of code.\n\nIn our process, we prioritized drawing at the bolder end of the spectrum first, as proving a monospace design can succeed at bold weights is a great way to feel confident that it will work at lighter weights where space is not as precious. In all, over 500 prototype letters have been drawn for the various explorations, including a chiseled design and even a reverse-contrast exploration. A short list of ‘studies’ were thoughtfully whittled down to the five final typefaces that make up Monaspace: Argon, a humanist sans; Neon, a grotesque sans; Xenon, a slab serif; Radon, a style that resembles handwriting; and Krypton, a mechanical sans.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "allow",
+      "argon",
+      "bold",
+      "design",
+      "designing",
+      "github",
+      "krypton",
+      "monaspace",
+      "monospace",
+      "monospacing",
+      "neon",
+      "radon",
+      "rely",
+      "superfamily",
+      "syntax",
+      "weight"
+    ],
+    []
+  ]
+}

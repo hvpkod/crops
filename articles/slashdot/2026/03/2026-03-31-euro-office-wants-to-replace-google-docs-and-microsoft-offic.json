@@ -1,0 +1,42 @@
+{
+  "id": 7387,
+  "source": "Slashdot",
+  "title": "Euro-Office Wants To Replace Google Docs and Microsoft Office",
+  "url": "https://slashdot.org/story/26/03/31/0438235/euro-office-wants-to-replace-google-docs-and-microsoft-office?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-03-31T16:00:00Z",
+  "fetched_at": "2026-03-31T17:00:20.990089+00:00",
+  "author": "BeauHD",
+  "summary": "Euro-Office is a new open-source project supported by several European companies that aims to offer a \"truly open, transparent and sovereign solution for collaborate document editing,\" using OnlyOffice as a starting point. The project is positioned around European digital independence and familiar Office-style editing, though it has already drawn pushback from OnlyOffice over alleged licensing violations. \"The company behind OnlyOffice is also based in Russia, and Russia is still heavily sanctioned by most European nations due to the country's ongoing invasion of Ukraine,\" adds How-To Geek. From the report: Euro-Office is a new open-source project supported by Nextcloud, EuroStack, Wiki, Proton, Soverin, Abilian, and other companies based in Europe. The goal is to build an online office suite that can open and edit standard Microsoft Office documents (DOCX, PPTX, XLSX) and the OpenDocument format (ODS, ODT, ODP) used by LibreOffice and OpenOffice. The current design is remarkably close",
+  "full_text": "Euro-Office\n\n is a new open-source project supported by several European companies that aims to offer a \"truly open, transparent and sovereign solution for collaborate document editing\n\n,\" using OnlyOffice as a starting point. The project is positioned around European digital independence and familiar Office-style editing, though it has already drawn pushback from OnlyOffice over alleged licensing violations. \"The company behind OnlyOffice is also based in Russia, and Russia is still heavily sanctioned by most European nations due to the country's ongoing invasion of Ukraine,\" adds How-To Geek. From the report: Euro-Office is a new open-source project supported by Nextcloud, EuroStack, Wiki, Proton, Soverin, Abilian, and other companies based in Europe. The goal is to build an online office suite that can open and edit standard Microsoft Office documents (DOCX, PPTX, XLSX) and the OpenDocument format (ODS, ODT, ODP) used by LibreOffice and OpenOffice. The current design is remarkably close to Microsoft Office and its tabbed toolbars, so there shouldn't be much of a learning curve for anyone used to Word, Excel, or PowerPoint.\n\n \n\nImportantly, Euro-Office is only the document editing component. It's designed to be added to cloud storage services, online wikis, project management tools, and other software. For example, you could have some Word documents in your Nextcloud file storage, and clicking them in a browser could open the Euro-Office editor. That way, Nextcloud (or Proton, or anyone else) doesn't have to build its own document editor from scratch.\n\n \n\nEuro-Office is based on OnlyOffice, which is open-source under the AGPL license. The project explained that \"Contributing is impossible or greatly discouraged\" with OnlyOffice's developers, with outside code changes rarely accepted, so a hard fork was required. The company behind OnlyOffice is also based in Russia, and Russia is still heavily sanctioned by most European nations due to the country's ongoing invasion of Ukraine. The project's home page explains, \"A lot of users and customers require software that is not potentially influenced or controlled by the Russian government.\" \n\n As for why OnlyOffice was chosen over LibreOffice, the project simply said: \"We believe open source is about collaboration, and we look for opportunities to integrate and collaborate with the LibreOffice community and companies like Collabora.\"\n \nUPDATE:\n\n Slashdot reader Elektroschock\n\n shares a statement\n\n from OnlyOffice CEO Lev Bannov, expressing his concerns about the Euro-Office inclusion of its software with trademarks removed: \"We liked the AGPL v3 license because its 7th clause allows us to ensure that our code retains its original attributes, so that users are able to clearly identify the developers and the brand behind the program...\"\n \n\nBannov continued: \"The core issue here isn't just about what the AGPL license states, but about the additional provisions we, as the authors, have included. This is a critical distinction, even if some may argue otherwise. We firmly assert that the Euro-Office project is currently infringing on our copyright in a deliberate and unacceptable manner.\"\n \n\n\"As the creators of ONLYOFFICE, we want to make our position unequivocally clear: we do not grant anyone the right to remove our branding or alter our open-source code without proper attribution. This principle is non-negotiable and will never change. We demand that the Euro-Office project either restore our branding and attributions or roll back all forks of our project, refraining from using our code without proper acknowledgment of ONLYOFFICE.\"",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agpl",
+      "anyone",
+      "base",
+      "behind",
+      "company",
+      "document",
+      "eu",
+      "euro-office",
+      "europe",
+      "european",
+      "eurostack",
+      "microsoft office",
+      "nextcloud",
+      "office",
+      "onlyoffice",
+      "project",
+      "proton",
+      "russia",
+      "soverin",
+      "ukraine"
+    ],
+    [
+      "eu",
+      "russia",
+      "ukraine"
+    ]
+  ]
+}

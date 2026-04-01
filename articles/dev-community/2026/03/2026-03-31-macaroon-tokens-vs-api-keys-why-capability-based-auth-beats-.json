@@ -1,0 +1,34 @@
+{
+  "id": 7415,
+  "source": "DEV Community<",
+  "title": "Macaroon Tokens vs API Keys: Why Capability-Based Auth Beats Identity-Based Auth for AI Agents",
+  "url": "https://dev.to/mattdeangit/macaroon-tokens-vs-api-keys-why-capability-based-auth-beats-identity-based-auth-for-ai-agents-4nkl",
+  "published_at": "2026-03-31T18:06:36Z",
+  "fetched_at": "2026-03-31T18:40:38.215793+00:00",
+  "author": "matt-dean-git",
+  "summary": "<p>API keys tie identity to unlimited access. Macaroon tokens embed capabilities and constraints. For AI agents that need delegation and budget limits, the difference is everything.</p>\n\n<p><strong>Read the full article on SatGate.io:</strong> <a href=\"https://satgate.io/blog/macaroon-tokens-vs-api-keys\" rel=\"noopener noreferrer\">https://satgate.io/blog/macaroon-tokens-vs-api-keys</a></p>\n\n<h2>\n  \n  \n  The Problem with API Keys for AI Agents\n</h2>\n\n<p>Every API authentication system makes a fundamental choice: identify <em>who</em> the caller is, or specify <em>what</em> the caller can do. For twenty years, web APIs have chosen identity. Get an API key, prove you're legitimate, access everything your account allows.</p>\n\n<p>AI agents break that model. An agent doesn't just call your API — it delegates to sub-agents, spawns parallel tasks, and operates under budgets set by entities three delegation layers up the chain.</p>\n\n<h2>\n  \n  \n  Why Macaroons Solve the Delegation Problem\n</h2>\n\n",
+  "full_text": "API keys tie identity to unlimited access. Macaroon tokens embed capabilities and constraints. For AI agents that need delegation and budget limits, the difference is everything.\n\nRead the full article on SatGate.io: https://satgate.io/blog/macaroon-tokens-vs-api-keys\n\n \n \n The Problem with API Keys for AI Agents\n\nEvery API authentication system makes a fundamental choice: identify who the caller is, or specify what the caller can do. For twenty years, web APIs have chosen identity. Get an API key, prove you're legitimate, access everything your account allows.\n\nAI agents break that model. An agent doesn't just call your API — it delegates to sub-agents, spawns parallel tasks, and operates under budgets set by entities three delegation layers up the chain.\n\n \n \n Why Macaroons Solve the Delegation Problem\n\nMacaroons flip the authentication model. Instead of asking \"who are you?\" they embed the answer to \"what can you do?\" directly into the token. A macaroon is a capability token — it carries specific permissions, constraints, and delegation rules as part of its cryptographic structure.\n\n# Root macaroon: access to translation API\nmacaroon = new_macaroon(root_secret, identifier, location)\n\n# Add constraining caveats\nmacaroon.add_first_party_caveat(\"budget_max = 50.00\")\nmacaroon.add_first_party_caveat(\"endpoints = /translate/*\")\nmacaroon.add_first_party_caveat(\"expires = 2026-04-01T00:00:00Z\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Attenuation: The Secret Sauce of Delegation\n\nAnyone holding a macaroon can add more caveats to create a more restricted token. This is called attenuation, and it's the foundation of safe delegation.\n\n# Agent A delegates to Agent B with stricter limits\nagent_b_macaroon = attenuate(agent_a_macaroon, [\n \"budget_max = 10.00\", # Stricter than parent\n \"endpoints = /translate/en-es\" # More specific\n])\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n When to Use Each Approach\n\nAPI Keys work for:\n\nHuman developers managing credentials manually\n\nSimple binary permissions\n\nAccount-level budget enforcement\n\nMacaroons work for:\n\nAI agents needing bounded authority\n\nFine-grained permissions and budgets\n\nSafe delegation without manual key management\n\nReal-time budget enforcement\n\n \n \n The Strategic Advantage\n\nAPI providers who adopt capability-based authentication early gain a significant competitive advantage in the agent economy. Enterprises can safely integrate AI agents without cost or security risks.\n\nRead the complete analysis with implementation details at: https://satgate.io/blog/macaroon-tokens-vs-api-keys",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "ai",
+      "api",
+      "authentication",
+      "budget",
+      "caveat",
+      "delegate",
+      "delegation",
+      "fullscreen",
+      "keys",
+      "macaroon",
+      "problem",
+      "security",
+      "stricter"
+    ],
+    [
+      "ai"
+    ]
+  ]
+}

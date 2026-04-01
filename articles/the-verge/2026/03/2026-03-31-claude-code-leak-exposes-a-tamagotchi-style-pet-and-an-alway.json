@@ -1,0 +1,42 @@
+{
+  "id": 7493,
+  "source": "The Verge",
+  "title": "Claude Code leak exposes a Tamagotchi-style ‘pet’ and an always-on agent",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/904776/anthropic-claude-source-code-leak",
+  "published_at": "2026-03-31T22:24:19Z",
+  "fetched_at": "2026-03-31T22:40:24.186788+00:00",
+  "author": "Emma Roth",
+  "summary": "<figure>\n\n<img alt=\"The Claude logo on a beige background.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/08/STKB364_CLAUDE_D.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">After Anthropic released Claude Code's <a href=\"https://x.com/ClaudeCodeLog/status/2038773096379748786?s=20\">2.1.88 update</a>, users quickly discovered that it contained a package with a source map file containing its TypeScript codebase, with one <a href=\"https://x.com/Fried_rice/status/2038894956459290963?s=20\">person on X</a> calling attention to the leak and posting a file containing the code. The leaked data reportedly contains more than 512,000 lines of code and provides a look into the inner workings of the AI-powered coding tool, as <a href=\"https://arstechnica.com/ai/2026/03/entire-claude-code-cli-source-code-leaks-thanks-to-exposed-map-file/\">reported earlier by <em>Ars Technica</em></a> and <a href=\"https",
+  "full_text": "After Anthropic released Claude Code’s 2.1.88 update, users quickly discovered that it contained a package with a source map file containing its TypeScript codebase, with one person on X calling attention to the leak and posting a file containing the code. The leaked data reportedly contains more than 512,000 lines of code and provides a look into the inner workings of the AI-powered coding tool, as reported earlier by Ars Technica and VentureBeat.\n\nUsers who have dug into the code claim to have uncovered upcoming features, Anthropic’s instructions for the AI bot, and insight into its ”memory” architecture. Some things spotted by users include a Tamagotchi-like pet that “sits beside your input box and reacts to your coding,” according to a post on Reddit, along with a “KAIROS” feature that could enable an always-on background agent. Users also found a comment from one of Anthropic’s coders, who admits at one point that the “memoization here increases complexity by a lot, and im not sure it really improves performance.”\n\nThough Anthropic later fixed the issue, that didn’t stop users from copying the code to a repository on GitHub, which has since amassed more than 50,000 forks (or copies of the repository). Anthropic launched Claude Code in February of 2025, and the tool picked up more steam after adding agentic capabilities that perform tasks on a user’s behalf.\n\n“Earlier today, a Claude Code release included some internal source code. No sensitive customer data or credentials were involved or exposed,” Anthropic spokesperson Christopher Nulty says in an emailed statement to The Verge. “This was a release packaging issue caused by human error, not a security breach. We’re rolling out measures to prevent this from happening again.”\n\nArun Chandrasekaran, an AI analyst at Gartner, tells The Verge that while the Claude Code leak poses “risks such as providing bad actors with possible outlets to bypass guardrails,” its long-term impact could be limited to serving as a “call for action for Anthropic to invest more in processes and tools for better operational maturity.”",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "anthropic",
+      "claude",
+      "code",
+      "contain",
+      "datum",
+      "discover",
+      "gartner",
+      "github",
+      "leak",
+      "news",
+      "reddit",
+      "release",
+      "security",
+      "source",
+      "tamagotchi",
+      "tech",
+      "typescript",
+      "user",
+      "venturebeat"
+    ],
+    [
+      "ai",
+      "news",
+      "tech"
+    ]
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 7394,
+  "source": "Hacker News",
+  "title": "Lime (bikes) is a data company",
+  "url": "https://ktoya.me/lime-data-company/",
+  "published_at": "2026-03-30T17:26:10Z",
+  "fetched_at": "2026-03-31T17:20:25.625068+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47577177\">Comments</a>",
+  "full_text": "Lime bikes have been my primary mode of transport in London for past 3 years.\nI would take a lime when it rains, when it’s faster to take the tube, when the destination is more than an hour away, always.\n\nShowing off my 6k+ kilometres stats became a common ice breaker and party trick.\nI was pretty sure I was a 1% power user, but couldn’t prove it.\n\nThat’s when this idea crossed my mind to combine the two best inventions of humankind, GDPR and Claude, and properly analyse my geospatial trail.\n\nI sent lime a request to provide all of my data they store.\n\nUltra Emerald Commuter\n\nOnce I received the archive and fed it to claude, I started from the basics.\n Summarise what files are in the archive \n\nTrip history — every ride with timestamps, GPS coordinates, distance and cost\n\nApp event log — every in-app interaction with timestamp, IP address, device info\n\nPayment history — subscription charges, trip costs, arrears, refunds\n\nUser profile — name, email, payment card details, account settings\n\nCRM profile — rider tier, loyalty scores, user segmentation\n\nIdentity verification — selfie photos (multiple poses) and government ID scan\n\nCustomer information — template document with privacy policy links and DPO contact\n \n\nBingo!\n What marketing data is stored about me in the crm? \n\nFieldValueRider StatusDiamondTOP_1_PERCENT_CATEGORYTRUEUSER_SEGMENTUltra EmeraldRFMEngaged-High Frequency-Very High Value-DiamondGrowth SegmentEngagedCOMMUTER_SEGMENTcommuterTOURIST_SEGMENTlocalMAJORITY_RIDE_TIMEWeekday DayMINUTE_QUARTILE4 (top quartile)AGGmore_than_10_tripsMOST_USED_VEHICLE_TYPEOld LimeBike \n\nNow I am officially a diamond top 1 percent ultra emerald high rfm local weekday commuter! 🗿\n\nI then proceeded to build some dashboards with my stats.\n \n\nI remember a day in November ‘25, when I discovered dog 💩 in the basket of a lime bike that i was about to rent.\nThat was the moment I downloaded forest bike app and decided to give it a go. You can clearly see it on dashboards above.\n\nBut how much did I spend over 3 years?\n\n \n\n \n\n \n\n \n\n£3,034 \n\ntotal spent \n\n£1.49 per ride \n\n \n\n \n\n116 \n\nride passes purchased \n\n ‹ › \n\nThird Space\n\nI then played around with mapping out my rides for a bit.\n\n(nb: for discretion, i filtered out all data points after summer ‘25 when i moved houses and changed jobs - so my current house / office is not on the map)\n \n\nThis turned out to be the best illustration of a concept of third space I’ve ever seen (ironically that’s exactly the name of my gym).\n\nI could also see a bunch of other smaller points of interest on this map - a couple of my favorite brunch spots, favorite park walk, my dentist’s office, my badminton and salsa class locations.\n\nThis got me thinking: based on these rides alone, how much info about my life could be deduced?\n\nMy favorite brunch spot\n\nAs exciting as analysing raw data could be, the real gem is the data that could be derived from it.\n\nI started by asking:\n Based on the rides, where do I live? where do I work? \n\nHomes:\n\nHome 1 (Aug 2023 — Aug 2025): Camden Town / Kentish Town (51.551, -0.115)\n\nHome 2 (Sep 2025 — present): [redacted]. Moved in September 2025, clean overnight switch\n\nJobs:\n\nWork 1 (Aug 2023 — early 2025): King’s Cross / St Pancras (51.538, -0.125)\n\nWork 2 (Oct 2025 — present): Fitzrovia. Gap in commute signal from\n~March to September 2025 between the two jobs.\n \n\nI was blown away!\nNot only did it correctly identify where I live and work, but also when I moved, when I left my previous job and when I started a new one, with the gap in between!\n identify other spots of interest and figure out what are they \n\n[redacted location 1] — Your most visited non-home/work location by far. Every\nday of the week, peaks 5-8pm, consistent over the entire timeline. Almost certainly a gym.\nThe pattern is textbook: go after work most days, occasionally at lunch or mornings.\n\n[redacted location 2] — 43% weekend, peaks Saturday morning and 1pm\nacross all days. This is a brunch/cafe spot. The Saturday 10am-1pm pattern is very strong.\n\n[redacted location 3] — never weekend, overwhelmingly Tuesdays, exclusively\n12-3pm. A standing Tuesday lunchtime appointment — therapist, barber, physio, or similar.\n\n[redacted location 4] — Almost exclusively Thursdays, almost exclusively 5pm.\n22 arrivals, only 6 departures (you arrive by Lime but leave differently).\nA regular Thursday appointment or class that starts around 5-6pm.\n\n \n\nIt perfectly identified my gym, my favorite Saturday brunch spot, my dentist and my salsa class locations — all without any extra context!\n\nDIY\n\nHaving read this, you probably want to do this with your data. Here’s how:\n\nRequest your Lime data using the app, or by emailing dpo (at) li.me\n\n(recommended) Enable private / zero retention mode in your agent (codex, claude, …)\n\nFeed the dataset to the agent. Explore it together, talk to it, ask questions, ask to build dashboards for you.\n\nThe magic of GDPR + Claude\n\nNow, the most interesting bit - you can do it with any app that has your data - as long as you’re in EU / UK.\n\nYour whoop, deliveroo, uber, revolut and hinge. Your messages, social media and emails.\n\nYou can request everything, combine, and analyse with an agent - it would likely tell you things you didn’t even know about yourself.\n\nThis article reflects my personal experience. I am not affiliated with, sponsored by, or endorsing Lime, Forest, or any other company.\n\nSubscribe below to stay up to date with my experiments.\nI would only send you my own experiments, no bs.\n \n ← Back to home",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bike",
+      "bingo",
+      "brunch",
+      "camden",
+      "dashboard",
+      "datum",
+      "diy",
+      "dpo",
+      "exclusively",
+      "favorite",
+      "gdpr",
+      "lime",
+      "location",
+      "london",
+      "payments",
+      "ride",
+      "start",
+      "› \n\nthird space"
+    ],
+    []
+  ]
+}

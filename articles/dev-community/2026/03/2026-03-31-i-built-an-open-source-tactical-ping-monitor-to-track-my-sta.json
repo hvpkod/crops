@@ -1,0 +1,40 @@
+{
+  "id": 7351,
+  "source": "DEV Community<",
+  "title": "I built an Open-Source \"Tactical\" Ping Monitor to track my Starlink micro-dropouts vs my 4G/5G backup.",
+  "url": "https://dev.to/fratocchijosh91/i-built-an-open-source-tactical-ping-monitor-to-track-my-starlink-micro-dropouts-vs-my-4g5g-2bg7",
+  "published_at": "2026-03-31T15:29:56Z",
+  "fetched_at": "2026-03-31T15:40:28.112502+00:00",
+  "author": "Josh Fratocchi",
+  "summary": "<p>Hey guys! I was getting frustrated with invisible lag spikes and micro-disconnections, so I decided to build a native desktop tool (in Go &amp; Fyne) to monitor my primary uplink (Starlink) against a secondary cellular backup.</p>\n\n<p>It’s extremely lightweight, runs on Windows, and uses a dark tactical UI for quick situational awareness.</p>\n\n<p>It's Open-Core and completely free to use the dual-link tracking and live UI dashboard.</p>\n\n<p>You can download the portable .zip or .exe installer directly from the GitHub Releases tab, or inspect the source code. Let me know what you think and if it helps your setups!</p>\n\n<p>🔗 GitHub Repository &amp; Download: <a href=\"https://github.com/fratocchijosh91/NeuralPathTacticalGuard\" rel=\"noopener noreferrer\">https://github.com/fratocchijosh91/NeuralPathTacticalGuard</a></p>",
+  "full_text": "Hey guys! I was getting frustrated with invisible lag spikes and micro-disconnections, so I decided to build a native desktop tool (in Go & Fyne) to monitor my primary uplink (Starlink) against a secondary cellular backup.\n\nIt’s extremely lightweight, runs on Windows, and uses a dark tactical UI for quick situational awareness.\n\nIt's Open-Core and completely free to use the dual-link tracking and live UI dashboard.\n\nYou can download the portable .zip or .exe installer directly from the GitHub Releases tab, or inspect the source code. Let me know what you think and if it helps your setups!\n\n🔗 GitHub Repository & Download: https://github.com/fratocchijosh91/NeuralPathTacticalGuard",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "build",
+      "cellular",
+      "decide",
+      "frustrate",
+      "github",
+      "go",
+      "go & fyne",
+      "monitor",
+      "monitoring",
+      "networking",
+      "ping",
+      "showdev",
+      "situational",
+      "starlink",
+      "uplink",
+      "use",
+      "windows"
+    ],
+    [
+      "go",
+      "monitoring",
+      "networking",
+      "showdev"
+    ]
+  ]
+}

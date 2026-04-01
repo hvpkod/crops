@@ -1,0 +1,46 @@
+{
+  "id": 7517,
+  "source": "DEV Community<",
+  "title": "🔴 RedSwarm: AI-Powered Red Team Simulation Engine",
+  "url": "https://dev.to/tal7aouy/redswarm-ai-powered-red-team-simulation-engine-4imk",
+  "published_at": "2026-04-01T00:12:26Z",
+  "fetched_at": "2026-04-01T00:40:37.146846+00:00",
+  "author": "Mhammed Talhaouy",
+  "summary": "<blockquote>\n<p><em>A simple, universal swarm intelligence engine for red teaming — simulate real attackers, not just tools.</em></p>\n</blockquote>\n\n<p>Security training often falls into two traps: <strong>static labs</strong> that feel like a checklist, and <strong>dumb automation</strong> that chains tools without context. <a href=\"https://github.com/tal7aouy/RedSwarm\" rel=\"noopener noreferrer\">RedSwarm</a> sits in the middle: a <strong>multi-agent simulator</strong> where each agent has a persona, memory, and tactics, and the system produces an <strong>attack narrative</strong> you can reason about — including <strong>MITRE ATT&amp;CK</strong> mapping and a <strong>visual attack graph</strong>.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fawtdjn0izgvwg4hpxwd2.gif\"><img alt=\"RedSwarm dashboard — attack graph,",
+  "full_text": "A simple, universal swarm intelligence engine for red teaming — simulate real attackers, not just tools.\n\nSecurity training often falls into two traps: static labs that feel like a checklist, and dumb automation that chains tools without context. RedSwarm sits in the middle: a multi-agent simulator where each agent has a persona, memory, and tactics, and the system produces an attack narrative you can reason about — including MITRE ATT&CK mapping and a visual attack graph.\n\n \n \n What problem does it solve?\n\nPain\nTypical answer\nRedSwarm’s angle\n\nRed teaming is slow and expensive\nManual engagements\nMany parallel, adaptive attack paths in a controlled model\n\nTraining feels fake\nScripted scenarios\n\nPersona-driven agents (e.g. APT-style, opportunistic, insider)\n\nBlue teams see alerts, not stories\nSIEM noise\n\nEnd-to-end chain — how, why, what might come next\n\nHard to test “what if we patch X?”\nGuesswork\n\nGod Mode — inject defenses and watch the swarm adapt\n\nThe point is not to replace a skilled red team. It is to practice judgment, tell a coherent attack story, and stress-test assumptions in a sandbox.\n\n \n \n What you actually run\n\nRedSwarm is a FastAPI backend plus a Vue 3 + Vite + Tailwind frontend. The LLM layer is Anthropic Claude by default (OpenAI is also supported). Agent memory and simulation history live in SQLite.\n\nAt a high level:\n\nYou define a scope (lab-style targets — the project is explicit about ethical constraints).\n\nYou spin up a swarm of agents with different roles and personas.\n\nYou get a dashboard: live-ish status, graph, and reports with TTP tags.\n\n \n \n Core ideas worth highlighting\n\n \n \n 1. Swarm intelligence, not a single chatbot\n\nThe README describes four agent flavors — recon, exploit, post-exploit, insider — with memory, personality, and tactics grounded in MITRE ATT&CK. Agents can hand off work (one finds weakness, another pushes the chain forward) or compete for paths, which is closer to how real operations feel than a single monolithic “hacker GPT.”\n\n \n \n 2. God Mode\n\nYou can inject constraints — firewall rules, EDR on a host, patch notes, policy changes — and observe how the narrative shifts. That turns the tool into a defense rehearsal instrument, not only an attack toy.\n\n \n \n 3. Training and CTF angle\n\nBuilt-in framing includes scenario-style modes (e.g. themed challenges) and gamification hooks like leaderboards for speed or stealth. That makes it approachable for classes, CTF organizers, and internal lunch-and-learns.\n\n \n \n Quick start (abbreviated)\n\nFull steps live in the repo README; the shape is:\n\nClone RedSwarm.\n\nCopy .env.example → .env and set ANTHROPIC_API_KEY (or OpenAI).\n\nBackend: Python 3.11+, uvicorn on port 8000.\n\nFrontend: Node 18+, npm run dev on port 3000.\n\nOpen the UI and run a simulation; use /docs on the API for Swagger.\n\nFrom the repo root you can also use the npm run dev workflow (with concurrently) to run backend and frontend together — handy for contributors.\n\n \n \n API in one breath\n\nEverything is driven through REST — start a simulation, poll status, pull a report with MITRE mapping, and hit God Mode inject endpoints. The README includes curl examples; the interactive docs at http://localhost:8000/docs are the source of truth while you integrate.\n\n \n \n Ethics and license (non-negotiable context)\n\nThe maintainers emphasize sandbox-only use: lab ranges, authorized environments, no real-world targeting. Exploit behavior is simulated — this is a training and research system, not a weaponized scanner. The license is AGPL-3.0, which keeps derivatives open and aligns with transparency for security tooling.\n\nDisclaimer: only use this on systems you own or are explicitly authorized to test. Unauthorized access is illegal everywhere that matters.\n\n \n \n Why open-source it?\n\nRedSwarm is the kind of project that benefits from public scrutiny: agent logic, guardrails, and API surface are easier to trust when the community can read and patch them. If the idea resonates, the most helpful things are issues (bugs, threats, misleading docs), PRs, and honest feedback on what makes a simulation useful versus theatrical.\n\n \n \n Links\n\nIf you try it in your lab, leave a comment with what worked, what felt unrealistic, and what you’d want next — that feedback loop is how tools like this get honest.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "api",
+      "apt",
+      "attack",
+      "ctf",
+      "culture",
+      "discuss",
+      "edr",
+      "gpt",
+      "inject",
+      "llm",
+      "mitre",
+      "news",
+      "openai",
+      "patch",
+      "redswarm",
+      "simulation",
+      "sqlite",
+      "swarm",
+      "teaming",
+      "training",
+      "ttp",
+      "webdev"
+    ],
+    [
+      "culture",
+      "discuss",
+      "news",
+      "webdev"
+    ]
+  ]
+}

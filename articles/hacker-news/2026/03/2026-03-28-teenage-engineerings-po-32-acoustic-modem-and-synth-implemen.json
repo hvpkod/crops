@@ -1,0 +1,34 @@
+{
+  "id": 7450,
+  "source": "Hacker News",
+  "title": "Teenage Engineering's PO-32 acoustic modem and synth implementation",
+  "url": "https://github.com/ericlewis/libpo32",
+  "published_at": "2026-03-28T01:04:56Z",
+  "fetched_at": "2026-03-31T20:00:30.266038+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47550433\">Comments</a>",
+  "full_text": "A small C99 library for Teenage Engineering PO-32 acoustic data transfers\nand drum synthesis.\n\nlibpo32 reimplements the PO-32 Tonic transfer stack and a compatible drum\nvoice model. It is not a full PO-32 firmware or UI emulator; it covers the\npacket format, acoustic modem, frame decoder, and local drum synthesis needed\nto build, send, receive, and preview PO-32 transfers.\n\nArea\nWhat libpo32 provides\n\nTransfer protocol\nBuild and parse PO-32 patch, pattern, and state packets\n\nAcoustic modem\nRender transfer frames to DPSK audio for playback into the device\n\nDecoder\nRecover normalized frames and packets from transfer audio\n\nDrum synthesis\nRender the PO-32's 21-parameter drum voice locally for preview and testing\n\nThe core is freestanding C99: no libc runtime, no external DSP libraries,\nno platform audio APIs, no file I/O. Only the freestanding headers\n<stddef.h> and <stdint.h> are used. Suitable for embedded targets and\nbare-metal environments.\n\nThe PO-32 is not receiving finished drum audio when you transfer a sound or a\npattern. It receives structured data:\n\nData\nMeaning\n\nPatch packets\nThe two patch endpoints per instrument (Left and Right), with the destination instrument slot encoded in the packet\n\nPattern packets\nWhich instruments trigger on which steps, with the destination pattern slot encoded as pattern_number\n\nState packet\nTempo, swing, morph defaults, and the transferred pattern list\n\nThe device then uses its own internal synth engine to turn those parameters\ninto sound.\n\nAt a high level, the workflow with real hardware is:\n\nStep\nWhat you do\n\n1\nBuild a transfer in software from patch, pattern, and state data\n\n2\nRender that transfer to a WAV or live audio stream\n\n3\nPut the PO-32 into its normal receive/import flow\n\n4\nPlay the rendered transfer audio into the device\n\n5\nThe PO-32 decodes the packets and writes them to the sound or pattern slots named inside those packets\n\nFrom the repository root, configure, build, run tests, then the demo:\n\ncmake -S . -B build -DCMAKE_BUILD_TYPE=Release\ncmake --build build -j4\nctest --test-dir build --output-on-failure\n./build/po32_demo\n\nOptional, but recommended for local development:\n\n./scripts/install-git-hooks.sh\n\nThat enables the repo-managed pre-commit hook, which runs clang-format on\nstaged .c and .h files before each commit and validates commit subjects\nagainst Conventional Commits. The repo-managed pre-push hook runs the static\nanalysis script before push.\n\nThe demo builds a transfer frame, renders it to audio, decodes it back\n(verifying a lossless roundtrip), synthesizes a drum hit, and writes two\nWAV files: demo_modem.wav and demo_kick.wav.\n\nCommand\nPurpose\n\n./build/po32_example\nMinimal roundtrip: encode, render, decode, and verify\n\n./build/po32_demo\nEnd-to-end demo: transfer frame build/render/decode plus local drum synthesis\n\n./build/po32_pattern_editor\nInteractive PO-32 pattern editing and WAV export\n\n./build/po32_decode_capture <input.wav> <out-dir>\nPacket and pattern dumps from a transfer WAV\n\nSee CONTRIBUTING.md for local setup, verification commands,\nand the Conventional Commits policy used for SemVer-friendly history.\n\nCopyright (c) 2026 Eric Lewis. Licensed under the MIT License. See LICENSE.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "acoustic",
+      "audio",
+      "decode",
+      "dpsk",
+      "drum",
+      "dsp",
+      "frame",
+      "instrument",
+      "packet",
+      "pattern",
+      "semver",
+      "synthesis",
+      "the mit license",
+      "transfer",
+      "wav",
+      "wav\n\nsee contributing.md"
+    ],
+    []
+  ]
+}

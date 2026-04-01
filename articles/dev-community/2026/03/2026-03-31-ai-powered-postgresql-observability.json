@@ -1,0 +1,36 @@
+{
+  "id": 7209,
+  "source": "DEV Community<",
+  "title": "AI-powered PostgreSQL observability",
+  "url": "https://dev.to/burnsideproject/know-your-postgresql-health-before-it-breaks-ai-powered-postgresql-observability-36he",
+  "published_at": "2026-03-31T03:43:07Z",
+  "fetched_at": "2026-03-31T04:00:16.393403+00:00",
+  "author": "Burnside Project",
+  "summary": "<p>pg-collector streams live PostgreSQL telemetry into a 7-dimension state machine that predicts failures, detects query regressions, and answers the 5 questions every DBA asks — automatically.</p>\n\n<p><strong>Is my database healthy?</strong><br />\nSingle-sentence verdict with confidence level, time-in-state, and 7-dimension breakdown. No interpretation needed.</p>\n\n<p><strong>What changed?</strong><br />\nCausal narrative linking state transitions to query regressions, workload shifts, and configuration changes with timestamps.</p>\n\n<p><strong>What will break next?</strong><br />\nRanked risk register with 'days to breach' projections. Vacuum wraparound in 18 days. Connection exhaustion by April 12.</p>\n\n<p><strong>What caused this spike?</strong><br />\nRoot cause attribution chains: query workload change -&gt; cache eviction -&gt; checkpoint storm -&gt; lock cascade. Automatic cross-dimension correlation.</p>\n\n<p><strong>How is performance trending?</strong><br />\n30-day health report ",
+  "full_text": "pg-collector streams live PostgreSQL telemetry into a 7-dimension state machine that predicts failures, detects query regressions, and answers the 5 questions every DBA asks — automatically.\n\nIs my database healthy?\n\nSingle-sentence verdict with confidence level, time-in-state, and 7-dimension breakdown. No interpretation needed.\n\nWhat changed?\n\nCausal narrative linking state transitions to query regressions, workload shifts, and configuration changes with timestamps.\n\nWhat will break next?\n\nRanked risk register with 'days to breach' projections. Vacuum wraparound in 18 days. Connection exhaustion by April 12.\n\nWhat caused this spike?\n\nRoot cause attribution chains: query workload change -> cache eviction -> checkpoint storm -> lock cascade. Automatic cross-dimension correlation.\n\nHow is performance trending?\n\n30-day health report with per-dimension trajectories, volatility metrics, week-over-week comparisons, and prediction accuracy tracking.\n\nGet an Early Access\n\nGit Repo",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "answer",
+      "automatic",
+      "cause",
+      "change",
+      "database",
+      "dba",
+      "exhaustion",
+      "gcp",
+      "go",
+      "postgres",
+      "postgresql",
+      "query",
+      "rank",
+      "sql",
+      "workload",
+      "wraparound"
+    ],
+    [
+      "go"
+    ]
+  ]
+}

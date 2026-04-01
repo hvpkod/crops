@@ -1,0 +1,28 @@
+{
+  "id": 7451,
+  "source": "Hacker News",
+  "title": "Show HN: Cerno – CAPTCHA that targets LLM reasoning, not human biology",
+  "url": "https://cerno.sh",
+  "published_at": "2026-03-31T19:22:58Z",
+  "fetched_at": "2026-03-31T20:00:32.196193+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47592183\">Comments</a>",
+  "full_text": "velocity_stdStandard deviation of tangential velocity across 60Hz resampled trajectory. \n\npath_efficiencyEuclidean start-to-exit distance divided by actual path length. \n\npause_countIntervals where velocity < 0.0005 for ≥ 100ms. Correlated with maze decision points. \n\nmovement_onset_msTime from first event to first significant movement above threshold. \n\njerk_stdStandard deviation of the third derivative of position. \n\nangular_velocity_entropyShannon entropy of direction changes across 16 angular bins. \n\ntiming_cvCoefficient of variation of raw inter-event intervals. Computed pre-resampling.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "computed",
+      "correlate",
+      "derivative",
+      "deviation",
+      "divide",
+      "entropy",
+      "maze",
+      "resample",
+      "tangential",
+      "velocity"
+    ],
+    []
+  ]
+}

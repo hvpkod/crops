@@ -1,0 +1,42 @@
+{
+  "id": 7214,
+  "source": "DEV Community<",
+  "title": "The Ultimate Guide: Installing Ollama on Fedora 43",
+  "url": "https://dev.to/kabeer1choudary/the-ultimate-guide-installing-ollama-on-fedora-43-4c8i",
+  "published_at": "2026-03-31T03:28:30Z",
+  "fetched_at": "2026-03-31T04:00:23.822596+00:00",
+  "author": "kabeer1choudary",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F5junmuiuu7tu9bbxchzu.jpg\"><img alt=\" \" height=\"450\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F5junmuiuu7tu9bbxchzu.jpg\" width=\"800\" /></a></p>\n\n<p>Running large language models (LLMs) locally isn’t just for the privacy-obsessed anymore—it’s for anyone who wants a snappy, custom coding assistant without a monthly subscription. If you’re rocking Fedora 43, you’re already using one of the most cutting-edge distros out there.</p>\n\n<p>Here is how to get Ollama up and running with full NVIDIA acceleration and hook it into VS Code for a seamless dev experience.</p>\n\n<p>There’s something uniquely satisfying about seeing your GPU fans spin up becaus",
+  "full_text": "Running large language models (LLMs) locally isn’t just for the privacy-obsessed anymore—it’s for anyone who wants a snappy, custom coding assistant without a monthly subscription. If you’re rocking Fedora 43, you’re already using one of the most cutting-edge distros out there.\n\nHere is how to get Ollama up and running with full NVIDIA acceleration and hook it into VS Code for a seamless dev experience.\n\nThere’s something uniquely satisfying about seeing your GPU fans spin up because your local AI is thinking. Let’s get you there in eight steps.\n\n \n \n Step 1: Open the Gates (RPM Fusion)\n\nFedora is known for its commitment to free, open-source software, which means the proprietary NVIDIA drivers aren't there by default. We need to add the RPM Fusion repositories to get the \"non-free\" goodies.\n\nRun this in your terminal:\n\n$ sudo dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \n\n$ sudo dnf5 install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNote: We’re using dnf5 here, which is the faster, shinier version of the package manager standard in Fedora 43.\n\n \n \n Step 2: The Driver Dance\n\nNow, we install the NVIDIA drivers and the CUDA toolkit. This is what allows Ollama to talk to your GPU instead of making your CPU do all the heavy lifting.\n\nsudo dnf5 install akmod-nvidia xorg-x11-drv-nvidia-cuda\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nA word of caution: Fedora moves fast. Sometimes, when the kernel updates, the NVIDIA modules need a moment to \"catch up\" (rebuild). If you update your system and things look wonky, it’s usually because the driver is still compiling in the background.\n\n \n \n Step 3: The Classic Reboot\n\nYou know the drill. For the kernel to start using those new NVIDIA drivers, you need a fresh start. sudo reboot\n\n \n \n Step 4: The Moment of Truth\n\nOnce you’re back in, let’s make sure Fedora and your GPU are on speaking terms. Run this command\n\nnvidia-smi\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf you see a table showing your GPU name and VRAM usage, congratulations—you’ve passed the hardest part.\n\n \n \n Step 5: Installing Ollama\n\nOllama makes installation incredibly easy with a one-liner script. This script handles the heavy lifting: it downloads the binary, creates an ollama user/group, and sets up a systemd service so it starts automatically.\n\ncurl -fsSL https://ollama.com/install.sh | sh\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Step 6: Verifying the GPU Link\n\nJust because Ollama is installed doesn't mean it’s using your GPU. It might be falling back to your CPU if it can't find the drivers. Let's check the logs:\n\njournalctl -u ollama -b | grep \"NVIDIA\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYou’re looking for a line that confirms an NVIDIA GPU was detected. If you see it, you're golden.\n\n \n \n Step 7: Your First Local Run\n\nLet's test it with a lightweight, high-performance model. Qwen 2.5 Coder (0.5B version) is tiny but surprisingly \"smart\" for its size, making it perfect for a quick test.\n\nollama run qwen2.5-coder:0.5b\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOnce it downloads, you can chat with it directly in your terminal. Ask it to write a Python script; you'll be impressed by the speed.\n\n \n \n Integrating with VS Code (The \"Continue\" Extension)\n\nRunning AI in a terminal is cool, but having it inside your IDE is where the real productivity happens. We’ll use the Continue extension, which is an open-source powerhouse for local AI.\n\nInstall the Extension: Search for \"Continue\" in the VS Code Marketplace and install it.\n\nConfigure Local Access: Open the Continue sidebar, click the gear icon (settings), and select your local config file.\n\nEdit the Config: Replace or add the following to your config.yaml (or config.json depending on your version) to point it toward your local Ollama instance:\n\nname: Local Config\nversion: 1.0.0\nschema: v1\nmodels:\n - name: Qwen2.5-Coder 0.5B\n provider: ollama\n model: qwen2.5-coder:0.5b\n apiBase: http://localhost:11434\n roles:\n - chat\n - edit\n - apply\n - autocomplete\n - embed\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Final Thoughts\n\nYou now have a fully private, incredibly fast AI coding assistant running on your local hardware. No data leaving your machine, no latency issues, and total control.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "automation",
+      "continue",
+      "cpu",
+      "cuda",
+      "enter",
+      "exit",
+      "fedora",
+      "fullscreen",
+      "genai",
+      "gpu",
+      "install",
+      "llm",
+      "local",
+      "mode",
+      "nvidia",
+      "ollama",
+      "run",
+      "step",
+      "vram"
+    ],
+    [
+      "ai",
+      "automation",
+      "genai"
+    ]
+  ]
+}

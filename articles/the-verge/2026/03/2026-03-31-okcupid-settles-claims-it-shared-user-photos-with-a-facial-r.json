@@ -1,0 +1,39 @@
+{
+  "id": 7334,
+  "source": "The Verge",
+  "title": "OkCupid settles claims it shared user photos with a facial recognition company",
+  "url": "https://www.theverge.com/policy/903999/okcupid-settles-claims-it-shared-user-photos-with-a-facial-recognition-company",
+  "published_at": "2026-03-31T14:07:17Z",
+  "fetched_at": "2026-03-31T14:40:17.252988+00:00",
+  "author": "Lauren Feiner",
+  "summary": "<figure>\n\n<img alt=\"An illustration depicting a featureless face against a pink, white, and blue background.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/22512651/acastro_210512_1777_deepfake_0003.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Dating app OkCupid <a href=\"https://www.ftc.gov/news-events/news/press-releases/2026/03/ftc-takes-action-against-match-okcupid-deceiving-users-sharing-personal-data-third-party\">agreed to settle claims</a> from the Federal Trade Commission that it deceived millions of users by sharing their photos with a third-party facial recognition company without their consent. </p>\n<p class=\"has-text-align-none\">OkCupid and parent company Match Group did not admit wrongdoing as part of the settlement, but instead promised not to make similar alleged misrepresentations in the future. According to the FTC complaint, after facial re",
+  "full_text": "Dating app OkCupid agreed to settle claims from the Federal Trade Commission that it deceived millions of users by sharing their photos with a third-party facial recognition company without their consent.\n\nOkCupid and parent company Match Group did not admit wrongdoing as part of the settlement, but instead promised not to make similar alleged misrepresentations in the future. According to the FTC complaint, after facial recognition company Clarifai reached out to one of OkCupid’s founders in 2014, the app gave it access to nearly three million OkCupid user photos, alongside demographic and location data about users. That access violated OkCupid’s own privacy policy, the FTC alleged, since it didn’t give users a chance to opt out of their data being shared.\n\nAfter sharing the data, OkCupid and Match later tried to obscure their relationship with Clarifai when The New York Times reached out about it for a story, the FTC alleged. Still, the settlement does not impose penalties on OkCupid or Match, nor directly address the data allegedly shared with Clarifai. The companies promise not to misrepresent their data collection and sharing policies in the future, and submit to compliance monitoring, which could subject them to further action if they’re found to violate the order, once approved by a court. FTC consumer protection bureau director Christopher Mufarrige said in a statement that the settlement shows, “The FTC enforces the privacy promises that companies make.”\n\nOkCupid did not immediately provide a comment attributable to a named spokesperson. Match and Clarifai did not immediately respond to requests for comment.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "clarifai",
+      "company",
+      "data",
+      "facial",
+      "ftc",
+      "match",
+      "match group",
+      "news",
+      "okcupid",
+      "policy",
+      "privacy",
+      "reach",
+      "recognition",
+      "share",
+      "tech",
+      "user"
+    ],
+    [
+      "news",
+      "policy",
+      "privacy",
+      "tech"
+    ]
+  ]
+}

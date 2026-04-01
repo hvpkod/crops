@@ -1,0 +1,40 @@
+{
+  "id": 7406,
+  "source": "DEV Community<",
+  "title": "What Claude Code stores on your machine (and how to see it)",
+  "url": "https://dev.to/kat_laszlo/what-claude-code-stores-on-your-machine-and-how-to-see-it-17bb",
+  "published_at": "2026-03-31T18:31:18Z",
+  "fetched_at": "2026-03-31T18:40:25.780639+00:00",
+  "author": "Kat Laszlo",
+  "summary": "<p>Claude Code keeps a lot of data in <code>~/.claude/</code> that most people never look at. I wanted to know what was there, so I built a scanner.</p>\n\n<p>On my machine it found:</p>\n\n<ul>\n<li>76 persistent memory files across 10 projects</li>\n<li>4,445 session transcripts totaling 1.8GB</li>\n<li>2.2GB total data footprint</li>\n</ul>\n\n<p>The memory files are markdown with frontmatter, organized by type: what Claude thinks your role is, feedback you've given, project context, reference links. It remembers more than you'd expect.</p>\n\n<h2>\n  \n  \n  The tool\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>npx agentlens scan\n</code></pre>\n\n</div>\n\n\n\n<p>No API keys, no accounts. Reads local files only.</p>\n\n<h3>\n  \n  \n  Scan commands\n</h3>\n\n<ul>\n<li>\n<code>agentlens memory</code> — what Claude remembers about you</li>\n<li>\n<code>agentlens costs</code> — token usage by model and project</li>\n<li>\n<code>agentlens features</code> — active feature flags on",
+  "full_text": "Claude Code keeps a lot of data in ~/.claude/ that most people never look at. I wanted to know what was there, so I built a scanner.\n\nOn my machine it found:\n\n76 persistent memory files across 10 projects\n\n4,445 session transcripts totaling 1.8GB\n\n2.2GB total data footprint\n\nThe memory files are markdown with frontmatter, organized by type: what Claude thinks your role is, feedback you've given, project context, reference links. It remembers more than you'd expect.\n\n \n \n The tool\n\nnpx agentlens scan\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNo API keys, no accounts. Reads local files only.\n\n \n \n Scan commands\n\nagentlens memory — what Claude remembers about you\n\nagentlens costs — token usage by model and project\n\nagentlens features — active feature flags on your account\n\nagentlens sessions — transcript stats and tool usage\n\nagentlens privacy — total data footprint\n\n \n \n Action commands\n\nagentlens clean --dry-run — preview which memories would be deleted\n\nagentlens redact — find secrets that leaked into memory files\n\nagentlens diff save — snapshot current state, then diff show to compare later\n\nagentlens export — dump everything to portable JSON\n\n \n \n What surprised me\n\nThe sensitivity scanner flagged 13 potential secrets in my memory files. Most were false positives (the word \"token\" in pricing discussions), but some were file paths and references I wouldn't want in a shared context.\n\nSession transcripts contain everything: every file you read, every bash command you ran, every edit you made. If you've ever read a .env file during a Claude Code session, it's in there.\n\n \n \n Stack\n\n~900 lines of TypeScript. Node 18+. Dependencies: chalk, commander, glob, yaml. MIT licensed.\n\nGitHub: https://github.com/katrinalaszlo/agentlens\n\nWould love to hear what you think!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agentlen",
+      "ai",
+      "api",
+      "claude",
+      "command",
+      "datum",
+      "devtools",
+      "file",
+      "footprint",
+      "memory",
+      "mit",
+      "opensource",
+      "remember",
+      "scan",
+      "session",
+      "stack",
+      "transcript",
+      "typescript"
+    ],
+    [
+      "ai",
+      "devtools",
+      "opensource"
+    ]
+  ]
+}

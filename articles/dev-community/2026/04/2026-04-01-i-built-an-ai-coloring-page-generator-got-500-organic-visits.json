@@ -1,0 +1,43 @@
+{
+  "id": 7513,
+  "source": "DEV Community<",
+  "title": "I Built an AI Coloring Page Generator — Got 500+ Organic Visits in One Day",
+  "url": "https://dev.to/_d71fe0bf7d6940c0c447fa/i-built-an-ai-coloring-page-generator-got-500-organic-visits-in-one-day-3h66",
+  "published_at": "2026-04-01T00:21:30Z",
+  "fetched_at": "2026-04-01T00:40:30.654900+00:00",
+  "author": "好正",
+  "summary": "<p>Just launched ColoringPage.live — an AI tool that turns text prompts into printable coloring pages. In one week, daily active users went from 0 to 500+.<br />\nHow it works</p>\n\n<ol>\n<li>User enters a prompt\nSimple form input — e.g., \"a dragon riding a bicycle\" or \"unicorn castle\".</li>\n<li>AI generates the image\nCall an image generation API to output black &amp; white line art. The key here is reducing noise — coloring pages need clean, clear outlines.</li>\n<li>Export as PDF\nConvert the image to a print-ready PDF using CSS, supporting A4 standard sizes.\nGrowth strategy\nProduct Hunt launch → first batch of seed users\nHacker News Show submission → quality developer traffic\nSEO optimization → ranking for long-tail keywords like \"coloring page generator\"\nRevenue\nOne-time purchase model (credits never expire):\nStarter $2.99 / 900 credits\nValue $5.99 / 2200 credits\nMega $12.99 / 6500 credits\nCurrent daily revenue ~$30, mainly from parents in the US and Europe.\nWhat's next (based on our ro",
+  "full_text": "Just launched ColoringPage.live — an AI tool that turns text prompts into printable coloring pages. In one week, daily active users went from 0 to 500+.\n\nHow it works\n\nUser enters a prompt\nSimple form input — e.g., \"a dragon riding a bicycle\" or \"unicorn castle\".\n\nAI generates the image\nCall an image generation API to output black & white line art. The key here is reducing noise — coloring pages need clean, clear outlines.\n\nExport as PDF\nConvert the image to a print-ready PDF using CSS, supporting A4 standard sizes.\nGrowth strategy\nProduct Hunt launch → first batch of seed users\nHacker News Show submission → quality developer traffic\nSEO optimization → ranking for long-tail keywords like \"coloring page generator\"\nRevenue\nOne-time purchase model (credits never expire):\nStarter $2.99 / 900 credits\nValue $5.99 / 2200 credits\nMega $12.99 / 6500 credits\nCurrent daily revenue ~$30, mainly from parents in the US and Europe.\nWhat's next (based on our roadmap)\n[ ] Multiple styles: simple (kids) / complex (adult) / mandala / cartoon / realistic\n[ ] In-browser coloring tool: color online and save your work\n[ ] PDF export: print-ready A4 format\n[ ] Batch generation: create themed sets (Christmas, Halloween, etc.)\n[ ] History: login to view and re-download past generations\n[ ] Teacher mode: class management + bulk download\n#AI #SaaS #IndieMaker #SideProject",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "batch",
+      "black &",
+      "color",
+      "credit",
+      "css",
+      "daily",
+      "europe",
+      "generation",
+      "hacker news show",
+      "image",
+      "page",
+      "pdf",
+      "revenue",
+      "showdev",
+      "sideprojects",
+      "simple",
+      "startup",
+      "user"
+    ],
+    [
+      "ai",
+      "showdev",
+      "sideprojects",
+      "startup"
+    ]
+  ]
+}

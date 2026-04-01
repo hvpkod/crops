@@ -1,0 +1,45 @@
+{
+  "id": 7246,
+  "source": "DEV Community<",
+  "title": "I Chose the VS1838B IR Receiver for My ESP32-Based Project",
+  "url": "https://dev.to/thilak_kumar/i-chose-the-vs1838b-ir-receiver-for-my-esp32-based-project-1o7l",
+  "published_at": "2026-03-31T06:28:14Z",
+  "fetched_at": "2026-03-31T06:40:32.487673+00:00",
+  "author": "Thilak Kumar",
+  "summary": "<h2>\n  \n  \n  Introduction\n</h2>\n\n<p>Infrared (IR) communication is one of the simplest and most reliable ways to control electronic devices over a short distance. It is widely used in TV remotes, air conditioners, and other consumer electronics.</p>\n\n<p>In my ESP32-based project, I needed a dependable IR receiver to capture signals from remote controls. After evaluating different options, I chose the <strong>VS1838B IR Receiver</strong> because it is simple to use, reliable, and works seamlessly with microcontrollers like the ESP32.</p>\n\n\n\n\n<h2>\n  \n  \n  What is the VS1838B IR Receiver?\n</h2>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fttqcbvgf0y6h7a4n9rmi.png\"><img alt=\"VS1838B IR Receiver\" height=\"533\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https",
+  "full_text": "Introduction\n\nInfrared (IR) communication is one of the simplest and most reliable ways to control electronic devices over a short distance. It is widely used in TV remotes, air conditioners, and other consumer electronics.\n\nIn my ESP32-based project, I needed a dependable IR receiver to capture signals from remote controls. After evaluating different options, I chose the VS1838B IR Receiver because it is simple to use, reliable, and works seamlessly with microcontrollers like the ESP32.\n\n \n \n What is the VS1838B IR Receiver?\n\nThe VS1838B is a compact 3-pin infrared receiver module that detects IR signals transmitted by remote controls. It is specifically designed for signals modulated at a 38 kHz carrier frequency, which is the standard for most IR communication systems.\n\n \n \n Key Features\n\nSupports both 3.3V and 5V systems\n\nOptimized for 38 kHz IR signals\n\nBuilt-in noise filtering\n\nProvides clean digital output\n\nLow power consumption\n\n \n \n How It Works\n\nWhen a button is pressed on a remote:\n\nThe remote transmits an infrared signal\n\nThe VS1838B receives the signal\n\nInternal circuits filter and process the signal\n\nA digital HIGH/LOW signal is sent to the ESP32\n\nThis built-in processing removes the need for complex signal handling in software.\n\n \n \n Pin Configuration\n\nThe VS1838B has three pins:\n\nPin\nName\nPurpose\n\n1\nOUT\nSignal output\n\n2\nGND\nGround\n\n3\nVCC\nPower supply\n\n \n \n Connecting with ESP32\n\nConnecting the VS1838B to ESP32 is straightforward:\n\nVCC → 3.3V\n\nGND → GND\n\nOUT → Any GPIO pin (e.g., GPIO15)\n\nOnce connected, IR signals can be decoded using libraries such as IRremoteESP8266.\n\n \n \n Why I Chose VS1838B\n\n \n \n 1. Easy Integration\n\nThe module provides a ready-to-use digital output, eliminating the need for external components such as amplifiers or filters.\n\n \n \n 2. ESP32 Compatibility\n\nThe output signal can be directly connected to ESP32 GPIO pins, making integration simple and efficient.\n\n \n \n 3. Reliable Signal Detection\n\nThe VS1838B includes built-in filtering to reduce noise from ambient light sources such as sunlight and indoor lighting, ensuring stable signal reception.\n\n \n \n 4. Cost and Availability\n\nOne of the key reasons for selecting the VS1838B is its affordability.\n\nIn the Indian market, the typical price range is:\n\n₹40 – ₹60 for a pack of 5 modules\n\n₹8 – ₹12 per unit (approx.)\n\nThis makes it a highly cost-effective solution for both prototyping and production.\n\n \n \n 5. Support for Standard IR Protocols\n\nThe VS1838B works with common IR communication protocols such as:\n\nNEC – widely used in most TV remotes\n\nSony (SIRC) – used in Sony devices\n\nRC5 – developed by Philips\n\nThese protocols define how data is encoded and transmitted using infrared signals, allowing the ESP32 to decode button presses accurately.\n\n \n \n Advantages in My Project\n\nUsing the VS1838B enabled:\n\nAccurate IR signal capture\n\nEasy decoding of remote commands\n\nReduced hardware complexity\n\nFaster development and testing\n\n \n \n Limitations\n\nLike all IR-based systems, the VS1838B has some limitations:\n\nRequires line-of-sight communication\n\nLimited operational range\n\nCan be affected by strong sunlight\n\nHowever, for indoor applications, these limitations are minimal.\n\n \n \n Availability and Supplier\n\nThe VS1838B IR Receiver is widely available from various electronics suppliers.\n\nFor this project, components were sourced from Robu.in, which offers reliable quality and consistent availability for prototyping needs.\n\n \n \n Conclusion\n\nThe VS1838B IR Receiver is a simple, reliable, and efficient solution for infrared signal reception. Its ease of use, compatibility with ESP32, and low cost make it an excellent choice for embedded system projects.\n\n \n \n Final Thoughts\n\nChoosing the right component plays a crucial role in the success of any project. The VS1838B allowed me to build a stable and efficient IR system without unnecessary complexity.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "availability",
+      "choose",
+      "communication",
+      "cybersecurity",
+      "gpio",
+      "infrared",
+      "iot",
+      "ir",
+      "irutesam",
+      "key features\n\nsupports",
+      "nec",
+      "pin configuration",
+      "project introduction\n\ninfrared",
+      "receiver",
+      "reliable",
+      "remote",
+      "robu.in",
+      "signal",
+      "sirc",
+      "sony",
+      "transmit",
+      "widely"
+    ],
+    [
+      "cybersecurity",
+      "iot",
+      "ir",
+      "irutesam"
+    ]
+  ]
+}

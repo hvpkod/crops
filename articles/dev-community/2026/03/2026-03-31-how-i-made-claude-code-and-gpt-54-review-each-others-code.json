@@ -1,0 +1,44 @@
+{
+  "id": 7304,
+  "source": "DEV Community<",
+  "title": "How I Made Claude Code and GPT-5.4 Review Each Other's Code",
+  "url": "https://dev.to/tsunamayo7/how-i-made-claude-code-and-gpt-54-review-each-others-code-i74",
+  "published_at": "2026-03-31T12:06:11Z",
+  "fetched_at": "2026-03-31T12:40:43.501253+00:00",
+  "author": "Tsunamayo",
+  "summary": "<h2>\n  \n  \n  The Problem: Same Model Writes and Reviews\n</h2>\n\n<p>When Claude Code writes code and Claude reviews it, you get the AI equivalent of grading your own homework. Blind spots survive.</p>\n\n<p>I wanted GPT-5.4 to review Claude's code from a genuinely different perspective. So I built <a href=\"https://github.com/tsunamayo7/helix-codex\" rel=\"noopener noreferrer\">helix-codex</a> — an MCP server that bridges Claude Code (Opus 4.6) to Codex CLI (GPT-5.4).</p>\n\n<h2>\n  \n  \n  What Makes It Different\n</h2>\n\n<p>There are 6+ Codex MCP bridges on GitHub. They all do the same thing: call <code>codex exec</code>, return raw text. Claude has no idea what happened inside.</p>\n\n<p>helix-codex parses the <strong>entire JSONL event stream</strong> and returns a structured report:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>[Codex gpt-5.4] Completed\n\n⏱ Execution time: 8.3s\n🧵 Thread: 019d436e-4c39-...\n\n📦 Tools used (3):\n  ✅ read_file — src/auth.py\n",
+  "full_text": "The Problem: Same Model Writes and Reviews\n\nWhen Claude Code writes code and Claude reviews it, you get the AI equivalent of grading your own homework. Blind spots survive.\n\nI wanted GPT-5.4 to review Claude's code from a genuinely different perspective. So I built helix-codex — an MCP server that bridges Claude Code (Opus 4.6) to Codex CLI (GPT-5.4).\n\n \n \n What Makes It Different\n\nThere are 6+ Codex MCP bridges on GitHub. They all do the same thing: call codex exec, return raw text. Claude has no idea what happened inside.\n\nhelix-codex parses the entire JSONL event stream and returns a structured report:\n\n[Codex gpt-5.4] Completed\n\n⏱ Execution time: 8.3s\n🧵 Thread: 019d436e-4c39-...\n\n📦 Tools used (3):\n ✅ read_file — src/auth.py\n ✅ edit_file — src/auth.py\n ✅ shell — python -m pytest tests/\n\n📁 Files touched (1):\n • src/auth.py\n\n━━━ Codex Response ━━━\nFixed the authentication logic.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The Self-Review Experiment\n\nThe most interesting test: I had GPT-5.4 review helix-codex's own source code. It found 3 critical issues:\n\nReturn code logic bug — returncode != 0 with partial output was treated as success\n\nTerminal injection vulnerability — No ANSI/OSC escape sanitization in output\n\nPath double-application — cwd passed to both -C flag and subprocess cwd=\n\nClaude (the model that wrote the code) had missed all three. Different model, different blind spots.\n\n \n \n Real Performance Numbers\n\nTool\nTime\nWhat It Does\n\nexplain\n5.4s\nFull code explanation\n\nreview\n15.7s\nCRITICAL/WARNING/INFO classified review\n\nexecute\n2.8s\nTask delegation with structured trace\n\nparallel_execute\n—\nUp to 6 simultaneous tasks\n\n \n \n Cross-Model Comparison\n\nI ran Claude Agent and Codex in parallel on the same question: \"Best thread-safe singleton pattern in Python?\"\n\nClaude: Metaclass + Lock, module variable, __new__\n\nCodex: Module variable, lru_cache, Lock + classmethod\n\nThe lru_cache approach was unique to Codex — Claude hadn't considered it. Two models genuinely produce different solutions.\n\n \n \n Key Features\n\nFull JSONL trace parsing — tools, files, timing, errors\n\nParallel execution — up to 6 tasks via asyncio.gather\n\nSession management — threadId persistence\n\nAdversarial Review Loop — GPT-5.4 challenges Claude's code\n\nSandbox security — 3-tier policy + terminal injection prevention\n\n56 tests — comprehensive coverage\n\nSingle file — ~820 lines, zero external deps beyond FastMCP\n\n \n \n Get Started (3 Minutes)\n\nnpm install -g @openai/codex && codex login\ngit clone https://github.com/tsunamayo7/helix-codex.git\ncd helix-codex && uv sync\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAdd to ~/.claude/settings.json and you're done.\n\n \n \n What I Learned\n\nDifferent models have different blind spots. Cross-model review catches things self-review misses.\n\nStructured traces change everything. Raw text is useless for programmatic decisions.\n\nParallel execution is underrated. Analyzing 6 files simultaneously saves real time.\n\nGitHub: tsunamayo7/helix-codex — MIT license, 56 tests, Python 3.12+.\n\nStar if useful! Feedback welcome.",
+  "tags": [
+    [
+      "&& uv",
+      "2026",
+      "500-words",
+      "adversarial review loop",
+      "ai",
+      "blind",
+      "claude",
+      "cli",
+      "code",
+      "codex",
+      "cross-model comparison",
+      "different",
+      "execution",
+      "i learned\n\ndifferent",
+      "jsonl",
+      "mcp",
+      "opensource",
+      "parallel",
+      "python",
+      "review",
+      "security",
+      "structured",
+      "the self-review experiment",
+      "trace"
+    ],
+    [
+      "ai",
+      "opensource",
+      "python"
+    ]
+  ]
+}

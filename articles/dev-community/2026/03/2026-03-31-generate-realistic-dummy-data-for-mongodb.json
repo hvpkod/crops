@@ -1,0 +1,36 @@
+{
+  "id": 7271,
+  "source": "DEV Community<",
+  "title": "Generate Realistic Dummy Data for MongoDB",
+  "url": "https://dev.to/yaoxing/generate-realistic-dummy-data-for-mongodb-1a11",
+  "published_at": "2026-03-31T09:17:31Z",
+  "fetched_at": "2026-03-31T09:40:33.662852+00:00",
+  "author": "Yaoxing Zhang",
+  "summary": "<h2>\n  \n  \n  tl;dr\n</h2>\n\n<p>I build a tool that utilizes the data schema exported from MongoDB Compass, and use vector search to determine what is the most appropriate Faker method for each field, then generate realistic dummy data.<br />\nThe repository is here: <a href=\"https://github.com/zhangyaoxing/mock-data\" rel=\"noopener noreferrer\">mock-data</a></p>\n\n<p>Earlier MongoDB released a <a href=\"https://www.mongodb.com/products/tools/compass\" rel=\"noopener noreferrer\">Compass</a> version that supports data modeling. This has been a long desired feature and had been asked many times in my 10-years MongoDB professional service life. Now that it becomes real, I wanted to make use of it and possibly make developer's life easier.<br />\nSo when I was asked for this feature, it's usually not because people want to use the data model for schema validation, but mostly it's used as a data dictionary and allows teammates to have identical understanding of how the data should look like. And as so",
+  "full_text": "tl;dr\n\nI build a tool that utilizes the data schema exported from MongoDB Compass, and use vector search to determine what is the most appropriate Faker method for each field, then generate realistic dummy data.\n\nThe repository is here: mock-data\n\nEarlier MongoDB released a Compass version that supports data modeling. This has been a long desired feature and had been asked many times in my 10-years MongoDB professional service life. Now that it becomes real, I wanted to make use of it and possibly make developer's life easier.\n\nSo when I was asked for this feature, it's usually not because people want to use the data model for schema validation, but mostly it's used as a data dictionary and allows teammates to have identical understanding of how the data should look like. And as soon as we have the model, we can start mocking some dummy data for coding and testing. Usually it takes some time for developers to write some script to generate data that follows the data model, and looks as real as possible. I have done this many times for my clients. So I think, can I make it automated? Then I come up with some ideas.\n\n \n \n How to make it look real?\n\nIf you have done this a few times, you probably already know there's a library called Faker. It has been there since 2008 as perl scripts, and has been ported to many languages.\n\nWith 280+ generator methods, it generates common dummy data that we usually needs. For example, email, name, address, plate number, etc. And you can write your own provider to extend it. So instead of building the wheel by myself, I'm going to use the Faker Python for data mocking.\n\n \n \n Associate generator methods with fields\n\nNow that we have the data model, the next question is: how I can associate the Faker methods with the fields in the model?\n\nWe need something like an annotation. But I don't want to break the structure of json schema. So I come up with the idea that put the method name and parameters in the description field, and surround it with #. You can still have your own description. I will only extract the annotation between the 2 #.\n\n \n \n Make it even easier\n\nAlthough the solution works, we still need to go through every field and determine what's the best Faker method to use. I want to make it even easier by \"guessing\" what is the best Faker method. This is done by vector search. To make it a lightweight solution, I used ChromaDB to do the vector search. This is how it's implemented:\n\nI extract all Faker methods from the library, compute the vector for each method.\n\nI use the name of the field to compute another vector.\n\nI use the vector of the field name to search in the database to find the best matched Faker method.\n\nIn order for this to work, there are some requirements:\n\nThe Faker method name must be meaningful, which is of course true.\n\nThe field names must be also meaningful. This is also true in most cases. We definitely want to use names that make sense.\n\nFor a specified field, we can only choose among Faker methods that can return the type of data which can be converted to the type specified in the json schema. This filtering is a feature supported by ChromaDB.\n\nThere are some other minor optimizations to make the guessing more accurate. Eventually, I have this tool. Try it out!\n\nGithub repository: Mock Data\n\n# Clone the repository\ngit clone https://github.com/zhangyaoxing/mock-data.git\ncd mock-data\n\n# Install in development mode\npip install -e .\n\n# generate dummy data into the output/ folder as ejson\nmockdata -s schemas/BookStore.json -n 50 -t ejson output/\n# generate dummy data into MongoDB\nmockdata -s schemas/BookStore.json -n 50 -t mongodb mongodb://localhost/\n# generate dummy data into Kafka\nmockdata -s schemas/BookStore.json -n 50 -t kafka localhost:9092\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "compass",
+      "datamodeling",
+      "datum",
+      "dummy",
+      "faker",
+      "field",
+      "generate",
+      "method",
+      "mock data",
+      "mockdata",
+      "mongodb",
+      "name",
+      "the faker python",
+      "vector",
+      "vectorsearch"
+    ],
+    [
+      "datamodeling",
+      "vectorsearch"
+    ]
+  ]
+}

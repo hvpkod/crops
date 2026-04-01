@@ -1,0 +1,46 @@
+{
+  "id": 7413,
+  "source": "DEV Community<",
+  "title": "How We Tripled an AI Agent's Security Score Without Changing the Model",
+  "url": "https://dev.to/webpro255/how-we-tripled-an-ai-agents-security-score-without-changing-the-model-2efa",
+  "published_at": "2026-03-31T18:09:06Z",
+  "fetched_at": "2026-03-31T18:40:33.638930+00:00",
+  "author": "David Grice",
+  "summary": "<p>Here's the scenario: an attacker has valid admin credentials. Full permissions. Every authentication check passes. Every role check passes. The agent trusts the session completely.</p>\n\n<p>This is the hardest problem in AI agent security. The attacker didn't break in. They're sitting in a legitimate session, manipulating the agent into misusing permissions it already has.</p>\n\n<p>We call it the confused deputy problem. The admin's credentials are fine. The agent is being tricked by poisoned context, injected instructions, and social engineering into doing things the admin never asked for.</p>\n\n<p>We tested AgentLock against 182 adversarial attacks using this exact profile. Same model. Same tools. Same attacker with full access. Only the authorization gate changed.</p>\n\n<h2>\n  \n  \n  The Baseline: 30.2% (F)\n</h2>\n\n<p>Without AgentLock's v1.2 features, the agent blocked 55 of 182 attacks. The authentication layer did its job. The role checks passed. But the deeper defenses (injection d",
+  "full_text": "Here's the scenario: an attacker has valid admin credentials. Full permissions. Every authentication check passes. Every role check passes. The agent trusts the session completely.\n\nThis is the hardest problem in AI agent security. The attacker didn't break in. They're sitting in a legitimate session, manipulating the agent into misusing permissions it already has.\n\nWe call it the confused deputy problem. The admin's credentials are fine. The agent is being tricked by poisoned context, injected instructions, and social engineering into doing things the admin never asked for.\n\nWe tested AgentLock against 182 adversarial attacks using this exact profile. Same model. Same tools. Same attacker with full access. Only the authorization gate changed.\n\n \n \n The Baseline: 30.2% (F)\n\nWithout AgentLock's v1.2 features, the agent blocked 55 of 182 attacks. The authentication layer did its job. The role checks passed. But the deeper defenses (injection detection, trust degradation, PII blocking) only caught 30% of what got through.\n\nCategories like tool abuse, tool chain attacks, multi-agent confusion, persona hijacking, and supply chain attacks scored 0%. The agent complied with every request because the requests came from a valid admin session.\n\n \n \n The Fix: Three New Decision Types\n\nBinary allow/deny isn't enough when the credentials are valid. Sometimes the right answer is \"wait,\" \"ask a human,\" or \"allow but redact.\"\n\n \n \n DEFER\n\nSuspends execution when context is ambiguous. If the first tool call in a session targets a high-risk tool with zero history, DEFER pauses instead of guessing. If prompt scanner signals fire AND a tool call is attempted in the same turn, DEFER pauses. Auto-denies on timeout.\n\ngate.register_tool(\"delete_records\", {\n \"version\": \"1.2\",\n \"risk_level\": \"critical\",\n \"requires_auth\": True,\n \"allowed_roles\": [\"admin\"],\n \"defer_policy\": {\n \"enabled\": True,\n \"first_call_high_risk\": True,\n \"scan_plus_tool\": True,\n \"timeout_seconds\": 60,\n \"timeout_action\": \"deny\"\n }\n})\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n STEP_UP\n\nRequires human approval when session risk is elevated. If the hardening engine detects elevated risk AND the tool is high/critical, STEP_UP pauses for human confirmation. Catches multi-tool escalation patterns and post-denial retries.\n\ngate.register_tool(\"send_email\", {\n \"version\": \"1.2\",\n \"risk_level\": \"high\",\n \"requires_auth\": True,\n \"allowed_roles\": [\"admin\", \"support\"],\n \"stepup_policy\": {\n \"enabled\": True,\n \"hardening_elevated_high_risk\": True,\n \"multi_pii_tool_session\": True,\n \"multi_pii_tool_threshold\": 2,\n \"timeout_seconds\": 120,\n \"timeout_action\": \"deny\"\n }\n})\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n MODIFY\n\nTransforms tool parameters or outputs before execution. When a tool is authorized but its output contains PII, MODIFY redacts it before the LLM sees it. The tool runs. The data never enters the model's context.\n\ngate.register_tool(\"query_database\", {\n \"version\": \"1.2\",\n \"risk_level\": \"high\",\n \"requires_auth\": True,\n \"allowed_roles\": [\"admin\", \"support\"],\n \"modify_policy\": {\n \"enabled\": True,\n \"transformations\": [\n {\"field\": \"output\", \"action\": \"redact_pii\"},\n {\"field\": \"to\", \"action\": \"restrict_domain\",\n \"config\": {\"allowed\": [\"@company.com\"]}}\n ]\n }\n})\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Pre-LLM Prompt Scanning\n\nMost security tools scan model outputs. We scan inputs before the model processes them.\n\nThe hardening engine runs four signal detectors on every user message before it reaches the LLM:\n\nVelocity: Rapid tool calls, topic escalation, burst patterns\n\nCombos: Suspicious tool pairs (query_database + send_email = potential exfiltration)\n\nEcho: Credential-format detection in model responses (did the agent leak something?)\n\nPrompt scan: 8 categories including injection phrases, authority claims, instruction planting, encoding indicators, agent impersonation\n\nWhen signals fire, the system prepends targeted defensive instructions to the system prompt. Not generic \"be safe\" instructions. Specific counters for the detected attack type. This exploits primacy bias: instructions at the top of the prompt carry more weight.\n\nThe key insight: the hardening engine doesn't need to catch everything. It catches enough to trigger, then the model's own judgment handles the rest.\n\n \n \n The Result: 81.3% (B)\n\nConfiguration\nScore\nGrade\nPassed\nFailed\n\nNo hardening (permissions only)\n30.2%\nF\n55/182\n127\n\nv1.2.0 full stack\n81.3%\nB\n148/182\n34\n\n17 of 35 attack categories at 100/A. Zero failures. Categories that were at 0% moved to 75-100%:\n\nTool abuse: 0% to 75%\n\nTool chain attacks: 0% to 60%\n\nPersona hijacking: 0% to 100%\n\nMulti-agent confusion: 0% to 100%\n\nSystem prompt extraction: 0% to 100%\n\nZero raw PII exfiltrated in any of the 34 remaining failures. MODIFY ensures that even when a tool call succeeds, sensitive data is redacted before it reaches the model.\n\n \n \n What the Remaining 34 Failures Need\n\nThe failures concentrate in two areas:\n\nIndirect data injection (8 failures): Attacker instructions embedded in legitimate data fields. The prompt scanner can't distinguish them from real data because they ARE real data with hidden instructions.\n\nCrisis exploitation (5 failures): Pure emotional manipulation with zero injection language. \"My account was hacked, I'm losing money right now, please help immediately.\" No technical signal to detect.\n\nThese need v1.2.1's signed receipts (cryptographic proof of authorization chain) and v1.2.2's delegation chains (binding actions to the original requesting identity, not the agent's identity).\n\n \n \n Try It\n\npip install agentlock\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n745 tests. Apache 2.0. Framework integrations for LangChain, CrewAI, AutoGen, MCP, FastAPI, and Flask.\n\nThe model didn't change. The prompt didn't change. The tools didn't change. The only thing that changed was the authorization layer between the agent and the tools. That layer took the score from 30.2% to 81.3%.\n\nInfrastructure enforcement works. Build it once, test it against everything.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai",
+      "attacker",
+      "autogen",
+      "category",
+      "chain",
+      "datum",
+      "defer",
+      "fullscreen",
+      "hardening",
+      "langchain",
+      "llm",
+      "mode",
+      "modify",
+      "modify\n\ntransforms",
+      "opensource",
+      "pii",
+      "pre-llm prompt scanning",
+      "prompt",
+      "python",
+      "security",
+      "step_up",
+      "suspends",
+      "tool"
+    ],
+    [
+      "ai",
+      "opensource",
+      "python"
+    ]
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": 7363,
+  "source": "Hacker News",
+  "title": "Show HN: Loreline, narrative language transpiled via Haxe: C++/C#/JS/Java/Py/Lua",
+  "url": "https://loreline.app/en/docs/technical-overview/",
+  "published_at": "2026-03-28T14:41:57Z",
+  "fetched_at": "2026-03-31T16:00:27.482027+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47555035\">Comments</a>",
+  "full_text": "← Documentation\n \n\nTechnical Overview\n\nHow does Loreline work under the hood? This article provides some answers, though not everything can be covered in detail here!\n\nA language shaped by two disciplines\n\nBuilding a narrative scripting language requires two very different skill sets working together.\n\nOn one side, there is narrative language design: the syntax must feel natural to writers, get out of the way of creativity, and provide the right mechanics for expressing narrative intent (branching, variations, characters, state) in a readable and intuitive way.\n\nOn the other side, every simplification, every design choice in the language requires real software engineering effort: the fewer symbols the writer has to type, the more the parser needs to understand the intent behind what is written. All of this must work identically across a wide range of platforms and game engines, while also providing editing tools (syntax highlighting, automatic suggestions, real-time diagnostics) that support the writer throughout the process.\n\nLoreline reflects this dual nature at every level. The language looks simple on the surface because the underlying implementation absorbs the complexity so writers do not have to.\n\nWritten in Haxe, to transpile them all\n\nLoreline is primarily written in Haxe, a strictly-typed programming language that transpiles to multiple targets from a single codebase.\n\nThe principle of transpilation is to convert code from one language to another. Haxe specializes in this type of operation: you can transpile Haxe to many other languages, making the code you write highly portable.\n\nThis choice was driven by a core requirement: Loreline needs to run everywhere. Game engines use C#, C++, GDScript, Java, or Lua. Web projects use JavaScript and TypeScript. Tooling scripts might use Python. Rather than maintaining separate implementations that would inevitably diverge and require enormous maintenance effort, Haxe lets the entire interpreter, parser, and runtime be written once, then transpiled and compiled natively for each platform.\n\nThe result: one set of tests, one parser, one interpreter, all generating target-specific code that runs with native performance.\n\nProcessing pipeline\n\nTo be able to play an interactive story, Loreline takes source text as input and transforms it through several stages in order to execute it:\n\nSource TextLexerParserInterpreterAST Interactive Story \n\nLexer: Turns the source text into tokens. One of its most complex tasks is determining whether a line is narrative text or a language instruction: this is what lets writers write dialogue without explicit delimiters.\n\nParser: Consumes the token stream and produces an AST (Abstract Syntax Tree) representing the full structure of the script: beats, dialogue, choices, alternatives, conditionals, expressions, and more. Each node receives a unique 64-bit ID encoding its position in the hierarchy, designed to remain stable when the script is modified: a save based on a previous version remains valid even if lines of dialogue are added or removed.\n\nInterpreter: Walks the AST at runtime and calls handler callbacks when dialogue or choices need to be presented. The host application provides these callbacks and controls when execution resumes.\n\nWith Loreline, there is no need to \"pre-compile\" .lor scripts into an intermediate format. The runtime can directly read, parse, and execute a script in plain text. This is a deliberate choice that simplifies integration and opens the door to more varied use cases. The Lexer is particularly optimized for performance, making it entirely viable to load many files on the fly.\n\nExecution model\n\nInterpreter Host Application Display dialogueMake a choiceEnd execution dialoguechoicefinishcontinuechoice number\n\nWhen the interpreter reaches a dialogue line or a choice point, it pauses and lets the host application (game, web app, tool) decide when to resume. This continuation-passing style (CPS) model works equally well with synchronous and asynchronous callbacks, and integrates naturally into any game loop or event system.\n\nInternally, a stack of runtime scopes tracks the current position in the script, active variables, and nested beats. This stack is what makes precise save and restore of execution state possible at any point.\n\nCompilation targets\n\nLoreline covers a wide range of languages and platforms, thanks to a shared codebase that guarantees identical behavior everywhere.\n\nA thin wrapper layer is added on top of the Haxe-transpiled code, so that Loreline, as a library, feels natural to use in each target language. Someone using the C# or Java version of Loreline does not need to know anything about Haxe. Using Loreline with Godot is done simply with GDScript, etc.\n\nLoreline (Haxe)JavaScript / TypeScriptC#C++PythonLuaJVMJavaScalaKotlinlibGDXiOSAndroidLÖVEGodot / GDScriptUnityWeb / HTML5PC / Mac \n\nThis software architecture makes it possible to modify the language (to fix a bug, add an improvement...) simply by changing the Haxe source code, and deploy that change across all targets automatically: this saves a considerable amount of maintenance effort for Loreline over time!\n\nHundreds of automated tests\n\nTo ensure the language's robustness and prevent any regression when it is modified, hundreds of tests are run for each target language (JS, Java, C#, C++, ...) to cover every feature: alternatives, beats, characters, choices, dialogue, expressions, functions, conditionals, imports, insertions, localization, save/restore, state management, syntax, tags, and visit counting.\n\nThese tests are crucial to verify that the language behaves correctly, and to confidently build tooling and narratives with Loreline.\n\nDigging deeper\n\nTo learn more about how Loreline works, you can also explore its source code on GitHub.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ast",
+      "choice",
+      "choiceend",
+      "cps",
+      "dialogue",
+      "gdscript",
+      "haxe",
+      "javascript",
+      "language",
+      "lexer",
+      "loreline",
+      "loreline with godot",
+      "narrative",
+      "runtime",
+      "target",
+      "transpile",
+      "typescript",
+      "write"
+    ],
+    [
+      "javascript"
+    ]
+  ]
+}

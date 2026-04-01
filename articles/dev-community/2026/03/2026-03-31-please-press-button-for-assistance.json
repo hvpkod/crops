@@ -1,0 +1,43 @@
+{
+  "id": 7247,
+  "source": "DEV Community<",
+  "title": "\"Please press button for assistance\"",
+  "url": "https://dev.to/pvsdev/please-press-button-for-assistance-27p7",
+  "published_at": "2026-03-31T06:28:00Z",
+  "fetched_at": "2026-03-31T06:40:33.679291+00:00",
+  "author": "Unicorn Developer",
+  "summary": "<p>Back when I joined PVS-Studio five years ago, my ex-colleague (who pretty much taught me how to code) wrote an article on tech support and how to avoid burning out. Over the past few years, our support team has gone through significant changes, so it's time to update things.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmo2ve52quqph6dpqp004.png\"><img alt=\"1359_press_here/image1.png\" height=\"451\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmo2ve52quqph6dpqp004.png\" width=\"800\" /></a></p>\n\n<p>I'm a customer support manager, so that's partly my job—and today I'll tell you about how we do things. Next, I'll show how the support team is currently working in PVS-Studio. Wishing you all",
+  "full_text": "Back when I joined PVS-Studio five years ago, my ex-colleague (who pretty much taught me how to code) wrote an article on tech support and how to avoid burning out. Over the past few years, our support team has gone through significant changes, so it's time to update things.\n\nI'm a customer support manager, so that's partly my job—and today I'll tell you about how we do things. Next, I'll show how the support team is currently working in PVS-Studio. Wishing you all the best and lots of positive vibes. But remember: if something goes wrong, please click here for assistance...\n\n \n \n Service structure\n\nI've been in PVS-Studio tech support for four years now. Back when I started, our developers handled all technical support themselves, but today, our support service has grown like a snowball honestly, I wouldn't mind being under that snowball myself.\n\nOver the years, we've gradually enhanced the quality of the support service and automated certain aspects of it. Now we have much greater control over our service operations and our own staff. Now I'll explain how developing in-house tools and making the most of our support team's experience has helped us raise the quality bar.\n\nThe old model, where only developers provided support to users, worked as long as the workload wasn't too high. But the analyzer is growing, diagnostic rules are being developed, and integrations are being added. Even in the old, slightly simpler mode, it wasn't very handy. As the analyzer continued to evolve, there was a need to expand and automate the support pipeline. \n\nYou can see the difference between how things used to be and what we've managed to put together so far in the tables below. Tsss... It's a little secret, but you'll get a sneak peek into how we work behind the scenes :) \n\nLook at support departments:\n\nPreviously (pre-2021)\n\nSales: handles the evaluation period and initial non-technical support without getting into technical details, and handles partnership requests.\n\nDevelopment departments: handles all technical requests.\n\nCurrently (since 2024)\n\nSales: handles partnership opportunities.\n\nSalesDev: handles evaluation period and first-line support.\n\nTechnical Support: handles technical requests.\n\nDevelopment departments: handles specific technical requests.\n\nI work in the SalesDev department and provide assistance when customers evaluate our tools. Plus, I handle the first-line support for resolving simple technical and advisory requests. If you're one of our clients, we might have even exchanged emails :) I also lead a project to expand our support services. We develop new tools, document processes, analyze technical support statistics, and identify areas for improvement.\n\nLooking at the numbers, splitting responsibilities across departments has been very helpful in distributing the workload across our development teams. The technical support department was established in late 2024, and in 2025, they already sent 1,119 emails.\n\nOn top of my main duties, over the past four years my manager, colleagues from the technical departments, and I have rolled out a bunch of tech support projects, which you can see in the table listing the tools we've implemented along the way. \n\nThe tools we use for support:\n\nPreviously (pre-2021)\n\nScenario flowcharts.\n\nTeam stats, ticket handling time, etc.\n\nA third-party helpdesk where it was difficult to implement internal customizations.\n\nCurrently (since 2024)\n\nOur in-house helpdesk, where we can customize as we want (header, message body, email editing, comments, email threads, etc.)\n\nCommunication tags: managerial, technical, etc.\n\nTechnical closure statuses for conversations.\n\nDefined processes and areas of responsibility.\n\nTechnical solutions database for the analyzer.\n\nChecklists for clarifying environments in specific cases.\n\nUpdating the feedback page with templates based on the request.\n\nScenario flowcharts.\n\nBuilt-in templates that employees create themselves.\n\nTeam stats, ticket handling time, etc.\n\nStatistics on recurring patterns in conversations.\n\nThis is the part I can actually show—the tools that make our support tick. Of course, people come first, but the numbers speak for themselves.\n\nFor 2025, the the median ticket resolution time dropped by six days (from 19 to 13) and reduced our response time almost threefold. The current average response time is around 9 hours.\n\nWishing everyone all the best, smooth processes, and lots of love—and once again, if something goes wrong, please press here for assistance...\n\n \n \n Conclusion\n\nOver the past five years, support for PVS-Studio has undergone many changes. All of this is for the benefit of our clients and employees. We've implemented some really useful tools, and now we're better able to understand users' needs and challenges, analyze our mistakes, and handle technical support requests. Our human resources are organized more effectively, with new departments each responsible for their own area of support and service.\n\nSupport matters. In many cases, it's a key factor in whether a customer decides to use the tool regularly or purchase a license. \n\nThis work has yielded significant results, as evidenced by our internal statistics. That's why support is awesome. And of course, we welcome your feedback!\n\nWishing everyone peace, love, great articles, and successful projects—and once again (last time, I swear), if something goes wrong, please press here for assistance...",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "analyzer",
+      "career",
+      "currently",
+      "department",
+      "go",
+      "handle",
+      "management",
+      "mentalhealth",
+      "pvs",
+      "pvs-studio",
+      "salesdev",
+      "support",
+      "tech",
+      "technical",
+      "tool",
+      "tsss",
+      "wish",
+      "workplace"
+    ],
+    [
+      "career",
+      "go",
+      "management",
+      "mentalhealth",
+      "tech",
+      "workplace"
+    ]
+  ]
+}

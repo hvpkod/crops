@@ -1,0 +1,30 @@
+{
+  "id": 7250,
+  "source": "DEV Community<",
+  "title": "Types of Exceptions in Programming",
+  "url": "https://dev.to/jayashree_a84b6eff7bc414e/types-of-exceptions-in-programming-3o7f",
+  "published_at": "2026-03-31T06:12:51Z",
+  "fetched_at": "2026-03-31T06:40:40.468266+00:00",
+  "author": "Jayashree",
+  "summary": "<h1>\n  \n  \n  Types of Exceptions in Programming\n</h1>\n\n<p>Exception handling is an important concept in programming that helps manage errors during program execution. Instead of crashing, a program can respond to problems in a controlled way. Understanding the types of exceptions makes it easier to write reliable and maintainable code.</p>\n\n<h2>\n  \n  \n  What is an Exception?\n</h2>\n\n<p>An exception is an abnormal condition that occurs during the execution of a program. It interrupts the normal flow of instructions and must be handled properly to avoid program failure.</p>\n\n\n\n\n<h2>\n  \n  \n  Types of Exceptions\n</h2>\n\n<h3>\n  \n  \n  1. Checked Exceptions\n</h3>\n\n<p>Checked exceptions are those that are detected at compile time. These are mainly used in languages like Java. The programmer is required to handle these exceptions, either using try-catch blocks or by declaring them with the <code>throws</code> keyword.</p>\n\n<p><strong>Examples:</strong></p>\n\n<ul>\n<li>FileNotFoundException</li>\n<li",
+  "full_text": "Types of Exceptions in Programming\n\nException handling is an important concept in programming that helps manage errors during program execution. Instead of crashing, a program can respond to problems in a controlled way. Understanding the types of exceptions makes it easier to write reliable and maintainable code.\n\n \n \n What is an Exception?\n\nAn exception is an abnormal condition that occurs during the execution of a program. It interrupts the normal flow of instructions and must be handled properly to avoid program failure.\n\n \n \n Types of Exceptions\n\n \n \n 1. Checked Exceptions\n\nChecked exceptions are those that are detected at compile time. These are mainly used in languages like Java. The programmer is required to handle these exceptions, either using try-catch blocks or by declaring them with the throws keyword.\n\nExamples:\n\nFileNotFoundException\n\nIOException\n\nIf these exceptions are not handled, the program will not compile.\n\n \n \n 2. Unchecked Exceptions\n\nUnchecked exceptions occur at runtime and are not checked during compilation. These usually happen due to logical errors in the program.\n\nExamples:\n\nArithmeticException (divide by zero)\n\nNullPointerException\n\nArrayIndexOutOfBoundsException\n\nThese exceptions can be handled, but it is not mandatory.\n\n \n \n 3. Built-in Exceptions\n\nBuilt-in exceptions are predefined exceptions provided by programming languages. They cover common error scenarios and make error handling easier.\n\nExamples (Python):\n\nValueError\n\nTypeError\n\nIndexError\n\nZeroDivisionError\n\nFileNotFoundError\n\n \n \n 4. User-defined Exceptions\n\nUser-defined exceptions are custom exceptions created by programmers to handle specific situations in their applications. This improves code clarity and allows better control over errors.\n\nExample (Python):\n\nclass MyException(Exception):\n pass\n\nraise MyException(\"Custom error occurred\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Conclusion\n\nExceptions are an essential part of modern programming. By understanding the different types of exceptions—checked, unchecked, built-in, and user-defined—developers can write programs that are more robust and less prone to unexpected crashes. Proper exception handling ensures smooth execution and better user experience.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "check",
+      "error",
+      "exception",
+      "handling",
+      "program",
+      "programming",
+      "type",
+      "types of exceptions",
+      "unchecked",
+      "well"
+    ],
+    [
+      "programming"
+    ]
+  ]
+}

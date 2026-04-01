@@ -1,0 +1,38 @@
+{
+  "id": 7347,
+  "source": "DEV Community<",
+  "title": "My CSV had 50K rows. Row 23,487 broke everything.",
+  "url": "https://dev.to/nicodev__/my-csv-had-50k-rows-row-23487-broke-everything-4pf5",
+  "published_at": "2026-03-31T15:36:12Z",
+  "fetched_at": "2026-03-31T15:40:21.715896+00:00",
+  "author": "Nico Reyes",
+  "summary": "<h1>\n  \n  \n  My CSV had 50K rows. Row 23,487 broke everything.\n</h1>\n\n<p>Built a data processor for vendor CSV exports. Tested with sample files, looked good, pushed to production.</p>\n\n<p>Two weeks later, 3 AM alert.</p>\n\n<p>Vendor changed export format. Not the whole thing, just ONE field on random rows. They added an unquoted comma.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight python\"><code><span class=\"c1\"># Expected format\n</span><span class=\"n\">product_name</span><span class=\"p\">,</span><span class=\"n\">price</span><span class=\"p\">,</span><span class=\"n\">stock</span>\n<span class=\"n\">Widgets</span><span class=\"p\">,</span><span class=\"mf\">12.99</span><span class=\"p\">,</span><span class=\"mi\">45</span>\n\n<span class=\"c1\"># Row 23,487\n</span><span class=\"n\">Widgets</span><span class=\"p\">,</span> <span class=\"n\">Premium</span> <span class=\"n\">Edition</span><span class=\"p\">,</span><span class=\"mf\">12.99</span><span class=\"p\">,</span><span class=\"mi\">45</span",
+  "full_text": "My CSV had 50K rows. Row 23,487 broke everything.\n\nBuilt a data processor for vendor CSV exports. Tested with sample files, looked good, pushed to production.\n\nTwo weeks later, 3 AM alert.\n\nVendor changed export format. Not the whole thing, just ONE field on random rows. They added an unquoted comma.\n\n# Expected format\nproduct_name,price,stock\nWidgets,12.99,45\n\n# Row 23,487\nWidgets, Premium Edition,12.99,45\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat comma shifted columns. Parser read \"Premium Edition\" as price, tried float conversion, crashed.\n\nSpent an hour thinking it was my regex. Nope.\n\nThought maybe encoding issue. Nope.\n\nFinally printed the raw row. There it was. Unquoted comma in product name field.\n\nTests missed it because first 20K rows were clean. Formatting bug only appeared when product names had certain keywords. My test CSVs had none of those.\n\nNo validation existed. Python csv module parsed it without error, so I assumed valid data. Bad assumption.\n\nFixed it:\n\nimport csv\n\ndef validate_row(row, expected_cols=3):\n if len(row) != expected_cols:\n return False, f\"Expected {expected_cols} cols, got {len(row)}\"\n\n try:\n float(row[1]) # price should be numeric\n except ValueError:\n return False, f\"Not a number: {row[1]}\"\n\n return True, None\n\nwith open('export.csv') as f:\n reader = csv.reader(f)\n next(reader)\n\n for i, row in enumerate(reader, start=1):\n valid, error = validate_row(row)\n if not valid:\n print(f\"Row {i}: {error}\")\n continue\n\n process_product(row)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nValidate column count and types before processing. Log bad rows, skip them, don't explode.\n\nShould have tested with actual production data instead of clean samples. Dry run mode would have caught this without waking me up at 3 AM.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "break",
+      "comma",
+      "csv",
+      "data",
+      "debugging",
+      "fullscreen",
+      "mode",
+      "name",
+      "none",
+      "programming",
+      "python",
+      "return",
+      "test",
+      "unquoted",
+      "validate",
+      "vendor"
+    ],
+    [
+      "debugging",
+      "programming",
+      "python"
+    ]
+  ]
+}

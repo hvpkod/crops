@@ -1,0 +1,38 @@
+{
+  "id": 7409,
+  "source": "DEV Community<",
+  "title": "Claude's Extended Thinking: The AI That Thinks Before It Speaks",
+  "url": "https://dev.to/x0lg0n/claudes-extended-thinking-the-ai-that-thinks-before-it-speaks-49e0",
+  "published_at": "2026-03-31T18:30:00Z",
+  "fetched_at": "2026-03-31T18:40:30.896697+00:00",
+  "author": "Siddhartha Kunwar",
+  "summary": "<h2>\n  \n  \n  🧠 The Power of \"Slow\" AI\n</h2>\n\n<p>Most AI tools give you instant answers. But fast isn't always good. Claude has a special mode called <strong>\"Extended Thinking\"</strong> where it slows down and works through complex problems step-by-step—like a thoughtful expert rather than a quick guesser.</p>\n\n\n\n\n<h2>\n  \n  \n  💡 What Is Extended Thinking?\n</h2>\n\n<p>Extended Thinking is a setting where instead of answering immediately, Claude uses a \"reasoning block\" to plan its response.</p>\n\n<p>It’s the difference between:</p>\n\n<ul>\n<li>\n<strong>Standard AI:</strong> Blurting out an answer based on patterns.</li>\n<li>\n<strong>Extended Thinking:</strong> Pausing, reading the nuance, checking for errors, and <em>then</em> responding.</li>\n</ul>\n\n<blockquote>\n<p><strong>How to activate it:</strong> Switch the model setting to <strong>\"Extended\"</strong> or toggle the <strong>\"Thinking\"</strong> button (available in Claude 3.7 Sonnet and above) before sending your message.</p>\n</blockquot",
+  "full_text": "🧠 The Power of \"Slow\" AI\n\nMost AI tools give you instant answers. But fast isn't always good. Claude has a special mode called \"Extended Thinking\" where it slows down and works through complex problems step-by-step—like a thoughtful expert rather than a quick guesser.\n\n \n \n 💡 What Is Extended Thinking?\n\nExtended Thinking is a setting where instead of answering immediately, Claude uses a \"reasoning block\" to plan its response.\n\nIt’s the difference between:\n\nStandard AI: Blurting out an answer based on patterns.\n\nExtended Thinking: Pausing, reading the nuance, checking for errors, and then responding.\n\nHow to activate it: Switch the model setting to \"Extended\" or toggle the \"Thinking\" button (available in Claude 3.7 Sonnet and above) before sending your message.\n\n \n \n ⏰ When Should You Use It?\n\nYou don't need this to write a \"Thank You\" email. Save the extra \"brain power\" for:\n\n📄 Deep Analysis: Summarizing 100+ page legal or technical docs.\n\n🎯 High Accuracy: Generating timestamps for long-form video (4+ hours).\n\n📊 Logic & Math: Analyzing business data or complex coding bugs.\n\n🤔 Strategic Planning: Creating multi-step project roadmaps.\n\n \n \n 🎬 Real-World Example: The YouTube Timestamp Challenge\n\nImagine you've recorded a 5-hour video. Doing manual timestamps would take you all afternoon. \n\nWith Extended Thinking, Claude can:\n\n Scan the entire transcript for context.\n\n Identify natural chapter breaks (not just random intervals).\n\n Cross-reference mentions of specific keywords.\n\n Format a perfect list: 0:00 - Intro, 15:30 - The Secret Sauce, etc.\n\nThe result? About 90% of the work is done in minutes, leaving you to just do a final review.\n\n \n \n 🧪 What Does It Look Like?\n\nWhen this mode is active, you'll see a \"Thinking\" dropdown. If you click it, you can see Claude's internal monologue in real-time:\n\n\"I need to verify if the user wants the timestamps in 10-minute increments...\" > \"Scanning the section on 'Market Trends'...\" > \"Ensuring the tone matches the previous chapters...\"\n\nThis transparency builds trust—you can see exactly why it's giving you that specific answer.\n\n \n \n 🛠 Quick Toggle Guide\n\nTask\nMode Recommended\n\nQuick Email / Text fix\n\nStandard (Fast)\n\nBrainstorming Ideas\n\nStandard (Creative)\n\nComplex Coding / Debugging\n\nExtended (Precise)\n\nData Extraction from PDFs\n\nExtended (Thorough)\n\n \n \n ✅ Key Takeaway\n\nExtended Thinking is Claude's \"Reasoning Mode.\" Use it when accuracy matters more than speed. It’s better to wait 30 seconds for a perfect answer than to spend 10 minutes fixing a fast, wrong one.\n\nThis is **Blog 3* of a 9-part Claude AI series for beginners.*\n\nNext up: Claude Projects — Your personal AI workspace that remembers everything.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "claude",
+      "complex",
+      "extended",
+      "extended thinking",
+      "identify",
+      "perfect",
+      "productivity",
+      "quick",
+      "real-world example:",
+      "set",
+      "standard",
+      "thinking",
+      "timestamp",
+      "toggle",
+      "tutorial"
+    ],
+    [
+      "ai",
+      "productivity",
+      "tutorial"
+    ]
+  ]
+}

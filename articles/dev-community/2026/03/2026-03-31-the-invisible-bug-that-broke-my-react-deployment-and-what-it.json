@@ -1,0 +1,30 @@
+{
+  "id": 7411,
+  "source": "DEV Community<",
+  "title": "## The Invisible Bug That Broke My React Deployment (and What It Taught Me)",
+  "url": "https://dev.to/mindmagic/-the-invisible-bug-that-broke-my-react-deployment-and-what-it-taught-me-53i4",
+  "published_at": "2026-03-31T18:12:43Z",
+  "fetched_at": "2026-03-31T18:40:32.388999+00:00",
+  "author": "PixelNomad",
+  "summary": "<p>I thought deploying a React app would be the easiest part of the project—until my production build went live and… a blank screen appeared. No errors in the browser. No crashes in the console. Just silence.</p>\n\n<p>Locally, everything worked perfectly. <code>npm start</code> was fine. But once deployed to GitHub Pages/Vercel, the app simply refused to render. That’s when I realized the problem wasn’t React—it was the deployment assumptions I had made.</p>\n\n<p>After hours of debugging, I found the culprit hiding in plain sight: <strong>incorrect routing configuration and missing homepage setup in package.json</strong>. React Router was trying to handle routes as if it was running on a server, but static hosting doesn’t work that way by default.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code><span class=\"c1\">// Fix for React Router on static hosting</span>\n<span class=\"o\">&lt;</span><span class=\"nx\">BrowserRouter</span> <span class=\"nx\">ba",
+  "full_text": "I thought deploying a React app would be the easiest part of the project—until my production build went live and… a blank screen appeared. No errors in the browser. No crashes in the console. Just silence.\n\nLocally, everything worked perfectly. npm start was fine. But once deployed to GitHub Pages/Vercel, the app simply refused to render. That’s when I realized the problem wasn’t React—it was the deployment assumptions I had made.\n\nAfter hours of debugging, I found the culprit hiding in plain sight: incorrect routing configuration and missing homepage setup in package.json. React Router was trying to handle routes as if it was running on a server, but static hosting doesn’t work that way by default.\n\n// Fix for React Router on static hosting\n<BrowserRouter basename={process.env.PUBLIC_URL}>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAnd in package.json:\n\n\"homepage\": \"https://your-username.github.io/repo-name\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat tiny line fixed everything.\n\n \n \n Lesson learned:\n\nDeployment isn’t just “uploading code”—it’s understanding the environment your code runs in. React apps behave differently when they lose their server context.\n\nNow I always ask myself before deploying:\n\nWill this run on a static server?\n\nDo I need routing adjustments?\n\nDid I test the production build locally (npm run build && serve build)?\n\nA simple mistake turned into a valuable reminder: production is a different world than development.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "browserrouter",
+      "build",
+      "deployment",
+      "fullscreen",
+      "github pages/vercel",
+      "host",
+      "mode",
+      "production",
+      "react",
+      "rout",
+      "router",
+      "static"
+    ],
+    []
+  ]
+}

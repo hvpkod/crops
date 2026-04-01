@@ -1,0 +1,31 @@
+{
+  "id": 7203,
+  "source": "Hacker News",
+  "title": "Incident March 30th, 2026 – Accidental CDN Caching",
+  "url": "https://blog.railway.com/p/incident-report-march-30-2026-accidental-cdn-caching",
+  "published_at": "2026-03-31T01:28:18Z",
+  "fetched_at": "2026-03-31T02:40:27.030367+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47581721\">Comments</a>",
+  "full_text": "Table of Contents\nImpact\nIncident Timeline\nWhat Happened?\nPreventative Measures\n\n🚄\n\nEdits have been added to provide additional clarity as of 00:00 UTC, in addition to an update to the title for accuracy\n\nRailway experienced an incident where CDN features were accidentally enabled for some domains without users enabling them.\n\nFor those affected, this may have resulted in potentially authenticated data being served to unauthenticated users.\n\nOn March 30, 2026 between 10:42 UTC and 11:34 UTC (52 minutes), a Railway engineer rolled out a change causing HTTP GET responses to be incorrectly cached across ~0.05% of domains on Railway with CDN disabled.\n\nDuring this window, cached responses may have been served to users other than the original requester, which meant potentially authenticated data is served to unauthenticated users.\n\nThis meant that, your application may have served requests for one user to a different user.\n\nAs a result, for those applications serving on Railway, your users may have seen pages intended for other users.\n\nWe take this very seriously, and detail below what happened, how we’ve addressed it, and how we’re preventing it from happening in the future.\n\nOn March 30, 2026:\n10:42 UTC - A Railway engineer deployed a configuration update to our CDN provider. This accidentally enabled caching for domains that had CDN turned off.\n11:14 UTC - First identification of a possible issue, based on internal information + user reports\n11:34 UTC - The change was fully reverted and all cached assets were purged globally.\n\nThe full incident is available on our Status Page here.\n\nA CDN (Content Delivery Network) caches your application's content at edge servers around the world so it can be served faster to users. On Railway, CDN caching is opt-in. Domains without CDN enabled will always route requests directly to your application.\n\nDuring this incident, a configuration update accidentally enabled caching on domains that had it disabled. As a result, responses — including authenticated ones — were stored and served from our edge cache instead of reaching your application directly.\n\nOrigin Cache-Control directives were respected where provided, and Set-Cookie response headers were not cached. However, most GET responses without explicit cache headers were cached by default during this window.\n\nUsers with domains affected by this incident will be notified via e-mail shortly.\n\nWe have already rolled out the following:\nAdditional tests for correct/incorrect caching behaviors before changes are in production\nAggressive shard-ing of CDN rollouts over hours as opposed to minutes\n\nWe are deeply sorry for this grave error on our part. We have already put mitigations in place to prevent it from happening again (see below), but we realize that incidents like this damage your trust in Railway, which is of paramount importance to us. \n\nWe have been working nonstop to keep up with the surge in growth we are experiencing, but will be prioritizing safety and security over new feature development to make sure we avoid similar issues in the future",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "authenticated",
+      "cache",
+      "cdn",
+      "domain",
+      "enable",
+      "incident",
+      "railway",
+      "response",
+      "serve",
+      "set-cookie",
+      "status page",
+      "user",
+      "utc"
+    ],
+    []
+  ]
+}
