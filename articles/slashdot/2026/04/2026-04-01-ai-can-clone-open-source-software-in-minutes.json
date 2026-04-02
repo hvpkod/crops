@@ -1,0 +1,24 @@
+{
+  "id": 7824,
+  "source": "Slashdot",
+  "title": "AI Can Clone Open-Source Software In Minutes",
+  "url": "https://news.slashdot.org/story/26/04/01/164232/ai-can-clone-open-source-software-in-minutes?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-01T21:00:00Z",
+  "fetched_at": "2026-04-01T22:20:25.330095+00:00",
+  "author": "BeauHD",
+  "summary": "ZipNada writes: Two software researchers recently demonstrated how modern AI tools can reproduce entire open-source projects, creating proprietary versions that appear both functional and legally distinct. The partly-satirical demonstration shows how quickly artificial intelligence can blur long-standing boundaries between coding innovation, copyright law, and the open-source principles that underpin much of the modern internet.\n \nIn their presentation, Dylan Ayrey, founder of Truffle Security, and Mike Nolan, a software architect with the UN Development Program, introduced a tool they call malus.sh. For a small fee, the service can \"recreate any open-source project,\" generating what its website describes as \"legally distinct code with corporate-friendly licensing. No attribution. No copyleft. No problems.\" It's a test case in how intellectual property law -- still rooted in 19th-century precedent -- collides with 21st-century automation. Since the US Supreme Court's Baker v. Selden ru",
+  "full_text": "If a computer program ingests code (whether GPL or not) and then outputs some code, the big question is whether or not the resulting code is a derived work.\n\nIf it's not a derived work, then the license of the original code is irrelevant, and it doesn't matter if it's GPLed, fully proprietary, or somewhere in between. The license has no say in the matter, because nobody ever needs to agree to the license; whatever they're doing is legal under copyright law so they already had all the permission they needed, without ever needing the additional rights granted by a license.\n\nIf it is a derived work, then that's copyright infringement unless the person who does it has permission. And the only way to get permission (i.e. cause copyright infringement to have not happened) is to agree to the license. So yes, the output would have to be GPLed.\n\nBut I don't think we really know whether or not robots reading code and then writing code from what they \"learned,\" are creating derived works. Ask again in a few years, after a few court cases. This is hard. Rational people can disagree and come up with pretty good arguments no matter what side they're on. We'll see what the courts decide.\n\nI think the most interesting case for determining it, won't involve a GPLed input. It'll be if Anthropic sues this project [github.com], since they will have contributed arguments to both sides. They'll have to argue \"it is a derived work\" in court, but to all their customers, they have and will continue to preach \"it's not a derived work.\"",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "clone",
+      "minutes",
+      "opensource",
+      "software"
+    ],
+    [
+      "opensource"
+    ]
+  ]
+}

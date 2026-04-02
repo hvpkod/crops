@@ -1,0 +1,34 @@
+{
+  "id": 7549,
+  "source": "DEV Community<",
+  "title": "Automating Checkout Add-On Recommendations in WordPress for WooCommerce",
+  "url": "https://dev.to/nexuwp/automating-checkout-add-on-recommendations-in-wordpress-for-woocommerce-1g1e",
+  "published_at": "2026-04-01T03:26:25Z",
+  "fetched_at": "2026-04-01T03:40:22.973595+00:00",
+  "author": "NEXU WP",
+  "summary": "<p>I built a WooCommerce plugin to solve a problem I kept seeing in stores: checkout add-ons and post-purchase offers usually feel either too manual to manage or too aggressive for customers.</p>\n\n<p>The goal was to make recommendations feel contextual. Instead of sending shoppers away from checkout, the plugin injects related products and order bumps directly into the existing flow, then optionally shows a single upsell modal after the order is placed. You can see the full plugin at <a href=\"https://nexuwp.com/product/smart-funnel-wordpress-plugin-ultimate-upsell-order-bump-revenue-booster-for-woocommerce/\" rel=\"noopener noreferrer\">Smart Funnel for WooCommerce</a>.</p>\n\n<p>Under the hood, I split the system into three parts.</p>\n\n<p>First, there is a checkout recommendation layer. Store owners can manually map related products, or let the plugin use purchase history to surface products that are commonly bought together. That logic lets the checkout grid act more like lightweight asso",
+  "full_text": "I built a WooCommerce plugin to solve a problem I kept seeing in stores: checkout add-ons and post-purchase offers usually feel either too manual to manage or too aggressive for customers.\n\nThe goal was to make recommendations feel contextual. Instead of sending shoppers away from checkout, the plugin injects related products and order bumps directly into the existing flow, then optionally shows a single upsell modal after the order is placed. You can see the full plugin at Smart Funnel for WooCommerce.\n\nUnder the hood, I split the system into three parts.\n\nFirst, there is a checkout recommendation layer. Store owners can manually map related products, or let the plugin use purchase history to surface products that are commonly bought together. That logic lets the checkout grid act more like lightweight association matching than a static cross-sell block.\n\nSecond, there is a funnel engine for order bumps and post-purchase upsells. Each offer is stored with conditions, priority, discount settings, and display rules. At runtime, the plugin evaluates cart context and decides which offer should render, so stores do not end up showing every promotion to every buyer.\n\nThird, I added an admin workflow that is meant for real store operations. Offers can be created from a dedicated funnel UI or from the product edit screen, and the plugin tracks views, conversions, and revenue so store owners can tune offers based on actual behavior instead of guesswork.\n\nOne implementation detail I cared about was keeping the customer path predictable. If a shopper accepts a post-purchase offer, it still goes through standard WooCommerce checkout and payment handling. That keeps order data, payment flow, and audit history aligned with core WooCommerce behavior.\n\nI also added flexible rendering options. The related products block can be auto-injected into checkout, or placed manually with a shortcode or Elementor widget, which makes it easier to fit different themes without editing templates.\n\nThe result is a recommendation system that stays inside WooCommerce's normal purchase flow, while giving store owners targeting and analytics that are usually scattered across multiple tools.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "checkout",
+      "funnel",
+      "offer",
+      "order",
+      "owner",
+      "payments",
+      "php",
+      "plugin",
+      "recommendation",
+      "related",
+      "store",
+      "webdev",
+      "woocommerce",
+      "wordpress"
+    ],
+    [
+      "webdev"
+    ]
+  ]
+}

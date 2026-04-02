@@ -1,0 +1,42 @@
+{
+  "id": 7619,
+  "source": "DEV Community<",
+  "title": "I replaced 4 Play Console tabs with one terminal command",
+  "url": "https://dev.to/yasserstudio/i-replaced-4-play-console-tabs-with-one-terminal-command-3mj7",
+  "published_at": "2026-04-01T09:09:21Z",
+  "fetched_at": "2026-04-01T09:20:31.112391+00:00",
+  "author": "Yasser's studio",
+  "summary": "<p>I used to start every morning the same way.</p>\n\n<p>Open the Play Console. Check the releases tab. Switch to the vitals tab. Look at crash rates. Look at ANR rates. Open the reviews tab. Scan for 1-star reviews. Cross-reference everything in my head.</p>\n\n<p>Four tabs. Ten minutes. Every single day.</p>\n\n<p>And I still wasn't sure if I had the full picture.</p>\n\n<h2>\n  \n  \n  One command instead of four tabs\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code><span class=\"nv\">$ </span>gpc status\n</code></pre>\n\n</div>\n\n\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>App: com.example.app  (fetched just now)\n\nRELEASES\n  production   v142   completed    -\n  beta         v143   inProgress  10%\n  internal     v144   draft        -\n\nVITALS  (last 7 days)\n  crashes     0.80% ↓  ✓    anr         0.20% ↓  ✓\n  slow starts 2.10%    ✓    slow render 4.30%    ⚠\n\nREVIEWS  (last 30 days)\n  ★ 4.6   142 new   89% positive   ↑ from ",
+  "full_text": "I used to start every morning the same way.\n\nOpen the Play Console. Check the releases tab. Switch to the vitals tab. Look at crash rates. Look at ANR rates. Open the reviews tab. Scan for 1-star reviews. Cross-reference everything in my head.\n\nFour tabs. Ten minutes. Every single day.\n\nAnd I still wasn't sure if I had the full picture.\n\n \n \n One command instead of four tabs\n\n$ gpc status\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nApp: com.example.app (fetched just now)\n\nRELEASES\n production v142 completed -\n beta v143 inProgress 10%\n internal v144 draft -\n\nVITALS (last 7 days)\n crashes 0.80% ↓ ✓ anr 0.20% ↓ ✓\n slow starts 2.10% ✓ slow render 4.30% ⚠\n\nREVIEWS (last 30 days)\n ★ 4.6 142 new 89% positive ↑ from 4.4\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTen API calls fire in parallel. Full picture in under 3 seconds.\n\nReleases by track with rollout percentages. Four vitals metrics with trend arrows showing whether things are getting better or worse. Review sentiment with rating trends.\n\nThat's gpc status. It replaced the tab-switching ritual I used to do after every deploy.\n\n \n \n Most release tools stop at uploads. This one doesn't.\n\nFastlane supply pushes your AAB and syncs metadata. That's valuable. But it's only half the story.\n\nAfter you ship, you need visibility. Is the crash rate spiking on the new version? Did ANR rates jump? Are users leaving angry reviews about the change you just pushed?\n\nNothing else answers those questions from the terminal. gpc status closes the loop between \"I shipped a release\" and \"here's what happened after.\"\n\nShip and monitor from the same tool.\n\n \n \n Three workflows where this changes things\n\n \n \n 1. The morning check\n\ngpc status --all-apps\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nRuns the full status check for every app in your profiles. Up to 5 apps, one command. If any app has a threshold breach, the command exits code 6.\n\nThis replaced my entire morning Play Console routine. I open the terminal, run one command, and know exactly where everything stands.\n\n \n \n 2. Watching a rollout in real time\n\ngpc status --watch 60 --notify\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPolls every 60 seconds. Clears the screen before each update. Sends a desktop notification when a threshold is breached or clears.\n\nLeave it running on a secondary monitor during a staged rollout. Your crash rate ticks up past your threshold? You know immediately. Not 30 minutes later when you remember to check the Console.\n\nAfter the rollout, check what changed:\n\ngpc status --since-last\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nChanges since 1h ago:\n Version: 141 → 142\n Crash rate: 1.80% → 0.80% (-1.00%) ✓\n ANR rate: 0.30% → 0.20% (-0.10%) ✓\n Reviews: 4.4★ → 4.6★ (+0.2) ✓\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 3. Automated health gates in CI\n\nThis is where gpc status goes from \"nice to have\" to \"catches problems before users do.\"\n\nGate a rollout on vitals:\n\ngpc status --sections vitals\ngpc releases rollout increase --track production --to 50\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf vitals are breached, gpc status exits code 6 and the rollout never happens. No dashboards. No manual checks. Just a threshold and an exit code.\n\nPost-deploy snapshot:\n\ngpc status --format summary --refresh\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\ncom.example.app · v142 production · crashes 0.80% ↓ ✓ · ANR 0.20% ↓ ✓ · avg 4.6★ · 142 reviews\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOne line. Add it as the last step in your deploy pipeline. Something to look at when reviewing CI logs the next morning.\n\nParse specific metrics:\n\n# Get crash rate\ngpc status --output json | jq '.vitals.crashes.value'\n\n# Check if all vitals are passing\ngpc status --output json | jq -e '[.vitals | to_entries[].value.status] | all(. == \"ok\")'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe JSON output gives you values, thresholds, trend direction, and status for each metric. Build whatever monitoring logic you need on top.\n\n \n \n The details that matter\n\nThresholds are configurable. The defaults (2% crash, 1% ANR, 5% slow starts, 10% slow render) work for most apps. Override them globally in .gpcrc.json, per-project with gpc config set, or per-run with --threshold crashes=1.5,anr=0.5.\n\nCaching is built in. Results are cached for 1 hour by default. Subsequent runs in the same window cost zero API calls. Force a fresh fetch with --refresh. Read from cache only with --cached.\n\nSection filtering saves quota. --sections vitals skips the releases and reviews API calls entirely. Fetch only what you need.\n\nExit codes are semantic. 0 means all clear. 2 means usage error. 4 means API error. 6 means a vitals threshold was breached. Your CI knows why something failed without parsing log output.\n\n \n \n Quick context on GPC\n\nIf you didn't read the first article in this series: GPC is a CLI that maps the entire Google Play Developer API. 204 endpoints. 7 TypeScript packages. 1,845 tests with 90%+ coverage on every core package.\n\ngpc status is one of 40+ commands. But it's the one I run the most.\n\n \n \n Try it\n\n# npm\nnpm install -g @gpc-cli/cli\n\n# Homebrew\nbrew install yasserstudio/tap/gpc\n\n# Standalone binary (no Node.js required)\ncurl -fsSL https://raw.githubusercontent.com/yasserstudio/gpc/main/scripts/install.sh | sh\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThen:\n\ngpc auth login\ngpc status\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDocs | GitHub | Status command docs\n\nFree to use. Code is on GitHub.\n\nWhat does your post-release monitoring look like? Are you checking dashboards manually, or do you have something automated? Genuinely curious.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "android",
+      "anr",
+      "api",
+      "cli",
+      "crash",
+      "devtools",
+      "enter",
+      "exit",
+      "fullscreen",
+      "gpc",
+      "mode",
+      "quick",
+      "review",
+      "reviews",
+      "rollout",
+      "standalone",
+      "status",
+      "threshold",
+      "thresholds",
+      "typescript",
+      "vital"
+    ],
+    [
+      "cli",
+      "reviews"
+    ]
+  ]
+}

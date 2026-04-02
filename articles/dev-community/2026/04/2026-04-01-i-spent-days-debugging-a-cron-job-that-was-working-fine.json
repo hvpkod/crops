@@ -1,0 +1,37 @@
+{
+  "id": 7805,
+  "source": "DEV Community<",
+  "title": "I spent days debugging a cron job that was \"working fine\"",
+  "url": "https://dev.to/pingrudy/i-spent-days-debugging-a-cron-job-that-was-working-fine-565m",
+  "published_at": "2026-04-01T20:55:59Z",
+  "fetched_at": "2026-04-01T21:20:21.938968+00:00",
+  "author": "Rudy",
+  "summary": "<p>My storage bill kept climbing. The cron job that was supposed to clean up outdated file records was running on schedule with no errors in the logs.</p>\n\n<p>My app, which was supposed to automatically delete expired media files during the nightly cron job, wasn’t actually doing it.</p>\n\n<p>It took me days to figure out that the job was completing without deleting anything. It was failing when it tried to delete a database row that became invalid after a migration update. I had it hosted on DigitalOcean, and even their logs showed no errors.</p>\n\n<p>Zero alerts. Zero indication anything was wrong. I only caught it when the bill got bad enough that I started digging.</p>\n\n<p>After fixing it, I started thinking, how do I make sure this never happens again? I did what I always do, I reinvented the wheel. I built my own health check cron job wrapper. A daily cron job report card with a health check endpoint, alerting logic, everything. It took longer than I want to admit.</p>\n\n<p>Then aft",
+  "full_text": "My storage bill kept climbing. The cron job that was supposed to clean up outdated file records was running on schedule with no errors in the logs.\n\nMy app, which was supposed to automatically delete expired media files during the nightly cron job, wasn’t actually doing it.\n\nIt took me days to figure out that the job was completing without deleting anything. It was failing when it tried to delete a database row that became invalid after a migration update. I had it hosted on DigitalOcean, and even their logs showed no errors.\n\nZero alerts. Zero indication anything was wrong. I only caught it when the bill got bad enough that I started digging.\n\nAfter fixing it, I started thinking, how do I make sure this never happens again? I did what I always do, I reinvented the wheel. I built my own health check cron job wrapper. A daily cron job report card with a health check endpoint, alerting logic, everything. It took longer than I want to admit.\n\nThen after I built it, I figured someone must have already solved this. I looked at what was out there. Most monitoring tools check if a process is alive or if a URL responds. That is not the same as knowing if your cron job actually did something meaningful or returned the information you care about.\n\nThen I realized this is a problem every developer hits eventually, and nobody should have to build a custom solution for it.\n\nSo I built PingRudy.com to see if anyone is interested.\n\nThe tool is simple. It can be as easy as one line of code to add a health check, or you can get detailed updates about your jobs.\n\nCheck it out at PingRudy.com.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "build",
+      "check",
+      "cron",
+      "day",
+      "delete",
+      "devops",
+      "health",
+      "productivity",
+      "start",
+      "suppose",
+      "take",
+      "tooling",
+      "webdev",
+      "zero"
+    ],
+    [
+      "devops",
+      "productivity",
+      "tooling",
+      "webdev"
+    ]
+  ]
+}

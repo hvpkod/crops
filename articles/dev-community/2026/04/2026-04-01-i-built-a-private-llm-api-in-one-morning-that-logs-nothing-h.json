@@ -1,0 +1,45 @@
+{
+  "id": 7551,
+  "source": "DEV Community<",
+  "title": "I built a private LLM API in one morning that logs nothing — here's exactly how",
+  "url": "https://dev.to/vaibhav_chris_66a1613b0b5/i-built-a-private-llm-api-in-one-morning-that-logs-nothing-heres-exactly-how-26o2",
+  "published_at": "2026-04-01T03:15:56Z",
+  "fetched_at": "2026-04-01T03:40:24.625672+00:00",
+  "author": "vaibhav chris",
+  "summary": "<p>I was frustrated.</p>\n\n<p>Every LLM API provider logs your prompts. <br />\nOpenAI. Anthropic. Google. All of them. <br />\nFor teams building on sensitive data — <br />\nhealthcare, fintech, legal — this is a blocker.</p>\n\n<p>So this morning I built NullLog. <br />\nA private LLM inference API with zero data retention.<br />\nNot a policy. Architecture. Nothing is ever written to storage.</p>\n\n<p>Here's exactly how I built it in a few hours.</p>\n<h2>\n  \n  \n  The stack\n</h2>\n\n<ul>\n<li>\n<strong>Cloudflare Workers</strong> — edge routing, auth, key management</li>\n<li>\n<strong>Cloudflare Workers AI</strong> — inference (free tier covers a lot)</li>\n<li>\n<strong>Cloudflare KV</strong> — API key storage only (no prompts, no responses)</li>\n<li>\n<strong>Stripe</strong> — payments, instant API key delivery</li>\n<li>\n<strong>Resend</strong> — transactional email</li>\n</ul>\n\n<p>Total infra cost to run: near zero.</p>\n<h2>\n  \n  \n  How it works\n</h2>\n\n\n<div class=\"highlight js-code-highlight\">\n<pr",
+  "full_text": "I was frustrated.\n\nEvery LLM API provider logs your prompts. \n\nOpenAI. Anthropic. Google. All of them. \n\nFor teams building on sensitive data — \n\nhealthcare, fintech, legal — this is a blocker.\n\nSo this morning I built NullLog. \n\nA private LLM inference API with zero data retention.\n\nNot a policy. Architecture. Nothing is ever written to storage.\n\nHere's exactly how I built it in a few hours.\n\n \n \n The stack\n\nCloudflare Workers — edge routing, auth, key management\n\nCloudflare Workers AI — inference (free tier covers a lot)\n\nCloudflare KV — API key storage only (no prompts, no responses)\n\nStripe — payments, instant API key delivery\n\nResend — transactional email\n\nTotal infra cost to run: near zero.\n\n \n \n How it works\n\nCustomer pays Stripe\n→ Webhook fires to Cloudflare Worker\n→ Worker generates API key\n→ Key stored in KV (email + tier only, no usage logs)\n→ Customer gets key by email in 60 seconds\n→ They hit /v1/chat/completions\n→ Worker routes to inference\n→ Response returned\n→ Nothing written anywhere\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The worker (simplified)\n\nexport default {\n async fetch(request, env) {\n const url = new URL(request.url)\n\n if (url.pathname === '/v1/chat/completions') {\n const apiKey = request.headers\n .get('Authorization')\n ?.replace('Bearer ', '')\n\n // Validate key exists\n const keyData = await env.KEYS.get(apiKey, 'json')\n if (!keyData?.active) {\n return Response.json(\n { error: 'Invalid API key' }, \n { status: 401 }\n )\n }\n\n // Route to inference — nothing logged\n const body = await request.json()\n const response = await env.AI.run(\n '@cf/meta/llama-4-scout-17b-16e-instruct',\n { messages: body.messages }\n )\n\n return Response.json({\n choices: [{\n message: { \n role: 'assistant', \n content: response.response \n }\n }]\n })\n }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nZero database writes in the inference path.\n\nThe only thing stored is whether your API key is valid.\n\n \n \n Models available\n\nRunning the latest from Cloudflare's edge network:\n\nKimi K2.5 — 256k context, just launched March 2026\n\nGPT-OSS 120B — OpenAI's open weights\n\nLlama 4 Scout 17B — multimodal, MoE\n\nNemotron 120B — NVIDIA, just added March 2026\n\nDeepSeek R1 32B — strong reasoning\n\nMistral Small 3.1 24B\n\nQwen 2.5 Coder 32B — great for code\n\nLlama 3.3 70B\n\n \n \n Drop-in OpenAI replacement\n\nOne line change:\n\nfrom openai import OpenAI\n\nclient = OpenAI(\n api_key=\"your-nulllog-key\",\n base_url=\"https://api.sparsitron.com/v1\"\n)\n\nresponse = client.chat.completions.create(\n model=\"kimi-k2.5\",\n messages=[{\"role\": \"user\", \"content\": \"Hello\"}]\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWorks with LangChain, LlamaIndex, any OpenAI SDK integration.\n\n \n \n What I learned building this\n\nZero logging is an architecture decision, not a policy.\n\nMost providers say \"we don't train on your data\" — \n\nbut they still log. Logging and training are separate things.\n\nTrue privacy means nothing written to persistent storage\n\nanywhere in the request path.\n\nCompliance unlocks enterprise.\n\nGDPR, HIPAA, SOC2 — these aren't just checkboxes.\n\nThey're why enterprises can't use OpenAI directly.\n\nPrivate inference is a real $B market that's mostly unsolved.\n\nCloudflare Workers AI is surprisingly powerful.\n\nRunning frontier models at the edge with near-zero \n\ninfra cost. The credit system is generous for early products.\n\n \n \n Try it\n\nLive at api.sparsitron.com\n\nFree trial with code PHLAUNCH at \n\napi.sparsitron.com/redeem\n\nWould love feedback from the dev.to community — \n\nespecially on the zero-log architecture approach \n\nand whether this solves a real pain you've faced.\n\nI'm also building IntelliCortex — a novel neural \n\narchitecture to replace transformers. Sparsitron™ \n\nis our sparse computation approach. NullLog is \n\nthe infra layer we built to run our own experiments \n\nprivately. Patent filed.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "architecture",
+      "build",
+      "cloudflare",
+      "cloudflare worker",
+      "cloudflare workers",
+      "cloudflare workers ai",
+      "const",
+      "customer",
+      "fullscreen",
+      "inference",
+      "infra",
+      "key",
+      "nothing",
+      "nulllog",
+      "openai",
+      "opensource",
+      "payments",
+      "response",
+      "response.json",
+      "webdev",
+      "worker",
+      "write"
+    ],
+    [
+      "opensource",
+      "webdev"
+    ]
+  ]
+}

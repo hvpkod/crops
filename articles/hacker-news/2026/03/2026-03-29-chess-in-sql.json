@@ -1,0 +1,35 @@
+{
+  "id": 7566,
+  "source": "Hacker News",
+  "title": "Chess in SQL",
+  "url": "https://www.dbpro.app/blog/chess-in-pure-sql",
+  "published_at": "2026-03-29T13:25:16Z",
+  "fetched_at": "2026-04-01T05:20:17.796023+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47562961\">Comments</a>",
+  "full_text": "What if I told you SQL could play chess?\n\nNot \"store chess moves in a database.\" Not \"track game state in a table.\" Actually render a chess board. With pieces. That you can move around. In your browser. Using nothing but SELECT, UPDATE, and a bit of creative thinking.\n\nNo JavaScript. No frameworks. Just SQL.\n\nLet's build it.\n\nThe Board\n\nFirst, we need to represent the chess board. A chess board is an 8x8 grid. Each square can either be empty or contain a piece. That's just a table:\n\n⚡Loading SQL environment...\n\nWe've got 32 rows - one for each piece on the starting board. But that's not very... chess-like. We want to see an actual board.\n\nThe Magic: Pivoting Rows into a Grid\n\nHere's where it gets interesting. SQL doesn't naturally output grids - it outputs rows. But we can transform rows into columns using a technique called conditional aggregation.\n\nThe idea: GROUP BY the rank (row), and for each file (column), use a CASE statement inside MAX() to pick out the piece:\n\n⚡Loading SQL environment...\n\nThere it is. A chess board. Rendered entirely in SQL.\n\nLet's break down what's happening:\n\nThe CTE (WITH full_board AS ...) generates all 64 squares by cross-joining ranks 1-8 with files 1-8, then LEFT JOINs our pieces\n\nThe pivot uses MAX(CASE WHEN file = N THEN piece END) to extract each column's piece\n\nCOALESCE fills empty squares with · so we can see the grid structure\n\nORDER BY rank DESC puts rank 8 at the top (black's back rank), like a real board\n\nMaking Moves\n\nNow for the fun part. To move a piece, we just UPDATE the board:\n\n⚡Loading SQL environment...\n\nBoth pawns have advanced! The most common chess opening, executed in pure SQL.\n\nYour Turn: The Sandbox\n\nHere's a fully set up board. Try making some moves yourself. Some ideas:\n\nPlay the Italian Game: 1. e4 e5 2. Nf3 Nc6 3. Bc4\n\nTry the Queen's Gambit: 1. d4 d5 2. c4\n\nSet up a checkmate position\n\nOr just mess around!\n\nRemember:\n\nFiles: a=1, b=2, c=3, d=4, e=5, f=6, g=7, h=8\n\nDELETE the piece from its starting square, INSERT it at the destination\n\nFor captures, DELETE both the moving piece AND the captured piece first\n\n⚡Loading SQL environment...\n\nThe Opera Game: A Chess Masterpiece in SQL\n\nLet's replay one of the most famous chess games ever played. In 1858, Paul Morphy played against the Duke of Brunswick and Count Isouard at the Paris Opera (during a performance of The Barber of Seville, no less).\n\nIt's a beautiful demonstration of rapid development and tactical brilliance. Let's watch it unfold in SQL.\n\nMorphy has developed his pieces aggressively, targeting the weak f7 pawn:\n\n⚡Loading SQL environment...\n\nMorphy sacrificed his bishop, but now his knight joins the attack with devastating effect:\n\n⚡Loading SQL environment...\n\nThe finale is stunning. Morphy plays Rd8+, and when the Queen takes the rook, the other rook delivers checkmate:\n\n⚡Loading SQL environment...\n\nThe white rook on d8 delivers checkmate. The bishop on f8 blocks the king's escape, and the knight on b5 covers d6. A masterpiece then, a masterpiece now - rendered in SQL.\n\nWrapping Up\n\nWe just built a fully playable chess board in pure SQL. No JavaScript. No frameworks. Just:\n\nA simple table with rank, file, and piece\n\nA clever pivot query using conditional aggregation\n\nDELETE and INSERT to move pieces\n\nThe same pivot technique works for any grid-based visualization - calendars, seating charts, game boards, heatmaps. SQL is more expressive than most people give it credit for.\n\nNow if you'll excuse me, I have a rematch against a database to prepare for.\n\nJay",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "board",
+      "case",
+      "chess",
+      "cte",
+      "end",
+      "grid",
+      "insert",
+      "masterpiece",
+      "max",
+      "morphy",
+      "move",
+      "piece",
+      "pivot",
+      "rank",
+      "row",
+      "sql",
+      "the board\n\nfirst"
+    ],
+    []
+  ]
+}

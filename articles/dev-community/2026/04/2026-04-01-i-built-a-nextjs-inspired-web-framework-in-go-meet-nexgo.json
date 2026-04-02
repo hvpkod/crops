@@ -1,0 +1,43 @@
+{
+  "id": 7622,
+  "source": "DEV Community<",
+  "title": "I Built a Next.js-Inspired Web Framework in Go — Meet NexGo",
+  "url": "https://dev.to/salmanfaris/i-built-a-nextjs-inspired-web-framework-in-go-meet-nexgo-55ib",
+  "published_at": "2026-04-01T09:04:32Z",
+  "fetched_at": "2026-04-01T09:20:36.579709+00:00",
+  "author": "Salman Faris",
+  "summary": "<p>Modern web development is dominated by tools like Next.js, but most of them rely heavily on Node.js, npm, and complex build systems.</p>\n\n<p>I wanted something simpler. Faster. More efficient.</p>\n\n<p>So I built <strong>NexGo</strong> — a Go-powered web framework inspired by Next.js.</p>\n\n\n\n\n<h2>\n  \n  \n  ⚡ What is NexGo?\n</h2>\n\n<p>NexGo brings the <strong>developer experience of Next.js</strong> into the <strong>Go ecosystem</strong>.</p>\n\n<p>It allows you to build full-stack web applications using:</p>\n\n<ul>\n<li>File-based routing</li>\n<li>Server-side rendering (SSR)</li>\n<li>API routes</li>\n<li>Hot reload</li>\n<li>Static site generation</li>\n</ul>\n\n<p>All compiled into a <strong>single binary</strong> — no runtime dependencies, no Node.js.</p>\n\n\n\n\n<h2>\n  \n  \n  🔥 Why NexGo?\n</h2>\n\n<p>Most modern frameworks come with overhead:</p>\n\n<ul>\n<li>❌ Node.js runtime</li>\n<li>❌ Heavy dependencies</li>\n<li>❌ Complex build pipelines</li>\n</ul>\n\n<p>With NexGo:</p>\n\n<ul>\n<li>✅ No Node.js</li>\n<l",
+  "full_text": "Modern web development is dominated by tools like Next.js, but most of them rely heavily on Node.js, npm, and complex build systems.\n\nI wanted something simpler. Faster. More efficient.\n\nSo I built NexGo — a Go-powered web framework inspired by Next.js.\n\n \n \n ⚡ What is NexGo?\n\nNexGo brings the developer experience of Next.js into the Go ecosystem.\n\nIt allows you to build full-stack web applications using:\n\nFile-based routing\n\nServer-side rendering (SSR)\n\nAPI routes\n\nHot reload\n\nStatic site generation\n\nAll compiled into a single binary — no runtime dependencies, no Node.js.\n\n \n \n 🔥 Why NexGo?\n\nMost modern frameworks come with overhead:\n\n❌ Node.js runtime\n\n❌ Heavy dependencies\n\n❌ Complex build pipelines\n\nWith NexGo:\n\n✅ No Node.js\n\n✅ No npm\n\n✅ Zero dependencies\n\n✅ Blazing fast performance (~50K req/sec)\n\n✅ Simple deployment (just one binary)\n\n \n \n 🧠 How It Works\n\nNexGo uses a file-based routing system, similar to Next.js.\n\nExample:\n\npages/\n├── index.html → /\n├── about.html → /about\n├── blog/\n│ └── [slug].html → /blog/post-1\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nJust create files — NexGo automatically turns them into routes.\n\n \n \n 🚀 Getting Started\n\nInstall NexGo:\n\ngo install github.com/salmanfaris22/nexgo/cmd/nexgo@latest\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCreate a project:\n\nnexgo create my-app\ncd my-app\nnexgo dev\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow open:\n\n👉 http://localhost:3000\n\nYour app is live with hot reload ⚡\n\n \n \n ⚡ Built for Performance\n\nBecause NexGo is written in Go:\n\nIt handles thousands of requests efficiently\n\nCompiles into a small binary (~10MB)\n\nUses no external runtime\n\n \n \n 🌐 Live Demo\n\nCheck out NexGo in action:\n\n👉 https://nexgo.up.railway.app/\n\n💡 This entire website is built using NexGo itself.\n\n \n \n 🧩 Key Features\n\nFile-based routing\n\nLayouts and reusable components\n\nAPI routes using Go\n\nBuilt-in middleware (CORS, logging, gzip)\n\nStatic asset support\n\nHot reload (HMR)\n\nDevTools panel\n\n \n \n ⚖️ NexGo vs Next.js\n\nFeature\nNexGo\nNext.js\n\nLanguage\nGo\nJavaScript\n\nRuntime\nNone\nNode.js\n\nDeployment\nSingle binary\nServer / Vercel\n\nPerformance\n⚡ Very high\nHigh\n\n \n \n 💡 Why I Built This\n\nI wanted a framework that:\n\nCombines simplicity + performance\n\nRemoves unnecessary complexity\n\nFeels modern like Next.js\n\nRuns entirely on Go\n\nNexGo is my attempt to bring that vision to life.\n\n \n \n 🚀 What’s Next?\n\nI’m actively improving NexGo and exploring:\n\nBetter developer tools\n\nPlugin ecosystem\n\nMore advanced routing features\n\n \n \n 💬 Feedback Welcome\n\nThis is an open-source project, and I’d love your feedback.\n\n👉 GitHub: https://github.com/salmanfaris22/nexgo\n\n👉 Try it: https://nexgo.up.railway.app/\n\n \n \n ⭐ Support the Project\n\nIf you find NexGo interesting:\n\nGive it a ⭐ on GitHub\n\nShare it with other developers\n\nTry building something with it\n\n \n \n 🚀 Built with Go. Inspired by Next.js. Powered by simplicity.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "binary",
+      "build",
+      "devtools",
+      "feedback welcome",
+      "framework",
+      "fullscreen",
+      "go",
+      "key features\n\nfile",
+      "mode",
+      "nexgo",
+      "next.js",
+      "nextjs",
+      "node.js",
+      "npm",
+      "performance",
+      "react",
+      "reload",
+      "routing",
+      "runtime",
+      "ssr"
+    ],
+    [
+      "go",
+      "nextjs",
+      "performance"
+    ]
+  ]
+}

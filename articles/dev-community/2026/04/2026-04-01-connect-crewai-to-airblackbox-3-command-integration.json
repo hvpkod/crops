@@ -1,0 +1,41 @@
+{
+  "id": 7686,
+  "source": "DEV Community<",
+  "title": "Connect CrewAI to Airblackbox: 3-Command Integration",
+  "url": "https://dev.to/json_shotwell/connect-crewai-to-airblackbox-3-command-integration-6hi",
+  "published_at": "2026-04-01T15:07:34Z",
+  "fetched_at": "2026-04-01T15:20:38.073287+00:00",
+  "author": "Jason Shotwell",
+  "summary": "<h1>\n  \n  \n  Connect CrewAI to Airblackbox: 3-Command Integration\n</h1>\n\n<p>Your CrewAI agents are making decisions in a black box. When something goes wrong (and it will), you're debugging with prayer and print statements. That's not engineering. That's wishful thinking.</p>\n\n<p>Airblackbox gives your CrewAI agents a flight recorder. Every LLM call, every decision, every failure — captured, indexed, and queryable. Three commands, zero configuration changes to your existing crew.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>CrewAI agents fail silently. They hallucinate confidently. They forget context mysteriously. When your crew goes sideways, you get an error message and a shrug. Good luck explaining that to your product manager.</p>\n\n<p>Without observability:</p>\n\n<ul>\n<li>Agent failures look like \"it just stopped working\"</li>\n<li>Performance optimization is guesswork</li>\n<li>Debugging requires rebuilding the entire conversation history</li>\n<li>Compliance audits become archaeological ",
+  "full_text": "Connect CrewAI to Airblackbox: 3-Command Integration\n\nYour CrewAI agents are making decisions in a black box. When something goes wrong (and it will), you're debugging with prayer and print statements. That's not engineering. That's wishful thinking.\n\nAirblackbox gives your CrewAI agents a flight recorder. Every LLM call, every decision, every failure — captured, indexed, and queryable. Three commands, zero configuration changes to your existing crew.\n\n \n \n The Problem\n\nCrewAI agents fail silently. They hallucinate confidently. They forget context mysteriously. When your crew goes sideways, you get an error message and a shrug. Good luck explaining that to your product manager.\n\nWithout observability:\n\nAgent failures look like \"it just stopped working\"\n\nPerformance optimization is guesswork\n\nDebugging requires rebuilding the entire conversation history\n\nCompliance audits become archaeological expeditions\n\n \n \n The Solution: 3-Command Integration\n\nInstall Airblackbox, start the gateway, point your crew at it. That's it. No code changes. No refactoring. No \"migration story.\"\n\n \n \n Command 1: Install Airblackbox\n\npip install airblackbox\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Command 2: Start the Gateway\n\nairblackbox gateway start --port 8000\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis launches an OpenAI-compatible proxy that records everything while staying invisible to your crew.\n\n \n \n Command 3: Point CrewAI at the Gateway\n\nimport os\nfrom crewai import Agent, Task, Crew\nfrom langchain_openai import ChatOpenAI\n\n# Only change: point base_url at localhost\nos.environ['OPENAI_API_KEY'] = 'your-actual-openai-key'\n\nllm = ChatOpenAI(\n model=\"gpt-4\",\n base_url=\"http://localhost:8000/v1\" # <-- This line\n)\n\nresearcher = Agent(\n role='Research Analyst',\n goal='Find actionable insights about AI governance',\n backstory=\"You're a meticulous researcher who digs deeper than headlines\",\n llm=llm,\n verbose=True\n)\n\nwriter = Agent(\n role='Technical Writer',\n goal='Transform research into clear, actionable content',\n backstory=\"You turn complex topics into tutorials developers actually bookmark\",\n llm=llm,\n verbose=True\n)\n\nresearch_task = Task(\n description='Research the latest developments in AI agent observability',\n agent=researcher,\n expected_output=\"A detailed report with specific examples and use cases\"\n)\n\nwriting_task = Task(\n description='Write a technical tutorial based on the research',\n agent=writer,\n expected_output=\"A 1000-word tutorial with code examples\"\n)\n\ncrew = Crew(\n agents=[researcher, writer],\n tasks=[research_task, writing_task],\n verbose=2\n)\n\nresult = crew.kickoff()\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. Your crew now has a flight recorder. Every LLM call goes through the gateway, gets recorded, and your crew never knows the difference.\n\n \n \n What You Get Immediately\n\nReal-time monitoring: Watch your agents think in the Airblackbox dashboard at http://localhost:3000\n\nConversation trees: See how tasks flow between agents, where they branch, where they fail\n\nToken tracking: Know exactly what each agent costs, which tasks burn budget\n\nError correlation: When something breaks, see the full context that led to failure\n\n \n \n Architecture: How It Works\n\nCrewAI Agent → Airblackbox Gateway → OpenAI API\n ↓\nDashboard (localhost:3000)\n ↓\nSQLite Database (conversations, tokens, compliance)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe gateway is a transparent proxy. Your crew thinks it's talking directly to OpenAI. The gateway intercepts, records, forwards, and responds. Zero latency overhead. Zero behavior changes.\n\n \n \n Edge Cases That Will Bite You\n\nRate limiting: The gateway inherits OpenAI's rate limits. Your crew might hit them faster now that calls are logged. Solution: The gateway respects Retry-After headers automatically.\n\nAPI key rotation: If you rotate OpenAI keys, restart the gateway. The proxy caches authentication. Solution: airblackbox gateway restart\n\nPort conflicts: Default port 8000 might be taken. Solution: airblackbox gateway start --port 8001\n\n \n \n Measuring Success\n\nYour CrewAI integration is working when:\n\nDashboard shows conversation threads: http://localhost:3000/conversations\n\nToken costs are tracked per agent: Check the \"Analytics\" tab\n\nEU AI Act compliance scans are running: 6/6 technical checks should show green\n\nTest it:\n\ncurl http://localhost:8000/health\n# Should return: {\"status\": \"healthy\", \"gateway\": \"running\", \"database\": \"connected\"}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Next Step\n\nYour crew is now observable. Clone the CrewAI integration demo to see advanced patterns: multi-crew orchestration, custom compliance rules, and agent performance optimization.\n\nThe black box is open. Time to see what your agents are actually thinking.\n\nThree commands. Zero refactoring. Full observability. Sometimes the best solutions are boringly simple.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "aidebugging",
+      "airblackbox",
+      "api",
+      "crew",
+      "crewai",
+      "fullscreen",
+      "gateway",
+      "go",
+      "integration",
+      "measuring success\n\nyour",
+      "mode",
+      "observability",
+      "openai",
+      "os.environ['openai_api_key",
+      "sqlite database",
+      "token",
+      "tutorial"
+    ],
+    [
+      "aidebugging",
+      "go",
+      "observability",
+      "tutorial"
+    ]
+  ]
+}

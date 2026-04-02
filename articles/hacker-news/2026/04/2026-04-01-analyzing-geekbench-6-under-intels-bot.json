@@ -1,0 +1,40 @@
+{
+  "id": 7557,
+  "source": "Hacker News",
+  "title": "Analyzing Geekbench 6 under Intel's BOT",
+  "url": "https://www.geekbench.com/blog/2026/03/analyzing-geekbench-6-under-intels-bot/",
+  "published_at": "2026-04-01T03:27:38Z",
+  "fetched_at": "2026-04-01T04:00:17.946499+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47596457\">Comments</a>",
+  "full_text": "We’ve spent the past week investigating Intel’s Binary Optimization Tool (BOT). BOT modifies instruction sequences in executables to improve performance, and can only be used with a handful of applications (including Geekbench 6). Intel’s public documentation on BOT is limited, so we decided to dig in ourselves to understand how it works and what optimizations it’s applying to Geekbench.\n\nWe tested both Geekbench 6.3 and Geekbench 6.7 on a Panther Lake laptop (an MSI Prestige 16 AI+ with an Intel Core 9 386H) with BOT enabled and disabled.\n\nStartup Overhead\n\nWhen running Geekbench 6.3 with BOT enabled, the first run has a 40-second startup delay before the program starts. Subsequent runs are faster, with a 2-second startup delay. The startup delay disappears when BOT is disabled.\n\nWhen running Geekbench 6.7 with BOT enabled, all runs have a 2-second startup delay. The startup delay disappears when BOT is disabled.\n\nGeekbench Results\n\nGeekbench 6.3 scores increase when BOT is enabled compared to when BOT is disabled. On our test system, both the single-core and the multi-core scores increased by 5.5%.\n\n \n \n Geekbench 6.3\n BOT Disabled\n BOT Enabled\n Difference\n \n \n \n \n Single-Core\n 2955\n 3119\n +5.5%\n \n \n Multi-Core\n 16786\n 17705\n +5.5%\n \n \n\nSome Geekbench 6.3 workload scores also increase, with scores for two workloads (Object Remover and HDR) increasing by up to 30% with BOT enabled. A comparison that includes all workload scores is available on the Geekbench Browser.\n\nGeekbench 6.7 single-threaded and multi-threaded scores remained roughly the same with BOT enabled and disabled.\n\n \n \n Geekbench 6.7\n BOT Disabled\n BOT Enabled\n Difference\n \n \n \n \n Single-Core\n 2938\n 2937\n +0.0%\n \n \n Multi-Core\n 16892\n 17045\n +0.9%\n \n \n\nBased on these results, we know BOT only optimizes specific versions of Geekbench. We examined the work done during the startup delay, and BOT is computing a checksum of the Geekbench executable. This suggests the checksum is used to identify whether the binary is known to BOT, and thus whether BOT can optimize the binary.\n\nBOT Optimizations\n\nIntel’s Software Development Emulator (SDE) is a development tool that can monitor which instructions are executed during a program run and is particularly useful for understanding which SIMD extensions a workload uses (e.g., SSE2, AVX2, AVX512).\n\nWe used SDE to see which instructions are executed (and how many times they’re executed) during a Geekbench run. To keep our analysis manageable, we focused on the HDR workload since it showed the largest gain under BOT.\n\nUsing Geekbench 6.3, we ran the HDR workload for 100 iterations under SDE and examined the results.\n\n \n \n \n BOT Disabled\n BOT Enabled\n Difference\n \n \n \n \n Total Instructions\n 1.26 trillion\n 1.08 trillion\n -14%\n \n \n Scalar Instructions\n 220 billion\n 84.6 billion\n -62%\n \n \n Vector Instructions\n 1.25 billion\n 18.3 billion\n +1366%\n \n \n\nBased on the instruction counts, it’s clear BOT has performed significant changes to the HDR workload’s code. The number of total instructions is reduced by 14%. Most of that reduction comes from BOT vectorizing parts of the workload’s code, converting instructions that operate on one value into instructions that operate on eight values. This is a significantly more sophisticated transformation than simple code-reordering. Intel’s public documentation only discloses the simpler code-reordering techniques, not the vectorization transformations observed here.\n\nConclusions\n\nReal-world application code is incredibly varied, and Geekbench is designed to reflect that by using a broad range of workloads written in different styles. BOT undermines this by replacing that varied code with processor-tuned, fully optimized binaries, measuring peak rather than typical performance.\n\nIf BOT worked with every application, we wouldn’t have concerns with its use with Geekbench. It is an interesting optimization technique that has some drawbacks (the two-second startup delay being one of them, especially for short-lived processes).\n\nHowever, right now, BOT only supports a handful of applications, meaning BOT-optimized benchmark results paint an unrealistic picture of how a CPU performs in practice. This makes Intel processors appear faster relative to AMD and other vendors than they would be in typical, real-world usage.\n\nNext Steps\n\nWe will continue to flag BOT-optimized results in the Geekbench Browser. BOT optimizations are poorly documented, aggressive in scope, and damage comparability with other CPUs. For example, BOT allows Intel processors to run vector instructions while other processors continue to run scalar instructions. This provides an unfair advantage to Intel, and it’s important that Geekbench users understand what BOT does to Geekbench scores.\n\nGeekbench 6.7 (out later this week) will include a way to check whether BOT is running and flag results when it is detected. This means we’ll be able to remove the warning from Geekbench 6.7 results when BOT is not detected. Geekbench 6.6 and earlier results on Windows will continue to be flagged.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "amd",
+      "bot",
+      "checksum",
+      "cpu",
+      "delay",
+      "disable",
+      "enable",
+      "geekbench",
+      "hdr",
+      "instruction",
+      "intel",
+      "multi-core",
+      "object remover",
+      "optimization",
+      "panther lake",
+      "result",
+      "score",
+      "sde",
+      "startup",
+      "workload"
+    ],
+    [
+      "startup"
+    ]
+  ]
+}

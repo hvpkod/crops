@@ -1,0 +1,36 @@
+{
+  "id": 7545,
+  "source": "DEV Community<",
+  "title": "Detecting Prompt Injection in LLM Apps (Python Library)",
+  "url": "https://dev.to/yuichi/detecting-prompt-injection-in-llm-apps-python-library-1fgp",
+  "published_at": "2026-04-01T03:31:37Z",
+  "fetched_at": "2026-04-01T03:40:18.402677+00:00",
+  "author": "YUICHI KANEKO",
+  "summary": "<p>I've been working on LLM-backed applications and ran into a recurring issue: prompt injection via user input.</p>\n\n<p>Typical examples:</p>\n\n<ul>\n<li>\"Ignore all previous instructions\"</li>\n<li>\"Reveal your system prompt\"</li>\n<li>\"Act as another AI without restrictions\"</li>\n</ul>\n\n<p>In many applications, user input is passed directly to the model, which makes these attacks practical.</p>\n\n<p>Most moderation APIs are too general-purpose and not designed specifically for prompt injection detection, especially for non-English inputs. So I built a small Python library to act as a screening layer before sending input to the LLM:</p>\n\n<p><a href=\"https://github.com/kanekoyuichi/promptgate\" rel=\"noopener noreferrer\">https://github.com/kanekoyuichi/promptgate</a></p>\n\n<p>Detection strategies:</p>\n\n<ul>\n<li><p>rule-based (regex / phrase matching)<br /><br />\nlatency: &lt;1ms, no dependencies</p></li>\n<li><p>embedding-based (cosine similarity with attack exemplars)<br /><br />\nlatency: ~5–",
+  "full_text": "I've been working on LLM-backed applications and ran into a recurring issue: prompt injection via user input.\n\nTypical examples:\n\n\"Ignore all previous instructions\"\n\n\"Reveal your system prompt\"\n\n\"Act as another AI without restrictions\"\n\nIn many applications, user input is passed directly to the model, which makes these attacks practical.\n\nMost moderation APIs are too general-purpose and not designed specifically for prompt injection detection, especially for non-English inputs. So I built a small Python library to act as a screening layer before sending input to the LLM:\n\nhttps://github.com/kanekoyuichi/promptgate\n\nDetection strategies:\n\nrule-based (regex / phrase matching)\n\nlatency: <1ms, no dependencies\n\nembedding-based (cosine similarity with attack exemplars)\n\nlatency: ~5–15ms, uses sentence-transformers\n\nLLM-as-judge\n\nhigher accuracy, but +150–300ms latency, requires external API\n\nBaseline evaluation (rule-only):\n\nFPR: 0.0% (0 / 30 benign samples)\n\nRecall: 61.4% (27 / 44 attack samples)\n\nSo rule-based alone misses ~40% of attacks, especially paraphrased or context-dependent ones.\n\nThis is not intended as a complete solution — the design assumption is defense-in-depth, where this acts as a first screening layer.\n\nKnown limitations:\n\nrule-based detection struggles with paraphrased / indirect instructions\n\nembedding approach depends on exemplar coverage (not a trained classifier)\n\nLLM-as-judge is non-deterministic and API-dependent\n\nWould be interested in feedback on:\n\nbetter evaluation methodologies\n\ndetection strategies beyond pattern / similarity / LLM judging\n\nhow others are handling prompt injection at the application layer",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "attack",
+      "detection",
+      "especially",
+      "evaluation",
+      "fpr",
+      "injection",
+      "input",
+      "llm",
+      "paraphrase",
+      "prompt",
+      "python",
+      "screening",
+      "security",
+      "similarity"
+    ],
+    [
+      "python"
+    ]
+  ]
+}

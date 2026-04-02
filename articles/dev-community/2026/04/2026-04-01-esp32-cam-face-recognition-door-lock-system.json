@@ -1,0 +1,46 @@
+{
+  "id": 7643,
+  "source": "DEV Community<",
+  "title": "ESP32-CAM Face Recognition Door Lock System",
+  "url": "https://dev.to/messin_tom/esp32-cam-face-recognition-door-lock-system-gpo",
+  "published_at": "2026-04-01T12:17:40Z",
+  "fetched_at": "2026-04-01T12:20:17.021307+00:00",
+  "author": "Messin",
+  "summary": "<h2>\n  \n  \n  Introduction\n</h2>\n\n<p>Smart home security has evolved far beyond traditional locks and keys. In this project, we build a <strong>face recognition-based door lock system</strong> using the ESP32-CAM module. This system identifies authorized individuals and unlocks the door automatically—no keys, no cards, just your face.</p>\n\n<p>The ESP32-CAM is a powerful yet affordable microcontroller with a built-in camera, making it ideal for IoT-based vision applications. Combined with its onboard Wi-Fi, it enables real-time face detection and recognition directly from a web interface.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhvhelcrc761n58jvpe0m.png\"><img alt=\" \" height=\"500\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-upl",
+  "full_text": "Introduction\n\nSmart home security has evolved far beyond traditional locks and keys. In this project, we build a face recognition-based door lock system using the ESP32-CAM module. This system identifies authorized individuals and unlocks the door automatically—no keys, no cards, just your face.\n\nThe ESP32-CAM is a powerful yet affordable microcontroller with a built-in camera, making it ideal for IoT-based vision applications. Combined with its onboard Wi-Fi, it enables real-time face detection and recognition directly from a web interface.\n\n \n \n How the System Works\n\nThe system captures live video using the ESP32-CAM and processes it to detect and recognize faces. Once a face is recognized, the microcontroller triggers a relay module to unlock the door.\n\nHere’s the flow:\n\nThe camera captures a live video stream.\n\nFaces are detected in the frame.\n\nThe system compares detected faces with stored data.\n\nIf a match is found, the door unlocks.\n\nIf not, access is denied.\n\nAll of this happens in real time through a browser-based interface.\n\n \n \n Components Required\n\nESP32-CAM module\n\nFTDI programmer (for uploading code)\n\nRelay module\n\nSolenoid lock or electronic door lock\n\nJumper wires\n\nPower supply\n\n \n \n Circuit Overview\n\nThe ESP32-CAM connects to a relay module that controls the door lock. The relay acts as a switch—when triggered, it powers the lock mechanism to open the door.\n\nSince the ESP32-CAM has limited GPIO pins, careful pin selection is required. Typically, one GPIO pin is used to control the relay.\n\n \n \n Setting Up the ESP32-CAM\n\n \n \n 1. Arduino IDE Configuration\n\nInstall the ESP32 board package in Arduino IDE.\n\nSelect the correct board: AI Thinker ESP32-CAM.\n\nChoose the correct COM port.\n\n \n \n 2. Uploading the Code\n\nConnect the ESP32-CAM to the FTDI programmer.\n\nSet GPIO 0 to GND to enable programming mode.\n\nUpload the face recognition example code.\n\nRemove GPIO 0 from GND after uploading.\n\n \n \n Face Detection and Recognition\n\nThe ESP32-CAM supports:\n\nFace detection\n\nFace enrollment\n\nFace recognition\n\n \n \n Enrolling Faces\n\nUsing the web interface:\n\nOpen the IP address of the ESP32-CAM in a browser.\n\nEnable face detection and recognition.\n\nCapture multiple images of a person to train the system.\n\n \n \n Recognition Process\n\nOnce trained, the system compares live images with stored facial data. If a match is found, it triggers the relay.\n\n \n \n Web Interface Features\n\nThe ESP32-CAM hosts a simple web server that allows you to:\n\nView live video feed\n\nEnable/disable face detection\n\nEnroll new faces\n\nControl recognition settings\n\nThis makes the system easy to manage without additional apps.\n\n \n \n Door Lock Integration\n\nWhen a face is successfully recognized:\n\nThe ESP32-CAM sends a signal to the relay\n\nThe relay activates the solenoid lock\n\nThe door unlocks for a few seconds\n\nThen it automatically locks again\n\nYou can adjust the unlock duration in the code.\n\n \n \n Power Considerations\n\nThe ESP32-CAM requires a stable 5V supply. Insufficient power can cause:\n\nCamera failures\n\nRandom resets\n\nWi-Fi instability\n\nUsing a dedicated power source is recommended for reliable operation.\n\n \n \n Enhancements You Can Add\n\nTo make the system more robust:\n\nAdd a buzzer for alerts\n\nIntegrate a mobile notification system\n\nStore logs of recognized faces\n\nUse a battery backup\n\nAdd infrared LEDs for night vision\n\n \n \n Final Thoughts\n\nThis ESP32-CAM Face Recognition Door Lock System demonstrates how accessible and powerful embedded AI has become. With just a single module, you can build a complete smart security system capable of recognizing faces in real time. \n\nWhether you're exploring IoT, home automation, or computer vision, this project is a great way to combine all three into a practical application. Explore hands-on IoT builds and tutorials in this comprehensive collection of ESP32 projects with code and circuit diagrams to kickstart your next embedded systems idea\n\nIf you're looking to expand it further, consider integrating cloud storage or combining it with other smart home systems for a fully automated experience.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "arduino",
+      "arduino ide configuration",
+      "detection",
+      "diy",
+      "door",
+      "enrolling faces\n\nusing",
+      "esp32",
+      "face",
+      "face detection and",
+      "ftdi",
+      "gpio",
+      "interface features",
+      "iot",
+      "jumper",
+      "lock",
+      "module",
+      "programming",
+      "recognition",
+      "recognition process\n\nonce",
+      "relay",
+      "system",
+      "tutorial",
+      "unlock"
+    ],
+    [
+      "diy",
+      "esp32",
+      "programming",
+      "tutorial"
+    ]
+  ]
+}

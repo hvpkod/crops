@@ -1,0 +1,36 @@
+{
+  "id": 7693,
+  "source": "Hacker News",
+  "title": "OnlyOffice kills Nextcloud partnership for forking its project without approval",
+  "url": "https://www.neowin.net/news/onlyoffice-suspends-nextcloud-partnership-over-unapproved-euro-office-fork/",
+  "published_at": "2026-04-01T14:11:58Z",
+  "fetched_at": "2026-04-01T15:20:55.016401+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47601168\">Comments</a>",
+  "full_text": "Image via Nextcloud\n\nRecently, Nextcloud, IONOS, and a bunch of other European tech companies came together to launch a new open source project called \"Euro-Office\", described as a \"sovereign replacement for Microsoft Office with intuitive interface and strong compatibility backed by European open source community\".\n\nNow, ONLYOFFICE has suspended its 8-year-old partnership with Nextcloud, citing license violations after the Euro-Office coalition forked the ONLYOFFICE repo. The partnership between both platforms allowed Nextcloud users to edit and collaborate on office documents right inside their own instance, which made it a big deal for self-hosters. ONLYOFFICE was favored over LibreOffice/Collabora because of its native Microsoft Office format compatibility (DOCX, XLSX, PPTX) and superior browser performance.\n\nAccording to ONLYOFFICE, \"[we have] spent years building a fully functional, production-ready online document editor\". It claims Euro-Office \"uses technology derived from ONLYOFFICE editors\" in violation of the GNU Affero General Public License v3 (AGPL v3) under which the code is distributed.\n\n \n \n\nThe \"Euro-Office\" initiative represents an evident and material violation of ONLYOFFICE licensing terms and of established principles of international intellectual property law. We require full and immediate compliance with all applicable licensing conditions, including — but not limited to — the preservation of ONLYOFFICE branding, logo, and all required attribution elements as defined in our licensing terms.\n\nONLYOFFICE said that in the past, Nextcloud has behaved in a manner not expected from a partner, including trying to poach its employees and influencing customers against the company. But directly forking the project and re-packing it was the straw that broke the camel's back.\n\nThe recent announcement of the \"Euro-Office\" initiative marked a turning point. It was launched without any prior discussion or notification...\n\nPartnership is built on trust. And trust requires shared principles. Where those principles are no longer upheld, continuing cooperation is no longer sustainable.\n\nFor this reason, we have made the decision to suspend our partnership cooperation with Nextcloud.\n\nCommercial Director at ONLYOFFICE, Galina Goduhina, promised that no existing partners or clients would be affected by the suspension.\n\nYou might wonder why the Nextcloud team didn't just collaborate with ONLYOFFICE instead of forking its code. They cited a \"number of reasons,\" including that ONLYOFFICE is a Russian company that tends to obscure its origins. Developers often leave code comments in Russian, and many users are hesitant to use software potentially linked to the Russian government. They also claimed that ONLYOFFICE discourages contributions, ignores pull requests, and lacks transparency, since commit messages frequently reference internal issue trackers only.\n\nONLYOFFICE has previously been criticized by its open-source competitor, LibreOffice, for being \"fake open source.\" This is partly because ONLYOFFICE defaults to Microsoft Office formats like DOCX, XLSX, and PPTX, rather than promoting open standards like OpenDocument Format (ODF), a practice LibreOffice says helps maintain Redmond's monopoly and lock in users.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "compatibility",
+      "euro-office",
+      "fork",
+      "image",
+      "include",
+      "ionos",
+      "libreoffice/collabora",
+      "licensing",
+      "microsoft office",
+      "nextcloud",
+      "office",
+      "onlyoffice",
+      "open",
+      "partnership",
+      "pptx",
+      "the euro-office",
+      "violation",
+      "xlsx"
+    ],
+    []
+  ]
+}

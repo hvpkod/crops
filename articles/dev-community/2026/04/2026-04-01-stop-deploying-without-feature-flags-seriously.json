@@ -1,0 +1,42 @@
+{
+  "id": 7652,
+  "source": "DEV Community<",
+  "title": "Stop Deploying Without Feature Flags — Seriously",
+  "url": "https://dev.to/tyson_cung/stop-deploying-without-feature-flags-seriously-52p7",
+  "published_at": "2026-04-01T12:04:04Z",
+  "fetched_at": "2026-04-01T12:20:31.586415+00:00",
+  "author": "Tyson Cung",
+  "summary": "<p>Every deploy you ship without a feature flag is a coin flip. Heads, it works. Tails, you're rolling back at 2 AM while your Slack lights up like a Christmas tree.</p>\n\n<p>  \n  \n</p>\n\n<p>I spent the first decade of my career deploying code the \"normal\" way — merge to main, push to prod, pray. It worked fine until it didn't. And when it didn't, the blast radius was always the entire user base.</p>\n\n<h2>\n  \n  \n  Deployment Is Not Release\n</h2>\n\n<p>This is the concept that changed everything for me: <strong>deploying code and releasing a feature are two completely different things.</strong></p>\n\n<p>Without feature flags, they're the same event. Your code hits production, every user gets it simultaneously, and if something breaks, your only option is a full rollback. With feature flags, you deploy dark code that sits dormant until you flip a switch. You control <em>who</em> sees it and <em>when</em> — completely independent of your deployment pipeline.</p>\n\n<p>Google, Netflix, and GitHub",
+  "full_text": "Every deploy you ship without a feature flag is a coin flip. Heads, it works. Tails, you're rolling back at 2 AM while your Slack lights up like a Christmas tree.\n\n VIDEO\n\nI spent the first decade of my career deploying code the \"normal\" way — merge to main, push to prod, pray. It worked fine until it didn't. And when it didn't, the blast radius was always the entire user base.\n\n \n \n Deployment Is Not Release\n\nThis is the concept that changed everything for me: deploying code and releasing a feature are two completely different things.\n\nWithout feature flags, they're the same event. Your code hits production, every user gets it simultaneously, and if something breaks, your only option is a full rollback. With feature flags, you deploy dark code that sits dormant until you flip a switch. You control who sees it and when — completely independent of your deployment pipeline.\n\nGoogle, Netflix, and GitHub all operate this way. GitHub deploys to production hundreds of times per day. They're not reckless — they're just decoupled. A deploy is a non-event because the risky part (exposure to users) is a separate decision.\n\n \n \n The Knight Capital Lesson\n\nIn August 2012, Knight Capital deployed code to production that reactivated a dormant trading function on their servers. Within 45 minutes, that code executed 4 million trades and racked up a $440 million loss. The company nearly ceased to exist.\n\nA feature flag wouldn't have prevented the bug. But it would have given someone a kill switch — one click to disable the new behavior instead of scrambling through a full rollback while money evaporated at $49 million per second.\n\nThat's the real value proposition. Feature flags don't prevent bugs. They give you a sub-second rollback for any individual feature without touching the rest of your system.\n\n \n \n What This Looks Like in Practice\n\nHere's a dead-simple implementation:\n\nif feature_flags.is_enabled(\"new-checkout-flow\", user_id=user.id):\n return new_checkout(cart)\nelse:\n return legacy_checkout(cart)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. Your new checkout flow is in production, but only users you've explicitly opted in will see it. Everyone else gets the old path. If the new flow breaks, you toggle it off. No deploy. No rollback. No incident.\n\nYou can get fancier — percentage rollouts (show it to 5% of users, then 20%, then 50%), cohort targeting (internal team first, then beta users, then everyone), or even geographic targeting. But the core idea stays the same: separate the deploy from the release.\n\n \n \n The DORA Connection\n\nThe DORA State of DevOps research has consistently shown that elite engineering teams deploy more frequently and have lower change failure rates. That sounds contradictory until you realize they're using progressive delivery. Feature flags let you ship small, ship often, and catch problems when they only affect 2% of traffic instead of 100%.\n\nElite teams hit a change failure rate below 15% while deploying multiple times per day. Low-performing teams deploy monthly and still break things 46-60% of the time. More deploys with better controls beats fewer deploys with crossed fingers.\n\n \n \n Traps I've Fallen Into\n\nStale flags are tech debt. I once audited a codebase and found 347 feature flags. About 200 of them had been \"on\" for everyone for over a year. Nobody knew what half of them did anymore. Set an expiration policy — if a flag has been fully rolled out for 30 days, remove it.\n\nFlag dependencies create nightmares. When flag A only works if flag B is enabled, you've built yourself a logic bomb. Keep flags independent. If you catch yourself writing if flag_a AND flag_b AND NOT flag_c, stop and rethink.\n\nDon't flag everything. A copy change doesn't need a feature flag. A database migration doesn't need one either (and often can't use one). Save flags for user-facing behavior changes where you want controlled rollout or a fast kill switch.\n\n \n \n Tools Worth Looking At\n\nYou don't need to build this yourself. LaunchDarkly is the enterprise standard (and priced accordingly). Open-source options like Flagsmith, Unleash, and GrowthBook are solid. If you're early-stage, even a simple database table with feature-flag rows works fine. I've shipped production systems with feature flags stored in a YAML file — not elegant, but effective.\n\nThe tool matters less than the practice. Pick something, start wrapping risky features in flags, and watch your 2 AM pages drop.\n\n \n \n The Bottom Line\n\nFeature flags transform deploys from high-stakes events into routine, boring operations. And boring deploys are exactly what you want. Save the excitement for the product, not the infrastructure.\n\nStart with your next feature. Wrap it in a flag. Deploy it dark. Roll it out to 5% of users. Watch the metrics. Then go to 100%. You'll never go back to yolo-deploying again.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "change",
+      "code",
+      "deploy",
+      "deployment",
+      "devops",
+      "dormant",
+      "feature",
+      "flag",
+      "flagsmith",
+      "github",
+      "google",
+      "knight capital",
+      "netflix",
+      "programming",
+      "ship",
+      "slack",
+      "softwaredevelopment",
+      "team",
+      "until"
+    ],
+    [
+      "deployment",
+      "devops",
+      "programming",
+      "softwaredevelopment"
+    ]
+  ]
+}

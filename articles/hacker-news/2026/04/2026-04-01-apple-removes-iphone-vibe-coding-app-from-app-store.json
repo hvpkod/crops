@@ -1,0 +1,33 @@
+{
+  "id": 7712,
+  "source": "Hacker News",
+  "title": "Apple Removes iPhone Vibe Coding App from App Store",
+  "url": "https://gizmodo.com/apple-removes-iphone-vibe-coding-app-from-app-store-2000740084",
+  "published_at": "2026-04-01T14:36:51Z",
+  "fetched_at": "2026-04-01T16:00:49.433735+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47601555\">Comments</a>",
+  "full_text": "The Anything page at the Apple App Store boasted “the fastest way to build apps.” Now what do you see if you visit Anything? That’s right, nothing. \n\nApple removed Anything on Thursday of last week for an alleged rule violation according to The Information. Earlier this month, the vibe coding apps Replit and Vibecode were blocked by Apple, with Apple demanding that changes be made before the apps could be reinstated. The removal of Anything is being perceived as an escalation of enforcement against vibe coding apps as a category, though Apple says it is simply enforcing rules.\n\n \n\nVibe Coding apps theoretically allow users without coding ability to generate apps with ample coding assistance from the large language models powering Anthropic’s Claude and OpenAI’s Codex. If all goes according to plan, the apps are created right on the user’s phone, and can be used and debugged without typing on—or indeed using—a computer. Dhruv Amin, CEO and co-founder of anything claimed to the Information that his app has been used to create apps now available on the Apple App Store that are used to, for instance, manage emergency workers or allow gig workers to track their spending.\n\n \n\nAnything also claims to be able to help users generate app marketing materials: \n\n \n\nThe problem is reportedly a violation of the Apple App Store’s Guideline 2.5.2, which says in part: \n\n“Apps should be self-contained in their bundles, and may not read or write data outside the designated container area, nor may they download, install, or execute code which introduces or changes features or functionality of the app, including other apps.” \n\nSo it sounds like creating an app that puts another app on an iPhone, which you then might have to tweak, is being treated as a violation of this necessity to be “self-contained.” According to the Information, the earlier enforcement actions against vibe coding apps cited the same rule. Amin claimed to the Information that his team tried to create a version of the app that debugged apps within a browser window, but he said the update was rejected, and that the app was then removed from the App Store.\n\n \n\nXcode, Apple’s OSX-based tool for app developers, introduced autonomous coding functionality last month. The AI agents in Xcode can do things like review code and edit files with the help of Anthropic’s Claude and OpenAI’s Codex.\n\n \n\nGizmodo reached out to Apple for a comment explaining the removal of Anything, but did not immediately hear back. The Information also did not receive a statement, but says the earlier enforcements against vibe coding apps were explained by Apple not as targeting apps for a specific function—in this case vibe coding—but instead as actions against apps that change what they do in ways Apple can’t moderate.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "anything",
+      "app",
+      "apple",
+      "apple removes",
+      "claim",
+      "coding",
+      "debug",
+      "early",
+      "enforcement",
+      "information",
+      "iphone",
+      "vibe",
+      "violation",
+      "xcode"
+    ],
+    []
+  ]
+}

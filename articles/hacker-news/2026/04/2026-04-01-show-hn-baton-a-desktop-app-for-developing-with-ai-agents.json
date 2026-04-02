@@ -1,0 +1,28 @@
+{
+  "id": 7673,
+  "source": "Hacker News",
+  "title": "Show HN: Baton – A desktop app for developing with AI agents",
+  "url": "https://getbaton.dev/",
+  "published_at": "2026-04-01T12:11:30Z",
+  "fetched_at": "2026-04-01T14:00:26.461402+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47599771\">Comments</a>",
+  "full_text": "Know when every agent needs you\n \n\n Labeled status badges appear on workspace cards the moment an agent finishes, hits\n an error, or needs your input. Each badge tells you exactly what happened at a\n glance. No polling, no tab-switching — just glance at the sidebar. Support varies\n by agent — best supported by Claude Code.\n \n \n \n\n \n \n \n \"Input\" badge (blue) when an agent is waiting for input\n \n \n\n \n \n \n \"Done\" badge (green) when a turn completes successfully\n \n \n\n \n \n \n \"Error\" badge (red) when an agent reports an error\n \n \n\n \n \n \n One-click notification setup for supported agents",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "agent",
+      "badge",
+      "develop",
+      "glance",
+      "happen",
+      "label",
+      "need",
+      "support",
+      "vary",
+      "wait"
+    ],
+    []
+  ]
+}

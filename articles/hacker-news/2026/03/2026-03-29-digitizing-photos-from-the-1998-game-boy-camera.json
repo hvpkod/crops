@@ -1,0 +1,37 @@
+{
+  "id": 7585,
+  "source": "Hacker News",
+  "title": "Digitizing photos from the 1998 Game Boy Camera",
+  "url": "https://swiftrocks.com/digitizing-photos-from-the-1998-game-boy-camera",
+  "published_at": "2026-03-29T11:50:44Z",
+  "fetched_at": "2026-04-01T06:40:26.938126+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47562342\">Comments</a>",
+  "full_text": "Digitizing photos from the 1998 Game Boy Camera\n \n \n\nOne of my passions is retro game collecting, particularly things that I wanted to have as a kid but didn’t either because my parents couldn’t afford it or because those products weren’t available in Brazil.\n\nRecently, I was able to get my hands on one of these wishes: The Game Boy Camera and its printer accessory. Released in 1998, this “game” turned your Game Boy into a kinda bad digital camera, but certainly amazing for the time. Today, even though the quality clearly sucks, I feel that there’s a certain charm to it that I can’t quite put into words.\n\n \n \n\nSource: @paulrickards@mastodon.social \n\n \n \n \n\nSource: @paulrickards@mastodon.social \n\nThe way saving photos worked is that the game itself can only hold 30 photos, and if you wanted more than that, you needed to use the Game Boy Printer accessory to bring them to the real world. The problem with the printer however is that it uses the same thermal printing technology used for receipts, so not only were the photos comically small, but they also faded over time.\n\nThis is even worse today because on top of those issues, there’s now also the additional problem of how difficult it is to compatible find paper rolls nowadays. The Seiko S950 rolls are the only ones I’m aware of that work great, and not only they are not easy to find, but also quite expensive…\n\nEmulating the Game Boy Printer\n\nWith that in mind, my primary goal after obtaining these products was finding out how to digitize the photos using modern approaches. I was ready to reverse engineer the printer signal to determine how to emulate it via software, but as it turns out, the community has already done all of that!\n\nThe Arduino Gameboy Printer Emulator (V3) is an open-source project that does just what the name says. It’s hosted under the GitHub account of Brian Khuu (mofosyne), but from what I could tell, this project is actually the combined work of him and several other devs, primarily Raphaël Boichot who seemed to have done a lot of work to decode the printer signals and designing the final PCBs.\n\nBy wiring an Arduino in between the camera and the printer, they were able to sniff the signals and make sense of the protocol used by the printer. I’m not going to pretend to be smart enough to explain to you how exactly the protocol works, so I’ll just copy-paste the information they added to the README:\n| BYTE POS : | 0 | 1 | 2 | 3 | 4 | 5 | 6 + X | 6 + X + 1 | 6 + X + 2 | 6 + X + 3 | 6 + X + 4 |\n|---------------|-----------|-----------|-----------|-------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|\n| SIZE | 2 Bytes | 1 Byte | 1 Byte | 1 Bytes | 1 Bytes | Variable | 2 Bytes | 1 Bytes | 1 Bytes |\n| DESCRIPTION | SYNC_WORD | COMMAND | COMPRESSION | DATA_LENGTH(X) | Payload | CHECKSUM | DEVICEID | STATUS |\n| GB TO PRINTER | 0x88 | 0x33 | See Below | See Below | Low Byte | High Byte | See Below | See Below | 0x00 | 0x00 |\n| TO PRINTER | 0x00 | 0x00 | 0x00 | 0x00 | 0x00 | 0x00 | 0x00 | 0x00 | 0x00 | 0x81 | See Below |\n\nHeader is the Command, Compression and Data Length\n\nCommand field may be either Initialize (0x01), Data (0x04), Print (0x02), or Inquiry (0x0F).\n\nCompression field is a compression indicator. No compression (0x00), Yes Compression (0x01)\n\nPayload byte count size depends on the value of the DATA_LENGTH field.\n\nChecksum is 2 bytes of data representing the sum of the header + all data in the data portion of the packet\n\nStatus byte is a bitfield byte indicating various status of the printer itself. (e.g. If it is still printing)\n\nWith that sorted out, all that was left was cloning this protocol in software so that you could use an Arduino to emulate the printer and extract the actual image data being printed.\n\nSo that meant that there was no software work for me to do, but I still had one challenge to solve myself: how to actually run this thing? I had no intentions of prying open an actual Game Boy cable, so something would have to be built.\n\nLuckily for me, Raphaël also designed PCBs for this project, providing a much more elegant solution than ripping some cables apart. I ordered the Arduino Uno version from JLPCB, and after waiting a very long time for a third-party GBC port and some pin headers to arrive from China, I was now tasked with my first serious soldering job.\n\nI had no expectations that this would actually work, but soldering this project turned out to be easier than I expected, and everything worked first try!\n\nThe output of the Arduino is the raw photo information, which you then need to extract to later convert it to a proper image (there are many community built solutions on the README):\n\nHowever I later found out that one of these solutions (the Game Boy Camera Gallery) can even do the serial reading directly from the browser, so I didn’t even need to pull the serial logs from the Arduino. You can even change the color scheme of the photos to match the different color palettes you’d see across the different Game Boy models you could use the camera with which I thought was a really neat feature.\n\nHere are some of my favorite recently digitized photos:",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "arduino",
+      "below",
+      "brazil",
+      "byte",
+      "camera",
+      "checksum",
+      "command",
+      "compression",
+      "datum",
+      "deviceid",
+      "emulate",
+      "game",
+      "github",
+      "initialize",
+      "payload",
+      "photo",
+      "printer",
+      "size",
+      "status"
+    ],
+    []
+  ]
+}

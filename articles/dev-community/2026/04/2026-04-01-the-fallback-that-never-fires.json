@@ -1,0 +1,38 @@
+{
+  "id": 7812,
+  "source": "DEV Community<",
+  "title": "The Fallback That Never Fires",
+  "url": "https://dev.to/oolongtea2026/the-fallback-that-never-fires-2p9j",
+  "published_at": "2026-04-01T20:42:46Z",
+  "fetched_at": "2026-04-01T21:20:31.966456+00:00",
+  "author": "Wu Long",
+  "summary": "<p>Your agent hits a rate limit. The fallback logic kicks in, picks an alternative model. Everything should be fine.</p>\n\n<p>Except the request still goes to the original model. And gets rate-limited again. And again. Forever.</p>\n\n<h2>\n  \n  \n  The Setup\n</h2>\n\n<p>When your primary model returns 429:</p>\n\n<ol>\n<li>Fallback logic detects rate_limit_error</li>\n<li>Selects next model in the fallback chain</li>\n<li>Retries with the fallback model</li>\n<li>User never notices</li>\n</ol>\n\n<p>OpenClaw has had model fallback chains for months, and they generally work well.</p>\n\n<h2>\n  \n  \n  The Override\n</h2>\n\n<p><a href=\"https://github.com/openclaw/openclaw/issues/59213\" rel=\"noopener noreferrer\">Issue #59213</a> exposes a subtle timing problem. Between steps 2 and 3, there is another system: <strong>session model reconciliation</strong>.</p>\n\n<p>This reconciliation checks: the agent config says the model should be X. The session current model is Y. That is a mismatch. Let me fix it.</p>\n\n<p>A",
+  "full_text": "Your agent hits a rate limit. The fallback logic kicks in, picks an alternative model. Everything should be fine.\n\nExcept the request still goes to the original model. And gets rate-limited again. And again. Forever.\n\n \n \n The Setup\n\nWhen your primary model returns 429:\n\nFallback logic detects rate_limit_error\n\nSelects next model in the fallback chain\n\nRetries with the fallback model\n\nUser never notices\n\nOpenClaw has had model fallback chains for months, and they generally work well.\n\n \n \n The Override\n\nIssue #59213 exposes a subtle timing problem. Between steps 2 and 3, there is another system: session model reconciliation.\n\nThis reconciliation checks: the agent config says the model should be X. The session current model is Y. That is a mismatch. Let me fix it.\n\nAnd it fixes the fallback selection right back to the rate-limited model.\n\nThe log tells the whole story:\n\n[model-fallback/decision] next=kiro/claude-sonnet-4.6\n\n[agent/embedded] live session model switch detected:\n kiro/claude-sonnet-4.6 -> anthropic/claude-sonnet-4-6\n\n[agent/embedded] isError=true error=API rate limit reached.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFallback selects → reconciliation overrides → 429 → repeat. Every 4-8 seconds, until someone manually runs /new.\n\n \n \n Why This Happens\n\nTwo state management systems that do not know about each other:\n\nFallback logic operates at the request level: for this attempt, use model X.\n\nSession reconciliation operates at the session level: this session should use model Y per config.\n\nNeither communicates its intent. The reconciliation does not know a fallback is active. The fallback does not know reconciliation will override it.\n\nThis is the config-as-truth vs. runtime-as-truth tension. Config says use anthropic. Runtime says anthropic is rate-limited. Reconciliation trusts config. Runtime loses.\n\n \n \n The Pattern: State Reconciliation Interference\n\nTwo subsystems that each behave correctly in isolation:\n\nFallback: correctly selects alternative model ✓\n\nReconciliation: correctly syncs session to config ✓\n\nBut composed together, they create a livelock. Each system passes its own tests. You only see the failure when both fire in sequence during a real rate limit event.\n\nThree takeaways for agent builders:\n\nRuntime overrides need explicit priority over config reconciliation. If a subsystem intentionally diverges from config, that decision must be protected from being fixed.\n\nTest your failure paths end-to-end, not just unit-by-unit. Fallback + session management + rate limiting need to be tested as a composed system.\n\nLivelocks are worse than crashes. A crash you notice immediately. An infinite 429 loop looks like the agent is thinking for an uncomfortably long time.\n\nThe issue connects to the broader cluster of model selection bugs (#58533, #58556, #58539) reported recently. Session model management is one of those surfaces where every fix creates a new edge case. The real solution is probably a proper state machine with explicit transitions and priorities.\n\nFollow me on X (@realwulong) for more AI agent reliability analysis.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agents",
+      "ai",
+      "api",
+      "config",
+      "correctly",
+      "fallback",
+      "management",
+      "model",
+      "openclaw",
+      "override",
+      "rate",
+      "reconciliation",
+      "reliability",
+      "runtime",
+      "session",
+      "the override\n\nissue",
+      "the setup"
+    ],
+    [
+      "agents",
+      "reliability"
+    ]
+  ]
+}

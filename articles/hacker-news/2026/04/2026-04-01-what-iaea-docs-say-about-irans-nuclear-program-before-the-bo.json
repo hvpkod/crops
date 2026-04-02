@@ -1,0 +1,38 @@
+{
+  "id": 7769,
+  "source": "Hacker News",
+  "title": "What IAEA docs say about Iran's nuclear program, before the bombs fell",
+  "url": "https://meetdewey.com/blog/iaea-iran-nuclear-reports",
+  "published_at": "2026-04-01T18:16:52Z",
+  "fetched_at": "2026-04-01T18:40:25.814817+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47604509\">Comments</a>",
+  "full_text": "When Trump said Iran's nuclear facilities were \"completely and totally obliterated\" [1] after the June 2025 strikes [2], a leaked DIA assessment [3] pushed back, saying the program had been set back by only a few months. Both claims were made without much reference to the one body that had actually been inside those facilities for two decades: the IAEA.\n\nThe IAEA publishes detailed quarterly reports to its Board of Governors. They are dense, technical, and almost nobody reads them. All 138 Iran-related reports are publicly available on their website. I downloaded them all and ran exhaustive AI research queries across the full corpus. What follows is what the documents actually say.\n\nIran was days away from enough weapons-grade uranium\n\nView research query →\n\nAs of June 13, 2025, the day before US strikes began, Iran's documented stockpile included 440.9 kg of uranium enriched to 60% U-235. Weapons-grade is roughly 90%. The jump from 60% to 90% sounds significant but isn't. Most of the separative work is already done by the time you reach 60%. Given the enrichment infrastructure the IAEA documented at Fordow and Natanz, producing enough weapons-grade uranium for a single device from that feedstock would have taken days. This is why the DIA's \"months\" assessment is more defensible than Trump's \"obliterated\": if the bottleneck was the stockpile rather than the centrifuges, partially destroying the centrifuges doesn't change the stockpile math.\n\nWhat was running at each site three days before the strikes\n\nView research query →\n\nThe last IAEA inspection at Fordow took place on June 10, 2025. At that point, the facility was actively producing uranium enriched to 5%, 20%, and 60%. Unit 1 had 870 IR-6 centrifuges running. Unit 2 had 1,044 IR-1 centrifuges producing 20% material alongside 335 IR-6 centrifuges producing 60% material. In the February to May 2025 reporting period alone, Fordow produced 166.6 kg of 60% UF6.\n\nNatanz was the bulk production center. The main Fuel Enrichment Plant produced 2,671 kg of 5% enriched uranium in that same period, with new centrifuge cascades still coming online in early 2025. The Pilot Fuel Enrichment Plant was running parallel R&D and production lines at 2%, 5%, and 60% enrichment levels simultaneously. Isfahan is a conversion and fuel-fabrication complex rather than an enrichment site. It was operational but is not where the enriched uranium was concentrated.\n\nIn January 2023, the IAEA found uranium particles enriched to 83.7% at Fordow\n\nView research query →\n\nThis finding received almost no press coverage. Environmental samples taken at Fordow on January 22, 2023 found uranium particles enriched to 83.7% U-235 [4], one step from weapons-grade. Iran told the IAEA this resulted from unintended fluctuations during a feed-cylinder change the previous November. The IAEA said the explanation was \"not inconsistent\" with the data, which means possible but not confirmed. The matter was not fully resolved.\n\nThe IAEA found nuclear material at four undeclared sites and still doesn't know where it went\n\nView research query →\n\nOver twenty years of inspections, the IAEA identified uranium particles of human origin at four locations Iran never declared: Turquzabad, Varamin, Marivan, and Lavisan-Shian.\n\nAt Varamin, the Agency concluded Iran operated an undeclared uranium conversion plant from roughly 1999 to 2003. Iran said the site made sodium sulphate. The IAEA called that explanation \"not technically credible.\" At Turquzabad, containers of nuclear material were moved to an unknown location in 2018, with satellite imagery showing scraping and landscaping of the site [5] shortly after. The IAEA says it still does not know where that material is.\n\nIran's explanations across all four sites were either rejected or never provided. The IAEA's formal conclusion is that it cannot confirm the correctness and completeness of Iran's nuclear declarations.\n\nAfter the June 2025 strikes, the IAEA lost access to almost everything\n\nView research query →\n\nFollowing the attacks, Iran told the IAEA that normal safeguards implementation had become \"legally untenable and materially impracticable.\" Inspectors were withdrawn for safety. By early 2026, Iran had still not restored access to most facilities. The IAEA's stated consequence: without access, it cannot conclude there has been no diversion of declared nuclear material.\n\nWhat this adds up to\n\nThe IAEA documents tell a consistent story across more than two decades. Iran built a large enrichment program, accumulated a substantial stockpile of near-weapons-grade material, ran undeclared activities at multiple sites, and progressively restricted inspector access at each escalation point. The June 2025 strikes hit real facilities that were genuinely active. But the stockpile was real too, and where it is now is, in the IAEA's own words, unverified.\n\nAll findings above are sourced directly from IAEA Board of Governors reports, available at iaea.org [6]. The full set of 138 reports is also indexed here if you want to run your own queries against the primary sources.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "board of governors",
+      "centrifuge",
+      "dia",
+      "enrich",
+      "enrichment",
+      "fordow",
+      "fordow\n\nview",
+      "fordow and natanz",
+      "iaea",
+      "iran",
+      "isfahan",
+      "june",
+      "natanz",
+      "nuclear",
+      "produce",
+      "stockpile",
+      "trump",
+      "uranium",
+      "varamin",
+      "visa"
+    ],
+    []
+  ]
+}

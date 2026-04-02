@@ -1,0 +1,45 @@
+{
+  "id": 7752,
+  "source": "DEV Community<",
+  "title": "Day 58 of #100DayOfCode — Building Task Management CRUD App with Next.js",
+  "url": "https://dev.to/m_saad_ahmad/day-58-of-100dayofcode-building-task-management-crud-app-with-nextjs-3ihk",
+  "published_at": "2026-04-01T18:06:20Z",
+  "fetched_at": "2026-04-01T18:20:36.167974+00:00",
+  "author": "M Saad Ahmad",
+  "summary": "<p>For Day 58 of my #100DaysOfCode journey, my goal was to build a basic but fully functional <strong>Task Management App</strong> using Next.js. Up until this point, I had been learning individual Next.js concepts: server and client components, routing with the App Router, data fetching and caching, API routing, server actions, and connecting to a MongoDB database. I felt confident with each concept in isolation, but I hadn't yet put them all together in a single project.</p>\n\n<p>So today's goal was simple: build something real, something CRUD-based, that forces me to use everything I've learned so far in one place.</p>\n\n\n\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>The app is a simple <strong>Task Manager</strong> where you can create, view, edit, and delete tasks. Each task has a <strong>title</strong>, <strong>description</strong>, and a <strong>status</strong> (pending, in-progress, or completed). The app has three pages and three components:</p>\n\n<p><strong>Pages:</strong></p>\n\n<ul>\n<li",
+  "full_text": "For Day 58 of my #100DaysOfCode journey, my goal was to build a basic but fully functional Task Management App using Next.js. Up until this point, I had been learning individual Next.js concepts: server and client components, routing with the App Router, data fetching and caching, API routing, server actions, and connecting to a MongoDB database. I felt confident with each concept in isolation, but I hadn't yet put them all together in a single project.\n\nSo today's goal was simple: build something real, something CRUD-based, that forces me to use everything I've learned so far in one place.\n\n \n \n What I Built\n\nThe app is a simple Task Manager where you can create, view, edit, and delete tasks. Each task has a title, description, and a status (pending, in-progress, or completed). The app has three pages and three components:\n\nPages:\n\n/tasks — displays all tasks stored in the database\n\n/tasks/new — a form to create a new task\n\n/tasks/[id] — a pre-filled form to edit an existing task\n\nComponents:\n\nTaskList — receives all tasks and maps over them\n\nTaskCard — displays an individual task with Edit and Delete options\n\nTaskForm — a reusable form used on both the create and edit pages\n\n \n \n 🛠 Concepts Used\n\nApp Router — folder-based routing with dynamic segments like [id]\n\nServer Components — pages that fetch data directly from MongoDB without any client-side fetching\n\nClient Components — components like TaskForm and TaskCard that handle user interaction and form inputs\n\nServer Actions — functions that run on the server, connected directly to forms via the action prop\n\nMongoDB — storing and querying tasks using clientPromise without Mongoose\n\nrevalidatePath — to refresh the page cache after every mutation so the UI always reflects the latest database state\n\nredirect — to send the user back to /tasks after creating or updating a task\n\n \n \n Folder Structure\n\nnext-crud-app/\n├── app/\n│ ├── page.js --> Landing page\n│ └── tasks/\n│ ├── page.js --> Lists all tasks (Server Component)\n│ ├── new/\n│ │ └── page.js --> Create task form page (Server Component)\n│ └── [id]/\n│ └── page.js --> Edit task form page (Server Component)\n├── actions/\n│ └── tasks.js --> All server actions (CRUD)\n│\n├── db/\n│ └── mongodb.js --> MongoDB connection\n│\n│\n├── components/\n│ ├── TaskCard.jsx --> Single task display (Client Component)\n│ ├── TaskForm.jsx --> Reusable form (Client Component)\n│ └── TaskList.jsx --> Maps over tasks (Server Component)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\ndb/mongodb.js — sets up and exports the MongoDB client connection used across all server actions\n\nactions/tasks.js — the heart of the app; contains all five CRUD functions that interact with MongoDB\n\ntasks/page.js — an async server component that fetches all tasks and passes them down to TaskList\n\ntasks/[id]/page.js — receives the dynamic id from params, fetches that specific task, and passes it to TaskForm for pre-filling\n\n \n \n The Interesting Part — actions/tasks.js\n\nThe most interesting and challenging file to write was actions/tasks.js. This is where all the CRUD logic lives and where everything connects together.\n\nWhat made it challenging was that I initially wrote it based on how I thought it would work, similar to how I had written a contact form previously. I passed plain objects to functions and queried MongoDB by id as a plain string. But I quickly ran into several issues I wasn't aware of:\n\n \n \n Server actions receive FormData, not plain objects.\n\nWhen a server action is connected to a form via the action prop, Next.js automatically passes FormData to it. You have to use formData.get(\"fieldName\") to extract values — you can't just pass a plain object.\n\n \n \n MongoDB _id is an ObjectId, not a string.\n\nWhen querying, updating, or deleting by _id, you need to wrap the id with new ObjectId(id) from the mongodb package. A plain string won't match anything in the database.\n\n \n \n revalidatePath and redirect are required.\n\nWithout revalidatePath, the page cache doesn't update after a mutation, so the UI won't reflect changes. Without redirect, the user just stays on the form page after submitting.\n\n \n \n Serialization is needed when returning data.\n\nMongoDB returns special document objects that can't be passed directly as props to client components. Wrapping the result in JSON.parse(JSON.stringify(data)) converts it to a plain JavaScript object that Next.js can safely pass across the server-client boundary.\n\n\"use server\";\nimport clientPromise from \"../db/mongo\";\nimport { ObjectId } from \"mongodb\";\nimport { revalidatePath } from \"next/cache\";\nimport { redirect } from \"next/navigation\";\n\nexport async function createTask(formData) {\n const client = await clientPromise;\n const db = client.db(\"taskapp\");\n await db.collection(\"tasks\").insertOne({\n title: formData.get(\"title\"),\n description: formData.get(\"description\"),\n status: formData.get(\"status\"),\n createdAt: new Date(),\n });\n revalidatePath(\"/tasks\");\n redirect(\"/tasks\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What I Struggled With\n\nTwo things genuinely confused me during this build:\n\n1. Understanding which file uses which component and why.\n\nWith multiple pages and components, I kept getting confused about who imports what and why. For example, I wasn't sure if TaskList should also import TaskForm, or whether TaskForm belonged on the page directly. Mapping out the dependency chain clearly helped a lot:\n\ntasks/page.js → TaskList → TaskCard\ntasks/new/page.js → TaskForm\ntasks/[id]/page.js → TaskForm\nactions/tasks.js → used by TaskCard and TaskForm\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n2. Understanding how actions/tasks.js actually works.\n\nI initially wrote the file by instinct based on my contact form experience. But server actions in a CRUD context behave differently; they receive FormData, need ObjectId for queries, and require revalidatePath to keep the UI in sync. Once I understood these gaps, the file made complete sense.\n\n \n \n Conclusion\n\nWhat made this project unique as part of my #100DaysOfCode journey is that it wasn't about learning something new; it was about connecting everything I already knew into one working app. It's one thing to understand server actions in isolation, and another thing entirely to wire them up to a form, pass the right data, hit the database, and have the UI update automatically.\n\nThis project gave me that full picture for the first time. It also revealed the gaps in my understanding that I wouldn't have found without actually building something.\n\n \n \n What's Next\n\nThe app is fully functional but completely unstyled. The next step is to add Tailwind CSS to style the UI and then deploy it on Vercel.\n\nStay tuned for Day 59!",
+  "tags": [
+    [
+      "100daysofcode",
+      "1500-words",
+      "2026",
+      "action",
+      "api",
+      "building task management",
+      "crud",
+      "delete",
+      "edit",
+      "javascript",
+      "mongodb",
+      "next.js",
+      "nextjs",
+      "objectid",
+      "page",
+      "plain",
+      "programming",
+      "revalidatepath",
+      "server",
+      "task",
+      "taskcard",
+      "taskform",
+      "tasklist",
+      "webdev"
+    ],
+    [
+      "100daysofcode",
+      "nextjs",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

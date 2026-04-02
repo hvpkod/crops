@@ -1,0 +1,37 @@
+{
+  "id": 7744,
+  "source": "DEV Community<",
+  "title": "I made a NES-style 8-bit sequencer app",
+  "url": "https://dev.to/nemesiscodex/i-made-a-nes-style-8-bit-sequencer-app-2g38",
+  "published_at": "2026-04-01T18:16:11Z",
+  "fetched_at": "2026-04-01T18:20:24.525456+00:00",
+  "author": "Julio Daniel Reyes",
+  "summary": "<p>Just for fun!</p>\n\n<p>Ever wondered what 8-bit music actually is?</p>\n\n<p>I started asking myself: why 8-bit? What gives it that distinctive sound?</p>\n\n<p>I learned that 8-bit music is mostly a nickname for the sound associated with old game hardware. Those systems used 8-bit processors, had very limited memory, and could not store and play full recorded songs the way modern systems do. Instead, they used dedicated audio hardware (an APU) to generate sound in real time through a small number of voices (channels).</p>\n\n<p>Each voice could only play one note at a time.</p>\n\n<p>The NES APU had 5 channels:</p>\n\n<ul>\n<li>2 pulse voice (square-like waves): melody / harmony</li>\n<li>1 triangle voice: bass</li>\n<li>1 noise voice: percussion / effects</li>\n<li>1 DPCM voice: short samples</li>\n</ul>\n\n<p>That sounded simple and fun enough that I wanted to try building something inspired by it.</p>\n\n<p>So I built my own browser-based NES-style sequencer: <a href=\"https://ochoit.nemesiscodex.or",
+  "full_text": "Just for fun!\n\nEver wondered what 8-bit music actually is?\n\nI started asking myself: why 8-bit? What gives it that distinctive sound?\n\nI learned that 8-bit music is mostly a nickname for the sound associated with old game hardware. Those systems used 8-bit processors, had very limited memory, and could not store and play full recorded songs the way modern systems do. Instead, they used dedicated audio hardware (an APU) to generate sound in real time through a small number of voices (channels).\n\nEach voice could only play one note at a time.\n\nThe NES APU had 5 channels:\n\n2 pulse voice (square-like waves): melody / harmony\n\n1 triangle voice: bass\n\n1 noise voice: percussion / effects\n\n1 DPCM voice: short samples\n\nThat sounded simple and fun enough that I wanted to try building something inspired by it.\n\nSo I built my own browser-based NES-style sequencer: Ocho(8)-it!\n\nOpen source and MIT licensed.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ask",
+      "dpcm",
+      "gamedev",
+      "learn",
+      "mit",
+      "music",
+      "nes",
+      "nickname",
+      "opensource",
+      "play",
+      "sound",
+      "start",
+      "voice",
+      "webapp",
+      "wonder"
+    ],
+    [
+      "gamedev",
+      "opensource",
+      "webapp"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 7674,
+  "source": "Hacker News",
+  "title": "New Patches Allow Building Linux IPv6-Only, Option to Deprecate \"Legacy\" IPv4",
+  "url": "https://www.phoronix.com/news/Linux-IPv6-IPv4-Legacy-Knobs",
+  "published_at": "2026-04-01T13:15:33Z",
+  "fetched_at": "2026-04-01T14:00:26.929933+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47600434\">Comments</a>",
+  "full_text": "Longtime Linux developer David Woodhouse sent out a patch series today to \"deprecate legacy IP\" support within the Linux kernel. While some of his commentary his April 1st-esque, he does acknowledge much of this work has merit. Ultimately it can allow for building a Linux kernel with IPv6-only support and working on allowing \"legacy\" IPv4 support to be disabled as part of the kernel build.\n\nThe set of six patches add a CONFIG_LEGACY_IP\n\n option to allow toggling IPv4 support for the kernel build. At the moment with the patches, there will just be a warning if a process listens on a legacy IP socket. It also \"marks Legacy IP for deprecation\" though in reality this part of the patch series is more akin for April Fools' Day.\n\nThe patches from David Woodhouse, an Amazon/AWS engineer, can be found on the kernel mailing list\n\n.\n\nWith the hatred for the April 1st Day, Woodhouse did clarify in a follow-up post\n\n with his clear intentions:\n\n\"Yeah. The date notwithstanding, I do actually think we should do most of this for real.\n\nMaybe we don't get away with the actual deprecation and the warnings on use *just* yet, and *maybe* we won't even get away with calling the config option CONFIG_LEGACY_IP, although I would genuinely like to see us moving consistently towards saying \"Legacy IP\" instead of \"IPv4\" everywhere.\n\nBut we *should* clean up the separation of CONFIG_INET and CONFIG_IPV[64] and make it possible to build with either protocol alone.\"\n\nSo we'll see ultimately what comes out of this patch series but there is merit for allowing IPv4-only or IPv6-only kernel builds especially in more forward-looking environments.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "allow",
+      "amazon",
+      "april",
+      "config_inet",
+      "kernel",
+      "legacy",
+      "linux",
+      "patch",
+      "series",
+      "support",
+      "ultimately",
+      "woodhouse"
+    ],
+    [
+      "linux"
+    ]
+  ]
+}

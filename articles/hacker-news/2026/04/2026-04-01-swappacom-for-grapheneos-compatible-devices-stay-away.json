@@ -1,0 +1,30 @@
+{
+  "id": 7825,
+  "source": "Hacker News",
+  "title": "Swappa.com for GrapheneOS compatible devices – Stay Away",
+  "url": "https://discuss.grapheneos.org/d/33727-swappacom-for-grapheneos-compatible-devices-stay-away",
+  "published_at": "2026-04-01T21:59:14Z",
+  "fetched_at": "2026-04-01T22:40:17.277608+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47607067\">Comments</a>",
+  "full_text": "I'm writing this as a PSA to anyone who is thinking about getting a used phone for GrapheneOS. I tried purchasing three used phones from Swappa.com.\n\nThe first seller, Buyback Surgeon, listed a Google Pixel 9 Pro XL for $404 titled \"Unlocked\". After receiving the device, OEM unlocking was not possible. I requested a return and paid a total of $60 in fees to get my money back (actually, I haven't been refunded yet, so I'm just out $464).\n\nThe Swappa staff kindly informed me that \"Factory unlocked pixels in our unlocked section are required to be factory unlocked google edition pixels, which allow bootloader unlocking\", so I then purchased a second device for $414 off of Sellworld - it too was not bootloader unlockable, and I once again initiated the refund process (another trip to the post office, more money lost).\n\nAfter confirming for a second time with the Swappa staff that \"Unlocked\" devices would be bootloader unlocked, I purchased a third, \"Unlocked\" tagged phone from Supplytronics for $424. Before shipping, I requested they confirm the bootloader was unlocked. They said \"[...] we are unfortunately not able to guarantee bootloader unlocking, as it is not feasible for us to search through thousands of devices in order to find one that is. [...]\", and refunded me (but not without Paypal taking their fee).\n\nNote that all of these sellers were rated 5 stars (including the one that ghosted me after I returned the phone). Once is fine. Twice is suspicious. But three times represents a systematic issue with Swappa.com.\n\nThe Swappa staff are unable to moderate their marketplace for proper listings, and as a result, it simply cannot be trusted for anyone looking to get a used Pixel for GrapheneOS. I'm very frustrated, so I felt the need to share this post in hopes it stops someone else from making a similar mistake.\n\nIf anyone knows a reliable place to get used, GrapheneOS compatible devices, please let me know <3",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "anyone",
+      "bootloader",
+      "device",
+      "google pixel",
+      "pixel",
+      "purchase",
+      "refund",
+      "request",
+      "staff",
+      "swappa",
+      "swappa.com",
+      "unlocked"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": 7801,
+  "source": "Slashdot",
+  "title": "Cloudflare Announces EmDash As Open-Source 'Spiritual Successor' To WordPress",
+  "url": "https://tech.slashdot.org/story/26/04/01/1935240/cloudflare-announces-emdash-as-open-source-spiritual-successor-to-wordpress?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-01T20:00:00Z",
+  "fetched_at": "2026-04-01T21:00:25.888874+00:00",
+  "author": "BeauHD",
+  "summary": "In classic Cloudflare fashion, the CDN provider used April Fool's Day to unveil an actual, \"not a joke\" product. Today, the company announced EmDash -- an open-source \"spiritual successor\" to WordPress that aims to solve plugin security. Phoronix reports: With the help of AI coding agents, Cloudflare engineers have been rebuilding the WordPress open-source project \"from the ground up.\" EmDash is written entirely in TypeScript and is a server-less design. Making plug-ins more secure than the WordPress architecture, EmDash plug-ins are sandboxed and run in their own isolate. EmDash builds upon the Astro web framework. EmDash doesn't rely on any WordPress code but is designed to be compatible with WordPress functionality. EmDash is open-source now under the MIT license. The EmDash code is available on GitHub.<p><div class=\"share_submission\">\n<a class=\"slashpop\" href=\"http://twitter.com/home?status=Cloudflare+Announces+EmDash+As+Open-Source+'Spiritual+Successor'+To+WordPress%3A+https%3A%2F",
+  "full_text": "In classic Cloudflare fashion, the CDN provider used April Fool's Day\n\n to unveil an actual, \"not a joke\" product. Today, the company announced\n\n EmDash -- an open-source \"spiritual successor\" to WordPress\n\n that aims to solve plugin security. Phoronix reports: With the help of AI coding agents, Cloudflare engineers have been rebuilding the WordPress open-source project \"from the ground up.\" EmDash is written entirely in TypeScript and is a server-less design. Making plug-ins more secure than the WordPress architecture, EmDash plug-ins are sandboxed and run in their own isolate. EmDash builds upon the Astro web framework. EmDash doesn't rely on any WordPress code but is designed to be compatible with WordPress functionality. EmDash is open-source now under the MIT license. \n\n The EmDash code is available on GitHub\n\n.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "announce",
+      "astro",
+      "cdn",
+      "cloudflare",
+      "design",
+      "emdash",
+      "github",
+      "internet",
+      "mit",
+      "phoronix",
+      "rebuild",
+      "sandboxe",
+      "typescript",
+      "wordpress",
+      "write"
+    ],
+    [
+      "internet"
+    ]
+  ]
+}

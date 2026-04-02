@@ -1,0 +1,46 @@
+{
+  "id": 7682,
+  "source": "DEV Community<",
+  "title": "How I built dotapro.org",
+  "url": "https://dev.to/eriknovikov/how-i-built-dotaproorg-1jba",
+  "published_at": "2026-04-01T15:13:59Z",
+  "fetched_at": "2026-04-01T15:20:29.328187+00:00",
+  "author": "Erik Novikov",
+  "summary": "<h2>\n  \n  \n  Intro\n</h2>\n\n<p>This post breaks down my journey building <a href=\"https://dotapro.org\" rel=\"noopener noreferrer\">dotapro.org</a>, an open-source Dota 2 analytics platform for professional games. I'll cover why I built it, the technical architecture behind it, and share some actionable tips that might benefit you as a dev.</p>\n\n<h2>\n  \n  \n  Why I built it\n</h2>\n\n<p>Dota 2 is one of the few games I occasionally enjoy, and I love building useful software. When I couldn't easily find specific professional Dota 2 analytics, I realized other fans and pro players had the exact same problem. So, I decided to build a solution myself.</p>\n\n<h2>\n  \n  \n  Features\n</h2>\n\n<ul>\n<li>Advanced filtering for match and series data, allowing highly optimized queries by league, team, player, and hero.</li>\n<li>A sleek, modern UI focused on the match data that actually matters to players.</li>\n<li>A real-time ETL (Extract, Transform, Load) pipeline to keep match data up to date.</li>\n<li>Optimi",
+  "full_text": "Intro\n\nThis post breaks down my journey building dotapro.org, an open-source Dota 2 analytics platform for professional games. I'll cover why I built it, the technical architecture behind it, and share some actionable tips that might benefit you as a dev.\n\n \n \n Why I built it\n\nDota 2 is one of the few games I occasionally enjoy, and I love building useful software. When I couldn't easily find specific professional Dota 2 analytics, I realized other fans and pro players had the exact same problem. So, I decided to build a solution myself.\n\n \n \n Features\n\nAdvanced filtering for match and series data, allowing highly optimized queries by league, team, player, and hero.\n\nA sleek, modern UI focused on the match data that actually matters to players.\n\nA real-time ETL (Extract, Transform, Load) pipeline to keep match data up to date.\n\nOptimized, near-real-time pg_trgm word similarity searches for league, player, and team names.\n\n \n \n Architecture Overview\n\nWhen users visit the website, the React frontend fetches JSON data from the backend (api-lambda). Meanwhile, on a scheduled basis, a separate ETL service (scraper-lambda) fetches batch data from the OpenDota API, processes it, and inserts it into our database.\n\nflowchart TD\n Users[Users] -->|HTTPS| CF[CloudFront CDN]\n CF --> S3[S3 Static Hosting]\n CF -->|API Requests| GW[API Gateway]\n\n GW --> API[API Lambda]\n API --> RDS[(RDS PostgreSQL)]\n API -->|JSON Response| GW\n\n EB[EventBridge<br/>5/min] --> Scraper[Scraper Lambda]\n Scraper -->|Fetch Data| OD[OpenDota API]\n OD -->|Match Data| Scraper\n Scraper -->|Store Data| RDS\n\n style Users fill:#f0f9ff,stroke:#0ea5e9,stroke-width:2px,color:#0c4a6e\n style CF fill:#ea580c,stroke:#c2410c,stroke-width:2px,color:#ffffff\n style S3 fill:#059669,stroke:#047857,stroke-width:2px,color:#ffffff\n style GW fill:#ea580c,stroke:#c2410c,stroke-width:2px,color:#ffffff\n style API fill:#ea580c,stroke:#c2410c,stroke-width:2px,color:#ffffff\n style RDS fill:#1e40af,stroke:#1e3a8a,stroke-width:2px,color:#ffffff\n style EB fill:#ea580c,stroke:#c2410c,stroke-width:2px,color:#ffffff\n style Scraper fill:#ea580c,stroke:#c2410c,stroke-width:2px,color:#ffffff\n style OD fill:#f0f9ff,stroke:#0ea5e9,stroke-width:2px,color:#0c4a6e\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe entire infrastructure runs on AWS, the currently leading cloud provider. So the project was a great opportunity to get some real world practice with it.\n\n \n \n Storage\n\nFor the database, I used AWS RDS (Relational Database Service) with PostgreSQL. RDS handles much of the operational complexity for you. At one point, I temporarily ran an EC2 instance with an EBS volume just to experience what it actually means to operate a database manually (OS patching, vertical scaling, automated backups, etc.). While doing it manually saves a few bucks, I quickly learned that managed services are worth the cost for the time they save. I chose PostgreSQL specifically for its ability to handle the app's advanced filtering requirements.\n\n \n \n Compute\n\nThe backend consists of two AWS Lambdas:\n\nScraper Lambda: Runs on an AWS EventBridge schedule every 5 minutes, processing new match data and inserting it into the PostgreSQL database.\n\nAPI Lambda: A monolithic Lambda serving the API, handling request routing at the application level (via go-chi) rather than at the API Gateway level.\n\nI opted for a monolithic API Lambda for two main reasons:\n\nSimplicity and ease of deployment: All backend API functionality lives in one place. If I need to make a change, I just update a single Lambda's source code.\n\nPerformance: If a user hits the /matches endpoint, any subsequent request will benefit from a warm start regardless of its path. This leverages the Lambda execution context, avoiding the need to re-initialize database connection pools, which would otherwise cause latency.\n\nThis \"Lambda-as-a-Server\" approach is common, but you must always weigh the tradeoffs. For instance, it makes sense to split a monolith into multiple single-purpose Lambdas if:\n\nYou're in a large organization where separate teams work on separate modules. A massive shared codebase quickly becomes a nightmare for concurrent deployments and bug fixes.\n\nYou have a specific piece of \"hot\" functionality (used 10x more than other endpoints) or a module that absolutely cannot tolerate cold starts (like a payments webhook). In that case, you'd create a dedicated Lambda with provisioned concurrency.\n\n \n \n Frontend\n\nThe frontend is a React app built with TypeScript for type safety, Tailwind CSS for styling, Vite for bundling, and TanStack Router/Query for state and routing. It is deployed on an Amazon S3 bucket behind an AWS CloudFront distribution. This is the industry standard for hosting static websites on AWS—it offers maximum performance (users fetch content from their nearest edge location) and excellent cost-effectiveness.\n\n \n \n Deployment and CI/CD\n\nPushing code to the main branch triggers a GitHub Actions workflow that selectively deploys only the directories that have changed. To allow Github Actions to call AWS services on your behalf, you have to set up OIDC auth.\n\nTo redeploy the UI: The action installs Node.js and dependencies, builds the Vite-optimized HTML/CSS/JS bundle, syncs it to S3, and creates a CloudFront cache invalidation so changes take effect immediately.\n\nTo redeploy the lambdas: The action installs Go, compiles the correspodning source code into a binary, and updates the Lambda via the aws lambda update-function-code API.\n\n \n \n Actionable Tips\n\nKISS (Keep It Simple, Stupid): It's a cliché, but coupled with avoiding premature optimization, it's a principle devs (myself included) constantly forget. We tend to overengineer, adding complexity just for the sake of it, completely overlooking how time-consuming that complexity becomes. For example, I initially built the scraper with a decoupled architecture: one Lambda scraped OpenDota, pushed data to an SQS Queue, and an ingestor-lambda polled the queue to update the DB. I eventually realized a single Lambda could handle the entire workload—making it simpler, cheaper, and faster. Only introduce complexity when the app really requires it.\n\nAction drives motivation (not the other way around): It's natural to lose a bit of passion when you hit a roadblock or work on a tedious feature. That is totally OK. Embrace the temporary boredom, push your way through the roadblock, and the motivation will return. And if tech is stressing you out, watch this Jeff Bezos short.\n\nBuild something you personally find useful: Software development is not only a career, but a lifestyle. So you should do lots of it. Naturally, building things you actually want to use will give you the most satisfaction. Whether it was this Dota project, or a this custom Linux voice dictation tool I built, solving my own problems with software has been incredibly rewarding.\n\n \n \n Conclusion\n\nI hope you took something away from this post. Feel free to drop a comment if you agree / disagree with anything, or have a story of your own to share. Happy coding!",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "action",
+      "api",
+      "aws",
+      "build",
+      "career",
+      "complexity",
+      "compute",
+      "datum",
+      "dota",
+      "ebs",
+      "etl",
+      "fetch",
+      "lambda",
+      "match",
+      "payments",
+      "postgresql",
+      "programming",
+      "react",
+      "relational database service",
+      "scraper",
+      "style",
+      "the opendota api",
+      "users",
+      "webdev"
+    ],
+    [
+      "career",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

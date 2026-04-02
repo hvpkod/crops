@@ -1,0 +1,41 @@
+{
+  "id": 7748,
+  "source": "DEV Community<",
+  "title": "Building an Engineering & Security News Aggregator (10 Sources, No APIs)",
+  "url": "https://dev.to/jefferyhus/building-an-engineering-security-news-aggregator-10-sources-no-apis-1dc9",
+  "published_at": "2026-04-01T18:10:32Z",
+  "fetched_at": "2026-04-01T18:20:30.571122+00:00",
+  "author": "El Housseine Jaafari",
+  "summary": "<p>We built a curated engineering and security news aggregator that pulls from 10 high-signal sources, deduplicates content, and updates every 6 hours.</p>\n\n<p>No paid APIs. No scraping. No login. Just clean, structured news for developers.</p>\n\n<p>This post breaks down exactly how it works.</p>\n\n\n\n\n<h2>\n  \n  \n  What This Is\n</h2>\n\n<p>A lightweight news wire combining:</p>\n\n<ul>\n<li>Hacker News\n</li>\n<li>Lobsters\n</li>\n<li>InfoQ\n</li>\n<li>Cloudflare Blog\n</li>\n<li>Krebs on Security\n</li>\n<li>The Hacker News (Security)\n</li>\n<li>NIST NVD (vulnerabilities)\n</li>\n<li>GitHub Blog\n</li>\n<li>OpenAI Blog\n</li>\n<li>Anthropic Research\n</li>\n</ul>\n\n<p>The goal: <strong>high-quality signal, zero noise, zero cost</strong>.</p>\n\n\n\n\n<h2>\n  \n  \n  Why Build This?\n</h2>\n\n<p>Most engineering/news aggregators fail in one of these ways:</p>\n\n<ul>\n<li>Too noisy (no curation)</li>\n<li>Too expensive (paid APIs)</li>\n<li>Too slow (manual updates)</li>\n<li>Too fragmented (you check 10 sites anyway)</li>\n</ul>\n",
+  "full_text": "We built a curated engineering and security news aggregator that pulls from 10 high-signal sources, deduplicates content, and updates every 6 hours.\n\nNo paid APIs. No scraping. No login. Just clean, structured news for developers.\n\nThis post breaks down exactly how it works.\n\n \n \n What This Is\n\nA lightweight news wire combining:\n\nHacker News\n\nLobsters\n\nInfoQ\n\nCloudflare Blog\n\nKrebs on Security\n\nThe Hacker News (Security)\n\nNIST NVD (vulnerabilities)\n\nGitHub Blog\n\nOpenAI Blog\n\nAnthropic Research\n\nThe goal: high-quality signal, zero noise, zero cost.\n\n \n \n Why Build This?\n\nMost engineering/news aggregators fail in one of these ways:\n\nToo noisy (no curation)\n\nToo expensive (paid APIs)\n\nToo slow (manual updates)\n\nToo fragmented (you check 10 sites anyway)\n\nWe wanted:\n\nA single feed\n\nFresh updates (but not real-time obsession)\n\nNo operational cost\n\nNo lock-in (no accounts, no tracking)\n\n \n \n Stack\n\nHono (API layer)\n\nDrizzle ORM\n\nPostgres\n\nNext.js (frontend)\n\nRSS feeds + Hacker News Firebase API\n\n \n \n High-Level Architecture\n\n ┌───────────────┐\n │ RSS Feeds │\n │ (9 sources) │\n └──────┬────────┘\n │\n ▼\n ┌───────────────┐\n │ Fetch Workers │\n │ (every 6 hrs) │\n └──────┬────────┘\n │\n ▼\n ┌──────────────────────┐\n │ Normalize Articles │\n │ title, url, date │\n └─────────┬────────────┘\n │\n ▼\n ┌──────────────────────┐\n │ SHA-256 Deduplication│\n │ (based on URL) │\n └─────────┬────────────┘\n │\n ▼\n ┌───────────────┐\n │ Postgres │\n └──────┬────────┘\n │\n ▼\n ┌───────────────┐\n │ Hono API │\n └──────┬────────┘\n │\n ▼\n ┌───────────────┐\n │ Next.js UI │\n └───────────────┘\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Data Sources\n\nWe deliberately chose sources with:\n\nHigh editorial quality\n\nLow duplication between each other\n\nStable RSS feeds or APIs\n\n \n \n Breakdown\n\nSource\nType\nWhy It Matters\n\nHacker News\nAPI\nReal-time dev signal\n\nLobsters\nRSS\nMore technical discussions\n\nInfoQ\nRSS\nDeep engineering content\n\nCloudflare Blog\nRSS\nInfra + performance insights\n\nKrebs on Security\nRSS\nTrusted security reporting\n\nThe Hacker News\nRSS\nSecurity news (broader)\n\nNIST NVD\nRSS/API\nVerified vulnerabilities\n\nGitHub Blog\nRSS\nPlatform + ecosystem updates\n\nOpenAI Blog\nRSS\nAI developments\n\nAnthropic Research\nRSS\nAI + safety research\n\n \n \n Fetching Strategy\n\nWe run a simple scheduled job:\n\n// every 6 hours\ncron.schedule(\"0 */6 * * *\", async () => {\n await fetchAllSources();\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhy every 6 hours?\n\nKeeps content fresh\n\nAvoids unnecessary load\n\nWorks well with RSS update frequencies\n\n \n \n Deduplication (Key Part)\n\nDifferent sources often post the same story.\n\nWe solve this using SHA-256 hashing of URLs.\n\nimport { createHash } from \"crypto\";\n\nfunction hashUrl(url: string) {\n return createHash(\"sha256\").update(url).digest(\"hex\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Why URL hashing?\n\nFast\n\nDeterministic\n\nNo fuzzy matching complexity\n\nWorks across sources\n\n \n \n Tradeoff\n\nWon’t catch rewritten articles with different URLs\n\nBut avoids false positives (important for trust)\n\n \n \n Normalization\n\nEach source has its own format. We normalize into a single shape:\n\ntype Article = {\n title: string;\n url: string;\n source: string;\n publishedAt: Date;\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis keeps the frontend simple and predictable.\n\n \n \n API Layer (Hono)\n\nExample endpoint:\n\napp.get(\"/articles\", async (c) => {\n const articles = await db.query.articles.findMany({\n orderBy: (a, { desc }) => [desc(a.publishedAt)],\n limit: 100,\n });\n\n return c.json(articles);\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nMinimal, fast, no overengineering.\n\n \n \n Frontend (Next.js)\n\nServer-rendered list\n\nNo login required\n\nNo personalization\n\nJust chronological, deduplicated news\n\n \n \n Limitations\n\nNot real-time (by design)\n\nNo personalization\n\nDeduplication is URL-based only\n\nDependent on RSS availability\n\n \n \n What We’d Improve\n\nSmarter clustering (same story, different URLs)\n\nTagging (infra, AI, security, etc.)\n\nOptional filters (without accounts)\n\n \n \n Try It\n\nThe news wire is open to everyone:\n\n👉 https://clawship.app/blog/engineering-security-news-wire\n\n \n \n Connect with Us",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "api layer (hono",
+      "article",
+      "deduplication (key part",
+      "enter",
+      "exit",
+      "feed",
+      "fullscreen",
+      "hacker",
+      "hacker news\n\nlobsters",
+      "javascript",
+      "mode",
+      "nvd",
+      "opensource",
+      "rss",
+      "security",
+      "source",
+      "stack\n\nhono",
+      "update",
+      "webdev"
+    ],
+    [
+      "opensource",
+      "webdev"
+    ]
+  ]
+}

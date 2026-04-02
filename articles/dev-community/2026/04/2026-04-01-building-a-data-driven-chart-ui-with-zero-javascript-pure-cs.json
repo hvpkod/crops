@@ -1,0 +1,40 @@
+{
+  "id": 7851,
+  "source": "DEV Community<",
+  "title": "Building a Data-Driven Chart UI with Zero JavaScript (Pure CSS + FSCSS)",
+  "url": "https://dev.to/fscss/building-a-data-driven-chart-ui-with-zero-javascript-pure-css-fscss-gb9",
+  "published_at": "2026-04-01T23:35:28Z",
+  "fetched_at": "2026-04-02T00:00:54.481866+00:00",
+  "author": "FSCSS",
+  "summary": "<p>Most modern web charts rely on heavy JavaScript libraries. While powerful, they often come with a performance cost and complex integration steps.<br />\nWhat if you could build a fully styled, data-driven chart UI using Pure CSS?<br />\nBy using FSCSS and its utility system, st-core (statistic core)<a href=\"https://github.com/fscss-ttr/st-core.fscss\" rel=\"noopener noreferrer\">_</a>, we can transform raw data into visual interfaces directly within our stylesheets.</p>\n<h3>\n  \n  \n  1. The Setup\n</h3>\n\n<p>First, include the FSCSS runtime and import the st-core helpers.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight html\"><code><span class=\"nt\">&lt;script </span><span class=\"na\">src=</span><span class=\"s\">\"https://cdn.jsdelivr.net/npm/fscss@1.1.24/exec.min.js\"</span> <span class=\"na\">async</span><span class=\"nt\">&gt;&lt;/script&gt;</span> \n\n<span class=\"nt\">&lt;style&gt;</span>\n<span class=\"k\">@import</span><span class=\"p\">((</span><span class=\"err\">*</span><s",
+  "full_text": "Most modern web charts rely on heavy JavaScript libraries. While powerful, they often come with a performance cost and complex integration steps.\n\nWhat if you could build a fully styled, data-driven chart UI using Pure CSS?\n\nBy using FSCSS and its utility system, st-core (statistic core)_, we can transform raw data into visual interfaces directly within our stylesheets.\n\n \n \n 1. The Setup\n\nFirst, include the FSCSS runtime and import the st-core helpers.\n\n<script src=\"https://cdn.jsdelivr.net/npm/fscss@1.1.24/exec.min.js\" async></script> \n\n<style>\n@import((*) from st-core) \n\n/* Initialize design tokens, layout base, and colors */\n@st-root() \n@st-container(body) \n</style>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 2. Attaching the Components\n\nst-core.fscss uses directive-like helpers to generate the complex logic needed for backgrounds, lines, and markers.\n\n@st-chart-fill(.chart-fill) /* Area under the line */\n@st-chart-line(.chart-line) /* The actual trend line */\n@st-chart-dot(.chart-dot, 70, 60) /* Data point marker at x=70, y=60 */\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 3. Mapping Data to UI\n\nThis is where the magic happens. The @st-chart-points helper maps your numeric data points into CSS variables. These variables are then used to calculate a clip-path that draws the chart.\n\n.chart {\n width: 300px;\n height: 400px;\n border-radius: 25px;\n border: 2px solid var(--st-accent);\n position: relative;\n overflow: hidden;\n background: var(--st-surface);\n\n /* The Data: These points define the shape of the graph */\n @st-chart-points(20, 25, 21, 37, 30, 60, 27, 50)\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 4. Customizing the Visuals\n\nBecause this is CSS, customization is trivial. You can use filters, transitions, and standard properties to polish the UI.\n\n/* Add a glow to the line */\n.chart-line {\n @st-chart-line-width(2px);\n filter: drop-shadow(0 0 8px var(--st-accent));\n}\n\n/* Style the tooltip and point */\n.chart-dot {\n position: relative;\n --st-accent: #c4a8ff; /* Local theme override */\n}\n\n.chart-dot:after {\n content: attr(data-point); /* Pulls data from HTML attribute */\n background: var(--st-accent);\n padding: 6px 8px;\n border-radius: var(--st-radius-sm);\n /* ... positioning ... */\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 5. The Final HTML Structure\n\nThe HTML remains incredibly clean. No Canvas elements, no complex SVG strings—just a few semantic divs.\n\n \n \n Why This Matters\n\nZero JS Overhead: The browser handles the rendering logic via CSS variables and clip-paths.\n\nDeclarative Data: You define data where you define your styles.\n\nFully Themeable: Since it uses CSS variables (--st-accent, etc.), switching to dark mode or changing brand colors is instantaneous.\nThis approach shifts the paradigm: CSS isn't just styling the UI, it’s generating the UI from data.\n\nCheck out the project here: st-core on GitHub",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "canvas",
+      "chart",
+      "color",
+      "complex",
+      "components",
+      "css",
+      "datum",
+      "define",
+      "fscss",
+      "fullscreen",
+      "github",
+      "html",
+      "javascript",
+      "mapping data",
+      "mode",
+      "point",
+      "svg",
+      "the setup\n\nfirst",
+      "tutorial",
+      "variable"
+    ],
+    [
+      "tutorial"
+    ]
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": 7623,
+  "source": "DEV Community<",
+  "title": "I Built a Free Prop Firm Risk Calculator --- Here's Why",
+  "url": "https://dev.to/wteja/i-built-a-free-prop-firm-risk-calculator-heres-why-5279",
+  "published_at": "2026-04-01T09:03:03Z",
+  "fetched_at": "2026-04-01T09:20:37.599234+00:00",
+  "author": "Weerayut Teja",
+  "summary": "<p>If you're trading with a prop firm, you already know the drill. Blow your daily drawdown, you're done for the day. Hit your max drawdown, you're done <em>period</em>. Miss the consistency rule, and somehow you <em>still</em> fail even though you were profitable.</p>\n\n<p>The math isn't hard, but keeping track of it all while you're in the middle of a live session? That's where things go sideways.</p>\n\n<p>So I built a tool to handle it for me --- and now I'm sharing it for free.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Forgr76bmfrai8bvm7tei.png\"><img alt=\"I Built a Free Prop Firm Risk Calculator --- Here's Why\" height=\"343\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Forgr76bmfr",
+  "full_text": "If you're trading with a prop firm, you already know the drill. Blow your daily drawdown, you're done for the day. Hit your max drawdown, you're done period. Miss the consistency rule, and somehow you still fail even though you were profitable.\n\nThe math isn't hard, but keeping track of it all while you're in the middle of a live session? That's where things go sideways.\n\nSo I built a tool to handle it for me --- and now I'm sharing it for free.\n\n \n \n What it does\n\nPropFirm Calculator is a web app (PWA, so you can install it on your phone or desktop) that helps you figure out exactly how much you should be risking per trade given your account rules.\n\nYou plug in:\n\n Account balance\n\n Daily drawdown limit\n\n Max drawdown limit\n\n Profit target\n\n Consistency rule (if your firm has one)\n\n Win rate & risk/reward ratio\n\nAnd it spits out your safe risk per trade, max daily profit cap, estimated days to pass, expected value per trade --- all the numbers you actually need before you click buy or sell.\n\nIt also runs a Monte Carlo simulation so you can see a range of possible outcomes based on your setup, not just the rosy best-case scenario. And there's a Losing Streak Simulator that shows you how many losses in a row it takes before you're in real trouble --- useful for gut-checking your position size.\n\nIf you trade multiple accounts, there's a multi-account comparison view so you can line them all up side by side.\n\nQuick presets are built in for FTMO, Funded Trader, TopStep, and etc. so you don't have to type everything in manually.\n\n \n \n It's free, no login required\n\nNo account. No email. No subscription. Just open it and use it.\n\n👉 https://wteja.github.io/propfirm-calculator/\n\nIf you want to host your own version or add your firm's rules, the source is open:\n\n👉 https://github.com/wteja/propfirm-calculator\n\nFork it, tweak it, do whatever you want with it.\n\n \n \n Why I made this\n\nHonestly, I got tired of doing the same math on a notepad every morning before the session. One miscalculation and you're overrisking without even realizing it. This just removes that friction.\n\nIf it helps even a handful of traders not blow their challenges over something avoidable like position sizing, that's a win for me.\n\nGive it a try and let me know what you think.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "blow",
+      "build",
+      "calculator",
+      "consistency",
+      "daily",
+      "do",
+      "drawdown",
+      "ftmo",
+      "javascript",
+      "math",
+      "prop",
+      "pwa",
+      "trade"
+    ],
+    []
+  ]
+}

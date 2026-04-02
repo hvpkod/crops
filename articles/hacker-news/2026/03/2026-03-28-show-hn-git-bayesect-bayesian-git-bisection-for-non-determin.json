@@ -1,0 +1,30 @@
+{
+  "id": 7771,
+  "source": "Hacker News",
+  "title": "Show HN: Git bayesect – Bayesian Git bisection for non-deterministic bugs",
+  "url": "https://github.com/hauntsaninja/git_bayesect",
+  "published_at": "2026-03-28T20:32:01Z",
+  "fetched_at": "2026-04-01T19:20:20.843480+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47557921\">Comments</a>",
+  "full_text": "Bayesian git bisection!\n\nUse this to detect changes in likelihoods of events, for instance, to isolate a commit where\na slightly flaky test became very flaky.\n\nYou don't need to know the likelihoods (although you can provide priors), just that something\nhas changed at some point in some direction\n\nOr:\n\nuv tool install git_bayesect\n\ngit_bayesect uses Bayesian inference to identify the commit introducing a change, with\ncommit selection performed via greedy minimisation of expected entropy, and using a Beta-Bernoulli\nconjugacy trick while calculating posterior probabilities to make handling unknown failure rates\ntractable.\n\nSee https://hauntsaninja.github.io/git_bayesect.html for a write up.\n\nStart a Bayesian bisection:\n\ngit bayesect start --old $COMMIT\n\nRecord an observation on the current commit:\n\nOr on a specific commit:\n\ngit bayesect pass --commit $COMMIT\n\nCheck the overall status of the bisection:\n\nReset:\n\nSet the prior for a given commit:\n\ngit bayesect prior --commit $COMMIT --weight 10\n\nSet prior for all commits based on filenames:\n\ngit bayesect priors_from_filenames --filenames-callback \"return 10 if any('suspicious' in f for f in filenames) else 1\"\n\nSet prior for all commits based on the text in the commit message + diff:\n\ngit bayesect priors_from_text --text-callback \"return 10 if 'timeout' in text.lower() else 1\"\n\nGet a log of commands to let you reconstruct the state:\n\nUndo the last observation:\n\nRun the bisection automatically using a command to make observations:\n\nCheckout the best commmit to test:\n\nThis repository contains a little demo, in case you'd like to play around:\n\n# Create a fake repository with a history to bayesect over\npython scripts/generate_fake_repo.py\ncd fake_repo\n\n# The fake repo contains a script called flaky.py\n# This is a simple script that fails some fraction of the time\n# At some point in the history of the repo, that fraction was changed\npython flaky.py\ngit log --oneline\n\n# Start the bayesection\nOLD_COMMIT=$(git rev-list HEAD --reverse | head -n 2 | tail -n 1)\ngit bayesect start --new main --old $OLD_COMMIT\n\n# Run a bayesection to find the commit that introduced the change\ngit bayesect run python flaky.py",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "base",
+      "bayesect",
+      "bayesection",
+      "bayesian",
+      "change",
+      "commit",
+      "history",
+      "prior",
+      "python",
+      "start"
+    ],
+    [
+      "python"
+    ]
+  ]
+}

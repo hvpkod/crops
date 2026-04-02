@@ -1,0 +1,36 @@
+{
+  "id": 7646,
+  "source": "DEV Community<",
+  "title": "How to give your OpenClaw agent Access To Real-time SERP - Google Search Data in Less Than 2 Minutes",
+  "url": "https://dev.to/scaviodev/how-to-give-your-openclaw-agent-access-to-real-time-serp-google-search-data-in-less-than-2-minutes-197n",
+  "published_at": "2026-04-01T12:11:41Z",
+  "fetched_at": "2026-04-01T12:20:22.927419+00:00",
+  "author": "Scavio AI",
+  "summary": "<p>By default your OpenClaw agent only knows what it already knows. The moment it needs to look something up — check a fact, find documentation, get current news — it has no way to reach the web.</p>\n\n<p>Here's how to fix that.</p>\n\n<h2>\n  \n  \n  1. Install the skill\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>clawhub <span class=\"nb\">install </span>scavio-google\n</code></pre>\n\n</div>\n\n\n\n<h2>\n  \n  \n  2. Set your API key\n</h2>\n\n<p>Get a free key at <a href=\"https://scavio.dev\" rel=\"noopener noreferrer\">scavio.dev</a> (1,000 credits/month, no card), then:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code><span class=\"nb\">export </span><span class=\"nv\">SCAVIO_API_KEY</span><span class=\"o\">=</span>sk_live_your_key\n</code></pre>\n\n</div>\n\n\n\n<p>The skill won't load without this — it gates on <code>SCAVIO_API_KEY</code> so you get a clear error rather than a silent failure.</p>\n\n<h2>\n  \n  \n  3. Ask your agent\n</h2>",
+  "full_text": "By default your OpenClaw agent only knows what it already knows. The moment it needs to look something up — check a fact, find documentation, get current news — it has no way to reach the web.\n\nHere's how to fix that.\n\n \n \n 1. Install the skill\n\nclawhub install scavio-google\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 2. Set your API key\n\nGet a free key at scavio.dev (1,000 credits/month, no card), then:\n\nexport SCAVIO_API_KEY=sk_live_your_key\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe skill won't load without this — it gates on SCAVIO_API_KEY so you get a clear error rather than a silent failure.\n\n \n \n 3. Ask your agent\n\nThat's it. Your agent can now search Google. Just ask it naturally:\n\nSearch for the latest LangChain agent tools and summarize what you find.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFind recent news about AI funding rounds this week.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nLook up the documentation for CrewAI tool calling and explain how it works.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe skill teaches your agent when to use Google search, how to call the API, and how to interpret the results — including news, images, maps, and knowledge graph data depending on what you're asking for.\n\n \n \n What comes back\n\nThe agent gets structured JSON — titles, URLs, descriptions, position — not raw HTML. It can reason over the results directly without any parsing step.\n\nFor news queries it also gets source, date, and domain. For full-mode queries (2 credits) it gets knowledge graph, people also ask, and related searches.\n\n \n \n Direct API access\n\nIf you want to call the API yourself outside of OpenClaw:\n\nimport os, requests\n\nresponse = requests.post(\n \"https://api.scavio.dev/api/v1/google\",\n headers={\"Authorization\": f\"Bearer {os.environ['SCAVIO_API_KEY']}\"},\n json={\"query\": \"langchain agent tools\", \"search_type\": \"classic\"},\n)\nprint(response.json()[\"results\"])\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFull docs at scavio.dev/docs\n\n(I work with the Scavio team.)",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "agents",
+      "ai",
+      "api",
+      "enter",
+      "exit",
+      "fullscreen",
+      "get",
+      "google",
+      "html",
+      "langchain",
+      "mode",
+      "openclaw",
+      "query",
+      "search",
+      "skill"
+    ],
+    [
+      "agents"
+    ]
+  ]
+}

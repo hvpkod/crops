@@ -1,0 +1,40 @@
+{
+  "id": 7590,
+  "source": "Hacker News",
+  "title": "Show HN: CLI to order groceries via reverse-engineered REWE API (Haskell)",
+  "url": "https://github.com/yannick-cw/korb",
+  "published_at": "2026-03-30T06:45:58Z",
+  "fetched_at": "2026-04-01T07:20:36.332641+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47571183\">Comments</a>",
+  "full_text": "The korb CLI allows using the REWE APIs programmatically to create baskets and order them for pickup to your local REWE market.\n\nThe CLI is handwritten in Haskell, but designed to be a CLI mostly used by agents to organise your REWE shopping on your behalf. All output is JSON.\n\n \n \n \n\n korb_demo.mp4\n \n \n\n \n\n \n\nMy current E2E flow (I use claude to run korb) is as follows:\n\nAdd grocery when I think of it A Siri shortcut appends items to a shared markdown file. I say \"Add oat milk to the shopping list\" in the kitchen and it's on the list.\n\nWeekly Order Tell the agent \"use korb to buy groceries, I need X,Y,Z\". It begins from a default template (my usual items and quantities, created with korb orders history) and checks the shopping list file and my input for anything extra.\n\nAdjust template suggestion I tell the agent what to skip, change, or add. It searches products via korb search / korb favorites search and adds them with korb basket add.\n\nReview & confirm The agent prints the full basket and a selected timeslot. After I confirm, it runs korb checkout order.\n\nClean shopping list Ordered items get ticked off in the shopping list.\n\nIn the directory that store the shopping list file I also have a claude.md explaining this process.\nThe magic is the generated template of what I always order. Just tell an agent to use korb orders history to identify commonly ordered items.\n\nDownload the latest release from GitHub Releases:\n\n# macOS (Apple Silicon)\ncurl -L https://github.com/yannick-cw/korb/releases/latest/download/korb-aarch64-macos -o korb\nchmod +x korb\nmv korb /usr/local/bin/\n\n### From source\n\nRequires GHC 9.12+ and Cabal. You also need the REWE mTLS client certificates.\n\n```bash\ngit clone https://github.com/yannick-cw/korb.git\ncd korb\n\n# Extract mTLS certificates from the REWE app\n# See: https://github.com/ByteSizedMarius/rewerse-engineering/tree/main/docs\n# Place them at:\n# certs/mobile-clients-api.rewe.de/private.pem\n# certs/mobile-clients-api.rewe.de/private.key\n\ncabal install --install-method=copy\n\n# 1. Authenticate with your REWE account (one-time, use Chrome to get the link, firefox does not work for this)\nkorb login --pretty\n\n# 2. Find and set your pickup store - stored locally, needs to be done just once\nkorb store search 80336 # returns market identifier for zip code\nkorb store set 420240 80336\n\n# 3. Search for products by name or EAN barcode\nkorb search \"milch\" --pretty\nkorb search \"milch\" --organic --pretty\nkorb search \"4305615100005\" --pretty # search by EAN barcode\n# Or browse your favorites\nkorb favorites\nkorb favorites search \"avo\"\n\n# 4. Add items to basket\nkorb basket add 8-6AJQ3RLX-bd7c2a1e-f1c1-3464-8250-900b12c90f70\n\n# 5. Check your basket\nkorb basket --pretty\n\n# 6. Pick a timeslot and checkout\nkorb timeslots # lists available timeslots for pickup\nkorb checkout create <TIMESLOT_ID> # create checkout - not ordered yet\nkorb checkout order # order it with selected timeslot and payment in market\n\n# 7. Cancel an order if needed\nkorb orders\nkorb orders delete <ORDER_ID>\n\nUsage: korb COMMAND [-p|--pretty] [-v|--version]\n REWE Pickup CLI\n\nAvailable options:\n -p,--pretty Pretty JSON output\n -h,--help Show this help text\n -v,--version Show version\n\nCommands:\n\n korb store Show currently selected store\n korb store search <ZIP> Find pickup stores near ZIP code\n korb store set <ID> <ZIP> Set active store by market ID and ZIP\n\n korb search <QUERY|EAN> Search products by name or EAN barcode (use * to browse all)\n korb search <Q> --organic Filter by attribute (--organic, --regional, --vegan, --vegetarian)\n\n korb favorites Show all favorite products across all lists\n korb favorites search <QUERY> Filter favorites by name (case-insensitive, substring match)\n korb favorites add <LID> <PID> Add product to default favorites list (listing ID + product ID)\n korb favorites delete <ITEM_ID> Remove item from default favorites list (item ID from favorites)\n\n korb basket Show current basket with items, totals, and free pickup status\n korb basket add <LISTING_ID> Set item quantity by listing ID. Overwrites existing quantity.\n --qty N sets absolute quantity. Default 1. Use --qty 0 to remove.\n\n korb timeslots List available pickup timeslots\n\n korb checkout Show the checkout for current basket. Payment is always in market.\n korb checkout create <TIMESLOT_ID> Create a checkout for a given timeslot id\n korb checkout order Place the order. Timeslot must be attached first.\n\n korb orders Show open orders.\n korb orders history Show all orders.\n korb orders get <ORDER_ID> Get an order (with details) by id.\n korb orders delete <ORDER_ID> Cancel an order by order ID - will give 200 on successive calls.\n\n korb suggestion threshold <N> Suggest N items to add to reach free pickup threshold.\n Ranks by purchase frequency, excludes items already in basket.\n\n korb ebons List digital receipts (eBons).\n korb ebons download <EBON_ID> Download eBon PDF. --output FILE (default: ebon.pdf)\n\n korb login Authenticate via REWE PKCE browser flow.\n\nAll commands support --pretty for formatted JSON output.\nOutput is JSON for agent consumption.\n\nReverse-engineered OpenAPI specs for the REWE mobile API:\n\nCurrently macOS and linux.\n\n// Formal verification with Lean 4\n\nThe suggestion engine (korb suggestion threshold) is re-implemented in Lean 4 with five mathematically proven properties: suggestions have positive frequency, are sorted descending, come from ordered and available products, exclude basket items, and respect the count limit.\nA Differential Random Testing bridge in the Haskell test suite generates random inputs, runs both implementations, and asserts identical output.\nIf the Lean proofs compile and the DRT passes, the Haskell production code behaves like the proven spec.\nInspired by how AWS Cedar verifies their authorization engine.\n\nI also summarised the approach in a Blog post.\n\nOh and yes, this is complete overkill here and just for fun.\n\n// Prior work & attribution\n\nThis project is unofficial and not affiliated with REWE. It uses reverse-engineered APIs that may change without notice. Use at your own risk.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "apple silicon",
+      "basket",
+      "cabal",
+      "checkout",
+      "claude.md",
+      "cli",
+      "ean",
+      "ebon",
+      "favorite",
+      "haskell",
+      "korb",
+      "korb /usr",
+      "order",
+      "payments",
+      "pdf",
+      "pickup",
+      "rewe",
+      "search",
+      "store",
+      "timeslot"
+    ],
+    [
+      "cli"
+    ]
+  ]
+}

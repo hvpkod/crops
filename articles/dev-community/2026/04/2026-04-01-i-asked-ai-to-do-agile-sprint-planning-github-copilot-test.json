@@ -1,0 +1,40 @@
+{
+  "id": 7809,
+  "source": "DEV Community<",
+  "title": "I Asked AI to Do Agile Sprint Planning (GitHub Copilot Test)",
+  "url": "https://dev.to/incomplete_developer/i-asked-ai-to-do-agile-sprint-planning-github-copilot-test-419d",
+  "published_at": "2026-04-01T20:50:21Z",
+  "fetched_at": "2026-04-01T21:20:28.479472+00:00",
+  "author": "Incomplete Developer",
+  "summary": "<p>AI tools are getting very good at writing code.</p>\n\n<p>GitHub Copilot can generate entire functions, review pull requests, and even help refactor legacy codebases. But software development isn’t just about writing code.</p>\n\n<p>A big part of the process is <strong>planning the work</strong>.</p>\n\n<p>So I decided to run a small experiment:</p>\n\n<p><strong>Can AI actually perform Agile sprint planning?</strong></p>\n\n<p>Using <strong>GitHub Copilot inside Visual Studio 2026</strong>, I asked AI to review a legacy codebase and generate a <strong>Scrum sprint plan for rewriting the application</strong>.</p>\n\n<p>The results were… interesting.</p>\n\n\n\n\n<h1>\n  \n  \n  Watch Video\n</h1>\n\n<h2>\n  \n  \n    \n  \n\n</h2>\n\n<h1>\n  \n  \n  The Setup\n</h1>\n\n<p>The experiment was intentionally simple.</p>\n\n<p>I gave Copilot an existing codebase and asked it to:</p>\n\n<ol>\n<li>Review the code</li>\n<li>Analyze the architecture</li>\n<li>Generate a <strong>Scrum sprint plan</strong> for rewriting the project</li>",
+  "full_text": "AI tools are getting very good at writing code.\n\nGitHub Copilot can generate entire functions, review pull requests, and even help refactor legacy codebases. But software development isn’t just about writing code.\n\nA big part of the process is planning the work.\n\nSo I decided to run a small experiment:\n\nCan AI actually perform Agile sprint planning?\n\nUsing GitHub Copilot inside Visual Studio 2026, I asked AI to review a legacy codebase and generate a Scrum sprint plan for rewriting the application.\n\nThe results were… interesting.\n\n \n \n Watch Video\n\n \n \n VIDEO\n\n \n \n The Setup\n\nThe experiment was intentionally simple.\n\nI gave Copilot an existing codebase and asked it to:\n\nReview the code\n\nAnalyze the architecture\n\nGenerate a Scrum sprint plan for rewriting the project\n\nI also added some realistic constraints:\n\nOnly one developer is working on the rewrite\n\nThe developer works 5 hours per day\n\nSprints are 2 weeks long\n\nOnly 7 days per sprint are development days\n\nOne important limitation:\n\nThe AI was not given any historical sprint velocity or team metrics.\n\nThat matters a lot, because in real Agile teams, effort estimates rely heavily on historical data.\n\nBut even for humans, sprint estimation is notoriously difficult, so this seemed like a good test.\n\n \n \n Test 1 — ChatGPT 5.1 Codex Mini\n\nThe first model I tested was ChatGPT 5.1 Codex Mini.\n\nIt produced what it described as a detailed sprint plan, but the result was very high level and vague.\n\nLooking at the structure of the plan, something immediately felt wrong.\n\nThe sprint plan looked more like Waterfall development than Agile.\n\nExamples:\n\nSprint 1 focused only on low-level domain entities\n\nThere was nothing usable produced\n\nTests were scheduled in Sprint 3\n\nDocumentation and final sign-off appeared in the last sprint\n\nThis is basically the opposite of what Scrum tries to achieve.\n\nAgile delivery is about incrementally delivering working software.\n\nInstead, the plan delayed meaningful output until much later.\n\nSo for this task:\n\nCodex Mini failed.\n\nIt didn’t appear to understand the practical workflow of Agile development.\n\n \n \n Test 2 — ChatGPT 5.1 Codex\n\nNext I tested the full ChatGPT 5.1 Codex model.\n\nThis time I changed the workflow slightly.\n\nFirst, I asked Copilot to perform a code review.\n\nThe review itself required around three premium requests, but the output was reasonable.\n\nAfter that, I asked the model to produce a sprint plan for the rewrite.\n\nAt first glance, the result looked much better.\n\nThe AI used the correct Scrum terminology:\n\nDefinition of Ready\n\nDefinition of Done\n\nSprint goals\n\nBacklog features\n\nBut once again, reading the details told a different story.\n\n \n \n When AI Sounds Smart (But Isn't)\n\nThe output looked convincing.\n\nBut many parts were too vague to be useful.\n\nFor example, the Definition of Done included generic statements but no measurable criteria.\n\nThe sprint plans also contained unrealistic assumptions.\n\n \n \n Example: Sprint 1\n\nSprint 1 was titled:\n\nFoundation & Structure – Establish .NET 10 Clean Architecture\n\nThe tasks themselves were mostly reasonable.\n\nIn fact, about 80% of them made sense technically.\n\nBut the time estimates were way off.\n\nGiven the constraints I provided, the work listed in Sprint 1 would realistically take about 10 hours.\n\nThat means it could likely be finished by day three of the sprint.\n\nThe same issue continued in Sprint 2.\n\nMost of the work involved mechanical migration tasks, like converting entities into a newer format.\n\nBut there was still no real domain logic being implemented.\n\n \n \n Another Agile Anti-Pattern\n\nLooking at the overall milestone plan revealed another issue.\n\nThe AI scheduled Service Layer work and Test Coverage near the end of Sprint 3.\n\nAgain, this starts to look more like Waterfall than Agile.\n\nTesting and functional behavior should evolve throughout the development process, not suddenly appear late in the project.\n\n \n \n What This Experiment Reveals\n\nBoth models produced a lot of output that looked intelligent.\n\nThere were structured plans, Agile terminology, and detailed explanations.\n\nBut much of it was surface-level reasoning.\n\nThe AI struggled with the deeper realities of software development:\n\nUnderstanding the actual complexity of the codebase\n\nIdentifying where business logic must be redesigned\n\nEstimating effort realistically\n\nRewriting a system usually isn’t just about migrating code.\n\nThe core domain logic often needs to be rethought completely.\n\nEven experienced developers usually need several days exploring a codebase before they can estimate the real work.\n\n \n \n Was This Experiment Fair?\n\nNot entirely.\n\nReal sprint planning relies on information that the AI did not have access to:\n\nHistorical sprint velocity\n\nTeam estimation practices\n\nKnowledge of the codebase\n\nDeveloper discussions and consensus\n\nMany teams use planning poker, where multiple developers estimate effort and converge on a shared estimate.\n\nThat process relies heavily on human experience with the system.\n\nAI simply doesn’t have that context.\n\n \n \n Final Verdict\n\nSo can AI perform realistic Agile sprint planning?\n\nNot really.\n\nAI can definitely help with:\n\nCode reviews\n\nArchitecture analysis\n\nBacklog documentation\n\nTechnical recommendations\n\nBut sprint planning still requires human judgment.\n\nEspecially when dealing with legacy systems and complex business logic.\n\nAI can assist developers.\n\nBut deciding what can realistically fit into a sprint is still something teams need to do themselves.\n\n \n \n Watch Spec-Driven Dev Playlist on YouTube\n\n \n\n \n \n\n \n \n\n Spec-Driven Development is an emerging approach to AI-assisted software development, where AI agents generate code based on structured specifications instead...\n \n \n\n \n\n youtube.com",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agile",
+      "ai",
+      "ask",
+      "chatgpt",
+      "codebase",
+      "codex",
+      "final verdict\n\nso",
+      "github",
+      "look",
+      "plan",
+      "planning",
+      "scrum",
+      "softwaredevelopment",
+      "spec-driven development",
+      "sprint",
+      "test coverage",
+      "the setup",
+      "watch video",
+      "waterfall",
+      "waterfall than agile"
+    ],
+    [
+      "softwaredevelopment"
+    ]
+  ]
+}

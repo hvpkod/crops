@@ -1,0 +1,35 @@
+{
+  "id": 7614,
+  "source": "DEV Community<",
+  "title": "I Built a Free Browser-Based Digital Logic Simulator for Learning Boolean Algebra",
+  "url": "https://dev.to/boolflow_site/i-built-a-free-browser-based-digital-logic-simulator-for-learning-boolean-algebra-57m7",
+  "published_at": "2026-04-01T09:18:27Z",
+  "fetched_at": "2026-04-01T09:20:22.646095+00:00",
+  "author": "Boolflow",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fzkstcpi5emq0g3s4spka.png\"><img alt=\" \" height=\"420\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fzkstcpi5emq0g3s4spka.png\" width=\"800\" /></a></p>\n\n<p>Boolean algebra and digital logic are much easier to understand when you can <strong>build and test circuits visually</strong>.</p>\n\n<p>That idea is exactly why I created <strong>Boolflow</strong> — a free browser-based digital logic simulator for students, self-learners, and anyone teaching or exploring logic design.</p>\n\n<h2>\n  \n  \n  What Boolflow is\n</h2>\n\n<p>Boolflow is an online simulator where you can build and test digital circuits directly in the browser.</p>\n\n<p>It is designed for learni",
+  "full_text": "Boolean algebra and digital logic are much easier to understand when you can build and test circuits visually.\n\nThat idea is exactly why I created Boolflow — a free browser-based digital logic simulator for students, self-learners, and anyone teaching or exploring logic design.\n\n \n \n What Boolflow is\n\nBoolflow is an online simulator where you can build and test digital circuits directly in the browser.\n\nIt is designed for learning and experimentation, especially for topics like:\n\nBoolean algebra\n\nlogic gates\n\ncombinational circuits\n\nflip-flops\n\ncounters\n\nmultiplexers\n\nsimple digital design workflows\n\nThe goal was simple: make a tool that opens instantly, requires no installation, and helps users move from abstract formulas to visual understanding.\n\n \n \n Why I built it\n\nA lot of learning materials explain Boolean algebra symbolically, but for many people the real understanding appears only when they can:\n\nconnect gates\n\ntoggle inputs\n\nobserve outputs\n\ntest small circuit ideas\n\ncompare theory with behavior\n\nI wanted something lightweight and accessible:\n\nno heavy setup\n\nno desktop install\n\nno account required just to start experimenting\n\nSo I built Boolflow as a browser-first tool.\n\n \n \n What it can do\n\nWith Boolflow, you can work with:\n\nbasic logic gates\n\nflip-flops\n\ncounters\n\nmultiplexers\n\nPLM-style blocks\n\ncircuit simulation in the browser\n\nVerilog HDL export\n\nThat makes it useful both for beginners and for users who want a quick visual sandbox for simple digital logic ideas.\n\n \n \n Example learning scenarios\n\nHere are a few ways I think the tool is useful:\n\n \n \n 1. Learning basic Boolean logic\n\nBuild small circuits with AND, OR, NOT, XOR, NAND, and NOR gates and immediately see how outputs change.\n\n \n \n 2. Understanding combinational logic\n\nTry building a half adder or a full adder and verify expected output behavior.\n\n \n \n 3. Exploring sequential elements\n\nExperiment with flip-flops and counters to understand state changes over time.\n\n \n \n 4. Moving toward hardware design\n\nUse visual prototyping first, then export to Verilog HDL.\n\n \n \n Why browser-based matters\n\nFor education, friction kills curiosity.\n\nIf a student has to install software, fix dependencies, or learn a complicated interface before doing anything useful, many simply drop the idea.\n\nA browser-based simulator reduces that friction:\n\nopen link\n\nplace components\n\nconnect them\n\ntest ideas\n\nThat is the experience I wanted Boolflow to provide.\n\n \n \n Who it is for\n\nI see Boolflow as useful for:\n\nstudents learning Boolean algebra\n\nbeginners in digital electronics\n\nteachers who want a simple visual demo tool\n\nself-learners exploring logic design\n\ndevelopers who want a quick logic sandbox in the browser\n\n \n \n What I want to improve next\n\nI’m continuing to improve the project, and the most interesting next steps for me are:\n\nbetter onboarding for first-time users\n\nready-made example circuits\n\nmore educational templates\n\neasier sharing of circuits\n\nclearer learning flows for teachers and students\n\n \n \n Try it\n\nYou can try Boolflow here:\n\nwww.boolflow.site\n\nIf you test it, I’d really like to know:\n\nwhat felt intuitive\n\nwhat was confusing\n\nwhich components or learning features are missing\n\nwhether examples/templates would help\n\nI’m especially interested in feedback from students, teachers, and people learning digital logic on their own.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "algebra",
+      "boolean",
+      "boolflow",
+      "circuit",
+      "digital",
+      "education",
+      "engineering",
+      "explore",
+      "gate",
+      "learn",
+      "logic",
+      "nand",
+      "simulator",
+      "webdev",
+      "xor"
+    ],
+    [
+      "webdev"
+    ]
+  ]
+}

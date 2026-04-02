@@ -1,0 +1,36 @@
+{
+  "id": 7653,
+  "source": "DEV Community<",
+  "title": "Stack vs malloc: real-world benchmark shows 2–6x difference",
+  "url": "https://dev.to/yairlenga/stack-vs-malloc-real-world-benchmark-shows-2-6x-difference-4601",
+  "published_at": "2026-04-01T12:02:40Z",
+  "fetched_at": "2026-04-01T12:20:33.083160+00:00",
+  "author": "Yair Lenga",
+  "summary": "<p>Usually, we assume that malloc is fast—and in most cases it is. <br />\nHowever, sometimes \"reasonable\" code can lead to very unreasonable performance.</p>\n\n<p>In a previous post, I looked at using stack-based allocation (VLA / fixed-size) for temporary data, and another on estimating available stack space to use it safely.</p>\n\n<p>This time I wanted to measure the actual impact in a realistic workload.</p>\n\n<h3>\n  \n  \n  Full Article (Medium - no paywall):\n</h3>\n\n<p><a href=\"https://blog.stackademic.com/temporary-memory-isnt-free-allocation-strategies-and-their-hidden-costs-159247f7f856\" rel=\"noopener noreferrer\">Stack vs malloc: real-world benchmark shows 2–6x difference</a></p>\n\n<p>I built a benchmark based on a loan portfolio PV calculation, where each loan creates several temporary arrays (thousands of elements each). This is fairly typical code-clean, modular, nothing unusual.</p>\n\n<p>I compared:</p>\n\n<ul>\n<li>stack allocation (VLA)</li>\n<li>heap per-loan (malloc/free)</li>\n<li>",
+  "full_text": "Usually, we assume that malloc is fast—and in most cases it is. \n\nHowever, sometimes \"reasonable\" code can lead to very unreasonable performance.\n\nIn a previous post, I looked at using stack-based allocation (VLA / fixed-size) for temporary data, and another on estimating available stack space to use it safely.\n\nThis time I wanted to measure the actual impact in a realistic workload.\n\n \n \n Full Article (Medium - no paywall):\n\nStack vs malloc: real-world benchmark shows 2–6x difference\n\nI built a benchmark based on a loan portfolio PV calculation, where each loan creates several temporary arrays (thousands of elements each). This is fairly typical code-clean, modular, nothing unusual.\n\nI compared:\n\nstack allocation (VLA)\n\nheap per-loan (malloc/free)\n\nheap reuse\n\nstatic (baseline)\n\nResults:\n\nstack allocation stays very close to optimal\n\nheap per-loan can be ~2.5x slower (glibc) and up to ~6x slower (musl)\n\neven optimized allocators show pattern-dependent behavior\n\nThe main takeaway for me: allocation cost is usually hidden—but once it's in the hot path, it really matters.\n\nCurious how others approach temporary workspace in performance-sensitive code.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "allocation",
+      "benchmark",
+      "c",
+      "difference",
+      "heap",
+      "loan",
+      "malloc",
+      "memory",
+      "performance",
+      "programming",
+      "show",
+      "slow",
+      "stack",
+      "temporary"
+    ],
+    [
+      "c",
+      "performance",
+      "programming"
+    ]
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": 7550,
+  "source": "DEV Community<",
+  "title": "I Built an npm Package to Scrape and Slim Down YAML Files",
+  "url": "https://dev.to/segur/i-built-an-npm-package-to-scrape-and-slim-down-yaml-files-3c3k",
+  "published_at": "2026-04-01T03:16:39Z",
+  "fetched_at": "2026-04-01T03:40:23.772073+00:00",
+  "author": "Shoichi Okaniwa",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fgwzr2ifktryf4lfogg7p.jpeg\"><img alt=\"Gemini_Generated_Image_7fzbw87fzbw87fzb.jpg\" height=\"446\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fgwzr2ifktryf4lfogg7p.jpeg\" width=\"800\" /></a></p>\n\n<h1>\n  \n  \n  I Built a Library That Scrapes and Slims Down YAML Files\n</h1>\n\n<p>I created an npm module that strips YAML files down to size. It can delete specific elements or replace them with empty values.</p>\n\n<p>Published here:</p>\n\n<ul>\n<li><a href=\"https://www.npmjs.com/package/yaml-scraper\" rel=\"noopener noreferrer\">npm / yaml-scraper</a></li>\n<li><a href=\"https://github.com/segurvita/yaml-scraper\" rel=\"noopener noreferrer\">GitHub / yaml-scraper</a>",
+  "full_text": "I Built a Library That Scrapes and Slims Down YAML Files\n\nI created an npm module that strips YAML files down to size. It can delete specific elements or replace them with empty values.\n\nPublished here:\n\nThe word \"scraper\" means something like \"to scrape off.\" It even has a Travis CI badge!\n\n \n \n What Can It Do?\n\nGiven a YAML file like this:\n\nsample:\n hoge: I want to delete this\n fuga: I want to empty this\n hogehoge:\n hoge: I want to delete this too\n fuga: I want to empty this too\n hogera: Leave this as-is\n piyopiyo:\n piyo: I want to delete the parent of this\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe library can:\n\nDelete elements whose key is hoge\n\nKeep elements whose key is fuga, but replace the value with an empty string\n\nDelete the parent element of the element whose key is piyo\n\nThe resulting output is:\n\nsample:\n fuga: ''\n hogehoge:\n fuga: ''\n hogera: Leave this as-is\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nUnnecessary elements are stripped away, making the YAML file much lighter. It works at any nesting depth!\n\n \n \n Why I Built It\n\nI use Swagger to generate API documentation sites. When I tried to import a Swagger file into Amazon API Gateway, I got a size limit error.\n\nTo work around that, I built this library to strip out unnecessary elements from the YAML.\n\n \n \n Installation\n\nNode.js is required.\n\nIf Node.js is installed, run:\n\nnpm install yaml-scraper\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Sample Code\n\nHere's the sample code for the operations described above:\n\n// Load libraries\nconst fs = require('fs');\nconst scraper = require('yaml-scraper');\n\n// Read the YAML file\nconst input = fs.readFileSync('./sample.yaml', 'utf8');\n\n// Delete 'hoge', empty 'fuga', delete parent of 'piyo'\nconst output = scraper(input)\n .delete('hoge')\n .empty('fuga')\n .deleteParent('piyo')\n .toString();\n\n// Print the result\nconsole.log(output);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAs you can see, delete, empty, and deleteParent are provided as a method chain.\n\n \n \n Closing\n\nThe following articles were helpful during development — thank you for the clear explanations!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "build",
+      "delete",
+      "element",
+      "empty",
+      "file",
+      "fullscreen",
+      "installation\n\nnode.js",
+      "javascript",
+      "mode",
+      "node",
+      "node.js",
+      "openapi",
+      "scrape",
+      "scrapes",
+      "slims",
+      "whose",
+      "yaml"
+    ],
+    [
+      "openapi"
+    ]
+  ]
+}

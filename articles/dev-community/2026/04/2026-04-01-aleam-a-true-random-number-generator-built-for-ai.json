@@ -1,0 +1,40 @@
+{
+  "id": 7651,
+  "source": "DEV Community<",
+  "title": "🎲 Aleam — A True Random Number Generator built for AI.",
+  "url": "https://dev.to/fardinsabid/aleam-a-true-random-number-generator-built-for-ai-20bn",
+  "published_at": "2026-04-01T12:04:37Z",
+  "fetched_at": "2026-04-01T12:20:31.125858+00:00",
+  "author": "Fardin Sabid",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F19sgacx14pz8vxa1uoab.jpg\"><img alt=\" \" height=\"884\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F19sgacx14pz8vxa1uoab.jpg\" width=\"800\" /></a><br />\nHere's the truth:</p>\n\n<p>Python's <code>random</code> is actually <strong>pseudo-random</strong>.  </p>\n\n<p>Aleam delivers <strong>real randomness</strong> — straight from your system, hashed with BLAKE2s.  </p>\n\n<p>No tricks. No fakes. Just like nature intended.</p>\n\n<p>✨ What it can do:</p>\n\n<p>• 15+ statistical distributions  </p>\n\n<p>• Works with PyTorch, TensorFlow, JAX, CuPy  </p>\n\n<p>• GPU acceleration with CUDA  </p>\n\n<p>• 81 tests passing — 100% production ready</p>\n\n<p>📦 Install it:</p>\n",
+  "full_text": "Here's the truth:\n\nPython's random is actually pseudo-random. \n\nAleam delivers real randomness — straight from your system, hashed with BLAKE2s. \n\nNo tricks. No fakes. Just like nature intended.\n\n✨ What it can do:\n\n• 15+ statistical distributions \n\n• Works with PyTorch, TensorFlow, JAX, CuPy \n\n• GPU acceleration with CUDA \n\n• 81 tests passing — 100% production ready\n\n📦 Install it:\n\npip install aleam\n\n🇧🇩 Built in Bangladesh. Open source. For everyone.\n\n🚀 Want true randomness in your project? Start today.\n\nGithub:https://github.com/fardinsabid/aleam\n\nPYPI:https://pypi.org/project/aleam/",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "aleam",
+      "bangladesh",
+      "build",
+      "cupy",
+      "deliver",
+      "gpu",
+      "hash",
+      "install",
+      "jax",
+      "nature",
+      "opensource",
+      "python",
+      "random",
+      "randomness",
+      "showdev",
+      "tensorflow",
+      "true"
+    ],
+    [
+      "opensource",
+      "python",
+      "showdev"
+    ]
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": 7853,
+  "source": "DEV Community<",
+  "title": "Install NetBird on openSUSE MicroOS",
+  "url": "https://dev.to/nutthawit-l/install-netbird-on-opensuse-microos-b2c",
+  "published_at": "2026-04-01T23:34:46Z",
+  "fetched_at": "2026-04-02T00:00:58.132870+00:00",
+  "author": "nutthawit-l",
+  "summary": "<h2>\n  \n  \n  Prerequisites\n</h2>\n\n<ul>\n<li>Ensure the <code>netbird</code> binary is installed on the laptop or PC intended for use as a remote client.</li>\n<li>You will need to generate a <strong>Setup Key</strong> from the NetBird Dashboard.</li>\n</ul>\n\n<h2>\n  \n  \n  Configure the Remote host\n</h2>\n\n<h3>\n  \n  \n  Install NetBird binary\n</h3>\n\n<p>The <a href=\"https://app.netbird.io/install\" rel=\"noopener noreferrer\">official NetBird installation</a> puts the binary in <code>/usr/bin/netbird</code>. Because <code>/usr/bin</code> is read-only, you'll need to remount it as read-write before running the curl installation script.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight console\"><code><span class=\"gp\">#</span><span class=\"w\"> </span>transactional-update shell\n<span class=\"gp\">transactional update#</span><span class=\"w\"> </span>curl <span class=\"nt\">-fsSL</span> https://pkgs.netbird.io/install.sh | sh\n</code></pre>\n\n</div>\n\n\n\n<h3>\n  \n  \n  Restore the SELinux",
+  "full_text": "Prerequisites\n\nEnsure the netbird binary is installed on the laptop or PC intended for use as a remote client.\n\nYou will need to generate a Setup Key from the NetBird Dashboard.\n\n \n \n Configure the Remote host\n\n \n \n Install NetBird binary\n\nThe official NetBird installation puts the binary in /usr/bin/netbird. Because /usr/bin is read-only, you'll need to remount it as read-write before running the curl installation script.\n\n# transactional-update shell\ntransactional update# curl -fsSL https://pkgs.netbird.io/install.sh | sh\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Restore the SELinux file contexts\n\nBecause SELinux is active by default on openSUSE, a relabeling of the NetBird binary is required for the systemd service to function properly.\n\n1) Resets file security contexts to their default values:\n\ntransactional update# ls -ldZ /usr/bin/netbird \n-rwxr-xr-x. 1 1001 1001 unconfined_u:object_r:user_tmp_t:s0 36741304 Mar 26 17:11 /usr/bin/netbird\n\ntransactional update# restorecon -v /usr/bin/netbird\nRelabeled /usr/bin/netbird from unconfined_u:object_r:user_tmp_t:s0 to unconfined_u:object_r:bin_t:s0\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n2) Verify that the context is set to unconfined_u:object_r:bin_t:s0:\n\ntransactional update# ls -ldZ /usr/bin/netbird \n-rwxr-xr-x. 1 1001 1001 unconfined_u:object_r:bin_t:s0 36741304 Mar 26 17:11 /usr/bin/netbird\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n3) Exist the shell and reboot:\n\ntransactional update# exit\n# reboot\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n4) After a reboot, NetBird should start up automatically:\n\n# systemctl status netbird\n● netbird.service - NetBird mesh network client\n Loaded: loaded (/etc/systemd/system/netbird.service; enabled; preset: disabled)\n Active: active (running) since Wed 2026-04-01 08:44:41 +07; 21s ago\n Invocation: e5061c215da54c8486540512dc798163\n Main PID: 1343 (netbird)\n Tasks: 9 (limit: 4465)\n CPU: 19ms\n CGroup: /system.slice/netbird.service\n └─1343 /usr/bin/netbird service run --log-level info --daemon-addr unix:///var/run/netbird.sock --log-file /var/log/netbird>\n\nApr 01 08:44:41 web-dev-microos systemd[1]: Started NetBird mesh network client.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Setup the connection with setup-key:\n\n# netbird up --setup-key <YOUR-SETUP-KEY>\nConnected\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "-v /usr/bin/netbird",
+      "/usr/bin/netbird",
+      "2026",
+      "500-words",
+      "binary",
+      "context",
+      "enter",
+      "exit",
+      "fullscreen",
+      "install netbird",
+      "linux",
+      "mesh",
+      "mode",
+      "netbird",
+      "networking",
+      "remote",
+      "security",
+      "selinux",
+      "started netbird",
+      "transactional",
+      "tutorial"
+    ],
+    [
+      "linux",
+      "networking",
+      "tutorial"
+    ]
+  ]
+}

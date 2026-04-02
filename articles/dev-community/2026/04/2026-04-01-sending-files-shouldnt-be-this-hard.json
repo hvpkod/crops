@@ -1,0 +1,39 @@
+{
+  "id": 7548,
+  "source": "DEV Community<",
+  "title": "Sending files shouldn’t be this hard",
+  "url": "https://dev.to/xubuntubro/sending-files-shouldnt-be-this-hard-2l4a",
+  "published_at": "2026-04-01T03:27:40Z",
+  "fetched_at": "2026-04-01T03:40:22.534885+00:00",
+  "author": "XubuntuBro",
+  "summary": "<h2>\n  \n  \n  Every developer knows this feeling.\n</h2>\n\n<p>You're working on your laptop and need a file on your phone.<br />\nOr the other way around.</p>\n\n<p><strong>So what do you do?</strong><br />\nEmail it to yourself. Send it on WhatsApp.Upload to Google Drive just to download it 2 minutes later.</p>\n\n<p>It feels wrong every time.</p>\n\n<p>So I made something simpler — <strong>AcadShare</strong>.</p>\n\n<ul>\n<li>Paste text or upload a file</li>\n<li>Get a shareable link instantly</li>\n<li>Set expiry time and download limit</li>\n<li>Link auto-deletes after use</li>\n<li>QR supported</li>\n<li>No login needed</li>\n<li>Simple, fast, and free.</li>\n</ul>\n\n<p>👉<a href=\"https://tools.acadkits.dev/acadshare\" rel=\"noopener noreferrer\">https://tools.acadkits.dev/acadshare</a></p>\n\n<p>Would love honest feedback from the dev community.<br />\nWhat would you add or change?</p>",
+  "full_text": "Every developer knows this feeling.\n\nYou're working on your laptop and need a file on your phone.\n\nOr the other way around.\n\nSo what do you do?\n\nEmail it to yourself. Send it on WhatsApp.Upload to Google Drive just to download it 2 minutes later.\n\nIt feels wrong every time.\n\nSo I made something simpler — AcadShare.\n\nPaste text or upload a file\n\nGet a shareable link instantly\n\nSet expiry time and download limit\n\nLink auto-deletes after use\n\nQR supported\n\nNo login needed\n\nSimple, fast, and free.\n\n👉https://tools.acadkits.dev/acadshare\n\nWould love honest feedback from the dev community.\n\nWhat would you add or change?",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "acadshare",
+      "download",
+      "expiry",
+      "file",
+      "honest",
+      "know",
+      "link",
+      "need",
+      "opensource",
+      "productivity",
+      "send",
+      "shareable",
+      "sideprojects",
+      "support",
+      "webdev",
+      "whatsapp"
+    ],
+    [
+      "opensource",
+      "productivity",
+      "sideprojects",
+      "webdev"
+    ]
+  ]
+}

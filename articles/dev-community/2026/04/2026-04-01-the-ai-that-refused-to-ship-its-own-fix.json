@@ -1,0 +1,40 @@
+{
+  "id": 7745,
+  "source": "DEV Community<",
+  "title": "The AI That Refused To Ship Its Own Fix",
+  "url": "https://dev.to/dariusz_newecki_e35b0924c/the-ai-that-refused-to-ship-its-own-fix-1m1",
+  "published_at": "2026-04-01T18:15:43Z",
+  "fetched_at": "2026-04-01T18:20:25.088324+00:00",
+  "author": "Dariusz Newecki",
+  "summary": "<p><em>Or: what constitutional governance actually looks like in practice</em></p>\n\n<p>I spent today doing something unusual. I was improving an AI system — and the system kept stopping me from making mistakes.</p>\n\n<p>Not because it was clever. Because it was governed.</p>\n\n\n\n\n<h2>\n  \n  \n  The Setup\n</h2>\n\n<p>CORE is a constitutional governance runtime for AI coding agents. The short version: instead of letting AI write code freely and checking quality afterwards, CORE requires every decision to be traceable to declared law before execution begins.</p>\n\n<p>Every rule lives in <code>.intent/</code>. Every action requires authority. Every mutation is defensible or it doesn't happen.</p>\n\n<p>Today's session was about advancing CORE toward A3 — full autonomous operation on Tier 1 violations. Eight items on the A3 readiness checklist were marked ❌. By end of session: one remained.</p>\n\n<p>Here's what the path looked like.</p>\n\n\n\n\n<h2>\n  \n  \n  The Gate That Wasn't Wired\n</h2>\n\n<p>Early in t",
+  "full_text": "Or: what constitutional governance actually looks like in practice\n\nI spent today doing something unusual. I was improving an AI system — and the system kept stopping me from making mistakes.\n\nNot because it was clever. Because it was governed.\n\n \n \n The Setup\n\nCORE is a constitutional governance runtime for AI coding agents. The short version: instead of letting AI write code freely and checking quality afterwards, CORE requires every decision to be traceable to declared law before execution begins.\n\nEvery rule lives in .intent/. Every action requires authority. Every mutation is defensible or it doesn't happen.\n\nToday's session was about advancing CORE toward A3 — full autonomous operation on Tier 1 violations. Eight items on the A3 readiness checklist were marked ❌. By end of session: one remained.\n\nHere's what the path looked like.\n\n \n \n The Gate That Wasn't Wired\n\nEarly in the session I wanted to promote two entries in the autonomous remediation map from PENDING to ACTIVE. The Logic Conservation Gate had been implemented — a protection against AI refactors that delete more than 50% of a file's logic. The comment in the YAML said \"gated until Logic Conservation Gate implemented.\" Gate implemented. Promote.\n\nI gave Claude Code the prompt.\n\nIt came back with a finding I hadn't expected:\n\n\"The gate exists in ComplexityRemediationService. ModularityRemediationService — the actual handler these entries call — never touches it. The comment in the YAML is still accurate.\"\n\nThe gate was implemented. Just not in the right place.\n\nWe wired it. Then we promoted.\n\nThat's not a dramatic story. That's exactly how it should work. The system forced verification before the claim. No amount of \"the gate exists somewhere\" was sufficient. It had to exist here, in this path, or the promotion was a lie.\n\n \n \n 83 Silent Failures, Now Loud\n\nOvernight, 83 proposals failed. Each showed execution_results: {} — empty. The handlers were running but returning nothing.\n\nThree months ago this would have been invisible. The handlers returned ok=True unconditionally. Internal errors were swallowed. The proposal consumer would mark everything COMPLETED and move on.\n\nYesterday we fixed that. Wrapped every handler in try/except. Derived ok from actual outcomes instead of hardcoding success.\n\nSo this morning: 83 failures instead of 83 false completions.\n\nThat's progress. Honest failure is worth more than dishonest success. CORE's constitution says exactly this:\n\n\"CORE must never produce software it cannot defend.\"\n\nA system that lies about its own outcomes cannot defend them.\n\n \n \n 319 Stuck Findings\n\nThe blackboard showed 319 entries in claimed status. All with claimed_by = NULL.\n\nLegacy entries — claimed before we added atomic claiming with worker identity. The fix was one SQL statement. But finding it required reading the blackboard, querying claimed_by, and tracing the pattern.\n\nNo amount of assuming \"the system is fine\" would have found this. The evidence had to be read. The constitution demands it:\n\n\"Memory without evidence is forbidden.\"\n\nAfter the fix, a new batch of 319 appeared — this time with a real UUID. The worker was claiming findings, finding no handler for them in the remediation map, and leaving them stuck.\n\nAnother fix: release unmappable findings immediately at claim time.\n\nEach fix revealed by the system's own honesty about its state.\n\n \n \n What Makes This Different\n\nMost AI coding tools measure success by output volume. Lines written, tickets closed, PRs merged.\n\nCORE measures success by defensibility. Can you explain why this change was made? Under what authority? With what evidence? What happens if it's wrong?\n\nToday we made 14 commits. Each traceable to a checklist item. Each verified by the system before and after. The daemon either ran clean or it didn't. The blackboard either showed stuck entries or it didn't.\n\nThe AI didn't just write code. It was governed while writing code. And when the governance caught a mistake — the gate that wasn't wired, the handler that lied about success, the findings that stayed claimed forever — we fixed the governance, not just the symptom.\n\nThat's the mind shift. Not \"AI writes code faster.\" But:\n\n\"Law governs intelligence. Defensibility outranks productivity.\"\n\n \n \n Who This Is For\n\nCORE is not for everyone. It's explicitly not for casual app builders or speed-only workflows.\n\nIt's for regulated environments. Safety-critical systems. Teams where \"the AI decided\" is not an acceptable answer in a post-mortem.\n\nIf that's your world — the architecture is open. The constitution is public.\n\n🔗 github.com/DariuszNewecki/CORE\n\nAnd if you think in terms of governance rather than just generation — I'm looking for collaborators. Not necessarily programmers. People who understand that software systems need to be able to explain themselves.\n\nWritten the same day the session happened. The daemon is running clean as I type this.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "architecture",
+      "claim",
+      "completed",
+      "constitution",
+      "core",
+      "entry",
+      "find",
+      "gate",
+      "governance",
+      "handler",
+      "logic conservation gate",
+      "python",
+      "show",
+      "silent failures",
+      "sql",
+      "system",
+      "the setup\n\ncore",
+      "uuid",
+      "yaml"
+    ],
+    [
+      "python"
+    ]
+  ]
+}

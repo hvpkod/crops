@@ -1,0 +1,33 @@
+{
+  "id": 7766,
+  "source": "Hacker News",
+  "title": "An Introduction to Writing Systems and Unicode",
+  "url": "https://r12a.github.io/scripts/tutorial/part2",
+  "published_at": "2026-03-29T17:43:52Z",
+  "fetched_at": "2026-04-01T18:40:22.782155+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47565350\">Comments</a>",
+  "full_text": "Initially there was only one type of Chinese – what we now call Traditional Chinese. Then in the 1950s\n Mainland China introduced a Simplified Chinese. It was simplified in two ways:\n \n \n\n \n\nthe more common character shapes were reduced in complexity,\n \n \n\n \n\na relatively smaller set of characters was defined for common usage than had traditionally been the case (resulting in the mapping\n more than one character in Traditional Chinese to a single character in the Simplified Chinese set).\n \n \n \n\nThis slide shows Traditional Chinese above and Simplified Chinese below.\n \n\nTraditional Chinese is still used to write characters in Taiwan and Hong Kong, and much of the Chinese diaspora. Simplified Chinese is\n used in Mainland China and Singapore. It is important to stress that people speaking many different, often mutually unintelligible, Chinese dialects\n would use one or other of these scripts to write Chinese – ie. the characters do not necessarily represent the sounds.\n \n\nThere are a few local characters, such as for Cantonese in Hong Kong, that are not in widespread use. \n \n\nIn Chinese these ideographs are\n called hanzi (xan.ʦɹ̩). They are often referred to as Han characters.\n \n\nThere is another script used with Traditional Chinese for annotations and transliteration during input. It is called zhuyin (ʈʂu.in) or bopomofo, and will be described in more detail later.\n \n\nIt is said that Chinese people typically use around 3-4,000 characters for most communication, but a reasonable word processor would need\n to support at least 10,000. Unicode supports over 70,000 Han characters.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "call",
+      "character",
+      "china",
+      "chinese",
+      "common",
+      "hong",
+      "hong kong",
+      "mainland",
+      "mainland china",
+      "simplify",
+      "singapore",
+      "taiwan",
+      "traditional",
+      "traditional chinese",
+      "writing systems"
+    ],
+    []
+  ]
+}

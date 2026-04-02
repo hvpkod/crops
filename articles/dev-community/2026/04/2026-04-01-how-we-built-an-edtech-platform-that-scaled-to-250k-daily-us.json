@@ -1,0 +1,42 @@
+{
+  "id": 7803,
+  "source": "DEV Community<",
+  "title": "How We Built an EdTech Platform That Scaled to 250K Daily Users",
+  "url": "https://dev.to/geminate_solutions_9b6035/how-we-built-an-edtech-platform-that-scaled-to-250k-daily-users-4hch",
+  "published_at": "2026-04-01T20:59:04Z",
+  "fetched_at": "2026-04-01T21:20:18.350891+00:00",
+  "author": "Geminate Solutions",
+  "summary": "<p>In 18 months, we took an EdTech platform from a founder's wireframe to 250,000 daily active users. The app handles 2,000+ concurrent video streams, processes 50,000 quiz submissions per hour, and runs on a $4,200/month infrastructure bill.</p>\n\n<p>Here's what we built, what broke, and what we'd do differently.</p>\n\n<h2>\n  \n  \n  The Problem We Were Solving\n</h2>\n\n<p>The founder wanted CA exam preparation for 500K+ students. Existing platforms were either expensive (Unacademy at $200+/year) or had poor UX. The brief: live classes, recorded lectures, AI-powered quizzes, and doubt resolution — all at a $50/year price point.</p>\n\n<p>Budget: $40K for MVP. Timeline: 12 weeks.</p>\n\n<h2>\n  \n  \n  The Architecture That Made It Work\n</h2>\n\n<p>We didn't overthink the stack. We picked proven tools and focused on shipping.</p>\n\n<p><strong>Frontend:</strong> Flutter with BLoC state management. One codebase for iOS and Android saved us 40% compared to building native.</p>\n\n<p><strong>Backend:</stron",
+  "full_text": "In 18 months, we took an EdTech platform from a founder's wireframe to 250,000 daily active users. The app handles 2,000+ concurrent video streams, processes 50,000 quiz submissions per hour, and runs on a $4,200/month infrastructure bill.\n\nHere's what we built, what broke, and what we'd do differently.\n\n \n \n The Problem We Were Solving\n\nThe founder wanted CA exam preparation for 500K+ students. Existing platforms were either expensive (Unacademy at $200+/year) or had poor UX. The brief: live classes, recorded lectures, AI-powered quizzes, and doubt resolution — all at a $50/year price point.\n\nBudget: $40K for MVP. Timeline: 12 weeks.\n\n \n \n The Architecture That Made It Work\n\nWe didn't overthink the stack. We picked proven tools and focused on shipping.\n\nFrontend: Flutter with BLoC state management. One codebase for iOS and Android saved us 40% compared to building native.\n\nBackend: Node.js + Express for the API server. Python FastAPI for the quiz engine and ML-powered adaptive learning.\n\nDatabase: PostgreSQL for user data and courses. Redis for session caching and real-time leaderboards. S3 for video storage.\n\nVideo: Agora SDK for live streaming (supporting 500+ concurrent viewers). HLS via CloudFront CDN for recorded content.\n\nReal-time: WebSocket for live quiz battles and doubt resolution chat.\n\nThe key architectural decision: we didn't build for 250K users on day one. We built for 10K and redesigned twice as we scaled.\n\n \n \n What It Actually Cost\n\nReal numbers — not estimates:\n\nMVP (0-10K users): $40K build + $400/month infra = $44.8K first year\n\nGrowth phase (10K-50K): $25K in additional features + $1,200/month infra\n\nScale phase (50K-250K): $35K performance work + $4,200/month infra\n\nTotal 18-month cost: ~$170K\n\nInfrastructure cost grew 10x. Revenue grew 25x. The economics worked because we built for scale starting at month 6, not month 1.\n\n \n \n The Three Biggest Technical Challenges\n\nChallenge 1: Video streaming costs. At 5K concurrent viewers, Agora bills spiked. We moved all recorded content to HLS + CloudFront — 90% cheaper. Live streaming stayed on Agora but only for interactive sessions.\n\nChallenge 2: Quiz engine bottleneck. 50K submissions per hour caused PostgreSQL row locks. We moved real-time scoring to Redis and batch-wrote results to PostgreSQL every 5 minutes.\n\nChallenge 3: Low-end Android performance. Our Flutter APK hit 45MB. Students on budget phones couldn't install it. Deferred components, lazy loading, and an image compression pipeline got it to 28MB. Crash rate dropped from 2.1% to 0.3%.\n\n \n \n What We'd Do Differently Today\n\nBeing honest here — we made mistakes:\n\nWould use Supabase instead of a custom auth + API layer. Would've saved $15-20K.\n\nWould add analytics from day 1. We plugged in Mixpanel at 50K users and lost 6 months of behavioral data.\n\nWould hire a QA engineer from month 3. Manual testing slowed the team down. Automated tests would've paid for themselves by month 6.\n\nWhat we wouldn't change: Flutter (right choice), PostgreSQL (right choice), starting with an MVP (right choice).\n\n \n \n If You're Building Something Similar\n\nPhase 1 (weeks 1-12): MVP with auth, video player, quiz engine, and payments. Budget $30-50K.\n\nPhase 2 (months 4-8): Growth features — live streaming, gamification, doubt resolution. Budget $20-35K.\n\nPhase 3 (months 9-18): Scale infrastructure, optimize costs, add AI features. Budget $30-50K.\n\nTotal realistic budget to reach 100K+ users: $80-135K.\n\nRead the complete case study with full architecture diagrams, feature-by-feature cost breakdown, and the FAQ section at geminatesolutions.com/blog/edtech-platform-250k-users-case-study.\n\nGeminate Solutions builds web, mobile, and AI-powered products for startups and growing businesses worldwide. 50+ products shipped globally.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agora",
+      "android",
+      "api",
+      "architecture",
+      "budget",
+      "build",
+      "challenge",
+      "cloudfront",
+      "edtech",
+      "flutter",
+      "k daily users",
+      "mvp",
+      "node.js + express",
+      "payments",
+      "phase",
+      "quiz",
+      "record",
+      "redis",
+      "startup",
+      "streaming",
+      "video",
+      "websocket"
+    ],
+    [
+      "startup"
+    ]
+  ]
+}

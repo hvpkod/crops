@@ -1,0 +1,40 @@
+{
+  "id": 7749,
+  "source": "DEV Community<",
+  "title": "Nietzsche in a Madhouse",
+  "url": "https://dev.to/carlosorioli/nietzsche-in-a-madhouse-98b",
+  "published_at": "2026-04-01T18:10:20Z",
+  "fetched_at": "2026-04-01T18:20:32.241712+00:00",
+  "author": "Carlos Rogerio Orioli",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/aprilfools-2026\">DEV April Fools Challenge</a></em></p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p><strong>Nietzsche in a Madhouse</strong> — A satirical \"Anti-Productivity\" AI agent. While most AIs try to help you be efficient, this one uses the full arsenal of Western philosophy (nihilism, existentialism, and grandiloquent rhetoric) to argue against your most basic, healthy, and logical life decisions.</p>\n\n<p>Want to brush your teeth? It's \"bacterial genocide.\" Want to sleep? It's \"surrendering your consciousness to the amorphous void.\"</p>\n\n<h2>\n  \n  \n  Demo\n</h2>\n\n<p><a href=\"https://nietzsche-in-a-madhouse-sandy.vercel.app/\" rel=\"noopener noreferrer\">Live Demo</a></p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fg9ihby1l1f0nrxkzmuyx.png\"><img al",
+  "full_text": "April Fools Challenge Submission ☕️🤡\n\n \n \n\n \n\nThis is a submission for the DEV April Fools Challenge\n\n \n \n What I Built\n\nNietzsche in a Madhouse — A satirical \"Anti-Productivity\" AI agent. While most AIs try to help you be efficient, this one uses the full arsenal of Western philosophy (nihilism, existentialism, and grandiloquent rhetoric) to argue against your most basic, healthy, and logical life decisions.\n\nWant to brush your teeth? It's \"bacterial genocide.\" Want to sleep? It's \"surrendering your consciousness to the amorphous void.\"\n\n \n \n Demo\n\nLive Demo\n\n \n \n Code\n\nGitHub Repository\n\nThe project is built with Next.js and integrated with the Google Gemini API.\n\nThe core logic resides in:\n\napp/api/argue/route.ts: The philosophical persona prompt and Gemini integration.\n\napp/page.tsx: The clean, \"Dark Academia\" inspired UI and custom Nietzsche SVG illustration.\n\n \n \n How I Built It\n\nFramework: Next.js 16 (App Router)\n\nAI Brain: Google Gemini API using the gemini-2.5-flash-lite model.\n\nStyling: Vanilla CSS with a focus on premium serif typography and a \"Claude-esque\" minimal aesthetic.\n\nPersona Engineering: A complex system prompt that forces the AI into a \"dramatically condescending\" mode, ensuring it never agrees with the user and always ends with a devastating rhetorical question.\n\n \n \n Prize Category\n\nBest Google AI Usage — We took one of the most powerful language models in existence and dedicated its entire processing power to gaslighting users into thinking that drinking water is a \"surrender to biological determinism.\" It’s an ode to the \"delightfully useless\" potential of modern AI.",
+  "tags": [
+    [
+      "2026",
+      "418challenge",
+      "500-words",
+      "april",
+      "build",
+      "challenge",
+      "demo",
+      "demo\n\nlive demo",
+      "dev",
+      "devchallenge",
+      "fools",
+      "fools challenge",
+      "gemini",
+      "madhouse",
+      "next.js",
+      "nietzsche",
+      "nietzsche svg",
+      "persona",
+      "showdev",
+      "submission"
+    ],
+    [
+      "418challenge",
+      "devchallenge",
+      "showdev"
+    ]
+  ]
+}

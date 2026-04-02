@@ -1,0 +1,42 @@
+{
+  "id": 7574,
+  "source": "DEV Community<",
+  "title": "Build a Price Comparison Tool in 15 Minutes with the Marketplace Price API",
+  "url": "https://dev.to/lulzasaur/build-a-price-comparison-tool-in-15-minutes-with-the-marketplace-price-api-149k",
+  "published_at": "2026-04-01T06:04:29Z",
+  "fetched_at": "2026-04-01T06:20:27.807156+00:00",
+  "author": "lulzasaur",
+  "summary": "<p>Ever tried to find the best price for something across multiple marketplaces? You'd need to open OfferUp, Poshmark, Reverb, TCGPlayer — each with different search interfaces and no way to compare side by side.</p>\n\n<p>The <strong>Marketplace Price API</strong> solves this with a single unified <code>/search</code> endpoint that queries multiple marketplaces simultaneously and returns normalized results.</p>\n\n<p>In this tutorial, we'll build a CLI price comparison tool in under 15 minutes.</p>\n\n<h2>\n  \n  \n  What We're Building\n</h2>\n\n<p>A Node.js script that:</p>\n\n<ol>\n<li>Takes a search query as input</li>\n<li>Searches across 4 marketplaces in parallel</li>\n<li>Shows a sorted comparison table with the best prices</li>\n</ol>\n\n<h2>\n  \n  \n  Prerequisites\n</h2>\n\n<ul>\n<li>Node.js 18+</li>\n<li>A free RapidAPI account (<a href=\"https://rapidapi.com/auth/sign-up\" rel=\"noopener noreferrer\">sign up here</a>)</li>\n</ul>\n\n<h2>\n  \n  \n  Step 1: Get Your API Key\n</h2>\n\n<p>Subscribe to the <a href=",
+  "full_text": "Ever tried to find the best price for something across multiple marketplaces? You'd need to open OfferUp, Poshmark, Reverb, TCGPlayer — each with different search interfaces and no way to compare side by side.\n\nThe Marketplace Price API solves this with a single unified /search endpoint that queries multiple marketplaces simultaneously and returns normalized results.\n\nIn this tutorial, we'll build a CLI price comparison tool in under 15 minutes.\n\n \n \n What We're Building\n\nA Node.js script that:\n\nTakes a search query as input\n\nSearches across 4 marketplaces in parallel\n\nShows a sorted comparison table with the best prices\n\n \n \n Prerequisites\n\n \n \n Step 1: Get Your API Key\n\nSubscribe to the Marketplace Price Tracker API on RapidAPI. The free tier gives you 500 requests/month — plenty for this tutorial.\n\nCopy your X-RapidAPI-Key from the API dashboard.\n\n \n \n Step 2: Set Up the Project\n\nmkdir price-compare && cd price-compare\nnpm init -y\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCreate a .env file:\n\nRAPIDAPI_KEY=your_key_here\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Step 3: Build the Comparison Tool\n\nCreate compare.mjs:\n\nconst API_KEY = process.env.RAPIDAPI_KEY;\nconst BASE = \"https://marketplace-price-tracker.p.rapidapi.com\";\nconst HEADERS = {\n \"X-RapidAPI-Key\": API_KEY,\n \"X-RapidAPI-Host\": \"marketplace-price-tracker.p.rapidapi.com\",\n};\n\nconst query = process.argv[2];\nif (!query) {\n console.error(\"Usage: node compare.mjs <search query>\");\n process.exit(1);\n}\n\nconsole.log(`\\nSearching for \"${query}\" across 4 marketplaces...\\n`);\n\n// Search all marketplaces in parallel\nconst endpoints = [\n { name: \"Reverb\", path: `/reverb/search?query=${encodeURIComponent(query)}&limit=5` },\n { name: \"TCGPlayer\", path: `/tcg/search?query=${encodeURIComponent(query)}&limit=5` },\n { name: \"OfferUp\", path: `/offerup/search?query=${encodeURIComponent(query)}&limit=5` },\n { name: \"Poshmark\", path: `/poshmark/search?query=${encodeURIComponent(query)}&limit=5` },\n];\n\nconst results = await Promise.allSettled(\n endpoints.map(async ({ name, path }) => {\n const res = await fetch(`${BASE}${path}`, { headers: HEADERS });\n if (!res.ok) return { name, items: [] };\n const data = await res.json();\n const items = (data.results || data.listings || []).map((item) => ({\n marketplace: name,\n title: item.title || item.productName || item.name,\n price: parseFloat(item.price || item.marketPrice || item.lowestPrice || 0),\n condition: item.condition || \"N/A\",\n url: item.url || \"#\",\n }));\n return { name, items };\n })\n);\n\n// Flatten and sort by price\nconst allItems = results\n .filter((r) => r.status === \"fulfilled\")\n .flatMap((r) => r.value.items)\n .filter((item) => item.price > 0)\n .sort((a, b) => a.price - b.price);\n\nif (allItems.length === 0) {\n console.log(\"No results found. Try a different search term.\");\n process.exit(0);\n}\n\n// Display results\nconsole.log(\"Price\".padEnd(10) + \"Marketplace\".padEnd(14) + \"Condition\".padEnd(12) + \"Title\");\nconsole.log(\"-\".repeat(80));\n\nfor (const item of allItems.slice(0, 20)) {\n const price = `$${item.price.toFixed(2)}`.padEnd(10);\n const mp = item.marketplace.padEnd(14);\n const cond = (item.condition || \"N/A\").slice(0, 10).padEnd(12);\n const title = item.title?.slice(0, 44) || \"—\";\n console.log(`${price}${mp}${cond}${title}`);\n}\n\nconsole.log(`\\nFound ${allItems.length} results across ${results.filter((r) => r.status === \"fulfilled\").length} marketplaces`);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Step 4: Run It\n\nRAPIDAPI_KEY=your_key_here node compare.mjs \"fender stratocaster\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\nSearching for \"fender stratocaster\" across 4 marketplaces...\n\nPrice Marketplace Condition Title\n--------------------------------------------------------------------------------\n$149.99 OfferUp Good Fender Squier Stratocaster Electric Gui\n$225.00 Poshmark N/A Fender Player Stratocaster HSS Buttercr\n$349.00 Reverb Excellent Fender Player Stratocaster 2019 3-Color\n$425.00 Reverb Very Good Fender American Stratocaster Sunburst\n$599.99 Reverb Excellent Fender American Pro II Stratocaster\n...\n\nFound 18 results across 4 marketplaces\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Available Endpoints\n\nEndpoint\nDescription\n\nGET /reverb/search\nReverb music gear listings\n\nGET /reverb/price-history\nHistorical price data for Reverb items\n\nGET /tcg/search\nTCGPlayer card listings\n\nGET /tcg/price\nTCGPlayer card price lookup\n\nGET /offerup/search\nOfferUp local marketplace listings\n\nGET /poshmark/search\nPoshmark fashion resale listings\n\n \n \n Use Cases\n\nResellers: Find arbitrage opportunities across marketplaces\n\nCollectors: Track TCG card prices, find the best deals on vintage gear\n\nShoppers: Compare prices before buying\n\nDiscord Bots: Power price-check commands with real-time data\n\nPrice Tracking Apps: Build dashboards with historical pricing\n\n \n \n What's Next?\n\nAdd a simple web UI with React or Svelte\n\nStore historical prices in SQLite for trend analysis\n\nSet up a cron job to check prices daily\n\nBuild a Discord bot with /price-check commands\n\nThe Marketplace Price Tracker API free tier includes 500 requests/month — enough to build and test any of these.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "allitems",
+      "api",
+      "cases\n\nresellers",
+      "cli",
+      "const",
+      "discord bots: power",
+      "fender",
+      "fullscreen",
+      "listing",
+      "marketplace",
+      "mode",
+      "node",
+      "offerup",
+      "price",
+      "project",
+      "rapidapi",
+      "result",
+      "reverb",
+      "stratocaster",
+      "tcgplayer",
+      "tutorial"
+    ],
+    [
+      "cli",
+      "tutorial"
+    ]
+  ]
+}

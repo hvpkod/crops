@@ -1,0 +1,43 @@
+{
+  "id": 7573,
+  "source": "DEV Community<",
+  "title": "Part 2: Marketing New Apps Sucks (But Preparation Saves You)",
+  "url": "https://dev.to/chadders13/part-2-marketing-new-apps-sucks-but-preparation-saves-you-3o04",
+  "published_at": "2026-04-01T06:11:16Z",
+  "fetched_at": "2026-04-01T06:20:26.650458+00:00",
+  "author": "Andrew Chadwick",
+  "summary": "<p>While I spend most of my time deep in C#, SQL, and JavaScript building my open-source local AI tool <a href=\"https://github.com/Chadders13/SheepCat-TrackingMyWork\" rel=\"noopener noreferrer\">SheepCat</a> (🐑🐈), I recently took on a side quest. I started building an app to support a friend's fitness business.</p>\n\n<p>During the build, we identified a massive gap in the market: there is a desperate need for a local-first directory for Personal Trainers (PTs) that doesn't use the predatory \"Bark model.\" We didn't want an app that charges PTs exorbitant fees just for the privilege of being introduced to a lead.</p>\n\n<p>Our solution was beautifully simple: If you are part of the directory, you get a profile page. If a client wants to message you, they message you directly. No middleman holding leads hostage.</p>\n\n<p>Building it was the fun part. Then came the marketing. And let’s be honest: marketing new apps sucks.</p>\n\n<h2>\n  \n  \n  Navigating the New SEO: Welcome to GEO\n</h2>\n\n<p>To get ",
+  "full_text": "While I spend most of my time deep in C#, SQL, and JavaScript building my open-source local AI tool SheepCat (🐑🐈), I recently took on a side quest. I started building an app to support a friend's fitness business.\n\nDuring the build, we identified a massive gap in the market: there is a desperate need for a local-first directory for Personal Trainers (PTs) that doesn't use the predatory \"Bark model.\" We didn't want an app that charges PTs exorbitant fees just for the privilege of being introduced to a lead.\n\nOur solution was beautifully simple: If you are part of the directory, you get a profile page. If a client wants to message you, they message you directly. No middleman holding leads hostage.\n\nBuilding it was the fun part. Then came the marketing. And let’s be honest: marketing new apps sucks.\n\n \n \n Navigating the New SEO: Welcome to GEO\n\nTo get eyes on this, I’ve been experimenting with GEO (Generative Engine Optimization). If you haven't dived into it yet, it is essentially the new SEO. It feels exactly like doing SEO back in the old days, but instead of optimizing for Google's traditional crawler, you are optimizing to be the definitive answer an AI search tool spits out when a user asks, \"Who are the best PTs in my area?\"\n\n \n \n The \"Done a Million Times\" Objection\n\nArmed with a shiny new app and a GEO strategy, I started promoting the tool in various Personal Trainer community groups.\n\nIt didn't take long for the grilling to start. One user immediately dropped the classic indie-hacker gut punch:\n\n\"Don't you think directories have been done a million times before?\"\n\nIt is the kind of comment that instantly makes you want to get defensive and list out every single feature you spent weeks coding. But they were right. Directories have been done a million times. Most things with a clear purpose have been tried before.\n\nInstead of arguing, I leaned into it. I replied: \"You're absolutely right, they have. But we are trying to solve a new problem. We are aiming to solve the future problems where AI is shifting the search focus, and traditional directories aren't built for that.\"\n\n \n \n The Trump Card: The Foundation Member Pitch\n\nThat shifted the tone, but then came the ultimate buying objection:\n\n\"Okay, but why would we buy into something brand new that doesn't have traffic yet?\"\n\nAnd they were right again. Why would they?\n\nFortunately, this is where taking a step back from the code to think about user psychology paid off. I had anticipated this exact hesitation weeks ago.\n\nI pitched them our Foundation Members Program:\n\nThe first 200 people to sign up get a locked-in price for life.\n\nTo sweeten the deal, we guarantee absolutely zero ads on their profile page, forever.\n\nI wasn't just selling a directory; I was selling early-adopter real estate.\n\nThat single, pre-planned offer completely flipped the script. The user's opinion turned around on a dime, ending with: \"Fair game. Send me a link.\"\n\n \n \n The Takeaway for Indie Devs\n\nTrying to promote a new app is exhausting. It is entirely different from the dopamine hit of a passing test suite. You will get grilled on your product, and people will be skeptical of your new domain name.\n\nBut with a little bit of planning, and the forethought to anticipate exactly why a user would hesitate to interact with your system, you can build a solid foundation. When the hard questions come, you won't be shaken—you'll just drop the link.\n\nCheck out our fitness project here : Worlds Highstreet",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "build",
+      "come",
+      "directory",
+      "discuss",
+      "do",
+      "foundation members program",
+      "geo",
+      "google",
+      "javascript",
+      "market",
+      "marketing",
+      "optimize",
+      "personal trainer",
+      "personal trainers",
+      "sell",
+      "seo",
+      "sheepcat",
+      "socialmedia",
+      "sql",
+      "start",
+      "try",
+      "user"
+    ],
+    [
+      "socialmedia"
+    ]
+  ]
+}

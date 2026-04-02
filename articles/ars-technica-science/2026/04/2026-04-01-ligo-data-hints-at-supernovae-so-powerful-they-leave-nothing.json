@@ -1,0 +1,45 @@
+{
+  "id": 7714,
+  "source": "Ars Technica Science",
+  "title": "LIGO data hints at supernovae so powerful they leave nothing behind",
+  "url": "https://arstechnica.com/science/2026/04/black-hole-mergers-put-limits-on-star-destroying-supernovae/",
+  "published_at": "2026-04-01T15:00:01Z",
+  "fetched_at": "2026-04-01T16:20:16.121857+00:00",
+  "author": "John Timmer",
+  "summary": "<p>Many of the early exoplanet discoveries were exciting on their own, confirming that there really were strange new worlds out in the Universe. But over time, our focus has shifted more toward numbers, as we began using the frequency of objects like super-Earths and mini-Neptunes to learn more about how planets form. With four gravitational wave detectors now having generated years of data, we may be on the verge of seeing something similar happen with black hole mergers.</p>\n<p>On Wednesday, researchers released an analysis suggesting that there's a \"mass gap\" in the population of black holes that we've detected so far. And that gap supports the idea that some stars are so massive that they die in something called a pair-instability supernova, which is so violent that it leaves nothing but debris behind.</p>\n<h2>That's not stable</h2>\n<p>Black holes result from the collapse of a star's core during a supernova. While the outer layers of a star explode outward, the innermost layers plu",
+  "full_text": "If the star is sufficiently massive, this will cause the near-instantaneous onset of oxygen fusion, releasing a massive burst of energy. That energy is thought to be enough to completely destroy the star without leaving a remnant black hole behind. Alternatively, smaller bursts of oxygen fusion may blast away the star’s outer layers, leaving a much smaller star behind that will ultimately create a far less massive black hole.\n\nWhile that’s pretty well established through modeling, it’s a very difficult process to confirm. There have been a number of proposed examples of potential pair-instability events, and we don’t have a clear picture of what observations would distinguish them from more run-of-the-mill stellar explosions. And while we’ve been able to estimate the mass of the black holes we’ve observed merging, that hasn’t been as helpful as we would like.\n\nThe problem is that several of the mergers we’ve seen involve black holes that seem to have merged previously. So they’re big enough to be above the cutoff where pair-instability should have blocked the formation of a black hole, but they might have gotten that hefty by swallowing another black hole.\n\nNumbers to the rescue\n\nThe international team behind the new work considered what kinds of collisions we might see. One is two first-generation (G1) black holes merging, in which case both should be below the mass at which pair-instability destroys everything. Then there’s a G1 colliding with a second-generation (G2) that’s the product of a previous merger, with the G2 potentially being above the mass cutoff. Finally, there’s a G2-G2 merger, where both are above the cutoff.\n\nAny black hole mergers are likely to take place within a structure filled with lots of high-mass stars, such as a globular cluster. But the merger itself tends to impart a lot of energy to the resulting black hole, which could potentially kick it out of the cluster. As a result, G2-G2 mergers would likely be far more rare than G1-G2 mergers; the team estimates that only about 1 percent of all mergers would be G2-G2.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "above",
+      "astronomy",
+      "astrophysics",
+      "black",
+      "black hole mergers",
+      "black holes",
+      "burst",
+      "gravitational waves",
+      "hole",
+      "leave",
+      "ligo",
+      "mass",
+      "merger",
+      "oxygen",
+      "potentially",
+      "science",
+      "star",
+      "supernova"
+    ],
+    [
+      "astronomy",
+      "astrophysics",
+      "black hole mergers",
+      "black holes",
+      "gravitational waves",
+      "ligo",
+      "science",
+      "supernova"
+    ]
+  ]
+}

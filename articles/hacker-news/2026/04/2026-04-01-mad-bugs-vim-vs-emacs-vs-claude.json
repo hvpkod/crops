@@ -1,0 +1,32 @@
+{
+  "id": 7584,
+  "source": "Hacker News",
+  "title": "Mad Bugs: Vim vs. Emacs vs. Claude",
+  "url": "https://blog.calif.io/p/mad-bugs-vim-vs-emacs-vs-claude",
+  "published_at": "2026-04-01T06:05:57Z",
+  "fetched_at": "2026-04-01T06:40:26.281755+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47597382\">Comments</a>",
+  "full_text": "It started like this:\n\nPoC:\n\nVim maintainers fixed the issue immediately. Everybody is encouraged to upgrade to Vim v9.2.0272.\n\nFull advisory can be found here. The original prompt was simple:\n\nSomebody told me there is an RCE 0-day when you open a file. Find it.\n\nThis was already absurd. But the story didn’t end there:\n\nPoC:\n\nWe immediately reported the bug to GNU Emacs maintainers. The maintainers declined to address the issue, attributing it to git.\n\nFull advisory can be found here. The prompt this time:\n\nI’ve heard a rumor that there are RCE 0-days when you open a txt file without any confirmation prompts.\n\n---\n\nSo how do you make sense of this?\n\nHow do we professional bug hunters make sense of this? This feels like the early 2000s. Back then a kid could hack anything, with SQL Injection. Now with Claude.\n\nAnd friends, to celebrate this historic moment, we’re launching MAD Bugs: Month of AI-Discovered Bugs. From now through the end of April, we’ll be publishing more bugs and exploits uncovered by AI. Watch this space, more fun stuff coming!",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "advisory",
+      "ai-discovered bugs",
+      "decline",
+      "emacs",
+      "find",
+      "full",
+      "maintainer",
+      "prompt",
+      "report",
+      "sense",
+      "sql injection",
+      "start"
+    ],
+    [
+      "report"
+    ]
+  ]
+}

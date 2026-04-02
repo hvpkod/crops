@@ -1,0 +1,41 @@
+{
+  "id": 7616,
+  "source": "DEV Community<",
+  "title": "Why fetch() Can Be Safer Than Axios After the 2026 Axios Hack",
+  "url": "https://dev.to/asmaa-almadhoun/why-fetch-can-be-safer-than-axios-after-the-2026-axios-hack-6n5",
+  "published_at": "2026-04-01T09:16:10Z",
+  "fetched_at": "2026-04-01T09:20:27.057881+00:00",
+  "author": "Asmaa Almadhoun",
+  "summary": "<p>The question isn’t whether Axios is a “bad” library; it’s about risk surface. The Axios NPM compromise in March 2026 exposed a structural weakness in depending on third‑party libraries for something browsers already provide natively.</p>\n\n<p><strong>1. Axios was compromised; fetch() cannot be published with malware</strong></p>\n\n<p>On March 31, 2026, attackers hijacked the npm account of Axios’s maintainer and published malicious versions (1.14.1 and 0.30.4) containing an obfuscated malware dropper. The malware executed automatically during installation.</p>\n\n<p><strong>In contrast:</strong></p>\n\n<ul>\n<li>fetch() is <strong>built into browsers and Node.js.</strong>\n</li>\n<li>It <strong>cannot</strong> be replaced or hijacked via a package manager.</li>\n<li>There is <strong>no installation step</strong>, so no opportunity to insert post‑install malware.</li>\n</ul>\n\n<p>Thus, fetch() has <strong>zero supply‑chain risk</strong> compared to a package like Axios.</p>\n\n<p><strong>2. Axios’",
+  "full_text": "The question isn’t whether Axios is a “bad” library; it’s about risk surface. The Axios NPM compromise in March 2026 exposed a structural weakness in depending on third‑party libraries for something browsers already provide natively.\n\n1. Axios was compromised; fetch() cannot be published with malware\n\nOn March 31, 2026, attackers hijacked the npm account of Axios’s maintainer and published malicious versions (1.14.1 and 0.30.4) containing an obfuscated malware dropper. The malware executed automatically during installation.\n\nIn contrast:\n\nfetch() is built into browsers and Node.js.\n\nIt cannot be replaced or hijacked via a package manager.\n\nThere is no installation step, so no opportunity to insert post‑install malware.\n\nThus, fetch() has zero supply‑chain risk compared to a package like Axios.\n\n2. Axios’ supply-chain attack vector came from its dependency distribution model\n\nThe Axios compromise happened because:\n\nAttackers accessed the maintainer’s npm account,\n\nPublished malicious releases with a hidden dependency (plain-crypto-js),\n\nInserted a postinstall script that deployed a cross‑platform RAT.\n\n [cloud.google.com]\n\nfetch() has:\n\nNo dependencies\n\nNo maintainer accounts to hijack\n\nNo GitHub or npm supply chain to poison\n\nTherefore, using fetch() eliminates an entire attack surface.\n\n3. Axios introduced malware even though the code looked unchanged\n\nSecurity investigators confirmed the attacker did not modify the Axios code directly, but only added a malicious dependency that executed during installation.\n\nThis means:\n\nEven if you audited the Axios GitHub repo, you would not see the malicious code.\n\nThis type of attack is impossible with fetch() because it isn’t installed from npm.\n\n4. Native fetch() is now fully supported and feature‑rich, reducing the need for Axios\n\nHistorically, Axios offered conveniences like:\n\nautomatic JSON transformation\n\nrequest cancellation\n\nsimpler syntax\n\nbetter error handling\n\nBut today:\n\nModern browsers and Node.js now support fetch() with AbortController, streaming, improved error handling, and Response.json().\n\nThe gap between Axios and native APIs has narrowed significantly.\n\nGiven this parity, adding Axios creates unnecessary dependency risk.\n\n✔️ Summary\n\nFetch is “better” than Axios from a security standpoint because it is native, dependency‑free, cannot be hijacked through npm, and avoids the entire supply‑chain attack vector that enabled North Korean hackers to insert a remote‑access trojan into Axios’ malicious releases in March 2026",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "abortcontroller",
+      "attack",
+      "attacker",
+      "axios",
+      "axios\n\nhistorically",
+      "browser",
+      "cannot",
+      "dependency",
+      "fetchjs",
+      "github",
+      "hijack",
+      "javascript",
+      "malicious",
+      "malware",
+      "node.js",
+      "npm",
+      "programming",
+      "publish",
+      "remote‑access",
+      "security"
+    ],
+    [
+      "fetchjs",
+      "programming"
+    ]
+  ]
+}

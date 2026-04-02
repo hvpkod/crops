@@ -1,0 +1,47 @@
+{
+  "id": 7810,
+  "source": "DEV Community<",
+  "title": "🌪️ Proof of Work: The To-Do List of Infinite Regret",
+  "url": "https://dev.to/malik_sohaib_iqbal/proof-of-work-the-to-do-list-of-infinite-regret-48le",
+  "published_at": "2026-04-01T20:49:57Z",
+  "fetched_at": "2026-04-01T21:20:30.090949+00:00",
+  "author": "Malik Sohaib iqbal",
+  "summary": "<p>**</p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>**<br />\nI built a productivity app for people who hate being productive. Proof of Work is a digital psychological experiment that turns simple task management into a high-stakes gamble.</p>\n\n<p>The gimmick? You cannot \"check off\" a task. To complete anything (e.g., \"Buy Milk\"), you must first win a game of Minesweeper on an Expert-level grid (30x16 with 99 mines). If you hit a mine, the Hydra Engine triggers: your task isn't cleared—it duplicates 20 times. Now you have to buy milk 21 times. It is a functional implementation of a \"short-circuit\" for the human brain.</p>\n\n<p>Demo<br />\n</p>\n<div class=\"crayons-card c-embed text-styles text-styles--secondary\">\n    <div class=\"c-embed__content\">\n      <div class=\"c-embed__body flex items-center justify-between\">\n        <a class=\"c-link fw-bold flex items-center\" href=\"https://useless-to-do-list.vercel.app/\" rel=\"noopener noreferrer\">\n          <span class=\"mr-2\">useless-to-do-list.vercel.app",
+  "full_text": "April Fools Challenge Submission ☕️🤡\n\n \n \n\n \n\n**\n\n \n \n What I Built\n\n**\n\nI built a productivity app for people who hate being productive. Proof of Work is a digital psychological experiment that turns simple task management into a high-stakes gamble.\n\nThe gimmick? You cannot \"check off\" a task. To complete anything (e.g., \"Buy Milk\"), you must first win a game of Minesweeper on an Expert-level grid (30x16 with 99 mines). If you hit a mine, the Hydra Engine triggers: your task isn't cleared—it duplicates 20 times. Now you have to buy milk 21 times. It is a functional implementation of a \"short-circuit\" for the human brain.\n\nDemo\n\nCode\n\n \n\n \n \n\n The ultimate anti-productivity suite. Compliant with HTCPCP/1.0 (RFC 2324). Requires Expert-level Minesweeper proof-of-work to complete any task. Built with React, Lovable, and the existential dread of Google Gemini.\n \n \n \n\n \n\n🌪️ Proof of Work: The To-Do List of Infinite Regret\n\nA Productivity App for People Who Hate Being Productive.\n\n📌 Overview\n\nProof of Work is a digital psychological experiment disguised as a task manager. Built for the HTCPCP Challenge, this app solves the \"problem\" of having too much to do by making it statistically impossible to finish anything.\n\nBy merging the high-stakes logic of Minesweeper with the \"I'm a Teapot\" philosophy of Larry Masinter, we have created a \"short-circuit\" for human productivity. It is a Ferrari engine inside a unicycle—technically impressive, yet fundamentally useless.\n\n🛠️ The \"Pain\" Features\n\n1. The Minesweeper Gatekeeper\n\nYou cannot simply \"check off\" a task. Clicking the completion box triggers a full-screen Minesweeper Expert Grid ($30 \\times 16$ with $99$ mines).\n\nVictory: The task is cleared.\n\nFailure: You hit a mine, and the Hydra Engine activates.\n\n2. The Hydra Engine (The Punishment)\n\nIf…\n \n \n\nHow I Built It\n\nThis project was a \"Dual-AI\" collaboration:\n\nLovable: Acted as the Lead Architect, managing the complex React state required for the \"Hydra\" task duplication and the retro-brutalist UI.\n\nGoogle Gemini: Served as the \"Existential Consultant,\" curateing a library of 2,000+ unique demotivational quotes based on astrophysics and biology to remind users of their cosmic insignificance.\n\nTech Stack: React, Vite, Tailwind CSS, and localStorage to ensure your failures persist even after a browser refresh.\n\nPrize Category\n\n🤖 Best Google AI Usage\n\nI leveraged Google Gemini to build the \"Universal Entropy Engine.\" Every task is paired with an AI-generated reason why it doesn't matter (e.g., \"The heat death of the universe renders 'Wash Dishes' mathematically irrelevant\"). Gemini ensured the content was scientifically accurate, strictly neutral, and emotionally taxing.\n\n🫖 Best Ode to Larry Masinter\n\nThis app is fully HTCPCP/1.0 (RFC 2324) compliant. If a user tries to close the Minesweeper modal or \"cheat\" the productivity trial, the app returns a hard 418 I'm a Teapot error. As a teapot, the software refuses to brew your productivity. We even injected the X-Brewing-Protocol header into the metadata as a tribute to Larry's legacy of intentional uselessness.\n\nBuilt with ❤️ and a total lack of productivity.",
+  "tags": [
+    [
+      "2026",
+      "418challenge",
+      "500-words",
+      "build",
+      "css",
+      "devchallenge",
+      "engine",
+      "ferrari",
+      "google gemini",
+      "hydra",
+      "hydra engine",
+      "larry",
+      "minesweeper",
+      "productivity",
+      "proof",
+      "psychological",
+      "react",
+      "react, lovable",
+      "regret",
+      "showdev",
+      "task",
+      "teapot",
+      "the htcpcp challenge",
+      "the hydra engine",
+      "webdev"
+    ],
+    [
+      "418challenge",
+      "devchallenge",
+      "productivity",
+      "showdev",
+      "webdev"
+    ]
+  ]
+}

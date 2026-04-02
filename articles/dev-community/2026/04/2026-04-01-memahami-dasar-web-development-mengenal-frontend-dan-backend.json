@@ -1,0 +1,44 @@
+{
+  "id": 7647,
+  "source": "DEV Community<",
+  "title": "Memahami Dasar Web Development: Mengenal Frontend dan Backend",
+  "url": "https://dev.to/khaliq_kikumyustio_5210f/memahami-dasar-web-development-mengenal-frontend-dan-backend-19lc",
+  "published_at": "2026-04-01T12:10:43Z",
+  "fetched_at": "2026-04-01T12:20:23.775191+00:00",
+  "author": "Khaliq kikum Yustio",
+  "summary": "<p><strong>Apa Itu Web Development?</strong></p>\n\n<p>Secara sederhana, Web Development atau pengembangan web adalah proses membangun dan memelihara sebuah situs agar dapat diakses melalui internet. Ini bukan sekadar tentang membuat halaman yang terlihat bagus, tetapi juga memastikan situs tersebut berfungsi dengan cepat, aman, dan mampu mengelola data pengguna dengan benar.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fffdfnoyg5mx0jtwacrha.jpg\"><img alt=\" \" height=\"552\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fffdfnoyg5mx0jtwacrha.jpg\" width=\"736\" /></a><br />\n<em>i.Visualisasi Web Development</em></p>\n\n<p>Dalam dunia profesional, proses ini biasanya dibagi menjadi dua pilar utam",
+  "full_text": "Apa Itu Web Development?\n\nSecara sederhana, Web Development atau pengembangan web adalah proses membangun dan memelihara sebuah situs agar dapat diakses melalui internet. Ini bukan sekadar tentang membuat halaman yang terlihat bagus, tetapi juga memastikan situs tersebut berfungsi dengan cepat, aman, dan mampu mengelola data pengguna dengan benar.\n\ni.Visualisasi Web Development\n\nDalam dunia profesional, proses ini biasanya dibagi menjadi dua pilar utama yang saling bekerja sama: Frontend (sisi klien) dan Backend (sisi server).\n\nMemahami Frontend vs. Backend Melalui Analogi Rumah\n\nAgar lebih mudah membayangkan bagaimana keduanya bekerja, mari kita gunakan analogi sebuah rumah:\n\n*1. - Frontend (Tampilan Rumah): *\n\nBayangkan bagian luar rumah, warna cat dinding, desain jendela, hingga tata letak furnitur di ruang tamu. Inilah Frontend. Segala sesuatu yang bisa dilihat, disentuh, dan berinteraksi langsung dengan tamu (pengguna) adalah tanggung jawab Frontend. Fokus utamanya adalah estetika, kenyamanan navigasi, dan pengalaman pengguna (User Experience).\n\nii.Analogi Frontend adalah Rumah\n\n2. Backend (Sistem di Balik Dinding):\n\nDi balik keindahan interior rumah, terdapat jaringan kabel listrik, pipa saluran air, dan fondasi yang kokoh. Kamu tidak melihat kabel-kabel ini saat menyalakan lampu, tetapi tanpanya, rumah tersebut tidak akan berfungsi. Inilah Backend. Ia bekerja di balik layar untuk mengolah data, mengatur logika keamanan, dan memastikan semua permintaan pengguna di sisi Frontend dapat diproses dengan benar oleh server.\n\niii.Analogi Backend adalah Sistem dibalik dinding\n\nMengapa Keduanya Harus Seimbang?\n\nSebuah rumah dengan desain mewah (Frontend) akan menjadi tidak berguna jika saluran airnya mampet atau listriknya mati (Backend). Sebaliknya, sistem kelistrikan tercanggih sekalipun tidak akan membuat orang betah jika rumahnya tidak memiliki pintu atau jendela untuk dimasuki. Keselarasan antara Frontend dan Backend inilah yang menciptakan sebuah website yang utuh dan berkualitas.\n\niv.Analogi Keseimbangan\n\nMembangun Tampilan: Sisi Frontend\n\nFrontend adalah jembatan antara pengguna dan teknologi. Di bagian ini, fokus utamanya adalah bagaimana menciptakan antarmuka yang intuitif, responsif, dan menarik. Untuk membangunnya, ada tiga teknologi pilar yang wajib dikuasai:\n\n1. HTML (HyperText Markup Language)\n\nHTML berfungsi sebagai kerangka dasar atau struktur website. Di sini kita menentukan di mana letak judul, paragraf, penempatan gambar, hingga tombol navigasi.\n\nv.HTML Logo\n\n2. CSS (Cascading Style Sheets)\n\nCSS digunakan untuk menghias struktur yang sudah dibuat oleh HTML. CSS bertanggung jawab atas pemilihan warna, jenis font, tata letak (layout), hingga memastikan website terlihat rapi saat dibuka di HP maupun Desktop.\n\nvi.CSS Logo\n\n3. JavaScript\n\nJavaScript memberikan \"nyawa\" dan interaktivitas pada website. Tanpa JavaScript, website akan terasa kaku. Contoh kegunaannya adalah untuk membuat menu pop-up, animasi tombol, hingga pengiriman formulir secara otomatis.\n\nvii.JavaScript Logo\n\nMembangun Logika: Sisi Backend\n\nJika Frontend adalah apa yang dilihat pengguna, maka Backend adalah \"otak\" yang bekerja di balik layar. Backend bertanggung jawab untuk mengolah data, mengatur logika keamanan, dan memastikan semua permintaan pengguna dapat diproses dengan benar.\n\nviii.Analogi Backend sebagai Otak\n\nBerikut adalah komponen utama yang membangun sisi Backend:\n\n1. Server & Bahasa Pemrograman\n\nIni adalah tempat di mana logika aplikasi dijalankan. Bahasa pemrograman seperti Node.js, Python, atau PHP digunakan untuk memberi perintah pada server. Misalnya: \"Jika pengguna menekan tombol daftar, simpan data mereka ke database.\"\n\nix.Gambaran Server\n\n2. Database (Basis Data)\n\nWebsite modern membutuhkan tempat untuk menyimpan informasi secara permanen, seperti data akun, postingan artikel, atau riwayat transaksi. Contoh yang populer digunakan adalah MySQL, PostgreSQL, atau MongoDB.\n\nx.Gambaran Database\n\n3. API (Application Programming Interface)\n\nAPI bertugas sebagai jembatan komunikasi. Ia mengirimkan data dari Database menuju ke Frontend sehingga pengguna bisa melihat informasi yang mereka butuhkan di layar.\n\nxi.Gambaran API (Application Programming Interface)\n\nKesimpulan: Langkah Awal Anda Menjadi Web Developer\n\nMembangun sebuah website adalah perpaduan antara seni visual melalui Frontend dan logika sistem yang kuat melalui Backend. Meskipun keduanya memiliki peran yang berbeda, sinergi antara keduanya adalah kunci utama dalam menciptakan website yang berkualitas dan bermanfaat bagi pengguna.\n\nDunia pengembangan web terus berkembang dengan cepat. Namun, dengan memahami konsep dasar yang telah kita bahas di atas, Anda sudah memiliki fondasi yang kuat untuk mulai belajar lebih dalam. Jangan ragu untuk mulai mencoba membuat proyek kecil, karena setiap ahli dulunya adalah seorang pemula.\n\nSelamat berkarya! \n\nxii.Memulai perjalanan sebagai Full-stack Developer",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "adalah",
+      "airnya",
+      "akan",
+      "atau",
+      "backend",
+      "beginners",
+      "css",
+      "dengan",
+      "frontend",
+      "inilah backend",
+      "inilah frontend",
+      "jawab frontend",
+      "listriknya mati",
+      "mana letak judul",
+      "membangun",
+      "pengguna",
+      "saluran",
+      "sebuah",
+      "untuk",
+      "visualisasi web development",
+      "webdev",
+      "yang"
+    ],
+    [
+      "beginners",
+      "frontend",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 7811,
+  "source": "DEV Community<",
+  "title": "Promoting late-gameplay BG3 composition contracts in the TD2 SDL port",
+  "url": "https://dev.to/nivandosoares/promoting-late-gameplay-bg3-composition-contracts-in-the-td2-sdl-port-15gn",
+  "published_at": "2026-04-01T20:45:56Z",
+  "fetched_at": "2026-04-01T21:20:31.184436+00:00",
+  "author": "Nivando Soares",
+  "summary": "<h1>\n  \n  \n  Promoting late-gameplay BG3 composition contracts in the TD2 SDL port\n</h1>\n\n<p>This checkpoint moved one late-gameplay renderer hypothesis out of tooling and into the runtime.</p>\n\n<p>The late live-entry bundles at frames <code>3250</code>, <code>3400</code>, and <code>3550</code> already had a strong signal from the cutoff sweep: the missing horizon strip was not explained by missing assets, but by a narrow composition rule. The best candidates were consistent enough to promote:</p>\n\n<ul>\n<li>frame <code>3250</code>: enable <code>BG3</code> in the top <code>79</code> scanlines and keep <code>BG3 &gt; BG2</code> there</li>\n<li>frame <code>3400</code>: same <code>79</code>-line window</li>\n<li>frame <code>3550</code>: same rule with a deeper <code>95</code>-line window</li>\n</ul>\n\n<p>The runtime now loads those rules from a versioned contract file instead of a hardcoded late-gameplay lookup:</p>\n\n<ul>\n<li><code>rom_analysis/docs/gameplay_composition_contracts.jsonc</code><",
+  "full_text": "Promoting late-gameplay BG3 composition contracts in the TD2 SDL port\n\nThis checkpoint moved one late-gameplay renderer hypothesis out of tooling and into the runtime.\n\nThe late live-entry bundles at frames 3250, 3400, and 3550 already had a strong signal from the cutoff sweep: the missing horizon strip was not explained by missing assets, but by a narrow composition rule. The best candidates were consistent enough to promote:\n\nframe 3250: enable BG3 in the top 79 scanlines and keep BG3 > BG2 there\n\nframe 3400: same 79-line window\n\nframe 3550: same rule with a deeper 95-line window\n\nThe runtime now loads those rules from a versioned contract file instead of a hardcoded late-gameplay lookup:\n\nrom_analysis/docs/gameplay_composition_contracts.jsonc\n\nOn the implementation side, td2_runtime resolves the matching profile for the loaded design pack, and td2_ppu now applies two concrete knobs in the native SDL render path:\n\nbg3_enable_top_scanlines\n\nbg3_above_bg2_top_scanlines\n\nThat means the late-gameplay top-band BG3 rule is now a first-class part of the native renderer rather than a design-only experiment.\n\nValidation stayed bounded and explicit:\n\nmake -C port test\n\npython3 tools/build_docs_wiki_report.py --manifest rom_analysis/docs/wiki_doc_index.json --output-dir tools/out/docs_wiki --markdown-bundle-dir tools/out/docs_wiki_markdown_bundle\n\nThe current smoke matrix passed with:\n\ncompare lane 3/3\n\nscheduler smoke 335 checks\n\ninput mutation smoke 200 checks\n\nlive input smoke 21 checks\n\nscanline / composition contract smoke 39 checks\n\nFor design review, I also regenerated runtime PNGs for the promoted late-entry anchors so the team can judge the native SDL output directly, not only the sweep candidates.\n\nThe practical result is modest but important: late gameplay is now narrowed past “maybe BG3 matters here” and into one explicit, versioned composition rule that the runtime consumes. The next question is whether that same family needs more measured state beyond this top-band rule, or whether extending the composition contract to more anchors still pays off.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "c",
+      "check",
+      "composition",
+      "contract",
+      "frame",
+      "gamedev",
+      "promote",
+      "retro",
+      "rule",
+      "runtime",
+      "scanline",
+      "sdl",
+      "smoke",
+      "versione"
+    ],
+    [
+      "c",
+      "gamedev",
+      "retro"
+    ]
+  ]
+}

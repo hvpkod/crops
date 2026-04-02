@@ -1,0 +1,32 @@
+{
+  "id": 7579,
+  "source": "DEV Community<",
+  "title": "Comp Language Struct",
+  "url": "https://dev.to/shredwheat/comp-language-struct-5j6",
+  "published_at": "2026-04-01T05:59:25Z",
+  "fetched_at": "2026-04-01T06:20:37.189261+00:00",
+  "author": "Peter Shinners",
+  "summary": "<p>An ongoing series of my thoughts and ideas for my Comp programming language.</p>\n\n<p>Comp provides a single container type. It's a flexible container that combines both ordered and named fields in a unique style. A struct literal is defined by a series of fields in side of curly braces. Named and unnamed fields can be mixed freely, while always remaining ordered. Field values can be mixed and matched with any types. All data in Comp is immutable, including these structures. </p>\n\n<p>One way to think of this is similar to how Python arguments are defined for a function. Some arguments are positional and some arguments are named. When combined with Comp's shape values we get defaults and flexible morphing (casts). This makes Comp's structs work like Python arguments, but you don't need to invoke a function to assemble them.</p>\n\n<p>Some examples likely make this clearer.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight c\"><code><span class=\"p\">{</span><span ",
+  "full_text": "An ongoing series of my thoughts and ideas for my Comp programming language.\n\nComp provides a single container type. It's a flexible container that combines both ordered and named fields in a unique style. A struct literal is defined by a series of fields in side of curly braces. Named and unnamed fields can be mixed freely, while always remaining ordered. Field values can be mixed and matched with any types. All data in Comp is immutable, including these structures. \n\nOne way to think of this is similar to how Python arguments are defined for a function. Some arguments are positional and some arguments are named. When combined with Comp's shape values we get defaults and flexible morphing (casts). This makes Comp's structs work like Python arguments, but you don't need to invoke a function to assemble them.\n\nSome examples likely make this clearer.\n\n{\"cat\" 12+12 true}\n{name=\"Joe\" score=14.5}\n{warning message=\"it did not work\" timestamp=now}\n{ {\"car\" year = 2021} {\"bike\" year = 2025} }\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nRemember, Comp's syntax uses no separators and whitespace is arbitrary. These statements could be split over multiple lines, joined, or justified in whatever style felt appropriate.\n\nFields are accessed either with dotted field name or positionally using a special index field. All fields can be referenced by index, which works for both named and unnamed fields. And the first index starts at 0, this does not allow \"negative indexing\" from the back of the container.\n\nuser.active.#0\nvehicles.#1.year\nconfig.server-details.port\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTypical field names are simple text tokens, which support kebab-case. But any value can be used as a field name, including numbers, tags, and other structures. These \"value\" field named are wrapped in single quotes and allow any value or expression. Double quotes can be used as text when the field name isn't a valid token. These same rules are used for defining fields and referencing fields. There are few other \"advanced field lookup\" syntaxes but these ones go a long way.\n\n{'15'=10+5 \"Server Port\"=12345}\n\ndata.'15'\ndata.\"Server Port\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "argument",
+      "comp",
+      "config.server-details.port",
+      "define",
+      "field",
+      "fullscreen",
+      "include",
+      "mode",
+      "name",
+      "python",
+      "struct",
+      "value"
+    ],
+    [
+      "python"
+    ]
+  ]
+}

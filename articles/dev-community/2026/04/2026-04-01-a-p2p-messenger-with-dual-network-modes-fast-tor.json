@@ -1,0 +1,39 @@
+{
+  "id": 7685,
+  "source": "DEV Community<",
+  "title": "A P2P messenger with dual network modes (Fast + Tor)",
+  "url": "https://dev.to/realman78/a-p2p-messenger-with-dual-network-modes-fast-tor-5g33",
+  "published_at": "2026-04-01T15:09:19Z",
+  "fetched_at": "2026-04-01T15:20:37.382622+00:00",
+  "author": "Marin Dedić",
+  "summary": "<p>Hello dev community,</p>\n\n<p>I have been working on a desktop P2P messenger called Kiyeovo for the last ~8 months, and I just published its beta version.</p>\n\n<p>Quick backstory: It started out as a CLI application for my Graduate Thesis, where I tried to make the most secure and private messenger application possible. Then, I transformed it into a desktop application, gave it \"clearnet\" support and added a bunch of features.</p>\n\n<p>The app runs in 2 completely isolated modes:</p>\n\n<ul>\n<li>fast mode: relay/DCUtR -&gt; lower latency, calls support</li>\n<li>anonymous mode: Tor message routing -&gt; slower, anonymous</li>\n</ul>\n\n<p>These modes use different protocol IDs, DHT namespaces, pubsub topics and storage scopes so there’s no data crossover between them.</p>\n\n<p>Messaging works peer-to-peer when possible, but falls back to DHT “offline buckets” when peers are offline. Messages are acknowledged and pruned after delivery.</p>\n\n<p>Group chat uses: - GossipSub for realtime deliver",
+  "full_text": "Hello dev community,\n\nI have been working on a desktop P2P messenger called Kiyeovo for the last ~8 months, and I just published its beta version.\n\nQuick backstory: It started out as a CLI application for my Graduate Thesis, where I tried to make the most secure and private messenger application possible. Then, I transformed it into a desktop application, gave it \"clearnet\" support and added a bunch of features.\n\nThe app runs in 2 completely isolated modes:\n\nfast mode: relay/DCUtR -> lower latency, calls support\n\nanonymous mode: Tor message routing -> slower, anonymous\n\nThese modes use different protocol IDs, DHT namespaces, pubsub topics and storage scopes so there’s no data crossover between them.\n\nMessaging works peer-to-peer when possible, but falls back to DHT “offline buckets” when peers are offline. Messages are acknowledged and pruned after delivery.\n\nGroup chat uses: - GossipSub for realtime delivery - control messages over offline buckets - ACK/republish cycles for reliability - key rotation with epoch-based topics - encrypted group metadata stored in DHT records\n\nOther: - E2E direct chat - file transfer with chunked encrypted streams - 1:1 audio/video calls (fast mode only, WebRTC)\n\nSome tradeoffs: - Tor mode has noticeable latency - mode switching requires restart - offline delivery is \"eventual consistency\" - no group calls yet (coming)\n\nI’d appreciate feedback, that's why I posted this as a beta version!\n\nRepo: https://github.com/Realman78/Kiyeovo\n\nThank you!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "anonymous",
+      "beta",
+      "cli",
+      "delivery",
+      "dht",
+      "encrypt",
+      "graduate thesis",
+      "group",
+      "kiyeovo",
+      "message",
+      "messenger",
+      "mode",
+      "offline",
+      "opensource",
+      "security",
+      "topic",
+      "typescript",
+      "webrtc"
+    ],
+    [
+      "cli",
+      "opensource"
+    ]
+  ]
+}

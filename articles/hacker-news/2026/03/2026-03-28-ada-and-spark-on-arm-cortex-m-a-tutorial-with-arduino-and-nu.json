@@ -1,0 +1,36 @@
+{
+  "id": 7692,
+  "source": "Hacker News",
+  "title": "Ada and Spark on ARM Cortex-M – A Tutorial with Arduino and Nucleo Examples",
+  "url": "http://inspirel.com/articles/Ada_On_Cortex.html",
+  "published_at": "2026-03-28T06:26:42Z",
+  "fetched_at": "2026-04-01T15:20:54.689297+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47552144\">Comments</a>",
+  "full_text": "Ada and SPARK on ARM Cortex-M\n\ntutorial with Arduino and Nucleo examples\n\nThis tutorial was written for all those who are interested in programming embedded systems and who would like to explore the idea of using Ada and SPARK in systems based on ARM Cortex-M microcontrollers.\n\nThe accompanying code is available here: ada-on-cortex.zip\n\nBonus content:\n\n Very Simple Scheduler",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "accompany",
+      "ada",
+      "arduino",
+      "arm cortex-m",
+      "base",
+      "bonus",
+      "cortex-m",
+      "cortex-m ada",
+      "embed",
+      "nucleo",
+      "programming",
+      "spark",
+      "system",
+      "tutorial",
+      "write"
+    ],
+    [
+      "programming",
+      "tutorial"
+    ]
+  ]
+}

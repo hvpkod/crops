@@ -1,0 +1,47 @@
+{
+  "id": 7852,
+  "source": "DEV Community<",
+  "title": "Configuring GPU Pass-Through for AMD cards on openSUSE Kalpa",
+  "url": "https://dev.to/nutthawit-l/configuring-gpu-pass-through-for-amd-cards-on-opensuse-kalpa-31e",
+  "published_at": "2026-04-01T23:35:24Z",
+  "fetched_at": "2026-04-02T00:00:56.092130+00:00",
+  "author": "nutthawit-l",
+  "summary": "<h2>\n  \n  \n  Prerequisites\n</h2>\n\n<ul>\n<li>You need an <strong>additional display card</strong> on the host (eg. 1 igpu + 1 dedicate gpu or 2 dedicate gpu).</li>\n<li>GPU pass-through is supported on the AMD64/Intel 64 architecture only.</li>\n</ul>\n\n<h2>\n  \n  \n  Configuring the host\n</h2>\n\n<h3>\n  \n  \n  Verify the host environment\n</h3>\n\n<p>Verify that the host support <a href=\"https://doc.opensuse.org/documentation/leap/virtualization/html/book-virtualization/gloss-vt-glossary.html#gloss-vt-acronym-vtd\" rel=\"noopener noreferrer\">VT-d</a> technology and that it is already enabled in the firmware settings:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight console\"><code><span class=\"gp\">#</span><span class=\"w\"> </span>dmesg | <span class=\"nb\">grep</span> <span class=\"nt\">-e</span> <span class=\"s2\">\"Directed I/O\"</span>\n<span class=\"go\">[    0.283295] [      T1] DMAR: Intel(R) Virtualization Technology for Directed I/O\n</span></code></pre>\n\n</div>\n\n\n\n<h3>\n  \n  \n  ",
+  "full_text": "Prerequisites\n\nYou need an additional display card on the host (eg. 1 igpu + 1 dedicate gpu or 2 dedicate gpu).\n\nGPU pass-through is supported on the AMD64/Intel 64 architecture only.\n\n \n \n Configuring the host\n\n \n \n Verify the host environment\n\nVerify that the host support VT-d technology and that it is already enabled in the firmware settings:\n\n# dmesg | grep -e \"Directed I/O\"\n[ 0.283295] [ T1] DMAR: Intel(R) Virtualization Technology for Directed I/O\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Enable IOMMU\n\nIOMMU is disabled by default. You need to enable it at boot time in the /etc/kernel/cmdline configuration file. \n\n1) For Intel CPU add this line to file:\n\nintel_iommu=on iommu=pt rd.driver.pre=vfio-pci\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n2) For AMD CPU add this line instead:\n\namd_iommu=on iommu=pt rd.driver.pre=vfio-pci\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n3) Finally, when you cat the file, you will see content like this:\n\n# cat /etc/kernel/cmdline \nroot=/dev/nvme0n1p2 splash=silent swapaccount=1 systemd.show_status=1 mitigations=auto quiet security=selinux selinux=1 intel_iommu=on iommu=pt rd.driver.pre=vfio-pci\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Configure VFIO and isolate the GPU used for pass-through\n\n1) Find the card vendor and model IDs:\n\n# lspci -nn | grep -i \"AMD\"\n03:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Navi 33 [Radeon RX 7600/7600 XT/7600M XT/7600S/7700S / PRO W7600] [1002:7480] (rev cf)\n03:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Navi 31 HDMI/DP Audio [1002:ab30]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n2) Create the file /etc/modprobe.d/vfio.conf with the following content:\n\noptions vfio-pci ids=1002:7480,1002:ab30\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Load the VFIO driver\n\n \n \n Including the driver in the initrd file\n\n1) Create the file /etc/dracut.conf.d/gpu-passthrough.conf and add the following content (mind the leading whitespace):\n\nadd_drivers+=\" vfio vfio_iommu_type1 vfio_pci \"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n2) Re-generate the initrd file:\n\n# sdbootutil list-snapshots\n1 first root filesystem\n2 Snapshot Update of #1\n3 Snapshot Update of #2\n4 Snapshot Update of #2\n5 Snapshot Update of #4\n6 Snapshot Update of #5\n7 Snapshot Update of #4\n\n# sdbootutil list-kernels 7\nok /lib/modules/6.19.5-2-default/vmlinuz -> opensuse-microos-6.19.5-2-default-7.conf\n\n# sdbootutil update-all-entries 7\n# sdbootutil mkinitrd 7\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n3) Reboot the host machine\n\nFor most of the changes in the above steps to take effect, you need to reboot the host machine:\n\n# reboot\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n4) Verify IOMMU is Active\n\nAfter your Kalpa host boots back up, open a terminal and check the kernel logs to confirm that the hardware isolation is working:\n\ndmesg | grep -i \"Adding to iommu group\"\n[ 0.283068] [ T1] pci 0000:00:00.0: Adding to iommu group 0\n[ 0.283078] [ T1] pci 0000:00:01.0: Adding to iommu group 1\n[ 0.283091] [ T1] pci 0000:00:14.0: Adding to iommu group 2\n[ 0.283097] [ T1] pci 0000:00:14.2: Adding to iommu group 2\n[ 0.283106] [ T1] pci 0000:00:15.0: Adding to iommu group 3\n[ 0.283115] [ T1] pci 0000:00:16.0: Adding to iommu group 4\n[ 0.283122] [ T1] pci 0000:00:17.0: Adding to iommu group 5\n[ 0.283137] [ T1] pci 0000:00:1a.0: Adding to iommu group 6\n[ 0.283147] [ T1] pci 0000:00:1c.0: Adding to iommu group 7\n[ 0.283155] [ T1] pci 0000:00:1c.3: Adding to iommu group 8\n[ 0.283163] [ T1] pci 0000:00:1c.4: Adding to iommu group 9\n[ 0.283172] [ T1] pci 0000:00:1d.0: Adding to iommu group 10\n[ 0.283188] [ T1] pci 0000:00:1f.0: Adding to iommu group 11\n[ 0.283195] [ T1] pci 0000:00:1f.3: Adding to iommu group 11\n[ 0.283201] [ T1] pci 0000:00:1f.4: Adding to iommu group 11\n[ 0.283208] [ T1] pci 0000:00:1f.5: Adding to iommu group 11\n[ 0.283216] [ T1] pci 0000:01:00.0: Adding to iommu group 12\n[ 0.283224] [ T1] pci 0000:02:00.0: Adding to iommu group 13\n[ 0.283235] [ T1] pci 0000:03:00.0: Adding to iommu group 14\n[ 0.283245] [ T1] pci 0000:03:00.1: Adding to iommu group 15\n[ 0.283260] [ T1] pci 0000:04:00.0: Adding to iommu group 16\n[ 0.283268] [ T1] pci 0000:06:00.0: Adding to iommu group 17\n[ 0.283275] [ T1] pci 0000:07:00.0: Adding to iommu group 18\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Configuring the guest\n\nThis section describes how to configure the guest virtual machine so that it can use the host's GPU.\n\n \n \n Requirements for the guest configuration\n\nUse Q35 chipset if possible.\n\nInstall the guest VM using UEFI firmware.\n\nAdd the following emulated Graphic: Spice or VNC\n\nAdd the following emulated Device: qxl, VGA or Virtio\n\nAdd the host PCI device (03:00.0 in our example) to the guest. \n\nFor the best performance, we recommend using virtio drivers for the network card and storage. \n\n \n \n 💡 Credits & Inspiration\n\nThis article was inspired by Configuring GPU Pass-Through for NVIDIA cards",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "add",
+      "amd",
+      "amd cpu",
+      "cli",
+      "configure",
+      "cpu",
+      "dmar",
+      "enter",
+      "exit",
+      "fullscreen",
+      "gpu",
+      "gpu-passthrough.conf",
+      "group",
+      "host",
+      "intel",
+      "iommu",
+      "linux",
+      "mode",
+      "opensource",
+      "snapshot",
+      "tutorial",
+      "vga",
+      "virtualization technology",
+      "vnc\n\nadd"
+    ],
+    [
+      "cli",
+      "linux",
+      "opensource",
+      "tutorial"
+    ]
+  ]
+}

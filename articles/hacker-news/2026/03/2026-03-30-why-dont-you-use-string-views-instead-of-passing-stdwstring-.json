@@ -1,0 +1,34 @@
+{
+  "id": 7542,
+  "source": "Hacker News",
+  "title": "Why Don't You Use String Views Instead of Passing Std:Wstring by Const&",
+  "url": "https://giodicanio.com/2024/05/14/why-dont-you-use-string-views-like-std-wstring_view-instead-of-passing-std-wstring-by-const-reference/",
+  "published_at": "2026-03-30T02:31:57Z",
+  "fetched_at": "2026-04-01T03:20:24.437197+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47569773\">Comments</a>",
+  "full_text": "Thank you for the suggestion. But *in that context* that would cause nasty bugs in my code, and in code that relies on it.\n \n \n \n \n\n \n\n…Because (in the given context) that would be wrong 🙂\n\nThis “suggestion” comes up with some frequency…\n\nThe context is this: I have some Win32 C++ code that takes input string parameters as const std::wstring&, and someone suggests me to substitute those wstring const reference parameters with string views like std::wstring_view. This is usually because they have learned from someone in some course/video course/YouTube video/whatever that in “modern” C++ code you should use string views instead of passing string objects via const&. [Sarcastic mode on]Are you passing a string via const&? Your code is not modern C++! You are such an ignorant C++98 old-style C++ programmer![Sarcastic mode off] 😉\n\n(There are also other “gurus” who say that in modern C++ you should always use exceptions to communicate error conditions. Yeah… Well, that’s a story for another time…)\n\nSo, Thank you for the suggestion, but using std::wstring_view instead of const std::wstring& in that context would introduce nasty bugs in my C++ code (and in other people’s code that relies on my own code)! So, I won’t do that!\n\nIn fact, my C++ code in question (like WinReg) talks to some Win32 C-style APIs. These expect PCWSTR as input parameters representing Unicode UTF-16 strings. A PCWSTR is basically a typedef for a _Null_terminated_ const wchar_t*. The key here is the null termination part.\n\nIf you have:\n\n// Input string passed via const&.\n//\n// Someone suggests me to replace 'const wstring &' \n// with wstring_view:\n//\n// void DoSomething(std::wstring_view s, ...)\n//\nvoid DoSomething(const std::wstring& s, ...)\n{\n // This API expects input string as PCWSTR,\n // i.e. _null-terminated_ const wchar_t*.\n SomeWin32Api(s.data(), ...); // <-- See the P.S. later\n}\n\nstd::wstring guarantees that the pointer returned by the wstring::data() method points to a null-terminated string.\n\nOn the other hand, invoking std::wstring_view::data() does not guarantee that the returned pointer points to a null-terminated string. It may, or may not. But there is no guarantee!\n\nSo, since [w]string_views are not guaranteed to be null-terminated, using them with Win32 APIs that expect null-terminated strings is totally wrong and a source of nasty bugs.\n\nSo, if your target are Win32 API calls that expect null-terminated C-style strings, just keep passing good old std::wstring by const&.\n\nBonus Reading: The Case of string_view and the Magic String\n\nP.S. Invoking data() vs. c_str() – To make things clearer (and more bug-resistant), when you need a null-terminated C-style string pointer as input parameter, it’s better to invoke the c_str() method on [w]string (instead of the data() method), as there is no corresponding c_str() method available with [w]string_view.\n\nIn this way, if someone wants to “modernize” the existing C++ code and tries to change the input string parameter from [w]string const& to [w]string_view, they get a compiler error when the c_str() method is invoked in the modified code (as there is no c_str() method available for string views). It’s much better to get a compile-time error than a subtle run-time bug!\n\nOn the other hand, the data() method is available for both strings and string views, but its guarantees about null-termination are different for strings vs. string views.\n\nSo, invoking the string’s c_str() method (instead of the data() method) is what I suggest when passing STL strings to Win32 API calls that expect C-style null-terminated string pointers as input (read-only) parameters. I consider this a best practice.\n\n(Of course, if the C-interface API function needs to write to the provided string buffer, the data() method must be invoked, as it’s overloaded for both the const and non-const cases.)",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "code",
+      "const",
+      "expect",
+      "input",
+      "invoke",
+      "method",
+      "p.s.",
+      "pass",
+      "pcwstr",
+      "pointer",
+      "std::wstring& s",
+      "stl",
+      "string",
+      "unicode",
+      "view"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 7547,
+  "source": "DEV Community<",
+  "title": "One Command to Save 90% of Your Claude Code Tokens",
+  "url": "https://dev.to/ji_ai/one-command-to-save-90-of-your-claude-code-tokens-31ma",
+  "published_at": "2026-04-01T03:29:10Z",
+  "fetched_at": "2026-04-01T03:40:21.775052+00:00",
+  "author": "jidonglab",
+  "summary": "<p>You just ran <code>npm install</code> inside Claude Code. 847 lines of output. Deprecation warnings, progress bars, ANSI color codes, duplicate messages.</p>\n\n<p>Claude read every single one of them. And now your context window is 30% smaller.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>Every CLI command you run inside an AI coding agent dumps its raw output into the context window. Most of that output is noise — framework frames in stack traces, repeated warnings, spinner animations, color escape codes.</p>\n\n<p>Your AI doesn't need any of it. But it pays for all of it.</p>\n\n<h2>\n  \n  \n  Before / After\n</h2>\n\n<p><strong>Before</strong> (raw <code>npm install</code>):<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight console\"><code><span class=\"go\">npm warn deprecated inflight@1.0.6: This module is not supported...\nnpm warn deprecated glob@7.2.3: Glob versions prior to v9...\nnpm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4...\nadded 847 packages in 1",
+  "full_text": "You just ran npm install inside Claude Code. 847 lines of output. Deprecation warnings, progress bars, ANSI color codes, duplicate messages.\n\nClaude read every single one of them. And now your context window is 30% smaller.\n\n \n \n The Problem\n\nEvery CLI command you run inside an AI coding agent dumps its raw output into the context window. Most of that output is noise — framework frames in stack traces, repeated warnings, spinner animations, color escape codes.\n\nYour AI doesn't need any of it. But it pays for all of it.\n\n \n \n Before / After\n\nBefore (raw npm install):\n\nnpm warn deprecated inflight@1.0.6: This module is not supported...\nnpm warn deprecated glob@7.2.3: Glob versions prior to v9...\nnpm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4...\nadded 847 packages in 12s\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n326,000 characters fed into context.\n\nAfter (through ContextZip):\n\nadded 847 packages in 12s\n💾 contextzip: 326,421 → 127,104 chars (61% saved)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n127,000 characters. Same useful information. 61% less noise.\n\n \n \n One Command\n\ncargo install contextzip\neval \"$(contextzip init)\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. ContextZip wraps your shell as a transparent proxy. Every command you run gets its output cleaned automatically — no config files, no per-command setup.\n\nIt strips ANSI codes, collapses duplicate warnings, removes framework stack frames, and groups identical errors. The original command behavior is completely unchanged.\n\nGitHub: github.com/contextzip/contextzip\n\n5 seconds to install. Works with Claude Code, Cursor, Windsurf, or any AI agent that runs CLI commands.\n\nPart of the ContextZip Daily series. Follow for daily tips on optimizing your AI coding workflow.\n\nInstall: npx contextzip | GitHub: jee599/contextzip",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "add",
+      "ai",
+      "ansi",
+      "claude",
+      "claudecode",
+      "cli",
+      "command",
+      "contextzip",
+      "cursor",
+      "deprecate",
+      "duplicate",
+      "fullscreen",
+      "github",
+      "mode",
+      "npm warn",
+      "opensource",
+      "output",
+      "productivity",
+      "warn",
+      "windsurf"
+    ],
+    [
+      "claudecode",
+      "cli",
+      "opensource",
+      "productivity"
+    ]
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 7743,
+  "source": "DEV Community<",
+  "title": "I studied Claude Code's leaked source and built a terminal UI toolkit from it",
+  "url": "https://dev.to/minnzen/i-studied-claude-codes-leaked-source-and-built-a-terminal-ui-toolkit-from-it-4poh",
+  "published_at": "2026-04-01T18:16:51Z",
+  "fetched_at": "2026-04-01T18:20:23.050830+00:00",
+  "author": "Zen",
+  "summary": "<p>On March 31, 2026, Claude Code's full TypeScript source was accidentally exposed via npm source maps. Like many developers, I started reading through it — and what I found surprised me.</p>\n\n<p>The terminal UI layer wasn't a quick hack. It was a production-grade rendering engine: a custom React reconciler, a pure TypeScript Yoga layout port, a complete ANSI/CSI/DEC/ESC/OSC parser stack, and dozens of polished UI components. All battle-tested across 500K+ daily sessions.</p>\n\n<p>So I extracted the architecture, rewrote the components from scratch, and turned it into an open-source toolkit.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fraw.githubusercontent.com%2FMinnzen%2Fclaude-code-kit%2Fmain%2Fdemo.gif\"><img alt=\"demo\" height=\"416\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fraw.github",
+  "full_text": "On March 31, 2026, Claude Code's full TypeScript source was accidentally exposed via npm source maps. Like many developers, I started reading through it — and what I found surprised me.\n\nThe terminal UI layer wasn't a quick hack. It was a production-grade rendering engine: a custom React reconciler, a pure TypeScript Yoga layout port, a complete ANSI/CSI/DEC/ESC/OSC parser stack, and dozens of polished UI components. All battle-tested across 500K+ daily sessions.\n\nSo I extracted the architecture, rewrote the components from scratch, and turned it into an open-source toolkit.\n\n \n\n \n \n What is claude-code-kit?\n\nA terminal UI toolkit with 3 packages:\n\n@claude-code-kit/shared — Yoga layout engine (pure TypeScript, no native bindings)\n\n@claude-code-kit/ink-renderer — Terminal rendering engine (React reconciler + Flexbox + keyboard/mouse events)\n\n@claude-code-kit/ui — 25+ UI components (REPL, Select, PromptInput, Spinner, and more)\n\n \n \n Quick Start\n\npnpm add @claude-code-kit/ui react\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nimport { render, Box, Text } from '@claude-code-kit/ink-renderer'\nimport { REPL, type Message } from '@claude-code-kit/ui'\nimport { useState } from 'react'\n\nfunction App() {\n const [messages, setMessages] = useState<Message[]>([])\n\n return (\n <REPL\n messages={messages}\n onSubmit={async (text) => {\n setMessages(prev => [...prev,\n { id: Date.now().toString(), role: 'user', content: text },\n { id: (Date.now()+1).toString(), role: 'assistant', content: `You said: ${text}` }\n ])\n }}\n commands={[\n { name: 'clear', description: 'Clear history', onExecute: () => setMessages([]) },\n ]}\n placeholder=\"Type a message...\"\n />\n )\n}\n\nawait render(<App />)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's a complete interactive REPL — message history, streaming text, slash commands, keyboard shortcuts — in 20 lines.\n\n \n \n Components\n\nHere's what you get:\n\nComponent\nWhat it does\n\nREPL\nComplete chat interface with message history, streaming, slash commands\n\nSelect\nList picker with keyboard navigation (arrows, j/k, number keys)\n\nMultiSelect\nMulti-item picker with toggle\n\nPromptInput\nText input with cursor, history, command autocomplete\n\nMessageList\nChat messages with user/assistant/system styling\n\nSpinner\nAnimated loading with verb rotation and elapsed time\n\nProgressBar\nVisual progress indicator\n\nStatusLine\nBottom status bar with segments\n\nDivider\nHorizontal rule with optional title\n\nStreamingText\nCharacter-by-character text reveal\n\nMarkdown\nTerminal markdown rendering\n\nPlus a design system (Dialog, Tabs, FuzzyPicker, ThemeProvider) and a command registration framework.\n\n \n \n What's different from Ink?\n\nInk is great for simple CLIs. claude-code-kit builds on the same React model but adds:\n\nPure TypeScript Yoga layout — no native bindings, no WASM, works everywhere\n\nExtended terminal I/O — full ANSI/CSI/DEC/ESC/OSC parser, not just basic escape codes\n\nHigher-level components — REPL, Select with descriptions, streaming text, command framework\n\nAI agent patterns — designed for the use case of building interactive AI tools\n\nIf you're building an AI coding assistant, trading terminal, or data dashboard in the terminal, this saves you from reinventing what Claude Code already solved.\n\n \n \n What I learned from the source\n\nA few things stood out:\n\nThey use React Compiler — all components were compiled with it, which made extraction harder (the output is _c(81) style memoization caches, not readable JSX)\n\nThe Yoga layout is a full TS rewrite — not a binding to the C++ library. ~2700 lines of pure TypeScript\n\nDead code elimination via feature flags — bun:bundle's feature() function gates entire subsystems at build time\n\nThe keybinding system is Claude Code's best-kept secret — chord sequences, context-aware bindings, user-configurable shortcuts\n\n \n \n Honest disclaimer\n\nThe rendering engine (@claude-code-kit/ink-renderer) is extracted from Claude Code's source. All UI components in @claude-code-kit/ui are clean rewrites — they are not copied from Claude Code. I wrote them from scratch, using Claude Code's visual patterns as reference.\n\nThis is an independent community project. Not affiliated with Anthropic.\n\n \n \n Links\n\nIf you're building terminal tools, give it a try and let me know what you think.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ansi",
+      "claude",
+      "cli",
+      "command",
+      "component",
+      "csi",
+      "cursor",
+      "fuzzypicker",
+      "layout",
+      "message",
+      "messagelist",
+      "opensource",
+      "progressbar",
+      "pure",
+      "react",
+      "rendering",
+      "repl",
+      "select",
+      "terminal",
+      "text",
+      "typescript",
+      "yoga"
+    ],
+    [
+      "cli",
+      "opensource"
+    ]
+  ]
+}

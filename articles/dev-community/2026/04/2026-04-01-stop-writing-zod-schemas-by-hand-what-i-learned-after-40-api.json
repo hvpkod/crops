@@ -1,0 +1,38 @@
+{
+  "id": 7747,
+  "source": "DEV Community<",
+  "title": "Stop Writing Zod Schemas by Hand: What I Learned After 40 API Endpoints",
+  "url": "https://dev.to/dileep1415/stop-writing-zod-schemas-by-hand-what-i-learned-after-40-api-endpoints-5ape",
+  "published_at": "2026-04-01T18:11:57Z",
+  "fetched_at": "2026-04-01T18:20:28.875919+00:00",
+  "author": "dileep kumar",
+  "summary": "<p>*</p>\n\n\n\n\n<p>I have a confession to make.</p>\n\n<p>I spent three hours debugging a Zod schema on a Friday night. Not because the validation was complex. Not because the business logic was tricky.</p>\n\n<p><strong>Because the backend team renamed <code>avatar</code> to <code>avatar_url</code> in a deeply nested object. And I missed it.</strong></p>\n\n<p>Three hours. For a single field name change.</p>\n\n<p>If you work with TypeScript and APIs, you know the drill. You have:</p>\n\n<ol>\n<li>Your TypeScript types</li>\n<li>Your Zod schemas for runtime validation\n</li>\n<li>The actual JSON data from your API</li>\n</ol>\n\n<p><strong>Three versions of the same data shape.</strong> All have to stay in sync.</p>\n\n<p>And when something changes, you get to play detective. Scrolling through JSON responses, comparing field names, updating schemas, hoping you didn't miss anything.</p>\n\n\n\n\n<h3>\n  \n  \n  The Breaking Point\n</h3>\n\n<p>I was maintaining a project with around 40 API endpoints. Each one returning",
+  "full_text": "*\n\nI have a confession to make.\n\nI spent three hours debugging a Zod schema on a Friday night. Not because the validation was complex. Not because the business logic was tricky.\n\nBecause the backend team renamed avatar to avatar_url in a deeply nested object. And I missed it.\n\nThree hours. For a single field name change.\n\nIf you work with TypeScript and APIs, you know the drill. You have:\n\nYour TypeScript types\n\nYour Zod schemas for runtime validation\n\nThe actual JSON data from your API\n\nThree versions of the same data shape. All have to stay in sync.\n\nAnd when something changes, you get to play detective. Scrolling through JSON responses, comparing field names, updating schemas, hoping you didn't miss anything.\n\n \n \n The Breaking Point\n\nI was maintaining a project with around 40 API endpoints. Each one returning nested objects, arrays, optional fields, nullable values.\n\nEvery time the backend team deployed, I'd open my editor and do the same dance:\n\nCopy the new JSON response\n\nCompare it to my existing schema\n\nUpdate field by field\n\nTest\n\nFix the typos I inevitably made\n\nTest again\n\nI made the same mistakes over and over:\n\n❌ Forgetting to mark a field as optional\n\n❌ Missing that an ID changed from string to number\n\n❌ Not handling null values properly\n\n❌ Typing avatar instead of avatar_url\n\nThe bugs would show up in production. Users would get validation errors for fields that existed. Forms would fail because of fields that were actually optional.\n\nI was spending more time fixing schema bugs than building features.\n\n \n \n The Idea\n\nI started wondering: Why am I writing these manually?\n\nThe JSON response is right there. The schema is just a structured version of that same data. Couldn't something automate this?\n\nSo I built a tool that does exactly that.\n\nHow it works:\n\nYou paste a JSON response. The tool looks at the actual data and figures out:\n\nWhat type is each field? (string, number, boolean, array, object)\n\nAre there any special patterns? (emails, URLs, UUIDs, dates)\n\nWhich fields are always present vs sometimes missing?\n\nWhich values can be null vs always have data?\n\nThen it generates a Zod schema.\n\nNot a perfect schema. But a correct, working schema that you can use immediately.\n\n \n \n What It Actually Saves You\n\nHere's what a typical API response looks like in my project:\n\n{\n \"status\": \"success\",\n \"code\": 200,\n \"data\": {\n \"items\": [\n {\n \"id\": \"550e8400-e29b-41d4-a716-446655440000\",\n \"title\": \"Something important\",\n \"createdAt\": \"2024-03-15T10:30:00Z\",\n \"metadata\": {\n \"views\": 1234,\n \"tags\": [\"featured\", \"popular\"],\n \"expires\": null\n }\n }\n ],\n \"pagination\": {\n \"page\": 1,\n \"limit\": 20,\n \"total\": 150,\n \"hasNext\": true\n }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWriting the schema for this manually would take me about 10 minutes. That's if I don't make any mistakes.\n\n`\n\n \n \n 🧠 What It Caught Automatically\n\nOne of the coolest parts of using this tool was noticing the details it picked up without any effort:\n\nUUID format for the id\n\nISO datetime format for createdAt\n\nNullable field for expires\n\nArray of strings for tags\n\nWould I have caught all that manually?\n\nMaybe.\n\nBut I definitely would've spent time checking each field.\n\n \n \n ⚡ The Unexpected Benefit\n\nThe tool did something I didn't expect.\n\nWhen the generated schema didn't match my expectations, I started investigating the data more carefully. And that’s when things got interesting…\n\n👉 I found bugs I would've never noticed otherwise.\n\n \n \n 🐛 Real Example #1\n\nOne time, the schema showed a field that was always null.\n\nSo I dug into our API logs...\n\nTurns out:\n\nThe backend had deprecated that field months ago\n\nNobody updated the documentation\n\nI had been validating it incorrectly the whole time\n\n \n \n 🐛 Real Example #2\n\nAnother time, I noticed the generated schema had optional fields that I had always treated as required.\n\nAfter checking:\n\nSome API responses were omitting those fields\n\nMy validation was silently failing for certain users\n\n \n \n 💡 The Realization\n\nThe tool wasn't just saving me time.\n\n👉 It was making my code more accurate.\n\n \n \n 📚 What I Learned\n\nZod is powerful, but writing schemas manually is still tedious\n\nThe real value is in validation, not typing everything by hand\n\nAutomating repetitive work isn’t lazy — it’s efficient\n\nAPI responses often have hidden patterns you don’t notice\n\nA working generated schema > a perfect schema you never write\n\n \n \n 🚀 Try It Yourself\n\nI put this tool online because if I needed it, chances are others do too.\n\n👉 ToolsVIA JSON to Zod Converter\n\nhttps://www.toolsvia.app/json-to-zod\n\n \n \n ✨ How It Works\n\nPaste your JSON\n\nClick convert\n\nDone\n\nNo signup.\n\nNo data upload (everything runs in your browser).\n\nNo hidden costs.\n\n \n \n 🎯 Final Thought\n\nIf you're tired of playing detective with your API responses, give it a try with one of your real endpoints.\n\nIt won’t solve all your problems…\n\n👉 But it might save you a Friday night or two 😄\n\n \n \n 💬 Your Turn\n\nWhat’s your most memorable debugging story?\n\nEver spent hours on something that should have been simple?\n\nDrop it in the comments — I’d love to know I’m not the only one 👇",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "automation",
+      "createdat\n\nnullable",
+      "data",
+      "field",
+      "generate",
+      "json",
+      "productivity",
+      "response",
+      "schema",
+      "spend",
+      "the id\n\niso",
+      "tool",
+      "typescript",
+      "validation",
+      "write",
+      "zod converter\n\nhttps://www.toolsvia.app/json-to-zod"
+    ],
+    [
+      "automation",
+      "productivity"
+    ]
+  ]
+}

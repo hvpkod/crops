@@ -1,0 +1,35 @@
+{
+  "id": 7552,
+  "source": "DEV Community<",
+  "title": "Building Infinite Scroll Galleries with GSAP and Three.js Shaders",
+  "url": "https://dev.to/jjangik/building-infinite-scroll-galleries-with-gsap-and-threejs-shaders-bgj",
+  "published_at": "2026-04-01T03:14:33Z",
+  "fetched_at": "2026-04-01T03:40:25.916401+00:00",
+  "author": "jjangik",
+  "summary": "<p>I've been experimenting with infinite scroll gallery interactions — <br />\nthe kind you see on Awwwards-winning sites — and built two <br />\ncomponents I wanted to share.</p>\n<h2>\n  \n  \n  1. Infinite 2D Grid\n</h2>\n\n<p>An omnidirectional infinite grid. Scroll or drag in any direction <br />\nand the cards wrap seamlessly. Each card has position-based inner <br />\nparallax, and clicking any card triggers a fullscreen expansion <br />\nwith animated border radius.</p>\n\n<p><strong>Live Demo:</strong> <a href=\"https://infinite-2d-grid-scroll.netlify.app\" rel=\"noopener noreferrer\">https://infinite-2d-grid-scroll.netlify.app</a></p>\n\n<p>Key technical details:</p>\n\n<ul>\n<li>DOM + CSS <code>translate3d</code> with modular wrapping on both axes</li>\n<li>Position-based inner parallax (image offset based on card's screen position)</li>\n<li>Off-screen culling for performance</li>\n<li>Mobile: 1:1 touch drag bypassing lerp for instant response</li>\n<li>GSAP timeline for fullscreen detail expansion</",
+  "full_text": "I've been experimenting with infinite scroll gallery interactions — \n\nthe kind you see on Awwwards-winning sites — and built two \n\ncomponents I wanted to share.\n\n \n \n 1. Infinite 2D Grid\n\nAn omnidirectional infinite grid. Scroll or drag in any direction \n\nand the cards wrap seamlessly. Each card has position-based inner \n\nparallax, and clicking any card triggers a fullscreen expansion \n\nwith animated border radius.\n\nLive Demo: https://infinite-2d-grid-scroll.netlify.app\n\nKey technical details:\n\nDOM + CSS translate3d with modular wrapping on both axes\n\nPosition-based inner parallax (image offset based on card's screen position)\n\nOff-screen culling for performance\n\nMobile: 1:1 touch drag bypassing lerp for instant response\n\nGSAP timeline for fullscreen detail expansion\n\n \n \n 2. Infinite Horizontal Scroll Gallery\n\nA Three.js-powered gallery with curved depth. Three rows scroll \n\nat different speeds. The interesting part: cards expand to \n\nfullscreen via a custom vertex shader.\n\nLive Demo: https://infinite-scroll-horizontal-gallery.netlify.app\n\nThe shader uses a uCorners vec4 uniform — each corner (TL, TR, \n\nBL, BR) animates independently from 0 to 1, with randomized \n\nstagger. The vertex shader interpolates between the card's curved \n\nstate and a fullscreen state using bilinear interpolation:\n\nfloat cornersProgress = mix(\n mix(uCorners.z, uCorners.w, uv.x),\n mix(uCorners.x, uCorners.y, uv.x),\n uv.y\n);\ngl_Position = projectionMatrix * viewMatrix * \n mix(defaultState, fullScreenState, cornersProgress);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis means every time you click a card, the expansion looks \n\nslightly different.\n\n \n \n Both galleries include:\n\nResponsive design (desktop + mobile)\n\nLoading progress bar\n\nConfigurable via 40+ variables in a CONFIG section\n\nNo build tools — open index.html and it works\n\nI packaged these as a product on \n\nGumroad \n\nfor anyone who wants to use them in their projects.\n\nWould love to hear what you think about the interactions!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "card",
+      "curved",
+      "dom",
+      "expansion",
+      "fullscreen",
+      "gallery",
+      "gsap",
+      "infinite",
+      "javascript",
+      "scroll",
+      "threejs",
+      "ucorners",
+      "vertex",
+      "webdev"
+    ],
+    [
+      "threejs",
+      "webdev"
+    ]
+  ]
+}

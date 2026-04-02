@@ -1,0 +1,45 @@
+{
+  "id": 7681,
+  "source": "DEV Community<",
+  "title": "How I Built 510 Calculator Tools with Next.js SSG and Zero Hosting Cost",
+  "url": "https://dev.to/miccho27/how-i-built-510-calculator-tools-with-nextjs-ssg-and-zero-hosting-cost-15n0",
+  "published_at": "2026-04-01T15:14:03Z",
+  "fetched_at": "2026-04-01T15:20:27.999755+00:00",
+  "author": "miccho27",
+  "summary": "<p>I built a site with <strong>510 free calculation tools</strong> — and every single page is statically generated at build time. No database. No server-side rendering. Just Next.js SSG and JSON.</p>\n\n<p>Here's the architecture behind <a href=\"https://keisan-tools.vercel.app\" rel=\"noopener noreferrer\">keisan-tools</a>.</p>\n\n<h2>\n  \n  \n  The Concept\n</h2>\n\n<p>Japanese users search for specific calculators constantly: BMI, mortgage payments, age calculators. Each query has decent search volume but low competition.</p>\n\n<p>Instead of building 10 tools manually, I built a <strong>system that generates tools from configuration files</strong>.</p>\n\n<h2>\n  \n  \n  Architecture\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>keisan-tools/\n├── data/\n│   └── tools.json          # 510 tool definitions\n├── app/\n│   └── [category]/\n│       └── [slug]/\n│           └── page.tsx     # Dynamic route\n├── lib/\n│   ├── calculator.ts        # Calculation engine\n│   └",
+  "full_text": "I built a site with 510 free calculation tools — and every single page is statically generated at build time. No database. No server-side rendering. Just Next.js SSG and JSON.\n\nHere's the architecture behind keisan-tools.\n\n \n \n The Concept\n\nJapanese users search for specific calculators constantly: BMI, mortgage payments, age calculators. Each query has decent search volume but low competition.\n\nInstead of building 10 tools manually, I built a system that generates tools from configuration files.\n\n \n \n Architecture\n\nkeisan-tools/\n├── data/\n│ └── tools.json # 510 tool definitions\n├── app/\n│ └── [category]/\n│ └── [slug]/\n│ └── page.tsx # Dynamic route\n├── lib/\n│ ├── calculator.ts # Calculation engine\n│ └── tools.ts # Tool loader\n└── next.config.js # SSG configuration\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEach tool is defined as a JSON object:\n\n{\n \"slug\": \"bmi-calculator\",\n \"category\": \"health\",\n \"title\": \"BMI Calculator\",\n \"inputs\": [\n { \"name\": \"height\", \"label\": \"Height (cm)\", \"type\": \"number\" },\n { \"name\": \"weight\", \"label\": \"Weight (kg)\", \"type\": \"number\" }\n ],\n \"formula\": \"weight / ((height / 100) ** 2)\",\n \"output_label\": \"Your BMI\"\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAdd a JSON entry, get a fully functional calculator page with SEO metadata, structured data, and responsive UI. No code changes needed.\n\n \n \n Static Generation at Scale\n\nNext.js generateStaticParams creates all 510 pages at build time:\n\nexport async function generateStaticParams() {\n const tools = getAllTools();\n return tools.map(tool => ({\n category: tool.category,\n slug: tool.slug,\n }));\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBuild time for 510 pages: ~45 seconds on Vercel. Each page is a static HTML file served from the CDN.\n\n \n \n SEO: JSON-LD Structured Data\n\nEvery tool page includes structured data:\n\n{\n \"@context\": \"https://schema.org\",\n \"@type\": \"WebApplication\",\n \"name\": \"BMI Calculator\",\n \"applicationCategory\": \"UtilityApplication\",\n \"offers\": {\n \"@type\": \"Offer\",\n \"price\": \"0\"\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis tells Google: \"This is a free web application.\" It helps with rich snippets in search results.\n\n \n \n Categories\n\nThe 510 tools span 20+ categories:\n\nCategory\nTools\nExamples\n\nHealth\n35\nBMI, calories, ideal weight\n\nFinance\n68\nLoan, compound interest, tax\n\nMath\n45\nPercentage, ratio, statistics\n\nDate/Time\n28\nAge, date diff, countdown\n\nUnit Conversion\n52\nLength, weight, temperature\n\nReal Estate\n22\nMortgage, rent vs buy\n\nInvestment\n31\nNISA, iDeCo, dividends\n\nEnergy\n18\nSolar panel, electricity savings\n\n \n \n Performance\n\nLighthouse score: 95+\n\nFirst Contentful Paint: < 1s\n\nTime to Interactive: < 1.5s\n\nBundle size: ~80KB gzipped\n\nStatic files + CDN = fast everywhere.\n\n \n \n Key Takeaway: Configuration Over Code\n\nThe biggest lesson: don't build 510 pages, build 1 page that reads 510 configurations.\n\nThis pattern works for any content-heavy site:\n\nRecipe sites (ingredients + steps as JSON)\n\nProduct comparison pages (specs as JSON)\n\nDocumentation sites (API endpoints as JSON)\n\nIf your pages share the same layout but different data, SSG + JSON is the answer.\n\n \n \n Tech Stack\n\nNext.js 16 (App Router, SSG)\n\nTypeScript + Tailwind CSS\n\nVercel (hosting, free tier)\n\nGoogle Analytics 4\n\nTotal monthly cost: $0.\n\nHave you built content-heavy static sites? What patterns have worked for scaling to hundreds or thousands of pages?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "bmi",
+      "build",
+      "cdn",
+      "configuration",
+      "date/time",
+      "exit",
+      "fullscreen",
+      "google",
+      "html",
+      "javascript",
+      "json",
+      "json-ld structured data",
+      "mode",
+      "nextjs",
+      "nisa",
+      "page",
+      "payments",
+      "seo",
+      "ssg",
+      "static",
+      "static generation",
+      "structured",
+      "tools",
+      "webdev"
+    ],
+    [
+      "nextjs",
+      "webdev"
+    ]
+  ]
+}

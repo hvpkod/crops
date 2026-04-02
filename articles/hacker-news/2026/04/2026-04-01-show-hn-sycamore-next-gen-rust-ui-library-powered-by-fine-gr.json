@@ -1,0 +1,34 @@
+{
+  "id": 7661,
+  "source": "Hacker News",
+  "title": "Show HN: Sycamore – next gen Rust UI library powered by fine-grained reactivity",
+  "url": "https://sycamore.dev",
+  "published_at": "2026-04-01T12:30:18Z",
+  "fetched_at": "2026-04-01T13:20:24.564277+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47599956\">Comments</a>",
+  "full_text": "Effortless Performance\n\nSycamore is built on top of Rust and WebAssembly, giving you full control over performance.\n\nFine-Grained Reactivity\n\nSycamore's reactivity system is fine-grained, meaning that only the parts of your app that need to be updated will be.\n\nType-checked UI\n\nWhether you use our custom DSL or the builder API, Sycamore type-checks your code to catch errors at compile-time.\n\nServer Side Rendering (SSR)\n\nSycamore supports Server Side Rendering out of the box. If you don't need it, however, SPA mode works just as well.\n\nAsync and Suspense\n\nEasily load and display asynchronous data using the resources and suspense API with first-class async/await support.\n\nBuilt-in Routing\n\nSycamore comes with a built-in router that supports both client-side navigation and server side rendering.\n\nSycamore is made possible by all our community contributors. Thank you!\n\nInterested in contributing as well? Check out our contribution guide.\n\nNovember 1, 2024\n\nAnnouncing Sycamore v0.9.0\n\nReactivity v3, View v2, resources API and suspense, SSR streaming, attributes passthrough, new website, and more!",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "api",
+      "effortless",
+      "performance",
+      "reactivity",
+      "rendering",
+      "resource",
+      "server",
+      "side",
+      "ssr",
+      "support",
+      "suspense",
+      "suspense\n\neasily",
+      "sycamore",
+      "webassembly"
+    ],
+    [
+      "performance"
+    ]
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 7808,
+  "source": "DEV Community<",
+  "title": "OpenSpec (Spec-Driven Development) Failed My Experiment — Instructions.md Was Simpler and Faster",
+  "url": "https://dev.to/incomplete_developer/openspec-spec-driven-development-failed-my-experiment-instructionsmd-was-simpler-and-faster-3a5d",
+  "published_at": "2026-04-01T20:51:39Z",
+  "fetched_at": "2026-04-01T21:20:26.874306+00:00",
+  "author": "Incomplete Developer",
+  "summary": "<p>There’s a lot of discussion right now about how developers should work with AI coding tools.</p>\n\n<p>Over the past year we’ve seen the rise of two very different philosophies:</p>\n\n<p><strong>1. Vibe Coding</strong> — just prompt the AI and iterate quickly<br />\n<strong>2. Spec-Driven Development</strong> — enforce structure so AI understands requirements</p>\n\n<p>Frameworks like <strong>OpenSpec</strong> are trying to formalize the second approach.</p>\n\n<p>Instead of giving AI simple prompts, the workflow looks something like this:</p>\n\n<ul>\n<li>generate a proposal</li>\n<li>review specifications</li>\n<li>approve tasks</li>\n<li>allow the AI agent to execute the plan</li>\n</ul>\n\n<p>In theory, this should produce <strong>better and more reliable code</strong>.</p>\n\n<p>So I decided to test it on a real project.</p>\n\n\n<h1>\n  \n  \n  Watch Video\n</h1>\n<h2>\n  \n  \n    \n  \n\n</h2>\n<h1>\n  \n  \n  The Experiment\n</h1>\n\n<p>I’m building a <strong>car classifieds web application</strong>.</p>\n\n<p>The ",
+  "full_text": "There’s a lot of discussion right now about how developers should work with AI coding tools.\n\nOver the past year we’ve seen the rise of two very different philosophies:\n\n1. Vibe Coding — just prompt the AI and iterate quickly\n\n2. Spec-Driven Development — enforce structure so AI understands requirements\n\nFrameworks like OpenSpec are trying to formalize the second approach.\n\nInstead of giving AI simple prompts, the workflow looks something like this:\n\ngenerate a proposal\n\nreview specifications\n\napprove tasks\n\nallow the AI agent to execute the plan\n\nIn theory, this should produce better and more reliable code.\n\nSo I decided to test it on a real project.\n\n \n \n Watch Video\n\n \n \n VIDEO\n\n \n \n The Experiment\n\nI’m building a car classifieds web application.\n\nThe backend and basic functionality already exist, and the front-end is built using .NET Razor Pages.\n\nThe problem is the UI.\n\nIt works, but it looks very basic and a bit lifeless.\n\nMy goal was simple:\n\nUse modern AI coding tools to generate a more premium looking front-end design.\n\nThis seemed like a perfect opportunity to test Spec-Driven Development with OpenSpec.\n\n \n \n Attempt 1: OpenSpec + GPT-5.3 Codex\n\nThe first attempt followed the full Spec-Driven Development workflow.\n\nUsing OpenSpec and GPT-5.3 Codex inside VS Code, the process looked like this:\n\nGenerate a proposal\n\nReview the generated specification\n\nApprove the list of tasks\n\nAllow the AI agent to execute the plan\n\nThis step alone took quite a bit of time.\n\nOne key feature of Spec-Driven Development is that the developer must review everything before execution.\n\nThis supposedly ensures that the AI clearly understands the requirements.\n\nAfter about two hours of work and a lot of tokens, I finally had the result.\n\nThe new front-end looked almost identical to the original.\n\nNot exactly the premium UI redesign I was hoping for.\n\n \n \n Attempt 2: OpenSpec + GitHub Copilot + Claude Haiku 4.5\n\nFor the second attempt, I tried something slightly different.\n\nInstead of GPT-5.3 Codex, I used:\n\nGitHub Copilot\n\nClaude Haiku\n\nThe idea was to keep the OpenSpec workflow but reduce token costs.\n\nFrom a tooling perspective, this actually felt better.\n\nCopilot’s integration with VS Code made the workflow smoother.\n\nBut the result?\n\nStill disappointing.\n\nMore time reviewing tasks.\n\nMore agent execution cycles.\n\nStill no meaningful improvement to the UI.\n\nAt this point the experiment had already consumed several hours.\n\n \n \n Attempt 3: Skip the Framework\n\nFor the final attempt, I tried something much simpler.\n\nI removed OpenSpec entirely and created a file called:\n\nInstructions.md\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNo proposal stage.\n\nNo task planning.\n\nNo spec review.\n\nJust clear instructions.\n\nThe first test was a small bug:\n\nThe image uploader was not working when updating a listing.\n\nI wrote the instructions and executed the AI agent.\n\nThe bug was fixed quickly.\n\nToken usage was minimal.\n\nExecution time was dramatically shorter.\n\n \n \n Trying the UI Redesign Again\n\nNext I gave the AI the original challenge:\n\nCreate a more modern and premium looking front-end.\n\nThe result still wasn’t perfect.\n\nBut the difference was huge:\n\nthe process was faster\n\nthe cost was much lower\n\niteration was much easier\n\nInstead of waiting for proposals and reviewing large spec documents, I could simply refine the instructions and try again.\n\n \n \n The Hidden Cost of Spec-Driven Development\n\nSpec-Driven Development is often presented as the solution to vibe coding chaos.\n\nAnd there’s some logic to that idea.\n\nAI models absolutely do misunderstand vague prompts.\n\nBut something that doesn’t get discussed enough is the cost of the framework itself.\n\nSpec-Driven workflows introduce:\n\nproposal generation\n\nspecification review\n\ntask planning\n\nmulti-step agent execution\n\nEach of these steps consumes:\n\ndeveloper time\n\nAI tokens\n\nattention\n\nIf the output is still poor, the overhead becomes difficult to justify.\n\n \n \n How Long Would a Human Take?\n\nOut of curiosity I asked an AI model how long a developer might take to manually build the redesigned UI.\n\nThe estimate was 2–3 weeks.\n\nPersonally, I think a competent developer could do it in about five days.\n\nWhich raises an interesting question:\n\nIf a developer can build the feature in under a week, does it make sense to spend hours orchestrating complex AI workflows?\n\n \n \n A Simpler Workflow Might Be Better\n\nThis experiment made me rethink something.\n\nMaybe the future of AI-assisted development isn’t heavy frameworks.\n\nMaybe it’s lighter workflows with better instructions.\n\nSomething like:\n\nsmall tasks\n\nclear instructions\n\nrapid iteration\n\ndeveloper oversight\n\nInstead of long orchestration pipelines.\n\n \n \n Final Thoughts\n\nFrameworks like OpenSpec are exploring an important idea:\n\nHow do we manage AI agents in large software projects?\n\nThat’s a real problem that will need solutions.\n\nBut in this small experiment, the results were clear.\n\nThe structured Spec-Driven Development workflow introduced a lot of overhead without delivering better results.\n\nA simple Instructions.md approach was faster, cheaper, and easier to iterate on.\n\nAs AI development tools continue evolving, it will be interesting to see whether developers move toward:\n\nstructured frameworks\nor\n\nlightweight instruction-based workflows\n\nThe answer may ultimately be somewhere in between.\n\n \n \n Video Series\n\n▶ Part 1 – Starting the Project\n\n▶ Part 2 – OpenSpec Solution Scaffolding\n\n▶ Part 3 – Data Access Layer\n\n▶ Part 4 – Creating UI Front End",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "attempt",
+      "copilot",
+      "developer",
+      "development",
+      "framework",
+      "instructions.md",
+      "openspec",
+      "openspec (spec-driven development",
+      "programming",
+      "proposal",
+      "something",
+      "spec-driven",
+      "spec-driven development",
+      "specdrivendevelopment",
+      "the project",
+      "token",
+      "vibe coding",
+      "video",
+      "watch video",
+      "well",
+      "workflow"
+    ],
+    [
+      "programming",
+      "specdrivendevelopment"
+    ]
+  ]
+}
