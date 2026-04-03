@@ -1,0 +1,37 @@
+{
+  "id": 8194,
+  "source": "DEV Community<",
+  "title": "Day 2 - Updated the REST API Project using ResponseEntity",
+  "url": "https://dev.to/bharathdhana/day-2-updated-the-rest-api-project-using-responseentity-l3d",
+  "published_at": "2026-04-02T23:18:13Z",
+  "fetched_at": "2026-04-03T00:00:36.301215+00:00",
+  "author": "Bharath Kumar J N",
+  "summary": "<h2>\n  \n  \n  Refactoring the Controller Response\n</h2>\n\n<p>While building the API, I made a small improvement to the controller response handling.</p>\n\n<p>Initially, the controller returned the data directly. Later, I updated it to use <code>ResponseEntity</code> to have better control over the HTTP response.</p>\n\n<h3>\n  \n  \n  Before\n</h3>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight java\"><code><span class=\"nd\">@GetMapping</span>\n<span class=\"kd\">public</span> <span class=\"nc\">List</span><span class=\"o\">&lt;</span><span class=\"nc\">Task</span><span class=\"o\">&gt;</span> <span class=\"nf\">getAllTasks</span><span class=\"o\">()</span> <span class=\"o\">{</span>\n    <span class=\"k\">return</span> <span class=\"n\">taskService</span><span class=\"o\">.</span><span class=\"na\">getAllTasks</span><span class=\"o\">();</span>\n<span class=\"o\">}</span>\n</code></pre>\n\n</div>\n\n\n\n<p><strong>What happens here</strong></p>\n\n<ul>\n<li>Spring automatically returns <code>200 OK</code>\n</li>\n<li>",
+  "full_text": "Refactoring the Controller Response\n\nWhile building the API, I made a small improvement to the controller response handling.\n\nInitially, the controller returned the data directly. Later, I updated it to use ResponseEntity to have better control over the HTTP response.\n\n \n \n Before\n\n@GetMapping\npublic List<Task> getAllTasks() {\n return taskService.getAllTasks();\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhat happens here\n\nSpring automatically returns 200 OK\n\nResponse body contains the list of tasks\n\nNo direct control over HTTP response structure\n\n \n \n After\n\n@GetMapping\npublic ResponseEntity<List<Task>> getAllTasks() {\n List<Task> tasks = taskService.getAllTasks();\n return ResponseEntity.ok(tasks);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhat improved\n\nThe method now returns a complete HTTP response\n\nThe HTTP status code is explicitly defined\n\nEasier to handle different scenarios like errors or empty responses\n\n \n \n Why This Matters\n\nUsing ResponseEntity makes the API more flexible and REST-friendly.\n\nFor example, we can now easily return different responses:\n\nreturn ResponseEntity.ok(tasks); // 200 OK\nreturn ResponseEntity.notFound().build(); // 404 Not Found\nreturn ResponseEntity.noContent().build();// 204 No Content\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis small change improves API clarity, maintainability, and error handling.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "api",
+      "api project",
+      "controller",
+      "devjournal",
+      "enter",
+      "exit",
+      "fullscreen",
+      "http",
+      "java",
+      "mode",
+      "response",
+      "responseentity",
+      "return",
+      "springboot",
+      "update"
+    ],
+    [
+      "devjournal",
+      "java",
+      "springboot"
+    ]
+  ]
+}

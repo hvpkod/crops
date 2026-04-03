@@ -1,0 +1,44 @@
+{
+  "id": 8059,
+  "source": "The Verge",
+  "title": "Flipboard just launched Surf, its new social app and feed reader",
+  "url": "https://www.theverge.com/tech/905929/flipboard-surf-fediverse-launch",
+  "published_at": "2026-04-02T16:06:11Z",
+  "fetched_at": "2026-04-02T16:40:20.975592+00:00",
+  "author": "David Pierce",
+  "summary": "<figure>\n\n<img alt=\"A screenshot of a phone showing a social feed for the Vergecast.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/Surf-Social.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tSurf’s main idea is about feeds. Everything is feeds. | Image: Flipboard\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\"><a href=\"https://surf.social/\">Surf</a> is a slightly hard app to explain. It's sort of three things: a client for fediverse apps like Bluesky and Mastodon; a feed reader that lets you subscribe to almost any website, podcast, or YouTube channel; and a tool for creating and following feeds of interesting content, a la Flipboard magazines. It's a browser for the fediverse, or for the open social web, if either of those phrases means anything to you. It's also one of the most compelling ideas you'll find about the future of the internet.</p>\n<p class=\"has-text-align-none\">After <a href=\"https://www.theverge.com/2024/12/18/24323",
+  "full_text": "Surf is a slightly hard app to explain. It’s sort of three things: a client for fediverse apps like Bluesky and Mastodon; a feed reader that lets you subscribe to almost any website, podcast, or YouTube channel; and a tool for creating and following feeds of interesting content, a la Flipboard magazines. It’s a browser for the fediverse, or for the open social web, if either of those phrases means anything to you. It’s also one of the most compelling ideas you’ll find about the future of the internet.\n\nAfter well over a year in beta, Surf is officially launching on Thursday. Right now, the only public experience is on the web (there are mobile apps in beta), with what Surf calls “social websites.” The Verge is one of Surf’s partners in the launch, and we’ve been building a bunch of these websites. If you go to, say, the Decoder page on Surf, you’ll be able to find all the recent episodes of the show, alongside a bunch of social chatter about the show. Anyone can post to the community just by using a hashtag (if nothing else, Surf is a big bet on hashtags as a way to organize the internet), and the feed’s moderators can control what people see and how.\n\nYou sign up for Surf with either a Mastodon or Bluesky account, and you can also sign up with both and then create a Surf account to manage it all. Once you’re in, you can start searching for and curating content — Flipboard says its search includes billions of posts across ActivityPub (the open protocol that powers Mastodon), AT Protocol (the open protocol that powers Bluesky), and the web. Ultimately, you shouldn’t have to worry about the protocols at all; Flipboard’s job is to bring all the content together no matter where it comes from. All you have to do is follow feeds curated by other people, or make and share them yourself.\n\nHere’s where it all starts to get a little heady. If you tap the heart button to like a post on Surf, you’re actually liking that content from your social account. If you leave a comment, you’re actually replying to that post with a post of your own. Add something to a Surf feed and you might be creating a Mastodon post to do so. This is the infrastructure of the fediverse that is both so exciting and so confusing. There’s something incredibly compelling about the idea of having a single account for posting everywhere, rather than managing accounts and communities across YouTube and Instagram and TikTok and the rest, but everyone is still figuring out how that’s actually supposed to work.\n\nOne way to think about federated social networks is just as huge, structured databases of stuff people post — all the links, selfies, jokes, videos, whatever, it all goes into the database. Most social apps so far have chosen to present that database as a dense Twitter-style timeline. Surf presents it differently: It shows video-first feeds with large previews and in-line players, turns a feed of podcast files into something resembling a podcast player, and shows links in a Flipboard-style magazine. (One of the coolest things about Surf in general is sorting feeds by content type; search for, say, “SNL clips,” hit the video tab, and you just get an endless feed of stuff, curated by people on Bluesky and Mastodon.)\n\nI’ve been beta testing Surf since nearly the beginning, and while there are some things about it — and about the fediverse in general — that still feel a little confusing, there’s also something powerful about the way this platform works. Using it feels like scrolling TikTok, except instead of trusting the algorithm, my feed is being curated by smart people on the internet. The Flipboard team is certainly trying to create a platform and a business from Surf, but the system is still open by design; even if Surf goes away, the content on the platform will stick around. In a time when platforms feel more fragile and unknowable than ever, Surf feels like a good step in a different direction.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "activitypub",
+      "apps",
+      "content",
+      "curate",
+      "fediverse",
+      "feed",
+      "flipboard",
+      "instagram",
+      "mastodon",
+      "platform",
+      "protocol",
+      "rss",
+      "snl",
+      "social",
+      "social media",
+      "something",
+      "surf",
+      "surf’s",
+      "tech",
+      "tiktok",
+      "web"
+    ],
+    [
+      "apps",
+      "social media",
+      "tech",
+      "web"
+    ]
+  ]
+}

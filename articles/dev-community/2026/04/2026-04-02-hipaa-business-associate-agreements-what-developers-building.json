@@ -1,0 +1,40 @@
+{
+  "id": 8196,
+  "source": "DEV Community<",
+  "title": "HIPAA Business Associate Agreements: What Developers Building Healthcare Integrations Need to Know",
+  "url": "https://dev.to/joegellatly/hipaa-business-associate-agreements-what-developers-building-healthcare-integrations-need-to-know-pj8",
+  "published_at": "2026-04-02T23:13:53Z",
+  "fetched_at": "2026-04-03T00:00:38.970051+00:00",
+  "author": "Joe Gellatly",
+  "summary": "<p>You've built a great SaaS product. A hospital wants to use it. Before any data flows, their compliance team sends you a Business Associate Agreement (BAA) and asks you to sign it.</p>\n\n<p>If you don't know what you're signing — or what obligations it creates — you're taking on legal liability that could cost your company millions.</p>\n\n<h2>\n  \n  \n  What Makes You a Business Associate\n</h2>\n\n<p>Under HIPAA, a <strong>Business Associate</strong> is any person or organization that creates, receives, maintains, or transmits protected health information (PHI) on behalf of a covered entity (healthcare providers, health plans, clearinghouses).</p>\n\n<p>For software teams, this means you're a business associate if:</p>\n\n<ul>\n<li>Your application stores patient data for a clinic or hospital</li>\n<li>Your API processes, routes, or transforms PHI</li>\n<li>Your cloud infrastructure hosts ePHI workloads</li>\n<li>Your analytics platform ingests data that includes patient identifiers</li>\n<li>Your ",
+  "full_text": "You've built a great SaaS product. A hospital wants to use it. Before any data flows, their compliance team sends you a Business Associate Agreement (BAA) and asks you to sign it.\n\nIf you don't know what you're signing — or what obligations it creates — you're taking on legal liability that could cost your company millions.\n\n \n \n What Makes You a Business Associate\n\nUnder HIPAA, a Business Associate is any person or organization that creates, receives, maintains, or transmits protected health information (PHI) on behalf of a covered entity (healthcare providers, health plans, clearinghouses).\n\nFor software teams, this means you're a business associate if:\n\nYour application stores patient data for a clinic or hospital\n\nYour API processes, routes, or transforms PHI\n\nYour cloud infrastructure hosts ePHI workloads\n\nYour analytics platform ingests data that includes patient identifiers\n\nYour customer support team can access PHI during troubleshooting\n\nYour backup systems contain copies of ePHI\n\nThe key phrase is \"on behalf of.\" If a healthcare provider uses your product and PHI passes through it, you're almost certainly a business associate — even if you never look at the data yourself.\n\n \n \n What a BAA Actually Requires\n\nA BAA isn't just a formality. It's a legally binding contract that requires you to:\n\n \n \n 1. Implement HIPAA Security Safeguards\n\nYou must apply the same administrative, physical, and technical safeguards that covered entities are required to implement. That means encryption, access controls, audit logging, workforce training, and a documented security program.\n\n \n \n 2. Report Breaches\n\nIf you discover a breach of unsecured PHI, you must notify the covered entity within 60 days (many BAAs negotiate this down to 10-30 days). \"Discovery\" includes when any employee or agent of your organization knows about it — not just when leadership finds out.\n\n \n \n 3. Ensure Subcontractor Compliance\n\nIf you use subcontractors who will access PHI (cloud providers, monitoring services, email platforms), you need BAAs with them too. The chain of BAAs must extend to every entity that touches PHI.\n\n \n \n 4. Make PHI Available for Patient Rights Requests\n\nIf a patient requests access to their records and your system holds those records, you need processes to support the covered entity in fulfilling that request within 30 days.\n\n \n \n 5. Return or Destroy PHI at Contract End\n\nWhen the relationship ends, you must return all PHI to the covered entity or destroy it — and certify the destruction. This includes backups, logs, cached data, and any derived datasets.\n\n \n \n The Subcontractor Chain Problem\n\nThis is where most development teams get tripped up. Consider a typical SaaS stack:\n\nYour Healthcare SaaS App\n├── AWS (infrastructure) → Need BAA ✓ (AWS offers one)\n├── Datadog (monitoring) → Need BAA if logs contain PHI\n├── SendGrid (email) → Need BAA if emails contain PHI\n├── Stripe (payments) → Usually no PHI, but verify\n├── Slack (internal comms) → Need BAA if team discusses PHI\n├── Jira (issue tracking) → Need BAA if tickets contain PHI\n└── GitHub (code repos) → Need BAA if repos contain PHI\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEvery tool in your stack that could come into contact with PHI needs a BAA. The major cloud providers (AWS, GCP, Azure) all offer BAAs. Many SaaS tools do not — which means you either need to find alternatives that do, or ensure PHI never touches those systems.\n\n \n \n Common BAA Mistakes\n\n \n \n Assuming your cloud provider's BAA covers everything\n\nAWS's BAA covers their infrastructure services, but it doesn't make your application compliant. You're still responsible for how you configure and use those services. An S3 bucket without encryption, a publicly accessible RDS instance, or an unencrypted EBS volume are all your problem, not AWS's.\n\n \n \n Not having a BAA before data flows\n\nThe BAA must be executed before any PHI is created, received, maintained, or transmitted. Retroactive BAAs don't fix the compliance gap during the period without one.\n\n \n \n Using personal or non-BAA-covered tools for PHI\n\nA developer SSHs into a production server and copies patient data to their laptop for debugging. That laptop isn't covered by your BAA with the healthcare client. Now you have an uncontrolled PHI exposure.\n\n \n \n Ignoring the minimum necessary standard\n\nYour BAA doesn't give you carte blanche to access all PHI. You should only access, use, or disclose the minimum necessary PHI to perform the service specified in the BAA.\n\n \n \n Practical Steps for Dev Teams\n\nInventory your PHI touchpoints — Map every system, service, and workflow where PHI could exist\n\nAudit your vendor stack — Identify which vendors have BAAs available and which don't\n\nImplement technical controls — Encryption, access controls, and audit logging across all PHI-touching systems\n\nDocument your security program — You need policies, procedures, and evidence that you're actually following them\n\nConduct a Security Risk Analysis — Assess the risks to ePHI in your environment and document your remediation plans\n\n \n \n Making It Manageable\n\nFor SaaS companies entering the healthcare space, the BAA and compliance requirements can feel overwhelming. The key is treating compliance as an engineering problem, not a legal one — build it into your architecture, automate the tracking, and maintain documentation as a living system rather than a point-in-time exercise.\n\nFor a comprehensive look at how to manage BAAs and other compliance requirements as part of your broader HIPAA program: HIPAA Compliance Solutions\n\nAnd if you're starting from the foundation — the Security Risk Analysis that drives your entire compliance program: What Is a HIPAA Security Risk Analysis?\n\nJoe Gellatly is CEO of Medcurity, a HIPAA compliance platform that helps healthcare organizations and their business associates manage risk assessments, BAA tracking, and compliance programs.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "associate",
+      "aws",
+      "baa",
+      "business",
+      "compliance",
+      "cover",
+      "datum",
+      "destroy phi",
+      "entity",
+      "gcp",
+      "healthcare",
+      "hipaa",
+      "make phi available",
+      "payments",
+      "phi",
+      "rds",
+      "saas",
+      "security"
+    ],
+    [
+      "healthcare",
+      "saas"
+    ]
+  ]
+}

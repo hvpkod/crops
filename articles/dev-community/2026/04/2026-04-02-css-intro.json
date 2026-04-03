@@ -1,0 +1,37 @@
+{
+  "id": 8092,
+  "source": "DEV Community<",
+  "title": "CSS- intro",
+  "url": "https://dev.to/preethi_sunil_caf7d1dad16_77/css-intro-33l4",
+  "published_at": "2026-04-02T17:28:07Z",
+  "fetched_at": "2026-04-02T18:00:46.385610+00:00",
+  "author": "sai sanjana",
+  "summary": "<p>Hi all,<br />\nHere I am going to tell you the introduction of css and its other uses.</p>\n\n<p>Introduction to CSS<br />\nCSS (Cascading Style Sheets) is the language used to style and design web pages. While HTML provides the structure, CSS brings life to it by controlling colors, layouts, fonts, and overall presentation.</p>\n\n<p>--Basics of CSS<br />\n1.Selectors &amp; Properties: CSS targets HTML elements (like p, h1, or div) and applies styles using properties such as color, font-size, or margin.</p>\n\n<p>2.Inline, Internal, External: Styles can be written directly in HTML (inline), inside  tags (internal), or in separate .css files (external).&lt;/p&gt;\n\n&lt;p&gt;3.Cascading &amp;amp; Inheritance: The &amp;quot;cascading&amp;quot; nature means styles can override each other depending on priority, while inheritance allows child elements to adopt styles from their parent.&lt;/p&gt;\n\n&lt;p&gt;--Uses of CSS&lt;br&gt;\n1.Designing visually appealing websites.&lt;/p&gt;\n\n&lt;p&gt;2.Creati",
+  "full_text": "Hi all,\n\nHere I am going to tell you the introduction of css and its other uses.\n\nIntroduction to CSS\n\nCSS (Cascading Style Sheets) is the language used to style and design web pages. While HTML provides the structure, CSS brings life to it by controlling colors, layouts, fonts, and overall presentation.\n\n--Basics of CSS\n\n1.Selectors & Properties: CSS targets HTML elements (like p, h1, or div) and applies styles using properties such as color, font-size, or margin.\n\n2.Inline, Internal, External: Styles can be written directly in HTML (inline), inside tags (internal), or in separate .css files (external).</p>\n\n<p>3.Cascading &amp; Inheritance: The \"cascading\" nature means styles can override each other depending on priority, while inheritance allows child elements to adopt styles from their parent.</p>\n\n<p>--Uses of CSS<br>\n1.Designing visually appealing websites.</p>\n\n<p>2.Creating responsive layouts for different devices.</p>\n\n<p>3.Animating elements for interactive experiences.</p>\n\n<p>4.Maintaining consistency across multiple pages with external style</p>\n\n<p>--Alternative to CSS: Tailwind CSS<br>\nWhile traditional CSS is powerful, frameworks like Tailwind CSS offer a modern alternative. Tailwind is a utility-first CSS framework that provides pre-defined classes, making styling faster and more consistent.</p>\n\n<p>1.Utility Classes: Instead of writing custom CSS, you use classes like bg-blue-500 or text-center.</p>\n\n<p>2.Rapid Development: Speeds up design by reducing repetitive code.</p>\n\n<p>3.Responsive Ready: Built-in support for mobile-friendly layouts. </p>\n\n<p>--Is CSS Case-Sensitive?<br>\nCSS is not case-sensitive for property names and values (e.g., color and COLOR work the same). However, class and ID names are case-sensitive because they depend on how they’re defined in HTML. For best practice, always use lowercase for consistency.</p>",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "class",
+      "color",
+      "computerscience",
+      "css",
+      "element",
+      "framework",
+      "html",
+      "internal, external: styles",
+      "introduction",
+      "learning",
+      "name",
+      "provide",
+      "software",
+      "style",
+      "tailwind",
+      "tailwind css"
+    ],
+    [
+      "computerscience",
+      "learning"
+    ]
+  ]
+}

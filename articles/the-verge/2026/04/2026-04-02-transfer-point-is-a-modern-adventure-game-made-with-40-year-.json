@@ -1,0 +1,39 @@
+{
+  "id": 8002,
+  "source": "The Verge",
+  "title": "Transfer Point is a modern adventure game made with 40-year-old software",
+  "url": "https://www.theverge.com/entertainment/905339/transfer-point-mac-adventure-game-world-builder",
+  "published_at": "2026-04-02T13:00:00Z",
+  "fetched_at": "2026-04-02T13:20:16.558852+00:00",
+  "author": "Andrew Webster",
+  "summary": "<figure>\n\n<img alt=\"A screenshot from the video game Transfer Point.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/Screenshot-2026-03-30-at-12.09.20PM.png?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">One of the year's most intriguing games was developed using software first released 40 years ago. <a href=\"https://robotspacer.software/transfer-point.html\"><em>Transfer Point</em></a> looks and plays like a classic Mac point-and-click adventure game, and there's a very good reason for that: It was developed using World Builder, a game creation tool first released in 1986 that has since become freeware. \"The initial motivation was wanting to share this tool that was really innovative at the time, and meant a lot to me as a kid,\" says developer Mike Piontek. \"But the plan was to spend a few weeks on it, and I ended up doing it for over a year.\"</p>\n<p class=\"has-text-align-none\">Piontek fi",
+  "full_text": "One of the year’s most intriguing games was developed using software first released 40 years ago. Transfer Point looks and plays like a classic Mac point-and-click adventure game, and there’s a very good reason for that: It was developed using World Builder, a game creation tool first released in 1986 that has since become freeware. “The initial motivation was wanting to share this tool that was really innovative at the time, and meant a lot to me as a kid,” says developer Mike Piontek. “But the plan was to spend a few weeks on it, and I ended up doing it for over a year.”\n\nPiontek first became obsessed with adventure games as a kid, and a lot of that was due to Silicon Beach Software, the now-defunct developer behind titles like Dark Castle. The studio also put out creative tools like SuperPaint and World Builder, and from the age of 11 Piontek began experimenting with designing his own point-and-clicks. Now he makes a living as a software developer, but he still shares his love for classic games on Twitch — and that’s where Transfer Point began.\n\n“It became a puzzle of how to pull all these disparate ideas together.”\n\n“I thought it’d be fun to make a small game in World Builder, to introduce more people to it,” Piontek explains. It started out as a community project; he’d ask viewers for ideas, and then have everyone vote on which was best before implementing it. That’s how the game’s opening scene ended up being a bus stop in the middle of nowhere. Eventually, there were so many different ideas that Piontek realized the game could be something much bigger than he initially planned. “It became a puzzle of how to pull all these disparate ideas together,” he explains.\n\nEven though he’s been using the software for decades, Piontek says there are some challenges that come from developing games in World Builder, especially in comparison to more modern tools. While the software is designed to be simple — you don’t need to know how to code to use it — it still has its quirks.\n\n“I think the most challenging aspect is that variables — where you keep track of what the player has done — can’t have custom names and can only store numbers,” Piontek explains. “If you need to remember the player opened a can of soda in a modern language, you might have a variable named ‘soda’ that you set to ‘open.’ In World Builder, the best you can do is set, say, S3# to 1. If the player drinks some soda, you might set S3# to 2. You’ll need to keep good notes about what that means, and make sure you don’t accidentally use that variable for anything else! It’s funny, a lot of aspects of making a game in World Builder actually remind me of playing old adventure games.”\n\nBut for Piontek it’s exactly those kinds of quirks that made this project so interesting. Constraints can breed creativity after all. “Having to work around limitations just gets my gears turning,” he says. “I want to push back on those limits and see what I can get away with.” And going through the process from start to finish was especially rewarding. Though he’s been playing around with World Builder and designing games as a hobby since he was young, he usually doesn’t actually finish them. But Transfer Point is a real game you can experience right now — it’s playable in a browser, and you can also purchase it on Itch.io.\n\n“I started with literally nothing, set aside a few hours a week, and made something that I think is worthwhile and meaningful.”\n\n“I think the biggest thing I learned is that I can do those last steps,” he says. “I think anyone can make and release a game if they want to. I find it easy to get waylaid by thoughts of wishing I had more time, or not feeling like my idea is complete enough to get started. But I started with literally nothing, set aside a few hours a week, and made something that I think is worthwhile and meaningful.”\n\nPiontek also isn’t done challenging himself quite yet. He has one more platform in mind for Transfer Point, and it’s an unexpected one: the Playdate. Panic’s little yellow handheld doesn’t have a mouse or a keyboard, two integral components for playing these kinds of games. But Piontek is viewing those limitations as “a fun challenge.” And while the Playdate may not seem like an obvious fit on a technical level, there’s something about it that connects to Piontek. “Most of all I think it’s a neat little system that really captures the excitement I felt as a kid, growing up with a Mac,” he says.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "adventure",
+      "entertainment",
+      "game",
+      "gaming",
+      "idea",
+      "mac",
+      "piontek",
+      "play",
+      "point",
+      "report",
+      "silicon beach software",
+      "start",
+      "superpaint",
+      "transfer",
+      "transfer point",
+      "twitch",
+      "variable",
+      "world",
+      "world builder"
+    ],
+    [
+      "entertainment"
+    ]
+  ]
+}

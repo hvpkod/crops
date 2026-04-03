@@ -1,0 +1,33 @@
+{
+  "id": 7999,
+  "source": "Hacker News",
+  "title": "ReactOS Shows Improved Stability and 64-Bit Support at Chemnitz Linux Days 2026",
+  "url": "https://old.reddit.com/r/reactos/comments/1sa26yu/back_from_chemnitz_linux_days_2026/",
+  "published_at": "2026-04-02T11:49:01Z",
+  "fetched_at": "2026-04-02T12:40:32.208916+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47613156\">Comments</a>",
+  "full_text": "Hello to our dear followers.\n\nI came back from Chemnitz today and want to show you some pictures of our booth at the Linux Days 2026 and our apartment and some more stuff.\n\nhttps://photos.app.goo.gl/1LrSoM4qNecdmpqh6\n\nI will write a Blog post about it tomorrow, but here for you some first impressions.\n\n- We showed not just the 64 Bit port running on real hardware, but also the improvements in stability.\n\n- I had to reinstall ROS ZERO times on my devices over the two days we were there. Of course it BSODed a few times, but a simple reboot later I was able to continue.\n\n- We had hardware accelerated GFX on two of the four notebooks we had there. Sound was active on two, too. LAN was active on ALL four of them. All with the official drivers for the devices coming from the support pages of the manufacturers.\n\n- We showed games running this year and they ran better than I expected.\n\n- We had quite some work to do there. I myself talked to 36 people over the two days and the others had many discussions, too. Some of these discussions were coming from very interested people with interesting questions and best wishes for our improvements and steady progress.\n\n- Libre Office was next to us and we just HAD TO show it running on ROS. Not the newest one, but a 5.x version was running super fine.\n\n- Catering was super good for the supporting team and all sponsors and booth maintainers :D\n\n- The whole event is worth a visit every year. SO if you live around there, come by next year ^^ (Well, two of our booth maintainers came from USA just to help there and for the Hackfest afterwards)\n\n- The days after CLT were used for a little Hackfest, just like we did last year. It's still up and running right now. I had to leave early due to personal reasons, but the rest still is there and hacks around.\n\nThis is it for now. More and more details will follow.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "booth",
+      "chemnitz",
+      "clt",
+      "come",
+      "day",
+      "hackfest",
+      "improvement",
+      "lan",
+      "linux",
+      "maintainer",
+      "ros",
+      "ros zero",
+      "run",
+      "show",
+      "usa"
+    ],
+    []
+  ]
+}

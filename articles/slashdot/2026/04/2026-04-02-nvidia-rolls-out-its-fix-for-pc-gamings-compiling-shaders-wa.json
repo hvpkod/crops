@@ -1,0 +1,33 @@
+{
+  "id": 8066,
+  "source": "Slashdot",
+  "title": "Nvidia Rolls Out Its Fix For PC Gaming's 'Compiling Shaders' Wait Times",
+  "url": "https://tech.slashdot.org/story/26/04/02/042250/nvidia-rolls-out-its-fix-for-pc-gamings-compiling-shaders-wait-times?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-02T16:00:00Z",
+  "fetched_at": "2026-04-02T17:00:26.278449+00:00",
+  "author": "BeauHD",
+  "summary": "Nvidia has begun rolling out a beta feature that automatically compiles game shaders while a PC is idle. It won't eliminate shader compilation the first time a game runs, but Ars Technica reports it could help reduce those repeated wait times. From the report: Nvidia's new Auto Shader Compilation system promises to \"reduc[e] the frequency of game runtime compilation after driver updates\" for users running Nvidia's GeForce Game Ready Driver 595.97 WHQL or later. When the feature is active and your machine is idle, the app will automatically start rebuilding DirectX drivers for your games so they're all set to roll the next time they launch.\n \nWhile the feature defaults to being turned off when the Nvidia App is first downloaded, users can activate it by going to the Graphics Tab &gt; Global Settings &gt; Shader Cache. There, they can set aside disk space for precompiled shaders and decide how many system resources the compilation process should use. App users can also manually force sha",
+  "full_text": "Nvidia has begun rolling out\n\n a beta feature that automatically compiles game shaders while a PC is idle\n\n. It won't eliminate shader compilation the first time a game runs, but Ars Technica reports it could help reduce those repeated wait times. From the report: Nvidia's new Auto Shader Compilation system promises to \"reduc[e] the frequency of game runtime compilation after driver updates\" for users running Nvidia's GeForce Game Ready Driver 595.97 WHQL or later. When the feature is active and your machine is idle, the app will automatically start rebuilding DirectX drivers for your games so they're all set to roll the next time they launch.\n\n \n\nWhile the feature defaults to being turned off when the Nvidia App is first downloaded, users can activate it by going to the Graphics Tab > Global Settings > Shader Cache. There, they can set aside disk space for precompiled shaders and decide how many system resources the compilation process should use. App users can also manually force shader recompilation through the app rather than waiting for the machine to go idle.\n\n \n\nUnfortunately, Nvidia warns that users will still have to generate shaders in-game after downloading a title for the first time. The Auto Shader Compiler system only generates the new shaders needed after subsequent driver updates following that first run of a new title.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "auto",
+      "auto shader compilation",
+      "automatically",
+      "compilation",
+      "driver",
+      "feature",
+      "game",
+      "geforce game",
+      "graphics",
+      "nvidia",
+      "nvidia rolls",
+      "shader",
+      "user"
+    ],
+    [
+      "graphics"
+    ]
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": 7955,
+  "source": "DEV Community<",
+  "title": "Big O Notation সহজভাবে বুঝুন (Real-Life Example সহ)",
+  "url": "https://dev.to/mohammad_alamin_a95501e7/big-o-notation-shjbhaabe-bujhun-real-life-example-sh-1iim",
+  "published_at": "2026-04-02T08:49:13Z",
+  "fetched_at": "2026-04-02T09:00:43.723967+00:00",
+  "author": "Mohammad Al Amin",
+  "summary": "<p>প্রোগ্রামিংয়ে আমরা শুধু কোড লিখলেই হয় না, সেই কোড কতটা দ্রুত কাজ করে সেটাও খুব গুরুত্বপূর্ণ। এই performance বোঝার জন্যই আমরা ব্যবহার করি <strong>Big O Notation</strong>।</p>\n\n\n\n\n<h2>\n  \n  \n  Big O Notation কী?\n</h2>\n\n<p>Big O Notation হলো একটি পদ্ধতি, যার মাধ্যমে আমরা বুঝতে পারি একটি অ্যালগরিদম বা কোড কত দ্রুত বা ধীরে কাজ করে, বিশেষ করে ইনপুট বড় হলে।</p>\n\n<p>সহজভাবে বললে,<br />\n<strong>input যত বাড়বে, execution time কীভাবে বাড়বে — সেটাই Big O দিয়ে বোঝানো হয়।</strong></p>\n\n\n<h2>\n  \n  \n  কেন Big O গুরুত্বপূর্ণ?\n</h2>\n\n<p>ধরুন, আপনি একই কাজ করার জন্য দুইটা কোড লিখলেন।<br />\nদুটোই কাজ করছে, কিন্তু একটার সময় বেশি লাগছে।</p>\n\n<p>এই পার্থক্যটা বোঝার জন্যই Big O দরকার।</p>\n\n<p>এটি আপনাকে সাহায্য করে:</p>\n\n<ul>\n<li>Efficient algorithm বাছাই করতে</li>\n<li>Interview preparation করতে</li>\n<li>Large data handle করতে</li>\n</ul>\n\n\n<h2>\n  \n  \n  Real-Life Example\n</h2>\n\n<p>ধরুন আপনি একটি বই খুঁজছেন:</p>\n<h3>\n  \n  \n  Scenario 1: Random খোঁজা\n</h3>\n\n<p>আপনি বইগুলো এলোমেলোভাবে খুঁজছেন।<br />\nপ্রতিটি বই",
+  "full_text": "প্রোগ্রামিংয়ে আমরা শুধু কোড লিখলেই হয় না, সেই কোড কতটা দ্রুত কাজ করে সেটাও খুব গুরুত্বপূর্ণ। এই performance বোঝার জন্যই আমরা ব্যবহার করি Big O Notation।\n\n \n \n Big O Notation কী?\n\nBig O Notation হলো একটি পদ্ধতি, যার মাধ্যমে আমরা বুঝতে পারি একটি অ্যালগরিদম বা কোড কত দ্রুত বা ধীরে কাজ করে, বিশেষ করে ইনপুট বড় হলে।\n\nসহজভাবে বললে,\n\ninput যত বাড়বে, execution time কীভাবে বাড়বে — সেটাই Big O দিয়ে বোঝানো হয়।\n\n \n \n কেন Big O গুরুত্বপূর্ণ?\n\nধরুন, আপনি একই কাজ করার জন্য দুইটা কোড লিখলেন।\n\nদুটোই কাজ করছে, কিন্তু একটার সময় বেশি লাগছে।\n\nএই পার্থক্যটা বোঝার জন্যই Big O দরকার।\n\nএটি আপনাকে সাহায্য করে:\n\nEfficient algorithm বাছাই করতে\n\nInterview preparation করতে\n\nLarge data handle করতে\n\n \n \n Real-Life Example\n\nধরুন আপনি একটি বই খুঁজছেন:\n\n \n \n Scenario 1: Random খোঁজা\n\nআপনি বইগুলো এলোমেলোভাবে খুঁজছেন।\n\nপ্রতিটি বই একে একে দেখছেন।\n\n➡️ এটি O(n) — কারণ n সংখ্যক বই হলে n বার খুঁজতে হতে পারে।\n\n \n \n Scenario 2: Alphabetically সাজানো\n\nবইগুলো যদি A-Z অনুযায়ী সাজানো থাকে, আপনি মাঝখান থেকে খুঁজতে শুরু করতে পারেন।\n\n➡️ এটি O(log n) — কারণ আপনি প্রতি ধাপে অর্ধেক করে কমাচ্ছেন।\n\n \n \n Common Big O Types\n\n \n \n O(1) — Constant Time\n\nএখানে ইনপুট যত বড়ই হোক, সময় একই থাকে।\n\nউদাহরণ:\n\nconst arr = [10, 20, 30];\nconsole.log(arr[0]); // Direct access\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n O(n) — Linear Time\n\nইনপুট যত বাড়ে, সময় তত বাড়ে।\n\nউদাহরণ:\n\nconst arr = [10, 20, 30];\narr.forEach(item => console.log(item));\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n O(n²) — Quadratic Time\n\nNested loop থাকলে সাধারণত এই complexity হয়।\n\nউদাহরণ:\n\nfor (let i = 0; i < n; i++) {\n for (let j = 0; j < n; j++) {\n console.log(i, j);\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n O(log n) — Logarithmic Time\n\nপ্রতি ধাপে problem size অর্ধেক হয়ে যায়।\n\nউদাহরণ:\n\nBinary Search\n\n \n \n Big O সহজভাবে মনে রাখার উপায়\n\nO(1) → সবসময় fast\n\nO(log n) → খুব efficient\n\nO(n) → acceptable\n\nO(n²) → slow\n\nO(2ⁿ) → খুব খারাপ (avoid করা উচিত)\n\n \n \n বাস্তব জীবনে কোথায় কাজে লাগে?\n\nSearch algorithm (Google search)\n\nSorting data\n\nLarge database handle করা\n\nBackend performance optimization\n\n \n \n শেষ কথা\n\nBig O Notation শুরুতে একটু কঠিন মনে হতে পারে, কিন্তু এটি বুঝে ফেললে আপনি অনেক ভালোভাবে কোড optimize করতে পারবেন।\n\nডাটা স্ট্রাকচার শেখার পাশাপাশি Big O শিখলে আপনার problem solving skill অনেক উন্নত হবে।\n\n \n \n SEO Tags (dev.to)\n\n \n \n bigO #algorithms #datastructure #programming #beginners #coding #javascript #python #learncoding #computerscience\n\n \n \n আপনার মতামত\n\nআপনার কাছে কোনটি সবচেয়ে কঠিন মনে হয় — O(n) না O(log n)? মন্তব্যে জানাতে পারেন।",
+  "tags": [
+    [
+      "// direct",
+      "2026",
+      "500-words",
+      "algorithm",
+      "algorithms",
+      "beginners",
+      "big o notation",
+      "computerscience",
+      "efficient",
+      "enter",
+      "exit",
+      "fullscreen",
+      "google",
+      "handle",
+      "j++",
+      "mode",
+      "notation",
+      "performance",
+      "real-life example",
+      "scenario",
+      "করতে",
+      "পারি",
+      "বললে",
+      "বোঝার",
+      "লিখলেই হয় না"
+    ],
+    [
+      "algorithms",
+      "beginners",
+      "computerscience"
+    ]
+  ]
+}

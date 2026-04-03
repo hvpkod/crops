@@ -1,0 +1,37 @@
+{
+  "id": 7929,
+  "source": "DEV Community<",
+  "title": "Launching a Second Product? Your Engineering Team Can't Build Both.",
+  "url": "https://dev.to/hassan_4e2f0901edda/launching-a-second-product-your-engineering-team-cant-build-both-5b4e",
+  "published_at": "2026-04-02T05:20:10Z",
+  "fetched_at": "2026-04-02T06:00:37.929698+00:00",
+  "author": "Hassan",
+  "summary": "<p><em>Why shared engineering resources guarantee that your new product track ships late — and what a purpose-built team changes.</em></p>\n\n<p>You've validated the first product. You have paying customers, a functioning team, and a roadmap your engineers know by heart. Now there's a second product. A new SaaS track. An AI suite. A platform for a vertical you weren't in before. Leadership is aligned, the market timing is right, and you need to ship.</p>\n\n<p>The question is: who builds it?</p>\n\n<h2>\n  \n  \n  The Borrowed Engineer Problem\n</h2>\n\n<p>The first answer is always the same. You pull one or two engineers from the core team. Temporarily. Just to get the foundation down, scope the architecture, unblock the first sprint. They know the codebase, they know how you work, and they're available right now.</p>\n\n<p>Temporary rarely ends. Three months later, those engineers are context-switching between two codebases, two roadmaps, and two sets of stakeholder expectations. The core product ",
+  "full_text": "Why shared engineering resources guarantee that your new product track ships late — and what a purpose-built team changes.\n\nYou've validated the first product. You have paying customers, a functioning team, and a roadmap your engineers know by heart. Now there's a second product. A new SaaS track. An AI suite. A platform for a vertical you weren't in before. Leadership is aligned, the market timing is right, and you need to ship.\n\nThe question is: who builds it?\n\n \n \n The Borrowed Engineer Problem\n\nThe first answer is always the same. You pull one or two engineers from the core team. Temporarily. Just to get the foundation down, scope the architecture, unblock the first sprint. They know the codebase, they know how you work, and they're available right now.\n\nTemporary rarely ends. Three months later, those engineers are context-switching between two codebases, two roadmaps, and two sets of stakeholder expectations. The core product slows down because they're unavailable for the work only they understand. The new product slows down because they're still on-call for the old one. You've created two half-staffed teams where you needed one focused team.\n\nThis isn't a management failure. It's a structural one. Borrowed engineers carry the cognitive cost of the thing they came from. They can't fully own the new product because they haven't left the old one.\n\n \n \n Open Headcount Takes Longer Than Your Window\n\nThe alternative is to hire. Post the roles, run the pipeline, make the offers. For a three-person engineering team covering frontend, backend, and infrastructure, you're looking at nine to eighteen months of elapsed hiring time if everything goes well. One slow candidate, one declined offer, one extended notice period, and you're past the window you thought you had.\n\nThe German market compounds this. Senior engineers in Berlin and Munich face outreach from three or four employers simultaneously. A 2024 analysis of DACH tech hiring found median time-to-hire for senior software roles at 4.2 months, not counting ramp time to first meaningful contribution. By the time your new hires are shipping independently, six months have passed and the competitive dynamics have shifted.\n\nThe second product doesn't have six months. It has the urgency that justified building it in the first place.\n\n \n \n Independence Is What Makes Small Teams Fast\n\nThe reason small teams can outship large ones is focus. A team of four engineers working on one product, one codebase, one set of user problems can move at a pace that a fifty-person team never can. They're not waiting for reviews from people who don't know the context. They're not blocked by decisions made for the other product. They own the outcome completely.\n\nThat independence disappears the moment the team is shared. A team that splits attention between two products is optimized for neither. The review cycles lengthen. The context-switching tax compounds. The product that feels secondary to the team becomes secondary in practice, regardless of what the roadmap says.\n\nThe second product needs its own team from day one. Not eventually. From the first sprint.\n\n \n \n What a Purpose-Built Team Looks Like in Practice\n\nWe've built this exact structure for a client. The engagement started with one engineer, specifically hired for that client's stack and that product's requirements. Not pulled from a bench, not rotated from another client. Hired to be part of their team. That engineer embedded into their engineering org, learned the codebase, and started shipping in the first two weeks.\n\nAs the product scope expanded, the team expanded with it. Each engineer brought in was hired for the specific gap: a frontend specialist when the UI complexity increased, a data engineer when the pipeline work became the bottleneck. The team that started small is now a complete cross-functional team, fully integrated into the client's engineering org. The second product track they were built for is now the primary delivery engine.\n\nThis is the build-to-staff model. The developers are hired for you, not assigned to you. They join your team, use your tools, follow your process, and report into your engineering organization. The difference from contracting is ownership. The difference from hiring is speed: two to four weeks from scoping to first commit, not six months.\n\n \n \n The Timing Question\n\nIf you're planning a second product track and asking where the engineering capacity comes from, the answer matters more than most structural decisions you'll make this quarter. Borrowed engineers slow both products. Open headcount misses the window. Purpose-built teams can start in weeks.\n\nIf your second product has a real timeline and you want to talk through the engineering structure, we're straightforward to reach. A thirty-minute conversation is enough to scope whether this model fits your situation.\n\nSifrVentures builds dedicated engineering teams for tech companies. Based in Berlin. Learn how we work | Read more on our blog",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "berlin",
+      "borrow",
+      "business",
+      "dach",
+      "engineer",
+      "engineering",
+      "hire",
+      "hiring",
+      "munich",
+      "product",
+      "scope",
+      "second",
+      "sifrventures",
+      "start",
+      "team",
+      "the timing question"
+    ],
+    [
+      "hiring"
+    ]
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": 7870,
+  "source": "Hacker News",
+  "title": "The Windows equivalents of the most used Linux commands",
+  "url": "http://techkettle.blogspot.com/2026/04/the-windows-equivalents-of-most-used.html",
+  "published_at": "2026-04-01T22:25:14Z",
+  "fetched_at": "2026-04-02T01:20:25.707844+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47607326\">Comments</a>",
+  "full_text": "Whether it is to pipe the Tcpdump output to another machine hosting Wireshark or checking which service is listening on which port, Windows cmd has similar commands that are present in Linux. Here is some of the most command used in Linux that have equivalent purpose on Windows:\n\nFiltering the output of a commande:\nLinux: lsof -s | grep 'https'\nWindows: netstat -n -a | findstr \"https\" (//note the double quotes)\n\nPiping tcp dump to another machines that hosts Wireshark\n\nAuthor's note: From here on, the content is AI-generated\n\nLinux: ssh root@remote-linux \"tcpdump -s 0 -U -n -w - -i eth0 not port 22\" | wireshark -k -i -\nWindows: ssh root@remote-linux \"tcpdump -s 0 -U -n -w - -i eth0 not port 22\" | \"C:\\Program Files\\Wireshark\\wireshark.exe\" -k -i - (//note that Windows 10 and 11 come with a native SSH client built into cmd!)\n\nChecking which service is listening on which port\nLinux: netstat -tulpn\nWindows: netstat -ano (//note that this gives you the PID (Process ID) which you can then look up in the Task Manager or using the 'tasklist' command)\n\nViewing the contents of a file directly in the terminal\nLinux: cat filename.txt\nWindows: type filename.txt\n\nListing the contents of a directory (including hidden files)\nLinux: ls -la\nWindows: dir /a\n\nFinding a specific file by name across the system\nLinux: find / -name \"config.txt\"\nWindows: dir \\config.txt /s (//the /s flag tells it to search all subdirectories)\n\nChecking network interface configurations and IP addresses\nLinux: ifconfig (or ip a)\nWindows: ipconfig /all\n\nViewing a list of active running processes\nLinux: top (or ps aux)\nWindows: tasklist\n\nTerminating or \"killing\" a process by its Process ID (PID)\nLinux: kill -9 1234\nWindows: taskkill /F /PID 1234 (//the /F flag forces the termination of the process)\n\nTracing the network route to a remote host\nLinux: traceroute google.com\nWindows: tracert google.com\n\nClearing the terminal screen\n\nConclusion\n\nWhile Linux often gets the spotlight for its powerful command-line interface, Windows has a highly capable native command prompt as well. Whether you are troubleshooting network connectivity, managing local files, or monitoring system processes, mastering these equivalent Windows commands will make seamlessly transitioning between both operating systems a breeze.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "check",
+      "command",
+      "equivalent",
+      "linux",
+      "netstat",
+      "pid",
+      "port",
+      "process",
+      "process id",
+      "ps aux",
+      "ssh",
+      "tcpdump",
+      "view",
+      "windows",
+      "wireshark"
+    ],
+    []
+  ]
+}

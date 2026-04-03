@@ -1,0 +1,28 @@
+{
+  "id": 7904,
+  "source": "Hacker News",
+  "title": "Show HN: Semantic atlas of 188 constitutions in 3D (30k articles, embeddings)",
+  "url": "https://constitutionalmap.ai/en",
+  "published_at": "2026-04-02T02:40:12Z",
+  "fetched_at": "2026-04-02T04:40:25.072004+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47609372\">Comments</a>",
+  "full_text": "The embedding turns legal text into vectors, and the clustering step groups vectors that tend to discuss related constitutional themes. In country mode, color shows political origin. In cluster mode, color shows thematic neighborhood.\n\nLarge, dense clouds usually indicate recurring constitutional ideas such as rights, institutions, emergency powers, elections, or amendment rules. Isolated points often mark unusual provisions, rare wording, or country-specific constitutional design choices.\n\nThe platform offers two types of search: keyword search finds literal term occurrences, while semantic search retrieves conceptually nearby passages even without matching terms. Search results highlight regions of the semantic space in the 3D canvas, linking what you read to where it sits.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "color",
+      "conceptually",
+      "constitutional",
+      "offer",
+      "passage",
+      "recur",
+      "search",
+      "semantic",
+      "show",
+      "vector"
+    ],
+    []
+  ]
+}

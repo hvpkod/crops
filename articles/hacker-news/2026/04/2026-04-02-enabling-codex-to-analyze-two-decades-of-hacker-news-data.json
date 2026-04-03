@@ -1,0 +1,32 @@
+{
+  "id": 7990,
+  "source": "Hacker News",
+  "title": "Enabling Codex to Analyze Two Decades of Hacker News Data",
+  "url": "https://modolap.com/publication/hn-analysis-1",
+  "published_at": "2026-04-02T10:42:23Z",
+  "fetched_at": "2026-04-02T12:00:46.276830+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47612558\">Comments</a>",
+  "full_text": "The entirety of Hacker News, stored in parquet files, is approximately 10GB in size.\nI was interested in analyzing the dataset and, in the fashion of the contemporary zeitgeist, in doing so with Codex. With Modolap, Codex can analyze it well. \n\nAfter simply adding the skill with npx, the first topic of interest was mention history: whether mentions of Rust superseded those of Go, and MySQL versus Postgres.\nSimply running codex \"With Modolap, Write a query to analyze historical keyword-based topic mentions over hacker news's history (Dataset's homepage: https://huggingface.co/datasets/open-index/hacker-news/tree/main). Initially, of Rust vs Go.\" \n\nand some minimal back-and-forth yielded an adequate script using Modolap. \n\nRust vs Golang \n\n \n\nCodex vs Claude Code \n\n \n\nPostgres vs MySQL \n\n \n\nAn additional hypothesis is whether the average comment got shorter. From an initial look, it seems as if there does exist a gradual decline in length. \n\nP50 & Average Comment Length (Chars)",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "analyze",
+      "average",
+      "claude code \n\n \n\npostgres",
+      "codex",
+      "comment",
+      "dataset",
+      "hacker",
+      "hacker news",
+      "hacker news's",
+      "mention",
+      "mysql",
+      "rust",
+      "simply",
+      "topic"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": 8153,
+  "source": "DEV Community<",
+  "title": "Building the App Store for AI Agent Skills",
+  "url": "https://dev.to/caio_rossi_ee24be91155d4a/building-the-app-store-for-ai-agent-skills-3h1g",
+  "published_at": "2026-04-02T20:35:36Z",
+  "fetched_at": "2026-04-02T21:00:46.771141+00:00",
+  "author": "Caio Rossi",
+  "summary": "<p>The AI agent ecosystem is fragmenting. LangChain, CrewAI, AutoGen, Claude SDK—each one implements agents differently. And each one forces you to rewrite your tools (skills) in their own format.</p>\n\n<p>You write a web scraper for LangChain. It's great. Then your team wants to use it in a CrewAI agent. You rewrite it. Three months later, someone asks for the same scraper in AutoGen. You rewrite it again.</p>\n\n<p>This inefficiency sparked an idea: what if there was an open marketplace for agent skills that worked across frameworks?</p>\n\n<p>That's <a href=\"https://www.skilldepot.dev\" rel=\"noopener noreferrer\">SkillDepot</a>. It's not a framework. It's a distribution layer for reusable AI capabilities.</p>\n\n<h2>\n  \n  \n  The Problem: Framework Fragmentation\n</h2>\n\n<p>Let's be concrete. Here's a web scraper tool in LangChain:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight python\"><code><span class=\"kn\">from</span> <span class=\"n\">langchain.tools</span> <span c",
+  "full_text": "The AI agent ecosystem is fragmenting. LangChain, CrewAI, AutoGen, Claude SDK—each one implements agents differently. And each one forces you to rewrite your tools (skills) in their own format.\n\nYou write a web scraper for LangChain. It's great. Then your team wants to use it in a CrewAI agent. You rewrite it. Three months later, someone asks for the same scraper in AutoGen. You rewrite it again.\n\nThis inefficiency sparked an idea: what if there was an open marketplace for agent skills that worked across frameworks?\n\nThat's SkillDepot. It's not a framework. It's a distribution layer for reusable AI capabilities.\n\n \n \n The Problem: Framework Fragmentation\n\nLet's be concrete. Here's a web scraper tool in LangChain:\n\nfrom langchain.tools import tool\nfrom bs4 import BeautifulSoup\nimport requests\n\n@tool\ndef web_scraper(url: str, selector: str) -> list:\n \"\"\"Scrape HTML and extract data.\"\"\"\n response = requests.get(url)\n soup = BeautifulSoup(response.content, 'html.parser')\n return [el.text for el in soup.select(selector)]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSame tool in CrewAI:\n\nfrom crewai_tools import tool\nfrom bs4 import BeautifulSoup\nimport requests\n\n@tool\ndef web_scraper(url: str, selector: str) -> str:\n \"\"\"Scrape HTML and extract data.\"\"\"\n response = requests.get(url)\n soup = BeautifulSoup(response.content, 'html.parser')\n return str([el.text for el in soup.select(selector)])\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe logic is identical. The decorators are different. The return types vary. You can't share the skill across frameworks without refactoring.\n\nMultiply this across hundreds of developers, thousands of skills, and you have a problem: the AI agent ecosystem is reinventing the wheel constantly.\n\n \n \n The Solution: Framework-Agnostic Skills\n\nWe built SkillDepot as a format + marketplace that removes this friction.\n\nA skill in SkillDepot is a simple injectable .md file. Markdown + code blocks. Framework-agnostic by design.\n\nHere's the same web scraper as a SkillDepot skill:\n\n---\nname: web_scraper\nversion: 1.0.0\nframework: langchain, crewai, autogen\nauthor: your_name\ndescription: \"Scrape HTML and extract structured data using CSS selectors\"\nparameters:\n - name: url\n type: string\n description: \"Target URL to scrape\"\n - name: selector\n type: string\n description: \"CSS selector for data extraction\"\n---\n\n# Web Scraper Skill\n\nExtracts text content from HTML elements matching a CSS selector.\n\n## Installation\n\npip install beautifulsoup4 requests\n\n## Code\n\nfrom bs4 import BeautifulSoup\nimport requests\n\ndef web_scraper(url: str, selector: str) -> list:\n response = requests.get(url)\n soup = BeautifulSoup(response.content, 'html.parser')\n return [el.text for el in soup.select(selector)]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. One skill. Works everywhere.\n\n \n \n How SkillDepot Works\n\nStep 1: Create a skill\n\nWrite your skill as a .md file following the template above. Include metadata (name, framework, author), description, dependencies, code block, and usage example.\n\nStep 2: Upload to SkillDepot\n\nskilldepot upload my_skill.md\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOr upload via the web dashboard.\n\nStep 3: Developers discover and use your skill\n\nThey find your skill in the SkillDepot marketplace (categorized by type, framework, popularity). They import it:\n\nfrom skilldepot import get_skill\n\nscraper = get_skill(\"web_scraper\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe SDK handles versioning, dependency injection, and framework compatibility.\n\nStep 4: You earn money\n\nIf you set a price, you get paid. SkillDepot takes 10%, you take 90%.\n\n \n \n The SkillDepot SDK\n\nUsing the SDK is straightforward:\n\nfrom skilldepot import Client\n\nclient = Client(api_key=\"your-api-key\")\n\n# Get a specific skill\nskill = client.get_skill(\"web_scraper\", version=\"1.0.0\")\n\n# Search for skills\nresults = client.search(\"data extraction\", category=\"web-scraping\")\n\n# List your published skills\nmy_skills = client.my_skills()\n\n# Publish a new skill\nclient.publish_skill(\"./my_skill.md\", price=9.99)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nInstallation:\n\npip install skilldepot\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Why This Matters\n\nFor developers: You spend less time rewriting tools. You focus on your agents, not on tool packaging. You discover skills built by others instead of rebuilding from scratch.\n\nFor creators: You can monetize your expertise. Write a skill once, sell it to developers across all agent frameworks. 90/10 split—you keep 90%.\n\nFor the ecosystem: Skills become a tradable asset. The market discovers which tools are actually useful. Open-source skills proliferate. Specialized skills can be monetized.\n\n \n \n Current State\n\nSkillDepot is live with:\n\n3,800+ indexed skills across 20 categories\n\nFree tier + Pro ($29/month for 100K API calls)\n\nPython SDK (TypeScript coming soon)\n\nMCP Connector in development with Anthropic\n\n \n \n What's Next\n\nWe're focusing on better discovery (improved search, trending skills, quality ratings), expanding framework support, MCP integration with Anthropic's Model Context Protocol, and community features like skill ratings and creator profiles.\n\n \n \n Limitations (Being Honest)\n\nThe .md format is simple. It works for 80% of skills. Complex multi-file skills require workarounds.\n\nQuality is uneven. We're experimenting with community voting and verification.\n\nMonetization is unproven. The market will tell us if developers want to pay for skills vs. open-source.\n\n \n \n Getting Started\n\nVisit skilldepot.dev\n\nBrowse 3,800+ skills or create your own\n\nUse the free tier or upgrade to Pro for more API calls\n\nIf you're building agent workflows, SkillDepot is designed to save you time and let you focus on what matters: your agents.\n\nWhat skills do you find yourself rewriting the most? Drop a comment — I'd love to hear what the community needs.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "autogen",
+      "claude sdk",
+      "client",
+      "css",
+      "el in soup.select(selector",
+      "enter",
+      "exit",
+      "extract",
+      "fullscreen",
+      "html",
+      "html.parser",
+      "import",
+      "langchain",
+      "marketplace",
+      "mode",
+      "opensource",
+      "python",
+      "scraper",
+      "sdk",
+      "skill",
+      "skilldepot",
+      "tool"
+    ],
+    [
+      "marketplace",
+      "opensource",
+      "python"
+    ]
+  ]
+}

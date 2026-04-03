@@ -1,0 +1,46 @@
+{
+  "id": 8029,
+  "source": "DEV Community<",
+  "title": "How to Route x402 Payments Across Multiple Chains (Save 90%+ on Fees)",
+  "url": "https://dev.to/nbencic/how-to-route-x402-payments-across-multiple-chains-save-90-on-fees-1gb2",
+  "published_at": "2026-04-02T14:48:43Z",
+  "fetched_at": "2026-04-02T15:00:36.187989+00:00",
+  "author": "Nikola Bencic",
+  "summary": "<p>Your AI agent just got a <code>402 Payment Required</code> response. It needs to pay — but on which chain?</p>\n\n<p>If it picks Base, the fee is $0.003. If it picks Polygon, $0.0075. If it picks Stellar, $0.00001. If it picks Ethereum L1... $3.50. That's a <strong>350,000x difference</strong> for the same $0.10 USDC transfer.</p>\n\n<p>Most agents today pay on whatever chain the server lists first. At 10,000 payments per day, that's the difference between $0.10/day and $350/day in fees alone.</p>\n\n<p><strong>Routex fixes this.</strong> It evaluates fees across all available chains in real time and picks the cheapest one — automatically, on every single payment.</p>\n\n\n\n\n<h2>\n  \n  \n  The x402 Protocol (Quick Primer)\n</h2>\n\n<p><a href=\"https://www.x402.org/\" rel=\"noopener noreferrer\">x402</a> is an open protocol by Coinbase that enables HTTP-native payments. When a server wants payment, it returns:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight http\"><code><sp",
+  "full_text": "Your AI agent just got a 402 Payment Required response. It needs to pay — but on which chain?\n\nIf it picks Base, the fee is $0.003. If it picks Polygon, $0.0075. If it picks Stellar, $0.00001. If it picks Ethereum L1... $3.50. That's a 350,000x difference for the same $0.10 USDC transfer.\n\nMost agents today pay on whatever chain the server lists first. At 10,000 payments per day, that's the difference between $0.10/day and $350/day in fees alone.\n\nRoutex fixes this. It evaluates fees across all available chains in real time and picks the cheapest one — automatically, on every single payment.\n\n \n \n The x402 Protocol (Quick Primer)\n\nx402 is an open protocol by Coinbase that enables HTTP-native payments. When a server wants payment, it returns:\n\nHTTP/1.1 402 Payment Required\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe response body lists accepted chains, amounts, and recipient addresses. The client pays, attaches proof, and retries. Simple.\n\nThe problem: the 402 response often lists multiple chains. The client has to choose. Without a router, it guesses.\n\n \n \n 3 Lines to Optimal Routing\n\nInstall Routex and the chain adapters you need:\n\nnpm install @routexcc/core @routexcc/chain-base @routexcc/chain-solana\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCreate a router:\n\nimport { createRouter, LocalFeeOracle } from '@routexcc/core';\nimport { createBaseAdapter } from '@routexcc/chain-base';\nimport { createSolanaAdapter } from '@routexcc/chain-solana';\n\nconst adapters = new Map([\n ['base', createBaseAdapter(viemClient)],\n ['solana', createSolanaAdapter(solanaConnection)],\n]);\n\nconst feeOracle = new LocalFeeOracle({\n adapters,\n pollIntervalMs: 30_000,\n maxFeeAgeMs: 60_000,\n});\n\nconst router = createRouter({\n adapters,\n feeOracle,\n strategy: 'cheapest',\n maxFeeAgeMs: 60_000,\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nRoute a payment:\n\nconst result = await router.route(paymentRequirement, signer);\nconsole.log(result.chainId); // 'solana' — cheapest right now\nconsole.log(result.fee.feeUsd); // 250n — that's $0.00025\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. Every route() call evaluates all chains, checks your balances, filters out anything ineligible, and returns the best option with a signed payload ready to submit.\n\n \n \n How Much Do You Actually Save?\n\nHere's what a $0.10 USDC transfer costs on each chain right now:\n\nChain\nTypical Fee\nFinality\nCost per 10K payments/day\n\nStellar\n~$0.00001\n~5s\n$0.10\n\nSolana\n~$0.00025\n~400ms\n$2.50\n\nBase\n~$0.003\n~2s\n$30\n\nPolygon\n~$0.0075\n~2s\n$75\n\nEthereum L1\n~$3.50\n~12s\n$35,000\n\nRoutex checks these fees every 30 seconds. When Solana congestion spikes and Base is cheaper, it routes to Base. When Base L1 fees surge, it routes to Stellar. Your agent always pays the minimum.\n\nAt scale, the savings are massive. An agent making 10,000 micropayments per day saves $30-70/day just by routing to the cheapest chain instead of a fixed one. Over a month, that's $900-2,100.\n\n \n \n Drop-In x402 Middleware\n\nDon't want to handle routing manually? Use the middleware:\n\nimport { routexMiddleware } from '@routexcc/x402';\n\nconst middleware = routexMiddleware({\n routeConfig: {\n adapters,\n feeOracle,\n strategy: 'cheapest',\n maxFeeAgeMs: 60_000,\n },\n signer: mySigner,\n});\n\n// When your HTTP client gets a 402:\nconst parsed = middleware.parseResponse(response.status, response.data);\nif (parsed) {\n const { payload, chainId } = await middleware.handlePaymentRequired(parsed);\n // payload is ready — submit to the facilitator and retry the request\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe middleware intercepts 402 responses, routes the payment, and gives you back a signed payload. One integration point, all chains handled.\n\n \n \n Four Routing Strategies\n\nNot every agent optimizes for cost. Routex ships four strategies:\n\nCheapest — minimize fee in USD. Best for high-volume micropayments.\n\nstrategy: 'cheapest'\n// score = 1 / (feeUsd + 0.0001)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFastest — minimize time to finality. Best for latency-sensitive agents.\n\nstrategy: 'fastest'\n// score = 1 / (finalityMs + 1)\n// Solana wins at ~400ms\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBalanced — 60% cost, 40% speed. Good default.\n\nstrategy: 'balanced'\n// score = 0.6 * normFee + 0.4 * normFinality\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCustom — your own scoring function.\n\nstrategy: {\n type: 'custom',\n scorer: (options) => {\n // Prefer Base for compliance, fall back to cheapest\n return [...options].sort((a, b) => {\n if (a.chainId === 'base') return -1;\n if (b.chainId === 'base') return 1;\n return Number(a.fee.feeUsd - b.fee.feeUsd);\n });\n },\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Security: Non-Custodial by Design\n\nRoutex never touches your private keys. The entire architecture uses a Signer interface:\n\ninterface Signer {\n address: string;\n sign(data: Uint8Array): Promise<Uint8Array>;\n signTypedData?(typedData: Record<string, unknown>): Promise<string>;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYou provide a signer. Routex calls .sign() and gets back a signature. It never sees .privateKey, .secretKey, or .mnemonic. If you grep the entire codebase for these strings, you get zero results.\n\nOther security guarantees:\n\nAll token amounts use bigint — no floating-point rounding errors\n\nEvery route() call is stateless — no mutable global state\n\nTyped errors with context — never silent failures\n\nError messages never contain credentials or RPC keys\n\n10 security invariants, each annotated in code and tested\n\n \n \n Try It in 5 Minutes\n\nClone the starter template:\n\ngit clone https://github.com/routexcc/x402-agent-starter.git\ncd x402-agent-starter\npnpm install\ncp .env.example .env\n# Add your Base Sepolia RPC URL and testnet private key to .env\n\npnpm server # Terminal 1 — starts a local 402 test server\npnpm agent # Terminal 2 — runs the agent, pays via Routex\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe agent hits the test server, gets a 402, routes the payment through Routex, and pays on the cheapest chain. You'll see the chain selection, fee, and finality in the console output.\n\n \n \n The Packages\n\nRoutex is modular — install only what you need:\n\nAll packages are TypeScript-first (strict mode), dual CJS/ESM, and MIT licensed.\n\n \n \n Links\n\nRoutex is open source (MIT) We'd love your feedback — open an issue or star the repo if this is useful.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "blockchain",
+      "chain",
+      "cheap",
+      "coinbase",
+      "const",
+      "drop-in",
+      "enter",
+      "exit",
+      "fastest",
+      "fee",
+      "feeoracle",
+      "fullscreen",
+      "micropayments",
+      "mode",
+      "payments",
+      "polygon",
+      "rout",
+      "routex",
+      "signer",
+      "solana",
+      "usd",
+      "usdc",
+      "x402"
+    ],
+    [
+      "blockchain",
+      "micropayments",
+      "x402"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": 8149,
+  "source": "DEV Community<",
+  "title": "The Day My PowerShell Script Took Down a Client (And Taught Me a Lesson I’ll Never Forget)",
+  "url": "https://dev.to/moon_light_772/the-day-my-powershell-script-took-down-a-client-and-taught-me-a-lesson-ill-never-forget-3eob",
+  "published_at": "2026-04-02T20:41:24Z",
+  "fetched_at": "2026-04-02T21:00:37.931058+00:00",
+  "author": "Moon Light",
+  "summary": "<p>Every MSP engineer has <em>that</em> moment.</p>\n\n<p>The one where you confidently deploy something…</p>\n\n<p>…and immediately regret your life choices.</p>\n\n<p>This is mine.</p>\n\n\n\n\n<h2>\n  \n  \n  😎 The Confidence Phase (A.K.A. “What Could Go Wrong?”)\n</h2>\n\n<p>It started with a simple idea:</p>\n\n<p>👉 “Let’s clean up unused services across all client machines.”</p>\n\n<p>Sounds harmless, right?</p>\n\n<p>I wrote a PowerShell script that:</p>\n\n<ul>\n<li>Identified unnecessary services</li>\n<li>Stopped them</li>\n<li>Disabled them</li>\n</ul>\n\n<p>Efficient. Clean. Beautiful.</p>\n\n<p>Tested on my machine?</p>\n\n<p>👉 Worked perfectly.</p>\n\n\n\n\n<h2>\n  \n  \n  🖼️ The Vision vs Reality\n</h2>\n\n<p><strong>Expectation:</strong><br />\nEverything gets optimized. Client loves me. I get promoted. Maybe even a raise.</p>\n\n<p><strong>Reality:</strong><br />\nChaos. Absolute chaos.</p>\n\n\n<h2>\n  \n  \n  🚀 Deployment Time\n</h2>\n\n<p>I pushed the script across multiple client machines.</p>\n\n<p>Sat back.</p>\n\n<p>Took a ",
+  "full_text": "Every MSP engineer has that moment.\n\nThe one where you confidently deploy something…\n\n…and immediately regret your life choices.\n\nThis is mine.\n\n \n \n 😎 The Confidence Phase (A.K.A. “What Could Go Wrong?”)\n\nIt started with a simple idea:\n\n👉 “Let’s clean up unused services across all client machines.”\n\nSounds harmless, right?\n\nI wrote a PowerShell script that:\n\nIdentified unnecessary services\n\nStopped them\n\nDisabled them\n\nEfficient. Clean. Beautiful.\n\nTested on my machine?\n\n👉 Worked perfectly.\n\n \n \n 🖼️ The Vision vs Reality\n\nExpectation:\n\nEverything gets optimized. Client loves me. I get promoted. Maybe even a raise.\n\nReality:\n\nChaos. Absolute chaos.\n\n \n \n 🚀 Deployment Time\n\nI pushed the script across multiple client machines.\n\nSat back.\n\nTook a sip of coffee.\n\nWaited for success messages.\n\nInstead…\n\n \n \n ☎️ The Calls Start Coming In\n\n“Our system is acting weird.”\n\n“We can’t access some tools.”\n\n“Something just stopped working.”\n\nAnd my personal favorite:\n\n👉 “Did you guys change something today?”\n\nAt that moment, I knew.\n\n👉 I messed up.\n\n \n \n 🖼️ My Emotional State\n\n \n \n 🔍 The Investigation\n\nI quickly checked the script logs.\n\nEverything looked… normal.\n\nWhich is never a good sign.\n\nThen I dug deeper.\n\nAnd found it.\n\n \n \n 💣 The Bug That Caused Everything\n\nMy script had a “simple” logic:\n\n```powershell id=\"fail01\"\n\nif ($service.Status -eq \"Running\") {\n\n Stop-Service $service.Name -Force\n\n Set-Service $service.Name -StartupType Disabled\n\n}\n\nLooks fine, right?\n\nExcept for one tiny detail:\n\n👉 I didn’t properly filter *which* services were “safe” to disable.\n\nSo the script happily disabled:\n\n* Important system services\n* Client-specific services\n* Things that should NEVER be touched\n\nBasically:\n\n👉 If it was running… it was gone.\n\n---\n\n## 🤦 The Classic Mistake\n\nI assumed:\n\n> “If I don’t recognize it, it must not be important.”\n\nThe system disagreed.\n\nStrongly.\n\n---\n\n## 🛠️ Emergency Fix Mode\n\nNow I had to:\n\n* Identify affected machines\n* Re-enable critical services\n* Apologize internally (a lot)\n\nAnd most importantly:\n\n👉 Fix the script properly\n\n---\n\n## 🧠 The Correct Approach (Lesson Learned)\n\nThis time, I slowed down.\n\n---\n\n### ✅ 1. Whitelist instead of blacklist\n\nInstead of “disable unknown services”:\n\n👉 I defined **safe-to-disable services only**\n\n```powershell id=\"fix01\"\n$safeServices = @(\"ServiceA\", \"ServiceB\")\n\nforeach ($service in $safeServices) {\n Stop-Service $service -Force\n Set-Service $service -StartupType Disabled\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n ✅ 2. Add confirmation logging\n\n```powershell id=\"fix02\"\n\nWrite-Output \"Disabling service: $service\"\n\nNow I could track exactly what happened.\n\n---\n\n### ✅ 3. Add a “dry run” mode (GAME CHANGER)\n\n```powershell id=\"fix03\"\n$dryRun = $true\n\nif ($dryRun) {\n Write-Output \"Would disable: $service\"\n} else {\n Stop-Service $service -Force\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis saved me from future disasters.\n\n \n \n ✅ 4. Test like a paranoid engineer\n\nDifferent machines\n\nDifferent environments\n\nWorst-case scenarios\n\nNo more “it works on my machine.”\n\n \n \n 😂 What I Learned (The Hard Way)\n\n \n \n 1. PowerShell is powerful… and dangerous\n\nOne wrong script = big impact\n\n \n \n 2. Never trust “simple scripts”\n\nSimple scripts cause complex problems\n\n \n \n 3. Always test at scale (safely)\n\nOne machine ≠ real environment\n\n \n \n 4. Dry run is your best friend\n\nSeriously. Use it.\n\n \n \n 🧘 Final Thought\n\nThat day was painful.\n\nBut it made me better.\n\nNow, before I deploy anything, I ask:\n\n👉 “What’s the worst thing this script could do?”\n\nBecause trust me…\n\n👉 It will find a way to do it.\n\n \n \n 👇 Your turn\n\nEver broken something in production?\n\nEver deployed a script you instantly regretted?\n\nLet’s share the pain 😅",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "changer",
+      "client",
+      "disabled",
+      "everything",
+      "machine",
+      "mode",
+      "msp",
+      "powershell",
+      "script",
+      "service",
+      "stop",
+      "stop-service",
+      "take",
+      "the classic mistake",
+      "the correct approach",
+      "🔍 the investigation"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 8155,
+  "source": "Slashdot",
+  "title": "IBM Teams Up With Arm To Run Arm Workloads On IBM Z Mainframes",
+  "url": "https://slashdot.org/story/26/04/02/1749205/ibm-teams-up-with-arm-to-run-arm-workloads-on-ibm-z-mainframes?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-02T20:00:00Z",
+  "fetched_at": "2026-04-02T21:00:51.643338+00:00",
+  "author": "BeauHD",
+  "summary": "IBM and Arm are teaming up to let Arm-based software run on IBM Z mainframes. Network World reports: The two companies plan to work on three things: building virtualization tools so Arm software can run on IBM platforms; making sure Arm applications meet the security and data residency rules that regulated industries must follow; and creating common technology layers so enterprises have more software options across both platforms, IBM said in a statement.\n \nIBM has not said whether the virtualization work will happen at the hypervisor level, through its existing PR/SM partitioning technology, or via containers -- a question enterprise architects will need answered before they can assess the collaboration's practical value. IBM described the effort as serving enterprises that run regulated workloads and cannot simply move them to the cloud, the statement said. IBM mainframe customers have largely missed out on the efficiency and price-performance gains Arm has already delivered in the c",
+  "full_text": "IBM and Arm are teaming up to let Arm-based software run on IBM Z mainframes\n\n. Network World reports: The two companies plan to work on three things: building virtualization tools so Arm software can run on IBM platforms; making sure Arm applications meet the security and data residency rules that regulated industries must follow; and creating common technology layers so enterprises have more software options across both platforms, IBM said in a statement.\n\n \n\nIBM has not said whether the virtualization work will happen at the hypervisor level, through its existing PR/SM partitioning technology, or via containers -- a question enterprise architects will need answered before they can assess the collaboration's practical value. IBM described the effort as serving enterprises that run regulated workloads and cannot simply move them to the cloud, the statement said. \n\n IBM mainframe customers have largely missed out on the efficiency and price-performance gains Arm has already delivered in the cloud. \"Arm says close to half of all compute shipped to top hyperscalers in 2025 runs on Arm chips, with AWS, Google, and Microsoft deploying their own Arm silicon through Graviton, Axion, and Cobalt, respectively,\" reports Network World.\n \n\nThat gap is precisely what IBM and Arm's collaboration intends to address. \"This is a mainframe adjacency play,\" says Rachita Rao, senior analyst at Everest Group. \"The intent is to extend IBM Z and LinuxONE environments by enabling Arm-compatible workloads to run closer to systems of record. While hyperscalers use Arm to lower their own internal power costs and pass savings to cloud-native tenants, IBM is targeting the sovereign and air-gapped market.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "aws",
+      "close",
+      "enterprise",
+      "everest group",
+      "google",
+      "graviton",
+      "hyperscaler",
+      "ibm",
+      "linuxone",
+      "mainframe",
+      "microsoft",
+      "network",
+      "network world",
+      "pr/sm",
+      "regulated",
+      "security",
+      "software",
+      "virtualization",
+      "workload"
+    ],
+    []
+  ]
+}

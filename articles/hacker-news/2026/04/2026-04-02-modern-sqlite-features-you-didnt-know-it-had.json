@@ -1,0 +1,36 @@
+{
+  "id": 8070,
+  "source": "Hacker News",
+  "title": "Modern SQLite: Features You Didn't Know It Had",
+  "url": "https://slicker.me/sqlite/features.htm",
+  "published_at": "2026-04-02T16:34:39Z",
+  "fetched_at": "2026-04-02T17:20:21.912096+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47616704\">Comments</a>",
+  "full_text": "Modern SQLite: Features You Didn’t Know It Had\n \n\n \n\n \n\nWorking with JSON data\n \n\n SQLite ships with a JSON extension that lets you store and query JSON documents directly in tables.\n You can keep your schema flexible while still using SQL to slice and dice structured data.\n \n \n\nExample: extracting fields from a JSON column:\n CREATE TABLE events (\n id INTEGER PRIMARY KEY,\n payload TEXT NOT NULL -- JSON\n);\n\nSELECT\n json_extract(payload, '$.user.id') AS user_id,\n json_extract(payload, '$.action') AS action,\n json_extract(payload, '$.metadata') AS metadata\nFROM events\nWHERE json_extract(payload, '$.action') = 'login';\n \n\n You can also create indexes on JSON expressions, making queries over semi-structured data surprisingly fast.\n \n \n\n \n\n \n\nFull-text search with FTS5\n \n\n SQLite’s FTS5 extension turns it into a capable full-text search engine. Instead of bolting on an external\n search service, you can keep everything in a single database file.\n \n \n\nExample: building a simple search index:\n CREATE VIRTUAL TABLE docs USING fts5(\n title,\n body,\n tokenize = \"porter\"\n);\n\nINSERT INTO docs (title, body) VALUES\n ('SQLite Guide', 'Learn how to use SQLite effectively.'),\n ('Local-first Apps', 'Why local storage and sync matter.');\n\nSELECT rowid, title\nFROM docs\nWHERE docs MATCH 'local NEAR/5 storage';\n \n\n You get ranking, phrase queries, prefix searches, and more—without leaving SQLite or managing a separate service.\n \n \n\n \n\n \n\nAnalytics with window functions and CTEs\n \n\n SQLite supports common table expressions (CTEs) and window functions, which unlock a whole class of analytical\n queries that used to require heavier databases.\n \n \n\nExample: computing running totals with a window function:\n SELECT\n user_id,\n created_at,\n amount,\n SUM(amount) OVER (\n PARTITION BY user_id\n ORDER BY created_at\n ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n ) AS running_total\nFROM payments\nORDER BY user_id, created_at;\n \n\n Combine this with CTEs and you can build surprisingly rich reports and dashboards on top of a single SQLite file.\n \n \n\n \n\n \n\nStrict tables and better typing\n \n\n SQLite is famous (or infamous) for its flexible typing model. Modern SQLite adds\n STRICT tables, which enforce type constraints much more like PostgreSQL or other traditional databases.\n \n \n\nExample: defining a strict table:\n CREATE TABLE users (\n id INTEGER PRIMARY KEY,\n email TEXT NOT NULL,\n is_active INTEGER NOT NULL DEFAULT 1\n) STRICT;\n \n\n With strict tables, invalid types are rejected at insert time, making schemas more predictable and reducing\n subtle bugs—especially in larger codebases.\n \n \n\n \n\n \n\nGenerated columns for derived data\n \n\n Generated columns let you store expressions as virtual or stored columns, keeping derived data close to the source\n without duplicating logic across your application.\n \n \n\nExample: a normalized search field:\n CREATE TABLE contacts (\n id INTEGER PRIMARY KEY,\n first_name TEXT NOT NULL,\n last_name TEXT NOT NULL,\n full_name TEXT GENERATED ALWAYS AS (\n trim(first_name || ' ' || last_name)\n ) STORED\n);\n\nCREATE INDEX idx_contacts_full_name ON contacts(full_name);\n \n\n Now every insert or update keeps full_name in sync automatically, and you can index and query it efficiently.\n \n \n\n \n\n \n\nWrite-ahead logging and concurrency\n \n\n Write-ahead logging (WAL) is a journaling mode that improves concurrency and performance for many workloads.\n Readers don’t block writers, and writers don’t block readers in the common case.\n \n \n\nEnabling WAL is a single pragma call:\n PRAGMA journal_mode = WAL;\n \n\n For desktop apps, local-first tools, and small services, WAL mode can dramatically improve perceived performance\n while keeping SQLite’s simplicity and reliability.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "create",
+      "created_at",
+      "cte",
+      "doc",
+      "generate",
+      "integer",
+      "integer primary key",
+      "json",
+      "payments",
+      "postgresql",
+      "search",
+      "sql",
+      "sqlite",
+      "strict",
+      "table",
+      "text",
+      "wal",
+      "wal modern"
+    ],
+    []
+  ]
+}

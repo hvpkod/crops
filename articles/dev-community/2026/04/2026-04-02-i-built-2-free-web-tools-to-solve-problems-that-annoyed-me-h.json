@@ -1,0 +1,43 @@
+{
+  "id": 7923,
+  "source": "DEV Community<",
+  "title": "I built 2 free web tools to solve problems that annoyed me — here's what I learned",
+  "url": "https://dev.to/hammadbutt/i-built-2-free-web-tools-to-solve-problems-that-annoyed-me-heres-what-i-learned-h53",
+  "published_at": "2026-04-02T05:35:20Z",
+  "fetched_at": "2026-04-02T06:00:27.407998+00:00",
+  "author": "Hamaad Butt",
+  "summary": "<p>As a full-stack developer, I have a habit of building tools to scratch my own itch. Here are two I recently shipped — both free, no ads, no signup required.</p>\n\n\n\n\n<h2>\n  \n  \n  Tool 1: Thumb Extract — YouTube Thumbnail Downloader\n</h2>\n\n<p>🔗 <a href=\"https://thumbextract.com\" rel=\"noopener noreferrer\">https://thumbextract.com</a></p>\n\n<p>Every time I needed a YouTube thumbnail for a project or reference, I'd end up on some spammy site with 10 popups before I could download anything. So I built a clean version.</p>\n\n<h3>\n  \n  \n  What it does:\n</h3>\n\n<ul>\n<li>Paste any YouTube URL → get the thumbnail instantly</li>\n<li>All resolutions: HD (1280×720), SD (640×480), and default</li>\n<li>Also downloads channel profile pictures in full resolution</li>\n<li>Downloads channel banner/cover art at full size (2560×1440)</li>\n<li>Zero ads, zero signup, zero watermarks</li>\n<li>Works on videos, Shorts, live streams, and old videos</li>\n</ul>\n\n<h3>\n  \n  \n  Tech approach:\n</h3>\n\n<p>The key insight",
+  "full_text": "As a full-stack developer, I have a habit of building tools to scratch my own itch. Here are two I recently shipped — both free, no ads, no signup required.\n\n \n \n Tool 1: Thumb Extract — YouTube Thumbnail Downloader\n\n🔗 https://thumbextract.com\n\nEvery time I needed a YouTube thumbnail for a project or reference, I'd end up on some spammy site with 10 popups before I could download anything. So I built a clean version.\n\n \n \n What it does:\n\nPaste any YouTube URL → get the thumbnail instantly\n\nAll resolutions: HD (1280×720), SD (640×480), and default\n\nAlso downloads channel profile pictures in full resolution\n\nDownloads channel banner/cover art at full size (2560×1440)\n\nZero ads, zero signup, zero watermarks\n\nWorks on videos, Shorts, live streams, and old videos\n\n \n \n Tech approach:\n\nThe key insight was using YouTube's image CDN directly rather than scraping the page. This makes it near-instant and works for any public video.\n\n \n \n Tool 2: Quick CPS Test — 0-Latency Click Speed Tester\n\n🔗 https://quickcpstest.com\n\nEvery CPS (clicks per second) test site I tried had noticeable input lag caused by event debouncing or heavy DOM manipulation. The results were inaccurate by design.\n\n \n \n What it does:\n\nMeasures your CPS with 0-latency click detection\n\nTest modes: 1s, 5s, 10s, 60s, 100 clicks\n\nTracks personal best and average CPS\n\nClean UI with zero ads or distractions\n\nWorks perfectly on mobile (touch events)\n\n \n \n Tech approach:\n\nUsed raw mousedown events instead of click events to eliminate the browser's built-in click delay. Removed all unnecessary DOM reflows during the test interval.\n\n \n \n What I learned building these\n\nSimple tools get used. Both tools do one thing extremely well. No feature creep.\n\nPerformance is a feature. Users immediately notice when something feels instant vs. sluggish.\n\nSEO from day one matters. Even small tools benefit from clean URLs, fast load times, and descriptive meta tags.\n\nIf you try either tool, let me know what you think — especially if you find any edge cases or bugs. Always looking to improve.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "build",
+      "cdn",
+      "clean",
+      "cps",
+      "dom",
+      "downloads",
+      "event",
+      "javascript",
+      "learn",
+      "productivity",
+      "showdev",
+      "tech",
+      "test",
+      "thumb extract",
+      "thumbnail",
+      "tool",
+      "webdev",
+      "work",
+      "youtube",
+      "zero"
+    ],
+    [
+      "productivity",
+      "showdev",
+      "tech",
+      "webdev"
+    ]
+  ]
+}

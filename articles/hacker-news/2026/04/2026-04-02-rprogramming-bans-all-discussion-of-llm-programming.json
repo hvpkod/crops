@@ -1,0 +1,32 @@
+{
+  "id": 7932,
+  "source": "Hacker News",
+  "title": "r/programming bans all discussion of LLM programming",
+  "url": "https://old.reddit.com/r/programming/comments/1s9jkzi/announcement_temporary_llm_content_ban/",
+  "published_at": "2026-04-02T05:33:20Z",
+  "fetched_at": "2026-04-02T06:00:53.382673+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47610336\">Comments</a>",
+  "full_text": "Hey folks,\n\nAfter a lot of discussion, we've decided to trial a ban of any and all content relating to LLMs. We get a lot of posts related to LLMs and typically they are not in line with what we want the subreddit to be — a place for detailed, technical learning and discourse about software engineering, driven by high quality, informative content. And unfortunately, the volume of LLM-related content easily overwhelms other topics.\n\nWe also believe that, generally, the community have been indicating that, by and large, they aren't interested in this content. So, we want to see how a trial ban impacts how people use the sub. As such:\n\nWhile this post is stickied, for 2-4 weeks over April, we're banning all LLM-related content from the sub.\n\nThat's posts, articles, videos about LLMs. We've had a ban on LLM-generated text for ages already, this doesn't change that.\n\nNote that this doesn't ban all AI related content. An article detailing how what would have traditionally been called an AI was made for Go? Totally fine. A technical breakdown of a machine learning process? Great! Just so long as it's not about LLMs.\n\nEdit: Yes, this is real, it's not an April Fool's joke.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "community",
+      "content",
+      "decide",
+      "indicate",
+      "informative",
+      "learning",
+      "llm",
+      "relate",
+      "technical",
+      "trial"
+    ],
+    [
+      "community",
+      "learning"
+    ]
+  ]
+}

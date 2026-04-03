@@ -1,0 +1,37 @@
+{
+  "id": 8014,
+  "source": "Hacker News",
+  "title": "LinkedIn Is Illegally Searching Your Computer",
+  "url": "https://browsergate.eu/",
+  "published_at": "2026-04-02T13:09:09Z",
+  "fetched_at": "2026-04-02T14:00:38.072830+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47613981\">Comments</a>",
+  "full_text": "LinkedIn Is Illegally Searching Your Computer\n\nMicrosoft is running one of the largest corporate espionage operations in modern history.\n\nEvery time any of LinkedIn’s one billion users visits linkedin.com, hidden code searches their computer for installed software, collects the results, and transmits them to LinkedIn’s servers and to third-party companies including an American-Israeli cybersecurity firm.\n\nThe user is never asked. Never told. LinkedIn’s privacy policy does not mention it.\n\nBecause LinkedIn knows each user’s real name, employer, and job title, it is not searching anonymous visitors. It is searching identified people at identified companies. Millions of companies. Every day. All over the world.\n\nThis is illegal and potentially a criminal offense in every jurisdiction we have examined.\n\n(If you you’re in a hurry -> read our Executive Summary)\n\nWho we are\n\nFairlinked e.V. is an association of commercial LinkedIn users. We represent the professionals who use LinkedIn, the businesses that invest in and depend on the platform, and the toolmakers who build products for it.\n\nBrowserGate is our investigation and campaign to document one of the largest corporate espionage and data breach scandals in digital history, to inform the public and regulators, to collect evidence, and to raise funds for the legal proceedings required to stop it.\n\nWhat we found\n\nMass breach of personal data\n\nLinkedIn’s scan reveals the religious beliefs, political opinions, disabilities, and job search activity of identified individuals. LinkedIn scans for extensions that identify practicing Muslims, extensions that reveal political orientation, extensions built for neurodivergent users, and 509 job search tools that expose who is secretly looking for work on the very platform where their current employer can see their profile.\n\nUnder EU law, this category of data is not regulated. It is prohibited. LinkedIn has no consent, no disclosure, and no legal basis. Its privacy policy does not mention any of this.\n\nCorporate espionage and trade secret theft\n\nLinkedIn scans for over 200 products that directly compete with its own sales tools, including Apollo, Lusha, and ZoomInfo. Because LinkedIn knows each user’s employer, it can map which companies use which competitor products. It is extracting the customer lists of thousands of software companies from their users’ browsers without anyone’s knowledge.\n\nThen it uses what it finds. LinkedIn has already sent enforcement threats to users of third-party tools, using data obtained through this covert scanning to identify its targets.\n\nDeceiving EU regulators\n\nIn 2023, the EU designated LinkedIn as a regulated gatekeeper under the Digital Markets Act and ordered it to open its platform to third-party tools. LinkedIn’s response:\n\nIt published two restricted APIs and presented them to the European Commission as compliance. Together, these APIs handle approximately 0.07 calls per second. Meanwhile, LinkedIn already operates an internal API called Voyager that powers every LinkedIn web and mobile product at 163,000 calls per second. In Microsoft’s 249-page compliance report to the EU, the word “API” appears 533 times. “Voyager” appears zero times.\n\nAt the same time, LinkedIn expanded its surveillance of the exact tools the regulation was designed to protect. The scan list grew from roughly 461 products in 2024 to over 6,000 by February 2026. The EU told LinkedIn to let third-party tools in. LinkedIn built a surveillance system to find and punish every user of those tools.\n\nShipping your data to third parties\n\nLinkedIn loads an invisible tracking element from HUMAN Security (formerly PerimeterX), an American-Israeli cybersecurity firm, zero pixels wide, hidden off-screen, that sets cookies on your browser without your knowledge. A separate fingerprinting script runs from LinkedIn’s own servers. A third script from Google executes silently on every page load. All of it encrypted. None of it disclosed.\n\nWhy we need you\n\nMicrosoft has 33,000 employees and a $15 billion legal budget. We have the evidence. What we need is people and funding to hold them accountable.\n\nTake action →\n\nTable of Content\n\nLast modified March 6, 2026",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "apollo",
+      "browsergate",
+      "company",
+      "corporate",
+      "datum",
+      "espionage",
+      "google",
+      "human security",
+      "identify",
+      "large",
+      "linkedin",
+      "linkedin’s",
+      "lusha",
+      "microsoft",
+      "scan",
+      "search",
+      "security",
+      "the european commission"
+    ],
+    []
+  ]
+}

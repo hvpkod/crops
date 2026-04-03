@@ -1,0 +1,43 @@
+{
+  "id": 8031,
+  "source": "DEV Community<",
+  "title": "I Built a VS Code Extension That Turns Playwright Into an Interactive REPL",
+  "url": "https://dev.to/stevez/i-built-a-vs-code-extension-that-turns-playwright-into-an-interactive-repl-5103",
+  "published_at": "2026-04-02T14:45:52Z",
+  "fetched_at": "2026-04-02T15:00:39.176849+00:00",
+  "author": "Steve Zhang",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fkaxfzfbpl8ig8sqhm84t.gif\"><img alt=\"Playwright REPL VS Code Extension\" height=\"1436\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fkaxfzfbpl8ig8sqhm84t.gif\" width=\"2632\" /></a></p>\n\n<p>Writing Playwright tests follows the same loop: write code, run it, wait for the browser, see it fail, tweak a locator, run again. Each cycle takes seconds. I wanted something more interactive — type a command, see the result immediately.</p>\n\n<p>So I built a VS Code extension that adds an interactive REPL, visual element picker, assertion builder, and recorder on top of Playwright's Test Explorer. Everything shares one persistent browser — no restarts between ru",
+  "full_text": "Writing Playwright tests follows the same loop: write code, run it, wait for the browser, see it fail, tweak a locator, run again. Each cycle takes seconds. I wanted something more interactive — type a command, see the result immediately.\n\nSo I built a VS Code extension that adds an interactive REPL, visual element picker, assertion builder, and recorder on top of Playwright's Test Explorer. Everything shares one persistent browser — no restarts between runs.\n\n \n \n The workflow: Record → Pick → Assert → Run\n\nThe extension adds three panels to VS Code's bottom bar: REPL, Locator, and Assert.\n\n \n \n Launch Browser\n\nClick \"Launch Browser\" in the Testing sidebar. Chrome opens and stays open between test runs — zero startup overhead on each run.\n\n \n \n REPL Panel\n\nType keyword commands directly:\n\npw> goto https://demo.playwright.dev/todomvc/\npw> fill \"What needs to be done?\" Buy groceries\npw> press Enter\npw> snapshot\npw> verify text 1 item left\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nInstead of writing page.locator('[placeholder=\"What needs to be done?\"]').fill('Buy groceries'), you type fill \"What needs to be done?\" Buy groceries. Same Playwright engine, simpler syntax.\n\nJavaScript works too:\n\npw> await page.title()\npw> page.locator('.todo-list li').count()\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYou get command history (up/down arrows), inline screenshots, execution timing, and meta-commands like .clear and .history.\n\n \n \n Pick Locator\n\nClick the pick arrow, hover over any element in the browser. The Locator panel shows:\n\nThe generated locator (editable — modify and re-test)\n\nA highlight toggle to verify it targets the right element\n\nThe element's ARIA snapshot for accessibility inspection\n\nNo more inspecting the DOM to find the right selector.\n\n \n \n Assert Builder\n\nThis is my favorite feature. Pick an element, and the Assert Builder shows you Playwright matchers — smart-filtered by element type:\n\nInput field → toHaveValue, toBeEnabled, toBeDisabled\n\nText element → toContainText, toHaveText, toBeVisible\n\nCheckbox → toBeChecked\n\nAny element → toBeAttached, toHaveAttribute, toHaveCount\n\n13 matchers total. Click Verify to run the assertion against the live page. Green or red, instantly. Supports negation (not checkbox) and editable expected values.\n\nNo more guessing whether your assertion is correct before running the full test.\n\n \n \n Recorder\n\nHit Record, interact with the browser normally. Every click, fill, and navigation is captured as Playwright JavaScript — ready to paste into your test file.\n\n \n \n Run Tests\n\nThe Test Explorer runs your existing playwright.config.ts tests. With \"Show Browser\" enabled, browser-only tests take a fast path: the script is sent directly to the browser via the extension bridge, bypassing worker startup, TypeScript compilation, and fixture setup entirely.\n\nTests that need Node APIs (fs, net, etc.) fall back to the standard Playwright runner with CDP browser reuse — still fast, just not instant.\n\n \n \n How it works\n\nThe extension launches Chrome with --remote-debugging-port and a companion Chrome extension (Dramaturg) sideloaded. The REPL, Test Explorer, Recorder, and Picker all share this single browser instance via CDP.\n\nEach keyword command maps directly to a Playwright API call:\n\n\"click\" → locator.click()\n\"goto\" → page.goto()\n\"fill\" → locator.fill()\n\"snapshot\" → accessibility tree via CDP\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe keyword syntax is just a thin layer on top of the Playwright API — same engine, same locator resolution, same browser automation. No MCP, no daemon, no external process.\n\nFor the bridge fast path, the test script is bundled with esbuild and evaluated inside the browser context where page, expect, and all Playwright globals are already available. The result comes back via WebSocket. No test runner process involved at all.\n\n \n \n Browser reuse: one browser for everything\n\nThis is the architectural decision that makes the whole thing work. Instead of launching a new browser per test run (the Playwright default), the extension keeps one browser open:\n\nREPL sends commands to it\n\nTest Explorer runs tests in it\n\nRecorder captures interactions from it\n\nPicker inspects elements in it\n\nSame browser, same context, same cookies. Switch between REPL exploration and test execution seamlessly.\n\n \n \n Built on Playwright Test for VS Code\n\nThe extension is built on top of Microsoft's official Playwright Test for VS Code extension (Apache 2.0). Both can coexist — you keep the official one installed and use this alongside it. Same playwright.config.ts, same test files, same Test Explorer interface.\n\nThe added layers (REPL, Picker, Assert Builder, Recorder) are what turns it from a test runner into an interactive development environment.\n\n \n \n Getting started\n\nInstall \"Playwright REPL\" from the VS Code Marketplace\n\nOpen a project with a playwright.config.ts — or clone the demo repo to try it immediately\n\nClick Launch Browser in the Testing sidebar\n\nOpen the REPL panel in the bottom bar and type goto https://example.com\n\nUse Pick Locator to inspect elements, Assert Builder to verify values, and Record to capture interactions\n\nRequirements: VS Code 1.93+, Node.js 18+, @playwright/test 1.58+ in your project.\n\n \n \n What's next\n\nI'm focused on making the record → assert → test loop as tight as possible. If you have ideas or find bugs, the repo is at github.com/stevez/playwright-repl.\n\nLinks:",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "aria",
+      "assert",
+      "browser",
+      "build",
+      "cdp",
+      "dom",
+      "dramaturg",
+      "element",
+      "extension",
+      "javascript",
+      "locator",
+      "pick",
+      "playwright",
+      "playwright's test explorer",
+      "repl",
+      "repl panel",
+      "test",
+      "testing",
+      "tohavevalue",
+      "typescript",
+      "vscode",
+      "webdev"
+    ],
+    [
+      "vscode",
+      "webdev"
+    ]
+  ]
+}

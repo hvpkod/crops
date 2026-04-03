@@ -1,0 +1,44 @@
+{
+  "id": 8093,
+  "source": "DEV Community<",
+  "title": "Getting Started With Seal Report: Applying Custom Joins",
+  "url": "https://dev.to/vladg_dev/getting-started-with-seal-report-applying-custom-joins-322p",
+  "published_at": "2026-04-02T17:22:45Z",
+  "fetched_at": "2026-04-02T18:00:47.167489+00:00",
+  "author": "Vlad Ganușceac",
+  "summary": "<p>This is the fifth post in the series.</p>\n\n<p>Retrieving data automatically from multiple tables is powerful. However, in many real-world reporting scenarios, dashboards and analytical reports rely on <strong>custom SQL expressions</strong>, <strong>user-defined functions</strong>, or <strong>stored procedures</strong>.</p>\n\n<p>In this post, I’ll show how to link SQL expressions with other tables so you can benefit from <strong>both approaches at the same time</strong> - keeping Seal Report’s automatic joins and filters while still using custom SQL logic.</p>\n\n<p>As a prerequisite, you should have an instance of the <strong>AdventureWorks2025</strong> database available and be familiar with configuring a data source connection in <strong>Seal Report</strong>.</p>\n\n<p>Previously, we've covered up how to apply <strong>dependent filters</strong>:</p>\n\n\n<div class=\"ltag__link--embedded\">\n  <div class=\"crayons-story \">\n  <a class=\"crayons-story__hidden-navigation-link\" href=\"https://dev.",
+  "full_text": "This is the fifth post in the series.\n\nRetrieving data automatically from multiple tables is powerful. However, in many real-world reporting scenarios, dashboards and analytical reports rely on custom SQL expressions, user-defined functions, or stored procedures.\n\nIn this post, I’ll show how to link SQL expressions with other tables so you can benefit from both approaches at the same time - keeping Seal Report’s automatic joins and filters while still using custom SQL logic.\n\nAs a prerequisite, you should have an instance of the AdventureWorks2025 database available and be familiar with configuring a data source connection in Seal Report.\n\nPreviously, we've covered up how to apply dependent filters:\n\n \n \n The Goal\n\nIn this post, we will rewrite the report created in the previous article using a different approach:\n\nretrieving data from the Person.Person table together with data from the HumanResources schema using a single SQL expression;\n\napplying a custom join between this SQL expression and the Person.Person table;\n\nkeeping the rest of the dynamic and custom filters available, just like in the previous posts in this series.\n\nThe SQL statement used in this example will not be implemented as a parameterized user-defined function or stored procedure, as that scenario will be covered in the next article:\n\nSELECT \n employee.BusinessEntityID\n , employee.JobTitle\n , employee.BirthDate\n , employee.MaritalStatus\n , employee.Gender\n , person.FirstName\n , person.MiddleName\n , person.LastName\n , pay_history.PayFrequency\n , pay_history.Rate\nFROM HumanResources.Employee employee\n LEFT JOIN HumanResources.EmployeePayHistory pay_history\n on employee.BusinessEntityID = pay_history.BusinessEntityID\n INNER JOIN Person.Person person\n on employee.BusinessEntityID = person.BusinessEntityID\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Joining Data Tables Within the Data Source\n\nTo add the SQL expression as a virtual table, open Sources → Data Source → Tables and choose Add Table.\n\nIn the configuration panel on the right side, set the Name property to Employees_Virtual, then paste the SQL query into SQL Select Statement.\n\nAfter that, press F9 (or Refresh columns) so that Seal Report loads the column definitions from the query.\n\nAt this point, the SQL expression becomes available as a regular table inside the data source and can be used later when defining joins.\n\nNote that this does not create a new table in the database — the table exists only at the data source level in Seal Report.\n\nThe following data tables should be loaded from the Catalog:\n\nPerson.Person\n\nPerson.BusinessEntity\n\nPerson.BusinessEntityAddress\n\nPerson.Address\n\nPerson.StateProvince\n\nPerson.CountryRegion\n\nAfter loading them, the Tables section should look like this:\n\nNow it is time to apply a custom join statement. Open Sources → Data Source → Joins and use the Add Join option from the context menu.\n\nSince the required join is bi-directional, it does not matter whether the virtual table is defined as the left or the right side of the join. In the Join clause, apply the following condition:\n\nEmployee_Virtual.BusinessEntityID = Person.Person.BusinessEntityID\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe joins used in this example are shown in the screenshot below:\n\n \n \n Creating Pivot Table and Using Custom Filters\n\nThis time, the elements used for data visualization will be retrieved from a single source — the Employee_Virtual custom table.\n\nThe Row Elements should contain the following properties:\n\nFirstName\n\nMiddleName\n\nLastName\n\nJobTitle\n\nBirthDate\n\nMaritalStatus\n\nGender\n\nFor the pivoted part, the Column Elements should contain PayFrequency, and the Data Elements should contain the Rate property.\n\nLet’s apply the what-I-see-is-what-I-can-filter principle to the static part of the table definition. Drag and drop the same properties used within the Row Elements into the Restriction section. Do not forget to enable prompt restrictions for the newly added expressions in that section.\n\nIf everything has been configured correctly, the model definition should look like this:\n\nIf you had any difficulties completing this exercise, you may take a look at the following post:\n\n \n \n Skill Check\n\nOnly one step remains to reach the final goal — applying a filter on a table other than the custom one and verifying that it influences the report output.\n\nSince we defined a custom join between the Employee_Virtual table and the base table (Person.Person), we now need to apply a restriction within the Person schema to complete the scenario.\n\nLet’s drag and drop the CountryRegionCode field from Person.CountryRegion into the Restrictions section.\n\nFor example, applying the FR region code will return just one row in the table:\n\nThe example above would be even more useful if dependent filters were applied to CountryRegion and StateProvince. Try implementing them yourself. If you encounter any difficulties, the previous post explains how to configure them.\n\nSo far, so good. In the next post, I will show how to pass parameters into user-defined functions and stored procedures when using them as data sources in Seal Report.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "add table",
+      "analytics",
+      "apply",
+      "birthdate",
+      "creating pivot table",
+      "custom",
+      "datum",
+      "elements",
+      "expression",
+      "filter",
+      "humanresources",
+      "jobtitle",
+      "join",
+      "payfrequency",
+      "seal",
+      "seal report",
+      "sealreport",
+      "source",
+      "sql",
+      "sql select statement",
+      "table",
+      "tutorial"
+    ],
+    [
+      "analytics",
+      "sealreport",
+      "tutorial"
+    ]
+  ]
+}

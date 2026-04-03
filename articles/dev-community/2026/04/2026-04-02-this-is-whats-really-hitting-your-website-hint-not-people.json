@@ -1,0 +1,42 @@
+{
+  "id": 8190,
+  "source": "DEV Community<",
+  "title": "This Is What’s Really Hitting Your Website (Hint: Not People)",
+  "url": "https://dev.to/gb26/this-is-whats-really-hitting-your-website-hint-not-people-31p6",
+  "published_at": "2026-04-02T23:38:01Z",
+  "fetched_at": "2026-04-03T00:00:26.872632+00:00",
+  "author": "Greg B",
+  "summary": "<p>This Is What’s Really Hitting Your Website (Hint: Not People)</p>\n\n<p>I wanted to understand how much of our traffic was actually human, so I pulled and analyzed 48 hours of raw request logs.</p>\n\n<p>No filters, no analytics layer, just direct log data.</p>\n\n<p>Time Frame</p>\n\n<p>Start: 2026-03-31 10:00 UTC<br />\nEnd: 2026-04-02 10:00 UTC</p>\n\n<p>All requests within that window were grouped by path patterns and behavior.</p>\n\n<p>Traffic Breakdown</p>\n\n<p>Requests were classified into four categories:</p>\n\n<ul>\n<li>WordPress probing (paths containing wp)</li>\n<li>XMLRPC access attempts</li>\n<li>PHP endpoint probing</li>\n<li>General scanning and enumeration</li>\n</ul>\n\n<p>Results:</p>\n\n<ul>\n<li>WordPress probes: 34 percent</li>\n<li>XMLRPC attempts: 18 percent</li>\n<li>PHP probes: 27 percent</li>\n<li>Other scanning: 21 percent</li>\n</ul>\n\n<p>Roughly 79 percent of requests were not normal user activity.</p>\n\n<p>Sample of Active IPs</p>\n\n<p>Below is a subset of IPs with the highest reque",
+  "full_text": "This Is What’s Really Hitting Your Website (Hint: Not People)\n\nI wanted to understand how much of our traffic was actually human, so I pulled and analyzed 48 hours of raw request logs.\n\nNo filters, no analytics layer, just direct log data.\n\nTime Frame\n\nStart: 2026-03-31 10:00 UTC\n\nEnd: 2026-04-02 10:00 UTC\n\nAll requests within that window were grouped by path patterns and behavior.\n\nTraffic Breakdown\n\nRequests were classified into four categories:\n\nWordPress probing (paths containing wp)\n\nXMLRPC access attempts\n\nPHP endpoint probing\n\nGeneral scanning and enumeration\n\nResults:\n\nWordPress probes: 34 percent\n\nXMLRPC attempts: 18 percent\n\nPHP probes: 27 percent\n\nOther scanning: 21 percent\n\nRoughly 79 percent of requests were not normal user activity.\n\nSample of Active IPs\n\nBelow is a subset of IPs with the highest request volume or repeated attack patterns during the window:\n\n185.220.101.45 WordPress login brute force patterns\n\n45.146.165.12 XMLRPC pingback attempts\n\n103.248.70.33 PHP endpoint scanning\n\n91.134.23.198 Multi-path probing (/admin, /login, /.env)\n\n176.65.148.92 High-frequency requests consistent with botnet behavior\n\n198.54.117.210 Credential stuffing attempts\n\n5.188.62.76 Known scanner signature patterns\n\n194.147.142.88 Repeated wp-login hits\n\n212.83.150.120 PHPMyAdmin probing\n\n139.59.37.12 Generic crawler with attack signatures\n\nMany of these generated hundreds to thousands of requests over the 48 hour period.\n\nObserved Attack Patterns\n\nWordPress Probing\n\nEven on non-WordPress systems, these paths were repeatedly hit:\n\n/wp-login.php\n\n/wp-admin/\n\n/wp-content/plugins/\n\nThis is automated scanning, not targeted behavior.\n\nXMLRPC Access\n\nFrequent hits on:\n\n/xmlrpc.php\n\nCommon uses include pingback abuse and brute force via API endpoints.\n\nPHP File Probing\n\nRequests targeting common configuration and entry points:\n\n/index.php\n\n/config.php\n\n/.env\n\n/db.php\nThese are looking for exposed configs or weak deployments.\n\nCredential Stuffing\n\nRepeated requests to:\n\nOften with high frequency and rotating IPs.\n\nWhat This Means\n\nIf you rely on standard analytics:\n\nTraffic volume may be inflated\n\nEngagement metrics may be misleading\n\nInfrastructure may be handling unnecessary load\n\nMore importantly, this traffic is constant. It is not tied to visibility or popularity. Any exposed service will receive it.\n\nInternal Response\n\nAfter seeing this across multiple systems, we started aggregating this data instead of treating each site in isolation.\n\nThe approach:\n\nTrack IPs across multiple deployments\n\nClassify behavior based on request patterns\n\nIdentify repeat offenders\n\nApply blocking rules based on shared observations\n\nThis evolved into a simple shared threat dataset.\n\nThreat Network Concept\n\nInstead of reacting per site:\n\nAn IP flagged on one system is known to others\n\nPatterns such as WordPress probing or XMLRPC abuse are categorized\n\nRepeated behavior increases confidence in classification\n\nBlocking decisions become faster and more consistent\n\nThis reduces duplicate analysis and speeds up mitigation.\n\nOutcome\n\nAfter applying filtering based on this data:\n\nCleaner traffic metrics\n\nReduced unnecessary requests\n\nLower noise in logs\n\nBetter visibility into actual users\n\nClosing\n\nThe main takeaway from this dataset is straightforward.\n\nA large portion of inbound traffic to public web services is automated and non-user driven.\n\nThis data is from a limited 48 hour window across a small set of systems. Patterns may vary, but the presence of automated scanning is consistent.\n\nIf you are interested in testing this type of visibility or contributing additional data points, I am running a small beta around this approach.\n\nwww.blockabot.com",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "automate",
+      "base",
+      "credential",
+      "cybersecurity",
+      "identify",
+      "ips",
+      "multi",
+      "patterns",
+      "php",
+      "probe",
+      "repeat",
+      "request",
+      "scanning",
+      "security",
+      "traffic",
+      "utc",
+      "webdev",
+      "wordpress",
+      "xmlrpc",
+      "xmlrpc access\n\nfrequent"
+    ],
+    [
+      "cybersecurity",
+      "webdev"
+    ]
+  ]
+}

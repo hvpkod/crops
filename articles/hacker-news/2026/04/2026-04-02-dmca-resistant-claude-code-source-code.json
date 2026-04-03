@@ -1,0 +1,36 @@
+{
+  "id": 8004,
+  "source": "Hacker News",
+  "title": "DMCA-resistant Claude Code source code",
+  "url": "https://codeberg.org/tornikeo/claude-code",
+  "published_at": "2026-04-02T10:19:50Z",
+  "fetched_at": "2026-04-02T13:20:21.733081+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47612387\">Comments</a>",
+  "full_text": "Claude Code\n\n \n\nClaude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows -- all through natural language commands. Use it in your terminal, IDE, or tag @claude on Github.\n\nLearn more in the official documentation.\n\nGet started\n\nFor more installation options, uninstall steps, and troubleshooting, see the setup documentation.\n\nInstall Claude Code:\n\nMacOS/Linux (Recommended):\ncurl -fsSL https://claude.ai/install.sh | bash\n\nHomebrew (MacOS/Linux):\nbrew install --cask claude-code\n\nWindows (Recommended):\nirm https://claude.ai/install.ps1 | iex\n\nWinGet (Windows):\nwinget install Anthropic.ClaudeCode\n\nNPM (Deprecated):\nnpm install -g @anthropic-ai/claude-code\n\nNavigate to your project directory and run claude.\n\nPlugins\n\nThis repository includes several Claude Code plugins that extend functionality with custom commands and agents. See the plugins directory for detailed documentation on available plugins.\n\nReporting Bugs\n\nWe welcome your feedback. Use the /bug command to report issues directly within Claude Code, or file a GitHub issue.\n\nConnect on Discord\n\nJoin the Claude Developers Discord to connect with other developers using Claude Code. Get help, share feedback, and discuss your projects with the community.\n\nData collection, usage, and retention\n\nWhen you use Claude Code, we collect feedback, which includes usage data (such as code acceptance or rejections), associated conversation data, and user feedback submitted via the /bug command.\n\nHow we use your data\n\nSee our data usage policies.\n\nPrivacy safeguards\n\nWe have implemented several safeguards to protect your data, including limited retention periods for sensitive information, restricted access to user session data, and clear policies against using feedback for model training.\n\nFor full details, please review our Commercial Terms of Service and Privacy Policy.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "claude",
+      "claudecode",
+      "code",
+      "datum",
+      "developer",
+      "github",
+      "homebrew",
+      "ide",
+      "install",
+      "macos/linux",
+      "plugin",
+      "privacy",
+      "retention",
+      "safeguard",
+      "windows",
+      "winget"
+    ],
+    [
+      "claudecode"
+    ]
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": 8107,
+  "source": "Hacker News",
+  "title": "JSON Canvas Spec",
+  "url": "https://jsoncanvas.org/spec/1.0/",
+  "published_at": "2026-03-30T09:38:38Z",
+  "fetched_at": "2026-04-02T18:40:20.973019+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47572288\">Comments</a>",
+  "full_text": "JSON Canvas Spec\n\nVersion 1.0 — 2024-03-11\n\nTop level\n\nThe top level of JSON Canvas contains two arrays:\n\n \nnodes (optional, array of nodes)\n \nedges (optional, array of edges)\n\nNodes\n\nNodes are objects within the canvas. Nodes may be text, files, links, or groups.\n\nNodes are placed in the array in ascending order by z-index. The first node in the array should be displayed below all other nodes, and the last node in the array should be displayed on top of all other nodes.\n\nGeneric node\n\nAll nodes include the following attributes:\n\n \nid (required, string) is a unique ID for the node.\n \ntype (required, string) is the node type.\n \n \n \nx (required, integer) is the x position of the node in pixels.\n \ny (required, integer) is the y position of the node in pixels.\n \nwidth (required, integer) is the width of the node in pixels.\n \nheight (required, integer) is the height of the node in pixels.\n \ncolor (optional, canvasColor) is the color of the node, see the Color section.\n\nText type nodes\n\nText type nodes store text. Along with generic node attributes, text nodes include the following attribute:\n\n \ntext (required, string) in plain text with Markdown syntax.\n\nFile type nodes\n\nFile type nodes reference other files or attachments, such as images, videos, etc. Along with generic node attributes, file nodes include the following attributes:\n\n \nfile (required, string) is the path to the file within the system.\n \nsubpath (optional, string) is a subpath that may link to a heading or a block. Always starts with a #.\n\nLink type nodes\n\nLink type nodes reference a URL. Along with generic node attributes, link nodes include the following attribute:\n\nGroup type nodes\n\nGroup type nodes are used as a visual container for nodes within it. Along with generic node attributes, group nodes include the following attributes:\n\n \nlabel (optional, string) is a text label for the group.\n \nbackground (optional, string) is the path to the background image.\n \nbackgroundStyle (optional, string) is the rendering style of the background image. Valid values:\n \n \ncover fills the entire width and height of the node.\n \nratio maintains the aspect ratio of the background image.\n \nrepeat repeats the image as a pattern in both x/y directions.\n \n \n\nEdges\n\nEdges are lines that connect one node to another.\n\n \nid (required, string) is a unique ID for the edge.\n \nfromNode (required, string) is the node id where the connection starts.\n \nfromSide (optional, string) is the side where this edge starts. Valid values:\n \n \n \nfromEnd (optional, string) is the shape of the endpoint at the edge start. Defaults to none if not specified. Valid values:\n \n \n \ntoNode (required, string) is the node id where the connection ends.\n \ntoSide (optional, string) is the side where this edge ends. Valid values:\n \n \n \ntoEnd (optional, string) is the shape of the endpoint at the edge end. Defaults to arrow if not specified. Valid values:\n \n \n \ncolor (optional, canvasColor) is the color of the line, see the Color section.\n \nlabel (optional, string) is a text label for the edge.\n\nColor\n\nThe canvasColor type is used to encode color data for nodes and edges. Colors attributes expect a string. Colors can be specified in hex format e.g. \"#FF0000\", or using one of the preset colors, e.g. \"1\" for red. Six preset colors exist, mapped to the following numbers:\n\n \n\"1\" red\n \n\"2\" orange\n \n\"3\" yellow\n \n\"4\" green\n \n\"5\" cyan\n \n\"6\" purple\n\nSpecific values for the preset colors are intentionally not defined so that applications can tailor the presets to their specific brand colors or color scheme.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "array",
+      "color",
+      "edge",
+      "follow",
+      "generic",
+      "markdown",
+      "node",
+      "pixels",
+      "text",
+      "type",
+      "valid"
+    ],
+    []
+  ]
+}

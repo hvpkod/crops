@@ -1,0 +1,41 @@
+{
+  "id": 8021,
+  "source": "DEV Community<",
+  "title": "On-Chain RSI: How to Read Live Technical Indicators From a Solidity Smart Contract",
+  "url": "https://dev.to/pythiatheoracle/on-chain-rsi-how-to-read-live-technical-indicators-from-a-solidity-smart-contract-ghh",
+  "published_at": "2026-04-02T14:59:29Z",
+  "fetched_at": "2026-04-02T15:00:17.753223+00:00",
+  "author": "Pythia Oracle",
+  "summary": "<p>Most DeFi protocols make every decision based on one number: the current price.</p>\n\n<p>That's a problem.</p>\n\n<p>A price oracle tells your contract ETH is $2,400. It doesn't tell you whether that's a crash, a recovery, a consolidation, or a pump. For that, you need technical indicators — and until recently, those simply didn't exist on-chain.</p>\n\n<p>This tutorial shows you how to read live RSI, EMA, VWAP, and Bollinger Band values from a Solidity contract using the standard Chainlink <code>AggregatorV3Interface</code>.</p>\n\n\n\n\n<h2>Why You Can't Calculate RSI On-Chain</h2>\n\n<p>RSI requires 14 periods of historical prices. For daily RSI, that's 14 days of data. For hourly, 14 hours.</p>\n\n<p>Storing and computing this in Solidity would cost thousands in gas per calculation. Floating-point math doesn't exist in EVM. It's not viable.</p>\n\n<p>The practical solution: deliver the pre-calculated value via oracle — the same pattern Chainlink uses for ETH/USD prices.</p>\n\n\n\n\n<h2>The Indicato",
+  "full_text": "Most DeFi protocols make every decision based on one number: the current price.\n\nThat's a problem.\n\nA price oracle tells your contract ETH is $2,400. It doesn't tell you whether that's a crash, a recovery, a consolidation, or a pump. For that, you need technical indicators — and until recently, those simply didn't exist on-chain.\n\nThis tutorial shows you how to read live RSI, EMA, VWAP, and Bollinger Band values from a Solidity contract using the standard Chainlink AggregatorV3Interface.\n\nWhy You Can't Calculate RSI On-Chain\n\nRSI requires 14 periods of historical prices. For daily RSI, that's 14 days of data. For hourly, 14 hours.\n\nStoring and computing this in Solidity would cost thousands in gas per calculation. Floating-point math doesn't exist in EVM. It's not viable.\n\nThe practical solution: deliver the pre-calculated value via oracle — the same pattern Chainlink uses for ETH/USD prices.\n\nThe Indicators Available On-Chain\n\nPythia's oracle network delivers pre-calculated technical indicators for 22 tokens across 4 timeframes (1H, 4H, 8H, 1D):\n\n \n\nEMA (20, 50, 200 periods)\n \n\nRSI (14 periods)\n \nVWAP\n \n\nBollinger Bands (upper, lower, basis)\n \n\nVolatility (24H, 7D)\n \nLiquidity\n\nThat's 484 live feeds on Polygon mainnet, all using the standard Chainlink AggregatorV3Interface.\n\nReading the Feed in Solidity\n\nIf you've read a Chainlink price feed before, this is identical:\n\n// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\n\nimport \"@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol\";\n\ncontract IndicatorReader {\n AggregatorV3Interface public rsiFeed;\n\n // Polygon Amoy testnet: Bitcoin RSI (1D, 14 periods)\n constructor(address _rsiFeedAddress) {\n rsiFeed = AggregatorV3Interface(_rsiFeedAddress);\n }\n\n function getBitcoinRSI() external view returns (int256) {\n (, int256 rsi, , , ) = rsiFeed.latestRoundData();\n return rsi; // scaled by 1e8 (e.g. 4272000000 = RSI of 42.72)\n }\n}\n\nFour lines that return the live RSI for Bitcoin. No API calls, no off-chain computation, no server to maintain.\n\nA Real Use Case: RSI-Aware Liquidations\n\nDeFi lending protocols liquidate positions when collateral drops below a threshold. The problem: many of those liquidations fire during extreme oversold conditions — RSI at 15–20 — where the market typically recovers within hours.\n\nA protocol with access to RSI can avoid unnecessary liquidations during temporary market panics:\n\n// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\n\nimport \"@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol\";\n\ncontract RSIGatedLending {\n AggregatorV3Interface public priceFeed;\n AggregatorV3Interface public rsiFeed;\n\n // RSI below this value = extreme oversold (scale: 1e8)\n int256 public constant RSI_OVERSOLD = 25 * 1e8;\n\n constructor(address _priceFeed, address _rsiFeed) {\n priceFeed = AggregatorV3Interface(_priceFeed);\n rsiFeed = AggregatorV3Interface(_rsiFeed);\n }\n\n function canLiquidate(address user) external view returns (bool) {\n if (!isUndercollateralized(user)) return false;\n\n // Delay liquidation when market is at extreme oversold\n (, int256 rsi, , , ) = rsiFeed.latestRoundData();\n if (rsi < RSI_OVERSOLD) {\n // Position is undercollateralized but conditions are extreme oversold\n // Holding off avoids liquidating into a likely temporary flash crash\n return false;\n }\n\n return true;\n }\n\n function isUndercollateralized(address user) internal view returns (bool) {\n // Your existing collateral check here\n return false;\n }\n}\n\nThis doesn't eliminate liquidations. It delays them when RSI indicates market conditions are anomalous — protecting users from getting liquidated during brief panic events.\n\nAnother Pattern: EMA Crossover Signal\n\nMany trading strategies use EMA crossovers (when short-term EMA crosses above long-term EMA) as a buy/sell signal. With on-chain EMAs, you can write this logic directly into a contract:\n\nfunction isEMACrossoverBullish() external view returns (bool) {\n (, int256 ema20, , , ) = ema20Feed.latestRoundData();\n (, int256 ema50, , , ) = ema50Feed.latestRoundData();\n return ema20 > ema50;\n}\n\nA vault strategy could use this to dynamically rebalance: deploy more capital when EMAs are bullish, reduce exposure when they're bearish.\n\nLive Data — What the Feeds Say Right Now\n\nHere's what's on-chain as of April 2, 2026:\n\n \n \nToken\nRSI (1D)\nEMA 20 vs EMA 50\nSignal\n\n \n \n \nBTC\n42.72\n$66,477 vs $66,575\nBearish (EMA 20 below)\n\n \nSOL\n51.93\n$79.21 vs $79.24\nNeutral, nearly flat\n\n \nSUI\n37.77\n$0.857 vs $0.859\nOversold\n\n \nLDO\n17.21\n—\nExtreme oversold\n\n \n\nLDO at RSI 17 means Lido DAO is in one of the most deeply oversold conditions in recent history. A protocol using only spot price treats this as a normal price drop. A protocol with on-chain RSI can flag it as a statistical anomaly and act accordingly.\n\nTry It on Testnet (No Signup Required)\n\nPythia runs a live testnet on Polygon Amoy with free faucet access. No API key, no registration.\n\nFor AI-assisted development (MCP-compatible):\n\npip install pythia-oracle-mcp\n\nUse with Claude, Cursor, or any MCP-compatible AI IDE. Query indicators, get feed addresses, run testnet calls — all from your AI assistant.\n\nLangChain integration:\n\npip install langchain-pythia\n\nREST API (no auth):\n\ncurl https://pythia.c3x-solutions.com/api/feeds?token_id=bitcoin\n\nSolidity / Hardhat examples:\n\nFull contract examples at github.com/pythia-the-oracle/pythia-oracle-examples\n\nSummary\n\n \nYou cannot calculate RSI, EMA, or Bollinger Bands on-chain economically\n \nPythia delivers pre-calculated indicators as Chainlink-compatible feeds\n \nYour contract reads them with the same 4-line pattern used for price feeds\n \nReal use cases: RSI-gated liquidations, EMA crossover vaults, volatility circuit breakers\n \nFree testnet: Polygon Amoy, no signup, MCP server available\n\nThe feeds are live. The interface is standard Chainlink. The only thing left is what you build with it.\n\npip install pythia-oracle-mcp | Docs: pythia.c3x-solutions.com",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "chainlink",
+      "constructor(address",
+      "contract",
+      "cryptocurrency",
+      "ema",
+      "eth",
+      "extreme",
+      "feed",
+      "indicator",
+      "liquidation",
+      "mit",
+      "oversell",
+      "polygon",
+      "return",
+      "rsi",
+      "solidity",
+      "spdx-license-identifier",
+      "tradefi",
+      "vwap"
+    ],
+    [
+      "cryptocurrency",
+      "tradefi"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 8028,
+  "source": "DEV Community<",
+  "title": "Shell features you didn't know you needed (or possibly even existed) #9",
+  "url": "https://dev.to/fleetfootmike/shell-features-you-didnt-know-you-needed-or-possibly-even-existed-9-4g8g",
+  "published_at": "2026-04-02T14:51:13Z",
+  "fetched_at": "2026-04-02T15:00:35.442312+00:00",
+  "author": "Mike Whitaker",
+  "summary": "<h2>\n  \n  \n  Substituting the contents of a variable in Bash.\n</h2>\n\n<p>I came across this one needing to turn a Git branch name into a Docker image tag, and having it trip over the fact that our branch naming convention is <code>&lt;user&gt;/&lt;issue&gt;/&lt;short description&gt;</code>, and Docker doesn't like <code>/</code> in tags. </p>\n\n<p>Obviously there are many ways of stripping/substituting the <code>/</code>: for example, </p>\n\n<ul>\n<li>using <code>tr</code>\n</li>\n</ul>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code><span class=\"nv\">IMAGE_TAG</span><span class=\"o\">=</span><span class=\"si\">$(</span><span class=\"nb\">echo</span> <span class=\"nv\">$BRANCH</span> | <span class=\"nb\">tr</span> <span class=\"se\">\\/</span> <span class=\"se\">\\-</span><span class=\"si\">)</span>\n</code></pre>\n\n</div>\n\n\n\n<ul>\n<li>using <code>sed</code>\n</li>\n</ul>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code><span class=\"nv\">IMAGE_TAG</span><spa",
+  "full_text": "Substituting the contents of a variable in Bash.\n\nI came across this one needing to turn a Git branch name into a Docker image tag, and having it trip over the fact that our branch naming convention is <user>/<issue>/<short description>, and Docker doesn't like / in tags. \n\nObviously there are many ways of stripping/substituting the /: for example, \n\nIMAGE_TAG=$(echo $BRANCH | tr \\/ \\-)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIMAGE_TAG=$(echo $BRANCH | sed -e 's/\\//-/g')\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIMAGE_TAG=$(echo $BRANCH | perl -pe 's/\\//-/g')\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAnd there's probably others with awk, and who knows what else.\n\nBut why bother, when you can do it in bash itself.\n\nIMAGE_TAG=${BRANCH//\\//-}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTo clarify, that's essentially:\n\n${VARIABLE/from/to} # replace first occurrence of 'from' \n${VARIABLE//from/to} # replace all occurrences of 'from'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSimple, when you know how.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "bash",
+      "branch",
+      "docker",
+      "enter",
+      "exit",
+      "fullscreen",
+      "mode",
+      "need",
+      "occurrence",
+      "regex",
+      "replace",
+      "shell"
+    ],
+    [
+      "regex"
+    ]
+  ]
+}

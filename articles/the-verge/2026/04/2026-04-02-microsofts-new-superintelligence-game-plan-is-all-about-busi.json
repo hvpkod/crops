@@ -1,0 +1,41 @@
+{
+  "id": 8018,
+  "source": "The Verge",
+  "title": "Microsoft’s new ‘superintelligence’ game plan is all about business",
+  "url": "https://www.theverge.com/report/905791/mustafa-suleyman-microsoft-ai-transcription-model",
+  "published_at": "2026-04-02T14:00:00Z",
+  "fetched_at": "2026-04-02T14:40:25.985438+00:00",
+  "author": "Hayden Field",
+  "summary": "<figure>\n\n<img alt=\"A photo showing Mustafa Suleyman during the World Economic Forum 2024\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25344398/1935722537.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Mustafa Suleyman has been preparing for his new job description for a long time. Suleyman is Microsoft's inaugural CEO of AI, but after the company underwent a large-scale restructuring in mid-March, he's handed off some duties and shifted focus to chasing superintelligence. Though the news was only made public last month, he tells <em>The Verge</em>, he'd been preparing for the transition for as many as nine months - and though renegotiating Microsoft's contract with OpenAI is the thing that officially \"unlocked [Microsoft's] ability to pursue superintelligence,\" he'd been planning even before the ink was dry. </p>\n<p class=\"has-text-align-none\">\"This has be",
+  "full_text": "Mustafa Suleyman has been preparing for his new job description for a long time. Suleyman is Microsoft’s inaugural CEO of AI, but after the company underwent a large-scale restructuring in mid-March, he’s handed off some duties and shifted focus to chasing superintelligence. Though the news was only made public last month, he tells The Verge, he’d been preparing for the transition for as many as nine months — and though renegotiating Microsoft’s contract with OpenAI is the thing that officially “unlocked [Microsoft’s] ability to pursue superintelligence,” he’d been planning even before the ink was dry.\n\n“This has been a long-held plan,” he said, adding that achieving superintelligence was “purely my focus.”\n\nSuperintelligence — along with AGI, or artificial general intelligence — has a vague and shifting definition in the AI industry. For Suleyman, it’s strictly about business and productivity. “Superintelligence is really about, ‘Are these models capable of delivering product value for the millions of enterprises that depend on us to deliver world-class language models?’” Suleyman said. “That’s really our focus. We want to deliver for developers, for enterprises, and many, many consumers.” AI companies face ratcheting pressure to deliver more revenue, and Microsoft’s plans echo a new strategy at OpenAI as well.\n\nMicrosoft’s reorganization combined its enterprise and consumer teams under the Copilot AI banner. While Suleyman will still working on big-picture strategy, Jacob Andreou, who was formerly a corporate vice president of product and growth for Microsoft AI, became its executive vice president, leading the newly combined teams’ engineering, growth, product, and design initiatives. That shift left room for Suleyman to devote his time to pursuing superintelligence and developing new frontier AI models for Microsoft in a time when the competition between leading AI companies — and the pressure to attract new paying consumers and enterprise customers — is steeper than ever before.\n\nOn Thursday, Microsoft debuted a new transcription model that it hopes will do just that — and, as it’s “half the GPU cost of the other state-of-the-art models,” per Suleyman, it’s a “huge cost-saving” for Microsoft.\n\nThe company bills MAI-Transcribe-1 as “pushing the frontier of speech recognition” with its ability to transcribe meetings, caption videos, and analyze call center exchanges in 25 languages. Microsoft’s blog posts announcing the model say it was built for “challenging” recording conditions including background noise, low-quality audio, and overlapping speech, trained on a combination of “human-curated” and machine-transcribed transcripts. Suleyman said the source recordings are a mix of controlled sound booth data and contractors tasked with recording themselves amid background noise, from busy streets to kids running around, plus “vast amounts of data from the open web.”\n\nAlong with existing voice and image-generation models MAI-Voice-1 and MAI-Image-2, the new transcription model is now available on Microsoft Foundry and as part of the new Microsoft AI Playground. It’s the first time these models are “broadly available for commercial use,” according to Microsoft. MAI-Transcribe-1 can handle audio files in MP3, WAV, and FLAC formats.\n\nSuleyman attributes the new model’s performance in tests to a small, focused 10-person team. He says the modeling team has been “liberated from any of the bureaucracy,” as they have a surrounding team that’s responsible for managing vendors, finding data to download, and more. Microsoft has employed a similar strategy for voice and image generation, and other companies have made similar moves — Meta, Amazon, and Google are experimenting with flattening their organizations, and Anthropic has said it’s also experimenting with giving small teams of a few developers free rein with certain levels of compute to see what they can achieve.\n\nThe new transcription model is part of Suleyman’s goal to deliver “human-centered” AI (a variation of Microsoft’s preferred AI buzzword, “humanist superintelligence”) that’s useful for the everyday person. “Everyone is going to have an AI assistant in their pocket that is truly world-class, accountable to them, on their side, aligned to their interests, working on their behalf,” he said.\n\nFollow topics and authors from this story to see more like this in your personalized homepage feed and to receive email updates.\nHayden Field\n\nAI\n\nMicrosoft\n\nReport\n\nTech",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agi",
+      "ai",
+      "combine",
+      "company",
+      "copilot ai",
+      "deliver",
+      "gpu",
+      "mai",
+      "microsoft",
+      "microsoft ai",
+      "microsoft foundry",
+      "model",
+      "openai",
+      "prepare",
+      "record",
+      "report",
+      "suleyman",
+      "superintelligence",
+      "tech",
+      "transcription",
+      "wav"
+    ],
+    [
+      "tech"
+    ]
+  ]
+}

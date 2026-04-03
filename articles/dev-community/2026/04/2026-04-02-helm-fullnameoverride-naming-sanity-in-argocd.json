@@ -1,0 +1,32 @@
+{
+  "id": 8146,
+  "source": "DEV Community<",
+  "title": "Helm fullnameOverride: Naming Sanity in ArgoCD",
+  "url": "https://dev.to/futhgar/helm-fullnameoverride-naming-sanity-in-argocd-5clo",
+  "published_at": "2026-04-02T20:45:19Z",
+  "fetched_at": "2026-04-02T21:00:32.975676+00:00",
+  "author": "Guatu",
+  "summary": "<p>ArgoCD is great for GitOps, but when you start deploying multiple Helm charts, naming collisions become a real pain. I’ve spent hours digging through logs trying to figure out why a deployment failed because the wrong service was being referenced. That’s where <code>fullnameOverride</code> comes in — it’s not just a feature, it’s a lifeline for keeping your Kubernetes resources uniquely identifiable.</p>\n\n<p>The key is to explicitly set <code>fullnameOverride</code> in your ArgoCD app spec. This ensures that Helm uses a predictable name for your resources, preventing clashes between different apps or environments. Without it, you end up with names like <code>myapp-abc-xyz</code>, which are fine in isolation but disastrous when you scale.</p>\n\n<p>Here’s how to do it in your ArgoCD app definition. This example sets a custom name for a Helm chart, ensuring it doesn’t clash with any other deployments:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight yaml\"><cod",
+  "full_text": "ArgoCD is great for GitOps, but when you start deploying multiple Helm charts, naming collisions become a real pain. I’ve spent hours digging through logs trying to figure out why a deployment failed because the wrong service was being referenced. That’s where fullnameOverride comes in — it’s not just a feature, it’s a lifeline for keeping your Kubernetes resources uniquely identifiable.\n\nThe key is to explicitly set fullnameOverride in your ArgoCD app spec. This ensures that Helm uses a predictable name for your resources, preventing clashes between different apps or environments. Without it, you end up with names like myapp-abc-xyz, which are fine in isolation but disastrous when you scale.\n\nHere’s how to do it in your ArgoCD app definition. This example sets a custom name for a Helm chart, ensuring it doesn’t clash with any other deployments:\n\nspec:\n source:\n repoURL: https://charts.bitnami.com/bitnami\n chart: redis\n targetRevision: 18.1.1\n helm:\n valueOverrides:\n fullnameOverride: \"redis-cache-prod\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis change ensures that every deployment of this chart gets the same consistent name, making it easier to manage, troubleshoot, and reference in other services or configurations. It also helps with resource discovery in ArgoCD, avoiding the confusion that comes with ambiguous names.\n\nDon’t underestimate the power of a well-named resource — it’s the difference between a smooth deployment and a debugging nightmare.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "argocd",
+      "clash",
+      "come",
+      "deployment",
+      "ensure",
+      "fullnameoverride",
+      "helm",
+      "kubernetes",
+      "myapp-abc-xyz",
+      "name",
+      "naming",
+      "resource"
+    ],
+    [
+      "naming"
+    ]
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": 7927,
+  "source": "DEV Community<",
+  "title": "Bug Hunter: I Turned Every Website Into A Debugging Horror Game",
+  "url": "https://dev.to/toannhu/bug-hunter-i-turned-every-website-into-a-debugging-horror-game-5be3",
+  "published_at": "2026-04-02T05:22:36Z",
+  "fetched_at": "2026-04-02T06:00:34.120699+00:00",
+  "author": "Toàn Nhữ Đình",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/aprilfools-2026\">DEV April Fools Challenge</a></em></p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>I built <strong>Bug Hunter</strong>, a Chrome extension that spawns crawling bugs on top of real websites so you can \"debug\" them by smashing them.</p>\n\n<p>It solves absolutely nothing in real life, which makes it perfect for this challenge.</p>\n\n<p>Open any page, start Bug Hunter, pick a tool, and hunt.<br /><br />\nSmash bugs to lower your stress meter and boost score.<br /><br />\nMiss too many and the page becomes a full-blown infestation.</p>\n\n<p>Delightfully useless? Yes.<br /><br />\nStrangely therapeutic? Also yes.</p>\n<h2>\n  \n  \n  Demo\n</h2>\n\n<p>  \n  \n</p>\n\n<h2>\n  \n  \n  Code\n</h2>\n\n\n<div class=\"ltag-github-readme-tag\">\n  <div class=\"readme-overview\">\n    <h2>\n      <img alt=\"GitHub logo\" src=\"https://assets.dev.to/assets/github-logo-5a155e1f9a670af7944dd5e12375bc76ed542ea80224905ecaf878b9157cdefc.svg\" />\n      <a href=",
+  "full_text": "April Fools Challenge Submission ☕️🤡\n\n \n \n\n \n\nThis is a submission for the DEV April Fools Challenge\n\n \n \n What I Built\n\nI built Bug Hunter, a Chrome extension that spawns crawling bugs on top of real websites so you can \"debug\" them by smashing them.\n\nIt solves absolutely nothing in real life, which makes it perfect for this challenge.\n\nOpen any page, start Bug Hunter, pick a tool, and hunt.\n\nSmash bugs to lower your stress meter and boost score.\n\nMiss too many and the page becomes a full-blown infestation.\n\nDelightfully useless? Yes.\n\nStrangely therapeutic? Also yes.\n\n \n \n Demo\n\n VIDEO\n\n \n \n Code\n\n \n\n \n \n\n Bug Hunter is a Chrome Extension game that overlays crawling bugs on real web pages. You pick a tool, squash bugs, reduce stress, and chase a high score.\n \n \n \n\n \n\nBug Hunter\n\nBug Hunter is a Chrome Extension game that overlays crawling bugs on real web pages. You pick a tool, squash bugs, reduce stress, and chase a high score.\n\nFeatures\n\nReal-page bug crawling and interaction\n\nWeapon/tool selection from popup UI\n\nStress meter game loop and score feedback\n\nLocal progression storage (best score + achievements)\n\nManifest V3 extension architecture\n\nTech Stack\n\nTypeScript\n\nPreact (popup UI)\n\nEsbuild\n\nChrome Extension Manifest V3\n\nVitest\n\nProject Structure\n\nsrc/content/ : game runtime injected into web pages\n\nsrc/popup/ : extension popup UI\n\nsrc/background/ : service worker bridge for tab injection/actions\n\nsrc/shared/ : progression and storage helpers\n\nassets/ : icons and static assets\n\ndist/ : build output used by Chrome\n\nRequirements\n\nNode.js 18+\n\nnpm 9+\n\nChrome 120+\n\nLocal Development\n\nInstall dependencies:\n\nnpm install\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBuild extension:\n\nnpm run build\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nLoad in Chrome:\n\nOpen chrome://extensions\n\nEnable Developer mode\n\nClick Load unpacked\n\nSelect the dist/ directory\n\nFor watch mode during…\n \n \n\n \n \n How I Built It\n\nChrome Extension Manifest V3\n\nand TypeScript that's it\n\nKey features:\n\nBug crawling behavior over live page elements\n\nTool/weapon interactions and score feedback\n\nStress-meter game loop with win/lose states\n\nSession-based overlay effects (no permanent page modifications)\n\n \n \n Prize Category\n\nCommunity Favorite\n\nI built Bug Hunter to be immediately funny, fast to try, and fun enough to replay for a \"higher score + lower stress\" run.\n\nTeam Submissions: toannhu96\n\nIf this made you laugh, react/comment so more people can discover this beautifully unnecessary extension.",
+  "tags": [
+    [
+      "2026",
+      "418challenge",
+      "500-words",
+      "bug",
+      "build",
+      "chrome",
+      "chrome\n\nrequirements",
+      "crawl",
+      "dev",
+      "devchallenge",
+      "extension",
+      "fools challenge",
+      "game",
+      "hunter",
+      "manifest",
+      "overlay",
+      "score",
+      "showdev",
+      "typescript"
+    ],
+    [
+      "418challenge",
+      "devchallenge",
+      "showdev"
+    ]
+  ]
+}

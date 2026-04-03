@@ -1,0 +1,36 @@
+{
+  "id": 8046,
+  "source": "Hacker News",
+  "title": "The SpaceX IPO: retail investor notes",
+  "url": "https://report.bearblog.dev/the-spacex-ipo-will-be-the-perfect-storm-of-retail-investor-fallacies/",
+  "published_at": "2026-04-02T11:11:27Z",
+  "fetched_at": "2026-04-02T15:20:49.585612+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47612775\">Comments</a>",
+  "full_text": "The SpaceX IPO: retail investor notes\n\n \n\n \n \n 02 Apr, 2026\n\n \n \n \n\n \n\nSpaceX is one of the greatest success stories in the aerospace industry. They have completely revolutionized the use of space in launch volumes, price, and satellite communication. But Nothing SpaceX does as a company can, by itself, determine if it is a good investment.\n\nThe IPO landscape has changed. The \"wealth creation phase\" has moved from the public markets to the private markets.\nThe SpaceX IPO in 2026 is unlikely to mirror the 500x or 1,000x returns of early Amazon or Google; you have to look at market cap at birth. In the 1990s and early 2000s, an IPO was a \"graduation\" for a young company that needed capital to grow. Today, an IPO is an \"exit\" for private investors who have already funded that growth. SpaceX's target valuation is between $1.5 and $1.75 trillion! Amazon (1997): $438 million. Google (2004): $23 billion.\n\nIndex fund investors are being taken for a forced ride with SpaceX. Both Nasdaq and the S&P are considering rule changes that would add SpaceX into indexes before there is enough price discovery, just before the rebalancing date for major index funds. If this sounds like a dirty trick to you, you are not alone.\n\nSpaceX/xAI combo plays all retail investor fallacies:\n\nA great company can't be overvalued (\"Quality at Any Price\"). A stock is a claim on future cash flows. If the price of the stock implies that the company will capture 100% of the global launch market for the next 50 years, and it only captures 80%, the stock is overvalued—even though the company is the greatest space company ever.\n\nA great growth company can't be overvalued.\n(\"Growth will fix a multiple\"). There must be a limit. If a company is valued at 100x revenue, growth will fix it? If it is valued at 500x revenue, growth will fix it? Rationalization from price to future growth is a fallacy. There is a price that is too high.\n\nScarcity value fallacy. Because SpaceX is currently private, there is massive pent-up demand. Retail investors often confuse scarcity (limited supply of shares) with value (the actual worth of the business). SpaceX IPO will likely offer between 4% and 6% of its total shares to the public and raise $75B. The tiny 5% float can lead to extreme price volatility.\n\nNarrative overpowering financials and fear of missing out. Rockets are cool. Musk is a storyteller.\n\nPrediction: SpaceX will be way overpriced for the first 3–6 months for reasons that have nothing to do with its business.\n\nHow to value business\n\nInvestment decision is always ratio of two or more things. Aerospace engineer might be able to estimate value proposition. Wall Street knows all about the cost of money. A correct decision is based on both and is hard to get right.\n\nQuestions for myself:\n\nWhat is the potential market size for the entire industry?\n\nHow big a chunk of the market can one company capture?\n\nHow much will competition reduce free cash flow in the future?\n\nWhat is the risk-adjusted opportunity cost?\n\nTwo-Stage Discounted Cash Flow (DCF) model. It is the gold standard for valuing a high-growth company like SpaceX.\n\nV0=[∑t=110CFt(1+r)t]+TV(1+r)10\n\nTV=CF10×(1+g)r−g\n\nStage 1: The 10-Year Growth Phase\n\nV0 (Intrinsic Value): The \"Fair Price\" of the company today. This is what you compare against the IPO price.\n\nCFt (Free Cash Flow in year t): The actual cash the company generates in each specific year (Year 1, Year 2, etc.) after paying for all rocket launches and Starlink satellites.\n\nr (Discount Rate / Required Return): This is the most critical variable for risk. It represents the \"hurdle\" the investment must clear. Because space is high-risk, a rational r is usually 12% to 15%.\n\nt (Time) in years(1,2,3...10).\n\nStage 2: The Terminal Value (The \"Infinity\" Part)\n\nTV (Terminal Value): The estimated value of the company from Year 11 until the end of time.\n\ng (Perpetual Growth Rate): The rate the company grows once it is a \"mature\" utility. Not higher than the growth of the global economy (2% to 3%) if serious about infinity.\n\n(1+r)10: This is used at the end of the main equation to \"pull\" that massive future Terminal Value back into today’s dollars.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "amazon",
+      "cash",
+      "company",
+      "dcf",
+      "flow",
+      "google",
+      "growth",
+      "investor",
+      "ipo",
+      "market",
+      "price",
+      "retail",
+      "s&p",
+      "spacex",
+      "starlink",
+      "terminal value",
+      "the terminal value",
+      "value"
+    ],
+    []
+  ]
+}

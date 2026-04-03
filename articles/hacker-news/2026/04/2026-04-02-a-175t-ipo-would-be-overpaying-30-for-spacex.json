@@ -1,0 +1,35 @@
+{
+  "id": 8067,
+  "source": "Hacker News",
+  "title": "A $1.75T IPO Would Be Overpaying 30% for SpaceX",
+  "url": "https://futuresearch.ai/spacex-ipo-valuation/",
+  "published_at": "2026-04-02T17:00:11Z",
+  "fetched_at": "2026-04-02T17:20:17.939999+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47617027\">Comments</a>",
+  "full_text": "SpaceX filed confidentially for an IPO on April 1, 2026, targeting a $1.75 trillion valuation and a June listing. If completed, it would be the largest IPO in history.\n\nI found this valuation interesting because SpaceX is a conglomerate now, so valuing the business segments together has a lot of intangible value. But my particular interest was because the IPO will happen in June (or later), so the question is not: what is SpaceX worth now, but what will SpaceX be worth then?\n\nThat's a forecasting question, so I decided to forecast it.\n\nI broke SpaceX into seven business segments and forecast what the fair market value of each will be as of June 2026, assuming the IPO happens then. My conclusion is that for the company to be fairly valued at $1.75 trillion in June, each of its businesses would need to outperform between now and then.\n\nRed portion of the IPO bar shows the 29% premium over SOTP fair value.\n\nAt median forecasted values: Starlink Consumer Broadband at $380B (9.2M subscribers, ~38x revenue), xAI/Grok at $258B (anchored by the $250B merger), Starship Commercial Launch at $170B (pre-revenue option value), Starlink Enterprise/Maritime/Aviation at $147B, Government/Defense at $123B (~$22B contract backlog), Falcon 9/Heavy at $100B (~60-70% of global launches), and Starlink Direct-to-Cell at $75B (backed by $17-19B in EchoStar spectrum).\n\nThis totals $1,253B. Adding $11.6B in cash and liquid assets, subtracting ~$15B in total debt (SpaceX standalone obligations, remaining xAI inherited debt, EchoStar spectrum commitments), the sum-of-the-parts equity value is approximately $1,250 billion, 29% below the $1.75 trillion IPO target.\n\nWhere does the $500 billion gap come from? The SOTP method sums forecasted medians, but the IPO prices correlated upside, as if all businesses are valuaed more in my 75th percentile forecast. If investors are bullish on Starlink, they're simultaneously bullish on Starship, xAI, and defense. Taking the 75th percentile across all segments instead of the 50th brings the total to ~$1,675B, close to the target. The $1.75T price is \"everything goes right\" pricing.\n\nSpaceX may also be one of the rare conglomerate premium cases. Conglomerates usually trade at a discount because investors prefer pure-play exposure. But the narrative that Starlink + Starship + xAI creates something no single segment could (orbital data centers, AI-powered global connectivity) may justify paying above the sum of parts. And the largest IPO in history will generate extraordinary retail demand: reportedly 30% retail allocation versus the typical 5-10%.\n\nA few things stand out. Starlink in all three forms (consumer, enterprise, direct-to-cell) accounts for $602B, or 48% of segment value and 34% of the IPO price. A longer-term forecast of whether Starlink can grow from 9.2M subscribers to 50M+ while expanding revenue per user through enterprise, maritime, aviation, and direct-to-cell channels is critical. I anchored to what others are saying, but I'm skeptical.\n\nThe other area where I'm extremely skeptical is xAI at $258B, with ~$430M quarterly revenue against $1.46B quarterly losses, valued almost entirely on the merger anchor from four months earlier. I've forecasted previously that I'd need to see more evidence that xAI is a frontier lab before believing it could be worth this much.\n\nStarship at $170B is pure option value on technology still in advanced testing. And the physical assets (satellites, launch pads, factories, the Falcon fleet) are worth roughly $46B at fair market value, 2.6% of the IPO price. Nobody is buying SpaceX for its factories.\n\nFinally, I should say the fair market value really is just what people are willing to pay. Perhaps the intangibles are worth a 30% pop, that wouldn't be that unusual in IPOs. But based on my forecasts of value, it's not worth it unless everything goes really well all together for them.\n\nIf you'd like to try this forecast yourself, you can run our team-of-forecasters approach in futuresearch.ai/app, just ask it to list SpaceX's business segments, then ask it to forecast the fair market value of each one.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "business",
+      "conglomerate",
+      "fair",
+      "falcon",
+      "forecast",
+      "government/defense",
+      "ipo",
+      "segment",
+      "sotp",
+      "spacex",
+      "starlink",
+      "starlink direct",
+      "starlink enterprise/maritime/aviation",
+      "trillion",
+      "value",
+      "worth",
+      "xai/grok"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": 8197,
+  "source": "DEV Community<",
+  "title": "The 2026 HIPAA Compliance Checklist for Developers and IT Teams",
+  "url": "https://dev.to/joegellatly/the-2026-hipaa-compliance-checklist-for-developers-and-it-teams-48nj",
+  "published_at": "2026-04-02T23:12:29Z",
+  "fetched_at": "2026-04-03T00:00:40.649097+00:00",
+  "author": "Joe Gellatly",
+  "summary": "<p>If you're building or maintaining software that touches protected health information (PHI), HIPAA compliance isn't something you can hand off to legal and forget about. The technical safeguards are <em>your</em> responsibility.</p>\n\n<p>This checklist covers the requirements that actually matter for development and IT teams in 2026 — not the administrative fluff that compliance consultants pad their reports with.</p>\n\n<h2>\n  \n  \n  Access Controls (45 CFR § 164.312(a))\n</h2>\n\n<p>The Security Rule requires unique user identification, emergency access procedures, automatic logoff, and encryption/decryption. Here's what that means in practice:</p>\n\n<ul>\n<li>\n<strong>Unique user IDs for every system user</strong> — No shared accounts. Ever. This includes service accounts, database connections, and API keys. Every action touching PHI needs to trace back to an individual.</li>\n<li>\n<strong>Role-based access control (RBAC)</strong> — Implement the minimum necessary standard. A billing clerk ",
+  "full_text": "If you're building or maintaining software that touches protected health information (PHI), HIPAA compliance isn't something you can hand off to legal and forget about. The technical safeguards are your responsibility.\n\nThis checklist covers the requirements that actually matter for development and IT teams in 2026 — not the administrative fluff that compliance consultants pad their reports with.\n\n \n \n Access Controls (45 CFR § 164.312(a))\n\nThe Security Rule requires unique user identification, emergency access procedures, automatic logoff, and encryption/decryption. Here's what that means in practice:\n\nUnique user IDs for every system user — No shared accounts. Ever. This includes service accounts, database connections, and API keys. Every action touching PHI needs to trace back to an individual.\n\nRole-based access control (RBAC) — Implement the minimum necessary standard. A billing clerk doesn't need access to clinical notes. A developer doesn't need production PHI access for debugging.\n\nAutomatic session timeout — Idle sessions must terminate. The specific timeout depends on the risk context — a workstation in a shared nurse's station needs a shorter timeout than a locked server room terminal.\n\nEmergency access procedures — Document and test break-glass procedures for when normal authentication fails during a patient care emergency.\n\nMulti-factor authentication — Not explicitly required by the 2026 rule text, but any risk analysis that concludes MFA isn't necessary for ePHI systems won't survive OCR scrutiny.\n\n \n \n Audit Controls (45 CFR § 164.312(b))\n\nEvery system containing ePHI needs audit logging:\n\nWho accessed what data\n\nWhen they accessed it\n\nWhat they did (read, write, delete, export)\n\nFrom where (IP address, device identifier)\n\nYour audit logs themselves are compliance artifacts — they need tamper protection, retention policies (minimum 6 years for HIPAA documentation), and regular review processes. Dumping everything to a log file that nobody reads doesn't satisfy the requirement.\n\n \n \n Encryption Requirements (45 CFR § 164.312(a)(2)(iv) and (e)(1))\n\nData at rest — AES-256 for databases, file systems, backups, and removable media containing ePHI. Full-disk encryption on every device that might store PHI, including laptops, phones, and USB drives.\n\nData in transit — TLS 1.2 minimum (TLS 1.3 preferred) for all ePHI transmission. This includes internal network traffic, not just external-facing APIs. If your microservices communicate PHI over plaintext HTTP internally, that's a finding.\n\nKey management — Documented procedures for key generation, distribution, storage, rotation, and destruction. HSMs or cloud KMS for production environments.\n\n \n \n Integrity Controls (45 CFR § 164.312(c)(1))\n\nMechanisms to confirm ePHI hasn't been altered or destroyed improperly:\n\nDatabase integrity checks — Checksums, hash verification, or similar mechanisms for critical ePHI stores\n\nTransmission integrity — Message authentication codes or digital signatures for ePHI in transit\n\nChange management — Version control, code review, and deployment pipelines that prevent unauthorized modifications to systems handling PHI\n\n \n \n Backup and Disaster Recovery (45 CFR § 164.308(a)(7))\n\nRetrievable exact copies of ePHI — Automated, tested backups with documented recovery procedures\n\nDisaster recovery plan — Document RPO (Recovery Point Objective) and RTO (Recovery Time Objective) for every system containing ePHI\n\nTesting — Actually restore from backups regularly. An untested backup is Schrödinger's backup — it simultaneously works and doesn't work until you try it.\n\nGeographic redundancy — For cloud deployments, ensure backups exist in a separate region/availability zone\n\n \n \n Vulnerability Management\n\nPatch management — Document patching timelines. Critical vulnerabilities in ePHI systems should be patched within days, not months.\n\nPenetration testing — At least annual, covering all ePHI-accessible systems\n\nVulnerability scanning — Automated, continuous scanning of infrastructure and applications\n\nSoftware composition analysis — Know your dependencies. A vulnerable library in your patient portal is your vulnerability.\n\n \n \n Business Associate Requirements\n\nIf you're a vendor handling PHI for a covered entity (or a subcontractor of one):\n\nBusiness Associate Agreement (BAA) — Must be executed before any PHI access. No exceptions, no verbal agreements.\n\nSubcontractor chain — If you use AWS, GCP, or Azure for PHI workloads, you need a BAA with them. Same for any SaaS tools that might touch PHI (logging services, monitoring tools, email providers).\n\nBreach notification obligations — Business associates must report breaches to the covered entity within 60 days. Your incident response plan needs to account for this.\n\n \n \n The Risk Analysis Foundation\n\nEvery item on this checklist should trace back to your Security Risk Analysis (SRA). The SRA identifies where ePHI lives, what threats exist, and what controls are needed. Without it, you're implementing controls based on guesswork rather than assessed risk.\n\nFor a detailed breakdown of how to structure your compliance checklist around assessed risks, this resource covers the full framework: HIPAA Compliance Checklist 2026\n\n \n \n Automating Compliance Tracking\n\nManually tracking all of these requirements across an organization is where compliance programs break down. Spreadsheets get outdated, documentation gaps appear, and remediation items fall through the cracks.\n\nModern compliance platforms maintain a living view of your compliance posture — tracking which controls are implemented, which have gaps, and what remediation is needed. For an overview of how automated compliance management works in practice: HIPAA Compliance Solutions\n\nJoe Gellatly is CEO of Medcurity, a HIPAA compliance platform that helps healthcare organizations manage risk assessments, compliance tracking, and security programs.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "access",
+      "access controls",
+      "analysis",
+      "api",
+      "audit controls",
+      "automatic",
+      "backup",
+      "cfr",
+      "cfr §",
+      "checklist",
+      "compliance",
+      "control",
+      "encryption requirements",
+      "ephi",
+      "healthcare",
+      "hipaa",
+      "management",
+      "mfa",
+      "ocr",
+      "phi",
+      "procedure",
+      "security"
+    ],
+    [
+      "healthcare"
+    ]
+  ]
+}

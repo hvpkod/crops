@@ -1,0 +1,36 @@
+{
+  "id": 8110,
+  "source": "Hacker News",
+  "title": "Tailscale's New macOS Home",
+  "url": "https://tailscale.com/blog/macos-notch-escape",
+  "published_at": "2026-04-02T18:22:03Z",
+  "fetched_at": "2026-04-02T18:40:23.936228+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47618189\">Comments</a>",
+  "full_text": "Tailscale should feel nearly invisible when it's connecting you and all your devices together. But on some MacBooks, for a while there, it could be a little too invisible. We have two fixes for it: one small and slightly quirky, and another really useful one, available now on macOS. \n\nThe small, quirky fix might become a thing of the past for the vast majority of Mac users. I wanted to document it here: to help other developers, to mark this moment in time, and quietly crow about our windowed macOS interface now being generally available.\n\nBut for a while there, we had this issue with Tailscale's icon slipping into darkness.\n\nAt its debut on macOS, Tailscale was a command-line tool and a menu bar utility. Some MacBooks, starting with 2021 MacBook Pro models, have a notch in the top-middle of their display. And depending on how many other apps with menu bar icons are running, the Tailscale app’s icon can be hidden inside that notch.\n\nApple, a company that traditionally favors simple functionality over dense settings, does not offer users, or developers, a path out of the darkness. If there are more menu bar icons then there is space to the right side of the notch, the menu bar items simply disappear into the notch-y ether. If you don’t see it, you can’t click it. There is no notification to the user, no overflow section, no options to rearrange the menu bar items.\n\nAuthor's rendition of the Tailscale menu bar applet, dangerously close to the inky depths.\n\nAs of this writing, Apple has some indirect work-arounds, like pushing more of its own system icons into a revamped Control Center, and offering a somewhat inelgant “Scale to fit below camera” option. Third-party menu-bar-managing apps like ICE and Bartender can help, but they add complications and overhead.\n\n“We don’t have any control over where things get rendered in the menu bar,” said one Tailscale engineer, who asked to go nameless so as to share their honest opinion. “You just say, ‘I want to be a menu bar app.’ They shove it up there, and that’s it, you end up where you end up.”\n\nGiven this there-or-not-there behavior, Tailscale developers received a number of bug reports from users when, after the notched MacBooks' debut, their Tailscale icons fell into the middle-screen distance. \"They were like, 'Actually, I can't find my Tailscale. It's gone. It didn't start,\" the engineer said. \"We're like, 'No, it's there, it's just hiding behind the notch.' But we kind of got sick of that.\"\n\nMac menu bar icons may not know they are trapped inside the no-pixel phantom zone, but they can report that something is blocking them. Using data from occlusionState, the Tailscale app can see that its icon is in mid-bar limbo.\n\nAnd while it cannot move, it can speak. Specifically, a pop-up message can say:\n\nThis affable warning is not perfect, by any means. The notch warning can be inadvertently triggered by other display quirks, like opening and closing the MacBook lid, moving between monitors, or some combination of the two. But it helped triage the \"Where are my Tailscale settings?\" issue for a while.\n\nApple could certainly make some changes to prevent this being an issue at all. The system could prevent menu bar icons from rendering in the notch area at all. An overflow mechanism could stack the icons that would otherwise drop into a negative notch zone. Or developers could be given more information and tools about icons' notch-itive states.\n\nIn the meantime, here’s a look at the Swift code that let our app know it should chirp a bit when hidden. It should be unnecessary with the new windowed app—unless you enable the “Hide Dock icon” option in the windowed client options, in which case it might still call out its hidden nature.\n\nself.visibilityObserver = NotificationCenter.default.addObserver(\n forName: NSWindow.didChangeOcclusionStateNotification,\n object: statusItemButton.window,\n queue: .main\n) { [weak self] _ in\n guard let self, statusItem.isVisible else { return }\n isIconOccluded = statusItem.button?.window?.occlusionState.contains(.visible) == false\n}\n\nAs we noted at its September beta release, a windowed version of Tailscale’s macOS app doesn’t replace the menu bar app, but runs alongside it. It can be pulled up from the Dock or a Spotlight search, and makes a lot of Tailscale data and features more accessible.\n\nThe windowed interface, enabled by default starting with version 1.96.2 of our macOS client, offers:\nA searchable list of tailnet devices and their connection status\nEasily ping, copy IP addresses, and send files through Taildrop to devices\nEasy access to exit nodes, searchable and with one recommended based on latency, performance, and location\nA red dot on the Dock icon to note critical errors\nA “mini player” that shrinks Tailscale down to the bare minimum\nA product tour of all these things upon installing/updating\n\nLet us know what you think of the new interface so we can make it better. We’re working on a comparable UI for Windows devices. And we’re always looking for ways to bring a little bit of functional whimsy to our software.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "apple",
+      "author",
+      "control center",
+      "icon",
+      "issue",
+      "mac",
+      "macbook",
+      "macbooks",
+      "macbooks tailscale",
+      "macos",
+      "menu",
+      "notch",
+      "overflow",
+      "searchable",
+      "taildrop",
+      "tailscale",
+      "windowed",
+      "windows"
+    ],
+    []
+  ]
+}

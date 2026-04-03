@@ -1,0 +1,29 @@
+{
+  "id": 7871,
+  "source": "Hacker News",
+  "title": "SolveSpace (open source 2D/3D CAD) working on Windows 2000 (2025)",
+  "url": "https://github.com/solvespace/solvespace/issues/1036",
+  "published_at": "2026-04-01T22:32:04Z",
+  "fetched_at": "2026-04-02T01:20:27.400129+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47607394\">Comments</a>",
+  "full_text": "System information\n\nSolveSpace version: \n\nOperating system: \n\nExpected behavior\n\nThe program open.\n\nActual behavior\n\nThe error message to open solvespace im my windows 10 as is in attached image. The vc_redist.x86.exe is installed.\n\nAdditional information",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "actual",
+      "additional",
+      "attach",
+      "behavior",
+      "error",
+      "expect",
+      "github system",
+      "information",
+      "opengl",
+      "solvespace",
+      "window"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 7969,
+  "source": "LeadDev",
+  "title": "Axios hack exposes AI-coding’s dependency problem",
+  "url": "https://leaddev.com/ai/axios-hack-exposes-ai-codings-dependency-problem?utm_source=leaddev&utm_medium=RSS",
+  "published_at": "2026-04-02T09:26:56Z",
+  "fetched_at": "2026-04-02T10:40:22.983606+00:00",
+  "author": "Chris Stokel-Walker",
+  "summary": "<p>AI’s overreliance on dependencies is risky business.</p>\n<p>The post <a href=\"https://leaddev.com/ai/axios-hack-exposes-ai-codings-dependency-problem?utm_source=leaddev&#038;utm_medium=RSS\">Axios hack exposes AI-coding’s dependency problem</a> appeared first on <a href=\"https://leaddev.com\">LeadDev</a>.</p>",
+  "full_text": "You have 1 article left to read this month before you need to register a free LeadDev.com account.\n \n\nEstimated reading time: 3 minutes\n\nKey takeaways:\n\nAI-coding increases hidden risk. Developers inherit complex, dependency-heavy code they don’t fully understand.\n\nSupply chain attacks are spreading: one compromised package can impact thousands of projects and leak sensitive data.\n\nDefenses lag behind. Without stronger guardrails and scrutiny, breaches are likely to recur.\n\nIt’s been a bad week for AI-coding tools. Hackers have compromised the popular JavaScript library Axios by breaching its npm account, injecting malicious code into a new release downloaded millions of times before being pulled.\n\nIt comes just days after a similar incident involving LiteLLM’s PyPl package, which ended up delivering a credential stealer into any projects it was used in.\n\nThe Axios attack gave intruders the ability to harvest sensitive developer data and potentially access downstream systems that relied on the package. \n\nAxios is one of the most widely used open-source modules in the JavaScript and AI development ecosystems. The breach affected thousands of projects, opening up debate about the fragility of modern software supply chains, particularly as AI-coding tools detach developers from what they’re shipping.\n\nIt’s easy to lay the blame at the door of the project, but it would be incorrect to do so, said Justin Cappos, professor at New York University’s Tandon School of Engineering.\n\n“This is an extremely sophisticated attack put on by nation-state-level actors that seems to have a financial motivation,” he said. Cappos pointed out that “this is the kind of issue most projects could have fallen for. It’s very difficult to protect against.”\n\n \n\nYour inbox, upgraded.\n\nReceive weekly engineering insights to level up your leadership approach.\n\n \n \n \n\nWhat’s going wrong?\n\nThe breach underscores how deeply embedded open-source dependencies have become in the AI development process – and how much risk that creates.\n\n“Before AI, the developer role was clearly defined,” said Bob Huber, chief security officer at Tenable. “With the advent of AI, everyone is a developer, or vibe coder, and they aren’t trained in proper development, security standards, and best practices, which exposes organizations to greater risk.”\n\nThat worries Huber. “We are accelerating development velocity while simultaneously losing visibility into our software supply chain,” he said.\n\nPart of the problem are the ‘kitchen sink’ tendencies of AI-coding tools to overengineer solutions, along with their reliance on dependencies that run smoothly when they’re working, but open you up to issues when they don’t.\n\n“When you install and configure AI components, it installs all kinds of required dependencies, and the vibe coders in your organization have no idea what those things are, what they do, or how to secure them,” said Huber.\n\n AI-coding’s major dependency problem\n\n“AI does seem to add dependencies that aren’t needed and dependencies are at risk,” said Cappos. It seems to do so for convenience sake, but it can also come at a cost, as evidenced in this case.\n\nHuber doesn’t forswear dependencies altogether, nor does he begrudge AI-coding tools’ reliance on them. “I don’t discourage using npm packages or open-source software because they’re invaluable tools that drive innovation,” he said.\n\nHowever, there needs to be a rethink in how AI-coding tools are used, and how dependency-heavy packages like npm are integrated into day-to-day live code.\n\n“To maintain trust in these systems, we must exercise caution and implement rigorous security guardrails to prevent the installation of malicious code,” Huber said.\n\nThat’s because, on the other side of the equation, bad actors have recognized the power they can wield by compromising packages like npm.\n\n“I think attackers have wised up to the fact that if they can get into some of these important packages, you get hundreds of millions of downloads, potentially, of a piece of software,” said Cappos.\n\nMore work is needed to fund the projects that are used for free by millions of people, as well as to train devs to check twice, and deploy once. As Cappos explained: “there’s nothing fundamentally that we’re doing as defenders to prevent this happening again.”",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actor",
+      "ai",
+      "axios",
+      "breach",
+      "cappos",
+      "defenses",
+      "dependency",
+      "javascript",
+      "leaddev.com",
+      "need",
+      "npm",
+      "package",
+      "pypl",
+      "reliance",
+      "security",
+      "software quality"
+    ],
+    [
+      "software quality"
+    ]
+  ]
+}

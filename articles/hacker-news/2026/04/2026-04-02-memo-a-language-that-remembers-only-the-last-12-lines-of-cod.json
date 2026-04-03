@@ -1,0 +1,29 @@
+{
+  "id": 8184,
+  "source": "Hacker News",
+  "title": "Memo: A language that remembers only the last 12 lines of code",
+  "url": "https://danieltemkin.com/Esolangs/Memo/",
+  "published_at": "2026-04-02T22:21:24Z",
+  "fetched_at": "2026-04-02T23:20:27.090976+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47620933\">Comments</a>",
+  "full_text": "×\n \n\n []memo is a stream-of-conscious coding environment. You have one program, always becoming something new. Each time you return, it picks up where you left off. As lines of code scroll off the screen, they are forgotten.\n \n\n []memo is functional and uses natural-language syntax:\n \n Remember function-name with arguments as body.\n \n\nList elements are seperated by commas, ands or both. []memo ignores numerals like 4 and expects four instead:\n Remember p as one, two, and three.\n \n\nPrint with the Tell me command:\n Tell me about name.\n \n\n Some values are approximated.\n Cookies are used only to store program state. Read more on GitHub...\n \n\n \n\nThis language is part of Forty-Four Esolangs, a book by Daniel Temkin.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "and",
+      "become",
+      "cooky",
+      "github",
+      "ignore",
+      "language",
+      "numeral",
+      "remember",
+      "seperate",
+      "tell",
+      "use"
+    ],
+    []
+  ]
+}

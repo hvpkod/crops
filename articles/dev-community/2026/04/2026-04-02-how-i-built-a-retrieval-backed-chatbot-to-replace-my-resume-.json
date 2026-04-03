@@ -1,0 +1,42 @@
+{
+  "id": 8084,
+  "source": "DEV Community<",
+  "title": "How I Built a Retrieval-Backed Chatbot to Replace My Resume Screening Step",
+  "url": "https://dev.to/rich_robertson/how-i-built-a-retrieval-backed-chatbot-to-replace-my-resume-screening-step-131n",
+  "published_at": "2026-04-02T17:50:48Z",
+  "fetched_at": "2026-04-02T18:00:31.716465+00:00",
+  "author": "Rich Robertson",
+  "summary": "<blockquote>\n<p><em>This is a condensed cross-post. <a href=\"https://www.myrobertson.com/blog/how-i-built-the-askrich-chatbot-for-technical-screening\" rel=\"noopener noreferrer\">Read the full version on my site</a>.</em></p>\n</blockquote>\n\n\n\n\n<p>Recruiter conversations have a consistent problem: a resume gives breadth, but not the system details behind the impact statements. I built <strong>AskRich</strong> to close that gap — a chatbot that lets hiring teams ask specific technical questions and get citation-backed answers grounded in my actual portfolio and writing.</p>\n\n<h2>\n  \n  \n  What it does\n</h2>\n\n<p>AskRich is optimized for realistic recruiter workflows:</p>\n\n<ul>\n<li>One-click prompt chips for common questions (architecture trade-offs, delivery scope, measurable outcomes)</li>\n<li>A freeform chat input for custom questions</li>\n<li>\n<strong>Citations attached to every answer</strong> — so a recruiter can verify the source instead of taking generated output at face value</li>\n<l",
+  "full_text": "This is a condensed cross-post. Read the full version on my site.\n\nRecruiter conversations have a consistent problem: a resume gives breadth, but not the system details behind the impact statements. I built AskRich to close that gap — a chatbot that lets hiring teams ask specific technical questions and get citation-backed answers grounded in my actual portfolio and writing.\n\n \n \n What it does\n\nAskRich is optimized for realistic recruiter workflows:\n\nOne-click prompt chips for common questions (architecture trade-offs, delivery scope, measurable outcomes)\n\nA freeform chat input for custom questions\n\nCitations attached to every answer — so a recruiter can verify the source instead of taking generated output at face value\n\nA lightweight, dependency-free web UI in plain JavaScript\n\nThe citation-backed output is the core product decision. Once someone can see where an answer comes from, they tend to ask sharper follow-ups — and the conversation gets more useful faster.\n\n \n \n Architecture overview\n\nAt a high level: a thin web client over a retrieval-backed chat API.\n\nBrowser → POST /api/chat → Cloudflare Worker (rate limit + cache check)\n ↓\n LangGraph Orchestrator\n ↙ ↘\n Content Index LLM Response Layer\n (retrieval) (grounded generation)\n ↘ ↙\n Answer + Citations → UI Renderer\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe Worker supports three runtime modes: upstream (proxy to retrieval API), local (built-in corpus), and openai (direct model path with retrieval-aware constraints). This lets me test and route independently without redeploying the client.\n\n \n \n The part that actually made it better: a feedback loop\n\nThe first version was anecdotal. I'd notice a weak answer, edit something, and hope for the best.\n\nThe current version records structured events for every question, answer, and thumbs-up/thumbs-down interaction — all linked by stable event IDs. That lets me triage a specific low-rated answer with its exact question text, citation count, latency, and backend mode instead of debugging in the abstract.\n\nTriage classifies failures into four buckets:\n\nCorpus gap — the content just isn't there\n\nRetrieval/ranking issue — the right content exists but isn't surfaced\n\nPrompt/format issue — generation quality or response clarity\n\nOut-of-scope — the question type needs routing or a guardrail\n\nChanges are tested, compared against a baseline, and only promoted when they improve answer quality without regressing citation clarity.\n\n \n \n Rate limiting at the edge\n\nRate limiting is enforced in the Cloudflare Worker before any chat execution. Client identity is derived from a one-way hash of request context (IP + origin + user-agent) — raw IPs aren't stored as persistent identifiers.\n\nTwo guards run in sequence: an hourly quota and a burst interval. If either is exceeded, the API returns 429 with Retry-After. If KV storage is unavailable, the limiter degrades gracefully (fail-open) to preserve availability.\n\n \n \n What I'd do next\n\nTighten citation quality metrics and regression gating for high-frequency questions\n\nPromote successful A/B retrieval/prompt variants into default behavior\n\nExpand corpus gap-closing using the weekly triage workflow\n\nTry AskRich →\n\nAsk it about architecture decisions, migration strategy, or platform delivery outcomes.\n\nFull write-up with architecture diagrams and implementation detail on my site.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "answer",
+      "api",
+      "architecture",
+      "askrich",
+      "career",
+      "chat",
+      "citation",
+      "citations",
+      "cloudflare worker",
+      "distributedsystems",
+      "javascript",
+      "langgraph",
+      "let",
+      "quality",
+      "question",
+      "recruiter",
+      "the cloudflare worker",
+      "triage",
+      "ui renderer",
+      "webdev"
+    ],
+    [
+      "career",
+      "distributedsystems",
+      "webdev"
+    ]
+  ]
+}

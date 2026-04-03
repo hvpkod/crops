@@ -1,0 +1,32 @@
+{
+  "id": 7962,
+  "source": "Hacker News",
+  "title": "Gone (Almost) Phishin'",
+  "url": "https://ma.tt/2026/03/gone-almost-phishin/",
+  "published_at": "2026-03-31T05:11:39Z",
+  "fetched_at": "2026-04-02T09:20:35.552298+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47582987\">Comments</a>",
+  "full_text": "This is a little embarrassing to share, but I’d rather someone else be able to spot a dangerous scam before they fall for it. So, here goes.\n\nOne evening last month, my Apple Watch, iPhone, and Mac all lit up with a message prompting me to reset my password. This came out of nowhere; I hadn’t done anything to elicit it. I even had Lockdown Mode running on all my devices. It didn’t matter. Someone was spamming Apple’s legitimate password reset flow against my account—a technique Krebs documented back in 2024. I dismissed the prompts, but the stage was set.\n\nWhat made the attack impressive was the next move: The scammers actually contacted Apple Support themselves, pretending to be me, and opened a real case claiming I’d lost my phone and needed to update my number. That generated a real case ID, and triggered real Apple emails to my inbox, properly signed, from Apple’s actual servers. These were legitimate; no filter on earth could have caught them.\n\nThen “Alexander from Apple Support” called. He was calm, knowledgeable, and careful. His first moves were solid security advice: check your account, verify nothing’s changed, consider updating your password. He was so good that I actually thanked him for being excellent at his job.\n\nThat, of course, was when he moved into the next phase of the attack.\n\nHe texted me a link to review and cancel the “pending request.” The site, audit-apple.com, was a pixel-perfect Apple replica, and displayed the exact case ID from the real emails I’d just received. There was even a fake chat transcript of the scammers’ actual conversation with Apple, presented back to me as evidence of the attack against my account. At the bottom of the page was a Sign in with Apple button that he told me to use.\n\nI started poking at the page and noticed I could enter any case ID and get the same result. Nothing was being validated. It was all theater.\n\n“This is really good,” I told Alexander. “This is obviously phishing. So tell me about the scam.”\n\nSilence. *Click*.\n\nOnce I’d suspected what was happening, I’d started recording the call, so I was able to save a good chunk of it, which Jamie Marsland used to make a video about the encounter. You can hear for yourself exactly how convincing “Alexander” was.\n\nSo let my almost-disaster help you avoid your own. Remember these rules.\n\nDon’t approve any password-reset prompts—those are the first part of the attack. Do not pass Go, just head directly to your Apple ID settings. \n\nApple will never call you first. \n\nWhen you get an email from Apple—or, really, anyone telling you to complete a digital security measure—check the URL they’re trying to send you to. Apple Support lives on apple.com and getsupport.apple.com, nowhere else.\n\nAfter all, the best protection is knowing what this looks like before it happens.\n\nVIDEO\n\nThank you to Peter Rubin and Jamie Marsland for putting this all together.\n\n \n\nRelated",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "actual",
+      "apple",
+      "apple support",
+      "apple watch",
+      "audit-apple.com",
+      "case",
+      "email",
+      "jamie",
+      "krebs",
+      "marsland",
+      "real",
+      "reset",
+      "security",
+      "start"
+    ],
+    []
+  ]
+}

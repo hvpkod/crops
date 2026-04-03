@@ -1,0 +1,36 @@
+{
+  "id": 7882,
+  "source": "Hacker News",
+  "title": "BurgerDisk News",
+  "url": "https://www.colino.net/wordpress/archives/2026/03/28/burgerdisk-news/",
+  "published_at": "2026-03-30T14:18:47Z",
+  "fetched_at": "2026-04-02T02:40:19.327793+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47574714\">Comments</a>",
+  "full_text": "General availability\n\nSince the end of the Kickstarter, a few people who missed it contacted me to get a device. A few people also expressed frustration at wanting to get one, but finding the shipping cost to USA off-putting. \n\nThe first thing is solved: I have opened a small web shop on my site.\n\nThe second thing is being solved: I have contacted Joe of Joe’s Computer Museum, and he’s interested in distributing variations of the BurgerDisk in the USA. Variations, because building a BurgerDisk is kind of a lot of manual work. I designed two devices that are easier to assemble (their PCBs are less DIY-friendly, both go hand in hand – they’re still open-source) for him. Keep reading for more details.\n\n“Fat fingers” option\n\nI’ve designed a variation of the microSD module for full-size SD cards, and a variation of the enclosure to accomodate for it. \n\nThe SD module\n\nI have no idea how to ship just the module internationally without losing money on it, so for now it is only an option when buying a complete device. It’s also open-source, so anyone can have them made easily.\n\nA “fat, old fingers” version of the BurgerDisk\n\nDifferent form factors\n\nThe first device I designed for Joe is the Mini BurgerDisk. It is 10.5×7.5cm. The second one is the DominoDisk, which I am really proud of. I think it’s the smallest Smartport hard-drive, chainable or not. It’s small enough that you can still put your Apple II beneath the Monitor //c’s stand.\n\nThe DominoDisk plugged at the back of my Apple //c, with a 5.25″ drive connected to it\n\nSetting up and booting from the DominoDisk\n\nBoth of these devices share the same features and firmware as the BurgerDisk.\n\nLast bit of news: the price of the device\n\nSome of you may be aware that the D-SUB 19 connectors that the Apple II uses are not manufactured anymore, and are hard to find. There are ways to find some on eBay, and that’s what I have been doing so far. The prices on the eBay listings, however, are… something, and the availability uncertain. I already ended two seller’s supplies during the Kickstarter, and this was not sustainable.\n\nThis is very much still in the air, but I’ve been trying to find a way to source those connectors in larger numbers and at lower prices. For the male connectors, I bit the bullet, and bought 500 from Big Mess O’Wires. Steve had ten thousand of them custom-made a few years ago and shares :-)\n\nFor the female DB-19 connectors, there was no such easy way. I called every electronic component shop in my city, just in case, without a lot of success. The conversation with most of them was short after a “Sorry, we don’t have those since years”. One of them embarked me on a short emotional rollercoaster, with the conversation going like this:\n\n“I’d like to buy D-SUB 19 connectors, female. Would you happen to still have any?”\n\n“Let me see…” <noises of rummaging in drawers> “Yes, I do! How many would you want?”\n\n“How much would it cost for 50-100 of them?”\n\n<more rummaging> “I got… three of them, so 9€”\n\n(I bought the three of them).\n\nI have then scoured the internet, using different search engines, a lot of search queries in quotes, a lot of Google Translate, and I have managed to find some leftover stocks of what probably is what I want in various Eastern European countries. Probably, because some of the pages only mentioned a reference, “no picture, no description, let’s hope”. Some of them agreed to ship internationally. Some did not… I reached out to people who seemed nice on the Fediverse, and got help from two exceptional persons, Alexey in Serbia and Kenneth in Estonia, who agreed to take time to help a random nerd, receive my orders, and send them back to me! Packages have not arrived yet, but if everything goes well, I should have secured about 300 female connectors – from North Macedonia, Lithuania, Serbia, Estonia and Hungary. \n\nIf this works, this should be more than enough to meet the demand from the whole Apple II community, and it should also allow me to make the devices 15-20€ cheaper, even with double-shipping costs and customs duties.\n\nSharing and caring\n\nAlso about price, 10% of each sale’s benefits will go to our local transgender rights association, Clar-T.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agree",
+      "alexey",
+      "burgerdisk",
+      "buy",
+      "connector",
+      "contact",
+      "design",
+      "device",
+      "diy",
+      "dominodisk",
+      "ebay",
+      "google translate",
+      "joe’s computer museum",
+      "module",
+      "serbia",
+      "smartport",
+      "usa",
+      "variation"
+    ],
+    []
+  ]
+}

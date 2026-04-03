@@ -1,0 +1,44 @@
+{
+  "id": 7921,
+  "source": "DEV Community<",
+  "title": "Setup Apache Exporter on Centos",
+  "url": "https://dev.to/seno21/setup-apache-exporter-on-ubuntu-centos-3jpn",
+  "published_at": "2026-04-02T05:40:35Z",
+  "fetched_at": "2026-04-02T06:00:24.704206+00:00",
+  "author": "Fega Suseno",
+  "summary": "<p>Pada postingan ini kita akan membahas cara untuk install <code>apache_exporter</code>untuk memonitoring web server. Dengan itu monitoring Apache menjadi jauh lebih mudah dengan Apache Exporter, yang dapat diintegrasikan dengan Prometheus untuk mendapatkan metrics secara real-time. Berikut langkah-langkah instalasi dan konfigurasi di CentOS 7.</p>\n\n<h2>\n  \n  \n  Download binary terbaru\n</h2>\n\n<p>Pola link:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>https://github.com/Lusitaniae/apache_exporter/releases/download/v{VERSI}/apache_exporter-{VERSI}.linux-amd64.tar.gz\n</code></pre>\n\n</div>\n\n\n\n<p>Cek versi rilis:</p>\n\n<p><a href=\"https://github.com/Lusitaniae/apache_exporter/releases/latest\" rel=\"noopener noreferrer\">https://github.com/Lusitaniae/apache_exporter/releases/latest</a></p>\n\n<p>Eksekusi:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>wget https://github.com/Lusitaniae/apache_exporter/relea",
+  "full_text": "Pada postingan ini kita akan membahas cara untuk install apache_exporteruntuk memonitoring web server. Dengan itu monitoring Apache menjadi jauh lebih mudah dengan Apache Exporter, yang dapat diintegrasikan dengan Prometheus untuk mendapatkan metrics secara real-time. Berikut langkah-langkah instalasi dan konfigurasi di CentOS 7.\n\n \n \n Download binary terbaru\n\nPola link:\n\nhttps://github.com/Lusitaniae/apache_exporter/releases/download/v{VERSI}/apache_exporter-{VERSI}.linux-amd64.tar.gz\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCek versi rilis:\n\nhttps://github.com/Lusitaniae/apache_exporter/releases/latest\n\nEksekusi:\n\nwget https://github.com/Lusitaniae/apache_exporter/releases/download/v1.0.12/apache_exporter-1.0.12.linux-amd64.tar.gz\n\ntar -xzf apache_exporter-1.0.12.linux-amd64.tar.gz\ncd apache_exporter-1.0.12.linux-amd64\ncp apache_exporter /usr/sbin/\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Menambahkan user\n\nuseradd apache_exporter -s /sbin/nologin\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Membuat folder config\n\nmkdir -p /etc/sysconfig\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\necho 'OPTIONS=\"--scrape_uri=http://{IP Server}/server-status/?auto\"' | sudo tee /etc/sysconfig/apache_exporter\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Buat service\n\nnano /etc/systemd/system/apache_exporter.service\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIsi:\n\n[Unit]\nDescription=Apache Exporter\nAfter=network.target httpd.service\n\n[Service]\nUser=apache_exporter\nEnvironmentFile=/etc/sysconfig/apache_exporter\nExecStart=/usr/sbin/apache_exporter $OPTIONS\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Reload dan restart service\n\nsystemctl daemon-reload\nsystemctl enable apache_exporter\nsystemctl start apache_exporter\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Konfigurasi Apache\n\nFile:\n\n/etc/httpd/conf.d/server-status.conf\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIsi:\n\nExtendedStatus On\n\n<Location \"/server-status\">\n SetHandler server-status\n Order deny,allow\n Allow from 10.10.1.0/24 127.0.0.1\n# Require all granted\n</Location>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nJika Require all granted aktif, maka endpoint bisa diakses dari mana saja.\n\n \n \n Restart Apache\n\nsystemctl restart httpd\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Konfigurasi Firewall\n\nfirewall-cmd --permanent --zone=public --add-port=9117/tcp\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nreload firewall\n\nfirewall-cmd --reload\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Uji Coba\n\nuntuk uji coba cukup akses metrics dari web browser\n\nhttp://{ip_server}:9117\n\nnanti akan muncul kondisi server kita, tinggal di kombinasikan dengan prometheus.\n\nselamat mencoba, semoga bermanfaat.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "akan",
+      "apache",
+      "centos pada",
+      "dari mana saja",
+      "dengan",
+      "devops",
+      "enter",
+      "exit",
+      "extendedstatus",
+      "fullscreen",
+      "http://{ip",
+      "konfigurasi",
+      "linux",
+      "menambahkan",
+      "mode",
+      "monitoring",
+      "prometheus",
+      "restart",
+      "restart apache",
+      "setup apache exporter",
+      "systemctl",
+      "untuk"
+    ],
+    [
+      "devops",
+      "monitoring",
+      "prometheus"
+    ]
+  ]
+}

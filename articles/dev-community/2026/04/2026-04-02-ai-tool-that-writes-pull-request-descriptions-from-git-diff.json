@@ -1,0 +1,37 @@
+{
+  "id": 8087,
+  "source": "DEV Community<",
+  "title": "AI Tool That Writes Pull Request Descriptions from Git Diff",
+  "url": "https://dev.to/yashwanth_byalla/i-built-an-ai-tool-that-writes-pull-request-descriptions-from-git-diff-1ajo",
+  "published_at": "2026-04-02T17:44:58Z",
+  "fetched_at": "2026-04-02T18:00:35.800917+00:00",
+  "author": "Yashwanth Byalla",
+  "summary": "<p>Writing pull request descriptions is important, but most developers don’t enjoy doing it. Many PRs end up with descriptions like:</p>\n\n<p>\"fixed bug\", \"updated API\", \"refactored code\"</p>\n\n<p>This slows down code reviews because reviewers don’t have enough context. Good PRs should include:</p>\n\n<ul>\n<li>What changed</li>\n<li>Why it changed</li>\n<li>How to test</li>\n<li>Risks</li>\n<li>Any breaking changes</li>\n</ul>\n\n<p>So I built a tool called <strong>PRPilot</strong> that generates structured pull request descriptions automatically using AI.</p>\n\n<h2>\n  \n  \n  The Idea\n</h2>\n\n<p>The idea is simple:</p>\n\n<p><strong>Paste your git diff, commit messages, or change notes → Get a full professional PR description.</strong></p>\n\n<p>The tool generates:</p>\n\n<ul>\n<li>PR Title</li>\n<li>Summary</li>\n<li>PR Type (Bug fix, Feature, Refactor, etc.)</li>\n<li>Changes Made</li>\n<li>Reason for Change</li>\n<li>How to Test</li>\n<li>Risk Level</li>\n<li>Checklist</li>\n</ul>\n\n<h2>\n  \n  \n  Example\n</h2>\n\n<",
+  "full_text": "Writing pull request descriptions is important, but most developers don’t enjoy doing it. Many PRs end up with descriptions like:\n\n\"fixed bug\", \"updated API\", \"refactored code\"\n\nThis slows down code reviews because reviewers don’t have enough context. Good PRs should include:\n\nWhat changed\n\nWhy it changed\n\nHow to test\n\nRisks\n\nAny breaking changes\n\nSo I built a tool called PRPilot that generates structured pull request descriptions automatically using AI.\n\n \n \n The Idea\n\nThe idea is simple:\n\nPaste your git diff, commit messages, or change notes → Get a full professional PR description.\n\nThe tool generates:\n\nPR Title\n\nSummary\n\nPR Type (Bug fix, Feature, Refactor, etc.)\n\nChanges Made\n\nReason for Change\n\nHow to Test\n\nRisk Level\n\nChecklist\n\n \n \n Example\n\n \n \n Input\n\nFixed login bug\nAdded email validation\nUpdated user table\nRefactored auth service\nUpdated unit tests\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Output\n\nTitle:\nFix login bug and improve email validation\n\nSummary:\nThis PR fixes a login issue and adds email validation during signup.\nIt also includes database updates and unit test improvements.\n\nPR Type:\nBug Fix + Enhancement\n\nChanges Made:\n- Fixed login bug in authentication module\n- Added email validation in signup flow\n- Updated user table schema\n- Refactored authentication service\n- Updated unit tests\n\nHow to Test:\n1. Test login with valid and invalid credentials\n2. Test signup with invalid email\n3. Run unit tests\n\nRisk Level:\nMedium\n\nChecklist:\n- Tested locally\n- Unit tests updated\n- Ready for review\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis turns a rough change list into a clean PR ready.\n\n \n \n How It Works\n\nPRPilot is built using OpenAI and prompt engineering. The system analyzes code changes and classifies:\n\nType of change\n\nRisk level\n\nComponents affected\n\nTesting steps\n\nThen it generates a structured PR description so teams can maintain consistent documentation.\n\n \n \n Who Is This Useful For?\n\nDevelopers who want to save time writing PRs\n\nJunior developers who are not sure how to write good PR descriptions\n\nStartups that want consistent PR documentation\n\nOpen source contributors\n\nTeams that want better code reviews\n\n \n \n Try PRPilot\n\nYou can try PRPilot here:\n\nhttps://chatgpt.com/g/g-69ce2689cd788191bb81937c4ce3721e-prpilot\n\nI’m currently working on:\n\nVS Code extension\n\nCommit message generator\n\nPR review assistant\n\nRelease notes generator\n\nIf you try it, I’d love feedback and feature suggestions.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "change",
+      "description",
+      "developer",
+      "email",
+      "feature, refactor",
+      "login",
+      "productivity",
+      "programming",
+      "prpilot",
+      "test",
+      "unit",
+      "update",
+      "validation",
+      "webdev"
+    ],
+    [
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

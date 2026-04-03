@@ -1,0 +1,37 @@
+{
+  "id": 7984,
+  "source": "DEV Community<",
+  "title": "Adding custom fonts to your Ember app with Fontsource",
+  "url": "https://dev.to/ignace/adding-custom-fonts-to-your-ember-app-with-fontsource-43l0",
+  "published_at": "2026-04-02T11:49:39Z",
+  "fetched_at": "2026-04-02T12:00:31.663722+00:00",
+  "author": "Ignace Maes",
+  "summary": "<p>If you're running a modern Ember app with Embroider and Vite, adding custom fonts is easy. <a href=\"https://fontsource.org/\" rel=\"noopener noreferrer\">Fontsource</a> is a good way to do it: fonts are packaged as npm dependencies, so you get versioned, self-hosted fonts with zero config on the bundler side.</p>\n\n<p>Here's how it works in practice.</p>\n\n<h2>\n  \n  \n  Install the font packages\n</h2>\n\n<p>Pick the fonts you need from <a href=\"https://fontsource.org/\" rel=\"noopener noreferrer\">fontsource.org</a> and install them:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>pnpm add @fontsource/geist @fontsource/geist-mono\n</code></pre>\n\n</div>\n\n\n\n<h2>\n  \n  \n  Import the CSS\n</h2>\n\n<p>In your <code>app/app.css</code> (or wherever your main stylesheet lives), import the weights you actually use:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight css\"><code><span class=\"k\">@import</span> <span class=\"s1\">\"@fontsource/geist/",
+  "full_text": "If you're running a modern Ember app with Embroider and Vite, adding custom fonts is easy. Fontsource is a good way to do it: fonts are packaged as npm dependencies, so you get versioned, self-hosted fonts with zero config on the bundler side.\n\nHere's how it works in practice.\n\n \n \n Install the font packages\n\nPick the fonts you need from fontsource.org and install them:\n\npnpm add @fontsource/geist @fontsource/geist-mono\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Import the CSS\n\nIn your app/app.css (or wherever your main stylesheet lives), import the weights you actually use:\n\n@import \"@fontsource/geist/400.css\";\n@import \"@fontsource/geist/500.css\";\n@import \"@fontsource/geist/600.css\";\n@import \"@fontsource/geist/700.css\";\n@import \"@fontsource/geist-mono/400.css\";\n@import \"@fontsource/geist-mono/500.css\";\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEach of these CSS files contains the @font-face declarations for that specific weight. The font files (woff2) ship as part of the npm package and Vite resolves them automatically.\n\nOnly import the weights you use. Every weight you add is another font file your users have to download.\n\n \n \n Use the fonts in CSS\n\nReference the font family names in your styles:\n\nbody {\n font-family: \"Geist\", sans-serif;\n}\n\ncode, pre {\n font-family: \"Geist Mono\", monospace;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf you're using Tailwind v4, you can set them as theme variables instead:\n\n@theme {\n --font-sans: \"Geist\", sans-serif;\n --font-mono: \"Geist Mono\", monospace;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTailwind will then use these as the default font-sans and font-mono utilities.\n\n \n \n Preloading fonts to avoid FOUT\n\nThe setup above works, but you'll probably see a flash of unstyled text (FOUT) on first load. The browser discovers the font files only after parsing the CSS, which is late.\n\nYou can fix this by preloading the woff2 files. In an Embroider app with Vite, you can use the ?url import suffix to get the resolved URL for a font file, then inject <link rel=\"preload\"> tags early.\n\nCreate a file like app/lib/preload-fonts.ts:\n\nimport geist400 from \"@fontsource/geist/files/geist-latin-400-normal.woff2?url\";\nimport geist500 from \"@fontsource/geist/files/geist-latin-500-normal.woff2?url\";\nimport geist600 from \"@fontsource/geist/files/geist-latin-600-normal.woff2?url\";\n\nfor (const href of [geist400, geist500, geist600]) {\n const link = document.createElement(\"link\");\n link.rel = \"preload\";\n link.as = \"font\";\n link.type = \"font/woff2\";\n link.href = href;\n link.crossOrigin = \"anonymous\";\n document.head.appendChild(link);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThen import it from your app/app.ts entrypoint:\n\nimport './lib/preload-fonts';\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe ?url suffix is a Vite feature. It makes the import return the final, hashed URL of the asset. In production, this will be something like /assets/geist-latin-400-normal-abc123.woff2. This means your preload links always point to the correct file, even after builds with content hashing.\n\nYou only need to preload fonts that are used above the fold. If you have a monospace font that only shows up in specific views, skip preloading it.\n\n \n \n Variable fonts\n\nIf the font supports it, Fontsource also ships variable font versions. Instead of importing individual weights, you import a single file that covers all weights:\n\n@import \"@fontsource-variable/geist\";\n@import \"@fontsource-variable/geist-mono\";\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe package name changes from @fontsource/ to @fontsource-variable/:\n\npnpm add @fontsource-variable/geist @fontsource-variable/geist-mono\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOne file per font, all weights included. The browser only downloads a single woff2 file and interpolates between weights. This is usually smaller than loading 4+ static weight files.\n\n \n \n Why Fontsource over Google Fonts?\n\nFonts are self-hosted. No third-party requests.\n\nYou control exactly which weights and subsets are included.\n\nFonts are versioned alongside your app. No CDN surprises.\n\nWorks with any bundler that can resolve node_modules CSS imports (Vite, Webpack, etc).\n\n \n \n That's it\n\nThree steps: install the package, import the CSS weights, and reference the font family. Preloading is optional but helps with perceived performance. The whole thing works because Embroider + Vite resolves npm CSS imports and static assets the same way any Vite app would.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "@fontsource",
+      "cdn",
+      "css",
+      "ember",
+      "exit",
+      "file",
+      "font",
+      "fontsource",
+      "fullscreen",
+      "import",
+      "mode",
+      "preloading",
+      "suffix",
+      "vite",
+      "webdev",
+      "weight"
+    ],
+    [
+      "ember",
+      "webdev"
+    ]
+  ]
+}

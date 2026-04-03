@@ -1,0 +1,36 @@
+{
+  "id": 8109,
+  "source": "Hacker News",
+  "title": "Hugo's New CSS Powers",
+  "url": "https://www.brycewray.com/posts/2026/04/hugos-new-css-powers/",
+  "published_at": "2026-04-02T18:16:57Z",
+  "fetched_at": "2026-04-02T18:40:22.259490+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47618120\">Comments</a>",
+  "full_text": "As I mentioned in my previous post, I was intrigued when the release of Hugo v.0.158.0 introduced its css.Build function. The new powers that resulted are worth a look when you consider all the aspects of styling a site you’ve built, or plan to build, on Hugo. Still, the enhancements have certain limitations of which you’ll also want to be aware.\n\nWhen forming the styling structure for a Hugo-based website, you have a variety of options. CSS itself has gained many additional features over the years, and browsers have improved to handle them.\n\nFor example, it wasn’t so long ago that simply nesting your CSS like this . . .\n\n.my-div {\n background-color: #ffffaa;\n\n h1 {\n font-size: 2rem;\n color: #005500;\n }\n\n p {\n font-size: 0.75rem;\n }\n}\n\n. . . required pre-processing through Sass or post-processing through something like PostCSS or Lightning CSS; but, now, you can deliver CSS in production just like you see above, and any browser compatible with Baseline 2023 will display it as you intend. However, unless you’re sure everyone in your site’s target audience is using a sufficiently updated browser, you have to adapt your site’s production styling accordingly — manually by using only pre-2023 vanilla CSS, or automatically through Sass-processed CSS or using a post-processor to transpile modern CSS for compatibility with older browsers. That post-processing is one way that css.Build shines (mostly; more on that in a little while).\n\nUnless your site’s styling is very simple, you may want to organize your CSS into multiple files. If so, you then must determine how best to deliver all that CSS in production. Of course, your HTML can just link to multiple stylesheets, but it’s often better to combine multiple CSS files, especially for critical CSS, into one production-side bundle. That, too, formerly required one or more external packages, but CSS-bundling is another advantage css.Build can give you.\n\nAlso, you almost certainly want to minify your CSS for production. Although Hugo’s long been able to do that for CSS, as it does for other delivered files, css.Build now provides another way to do it for just CSS.\n\nAll that said, css.Build has some gotchas which you’ll need to take into account when assessing whether this feature can be your sole “helper” where CSS is concerned rather than having to use, say, Sass in development and/or PostCSS on the production side.\n\nWhat it comes down to is that you must make a judgment call about which newer-style CSS features your site may require. Since css.Build works atop the esbuild package, the best source for what css.Build can and can’t do in this regard is the actual CSS-specific documentation for esbuild itself; this information lists the features for which esbuild performs either transpilation or browser-prefixing. And, even when armed with this knowledge, you still must test how/whether css.Build converts all the newer-style CSS you wish to deploy.\n\nFor those items which esbuild (and, thus, css.Build) currently can’t convert to your liking, you’re left with two choices: (a.) add some post-processing that will fill in the gaps; or (b.) decide to target only those browser versions that “know” those CSS items. While deciding, you’ll appreciate the convenience of tools like the Browserslist playground and the Baseline-specific list of supported browsers.\n\nSuch limitations notwithstanding, css.Build’s other capabilities that I mentioned above can reduce or eliminate your needs for other CSS processors. Bundling and minification work right out of the box. And, best of all, css.Build works very quickly, which is an especially big advantage during development. The bigger your site and the more CSS you’re using, the more you’ll appreciate the speed of css.Build.\n\nPerhaps, after thinking through all this, you decide css.Build might just work for your site. Other than those specific CSS gotchas we already mentioned above, what else, if anything, would you lose by going with just a vanilla-CSS-and-css.Build solution? To help answer that, let’s conclude by looking at the alternatives as you would use them in Hugo:\n\nSass pre-processing (involves writing .scss or .sass files, rather than .css files)\nRequires use of the Dart Sass binary (but works smoothly and very quickly with Hugo Pipes).\nProvides no browser-prefixing. Remember, it’s a pre-processor. For that, you need to use Sass and a post-processor, which adds more complexity and likely slows down your work, especially in development.\nLets you nest your styling , but currently doesn’t support native CSS nesting — which may not matter to you if your styling code is all-Sass anyway.\nProvides bundling through Sass’s @use command.\nPerforms minification through the “compressed” outputStyle option.\nOffers math functions, logical functions, and mixins — some or all of which either already are, or might become, part of Baseline CSS at some point in the not-too-distant future.\n\nPostCSS post-processing\nWorks well with Hugo Pipes but, due to PostCSS’s JavaScript foundation, is much slower than the other options described here.\nUses various plugins to:\nPerform transpilation, polyfills, and browser-prefixing for older browsers.\nProvide bundling through a plugin’s interpretation of CSS’s @import command.\nPerform minification.\n\nLightning CSS post-processing\nMust be “shoehorned” into Hugo. Also, Lightning CSS has no file-“watching” capability for use during development, so that, too, must be part of the “shoehorning.” To be fair, though, the Rust-based Lightning CSS is very fast (although not as fast as either css.Build or Dart Sass) when properly “shoehorned.”\nPerforms transpilation, polyfills, and browser-prefixing for older browsers.\nProvides bundling through Lightning CSS’s interpretation of CSS’s @import command.\nPerforms minification.\n\nLatest commit (47c00b98a) for page file:\n2026-04-02 at 12:20:39 PM CDT.\nPage history",
+  "tags": [
+    [
+      ".sass",
+      ".scss",
+      "1000-words",
+      "2026",
+      "baseline css",
+      "browserslist",
+      "bundle",
+      "css",
+      "esbuild",
+      "html",
+      "hugo",
+      "javascript",
+      "lightning",
+      "mention",
+      "perform",
+      "postcss",
+      "provide",
+      "sass",
+      "sass’s @use command",
+      "styling"
+    ],
+    []
+  ]
+}

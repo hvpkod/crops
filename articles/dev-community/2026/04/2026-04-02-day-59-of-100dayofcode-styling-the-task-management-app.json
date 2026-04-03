@@ -1,0 +1,41 @@
+{
+  "id": 8094,
+  "source": "DEV Community<",
+  "title": "Day 59 of #100DayOfCode — Styling the Task Management App",
+  "url": "https://dev.to/m_saad_ahmad/day-59-of-100dayofcode-styling-the-task-management-app-16mm",
+  "published_at": "2026-04-02T17:18:50Z",
+  "fetched_at": "2026-04-02T18:00:48.708676+00:00",
+  "author": "M Saad Ahmad",
+  "summary": "<p>Yesterday on Day 58, I built a Task Manager app with Next.js, MongoDB, and Server Actions. The app worked, but it looked rough. Today was all about making it actually nice to use.</p>\n\n<h2>\n  \n  \n  What I Used\n</h2>\n\n<ul>\n<li>\n<strong>Tailwind CSS</strong> — for layout and spacing utilities</li>\n<li>\n<strong>Shadcn UI</strong> — for pre-built, accessible components I can own and customize</li>\n</ul>\n\n<h2>\n  \n  \n  Setting Up Shadcn\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>npx shadcn@latest init\nnpx shadcn@latest add button card badge input textarea <span class=\"k\">select </span>label\n</code></pre>\n\n</div>\n\n\n\n<p>This drops the component source directly into your project under <code>/components/ui</code>. No black-box library — you own the code.</p>\n\n<h2>\n  \n  \n  What I Styled\n</h2>\n\n<p><strong>Layout</strong> — A clean navbar with a centered <code>max-w-4xl</code> main container across all pages.</p>\n\n<p><strong>Task List</strong> — A respo",
+  "full_text": "Yesterday on Day 58, I built a Task Manager app with Next.js, MongoDB, and Server Actions. The app worked, but it looked rough. Today was all about making it actually nice to use.\n\n \n \n What I Used\n\nTailwind CSS — for layout and spacing utilities\n\nShadcn UI — for pre-built, accessible components I can own and customize\n\n \n \n Setting Up Shadcn\n\nnpx shadcn@latest init\nnpx shadcn@latest add button card badge input textarea select label\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis drops the component source directly into your project under /components/ui. No black-box library — you own the code.\n\n \n \n What I Styled\n\nLayout — A clean navbar with a centered max-w-4xl main container across all pages.\n\nTask List — A responsive 2-column grid on larger screens, with a friendly empty state when no tasks exist yet.\n\nTask Cards — Each task is wrapped in a Card with the title, a colored status badge, description, timestamps, and Edit/Delete actions.\n\nTask Form — Proper Label + Input/Textarea/Select combinations with placeholders, and a dynamic submit button that says \"Create Task\" or \"Update Task\" depending on the context.\n\nA Gotcha with Shadcn Badge\n\nShadcn's Badge only ships with 4 variants: default, secondary, destructive, outline. There's no built-in success or warning.\n\nInstead of extending the component, I used a simple helper with Tailwind classes directly:\n\nconst statusStyles = (status) => {\n if (status === \"completed\") return \"bg-green-100 text-green-700 hover:bg-green-100\";\n if (status === \"in-progress\") return \"bg-yellow-100 text-yellow-700 hover:bg-yellow-100\";\n return \"bg-gray-100 text-gray-600 hover:bg-gray-100\";\n};\n\n<Badge className={statusStyles(task.status)}>{task.status}</Badge>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nClean enough, and no need to touch the component internals.\n\n \n \n Using Button with asChild\n\nShadcn's Button has an asChild prop that lets you pass a Link inside it and get all the button styles applied to the anchor — no wrapper divs needed:\n\n<Button asChild variant=\"outline\" size=\"sm\">\n <Link href={`/tasks/${task._id}`}>Edit</Link>\n</Button>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis is one of those small things that makes Shadcn feel really well thought out.\n\n \n \n Key Takeaway\n\nShadcn isn't a traditional component library. You install only what you need, and the code lives in your project. That means full control — no fighting with overrides or !important hacks.\n\nTomorrow, for Day 60, I'll be deploying the app on Vercel.",
+  "tags": [
+    [
+      "100daysofcode",
+      "2026",
+      "500-words",
+      "aschild",
+      "badge",
+      "button",
+      "card",
+      "component",
+      "css",
+      "edit/delete",
+      "fullscreen",
+      "key takeaway\n\nshadcn",
+      "mode",
+      "nextjs",
+      "programming",
+      "server actions",
+      "setting up shadcn",
+      "shadcn",
+      "tailwind",
+      "task",
+      "webdev"
+    ],
+    [
+      "100daysofcode",
+      "nextjs",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": 8056,
+  "source": "Hacker News",
+  "title": "Artemis II will use laser beams to live-stream 4K moon footage at 260 Mbps",
+  "url": "https://www.tomshardware.com/networking/artemis-ii-will-use-laser-beams-to-live-stream-4k-moon-footage-one-giant-step-beyond-the-s-band-radio-comms-of-the-apollo-era",
+  "published_at": "2026-04-02T15:04:44Z",
+  "fetched_at": "2026-04-02T16:00:29.957798+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47615449\">Comments</a>",
+  "full_text": "NASA’s Artemis II mission blasted off on Wednesday. Now brace yourselves for exciting high-resolution 4K footage live-streamed from the surface of the moon thanks to NASA's laser-based O2O system. The cutting-edge Orion Artemis II Optical Communications system (O2O) will be used to beam 4K moon footage at up to 260 Mbps. We should also be treated to never-before-seen views of “the far side of the Moon, using Nikon digital cameras,” reports The BBC’s Sky at Night magazine.\n\n(Image credit: NASA)\n\nSo, what is O2O? NASA prepared a page dedicated to the technology ahead of the beginning of the Artemis II mission, here. Basically, O2O is a laser-based communications system that will be able to pipe the headlining 4K footage from astronauts on the moon to the Earth. Data rates of 260 Mbps can be achieved by O2O, and it isn’t just for fancy videos; it will also be used for fast and efficient transmission and receipt of procedures, pictures, flight plans, and more.\n\nMeanwhile, on Earth, laser ground stations are situated in Las Cruces, New Mexico, and Table Mountain, California. These locations were chosen for their typically clear skies, important for fast and reliable laser communications.Article continues below \n\nHowever, the astronauts will also use traditional radio communications to stay in contact with the ground team via NASA's Deep Space Network (DSN). With prior mention of the potential for cloud interference, this could be an essential backup. DSN was the key communications tech used by Voyager, the Mars rover, and Artemis I.\n\nLosing sight of the Earth on a planned mission to the far side of the Moon will block both laser and DSN comms, notes the source report. NASA is well aware of this ‘dark window,’ which is estimated to last for 41 minutes.\n\nIf you aren’t that impressed by the 260 Mbps O2O laser comms terminal's performance, NASA’s page about this laser tech highlights a Lunar Laser Communications Demonstration it has completed that achieved 622 Mbps. Moreover, some nearer-Earth space laser comms projects have reached data speeds up to 200 Gbps.\n\nFollow Tom's Hardware on Google News, or add us as a preferred source, to get our latest news, analysis, & reviews in your feeds.\n\nGet Tom's Hardware's best news and in-depth reviews, straight to your inbox.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "achieve",
+      "apollo",
+      "artemis",
+      "bbc",
+      "beam",
+      "california",
+      "comms",
+      "communications",
+      "earth",
+      "footage",
+      "las cruces",
+      "laser",
+      "mbps",
+      "moon",
+      "nasa",
+      "new mexico",
+      "nikon",
+      "table mountain",
+      "tech"
+    ],
+    [
+      "tech"
+    ]
+  ]
+}

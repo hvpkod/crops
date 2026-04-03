@@ -1,0 +1,42 @@
+{
+  "id": 8086,
+  "source": "DEV Community<",
+  "title": "I built an AI tool because I was too lazy to write tech blogs from my commits 😅",
+  "url": "https://dev.to/devcraft_devcraft_87312/i-built-an-ai-tool-because-i-was-too-lazy-to-write-tech-blogs-from-my-commits-54b5",
+  "published_at": "2026-04-02T17:47:46Z",
+  "fetched_at": "2026-04-02T18:00:34.799232+00:00",
+  "author": "DevCraft (DevCraft)",
+  "summary": "<p>Hey <code>dev.to</code> community!</p>\n\n<p>Like many of you, I have a habit of committing code every day. I solve interesting bugs, make architectural decisions, and refactor messy codebases. But whenever I thought, <em>\"I should definitely write a blog post about this,\"</em> it just... never happened. </p>\n\n<p>Translating my code into a proper technical article always felt like too much context-switching. As a result, my best work was often buried deep in my Git history, never shared with the world.</p>\n\n<p>So, to solve my own problem, I built <strong><a href=\"https://synapso.dev\" rel=\"noopener noreferrer\">synapso.dev</a></strong>.</p>\n\n<h4>\n  \n  \n  What is it?\n</h4>\n\n<p>It’s a tool that connects to your GitHub, analyzes your commit diffs using Google Gemini AI, and automatically generates a polished, ready-to-publish technical blog post in under 60 seconds.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%",
+  "full_text": "Hey dev.to community!\n\nLike many of you, I have a habit of committing code every day. I solve interesting bugs, make architectural decisions, and refactor messy codebases. But whenever I thought, \"I should definitely write a blog post about this,\" it just... never happened. \n\nTranslating my code into a proper technical article always felt like too much context-switching. As a result, my best work was often buried deep in my Git history, never shared with the world.\n\nSo, to solve my own problem, I built synapso.dev.\n\n \n \n What is it?\n\nIt’s a tool that connects to your GitHub, analyzes your commit diffs using Google Gemini AI, and automatically generates a polished, ready-to-publish technical blog post in under 60 seconds.\n\n(Note: As I am based in South Korea, you might spot some Korean text in the demo screenshots/GIFs. Full multi-language support is currently in the works and will be completely rolled out very soon! 🌍)\n\n \n \n Why not just copy-paste into ChatGPT?\n\nThis was my first thought too. But if you just feed a commit diff to a generic AI, you usually get a boring bulleted list: \"Updated auth.ts, Fixed a typo in index.js.\" \n\nI wanted something better. I engineered the prompts in synapso.dev to act like a senior engineer reviewing your PR. Instead of just summarizing what lines changed, it interprets the intent, context, and technical trade-offs behind the changes. It writes an article that actually reads like a developer explaining their thought process.\n\n \n \n Key Features\n\nI designed this specifically around what developers care about:\n\n Auto-Posting Mode: You can set it so that every time you push code, your blog updates automatically. Literally zero extra effort.\n\n Markdown Editor: You get the generated post in a clean Markdown editor. Keep the good parts, edit the rest, and publish when you're completely happy with it.\n\n Privacy & Copyright (Zero Data Retention): This was critical for me. Your code is NOT used to train any AI models. It’s analyzed and immediately discarded. You retain 100% copyright of the generated content.\n\n \n \n I'd love your feedback! (And it's completely free)\n\nRight now, I've hidden all paid plans and made the tool 100% free to use. (To keep my API costs somewhat manageable, there is a limit of 3 generated posts per day per user).\n\nYou don't need a credit card. Just try hooking it up to one of your recent side projects and let me know:\n\n How accurate is the technical analysis of your code?\n\n What feature would make this an absolute must-have for your workflow?\n\nCheck it out here: synapso.dev\n\nThanks for reading, and I'd love to hear your thoughts in the comments! 👇",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "build",
+      "commit",
+      "completely",
+      "copyright",
+      "diff",
+      "generate",
+      "github",
+      "google gemini ai",
+      "key features",
+      "markdown",
+      "payments",
+      "privacy & copyright",
+      "productivity",
+      "solve",
+      "south korea",
+      "technical",
+      "thought",
+      "tool",
+      "webdev"
+    ],
+    [
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

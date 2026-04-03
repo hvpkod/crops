@@ -1,0 +1,32 @@
+{
+  "id": 8103,
+  "source": "Slashdot",
+  "title": "Google Announces Gemma 4 Open AI Models, Switches To Apache 2.0 License",
+  "url": "https://tech.slashdot.org/story/26/04/02/1735238/google-announces-gemma-4-open-ai-models-switches-to-apache-20-license?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-02T18:00:00Z",
+  "fetched_at": "2026-04-02T18:20:25.235962+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from Ars Technica: Google's Gemini AI models have improved by leaps and bounds over the past year, but you can only use Gemini on Google's terms. The company's Gemma open-weight models have provided more freedom, but Gemma 3, which launched over a year ago, is getting a bit long in the tooth. Starting today, developers can start working with Gemma 4, which comes in four sizes optimized for local usage. Google has also acknowledged developer frustrations with AI licensing, so it's dumping the custom Gemma license.\n \nLike past versions of its open-weight models, Google has designed Gemma 4 to be usable on local machines. That can mean plenty of things, of course. The two large Gemma variants, 26B Mixture of Experts and 31B Dense, are designed to run unquantized in bfloat16 format on a single 80GB Nvidia H100 GPU. Granted, that's a $20,000 AI accelerator, but it's still local hardware. If quantized to run at lower precision, these big models will fit on",
+  "full_text": "An anonymous reader quotes a report from Ars Technica: Google's Gemini AI models have improved by leaps and bounds over the past year, but you can only use Gemini on Google's terms. The company's Gemma open-weight models have provided more freedom, but Gemma 3, which launched over a year ago, is getting a bit long in the tooth. Starting today, developers can start working with Gemma 4, which comes in four sizes optimized for local usage. Google has also acknowledged developer frustrations with AI licensing, so it's dumping the custom Gemma license.\n\n \n\nLike past versions of its open-weight models, Google has designed Gemma 4 to be usable on local machines. That can mean plenty of things, of course. The two large Gemma variants, 26B Mixture of Experts and 31B Dense, are designed to run unquantized in bfloat16 format on a single 80GB Nvidia H100 GPU. Granted, that's a $20,000 AI accelerator, but it's still local hardware. If quantized to run at lower precision, these big models will fit on consumer GPUs. Google also claims it has focused on reducing latency to really take advantage of Gemma's local processing. The 26B Mixture of Experts model activates only 3.8 billion of its 26 billion parameters in inference mode, giving it much higher tokens-per-second than similarly sized models. Meanwhile, 31B Dense is more about quality than speed, but Google expects developers to fine-tune it for specific uses.\n\n \n\nThe other two Gemma 4 models, Effective 2B (E2B) and Effective 4B (E4B), are aimed at mobile devices. These options were designed to maintain low memory usage during inference, running at an effective 2 billion or 4 billion parameters. Google says the Pixel team worked closely with Qualcomm and MediaTek to optimize these models for devices like smartphones, Raspberry Pi, and Jetson Nano. Not only do they use less memory and battery than Gemma 3, but Google also touts \"near-zero latency\" this time around.\n\nThe Apache 2.0 license\n\n is much more flexible with its terms of use for commercial restrictions, \"granting you complete control over your data, infrastructure, and models,\" says Google.\n \n\nClement Delangue, co-founder and CEO of Hugging Face, called it \"a huge milestone\" that will help developers use Gemma for more projects and expand what Google calls the \"Gemmaverse\n\n.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "apache",
+      "billion",
+      "design",
+      "developer",
+      "effective",
+      "gemini ai",
+      "gemma",
+      "google",
+      "hugging face",
+      "local",
+      "mediatek",
+      "mixture",
+      "model"
+    ],
+    []
+  ]
+}

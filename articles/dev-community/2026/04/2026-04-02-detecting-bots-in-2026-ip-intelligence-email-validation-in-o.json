@@ -1,0 +1,43 @@
+{
+  "id": 7922,
+  "source": "DEV Community<",
+  "title": "Detecting Bots in 2026: IP Intelligence + Email Validation in One API Call",
+  "url": "https://dev.to/circuit/detecting-bots-in-2026-ip-intelligence-email-validation-in-one-api-call-cjn",
+  "published_at": "2026-04-02T05:40:24Z",
+  "fetched_at": "2026-04-02T06:00:25.623729+00:00",
+  "author": "Rahul S",
+  "summary": "<h2>\n  \n  \n  The Bot Problem Nobody Talks About\n</h2>\n\n<p>If you're running a web app in 2026, roughly 40% of your traffic isn't human. Scrapers, credential stuffers, fake signups — they eat your bandwidth, pollute your analytics, and sometimes steal your data.</p>\n\n<p>Most developers slap on a CAPTCHA and call it a day. But CAPTCHAs are a UX nightmare, and sophisticated bots solve them anyway. There's a better approach: <strong>checking the reputation of incoming requests before they even reach your app.</strong></p>\n\n<h2>\n  \n  \n  The Two Signals That Matter Most\n</h2>\n\n<p>After building fraud detection systems for years, I've found that two data points catch 90%+ of malicious traffic:</p>\n\n<h3>\n  \n  \n  1. IP Intelligence\n</h3>\n\n<p>Every request comes from an IP address, and that IP tells a story:</p>\n\n<ul>\n<li>\n<strong>Is it a known proxy/VPN/Tor exit node?</strong> Legitimate users sometimes use VPNs, but bots almost always do.</li>\n<li>\n<strong>Is it from a datacenter or residentia",
+  "full_text": "The Bot Problem Nobody Talks About\n\nIf you're running a web app in 2026, roughly 40% of your traffic isn't human. Scrapers, credential stuffers, fake signups — they eat your bandwidth, pollute your analytics, and sometimes steal your data.\n\nMost developers slap on a CAPTCHA and call it a day. But CAPTCHAs are a UX nightmare, and sophisticated bots solve them anyway. There's a better approach: checking the reputation of incoming requests before they even reach your app.\n\n \n \n The Two Signals That Matter Most\n\nAfter building fraud detection systems for years, I've found that two data points catch 90%+ of malicious traffic:\n\n \n \n 1. IP Intelligence\n\nEvery request comes from an IP address, and that IP tells a story:\n\nIs it a known proxy/VPN/Tor exit node? Legitimate users sometimes use VPNs, but bots almost always do.\n\nIs it from a datacenter or residential ISP? Most real users browse from home or mobile — datacenter IPs are a red flag.\n\nHas this IP been reported for abuse? Threat intelligence feeds track IPs involved in spam, attacks, and fraud.\n\nWhat's the geolocation? A \"US user\" connecting from a hosting provider in Eastern Europe is suspicious.\n\nimport requests\n\n# Quick IP reputation check\nresponse = requests.get(\n \"https://ipasis.com/api/scan/ip/185.220.101.1\",\n headers={\"Authorization\": \"Bearer YOUR_API_KEY\"}\n)\ndata = response.json()\n\nprint(f\"Risk Score: {data['risk_score']}/100\")\nprint(f\"Is VPN: {data['is_vpn']}\")\nprint(f\"Is Datacenter: {data['is_datacenter']}\")\nprint(f\"Abuse Reports: {data['abuse_count']}\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 2. Email Validation\n\nFor signups and form submissions, the email address is your second line of defense:\n\nDoes the domain actually exist? Disposable email services (guerrillamail, tempmail) are bot favorites.\n\nIs the mailbox real? SMTP verification catches typos and fake addresses.\n\nIs it a known disposable/temporary email? There are 10,000+ disposable domains.\n\nIs the domain newly registered? Fresh domains often exist solely for fraud.\n\n# Email validation\nresponse = requests.get(\n \"https://ipasis.com/api/scan/email/suspicious@tempmail.xyz\",\n headers={\"Authorization\": \"Bearer YOUR_API_KEY\"}\n)\nemail_data = response.json()\n\nprint(f\"Valid: {email_data['is_valid']}\")\nprint(f\"Disposable: {email_data['is_disposable']}\")\nprint(f\"Domain Age: {email_data['domain_age_days']} days\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Combining Both: A Practical Middleware\n\nHere's a real-world pattern I use — a middleware that scores every signup request:\n\nfrom flask import Flask, request, jsonify\nimport requests\n\napp = Flask(__name__)\nIPASIS_KEY = \"your-api-key\"\n\ndef check_reputation(ip, email):\n \"\"\"Score a signup attempt using IP + email intelligence.\"\"\"\n risk = 0\n flags = []\n\n # Check IP\n ip_resp = requests.get(\n f\"https://ipasis.com/api/scan/ip/{ip}\",\n headers={\"Authorization\": f\"Bearer {IPASIS_KEY}\"}\n ).json()\n\n if ip_resp.get(\"is_vpn\"):\n risk += 20\n flags.append(\"vpn_detected\")\n if ip_resp.get(\"is_datacenter\"):\n risk += 30\n flags.append(\"datacenter_ip\")\n if ip_resp.get(\"abuse_count\", 0) > 5:\n risk += 25\n flags.append(\"known_abuser\")\n\n # Check email\n email_resp = requests.get(\n f\"https://ipasis.com/api/scan/email/{email}\",\n headers={\"Authorization\": f\"Bearer {IPASIS_KEY}\"}\n ).json()\n\n if email_resp.get(\"is_disposable\"):\n risk += 40\n flags.append(\"disposable_email\")\n if not email_resp.get(\"is_valid\"):\n risk += 50\n flags.append(\"invalid_email\")\n\n return {\"risk_score\": min(risk, 100), \"flags\": flags}\n\n@app.route(\"/signup\", methods=[\"POST\"])\ndef signup():\n ip = request.remote_addr\n email = request.json.get(\"email\", \"\")\n\n result = check_reputation(ip, email)\n\n if result[\"risk_score\"] > 60:\n return jsonify({\"error\": \"Signup blocked\", \"reason\": \"suspicious_activity\"}), 403\n elif result[\"risk_score\"] > 30:\n # Flag for manual review but allow\n return jsonify({\"status\": \"pending_review\"}), 200\n else:\n # Clean signup, proceed normally\n return jsonify({\"status\": \"approved\"}), 200\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Why This Beats CAPTCHAs\n\nApproach\nUser Friction\nBot Detection Rate\nLatency\n\nreCAPTCHA v2\nHigh (click images)\n~85%\n2-5s\n\nreCAPTCHA v3\nLow (invisible)\n~70%\n1-3s\n\nIP + Email Intelligence\nZero\n~92%\n<200ms\n\nThe key advantage: zero user friction. Your legitimate users never see a challenge. The API call happens server-side in milliseconds, and bad actors get blocked silently.\n\n \n \n Getting Started\n\nIf you want to try this approach, IPASIS offers a free tier with 1,000 requests/day — enough to protect a small-to-medium app. You can also test any IP or email interactively on the free scanner.\n\nThe API docs cover authentication, rate limits, and response formats. The API is REST-based with JSON responses — no SDK required.\n\n \n \n Key Takeaways\n\nDon't rely solely on CAPTCHAs — they hurt UX and sophisticated bots bypass them.\n\nIP intelligence catches infrastructure-level fraud (VPNs, datacenter IPs, known abusers).\n\nEmail validation catches identity-level fraud (disposable emails, fake domains).\n\nCombine both for a risk score that lets you block, flag, or approve in real-time.\n\nServer-side checks = zero user friction — your real users never know it's happening.\n\nBot detection doesn't have to mean annoying your users. Sometimes the smartest security is invisible.\n\nWhat bot detection approach are you using? Drop a comment — I'm curious what's working for others in 2026.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "bot",
+      "captcha",
+      "catch",
+      "detection",
+      "eastern europe",
+      "email",
+      "f\"bearer",
+      "intelligence",
+      "ip +",
+      "ip intelligence",
+      "ipasis",
+      "ipasis_key",
+      "isp",
+      "risk",
+      "sdk",
+      "security",
+      "signup",
+      "tutorial",
+      "user",
+      "validation",
+      "webdev"
+    ],
+    [
+      "tutorial",
+      "webdev"
+    ]
+  ]
+}

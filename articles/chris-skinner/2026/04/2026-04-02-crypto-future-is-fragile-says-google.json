@@ -1,0 +1,35 @@
+{
+  "id": 7940,
+  "source": "Chris Skinner",
+  "title": "Crypto future is fragile says Google",
+  "url": "https://thefinanser.com/2026/04/cryptos-future-is-quantum-fragile-according-to-google/?utm_source=rss&utm_medium=rss&utm_campaign=cryptos-future-is-quantum-fragile-according-to-google",
+  "published_at": "2026-04-02T06:23:59Z",
+  "fetched_at": "2026-04-02T08:20:18.325918+00:00",
+  "author": "Chris M Skinner",
+  "summary": "<p>Google’s latest research delivers a clear warning: the cryptography securing today’s cryptocurrencies is not future-proof. Advances in quantum computing are accelerating, and the resources needed to break core encryption (elliptic curve cryptography) are far lower than previously thought. This isn’t a distant, theoretical risk anymore. It’s a strategic, time-bound challenge. What’s changed? 20x efficiency gain: Google...</p>\n<p>The post <a href=\"https://thefinanser.com/2026/04/cryptos-future-is-quantum-fragile-according-to-google/\">Crypto future is fragile says Google</a> appeared first on <a href=\"https://thefinanser.com\">Chris Skinner&#039;s blog</a>.</p>",
+  "full_text": "Google’s latest research delivers a clear warning: the cryptography securing today’s cryptocurrencies is not future-proof. Advances in quantum computing are accelerating, and the resources needed to break core encryption (elliptic curve cryptography) are far lower than previously thought.\n\nThis isn’t a distant, theoretical risk anymore. It’s a strategic, time-bound challenge.\n\nWhat’s changed?\n\n20x efficiency gain: Google shows that cracking crypto encryption could require ~20 times fewer quantum resources than earlier estimates.\n\nMinutes, not years: In some scenarios, a sufficiently advanced quantum computer could derive private keys in minutes.\n\nLower hardware threshold: Attacks may be possible with hundreds of thousands (not millions) of qubits.\n\nWhat this really means is that the timeline to “Q-Day” (when quantum breaks crypto) is compressing. Where are the vulnerabilities? Google identifies three core attack vectors:\n\nAt-rest attacks\n\nTarget dormant wallets with exposed public keys\n\nMillions of old Bitcoin/Ethereum holdings are at risk\n\nOn-spend attacks\n\nIntercept transactions in real time\n\nCrack keys during the brief window before confirmation\n\nProtocol-level weaknesses\n\nSmart contracts, proof-of-stake systems, and data layers expand the attack surface\n\nIn short: the more complex and programmable the system, the larger the quantum attack surface and here’s the interesting twist. Google doesn’t just publish vulnerabilities. Instead, it uses zero-knowledge proofs to prove the attack is feasible and avoid revealing the exact “how-to”. This balances transparency with security, setting a new standard for disclosing systemic risks.\n\nThe real issue is crypto governance, not just cryptography and the hardest problem isn’t technical, it’s economic and political. What happens to lost or dormant coins if they become vulnerable? Do we preserve immutability, or protect network stability? Who decides? As Google and I noted the other day, the industry will face “unprecedented decisions” about ownership and recovery.\n\nSo, what’s the call to action? Google’s message is blunt: migrate to Post-Quantum Cryptography (PQC); do it now, not later; and coordinate across ecosystems (Bitcoin, Ethereum, exchanges, wallets). They’re effectively saying that if you wait until quantum arrives, it’s already too late.\n\nBut they would say that as they’re selling quantum.\n\nNevertheless, I’ve been talking quantum breaking crypto for years – you can’t build an intelligent financial system on cryptography that’s about to be broken – and quantum doesn’t just threaten crypto. It threatens trust in digital value itself.\n\nThe bottom line is crypto is secure today, but not guaranteed tomorrow; quantum progress is accelerating faster than expected; and the industry must shift to quantum-resistant foundations regardless. The race is no longer to do digital. It’s the race to post-quantum security.\n\nIf this is of interest to you, I’ve written a lot more about it:\n\nHow quantum will change everything (including banking, money and security)\n\nAre you fit to lead your bank if you don’t understand tech?\n\nQuantum computing: a threat or opportunity?\n\nThe big deal is PQC",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "attack",
+      "bitcoin, ethereum",
+      "bitcoin/ethereum",
+      "crypto",
+      "cryptography",
+      "dormant",
+      "google",
+      "grid",
+      "key",
+      "low",
+      "post-quantum cryptography",
+      "pqc",
+      "quantum",
+      "race",
+      "smart",
+      "target",
+      "threaten"
+    ],
+    []
+  ]
+}

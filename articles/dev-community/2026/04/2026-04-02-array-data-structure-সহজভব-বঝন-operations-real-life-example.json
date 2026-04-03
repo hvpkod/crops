@@ -1,0 +1,44 @@
+{
+  "id": 7948,
+  "source": "DEV Community<",
+  "title": "Array Data Structure সহজভাবে বুঝুন (Operations + Real-Life Example)",
+  "url": "https://dev.to/mohammad_alamin_a95501e7/array-data-structure-shjbhaabe-bujhun-operations-real-life-example-39m0",
+  "published_at": "2026-04-02T08:52:39Z",
+  "fetched_at": "2026-04-02T09:00:27.560201+00:00",
+  "author": "Mohammad Al Amin",
+  "summary": "<p>ডাটা স্ট্রাকচার শেখার যাত্রায় Array হলো সবচেয়ে বেসিক এবং গুরুত্বপূর্ণ একটি টপিক। প্রায় সব প্রোগ্রামিং ভাষাতেই Array ব্যবহার করা হয় এবং অনেক সমস্যা সমাধানের ভিত্তি এটি।</p>\n\n<p>এই পোস্টে আমরা Array কী, কিভাবে কাজ করে, এবং বাস্তব উদাহরণসহ সহজভাবে বুঝবো।</p>\n\n\n\n\n<h2>\n  \n  \n  Array কী?\n</h2>\n\n<p>Array হলো একটি ডাটা স্ট্রাকচার যেখানে একই ধরনের একাধিক ডাটা একসাথে ধারাবাহিকভাবে সংরক্ষণ করা হয়।</p>\n\n<p>সহজভাবে বললে,<br />\n<strong>একটা লিস্ট যেখানে প্রতিটি ডাটার একটি নির্দিষ্ট অবস্থান (index) থাকে।</strong></p>\n\n\n<h2>\n  \n  \n  Real-Life Example\n</h2>\n\n<p>ধরুন, একটি ক্লাসে ৫ জন ছাত্র আছে:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>Rahim, Karim, Jamal, Sakib, Fahim\n</code></pre>\n\n</div>\n\n\n\n<p>এখন যদি আমরা তাদের Array হিসেবে দেখি:<br />\n</p>\n\n<p>```js id=\"z8h3k2\"<br />\nconst students = [\"Rahim\", \"Karim\", \"Jamal\", \"Sakib\", \"Fahim\"];</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>\n\n\nএখানে:\n\n* Rahim → index 0\n*",
+  "full_text": "ডাটা স্ট্রাকচার শেখার যাত্রায় Array হলো সবচেয়ে বেসিক এবং গুরুত্বপূর্ণ একটি টপিক। প্রায় সব প্রোগ্রামিং ভাষাতেই Array ব্যবহার করা হয় এবং অনেক সমস্যা সমাধানের ভিত্তি এটি।\n\nএই পোস্টে আমরা Array কী, কিভাবে কাজ করে, এবং বাস্তব উদাহরণসহ সহজভাবে বুঝবো।\n\n \n \n Array কী?\n\nArray হলো একটি ডাটা স্ট্রাকচার যেখানে একই ধরনের একাধিক ডাটা একসাথে ধারাবাহিকভাবে সংরক্ষণ করা হয়।\n\nসহজভাবে বললে,\n\nএকটা লিস্ট যেখানে প্রতিটি ডাটার একটি নির্দিষ্ট অবস্থান (index) থাকে।\n\n \n \n Real-Life Example\n\nধরুন, একটি ক্লাসে ৫ জন ছাত্র আছে:\n\nRahim, Karim, Jamal, Sakib, Fahim\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nএখন যদি আমরা তাদের Array হিসেবে দেখি:\n\n```js id=\"z8h3k2\"\n\nconst students = [\"Rahim\", \"Karim\", \"Jamal\", \"Sakib\", \"Fahim\"];\n\nএখানে:\n\n* Rahim → index 0\n* Karim → index 1\n* Jamal → index 2\n\nঅর্থাৎ, প্রতিটি ছাত্রের একটি নির্দিষ্ট অবস্থান আছে।\n\n---\n\n## Array Operations\n\n### 1. Access (ডাটা দেখা)\n\nArray থেকে কোনো ডাটা বের করা খুব সহজ।\n\n```js id=\"1l0k8c\"\nconsole.log(students[1]); // Output: Karim\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n👉 Time Complexity: O(1)\n\n \n \n 2. Insert (ডাটা যোগ করা)\n\n \n \n শেষে যোগ করা:\n\n```js id=\"7j3l9p\"\n\nstudents.push(\"Nayeem\");\n\n#### শুরুতে যোগ করা:\n\n```js id=\"9k2m1x\"\nstudents.unshift(\"Hasan\");\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n👉 Time Complexity: O(n)\n\n \n \n 3. Delete (ডাটা মুছে ফেলা)\n\n \n \n শেষ থেকে:\n\n```js id=\"p4l2vd\"\n\nstudents.pop();\n\n#### শুরু থেকে:\n\n```js id=\"8s2fqp\"\nstudents.shift();\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n👉 Time Complexity: O(n)\n\n \n \n 4. Update (ডাটা পরিবর্তন)\n\n```js id=\"3dfk2l\"\n\nstudents[2] = \"Tanvir\";\n\n👉 Time Complexity: O(1)\n\n---\n\n## Big O এর সাথে সম্পর্ক\n\nআগের পোস্টে আমরা Big O Notation দেখেছি। এখন সেটাকে Array এর সাথে connect করি:\n\n* Access → O(1)\n* Insert → O(n)\n* Delete → O(n)\n* Update → O(1)\n\n👉 কারণ Array-এ মাঝে কিছু insert/delete করলে বাকি element গুলো shift করতে হয়।\n\n---\n\n## Common Mistakes\n\n### ❌ Index ভুল করা\n\n```js id=\"h2l9s0\"\nstudents[10]; // undefined\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n ❌ Loop error\n\nঅনেক সময় loop লিখতে গিয়ে off-by-one error হয়।\n\n \n \n Practice Problem\n\nনিজে চেষ্টা করুন:\n\nArray থেকে সবচেয়ে বড় সংখ্যাটি বের করুন\n\nএকটি Array reverse করুন\n\n \n \n SEO Tags (dev.to)\n\n \n \n datastructure #array #javascript #programming #beginners #coding #algorithms #learncoding #webdev #computerscience\n\n \n \n শেষ কথা\n\nArray খুবই simple মনে হলেও, এটি প্রোগ্রামিংয়ের সবচেয়ে শক্তিশালী একটি ভিত্তি। আপনি যদি Array ভালোভাবে বুঝতে পারেন, তাহলে পরবর্তী ডাটা স্ট্রাকচার শেখা অনেক সহজ হয়ে যাবে।\n\n \n \n আপনার মতামত\n\nআপনার কাছে Array এর কোন অংশটি সবচেয়ে কঠিন লাগে? কমেন্টে জানাতে পারেন।",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "array",
+      "beginners",
+      "computerscience",
+      "delete",
+      "enter",
+      "exit",
+      "fullscreen",
+      "index",
+      "insert",
+      "jamal",
+      "javascript",
+      "karim",
+      "loop",
+      "mode",
+      "practice problem",
+      "real-life example\n\nধরুন",
+      "seo tags",
+      "tutorial",
+      "অবস্থান",
+      "উদাহরণসহ সহজভাবে বুঝবো",
+      "করতে",
+      "বললে"
+    ],
+    [
+      "beginners",
+      "computerscience",
+      "tutorial"
+    ]
+  ]
+}

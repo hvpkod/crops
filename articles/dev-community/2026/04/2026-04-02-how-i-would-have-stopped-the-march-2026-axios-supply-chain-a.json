@@ -1,0 +1,43 @@
+{
+  "id": 8030,
+  "source": "DEV Community<",
+  "title": "How I Would Have Stopped the March 2026 Axios Supply Chain Attack (Free Tool Inside)",
+  "url": "https://dev.to/0n/how-i-would-have-stopped-the-march-2026-axios-supply-chain-attack-free-tool-inside-56ji",
+  "published_at": "2026-04-02T14:46:53Z",
+  "fetched_at": "2026-04-02T15:00:38.235179+00:00",
+  "author": "0n",
+  "summary": "<p>On March 31, 2026, attackers published compromised versions of axios — npm's most downloaded HTTP client — containing a Remote Access Trojan hidden in a transitive dependency. The payload exfiltrated environment variables, SSH keys, and API credentials from every developer who ran <code>npm install</code>.</p>\n\n<p>I run an MCP server with API keys for 55 connected services. When I saw the advisory, I realized how exposed the entire AI tool ecosystem is to supply chain attacks.</p>\n\n<p>So I built 0nDefender.</p>\n\n<h2>\n  \n  \n  The Key Insight: Timing\n</h2>\n\n<p>Most security tools scan AFTER packages are installed. The axios attack used a <code>postinstall</code> script — by the time your scanner runs, the malicious code has already executed.</p>\n\n<p>0nDefender's core mechanism is a <code>preinstall</code> hook. It runs BEFORE npm resolves, downloads, or installs anything.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight json\"><code><span class=\"p\">{</span><s",
+  "full_text": "On March 31, 2026, attackers published compromised versions of axios — npm's most downloaded HTTP client — containing a Remote Access Trojan hidden in a transitive dependency. The payload exfiltrated environment variables, SSH keys, and API credentials from every developer who ran npm install.\n\nI run an MCP server with API keys for 55 connected services. When I saw the advisory, I realized how exposed the entire AI tool ecosystem is to supply chain attacks.\n\nSo I built 0nDefender.\n\n \n \n The Key Insight: Timing\n\nMost security tools scan AFTER packages are installed. The axios attack used a postinstall script — by the time your scanner runs, the malicious code has already executed.\n\n0nDefender's core mechanism is a preinstall hook. It runs BEFORE npm resolves, downloads, or installs anything.\n\n{\n \"scripts\": {\n \"preinstall\": \"npx 0nmcp@latest defender scan --lockfile\"\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe hook reads package-lock.json, cross-references against known malicious versions, pattern-matches against typosquatter names, and blocks anything suspicious.\n\naxios@1.14.1 would have been blocked. plain-crypto-js would never have been downloaded. The RAT would never have executed.\n\n \n \n 4 Security Layers\n\n0nSeal — The preinstall hook. Prevention at the gate.\n\n0nWatch — Continuous scanning against npm advisory database and GitHub Security Advisories. Every 6 hours.\n\n0nVaultGuard — Health-checks every API key via zero-knowledge probing. Keys never leave your machine. Every 12 hours.\n\n0nAlert — Real-time notifications via email, Slack, or Discord.\n\n \n \n Why MCP Servers Are High-Value Targets\n\nIf you run a Claude Desktop MCP server, your environment probably contains API keys for AI providers, payment processors, databases, CRMs, email services, and cloud infrastructure. One compromised npm package = access to all of them.\n\n \n \n Install in 60 Seconds\n\nnpm install -g 0nmcp\n0nmcp engine verify\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAdd to Claude Desktop config:\n\n{\n \"mcpServers\": {\n \"0nMCP\": {\n \"command\": \"npx\",\n \"args\": [\"-y\", \"0nmcp\"]\n }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFree. Open source. MIT licensed. No sign-up. No telemetry.\n\nFull writeup: 0nmcp.com/secure-claude\n\nSource: github.com/0nork/0nMCP\n\nBuilt by RocketOpp LLC. Non-funded. Non-seeded. Just building what the ecosystem needs.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "axios",
+      "build",
+      "claude desktop",
+      "claude desktop mcp",
+      "compromise",
+      "discord",
+      "exit",
+      "fullscreen",
+      "install",
+      "key",
+      "mcp",
+      "mit",
+      "mode",
+      "npm",
+      "opensource",
+      "payments",
+      "preinstall",
+      "security",
+      "slack",
+      "ssh",
+      "the key insight"
+    ],
+    [
+      "opensource"
+    ]
+  ]
+}

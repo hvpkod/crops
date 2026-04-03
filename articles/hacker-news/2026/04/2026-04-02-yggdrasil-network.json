@@ -1,0 +1,32 @@
+{
+  "id": 8134,
+  "source": "Hacker News",
+  "title": "Yggdrasil Network",
+  "url": "https://yggdrasil-network.github.io/",
+  "published_at": "2026-04-02T18:15:19Z",
+  "fetched_at": "2026-04-02T20:00:42.179078+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47618100\">Comments</a>",
+  "full_text": "Yggdrasil is a new experimental compact routing scheme. It is designed to be a future-proof and decentralised alternative to the structured routing protocols commonly used today on the Internet, as well as an enabling technology for future large-scale mesh networks. Yggdrasil is:\n\n \n\n \n \n\nScalable\n \n\nSupports large, complex or even Internet-scale topologies\n \n \n\n \n \n\nSelf-healing\n \n\nNetwork responds quickly to connection failures or mobility events\n \n \n\n \n \n\nEncrypted\n \n\nTraffic sent across the network is always fully end-to-end encrypted\n \n \n\n \n \n\nPeer-to-peer\n \n\nWorks entirely ad-hoc by design with no built-in points of centralisation\n \n \n\n \n \n\nCross-platform\n \n\nSupported on Linux, macOS, Windows, iOS, Android and more\n \n\nThe current implementation of Yggdrasil is a lightweight userspace software router which is easy to configure and supported on a wide range of platforms. It provides end-to-end encrypted IPv6 routing between all network participants. Peerings between nodes can be configured using TCP/TLS connections over local area networks, point-to-point links or the Internet. Even though the Yggdrasil Network provides IPv6 routing between nodes, peering connections can be set up over either IPv4 or IPv6 networks.\n\nThis is still an alpha-stage project and there may be some breaking changes in the future. Despite that, Yggdrasil is generally stable enough for day-to-day use and a small number of users have been using and stress-testing Yggdrasil quite heavily for a variety of use cases. If you are interested in or would like to get involved in the Yggdrasil project, start below:\n\n \n\n \n \n\nInstall and configure Yggdrasil on your own computer or router to join the network.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "android",
+      "configure",
+      "connection",
+      "encrypt",
+      "network",
+      "peering",
+      "provide",
+      "router",
+      "routing",
+      "support",
+      "tcp",
+      "the yggdrasil network",
+      "windows",
+      "yggdrasil"
+    ],
+    []
+  ]
+}

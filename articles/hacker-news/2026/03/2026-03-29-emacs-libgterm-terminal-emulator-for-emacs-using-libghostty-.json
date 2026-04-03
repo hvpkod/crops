@@ -1,0 +1,37 @@
+{
+  "id": 8003,
+  "source": "Hacker News",
+  "title": "Emacs-libgterm: Terminal emulator for Emacs using libghostty-vt",
+  "url": "https://github.com/rwc9u/emacs-libgterm",
+  "published_at": "2026-03-29T14:32:04Z",
+  "fetched_at": "2026-04-02T13:20:19.314524+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47563486\">Comments</a>",
+  "full_text": "Terminal emulator for Emacs built on libghostty-vt, the terminal emulation library from the Ghostty terminal emulator.\n\nThis project follows the same architecture as emacs-libvterm but uses Ghostty's terminal engine, which offers:\n\nSIMD-optimized VT escape sequence parsing\n\nBetter Unicode and grapheme cluster support\n\nText reflow on resize\n\nKitty graphics protocol support\n\nActive development and maintenance\n\nStatus: Early prototype. Fully vibe coded. Only tested on macOS (Apple Silicon). Terminal works with ANSI colors, full key handling, scrollback, cursor sync, and drag-and-drop. Some character width mismatches with Powerline/NerdFont glyphs remain. Here be dragons.\n\nEmacs 25.1+ compiled with --with-modules (dynamic module support)\n\nZig 0.15.2+ (install via asdf install zig 0.15.2 or ziglang.org)\n\nGit (to clone the Ghostty source)\n\nuse-package + straight.el (recommended)\n\n(use-package gterm\n :straight (:host github :repo \"rwc9u/emacs-libgterm\" :files (\"*\"))\n :init\n (setq gterm-always-compile-module t))\n\nNote: The :files (\"*\") is required so straight.el copies the Zig source files and build system, not just .el files.\n\nuse-package + vc (Emacs 30+)\n\n(use-package gterm\n :vc (:url \"https://github.com/rwc9u/emacs-libgterm\" :branch \"main\")\n :init\n (setq gterm-always-compile-module t))\n\nNote: use-package :vc copies all files by default, so no extra :files configuration is needed.\n\n(use-package gterm\n :quelpa (gterm :fetcher github :repo \"rwc9u/emacs-libgterm\" :files (\"*\"))\n :init\n (setq gterm-always-compile-module t))\n\nuse-package + local clone\n\n(use-package gterm\n :load-path \"/path/to/emacs-libgterm\"\n :init\n (setq gterm-always-compile-module t))\n\n(add-to-list 'load-path \"/path/to/emacs-libgterm\")\n(require 'gterm)\n\nThen M-x gterm to open a terminal.\n\nWhat happens on first load\n\ngterm detects the missing compiled module\n\nAutomatically clones Ghostty into vendor/ghostty (if not present)\n\nApplies a build patch for macOS compatibility (if needed)\n\nCompiles the Zig dynamic module via zig build\n\nLoads the module\n\nThe only prerequisite is having Zig and Git installed. Set gterm-always-compile-module to t to skip the confirmation prompt, or leave it nil to be asked first.\n\nIf you prefer to build manually:\n\ngit clone https://github.com/rwc9u/emacs-libgterm.git\ncd emacs-libgterm\nzig build\nzig build test # run tests\n\nGhostty will be cloned automatically by zig build if not present, or you can clone it yourself:\n\ngit clone --depth 1 https://github.com/ghostty-org/ghostty.git vendor/ghostty\n\nKey\nAction\n\nM-x gterm\nOpen a new terminal\n\nArrow keys\nNavigate / command history\n\nC-y / Cmd-V\nPaste from kill ring\n\nC-c C-k\nEnter copy mode (select text, y to copy, q to exit)\n\nShift-PageUp/Down\nScroll through history (page)\n\nMouse wheel / Trackpad\nScroll through history (5 lines)\n\nC-c C-v\nSnap back to live terminal\n\nC-c C-c\nSend Ctrl-C to shell\n\nC-c C-d\nSend Ctrl-D (EOF) to shell\n\nC-c C-z\nSend Ctrl-Z (suspend) to shell\n\nDrag file from Finder\nSend file path to terminal\n\n# Specify custom Emacs include path (for emacs-module.h)\nzig build -Demacs-include=/path/to/emacs/include\n\n# Build with optimizations\nzig build -Doptimize=ReleaseFast\n\n+----------------+ +---------------------+ +---------------+\n| gterm.el |---->| gterm-module.so |---->| ghostty-vt |\n| (Elisp) | | (Zig -> C ABI) | | (Zig lib) |\n| | | | | |\n| - PTY mgmt | | - Terminal create | | - VT parse |\n| - Keybinds | | - Feed bytes | | - Screen |\n| - Display | | - Styled render | | - Cursor |\n| - Copy/Paste | | - Cursor track | | - Scrollback |\n| - Scrollback | | - Mode query | | - Reflow |\n+----------------+ +---------------------+ +---------------+\n\n;; Change shell (default: /bin/zsh)\n(setq gterm-shell \"/bin/bash\")\n\n;; Change TERM variable (default: xterm-256color)\n(setq gterm-term-environment-variable \"xterm-256color\")\n\n;; Auto-compile without prompting\n(setq gterm-always-compile-module t)\n\n;; Mouse wheel scroll speed (default: 5 lines per event)\n(setq gterm-mouse-scroll-lines 5)\n\nCharacter width mismatches — some Unicode characters (Powerline glyphs, NerdFont icons) may render at different widths in Emacs vs the terminal, causing minor alignment issues with fancy prompts\n\nNo mouse support — programs like htop that use mouse events are not yet supported\n\nGPL-3.0 (required for Emacs dynamic modules)",
+  "tags": [
+    [
+      "/bin/zsh",
+      "1000-words",
+      "2026",
+      "ansi",
+      "build",
+      "change",
+      "clone",
+      "cursor",
+      "elisp",
+      "emacs",
+      "eof",
+      "finder\nsend",
+      "ghostty",
+      "gterm",
+      "history",
+      "module",
+      "mouse",
+      "powerline/nerdfont",
+      "shell",
+      "terminal",
+      "zig"
+    ],
+    []
+  ]
+}

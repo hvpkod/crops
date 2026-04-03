@@ -1,0 +1,37 @@
+{
+  "id": 8015,
+  "source": "Hacker News",
+  "title": "Show HN: I built a DNS resolver from scratch in Rust – no DNS libraries",
+  "url": "https://github.com/razvandimescu/numa",
+  "published_at": "2026-04-02T10:07:57Z",
+  "fetched_at": "2026-04-02T14:00:39.297806+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47612321\">Comments</a>",
+  "full_text": "DNS you own. Everywhere you go. — numa.rs\n\nA portable DNS resolver in a single binary. Block ads on any network, name your local services (frontend.numa), and override any hostname with auto-revert — all from your laptop, no cloud account or Raspberry Pi required.\n\nBuilt from scratch in Rust. Zero DNS libraries. RFC 1035 wire protocol parsed by hand. Caching, ad blocking, and local service domains out of the box. Optional recursive resolution from root nameservers with full DNSSEC chain-of-trust validation. One ~8MB binary, everything embedded.\n\n# macOS\nbrew install razvandimescu/tap/numa\n\n# Linux\ncurl -fsSL https://raw.githubusercontent.com/razvandimescu/numa/main/install.sh | sh\n\n# Windows — download from GitHub Releases\n# All platforms\ncargo install numa\n\nsudo numa # run in foreground (port 53 requires root/admin)\n\nOpen the dashboard: http://numa.numa (or http://localhost:5380)\n\nSet as system DNS:\n\nPlatform\nInstall\nUninstall\n\nmacOS\nsudo numa install\nsudo numa uninstall\n\nLinux\nsudo numa install\nsudo numa uninstall\n\nWindows\nnuma install (admin) + reboot\nnuma uninstall (admin) + reboot\n\nOn macOS and Linux, numa runs as a system service (launchd/systemd). On Windows, numa auto-starts on login via registry.\n\nName your dev services instead of remembering port numbers:\n\ncurl -X POST localhost:5380/services \\\n -d '{\"name\":\"frontend\",\"target_port\":5173}'\n\nNow https://frontend.numa works in your browser — green lock, valid cert, WebSocket passthrough for HMR. No mkcert, no nginx, no /etc/hosts.\n\nAdd path-based routing (app.numa/api → :5001), share services across machines via LAN discovery, or configure everything in numa.toml.\n\n385K+ domains blocked via Hagezi Pro. Works on any network — coffee shops, hotels, airports. Travels with your laptop.\n\nThree resolution modes:\n\nforward (default) — transparent proxy to your existing system DNS. Everything works as before, just with caching and ad blocking on top. Captive portals, VPNs, corporate DNS — all respected.\n\nrecursive — resolve directly from root nameservers. No upstream dependency, no single entity sees your full query pattern. Add [dnssec] enabled = true for full chain-of-trust validation.\n\nauto — probe root servers on startup, recursive if reachable, encrypted DoH fallback if blocked.\n\nDNSSEC validates the full chain of trust: RRSIG signatures, DNSKEY verification, DS delegation, NSEC/NSEC3 denial proofs. Read how it works →\n\nRun Numa on multiple machines. They find each other automatically via mDNS:\n\nMachine A (192.168.1.5) Machine B (192.168.1.20)\n┌──────────────────────┐ ┌──────────────────────┐\n│ Numa │ mDNS │ Numa │\n│ - api (port 8000) │◄───────────►│ - grafana (3000) │\n│ - frontend (5173) │ discovery │ │\n└──────────────────────┘ └──────────────────────┘\n\nFrom Machine B: curl http://api.numa → proxied to Machine A's port 8000. Enable with numa lan on.\n\nHub mode: run one instance with bind_addr = \"0.0.0.0:53\" and point other devices' DNS to it — they get ad blocking + .numa resolution without installing anything.\n\nPi-hole\nAdGuard Home\nUnbound\nNuma\n\nLocal service proxy + auto TLS\n—\n—\n—\n.numa domains, HTTPS, WebSocket\n\nLAN service discovery\n—\n—\n—\nmDNS, zero config\n\nDeveloper overrides (REST API)\n—\n—\n—\nAuto-revert, scriptable\n\nRecursive resolver\n—\n—\nYes\nYes, with SRTT selection\n\nDNSSEC validation\n—\n—\nYes\nYes (RSA, ECDSA, Ed25519)\n\nAd blocking\nYes\nYes\n—\n385K+ domains\n\nWeb admin UI\nFull\nFull\n—\nDashboard\n\nEncrypted upstream (DoH)\nNeeds cloudflared\nYes\n—\nNative\n\nPortable (laptop)\nNo (appliance)\nNo (appliance)\nServer\nSingle binary, macOS/Linux/Windows\n\nCommunity maturity\n56K stars, 10 years\n33K stars\n20 years\nNew\n\n691ns cached round-trip. ~2.0M qps throughput. Zero heap allocations in the hot path. Recursive queries average 237ms after SRTT warmup (12x improvement over round-robin). ECDSA P-256 DNSSEC verification: 174ns. Benchmarks →\n\nMIT",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "block",
+      "dns",
+      "dnssec",
+      "full",
+      "hagezi pro",
+      "install",
+      "lan",
+      "launchd/systemd",
+      "machine",
+      "nsec",
+      "numa",
+      "recursive",
+      "service",
+      "sudo",
+      "travels",
+      "uninstall",
+      "websocket",
+      "windows",
+      "┌──────────────────────"
+    ],
+    []
+  ]
+}

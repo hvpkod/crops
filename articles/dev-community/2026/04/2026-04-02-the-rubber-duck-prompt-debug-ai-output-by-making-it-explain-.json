@@ -1,0 +1,41 @@
+{
+  "id": 7983,
+  "source": "DEV Community<",
+  "title": "The Rubber Duck Prompt: Debug AI Output by Making It Explain Every Decision",
+  "url": "https://dev.to/novaelvaris/the-rubber-duck-prompt-debug-ai-output-by-making-it-explain-every-decision-39fh",
+  "published_at": "2026-04-02T11:50:22Z",
+  "fetched_at": "2026-04-02T12:00:30.644146+00:00",
+  "author": "Nova Elvaris",
+  "summary": "<p>You know the trick — explain your code to a rubber duck and the bug reveals itself. Turns out it works on AI too, except you make <em>the AI</em> be the duck.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>Your AI assistant returns code that looks right. It runs. But something about it feels off — maybe it picked a weird data structure, ignored an edge case, or used a pattern you didn\\'t expect. You can\\'t tell if it\\'s wrong or just different.</p>\n\n<p>Most people either accept it or start over. There\\'s a better move.</p>\n\n<h2>\n  \n  \n  The Rubber Duck Prompt\n</h2>\n\n<p>After the AI generates code, hit it with this:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>Before I review this, walk me through your decisions:\n1. Why did you choose this data structure?\n2. What alternatives did you consider and reject?\n3. What edge cases did you think about?\n4. What assumptions are you making about the input?\n5. What would break first if requirements change?",
+  "full_text": "You know the trick — explain your code to a rubber duck and the bug reveals itself. Turns out it works on AI too, except you make the AI be the duck.\n\n \n \n The Problem\n\nYour AI assistant returns code that looks right. It runs. But something about it feels off — maybe it picked a weird data structure, ignored an edge case, or used a pattern you didn\\'t expect. You can\\'t tell if it\\'s wrong or just different.\n\nMost people either accept it or start over. There\\'s a better move.\n\n \n \n The Rubber Duck Prompt\n\nAfter the AI generates code, hit it with this:\n\nBefore I review this, walk me through your decisions:\n1. Why did you choose this data structure?\n2. What alternatives did you consider and reject?\n3. What edge cases did you think about?\n4. What assumptions are you making about the input?\n5. What would break first if requirements change?\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat\\'s it. Five questions. The AI is forced to justify every choice.\n\n \n \n Why This Works\n\nWhen an LLM generates code, it\\'s pattern-matching from training data. It doesn\\'t know why it picked Map over Object — but when you ask, it reconstructs the reasoning. And in that reconstruction, gaps surface:\n\n\"I assumed the input is always sorted\" → it wasn\\'t\n\n\"I chose a flat array for simplicity\" → but you need O(1) lookups\n\n\"I didn\\'t consider empty input\" → obvious bug\n\nThe explanation becomes a free code review.\n\n \n \n Real Example\n\nI asked Claude to write a rate limiter. It returned a token bucket implementation. Looked fine. Then I ran the Rubber Duck Prompt:\n\n\"I chose a token bucket because it handles bursts well. I assumed requests are single-threaded...\"\n\nStop. My service is multi-threaded. That assumption would have caused a race condition in production. Caught in 30 seconds, not 3 hours of debugging.\n\n \n \n When to Use It\n\nAfter any generated code longer than ~30 lines\n\nWhen the output \"looks right\" but you didn\\'t specify the approach\n\nBefore merging AI-generated PRs\n\nWhen onboarding to unfamiliar code the AI wrote previously\n\n \n \n When to Skip It\n\nTrivial code (formatting, simple CRUD)\n\nYou specified the exact approach in your prompt\n\nYou\\'re prototyping and correctness doesn\\'t matter yet\n\n \n \n Template\n\nSave this as your post-generation step:\n\n## Review Gate: Rubber Duck Check\n\nExplain your implementation decisions:\n- Data structures chosen and why\n- Alternatives considered\n- Edge cases handled (and deliberately skipped)\n- Assumptions about input/environment\n- Fragility points if requirements change\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The Takeaway\n\nDon\\'t trust AI code that you can\\'t explain. But you don\\'t have to explain it yourself — make the AI explain it to you. The bugs are hiding in the assumptions, and assumptions only surface when you ask.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "assume",
+      "assumption",
+      "choose",
+      "code",
+      "crud",
+      "didn\\'t",
+      "duck",
+      "edge",
+      "explain",
+      "it\\",
+      "make",
+      "pick",
+      "productivity",
+      "programming",
+      "prompts",
+      "rubber",
+      "template\n\nsave",
+      "the problem",
+      "there\\"
+    ],
+    [
+      "productivity",
+      "prompts"
+    ]
+  ]
+}

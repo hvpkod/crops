@@ -1,0 +1,46 @@
+{
+  "id": 8148,
+  "source": "DEV Community<",
+  "title": "I built a JSON viewer because the most popular one betrayed its users",
+  "url": "https://dev.to/valentinconan/i-built-a-json-viewer-because-the-most-popular-one-betrayed-its-users-5e6e",
+  "published_at": "2026-04-02T20:43:33Z",
+  "fetched_at": "2026-04-02T21:00:36.105433+00:00",
+  "author": "valentin CONAN",
+  "summary": "<h2>\n  \n  \n  The incident\n</h2>\n\n<p>In January 2026, JSON Formatter — the Chrome extension used by 2M+ developers — pushed an update that injected a donation popup from a service called \"Give Freely\" on checkout pages. Without warning. Without consent.</p>\n\n<p>Developers reported seeing unexpected UI while entering credit card information.<br />\nSome thought their browser was compromised. Security teams flagged it internally.<br />\nHundreds of 1-star reviews followed within days.</p>\n\n<p>I'd been using JSON Formatter daily for years. Like most of you.</p>\n\n<h2>\n  \n  \n  The decision\n</h2>\n\n<p>I'd been wanting to build a better JSON viewer for a while. The landscape was frustrating:</p>\n\n<ul>\n<li>\n<strong>JSON Formatter</strong>: great basics, but minimal features, and now... this.</li>\n<li>\n<strong>JSON Viewer (tulios)</strong>: richest feature set, but last updated December 2020. Not MV3 compatible. Breaking in newer Chrome versions.</li>\n<li>\n<strong>No extension</strong> handles JSON",
+  "full_text": "The incident\n\nIn January 2026, JSON Formatter — the Chrome extension used by 2M+ developers — pushed an update that injected a donation popup from a service called \"Give Freely\" on checkout pages. Without warning. Without consent.\n\nDevelopers reported seeing unexpected UI while entering credit card information.\n\nSome thought their browser was compromised. Security teams flagged it internally.\n\nHundreds of 1-star reviews followed within days.\n\nI'd been using JSON Formatter daily for years. Like most of you.\n\n \n \n The decision\n\nI'd been wanting to build a better JSON viewer for a while. The landscape was frustrating:\n\nJSON Formatter: great basics, but minimal features, and now... this.\n\nJSON Viewer (tulios): richest feature set, but last updated December 2020. Not MV3 compatible. Breaking in newer Chrome versions.\n\nNo extension handles JSON, YAML and XML in the same tool natively.\n\nThe Give Freely incident was the signal I needed. I started building in January 2026.\n\n \n \n What I built\n\nJSONVault Pro is a Chrome extension that turns any JSON, YAML or XML URL into a clean, interactive, searchable tree. Instantly.\n\n \n \n Features I'm most proud of\n\nJWT auto-decode\n\nWhen a string value starts with eyJ, the extension detects it as a JWT and shows the decoded header + payload inline. No copy-paste, no jwt.io tab.\n\nBase64 auto-detect\n\nAny Base64-encoded string is detected and decoded inline. This was my personal \"oh wow\" moment — I was inspecting an API response, clicked decode on a value, and an image appeared directly in the JSON tree.\n\nSide-by-side diff\n\nA proper LCS diff engine — not just line comparison. It handles key-order differences, type coercions (number vs string), null vs absent keys.\n\nEach change group is navigable with ↑/↓ shortcuts.\n\nJSONPath queries\n\nFilter and extract data directly in the browser. No jq, no terminal, no online tools.\n\nVirtual rendering\n\nFiles over 10MB are rendered with a virtual tree (only visible rows in DOM).\n\nI've tested up to 50MB JSON files without freezing the tab.\n\n \n \n The stack\n\nTypeScript + Preact instead of React. Preact is 3KB gzipped vs React's 45KB. For a content script injected on every JSON page, bundle size matters — every KB is parsed on the main thread at injection time. Preact is API-compatible with React,\n\nso the DX is identical.\n\nVite + CRXJS for the build. CRXJS is a Vite plugin that handles the MV3 manifest transformation automatically — it rewrites asset paths, generates the service worker loader, handles HMR for extension pages. Without it, you're writing custom Rollup plugins and debugging path issues for days.\n\nShadow DOM for the content script. This was the most important architectural decision. When a content script injects UI directly into a page, it fights CSS specificity wars with the host page forever — the host page's styles leak in, your styles leak out. Shadow DOM gives you a completely isolated CSS environment.\n\nDesign tokens, themes, all of it works cleanly.\n\nDynamic injection instead of static content_scripts in the manifest. Static injection runs your script on every page load matching <all_urls>. Dynamic injection (via chrome.scripting.executeScript) fires only after the service worker\n\nconfirms the Content-Type is JSON/YAML/XML. Zero performance impact on non-JSON pages.\n\nZustand for state. Redux is overkill for an extension. Zustand is ~1KB, has zero boilerplate, and works fine with Preact. The viewer store, devtools store, and settings store are all independent Zustand slices.\n\nCSS Custom Properties for theming. No runtime CSS-in-JS. All 26 themes (5 free + 21 Pro) are pure CSS files with custom property overrides. Switching themes is a single attribute change on the host element — data-theme=\"dracula\".\n\nWeb Workers for large files. Parsing a 5MB JSON on the main thread blocks the tab for 2-3 seconds. Anything above 5MB goes to a Worker. The tricky part: Web Workers in content scripts can't use new Worker(url) because the extension URL isn't accessible from the page context. The solution is ?worker&inline in Vite, which bundles the Worker as a blob URL.\n\nExtensionPay for payments. Stripe without a backend. The payment flow is: user clicks \"Upgrade\" → ExtensionPay opens a Stripe checkout page → on success, a content script on extensionpay.com/stripe-payment-succeeded fires a message to the service worker → license cached locally in chrome.storage.local.\n\nNo server, no webhook, no infra to maintain.\n\n \n \n The freemium model\n\nFree tier covers everything a developer needs daily:\n\nJSON, YAML, XML formatting\n\nAuto mode + Light, Dark, Sepia, High Contrast themes\n\nCollapsible tree with counts\n\nFull-text search\n\nCopy JSONPath\n\nSort keys\n\nDiff tool (basic)\n\nDevTools panel\n\nPro adds the power features: JWT decode, advanced diff, JSONPath, export to CSV/YAML/XML/TypeScript, document history, 21 premium themes, virtual rendering for huge files, live editing.\n\nZero tracking on both tiers. No analytics, no telemetry.\n\n \n \n Lessons learned\n\nShadow DOM was the right call. Content scripts that inject UI directly into pages fight CSS specificity wars with the host page forever. Shadow DOM gives you a clean isolated environment. Worth the extra complexity.\n\nWeb Workers are mandatory for large files. Parsing a 5MB JSON on the main thread freezes the tab. I learned this the hard way. The threshold where I switch to a Worker is 5MB.\n\nThe freemium gate has to be visible, not hidden. I show locked Pro features with a 🔒 badge and a tooltip explaining what they do. The user sees the feature, understands the value, and can decide to upgrade. Hiding Pro features entirely means users never know they exist.\n\n \n \n Try it\n\nChrome Web Store: https://chromewebstore.google.com/detail/ipghignebclihkckdpcagnicpopjaokj\n\nWebsite: https://jsonvaultpro.com\n\nFeature requests & bugs: https://github.com/valentinconan/jsonvault-pro-site/issues\n\nIf you've built a Chrome extension before, I'd love to hear how you handled the MV3 migration — especially around webRequest vs declarativeNetRequest.\n\nAnd if you're still on JSON Formatter, I'd genuinely like to know what would make you switch.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "chrome",
+      "chromeextension",
+      "content",
+      "dom",
+      "extension",
+      "eyj",
+      "injection",
+      "javascript",
+      "json",
+      "json formatter",
+      "jwt",
+      "page",
+      "payments",
+      "preact",
+      "react",
+      "script",
+      "shadow",
+      "showdev",
+      "typescript",
+      "webdev",
+      "worker",
+      "xml",
+      "yaml"
+    ],
+    [
+      "chromeextension",
+      "showdev",
+      "webdev"
+    ]
+  ]
+}

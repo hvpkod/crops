@@ -1,0 +1,36 @@
+{
+  "id": 8111,
+  "source": "Hacker News",
+  "title": "Cursor 3",
+  "url": "https://cursor.com/blog/cursor-3",
+  "published_at": "2026-04-02T18:13:41Z",
+  "fetched_at": "2026-04-02T18:40:25.550494+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47618084\">Comments</a>",
+  "full_text": "Software development is changing, and so is Cursor.\n\nIn the last year, we moved from manually editing files to working with agents that write most of our code. How we create software will continue to evolve as we enter the third era of software development, where fleets of agents work autonomously to ship improvements.\n\nWe're building toward this future, but there is a lot of work left to make it happen. Engineers are still micromanaging individual agents, trying to keep track of different conversations, and jumping between multiple terminals, tools, and windows.\n\nWe're introducing Cursor 3, a unified workspace for building software with agents. The new Cursor interface brings clarity to the work agents produce, pulling you up to a higher level of abstraction, with the ability to dig deeper when you want. It's faster, cleaner, and more powerful, with a multi-repo layout, seamless handoff between local and cloud agents, and the option to switch back to the Cursor IDE at any time.\n\n#What's new in Cursor 3\n\nWhen we started building Cursor, we forked VS Code instead of building an extension so we could shape our own surface. With Cursor 3, we took that a step further by building this new interface from scratch, centered around agents.\n\n#All your agents in one place\n\nThe new interface is inherently multi-workspace, allowing humans and agents to work across different repos.\n\n#Run many agents in parallel\n\nWorking with agents is now much easier. All local and cloud agents appear in the sidebar, including the ones you kick off from mobile, web, desktop, Slack, GitHub, and Linear.\n\nCloud agents produce demos and screenshots of their work for you to verify. This is the same experience you get at cursor.com/agents, now integrated into the desktop app.\n\n#New UX for handoff between local and cloud\n\nWe made moving agents between environments really fast.\n\nMove an agent session from cloud to local when you want to make edits and test it on your own desktop. Composer 2, our own frontier coding model with high usage limits, is great for iterating quickly.\n\nIn the reverse direction, you can move an agent session from local to cloud to keep it running while you're offline, or so that you can move on to the next task. This is especially useful for longer-running tasks that would otherwise get interrupted when you close your laptop.\n\n#Go from commit to merged PR\n\nThe new diffs view allows you to edit and review changes faster with a simpler UI. When you're ready, you can stage, commit, and manage PRs.\n\n#Building on the best features of Cursor\n\nAlpha users told us that a lot of what they like about Cursor 3 is the way it combines the best parts of the IDE with more recent capabilities we've shipped in an agent-first interface.\n\n#Files for understanding code\n\nDive deeper anytime by viewing files, and go to definition in the editor with full LSPs.\n\n#Integrated browser\n\nCursor can use the built-in browser to open, navigate, and prompt against local websites.\n\n#Plugins on the Cursor Marketplace\n\nBrowse hundreds of plugins that extend agents with MCPs, skills, subagents, and more. Install with one click, or set up your own team marketplace of private plugins.\n\n#The best way to code with AI\n\nWith Cursor 3, we have the foundational pieces in place—model, product, and runtime—to build more autonomous agents and better collaboration across teams. We will also continue to invest in the IDE until codebases are self-driving.\n\nThis won't be the last time the interface for building software changes. More powerful coding models will unlock new interaction patterns. We are excited to continue to build, simplify, and transform Cursor to be the best way to code with AI.\n\nUpgrade Cursor, and type Cmd+Shift+P -> Agents Window to try the new interface. Or learn more in our docs.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agents",
+      "building",
+      "cloud",
+      "coding",
+      "cursor",
+      "cursor software",
+      "edit",
+      "github",
+      "good",
+      "ide",
+      "interface",
+      "linear",
+      "local",
+      "slack",
+      "software",
+      "the cursor marketplace"
+    ],
+    [
+      "agents"
+    ]
+  ]
+}
