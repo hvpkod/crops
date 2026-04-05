@@ -1,0 +1,33 @@
+{
+  "id": 8607,
+  "source": "DEV Community<",
+  "title": "What if Java had Kotlin-style null-safety without migrating your Spring Boot project to Kotlin?",
+  "url": "https://dev.to/jadex/what-if-java-had-kotlin-style-null-safety-without-migrating-your-spring-boot-project-to-kotlin-2m73",
+  "published_at": "2026-04-04T11:29:24Z",
+  "fetched_at": "2026-04-04T11:40:22.120229+00:00",
+  "author": "JADEx",
+  "summary": "<p>I've been building <strong>JADEx</strong> — a source-to-source compiler that adds two things Java has always been missing: <code>null-safety</code> and <code>final-by-default</code> semantics. No JVM changes, no runtime dependency, just safer Java.</p>\n\n\n\n\n<h2>\n  \n  \n  The problem\n</h2>\n\n<p>If you've worked on a large Spring Boot codebase, you've seen this everywhere:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight java\"><code><span class=\"kd\">public</span> <span class=\"nc\">String</span> <span class=\"nf\">getUsername</span><span class=\"o\">(</span><span class=\"nc\">User</span> <span class=\"n\">user</span><span class=\"o\">)</span> <span class=\"o\">{</span>\n    <span class=\"k\">if</span> <span class=\"o\">(</span><span class=\"n\">user</span> <span class=\"o\">==</span> <span class=\"kc\">null</span><span class=\"o\">)</span> <span class=\"k\">return</span> <span class=\"kc\">null</span><span class=\"o\">;</span>\n    <span class=\"k\">if</span> <span class=\"o\">(</span><span class=\"",
+  "full_text": "I've been building JADEx — a source-to-source compiler that adds two things Java has always been missing: null-safety and final-by-default semantics. No JVM changes, no runtime dependency, just safer Java.\n\n \n \n The problem\n\nIf you've worked on a large Spring Boot codebase, you've seen this everywhere:\n\npublic String getUsername(User user) {\n if (user == null) return null;\n if (user.getProfile() == null) return null;\n return user.getProfile().getUsername();\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe usual options:\n\n@NonNull / @Nullable annotations — opt-in, unenforced at the language level\n\nMigrate to Kotlin — cost-prohibitive for large, widely-used legacy Java codebases\n\n \n \n What JADEx does: Null-Safety\n\nJADEx introduces .jadex source files. Non-null is the default. Type? is the explicit opt-in for nullable.\n\n// UserService.jadex\npublic String? getUsername(User? user) {\n return user?.profile?.username;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe ?. operator chains safely. The ?: Elvis operator provides a fallback:\n\nString? name = repository.findName(id);\nString display = name?.toUpperCase() ?: \"UNKNOWN\";\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf you try to access a nullable variable without ?., the compiler stops you. Null bugs shift from runtime crashes to compile-time feedback.\n\n \n \n What JADEx does: Final-by-Default\n\nThe second feature is readonly mode — one directive makes fields, local variables, and parameters final by default:\n\napply readonly;\n\npublic class OrderService {\n private int total = 0; // final — accidental reassignment is a compile error\n private mutable int retries; // explicitly mutable when you need it\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIn large codebases, accidental reassignment is a silent bug category that final fixes — but Java requires you to write it everywhere manually, so nobody does. JADEx inverts the default.\n\n \n \n It works in real Spring Boot projects\n\nThese aren't just toy examples. JADEx has a full Spring Boot CRUD example project showing both features working together across controllers, services, and repositories — the kind of layered architecture where null propagation and mutable state cause the most damage in practice.\n\nThe generated output is plain Java with JSpecify annotations, so it's fully compatible with NullAway, Checker Framework, and everything else in the ecosystem.\n\n \n \n Who is JADEx for?\n\nJADEx is a solution designed to enhance null-safety in existing Java codebases. Its key advantage is that Java developers can adopt null-safety and final-by-default semantics with zero learning curve. For the large legacy Java codebases that many companies continue to operate, migrating everything to Kotlin is rarely cost-effective — JADEx offers a much more practical path to meaningfully improving codebase stability without abandoning the investment already made in Java.\n\n \n \n Links\n\nGradle plugin is on Gradle Plugin Portal. IntelliJ plugin available separately.\n\nTony Hoare called null his \"billion-dollar mistake.\" Java has been paying that bill for more than 25 years. JADEx is one way to stop.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "boot",
+      "checker framework",
+      "codebase",
+      "final",
+      "fullscreen",
+      "jadex",
+      "java",
+      "kotlin",
+      "mode",
+      "mutable",
+      "null",
+      "null-safety",
+      "nullaway",
+      "orderservice",
+      "spring"
+    ],
+    []
+  ]
+}

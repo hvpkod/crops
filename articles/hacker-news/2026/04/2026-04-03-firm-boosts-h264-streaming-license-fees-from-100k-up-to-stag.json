@@ -1,0 +1,38 @@
+{
+  "id": 8407,
+  "source": "Hacker News",
+  "title": "Firm boosts H.264 streaming license fees from $100k up to staggering $4.5M",
+  "url": "https://www.tomshardware.com/service-providers/streaming/h264-streaming-license-fees-jump-from-100000-to-4-5-million",
+  "published_at": "2026-04-03T18:20:16Z",
+  "fetched_at": "2026-04-03T18:40:29.091197+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47630109\">Comments</a>",
+  "full_text": "Via Licensing Alliance (Via LA), the patent pool administrator for H.264/AVC, quietly restructured its streaming license fees recently, replacing a flat $100,000 annual cap with a tiered system that tops out at $4,500,000 per year for the largest platforms, according to a Streaming Media report published on March 17. The change applies only to previously unlicensed implementers seeking a new license in 2026 or later, with all companies that held an active AVC license as of the end of 2025 retaining their original terms. The new hike for H.264 comes in the wake of disastrous increases in HEVC/H.265 fees that led to widespread issues spanning the globe, including Asus and MSI laptops being banned in Germany. \n\nVia LA told Streaming Media that it contacted unlicensed media companies during 2025 to give them “a window to secure a license” under the previous terms, but the company didn’t go to the trouble of issuing a press release or public announcement, opting instead for direct outreach. Any company that didn’t respond or wasn't contacted now faces the new rate structure as its starting point for negotiations.\n\n(Image credit: VIA)\n\nH.264 is the most widely deployed video codec on the internet, used as a baseline or fallback by virtually every streaming platform, hardware encoder, and browser. Many of its patents have expired, but patent licensing attorney Jim Harlan told Streaming Media that the expiration of a large share of a portfolio doesn’t automatically eliminate licensing obligations. Courts evaluating fair, reasonable, and non-discriminatory (FRAND) rates still consider the strength and remaining life of active patents, not just their quantity, Harlan said.\n\nThe new fee schedule divides the market by platform type and size. Tier 1 OTT services with 100 million or more subscribers pay the full $4.5 million annual fee. The same rate applies to Tier 1 FAST services (100 million-plus daily users), Tier 1 social media platforms (1 billion-plus monthly active users), and Tier 1 cloud gaming platforms (15 million-plus monthly active users). Tier 2 and Tier 3 fees are $3,375,000 and $2,250,000, respectively, and only platforms Via LA classifies as small or nascent retain the old $100,000 cap.Article continues below \n\nThe Via LA fee restructuring adds to a broader escalation in codec licensing costs. Avanci's Video pool and Access Advance's Video Distribution Patent pool are both now seeking content royalties from streaming services for the use of HEVC, VVC, VP9, and AV1. Access Advance's rates are capped at roughly $63 million per year, and Avanci has published rates of 1.6% to 2.0% of revenue or $0.12 to $0.15 per user per month. Combined, these pools could push major streaming platforms toward nine-figure annual codec licensing costs.\n\nWe’ve already seen these patent escalations trickle down into consumer PCs and laptops. Nokia won a patent ruling in Germany that forced Acer and Asus to halt PC and laptop sales in the country, and Dell and HP disabled H.265 decoding in select PCs to dodge royalty costs. But H.264 has a much, much larger footprint across devices and services, meaning that the new Via LA fee structure, while currently limited to unlicensed implementers, could cause similar issues across the wider industry if Via LA chooses to extend its scope.\n\nFollow Tom's Hardware on Google News, or add us as a preferred source, to get our latest news, analysis, & reviews in your feeds.\n\nGet Tom's Hardware's best news and in-depth reviews, straight to your inbox.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "access advance's",
+      "avanci",
+      "avc",
+      "codec",
+      "fee",
+      "germany",
+      "harlan",
+      "hevc",
+      "licensing",
+      "media",
+      "msi",
+      "nokia",
+      "patent",
+      "pool",
+      "rate",
+      "streaming",
+      "streaming media",
+      "tier",
+      "unlicensed",
+      "vvc"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": 8708,
+  "source": "DEV Community<",
+  "title": "📙 Journal Log no. 1 Linux Unhatched ; My DevSecOps Journey",
+  "url": "https://dev.to/lvazmecheng/journal-log-no-1-linux-unhatched-my-devsecops-journey-a91",
+  "published_at": "2026-04-04T19:45:19Z",
+  "fetched_at": "2026-04-04T20:40:29.693284+00:00",
+  "author": "Lucas Vaz",
+  "summary": "<p>I graduated with a B.Eng in Mechanical Engineering in 2018, but my career path has always been driven by the logic of systems. After earning my Google IT Automation with Python Professional Certificate, I realized that the most powerful engines today are built in the cloud.</p>\n\n<p>I am now officially on my journey toward DevSecOps. This log marks the first step to my goal.</p>\n\n<h1>\n  \n  \n  📙 Journal Log: 2026-04-05\n</h1>\n\n<h2>\n  \n  \n  🎯 Today's Mission\n</h2>\n\n<p><em>Mastering the Fundamentals: Bridging the gap between physical systems thinking and terminal based automation</em></p>\n\n\n\n\n<h2>\n  \n  \n  🛠️ Environment &amp; Setup\n</h2>\n\n<ul>\n<li>\n<strong>Machine/OS:</strong> NDG Virtual Machine (Ubuntu-based)</li>\n<li>\n<strong>Current Directory:</strong> <code>~/home/sysadmin</code>\n</li>\n</ul>\n\n\n\n\n<h2>\n  \n  \n  ⌨️ Commands &amp; Flags Learned\n</h2>\n\n<div class=\"table-wrapper-paragraph\"><table>\n<thead>\n<tr>\n<th><strong>Command</strong></th>\n<th><strong>Flag/Context</strong></th>\n<th><st",
+  "full_text": "I graduated with a B.Eng in Mechanical Engineering in 2018, but my career path has always been driven by the logic of systems. After earning my Google IT Automation with Python Professional Certificate, I realized that the most powerful engines today are built in the cloud.\n\nI am now officially on my journey toward DevSecOps. This log marks the first step to my goal.\n\n \n \n 📙 Journal Log: 2026-04-05\n\n \n \n 🎯 Today's Mission\n\nMastering the Fundamentals: Bridging the gap between physical systems thinking and terminal based automation\n\n \n \n 🛠️ Environment & Setup\n\nMachine/OS: NDG Virtual Machine (Ubuntu-based)\n\nCurrent Directory: ~/home/sysadmin\n\n \n \n ⌨️ Commands & Flags Learned\n\nCommand\nFlag/Context\nWhat it does\n\nls\n-l\nLists files in long format (essential for checking permissions).\n\nchmod\n+x\nChanges file access levels—the Digital Locksmith.\n\nchown\nuser:group\nChanges file ownership; critical for system security.\n\nsudo\n(Prefix)\nExecutes commands with administrative Root privileges.\n\ngrep\n-i\nFilters output (Case-insensitive search for patterns).\n\nifconfig\n(No flag)\nDisplays network interface configuration and IP addresses.\n\n \n \n 📂 System Changes / Configurations\n\n# Practiced user management and security configuration \nsudo passwd [username] # Updated user credentials to secure the environment. \nsudo chmod 700 secret_file # Restricted a file so only the owner can access it.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🛑 The \"Terminal Wall\" (Errors & Fixes)\n\nThe Error: bash: ./script.sh: Permission denied\n\nThe Solution: In the physical world, you need a key for a control panel. In Linux, you need execution rights. I ran chmod +x script.sh and the Permission denied error vanished.\n\n \n \n 💡 Linux \"Aha!\" Moment\n\nI realized that chmod and chown are the digital versions of Safety Protocols in Mechanical Engineering. In a factory, only authorized personnel have the key to the machine; in Linux, permissions ensure only the right process or user can touch the engine of the OS.\n\n \n \n 🔗 Related Notes\n\nNext Milestone: Transitioning from Linux Unhatched to Cisco Linux Essentials to earn my formal completion certificate.\n\nPython Integration: Exploring how the subprocess module can automate the grep and chmod tasks I practiced today.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "beginners",
+      "careerchange",
+      "chmod",
+      "chown",
+      "cisco linux essentials",
+      "configuration",
+      "devops",
+      "linux",
+      "mechanical engineering",
+      "ndg virtual machine",
+      "permission",
+      "practice",
+      "python",
+      "python professional certificate",
+      "realize",
+      "safety protocols",
+      "sudo",
+      "sysadmin",
+      "unhatched"
+    ],
+    [
+      "beginners",
+      "careerchange",
+      "devops",
+      "python"
+    ]
+  ]
+}

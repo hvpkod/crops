@@ -1,0 +1,30 @@
+{
+  "id": 8746,
+  "source": "Hacker News",
+  "title": "AWS Engineer Reports PostgreSQL Perf Halved by Linux 7.0, Fix May Not Be Easy",
+  "url": "https://www.phoronix.com/news/Linux-7.0-AWS-PostgreSQL-Drop",
+  "published_at": "2026-04-05T00:13:55Z",
+  "fetched_at": "2026-04-05T00:40:22.171371+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47644864\">Comments</a>",
+  "full_text": "An Amazon/AWS engineer raised the alarms on Friday over the current Linux 7.0 development kernel leading to the throughput for the PostgreSQL database server being around half that of prior kernel versions. The culprit halving the PostgreSQL performance is known but a revert looks like it may not happen and currently suggesting that PostgreSQL may need to be adapted.\n\nSalvatore Dipietro of Amazon/AWS reported a throughput and latency regression for PostgreSQL. They found Linux 7.0 in its near-final form delivering around 0.51x the throughputof prior kernels on a Graviton4 server due to now much more time being spent in a user-space spinlock.\n\nBisecting the regression was traced back to the Linux 7.0 change of restricting the available preemption modes for the kernel. That change was previously covered on Phoronix within Linux 7.0 To Focus Just On Full & Lazy Preemption Models For Up-To-Date CPU Archs\n\n and in turn upstreamed with the Linux 7.0 scheduler updates\n\n.\n\nAs a result, yesterday posted to the Linux kernel mailing list was a patch\n\n to restore PREEMPT_NONE as the default given the severity of the reported regression.\n\nWhile fixing an active performance regression, it looks like this change to restore PREEMPT_NONE as the default preemption model might not be picked up. Peter Zijlstra who authored the original code simplifying the preemption modes has responded\n\n that the \"fix\" is to make PostgreSQL make use of the Restartable Sequences (RSEQ) time slice extension. That time slice extension support\n\n was also upstreamed for Linux 7.0.\n\n\"The fix here is to make PostgreSQL make use of rseq slice extension:\n\n https://lkml.kernel.org/r/[email protected]\n\nThat should limit the exposure to lock holder preemption (unless PostgreSQL is doing seriously egregious things).\"\n\nSo if that stands and shifting the blame to PostgreSQL, Linux 7.0 stable could lead to a significant drop for PostgreSQL performance in some scenarios until that popular database server is updated.\n\nLinux 7.0 stable is due out in about two weeks. This is also the kernel version powering Ubuntu 26.04 LTS to be released later in April.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "amazon/aws",
+      "kernel",
+      "linux",
+      "performance",
+      "phoronix",
+      "postgresql",
+      "preemption",
+      "regression",
+      "report",
+      "slice",
+      "throughput",
+      "upstreame"
+    ],
+    []
+  ]
+}

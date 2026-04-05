@@ -1,0 +1,32 @@
+{
+  "id": 8356,
+  "source": "DEV Community<",
+  "title": "Week 3 - Learning K8s",
+  "url": "https://dev.to/nicbaughman/week-3-learning-k8s-42he",
+  "published_at": "2026-04-03T14:23:10Z",
+  "fetched_at": "2026-04-03T15:00:39.611435+00:00",
+  "author": "Nic Baughman",
+  "summary": "<h2>\n  \n  \n  Week 3 Recap\n</h2>\n\n<p>This was a pretty slow week of learning k8s. I've done a few small tests with HA but I haven't solved a couple issues. The first and primary issue is for some reason the swap settings are not sticking. Also, the HA control plane doesn't really look to be setup correctly. </p>\n\n<p>The problem I'm having with HA is that for some reason when the primary control plane goes down, <code>kubectl get nodes</code> no longer works.  I haven't had a chance to read docs or dig in and understand why that is the case. The other weird part that might be related to swap settings is that my VMs for control plane and workers end up locking up the host and making it inaccessible.</p>\n\n<h2>\n  \n  \n  What's next?\n</h2>\n\n<p>Stability. I need to get my Proxmox cluster &amp; these VMs to be more stable. Every morning when I wake up and check the cluster something is wrong. Either a VM has stopped, locked up, or the Proxmox host has crashed. I think I might be oversubscribing",
+  "full_text": "Week 3 Recap\n\nThis was a pretty slow week of learning k8s. I've done a few small tests with HA but I haven't solved a couple issues. The first and primary issue is for some reason the swap settings are not sticking. Also, the HA control plane doesn't really look to be setup correctly. \n\nThe problem I'm having with HA is that for some reason when the primary control plane goes down, kubectl get nodes no longer works. I haven't had a chance to read docs or dig in and understand why that is the case. The other weird part that might be related to swap settings is that my VMs for control plane and workers end up locking up the host and making it inaccessible.\n\n \n \n What's next?\n\nStability. I need to get my Proxmox cluster & these VMs to be more stable. Every morning when I wake up and check the cluster something is wrong. Either a VM has stopped, locked up, or the Proxmox host has crashed. I think I might be oversubscribing cpu threads between the VMs and Proxmox OS. I'm going to dial back the cores of my worker VMs and see if that stabilizes things.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "beginners",
+      "cluster",
+      "control",
+      "host",
+      "kubernetes",
+      "learn",
+      "plane",
+      "primary",
+      "proxmox",
+      "reason",
+      "setting",
+      "swap"
+    ],
+    [
+      "beginners"
+    ]
+  ]
+}

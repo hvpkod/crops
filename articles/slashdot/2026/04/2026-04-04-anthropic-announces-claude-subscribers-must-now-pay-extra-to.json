@@ -1,0 +1,37 @@
+{
+  "id": 8714,
+  "source": "Slashdot",
+  "title": "Anthropic Announces Claude Subscribers Must Now Pay Extra to Use OpenClaw",
+  "url": "https://slashdot.org/story/26/04/04/1919236/anthropic-announces-claude-subscribers-must-now-pay-extra-to-use-openclaw?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-04T19:34:00Z",
+  "fetched_at": "2026-04-04T20:40:42.487444+00:00",
+  "author": "EditorDavid",
+  "summary": "Anthropic's making a big and sudden change &mdash; and connecting its Claude AI to third-party agentic tools \"is about to get a lot more expensive,\" writes the Verge:\n\n Beginning April 4th at 3PM ET, users will \"no longer be able to use your Claude subscription limits for third-party harnesses including OpenClaw,\" according to an email sent to users on Friday evening. Instead, if users want to use OpenClaw with Claude, they'll have to use a \"pay-as-you-go option\" that will be billed separate from their Claude subscription. \n\nAnthropic's announcement added these extra usage bundles are \"now available at a discount.\" Users can also try Anthropic's API, notes VentureBeat, \"which charges for every token of usage rather than allowing for open-ended usage up to certain limits, as the Pro and Max plans have allowed so far. \"\n\n\n\nThe technical reality, according to Anthropic, is that its first-party tools like Claude Code, its AI vibe coding harness, and Claude Cowork, its business app interfac",
+  "full_text": "Anthropic's making a big and sudden change — and connecting its Claude AI to third-party agentic tools \"is about to get a lot more expensive\n\n,\" writes the Verge:\n\n Beginning April 4th at 3PM ET, users will \"no longer be able to use your Claude subscription limits for third-party harnesses including OpenClaw,\" according to an email sent to users on Friday evening. Instead, if users want to use OpenClaw with Claude, they'll have to use a \"pay-as-you-go option\" that will be billed separate from their Claude subscription. \n\nAnthropic's announcement added these extra usage bundles\n\n are \"now available at a discount.\" Users can also try Anthropic's API, notes VentureBeat\n\n, \"which charges for every token of usage rather than allowing for open-ended usage up to certain limits, as the Pro and Max plans have allowed so far. \"\n\nThe technical reality, according to Anthropic, is that its first-party tools like Claude Code, its AI vibe coding harness, and Claude Cowork, its business app interfacing and control tool, are built to maximize \"prompt cache hit rates\" — reusing previously processed text to save on compute. Third-party harnesses like OpenClaw often bypass these efficiencies... [Claude Code creator Boris Cherny explained on X that \"I did put up a few PRs to improve prompt cache hit rate for OpenClaw in particular, which should help for folks using it with Claude via API/overages.\"] Growth marketer Aakash Gupta observed on X that the \"all-you-can-eat buffet just closed,\" noting that a single OpenClaw agent running for one day could burn $1,000 to $5,000 in API costs. \"Anthropic was eating that difference on every user who routed through a third-party harness,\" Gupta wrote. \"That's the pace of a company watching its margin evaporate in real time.\"\n \n\nHowever, Peter Steinberger, the creator of OpenClaw who was recently hired by OpenAI, took a more skeptical view of the \"capacity\" argument.\"Funny how timings match up,\" Steinberger posted on X. \"First they copy some popular features into their closed harness, then they lock out open source.\" Indeed, Anthropic recently added some of the same capabilities that helped OpenClaw catch-on — such as the ability to message agents through external services like Discord and Telegram — to Claude Code...\n \n\nUser @ashen_one, founder of Telaga Charity, voiced a concern likely shared by other small-scale builders: \"If I switch both [OpenClaw instances] to an API key or the extra usage you're recommending here, it's going to be far too expensive to make it worth using. I'll probably have to switch over to a different model at this point.\"\n \n\n\"I know it sucks,\" Cherny replied. \"Fundamentally engineering is about tradeoffs, and one of the things we do to serve a lot of customers is optimize the way subscriptions work to serve as many people as possible with the best mode...\" OpenAI appears to be positioning itself as a more \"harness-friendly\" alternative, potentially using this moment as a customer acquisition channel for disgruntled Claude power users. \n \n\nBy restricting subscription limits to their own \"closed harness,\" Anthropic is asserting control over the UI/UX layer. This allows them to collect telemetry and manage rate limits more granularly, but it risks alienating the power-user community that built the \"agentic\" ecosystem in the first place. Anthropic's decision is a cold calculation of margins versus growth. As Cherny noted, \"Capacity is a resource we manage thoughtfully.\" In the 2026 AI landscape, the era of subsidized, unlimited compute for third-party automation is over. For the average user on Claude.ai, the experience remains unchanged; for the power users running autonomous offices, the bell has tolled.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "add",
+      "ai",
+      "api",
+      "build",
+      "cherny",
+      "claude",
+      "claude ai",
+      "discord",
+      "extra",
+      "gupta",
+      "limit",
+      "openai",
+      "openclaw",
+      "telaga charity",
+      "telegram",
+      "usage",
+      "user",
+      "venturebeat",
+      "x. \""
+    ],
+    []
+  ]
+}

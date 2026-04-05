@@ -1,0 +1,32 @@
+{
+  "id": 8547,
+  "source": "Hacker News",
+  "title": "Getting Claude to QA its own work",
+  "url": "https://www.skyvern.com/blog/getting-claude-to-qa-its-own-work/",
+  "published_at": "2026-04-03T17:18:38Z",
+  "fetched_at": "2026-04-04T02:40:42.904107+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47629382\">Comments</a>",
+  "full_text": "Just a brief recap: people use Skyvern to automate the repetitive browser work nobody wants to do: pulling invoices from vendor portals, filling out healthcare forms, extracting data from sites that don’t have APIs. You can try it out here: https://github.com/Skyvern-AI/Skyvern\n\nWe’ve been using Claude code a lot and kept running into the same failure mode: the code looks kinda right, type checks pass, but when you go to test the changes, something’s off: button doesn’t fire, form overflows or the UI is inconsistent in some small but obvious way. After going back and forth a few times.. it finally works, but it feels wrong to do the QA yourself.\n\nSo.. we started wondering: can we use Skyvern to automate the QA process?\n\nTL;DR: We shipped an MCP server with 33 browser tools (sessions, navigation, form filling, data extraction, credential management, workflows). We added it to Claude Code and asked it to check its own work after every frontend change by opening the page, looking at the pixels, and running the interactions. With these changes, we were able to one-shot about 70% of our PRs (up from ~30%), and it cut our QA loop in half.\n\nWe wrapped that into /qa (local) and /smoke-test (CI) skills you can try right now:pip install skyvern\nskyvern setup claude-code \n\n# or if you're using other coding agents\n\nskyvern setup \n\nIt reads your git diff, generates test cases, opens a browser, runs them, and gives you a PASS/FAIL table. The whole prompt is ~700 lines and open source: https://github.com/Skyvern-AI/skyvern/blob/main/skyvern/cli/skills/qa/SKILL.md\n\nHow we built it\n\nGetting Claude to QA wasn’t as simple as prompting: “QA your own work” (although this works pretty well). Instead, we broke it down into a few phases:\nUnderstand the change by doing git diff\nClassify the diff into a few categories: Frontend, Backend, and Mixed\nIdentify a validation strategy (ie determine how much of the dev server should we run?)\nRun a full QA of the impacted areas (Backend, Front-end by running a local browser)\nReport results\n(Bonus) Post evidence to a PR\n\nSample output:\n\n#\nTest\nResult\nNotes\n\n1 \nSettings page renders\nPASS \n\n2 \n“Save” button triggers API call \nPASS \n\n3 \nError state on invalid email\nFAIL \nerror div has z-index: 0\n\n4 \nBack to dashboard navigation\nPASS \n\nRunning in the CI Pipeline is where the real magic is\n\nOnce Claude can inspect the diff, decide what changed, and run a browser against the impacted surfaces, the next step is obvious: do that automatically on every PR. So we built a /smoke-test skill that runs the same basic loop in CI and saves the results back into Skyvern for review.\n\nThe skill is ~300 lines and is published here: https://github.com/Skyvern-AI/skyvern/blob/main/skyvern/cli/skills/smoke-test/SKILL.md\n\nThe flow is roughly:\nA GitHub Action runs on a PR\nIt looks at the diff and decides which areas are worth testing\nIt starts the app in the smallest environment that still makes sense for the change\nIt runs a browser-based smoke test against the affected flows\nIt stores the run artifacts (steps, screenshots, pass/fail, failure reason)\nIt posts the evidence back to the PR\n\nThat ended up being more useful than traditional “did the page load” smoke tests. Since the agent can actually interact with the UI, it catches the class of regressions we kept missing in review: buttons that render but don’t fire, forms that submit the wrong thing, elements that are technically present but unusable, layout issues that only show up once the page is exercised.\n\nWe also wanted to avoid the usual fate of end-to-end tests: they slowly turn into a giant flaky suite nobody trusts. So instead of trying to run everything on every commit, /smoke-test tries to stay narrow: read the diff, form a hypothesis about what changed, and test only the nearby flows. That keeps runtime down and makes failures easier to interpret.\n\nA typical PR comment looks something like this:\n\nFlow\nResult \nEvidence\nRun link\n\nSettings save\nFAIL \nSubmit button was covered by\n an overlay at 1280px \n width,\n so the click never reached the form\n\nLogin redirect\nPASS \nUser was redirected to \n the dashboard after sign-in\n\nDashboard navigation \nPASS \nSidebar links rendered \n and navigated correctly\n\nWe’re still early on this, and there are lots of obvious hard problems left: keeping existing tests up to date, deciding the right blast radius for mixed frontend/backend diffs, and figuring out when an agent-generated test plan is too shallow. But even in its current form, it’s been a surprisingly useful way to catch regressions without having to step in\n\nWe’d love feedback from people who’ve tried agent-driven QA or browser testing in CI, especially on how you keep it useful without recreating the usual flaky E2E mess.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "bonus",
+      "browser",
+      "button",
+      "claude",
+      "diff",
+      "front",
+      "mcp",
+      "pass",
+      "result",
+      "run",
+      "skyvern",
+      "test",
+      "useful"
+    ],
+    []
+  ]
+}

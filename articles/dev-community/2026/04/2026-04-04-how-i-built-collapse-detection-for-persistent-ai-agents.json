@@ -1,0 +1,38 @@
+{
+  "id": 8705,
+  "source": "DEV Community<",
+  "title": "How I Built Collapse Detection for Persistent AI Agents",
+  "url": "https://dev.to/nilegreen/how-i-built-collapse-detection-for-persistent-ai-agents-3c3c",
+  "published_at": "2026-04-04T19:54:14Z",
+  "fetched_at": "2026-04-04T20:40:25.938107+00:00",
+  "author": "NILE GREEN",
+  "summary": "<p>F_total is your model's prediction error energy — cross-entropy loss <br />\nfor LLMs, TD error for RL agents. </p>\n\n<p>F_survival is the minimum energy <br />\nrequired to maintain operational integrity. </p>\n\n<p>k(s) is a sensitivity <br />\nconstant that grows with runtime.</p>\n\n<h2>\n  \n  \n  Quick Start\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight python\"><code><span class=\"kn\">from</span> <span class=\"n\">tci_calculator</span> <span class=\"kn\">import</span> <span class=\"n\">TCICalculator</span>\n<span class=\"kn\">from</span> <span class=\"n\">k_estimator</span> <span class=\"kn\">import</span> <span class=\"n\">KEstimator</span>\n\n<span class=\"n\">k_est</span> <span class=\"o\">=</span> <span class=\"nc\">KEstimator</span><span class=\"p\">(</span><span class=\"n\">window_size</span><span class=\"o\">=</span><span class=\"mi\">100</span><span class=\"p\">)</span>\n<span class=\"n\">tci</span>   <span class=\"o\">=</span> <span class=\"nc\">TCICalculator</span><span class=\"p\">(</span><sp",
+  "full_text": "F_total is your model's prediction error energy — cross-entropy loss \n\nfor LLMs, TD error for RL agents. \n\nF_survival is the minimum energy \n\nrequired to maintain operational integrity. \n\nk(s) is a sensitivity \n\nconstant that grows with runtime.\n\n \n \n Quick Start\n\nfrom tci_calculator import TCICalculator\nfrom k_estimator import KEstimator\n\nk_est = KEstimator(window_size=100)\ntci = TCICalculator(f_survival=0.35)\n\nf_total = 0.72\ncomplexity = 0.61\n\nk = k_est.update(f_total - 0.35, complexity)\nresult = tci.compute(f_total, k)\n\nprint(result)\n# TCIResult(tci=0.74, grade='A', stage='Generativity', surplus=0.37)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What the Grades Mean\n\nGrade\nTCI Range\nStage\nAction\n\nA\n≥ 0.60\nGenerativity\nRaise exploration\n\nB\n0.40–0.60\nLearning\nMaintain settings\n\nC\n0.30–0.40\nAt Risk\nReduce exploration\n\nD\n0.10–0.30\nCollapse Warning\nStability mode\n\nF\n< 0.10\nCollapse Imminent\nLoad checkpoint\n\n \n \n Links",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "agents",
+      "collapse",
+      "energy",
+      "error",
+      "exploration",
+      "grades",
+      "grow",
+      "import",
+      "kestimator",
+      "maintain",
+      "mode",
+      "monitoring",
+      "python",
+      "sensitivity",
+      "showdev"
+    ],
+    [
+      "agents",
+      "monitoring",
+      "python",
+      "showdev"
+    ]
+  ]
+}

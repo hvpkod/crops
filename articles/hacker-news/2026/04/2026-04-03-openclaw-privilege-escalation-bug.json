@@ -1,0 +1,38 @@
+{
+  "id": 8517,
+  "source": "Hacker News",
+  "title": "OpenClaw privilege-escalation bug",
+  "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33579",
+  "published_at": "2026-04-03T16:21:32Z",
+  "fetched_at": "2026-04-04T00:40:24.339806+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47628608\">Comments</a>",
+  "full_text": "Description \n \n \n\nOpenClaw before 2026.3.28 contains a privilege escalation vulnerability in the /pair approve command path that fails to forward caller scopes into the core approval check. A caller with pairing privileges but without admin privileges can approve pending device requests asking for broader scopes including admin access by exploiting the missing scope validation in extensions/device-pair/index.ts and src/infra/device-pairing.ts.\n\n \n \n\n \n \n\n \n\nMetrics\n \n \n\n CVSS Version 4.0\n \n CVSS Version 3.x\n \n CVSS Version 2.0\n \n \n\n \n\n \n \n NVD enrichment efforts reference publicly available information to associate\n vector strings. CVSS information contributed by other sources is also\n displayed.\n \n \n \n\n \n \n\n CVSS 4.0 Severity and Vector Strings:\n \n \n\n \n \n \n \n\n \n NVD assessment\n not yet provided. \n \n \n \n \n\n \n \n \n \n\n Vector: CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N\n \n \n \n\n \n \n\n \n\n \n \n\n CVSS 3.x Severity and Vector Strings:\n \n \n \n \n\n \n \n \n \n\n Vector: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N\n \n \n \n\n \n \n\n \n \n \n \n \n\n \n \n\n CVSS 2.0 Severity and Vector Strings: \n \n \n\n \n \n \n\n NVD assessment\n not yet provided. \n \n \n \n \n\n \n \n\n \n \n \n \n \n \n\n \n\n \n \n \n \n\n \n\nReferences to Advisories, Solutions, and Tools\n \n\n By selecting these links, you will be leaving NIST webspace.\n We have provided these links to other web sites because they\n may have information that would be of interest to you. No\n inferences should be drawn on account of other sites being\n referenced, or not, from this page. There may be other web\n sites that are more appropriate for your purpose. NIST does\n not necessarily endorse the views expressed, or concur with\n the facts presented on these sites. Further, NIST does not\n endorse any commercial products that may be mentioned on\n these sites. Please address comments about this page to [email protected].\n \n\n \n\n \n\n \n\n \n\n \n\nWeakness Enumeration\n\n \n \n \n CWE-ID\n CWE Name\n Source\n \n \n \n\n \n \n CWE-863\n \n \n Incorrect Authorization\n\n \n \n \n \n\n \n \n \n \n VulnCheck \n \n\n \n\n \n\n \n \n\n \n\n \n\n \n\n \n\nChange History\n 3 change records found show changes\n \n \n\n \n \n\n \n \n\n Initial Analysis by NIST 4/01/2026 3:07:04 PM\n \n\n \n \n \n Action\n Type\n Old Value\n New Value\n \n \n \n \n Added\n CPE Configuration\n \n \n \n \n \n \n \n \n \n \n \n OR\n *cpe:2.3:a:openclaw:openclaw:*:*:*:*:*:node.js:*:* versions up to (excluding) 2026.3.28\n \n\n \n \n\n \n \n \n \n \n \n Added\n Reference Type\n \n \n \n \n \n \n \n \n \n \n \n VulnCheck: https://github.com/openclaw/openclaw/commit/e403decb6e20091b5402780a7ccd2085f98aa3cd Types: Patch\n \n\n \n \n\n \n \n \n \n \n \n Added\n Reference Type\n \n \n \n \n \n \n \n \n \n \n \n VulnCheck: https://github.com/openclaw/openclaw/security/advisories/GHSA-hc5h-pmr3-3497 Types: Vendor Advisory\n \n\n \n \n\n \n \n \n \n \n \n Added\n Reference Type\n \n \n \n \n \n \n \n \n \n \n \n VulnCheck: https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-missing-caller-scope-validation-in-device-pair-approval Types: Third Party Advisory\n \n\n \n \n\n \n \n \n \n \n \n \n\n \n \n \n\n \n \n\n CVE Modified by VulnCheck 3/31/2026 2:16:54 PM\n \n\n \n \n \n Action\n Type\n Old Value\n New Value\n \n \n \n \n Added\n CVSS V3.1\n \n \n \n \n \n \n \n \n \n \n \n AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N\n \n\n \n \n\n \n \n \n \n \n \n Removed\n CVSS V3.1\n \n \n \n \n AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n\n \n \n\n New CVE Received from VulnCheck 3/31/2026 11:16:14 AM\n \n\n \n \n \n Action\n Type\n Old Value\n New Value\n \n \n \n \n Added\n Description\n \n \n \n \n \n \n \n \n \n \n \n OpenClaw before 2026.3.28 contains a privilege escalation vulnerability in the /pair approve command path that fails to forward caller scopes into the core approval check. A caller with pairing privileges but without admin privileges can approve pending device requests asking for broader scopes including admin access by exploiting the missing scope validation in extensions/device-pair/index.ts and src/infra/device-pairing.ts.\n \n\n \n \n\n \n \n \n \n \n \n Added\n CVSS V4.0\n \n \n \n \n \n \n \n \n \n \n \n AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n \n\n \n \n\n \n \n \n \n \n \n Added\n CVSS V3.1\n \n \n \n \n \n \n \n \n \n \n \n AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n \n\n \n \n\n \n \n \n \n \n \n Added\n CWE\n \n \n \n \n \n \n \n \n \n \n \n CWE-863\n \n\n \n \n\n \n \n \n \n \n \n Added\n Reference\n \n \n \n \n \n \n \n \n \n \n \n https://github.com/openclaw/openclaw/commit/e403decb6e20091b5402780a7ccd2085f98aa3cd\n \n\n \n \n\n \n \n \n \n \n \n Added\n Reference\n \n \n \n \n \n \n \n \n \n \n \n https://github.com/openclaw/openclaw/security/advisories/GHSA-hc5h-pmr3-3497\n \n\n \n \n\n \n \n \n \n \n \n Added\n Reference\n \n \n \n \n \n \n \n \n \n \n \n https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-missing-caller-scope-validation-in-device-pair-approval",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "add",
+      "admin",
+      "approve",
+      "cvss",
+      "cvss version",
+      "cwe",
+      "incorrect authorization",
+      "initial analysis",
+      "n/ac",
+      "n/s",
+      "n/sc:n/si:n/sa",
+      "nist",
+      "nvd",
+      "privilege",
+      "reference",
+      "scope",
+      "security",
+      "tools",
+      "type",
+      "value"
+    ],
+    []
+  ]
+}

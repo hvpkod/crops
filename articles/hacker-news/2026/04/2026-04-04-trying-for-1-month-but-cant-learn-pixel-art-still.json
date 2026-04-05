@@ -1,0 +1,29 @@
+{
+  "id": 8653,
+  "source": "Hacker News",
+  "title": "Trying for 1 month but can't learn pixel art still",
+  "url": "https://news.ycombinator.com/item?id=47639042",
+  "published_at": "2026-04-04T13:49:03Z",
+  "fetched_at": "2026-04-04T15:20:31.275924+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47639042\">Comments</a>",
+  "full_text": "I’m not good at it, but, I got better by making small enough pixel images that I could try different colors for individual pixels to match the feel of a reference images. 8x8 and then 16x16. With larger images, there is too much work to keep changing the pixels while you are still understanding the color theory.\n\nThe big insights came from how, in pixel art, a single high contrast pixel can give the impression of color or shade in a whole area of the image. For example, on a ladybug’s back, a few metallic blue pixels make it look more reflective than white, and doesn’t clash with the predominant red.\n\nI used Resprite for iPad which is similar to Aesprite, for my Godot game.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "change",
+      "clash",
+      "color",
+      "come",
+      "godot",
+      "ipad",
+      "pixel",
+      "predominant",
+      "reflective",
+      "resprite",
+      "try"
+    ],
+    []
+  ]
+}

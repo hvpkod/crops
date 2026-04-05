@@ -1,0 +1,36 @@
+{
+  "id": 8484,
+  "source": "Slashdot",
+  "title": "Iran Strikes Leave Amazon Availability Zones 'Hard Down' In Bahrain and Dubai",
+  "url": "https://tech.slashdot.org/story/26/04/03/2238241/iran-strikes-leave-amazon-availability-zones-hard-down-in-bahrain-and-dubai?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-03T23:00:00Z",
+  "fetched_at": "2026-04-03T23:20:26.419038+00:00",
+  "author": "BeauHD",
+  "summary": "Iranian strikes have reportedly knocked out key AWS availability zones in Bahrain and Dubai, leaving parts of both regions effectively offline for an extended period and forcing Amazon to urge teams and customers to shift workloads elsewhere. \"These two regions continue to be impaired, and services should not expect to be operating with normal levels of redundancy and resiliency,\" an internal Amazon communication memo reads. \"We are actively working to free and reserve as much capacity as possible in the region for customers, and services should be scaled to the minimal footprint required to support customer migration.\" Big Technology reports: With the war now nearing its sixth week, Iran has made Amazon infrastructure in the Gulf an economic target and is now eyeing its peers. Amazon's Bahrain facilities have been hit multiple times, including a Wednesday strike that caused a fire. And its facilities in the UAE also sustained multiple hits. The IRGC is threatening multiple other U.S. ",
+  "full_text": "Iranian strikes have reportedly knocked out key AWS availability zones in Bahrain and Dubai\n\n, leaving parts of both regions effectively offline for an extended period and forcing Amazon to urge teams and customers to shift workloads elsewhere. \"These two regions continue to be impaired, and services should not expect to be operating with normal levels of redundancy and resiliency,\" an internal Amazon communication memo reads\n\n. \"We are actively working to free and reserve as much capacity as possible in the region for customers, and services should be scaled to the minimal footprint required to support customer migration.\" Big Technology reports: With the war now nearing its sixth week, Iran has made Amazon infrastructure in the Gulf an economic target and is now eyeing its peers. Amazon's Bahrain facilities have been hit multiple times, including a Wednesday strike that caused a fire. And its facilities in the UAE also sustained multiple hits. The IRGC is threatening multiple other U.S. tech giants, including Microsoft, Google, and Apple.\n\n \n\nAmazons infrastructure in Bahrain and Dubai each have three 'availability zones' or clusters of compute. Both Bahrain and Dubai have a zones that are \"hard down\" and and \"impaired but functioning,\" per the internal communication. \"We do not have a timeline for when DXB and BAH will return to normal operations,\" the internal post said.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "amazon",
+      "bahrain",
+      "dubai",
+      "facility",
+      "google",
+      "gulf",
+      "include",
+      "internal",
+      "iran",
+      "irgc",
+      "microsoft",
+      "military",
+      "multiple",
+      "region",
+      "strike",
+      "u.s.",
+      "uae",
+      "zone"
+    ],
+    []
+  ]
+}

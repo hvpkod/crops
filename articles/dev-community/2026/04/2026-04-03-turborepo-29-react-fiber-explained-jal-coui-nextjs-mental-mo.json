@@ -1,0 +1,43 @@
+{
+  "id": 8309,
+  "source": "DEV Community<",
+  "title": "Turborepo 2.9, React Fiber explained, jal-co/ui, Next.js Mental Model, useOffline, Debug React with AI",
+  "url": "https://dev.to/erfanebrahimnia/turborepo-29-react-fiber-explained-jal-coui-nextjs-mental-model-useoffline-debug-react-with-h4p",
+  "published_at": "2026-04-03T11:01:20Z",
+  "fetched_at": "2026-04-03T12:00:38.602873+00:00",
+  "author": "Erfan Ebrahimnia",
+  "summary": "<h2>\n  \n  \n  🔥 Hot\n</h2>\n\n<p><a href=\"https://inside-react.vercel.app/blog/how-does-react-fiber-render-your-ui\" rel=\"noopener noreferrer\"><img alt=\"How Does React Fiber Render Your UI\" height=\"630\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fembed.filekitcdn.com%2Fe%2F6Hn37Q2unMsmjbqMTJFz2S%2Fvz5DDc8BpAdAzHMNhYo6Sg%3Fw%3D1000%26fit%3Dclip\" width=\"1200\" /></a></p>\n\n<h3>\n  \n  \n  <a href=\"https://inside-react.vercel.app/blog/how-does-react-fiber-render-your-ui\" rel=\"noopener noreferrer\">How Does React Fiber Render Your UI</a>\n</h3>\n\n<p>A single <code>setState</code> call kicks off a surprisingly sophisticated process. This detailed explainer covers how React Fiber organizes your component tree as a linked list, schedules work based on priority lanes, skips unchanged subtrees for efficiency, and batches DOM updates in a single commit phase</p>\n\n<h3>\n  \n  \n  <a href=\"https://aurorascharff.no/posts/implementing-next",
+  "full_text": "🔥 Hot\n\nA single setState call kicks off a surprisingly sophisticated process. This detailed explainer covers how React Fiber organizes your component tree as a linked list, schedules work based on priority lanes, skips unchanged subtrees for efficiency, and batches DOM updates in a single commit phase\n\nThis post got featured before, and it's now been updated with the proper solution. The original post covered a workaround for the incompatibility between 'use cache' and next-intl. With Next.js 16.2's new next/root-params API, the workaround is no longer needed\n\nIf you wanna get these updates in your inbox every week, just subscribe to the newsletter\n\n \n \n 📦 Projects / Packages / Tools\n\nA quality-focused release for the popular monorepo build tool, bringing big performance gains and smoother adoption for large codebases:\n\nUp to 96% faster startup: Time before your first task runs has been drastically reduced\n\nturbo query is stable: Query your monorepo's structure with GraphQL or simple shorthands\n\nCircular dependencies no longer block you: Adopt Turborepo incrementally in repos with package cycles\n\nOpenTelemetry (Experimental): Send build metrics to tools like Grafana or Datadog\n\nStructured logging (Experimental): Get machine-readable JSON output for CI and tooling\n\nFuture Flags: Start preparing for 3.0 today with gradual migration paths\n\nLet AI generate UIs from prompts using only the components you define. Output is always predictable and schema-safe. The new @json-render/next package can generate full Next.js apps with routes, layouts, and SSR from a single JSON spec\n\nBypasses React's closed internals by hooking into the same mechanism React DevTools uses. Lets you traverse the fiber tree, inspect component props, state, and contexts, and even override them\n\nA collection of polished, ready-to-use components you can install via the shadcn registry or copy straight into your project. Zero dependencies where possible and server-first\n\n \n \n 🌈 Related\n\nDan Abramov shares a step-by-step workflow for using AI to fix tricky bugs: reproduce it, read the code, add logs, and only then ask the AI to find the issue\n\nAxios, the popular HTTP client, fell victim to a supply chain attack. An attacker compromised the maintainer's npm account and published two rogue versions (1.14.1 and 0.30.4) containing a hidden dependency that installs a remote access trojan across Windows, macOS, and Linux\n\nIn this Reddit post a developer shares the journey of how he finally understood why React needs hydration after years of confusion\n\nMatteo Collina introduces node:vfs, a new Node.js core module that lets you create in-memory filesystems that work with import, require(), and standard fs calls",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "adopt turborepo",
+      "api",
+      "circular",
+      "component",
+      "datadog\n\nstructured",
+      "debug react",
+      "dependencie",
+      "dom",
+      "experimental",
+      "fiber",
+      "long",
+      "nextjs",
+      "opentelemetry",
+      "package",
+      "popular",
+      "react",
+      "react fiber",
+      "setstate",
+      "single",
+      "turborepo",
+      "webdev",
+      "workaround"
+    ],
+    [
+      "nextjs",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 8740,
+  "source": "DEV Community<",
+  "title": "I built a CLI to verify PyPI package attestations before installing packages",
+  "url": "https://dev.to/halfblood_prince_32a44256/i-built-a-cli-to-verify-pypi-package-attestations-before-installing-packages-6bn",
+  "published_at": "2026-04-04T22:48:49Z",
+  "fetched_at": "2026-04-04T23:40:39.888358+00:00",
+  "author": "Halfblood Prince",
+  "summary": "<p>Python developers install packages from PyPI every day with <code>pip</code>. Most of the time we trust that the package we install is exactly what the maintainer intended to publish.</p>\n\n<p>But questions often come up:</p>\n\n<ul>\n<li>Who actually published this release?</li>\n<li>Does the package have verifiable provenance?</li>\n<li>Has the repository changed since the last version?</li>\n<li>Are there any known vulnerabilities?</li>\n</ul>\n\n<p>To explore these questions, I built <strong>trustcheck</strong>.</p>\n\n\n\n\n<h2>\n  \n  \n  What trustcheck does\n</h2>\n\n<p><strong>trustcheck</strong> is a CLI tool that inspects trust signals for PyPI package releases.</p>\n\n<p>It helps answer questions about a package <strong>before you install it</strong>.</p>\n\n<p>The tool evaluates things like:</p>\n\n<ul>\n<li>PyPI release metadata</li>\n<li>package attestations</li>\n<li>repository association</li>\n<li>provenance signals</li>\n<li>vulnerability information</li>\n</ul>\n\n<p>The goal is to make it easier ",
+  "full_text": "Python developers install packages from PyPI every day with pip. Most of the time we trust that the package we install is exactly what the maintainer intended to publish.\n\nBut questions often come up:\n\nWho actually published this release?\n\nDoes the package have verifiable provenance?\n\nHas the repository changed since the last version?\n\nAre there any known vulnerabilities?\n\nTo explore these questions, I built trustcheck.\n\n \n \n What trustcheck does\n\ntrustcheck is a CLI tool that inspects trust signals for PyPI package releases.\n\nIt helps answer questions about a package before you install it.\n\nThe tool evaluates things like:\n\nPyPI release metadata\n\npackage attestations\n\nrepository association\n\nprovenance signals\n\nvulnerability information\n\nThe goal is to make it easier to understand the trust posture of a Python package release.\n\n \n \n Installation\n\npip install trustcheck\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Example usage\n\nInspect a release:\n\ntrustcheck inspect sampleproject --version 4.0.0\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nVerify the expected repository:\n\ntrustcheck inspect sampleproject \\\n --version 4.0.0 \\\n --expected-repo https://github.com/pypa/sampleproject\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGet machine-readable output:\n\ntrustcheck inspect sampleproject --version 4.0.0 --format json\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Why I built this\n\nTools like vulnerability scanners already exist, but there are fewer tools that help developers quickly inspect package provenance and attestation signals.\n\ntrustcheck tries to surface those signals in a simple CLI so developers can make better trust decisions when evaluating packages.\n\n \n \n Current status\n\nThe project is currently in beta.\n\nI'm looking for feedback from:\n\nPython developers\n\nmaintainers\n\nsecurity engineers\n\npeople working with CI pipelines\n\nFeedback that would be especially useful:\n\nCLI usability\n\nmissing trust signals\n\nideas for CI integration\n\nreal-world testing\n\n \n \n GitHub repository:\n\nhttps://github.com/Halfblood-Prince/trustcheck\n\nIf you're interested in Python packaging or supply-chain security, I'd really appreciate any testing or feedback to push it from BETA to a Production Grade package.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "beta",
+      "build",
+      "cli",
+      "developer",
+      "fullscreen",
+      "inspect",
+      "mode",
+      "opensource",
+      "package",
+      "pypi",
+      "python",
+      "sampleproject",
+      "security",
+      "trust",
+      "trustcheck"
+    ],
+    [
+      "opensource",
+      "python"
+    ]
+  ]
+}

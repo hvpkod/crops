@@ -1,0 +1,45 @@
+{
+  "id": 8616,
+  "source": "DEV Community<",
+  "title": "Getting Data from Multiple Sources in Power BI: A Pictorial Guide to Seamless Data Integration",
+  "url": "https://dev.to/madina_yusuff_1/getting-data-from-multiple-sources-in-power-bi-a-pictorial-guide-to-seamless-data-integration-5clp",
+  "published_at": "2026-04-04T11:08:17Z",
+  "fetched_at": "2026-04-04T11:40:31.981126+00:00",
+  "author": "Madina Yusuff",
+  "summary": "<h2>\n  \n  \n  Introduction\n</h2>\n\n<p>Power BI is a business intelligence and data visualization tool developed by Microsoft that enables users to connect to multiple data sources, transform raw data, and create interactive dashboards and reports.</p>\n\n<p>It allows individuals and organizations to collect data from sources like Excel, databases, and cloud services; Clean and transform data using Power Query; Build visualizations such as charts, graphs, and maps; And share insights through reports and dashboards across teams.</p>\n\n<p>In simple terms, Power BI helps turn raw data into meaningful insights for better decision-making.<br />\nIn this guide, you will learn how to:<br />\n• Establish connections between Power BI and multiple data sources effectively<br />\n• Leverage Power Query to preview and examine datasets<br />\n• Identify and fix data quality issues at an early stage<br />\n• Create a solid foundation for accurate data modelling and reporting</p>\n\n<h2>\n  \n  \n  Architecture Over",
+  "full_text": "Introduction\n\nPower BI is a business intelligence and data visualization tool developed by Microsoft that enables users to connect to multiple data sources, transform raw data, and create interactive dashboards and reports.\n\nIt allows individuals and organizations to collect data from sources like Excel, databases, and cloud services; Clean and transform data using Power Query; Build visualizations such as charts, graphs, and maps; And share insights through reports and dashboards across teams.\n\nIn simple terms, Power BI helps turn raw data into meaningful insights for better decision-making.\n\nIn this guide, you will learn how to:\n\n• Establish connections between Power BI and multiple data sources effectively\n\n• Leverage Power Query to preview and examine datasets\n\n• Identify and fix data quality issues at an early stage\n\n• Create a solid foundation for accurate data modelling and reporting\n\n \n \n Architecture Overview\n\nAt a general level, the Power BI data architecture includes:\n\n• Power BI Desktop serving as the primary tool for reporting and data modelling\n\n• A variety of data sources, such as:\n\no Excel and Text/CSV files\n\no SQL Server databases\n\no JSON and PDF files\n\no SharePoint folders\n\nAll data is imported into Power BI through Power Query, where it is inspected and transformed before being loaded into the data model.\n\n \n \n Connecting Data from Multiple Sources\n\nPower BI supports connections to numerous types of data sources. The following sections provide step-by-step instructions for each major source.\n\n \n \n Step 1: Connecting to Excel\n\n Launch Power BI Desktop \n\n Go to Home → Get Data → Excel \n\n Locate and select your Excel file\n \n\n In the Navigator window, choose the necessary sheets or tables\n \n\n Click Load (to import immediately) or Transform Data (to clean the data first) \n\n \n \n Step 2: Connecting to Text/CSV File\n\n Launch Power BI Desktop \n\n Go to Home → Get Data → Text/CSV \n\n Browse and select the CSV file (e.g., OYO_crosschecked.csv) \n\n Review the dataset preview in the dialog box \n\n Click Load or Transform Data \n\n \n \n Step 3: Connecting to PDF\n\n Launch Power BI Desktop \n\n Go to Home → Get Data → PDF \n\n Choose the PDF file \n\n Allow Power BI to scan and detect available tables \n\n Select the relevant table(s) \n\n Click Load or Transform Data \n\n \n \n Step 4: Connecting to JSON\n\n Launch Power BI Desktop \n\n Go to Home → Get Data → JSON \n\n Select the JSON file or provide the API endpoint \n\n Load the data into Power Query \n\n Expand nested elements to properly structure the dataset \n\n Click Close & Apply \n\n \n \n Step 5: Connecting to SharePoint Folder\n\n Launch Power BI Desktop \n\n Go to Home → Get Data → SharePoint Folder \n\n Input the SharePoint site URL \n\n Click OK and complete authentication if prompted \n\n Choose the files from the folder \nThe option of a Sharepoint Folder requires you to have access to an internal Organizational account to have the sharepoint URL. The URL will look like https://contoso.sharepoint.com/sites/siteName.\n\n Click Combine & Transform Data \n\n \n \n Step 6: Connecting to MySQL Database\n\n Launch Power BI Desktop \n\n Go to Home → Get Data → MySQL Database \n\n Enter the server name and database details \n\n Provide the required login credentials \n\n Select the desired tables \n\n Click Load or Transform Data \n\n \n \n Step 7: Connecting to SQL Server\n\n Launch Power BI Desktop\n \n\n Go to Home → Get Data → SQL Server \n\n Enter the server name (e.g., localhost) \n\n Leave the database field empty (or specify one if necessary) \n\n Click OK \n\n Select the authentication method (e.g., Windows credentials)\n \n\n In the Navigator pane, expand the database (e.g., World)\n \n\n Choose the required tables such as:\no City\no Country\no CountryLanguage \n\n Click Transform Data to open the Power Query Editor \n\n \n \n Step 8: Connecting to Web Data\n\n Launch Power BI Desktop \n\n Go to Home → Get Data → Web \n\n Enter the URL of the website or API \n\n Click OK \n\n Select the detected data table or structure \n\n Click Load or Transform Data \n\n \n \n Step 9: Connecting to Azure Analysis Services\n\n Launch Power BI Desktop \n\n Go to Home → Get Data → Azure → Azure Analysis Services \n\n Enter the server name \n\n Select the appropriate database or model \n\n Choose the connection mode (Live connection is recommended)\n \n\n Click Connect \nThis structured approach enhances clarity, makes the guide more practical, and reflects real-world Power BI workflows.\n\n \n \n Conclusion\n\nWorking with multiple data sources in Power BI goes beyond a simple technical task. It forms the backbone of every dependable and insight-driven report. As demonstrated, modern data ecosystems are diverse and complex, requiring analysts to integrate data from files, databases, cloud platforms, and web services seamlessly.\n\nPower BI Desktop simplifies this process significantly. Its strong integration features, along with Power Query, allow you not only to access data but also to evaluate its structure, assess its quality, and understand its limitations.\n\nHowever, the true benefit lies in what comes after data connection. The ability to detect inconsistencies, manage missing values, and transform raw data into a well-structured format distinguishes basic reporting from advanced analytics solutions.\n\nIn real-world applications, effective data ingestion leads to:\n\n• Improved accuracy of insights\n\n• Enhanced decision-making processes\n\n• Scalable and maintainable data models\n\nFor any data professional, mastering data connectivity and preparation is essential. It ensures that every dashboard created is not only visually appealing but also reliable and meaningful.\n\nUltimately, successful analytics starts with high-quality data—and high-quality data depends on how well it is connected, prepared, and understood.\n\nPower BI Desktop simplifies this process significantly. Its strong integration features, along with Power Query, allow you not only to access data but also to evaluate its structure, assess its quality, and understand its limitations.\n\nHowever, the true benefit lies in what comes after data connection. The ability to detect inconsistencies, manage missing values, and transform raw data into a well-structured format distinguishes basic reporting from advanced analytics solutions.\n\nIn real-world applications, effective data ingestion leads to:\n\n• Improved accuracy of insights\n\n• Enhanced decision-making processes\n\n• Scalable and maintainable data models\n\nFor any data professional, mastering data connectivity and preparation is essential. It ensures that every dashboard created is not only visually appealing but also reliable and meaningful.\n\nUltimately, successful analytics starts with high-quality data—and high-quality data depends on how well it is connected, prepared, and understood.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "analyst",
+      "beginners",
+      "connect",
+      "connecting data",
+      "data",
+      "datum",
+      "desktop",
+      "getting data",
+      "home",
+      "launch",
+      "microsoft",
+      "navigator",
+      "pdf",
+      "power",
+      "power bi",
+      "power query",
+      "powerfuldevs",
+      "select",
+      "sharepoint",
+      "sql server",
+      "step",
+      "transform",
+      "• identify"
+    ],
+    [
+      "analyst",
+      "beginners",
+      "powerfuldevs"
+    ]
+  ]
+}

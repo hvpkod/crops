@@ -1,0 +1,37 @@
+{
+  "id": 8544,
+  "source": "DEV Community<",
+  "title": "OpenClaw Multi-Agent Configuration: Architecture and Production Patterns",
+  "url": "https://dev.to/bruce_he/openclaw-multi-agent-configuration-architecture-and-production-patterns-pe9",
+  "published_at": "2026-04-04T01:44:28Z",
+  "fetched_at": "2026-04-04T02:40:37.819374+00:00",
+  "author": "Bruce He",
+  "summary": "<p><em>Originally published at <a href=\"https://www.heyuan110.com/posts/ai/2026-04-04-openclaw-multi-agent-setup-guide/\" rel=\"noopener noreferrer\">heyuan110.com</a></em></p>\n\n<p>Your single OpenClaw agent worked great for two weeks. Then it started hallucinating project context into unrelated conversations, confusing coding tasks with writing tasks, and taking 15 seconds to respond because its memory index had grown to 200MB.</p>\n\n<p>The problem is not the model. The problem is architectural: <strong>one agent cannot hold unlimited context domains without degradation</strong>. The solution is multiple specialized agents with isolated workspaces.</p>\n\n<p><strong>This guide covers:</strong></p>\n\n<ul>\n<li>Why multi-agent (the single-agent ceiling)</li>\n<li>Agent creation and model routing configuration</li>\n<li>Binding-based routing (most-specific-wins priority)</li>\n<li>Agent-to-agent communication via sessions_send</li>\n<li>Four production patterns: Supervisor, Router, Pipeline, Paralle",
+  "full_text": "Originally published at heyuan110.com\n\nYour single OpenClaw agent worked great for two weeks. Then it started hallucinating project context into unrelated conversations, confusing coding tasks with writing tasks, and taking 15 seconds to respond because its memory index had grown to 200MB.\n\nThe problem is not the model. The problem is architectural: one agent cannot hold unlimited context domains without degradation. The solution is multiple specialized agents with isolated workspaces.\n\nThis guide covers:\n\nWhy multi-agent (the single-agent ceiling)\n\nAgent creation and model routing configuration\n\nBinding-based routing (most-specific-wins priority)\n\nAgent-to-agent communication via sessions_send\n\nFour production patterns: Supervisor, Router, Pipeline, Parallel\n\nCost optimization strategies\n\nRead the full article →\n\nIf you found this useful, check out my blog for more AI engineering guides.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "agent",
+      "agents",
+      "ai",
+      "architecture",
+      "context",
+      "openclaw",
+      "opensource",
+      "problem",
+      "production",
+      "publish",
+      "routing",
+      "start",
+      "tutorial",
+      "work"
+    ],
+    [
+      "agents",
+      "architecture",
+      "opensource",
+      "tutorial"
+    ]
+  ]
+}

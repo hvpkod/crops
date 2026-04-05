@@ -1,0 +1,40 @@
+{
+  "id": 8353,
+  "source": "DEV Community<",
+  "title": "AI-Based Medicinal Plant Leaf Analysis System",
+  "url": "https://dev.to/surya_saketh_2ad73f686fdf/ai-based-medicinal-plant-leaf-analysis-system-3pj6",
+  "published_at": "2026-04-03T14:24:31Z",
+  "fetched_at": "2026-04-03T15:00:34.917217+00:00",
+  "author": "surya saketh",
+  "summary": "<h2>\n  \n  \n  Introduction\n</h2>\n\n<p>Medicinal plants play a critical role in traditional healthcare systems such as Ayurveda. However, identifying plant species and detecting diseases from leaf images typically requires expert knowledge.</p>\n\n<p>To address this, I built a full-stack AI application that can:</p>\n\n<ul>\n<li>Identify medicinal plants from leaf images</li>\n<li>Detect whether the leaf is healthy or diseased</li>\n<li>Provide structured outputs such as scientific name, medicinal properties, and care recommendations</li>\n</ul>\n\n<p>This project combines computer vision, backend APIs, and a modern frontend into a single deployable system.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fsu0q2o54n8voafqtdwc1.png\"><img alt=\" \" height=\"430\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale",
+  "full_text": "Introduction\n\nMedicinal plants play a critical role in traditional healthcare systems such as Ayurveda. However, identifying plant species and detecting diseases from leaf images typically requires expert knowledge.\n\nTo address this, I built a full-stack AI application that can:\n\nIdentify medicinal plants from leaf images\n\nDetect whether the leaf is healthy or diseased\n\nProvide structured outputs such as scientific name, medicinal properties, and care recommendations\n\nThis project combines computer vision, backend APIs, and a modern frontend into a single deployable system.\n\n \n \n Problem Statement\n\nThe main challenges this project addresses:\n\nLack of accessible tools for plant identification\n\nDifficulty in early disease detection\n\nDependence on domain experts\n\nLimited awareness of medicinal uses and remedies\n\nThe goal was to build a system that makes this process automated and accessible.\n\n \n \n Problem Statement\n\nThe main challenges this project addresses:\n\nLack of accessible tools for plant identification\n\nDifficulty in early disease detection\n\nDependence on domain experts\n\nLimited awareness of medicinal uses and remedies\n\nThe goal was to build a system that makes this process automated and accessible.\n\n \n \n Tech Stack\n\nSystem Architecture\n\nThe system is divided into three layers:\n\nFrontend\n\nImage upload interface\n\nDisplays prediction results\n\nBackend (FastAPI)\n\nHandles file uploads\n\nRuns model inference\n\nReturns structured JSON response\n\nML Model\n\nTrained on labeled medicinal plant datasets\n\nClassifies plant type and health status\n\n \n \n Model Training Pipeline\n\nThe model training involved:\n\n 1. Resizing to 224×224\n 2. Normalization\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n 1. Rotationz\n 2. Flipping\n 3. Color jitter\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTrain/validation/test split\n\nTransfer learning was used with a pretrained model to improve performance.\n\n \n \n Prediction Workflow\n\nUser uploads a leaf image\n\nBackend saves the image temporarily\n\nImage is passed to the trained model\n\nModel outputs:\n class_name, confidence, class_index\n\nBackend maps the class to structured data using a knowledge file\n\nResponse is returned to frontend\n\n \n \n Key Features\n\nMedicinal plant identification\n\nDisease detection (healthy vs diseased)\n\nConfidence-based predictions\n\nKnowledge integration (scientific name, properties, remedies)\n\nUnknown class handling for non-medicinal inputs\n\nReal-time API-based inference\n\n \n \n Conclusion\n\nThis project demonstrates how AI can be used to make traditional knowledge systems more accessible. By combining computer vision with a structured knowledge base, the system provides meaningful insights beyond basic classification.\n\nLinks\n\nGitHub Repo: https://github.com/saketh10-10/Medicinal-plant-leaf-disease-detection\n\nLinkedIn: https://www.linkedin.com/feed/update/urn:li:activity:7428844593728688129/?originTrackingId=1XU4D7RC3aOmWI7Q%2F7P%2BGg%3D%3D",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "ayurveda",
+      "backend",
+      "disease",
+      "identification",
+      "image",
+      "key features\n\nmedicinal",
+      "leaf",
+      "machinelearning",
+      "medicinal",
+      "model",
+      "model training pipeline",
+      "plant",
+      "showdev",
+      "structured",
+      "system",
+      "webdev"
+    ],
+    [
+      "machinelearning",
+      "showdev",
+      "webdev"
+    ]
+  ]
+}

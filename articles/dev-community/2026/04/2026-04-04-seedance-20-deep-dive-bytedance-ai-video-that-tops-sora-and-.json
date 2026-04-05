@@ -1,0 +1,39 @@
+{
+  "id": 8541,
+  "source": "DEV Community<",
+  "title": "Seedance 2.0 Deep Dive: ByteDance AI Video That Tops Sora and Veo",
+  "url": "https://dev.to/bruce_he/seedance-20-deep-dive-bytedance-ai-video-that-tops-sora-and-veo-3hn9",
+  "published_at": "2026-04-04T01:45:38Z",
+  "fetched_at": "2026-04-04T02:40:36.292950+00:00",
+  "author": "Bruce He",
+  "summary": "<p><em>Originally published at <a href=\"https://www.heyuan110.com/posts/ai/2026-04-04-seedance-2-bytedance-ai-video/\" rel=\"noopener noreferrer\">heyuan110.com</a></em></p>\n\n<p>In February 2026, ByteDance released <strong>Seedance 2.0</strong>. Within weeks, it hit <strong>#1 on the Artificial Analysis text-to-video leaderboard</strong> — beating Google Veo 3, OpenAI Sora 2, and Runway Gen-4.5 in blind human evaluation.</p>\n\n<p>If you are reading this from outside China, you have probably heard the buzz but face a wall of confusion: What is Dreamina? What is VolcEngine? Can you even sign up without a Chinese phone number?</p>\n\n<p>This guide is written specifically for international users. It covers the technical architecture in depth (why joint audio-video generation is a real breakthrough), gives an honest assessment of what works and what does not, provides a step-by-step access guide, and explains the IP controversy.</p>\n\n<p><strong>Key findings:</strong></p>\n\n<ul>\n<li>Joint audio-vid",
+  "full_text": "Originally published at heyuan110.com\n\nIn February 2026, ByteDance released Seedance 2.0. Within weeks, it hit #1 on the Artificial Analysis text-to-video leaderboard — beating Google Veo 3, OpenAI Sora 2, and Runway Gen-4.5 in blind human evaluation.\n\nIf you are reading this from outside China, you have probably heard the buzz but face a wall of confusion: What is Dreamina? What is VolcEngine? Can you even sign up without a Chinese phone number?\n\nThis guide is written specifically for international users. It covers the technical architecture in depth (why joint audio-video generation is a real breakthrough), gives an honest assessment of what works and what does not, provides a step-by-step access guide, and explains the IP controversy.\n\nKey findings:\n\nJoint audio-video generation produces the most natural lip sync of any model\n\nMulti-reference input (up to 12 files) enables director-level control\n\n2K max resolution is a limitation vs Kling 3.0's 4K@60fps\n\n~$0.14 per 15-second clip — 5-10x cheaper than competitors\n\nCapCut integration gives it the largest distribution platform of any AI video model\n\nRead the full article →\n\nIf you found this useful, check out my blog for more AI engineering guides.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "beat",
+      "bytedance",
+      "china",
+      "dreamina",
+      "generation",
+      "give",
+      "joint",
+      "machinelearning",
+      "publish",
+      "read",
+      "release",
+      "runway",
+      "seedance",
+      "sora",
+      "the artificial analysis",
+      "veo originally",
+      "video",
+      "volcengine"
+    ],
+    [
+      "machinelearning"
+    ]
+  ]
+}

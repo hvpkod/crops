@@ -1,0 +1,47 @@
+{
+  "id": 8682,
+  "source": "DEV Community<",
+  "title": "10 Data Problems Every Pipeline Hits (and the One-Liner Fixes)",
+  "url": "https://dev.to/benzsevern/10-data-problems-every-pipeline-hits-and-the-one-liner-fixes-2391",
+  "published_at": "2026-04-04T17:00:30Z",
+  "fetched_at": "2026-04-04T17:40:55.700671+00:00",
+  "author": "benzsevern",
+  "summary": "<p>Every data engineer writes throwaway scripts to fix the same problems. Phone numbers in 15 formats. Dates that aren't dates. \"N/A\" and \"null\" and \"\" all meaning the same thing. The scripts are always slightly different, never reusable, and break when the data changes.</p>\n\n<p>Here are the 10 problems we see in every dataset, what they actually look like, and how to fix each one.</p>\n\n<h2>\n  \n  \n  1. Phone numbers in 15 formats\n</h2>\n\n<p>Your CRM has phone numbers entered by humans over a decade. No two look the same.</p>\n\n<div class=\"table-wrapper-paragraph\"><table>\n<thead>\n<tr>\n<th>Before</th>\n<th>After</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>(555) 123-4567</td>\n<td>+15551234567</td>\n</tr>\n<tr>\n<td>555.123.4567</td>\n<td>+15551234567</td>\n</tr>\n<tr>\n<td>+1-555-123-4567</td>\n<td>+15551234567</td>\n</tr>\n<tr>\n<td>5551234567</td>\n<td>+15551234567</td>\n</tr>\n<tr>\n<td>1 (555) 123-4567</td>\n<td>+15551234567</td>\n</tr>\n</tbody>\n</table></div>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre c",
+  "full_text": "Every data engineer writes throwaway scripts to fix the same problems. Phone numbers in 15 formats. Dates that aren't dates. \"N/A\" and \"null\" and \"\" all meaning the same thing. The scripts are always slightly different, never reusable, and break when the data changes.\n\nHere are the 10 problems we see in every dataset, what they actually look like, and how to fix each one.\n\n \n \n 1. Phone numbers in 15 formats\n\nYour CRM has phone numbers entered by humans over a decade. No two look the same.\n\nBefore\nAfter\n\n(555) 123-4567\n+15551234567\n\n555.123.4567\n+15551234567\n\n+1-555-123-4567\n+15551234567\n\n5551234567\n+15551234567\n\n1 (555) 123-4567\n+15551234567\n\ngoldenflow transform contacts.csv\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nZero-config mode detects phone columns and normalizes to E.164 automatically. Every downstream system — Twilio, Salesforce, your matching pipeline — expects E.164. Do it once at the source.\n\n \n \n 2. Mojibake from bad CSV exports\n\nSomeone exported from Excel on a Windows machine, someone else opened it on a Mac, and now your text looks like this:\n\nBefore\nAfter\n\ncafÃ©\ncafe\n\nitâ€™s\nit's\n\nrÃ©sumÃ©\nresume\n\nnaÃ¯ve\nnaive\n\nThis happens when UTF-8 bytes get decoded as Latin-1. The fix is to re-encode:\n\nfrom goldenflow import GoldenFlowConfig, TransformSpec\n\nconfig = GoldenFlowConfig(transforms=[\n TransformSpec(column=\"description\", ops=[\"fix_mojibake\"]),\n])\nresult = goldenflow.transform_df(df, config=config)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nfix_mojibake tries the Latin-1 → UTF-8 round-trip. If the text wasn't actually garbled, it returns the original unchanged.\n\n \n \n 3. European vs US decimal formats\n\nYou're merging data from a German office and a US office. One writes 1.234,56 (one thousand two hundred thirty-four and 56 cents). The other writes 1,234.56. Same number, incompatible formats.\n\nBefore (European)\nAfter\n\n1.234,56\n1234.56\n\n99,99\n99.99\n\n10.000,00\n10000.0\n\n3.14\n3.14\n\ncomma_decimal is smart about this — if there's no comma in the value, it parses as-is (so 3.14 stays 3.14, not 314). It only applies European conversion when a comma is actually present.\n\n \n \n 4. Gmail dots and +tags hiding duplicates\n\nGmail ignores dots in the local part and everything after a +. These are all the same inbox:\n\nYour dedup pipeline sees four different emails. Your customer sees one inbox and four of the same marketing email.\n\nconfig = GoldenFlowConfig(transforms=[\n TransformSpec(column=\"email\", ops=[\"email_normalize\"]),\n])\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis only strips dots for Gmail/Googlemail domains — other providers treat dots as significant.\n\n \n \n 5. \"Bob\" and \"Robert\" are the same person\n\nYou're matching records across systems. One has \"Bob Smith\" and the other has \"Robert Smith\". Fuzzy matching gives you a 60% score — not enough to auto-match, too high to ignore. You end up manually reviewing thousands of maybe-matches.\n\nBefore\nAfter\n\nBob\nRobert\n\nBill\nWilliam\n\nJim\nJames\n\nMike\nMichael\n\nDick\nRichard\n\nLiz\nElizabeth\n\nPeggy\nMargaret\n\nnickname_standardize maps 50+ common English nicknames to their formal equivalents. Run it before dedup and that 60% match becomes 100%. This was built specifically to improve GoldenMatch results — normalizing nicknames before blocking and scoring eliminates an entire class of false negatives.\n\n \n \n 6. Country names in 6 variants\n\nYour international dataset has country names entered by humans in different languages, abbreviations, and conventions:\n\nBefore\nAfter\n\nUnited States\nUS\n\nUnited States of America\nUS\n\nUSA\nUS\n\nUnited Kingdom\nGB\n\nGreat Britain\nGB\n\nDeutschland\nDE\n\ncountry_standardize maps common country names, abbreviations, and local names to ISO 3166-1 alpha-2 codes. Unknown values pass through unchanged — you can spot them by filtering for values longer than 2 characters.\n\n \n \n 7. SSNs stored as raw digits\n\nSomeone dumped SSNs into a spreadsheet without formatting. Now they're sitting in a column as 123456789 — no dashes, no masking, ready to be accidentally emailed to the wrong person.\n\nTransform\nBefore\nAfter\n\nssn_format\n123456789\n123-45-6789\n\nssn_mask\n123456789\n***-**-6789\n\nssn_mask\n123-45-6789\n***-**-6789\n\ngoldenflow transform employees.csv -c config.yaml\n# config.yaml:\n# transforms:\n# - column: ssn\n# ops: [ssn_mask]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nssn_format normalizes to the standard dashed format. ssn_mask redacts everything except the last four digits. Both handle raw digits, dashed formats, and spaced formats. Invalid SSNs (wrong digit count) are preserved as-is so you can find and fix them.\n\n \n \n 8. Dates that aren't dates\n\nYour date column has actual dates, free text someone typed into a date field, and blanks masquerading as dates:\n\nBefore\ndate_validate\ndate_iso8601\n\n2024-03-15\ntrue\n2024-03-15\n\nMarch 15, 2024\ntrue\n2024-03-15\n\n03/15/2024\ntrue\n2024-03-15\n\nnot a date\nfalse\nnot a date\n\nTBD\nfalse\nTBD\n\nRun date_validate first to flag the garbage, then date_iso8601 to normalize the real dates. The invalid values pass through unchanged — they don't silently become null or today's date.\n\n \n \n 9. HTML tags and emoji in scraped data\n\nYou scraped product descriptions or customer reviews. The raw data is full of markup and emoji that will break your NLP pipeline:\n\nBefore\nAfter\n\n<p>Great product!</p>\nGreat product!\n\n<b>Bold</b> claim\nBold claim\n\nLove this! \\U0001f600\\U0001f44d\nLove this!\n\nCheck <a href=\"...\">here</a>\nCheck here\n\nremove_html_tags strips all HTML tags. remove_emojis strips emoji characters. Chain them: ops: [\"remove_html_tags\", \"remove_emojis\", \"collapse_whitespace\"].\n\n \n \n 10. \"N/A\", \"null\", \"none\", \"-\", \"\"\n\nThe classic. Five different ways to say \"this field is empty\" and none of them are actual nulls. Your aggregations count them as values. Your joins fail silently.\n\nBefore\nAfter\n\nN/A\nnull\n\nnull\nnull\n\nnone\nnull\n\nNA\nnull\n\n-\nnull\n\n(empty string)\nnull\n\n# Zero-config handles this automatically\nresult = goldenflow.transform_df(df)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nnull_standardize is one of the auto-apply transforms — zero-config mode runs it on every string column without you asking. It catches the variants that trip up every pipeline.\n\n \n \n All of this is in GoldenFlow v1.1.0\n\npip install goldenflow\ngoldenflow transform your_data.csv\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nv1.1.0 ships 76 transforms across 11 categories — including the email, identifier, and URL modules that are new in this release. If you're already using GoldenCheck for data profiling, the --from-findings flag now actually works (it was silently broken in v1.0.0 — the finding-to-transform mapping used the wrong check names).\n\nFull release notes: v1.1.0 on GitHub\n\nOriginally published at https://bensevern.dev",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "column",
+      "dataengineering",
+      "datascience",
+      "datum",
+      "dot",
+      "emoji",
+      "fullscreen",
+      "gmail/googlemail",
+      "goldencheck",
+      "goldenflow",
+      "goldenmatch",
+      "great britain",
+      "html",
+      "mac",
+      "mode",
+      "nlp",
+      "null",
+      "python",
+      "ssn",
+      "transform",
+      "transformspec",
+      "tutorial",
+      "united kingdom",
+      "united states"
+    ],
+    [
+      "dataengineering",
+      "datascience",
+      "python",
+      "tutorial"
+    ]
+  ]
+}

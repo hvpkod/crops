@@ -1,0 +1,37 @@
+{
+  "id": 8507,
+  "source": "Hacker News",
+  "title": "Bourbon waste could provide next-gen supercapacitor components",
+  "url": "https://spectrum.ieee.org/supercapacitor-electrodes-bourbon-waste",
+  "published_at": "2026-03-31T18:44:51Z",
+  "fetched_at": "2026-04-04T00:00:37.977726+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47591707\">Comments</a>",
+  "full_text": "Kentucky’s bourbon industry produces vast quantities of waste grain that is costly to transport and process. Researchers have now found a way to turn that by-product into high-performance energy-storage materials with potential applications in electric vehicles and large-scale grid storage.\n\nMore than 95 percent of all bourbon whiskey is made in Kentucky. For each barrel of bourbon, the industry also produces between six and 10 times as much “stillage”—a slurry of spent grain and water. This is normally sold to farmers as a livestock feed or soil additive, but it needs to be dried out first to reduce the weight and make it easier to process.\n\nThis is a major burden on distilleries, says Josiel Barrios Cossio, a graduate student in the University of Kentucky’s chemistry department. It either requires a lot of time and space to dry the stillage out via evaporation, or an expensive heating process. He and his colleagues have demonstrated that they can instead directly convert the wet stillage into useful carbon materials that can be used to make electrodes for batteries and supercapacitors.\n\nRELATED: 4 Weird Things You Can Turn Into a Supercapacitor\n\nIn research presented at the spring meeting of the American Chemical Society in Atlanta today, Barrios Cossio showed that the carbon materials could be used to create supercapacitors that match or exceed the energy density of commercial devices, and hybrid lithium-ion supercapacitors that can store up to 25 times as much energy as conventional designs. While the work is just a proof-of-concept, Barrios Cossio says, it could ultimately allow distilleries to turn a waste stream into a source of profit.\n\n“And it’s a win-win scenario, because we can potentially have a more renewable and abundant biomass source, or feedstock, to produce these materials that are every day more in demand from the car industry and renewable energy applications,” he says.\n\nInnovative Energy-Storage Solutions\n\nBarrios Cossio first conceived of the idea while taking part in a research traineeship run by the U.S. National Science Foundation aimed at finding solutions to problems related to water, energy, and food systems. After visiting several distilleries and seeing the scale of the waste produced, as well as the challenges these businesses face in disposing of it, he began thinking of ways to put the stillage to more productive use.\n\nHe discovered a group at the Friedrich Schiller University Jena, in Jena, Germany, that had developed a process for converting waste grain from beer breweries into electrode materials for energy-storage devices. Barrios Cossio then spent a summer internship at the lab to learn about their techniques.\n\nAfter returning to the United States, Barrios Cossio contacted several distilleries to source some stillage to experiment with and soon got a response from the Wilderness Trail Distillery in Danville, Kentucky. “I asked them, ‘Can I take a gallon of stillage?’” he says. “They replied to me some days later saying, ‘Yeah, you are welcome to take it. I would prefer that you take 10,000 gallons and get rid of the stillage from that day.’”\n\n University of Kentucky researchers developed supercapacitor electrodes using bourbon distillery waste that can store more energy per kilogram than commercial devices.Josiel Barrios Cossio\n\nTo turn the stillage into useful materials, the researchers relied on a process called hydrothermal carbonization. This involves heating the wet slurry at high pressure to create a fine black carbon powder called hydrochar. One benefit of the process, says Barrios Cossio, is that the high water content of the stillage helps generate the pressure required to power the conversion.\n\nThe resulting hydrochar was then used to create two different high-value carbon materials. In one experiment, the team combined the hydrochar with potassium hydroxide and heated the mixture to around 800 °C, creating a material called activated carbon. This material is extremely porous, which means it can have a surface area higher than 1,000 square meters per gram, says Barrios Cossio. That makes it ideal for creating high-capacity supercapacitors, which store energy as charged ions on the surface of the electrode material.\n\nThe team showed that a coin-sized double-layer capacitor built using their hydrochar-derived electrodes could store up to 48 watt hours per kilogram—on par with commercially available supercapacitors.\n\nThe team also showed that they could create “hard carbon” by heating their hydrochar in a furnace at 200 °C. This material has a similar structure to graphite, which is made up of orderly stacks of single-atom-thick graphene sheets. Unlike graphite, however, in hard carbon the sheets are arranged more haphazardly. This leads to many small pores and defects, which are ideal for storing alkali metal ions, such as lithium and sodium, commonly used in batteries.\n\nBarrios Cossio used their hydrochar-derived hard carbon to create a batterylike electrode infused with lithium ions, and then combined this with an electrode made of activated carbon to produce a hybrid supercapacitor. The device represents a balance between the high-energy capacity of batteries and the fast discharging speeds of capacitors, which Barrios Cossio says could be particularly useful for applications like electric vehicles and grid stabilization.\n\nAt present, the devices are just a proof-of-concept. Barrios Cossio admits that scaling up the process to industrial levels will require considerable refinement. The team is also currently conducting a techno-economic analysis to assess whether the approach is commercially viable. But project supervisor Marcelo Guzman, a professor of chemistry at the University of Kentucky, says it could be a promising and sustainable way to meet the growing demand for energy storage.\n\n“Kentucky is a state that has been investing since 2019 heavily in trying to develop an industry for batteries for cars,” he says. “There has been billions of dollars going into that sector, so there is going to be a big need for material supply. We think we came on board with that problem at the right time, in the right place, and we could have materials that could be really interesting to the battery industry.”\n\nFrom Your Site Articles\n\nRelated Articles Around the Web",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "atlanta",
+      "barrios",
+      "carbon",
+      "climate",
+      "cossio",
+      "danville",
+      "distillery",
+      "electrode",
+      "energy",
+      "germany",
+      "innovative energy-storage solutions",
+      "jena",
+      "kentucky",
+      "material",
+      "researcher",
+      "stillage",
+      "the united states",
+      "university of kentucky",
+      "waste"
+    ],
+    []
+  ]
+}

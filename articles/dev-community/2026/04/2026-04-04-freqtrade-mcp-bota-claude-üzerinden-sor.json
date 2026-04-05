@@ -1,0 +1,40 @@
+{
+  "id": 8646,
+  "source": "DEV Community<",
+  "title": "freqtrade-mcp: Bota Claude Üzerinden Sor",
+  "url": "https://dev.to/furkankoykiran/freqtrade-mcp-bota-claude-uzerinden-sor-2me8",
+  "published_at": "2026-04-04T14:14:52Z",
+  "fetched_at": "2026-04-04T14:40:36.692454+00:00",
+  "author": "Furkan Köykıran",
+  "summary": "<p>Freqtrade botu çalıştırıyorum. Stratejim var, bot işini yapıyor, benim müdahaleye gerek yok. Teorikte.</p>\n\n<p>Pratikte gece 23'te ekrana bakıyorum.</p>\n\n<p>Bir şey kaybetmiş miyim? Yoksa bir fırsat mı kaçtı? Bot kapanmış mıdır? Aynı bakiyeyi görüyorum ama \"acaba\" duygusu geçmiyor. FreqUI'yı açıyorum, sekmelere tıklıyorum, rakamları görüyorum, kapatıyorum. On beş dakika sonra tekrar açıyorum.</p>\n\n<p>Bu süreci kısaltmak için <a href=\"https://github.com/furkankoykiran/freqtrade-mcp\" rel=\"noopener noreferrer\">@furkankoykiran/freqtrade-mcp</a>'yi yazdım — Freqtrade'in REST API'sini Claude'a açan, 15 araçlık bir TypeScript MCP sunucusu. Claude Desktop, Cursor, Cline, <a href=\"https://modelcontextprotocol.io\" rel=\"noopener noreferrer\">Model Context Protocol</a> konuşan her şeyle çalışıyor.</p>\n\n<p>Artık FreqUI açmak yerine Claude'a soruyorum. Cevap geliyor. Geçiyorum.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-d",
+  "full_text": "Freqtrade botu çalıştırıyorum. Stratejim var, bot işini yapıyor, benim müdahaleye gerek yok. Teorikte.\n\nPratikte gece 23'te ekrana bakıyorum.\n\nBir şey kaybetmiş miyim? Yoksa bir fırsat mı kaçtı? Bot kapanmış mıdır? Aynı bakiyeyi görüyorum ama \"acaba\" duygusu geçmiyor. FreqUI'yı açıyorum, sekmelere tıklıyorum, rakamları görüyorum, kapatıyorum. On beş dakika sonra tekrar açıyorum.\n\nBu süreci kısaltmak için @furkankoykiran/freqtrade-mcp'yi yazdım — Freqtrade'in REST API'sini Claude'a açan, 15 araçlık bir TypeScript MCP sunucusu. Claude Desktop, Cursor, Cline, Model Context Protocol konuşan her şeyle çalışıyor.\n\nArtık FreqUI açmak yerine Claude'a soruyorum. Cevap geliyor. Geçiyorum.\n\nFreqtrade — artık açmak zorunda kalmadan da bilgi alabilirsin.\n\n \n \n Neye Yarıyor\n\n \n \n Portföy Durumu\n\nGece 23'teki sorular genellikle bunlar:\n\n\"Bu ay net pozitif miyim, yoksa bakmamak mı lazım?\"\n\n\"Şu an ne kadar USDT açık pozisyonda, ne kadarı boşta bekliyor?\"\n\n\"Hangi çiftler iyi gidiyor?\"\n\nget_profit_stats, get_balance, get_performance bunları karşılıyor. Claude ham JSON'ı okunaklı hale getiriyor. Sayıları kendin çözmeye çalışmak zorunda kalmıyorsun.\n\n \n \n Pozisyonlar\n\n\"Açık işlemler ne durumda, zararda olan var mı?\"\n\n\"42 numaralı işlem — açılış tarihi ne, şu anki K/Z ne?\"\n\n\"Son 10 kapanan işlemi göster.\"\n\nBot aynı anda onlarca pozisyon taşıyabiliyor. Her satırı kendin okumak yerine Claude'a sormak çok daha hızlı. Sonuç doğrudan geliyor.\n\n \n \n Piyasa Verisi\n\n\"BTC/USDT 4 saatlik, son 50 mum.\"\n\n\"ETH/USDT şu an 1 saatlikte nasıl görünüyor?\"\n\nget_market_data canlı OHLCV verisini doğrudan borsadan çekiyor. Claude grafiğe bakıp bir yorum yapabilir. Ne yapacağın sana kalmış.\n\nFreqtrade'in analiz ekranı — MCP sunucusu da aynı veriyi anlık çekiyor.\n\n \n \n Liste Yönetimi\n\n\"LUNA/USDT'yi kara listeye ekle.\"\n\n\"Beyaz listede ne var? BNB/BTC'yi kara listeden çıkar.\"\n\nNormalde ya config dosyasını editliyorsun ya da FreqUI'da menüler arasında geziniyorsun. Şimdi tek cümle.\n\n \n \n Manuel İşlem\n\n\"Şu an 100 USDT ETH al.\"\n\n\"BTC/USDT'de 50 USDT ile short aç.\"\n\n\"7 numaralı işlemi kapat.\"\n\nexecute_trade ve force_exit_trade strateji beklemeden anında çalışıyor.\n\nÖnemli: Gerçek borsa, gerçek para, geri alınmıyor. \"Dikkatli ol\" burada gerçekten önemli. Onay ekranı yok, borsa \"test ediyordum\" demeyi tanımıyor.\n\n \n \n Bot Yönetimi\n\n\"Botu durdur, config değiştirecektim.\"\n\n\"Yeniden başlatmadan config'i yenile.\"\n\n\"Bot son ne zaman çalıştı, hâlâ ayakta mı?\"\n\nget_bot_info sürüm ve sağlık verisini bir arada veriyor. Botun gerçekten çalışıp çalışmadığını öğrenmek için FreqUI açmana gerek kalmıyor.\n\n \n \n Kurulum\n\nFreqtrade config.json içinde REST API'yi etkinleştir (varsayılan olarak kapalı gelir), ardından Claude Desktop config'ine ekle:\n\n{\n \"mcpServers\": {\n \"freqtrade\": {\n \"command\": \"npx\",\n \"args\": [\"-y\", \"@furkankoykiran/freqtrade-mcp\"],\n \"env\": {\n \"FREQTRADE_API_URL\": \"http://127.0.0.1:8080\",\n \"FREQTRADE_USERNAME\": \"Freqtrader\",\n \"FREQTRADE_PASSWORD\": \"YourPassword\"\n }\n }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nClaude Desktop'ı yeniden başlat. 15 araç hazır, build adımı yok.\n\n \n \n Araçlar\n\nKategori\nAraçlar\n\nHesap\n\nget_profit_stats, get_balance, get_performance\n\nİşlemler\n\nget_open_trades, get_trade, get_trade_history\n\nPiyasa Verisi\nget_market_data\n\nÇift Listeleri\n\nget_whitelist, get_blacklist, add_to_blacklist, remove_from_blacklist\n\nİşlem Açma\n\nexecute_trade, force_exit_trade\n\nBot Yönetimi\n\nstart_bot, stop_bot, reload_config, get_bot_info, get_locks, delete_lock\n\n \n \n Sonuç\n\nTemelde şunu çözmek istedim: FreqUI'yı açmadan bota bakabileyim. REST API zaten oradaydı, sadece arayüzün arkasına gömülüydü.\n\nArtık Claude'a soruyorum. O söylüyor. Geçiyorum.\n\nPek tabii \"acaba değişmiş mi\" duygusu hâlâ geçmiyor, ama en azından sormak kolaylaştı.\n\nProje açık kaynak ve MIT lisanslı. Freqtrade REST API kurulumu dahil tam kılavuz README'de.\n\ngithub.com/furkankoykiran/freqtrade-mcp\n\nBu yazı DevTo-MCP aracılığıyla DEV.to'ya gönderilmiştir.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "@furkankoykiran",
+      "artık",
+      "aynı",
+      "claude",
+      "cursor",
+      "eth/usdt",
+      "freqtrade",
+      "freqtrade'in",
+      "gerek",
+      "gerçek",
+      "k/z",
+      "mcp",
+      "okumak",
+      "pozisyonlar",
+      "rest",
+      "typescript",
+      "usdt",
+      "yoksa",
+      "yönetimi",
+      "çok"
+    ],
+    [
+      "typescript"
+    ]
+  ]
+}

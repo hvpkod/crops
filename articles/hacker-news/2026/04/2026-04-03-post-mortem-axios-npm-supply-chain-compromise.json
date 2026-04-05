@@ -1,0 +1,40 @@
+{
+  "id": 8212,
+  "source": "Hacker News",
+  "title": "Post Mortem: axios NPM supply chain compromise",
+  "url": "https://github.com/axios/axios/issues/10636",
+  "published_at": "2026-04-03T00:00:19Z",
+  "fetched_at": "2026-04-03T01:20:37.769643+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47621792\">Comments</a>",
+  "full_text": "Post Mortem: axios npm supply chain compromise\n\nDate: March 31, 2026\n\nAuthor: Jason Saayman\n\nStatus: Remediation in progress\n\nOn March 31, 2026, two malicious versions of axios (1.14.1 and 0.30.4) were published to the npm registry through my compromised account. Both versions injected a dependency called plain-crypto-js@4.2.1 that installed a remote access trojan on macOS, Windows, and Linux.\n\nThe malicious versions were live for about 3 hours before being removed.\n\nAre you affected?\n\nCheck your lockfile:\n\ngrep -E \"axios@(1\\.14\\.1|0\\.30\\.4)|plain-crypto-js\" package-lock.json yarn.lock 2>/dev/null\n\nIf anything comes back, treat that machine as compromised:\n\nDowngrade to axios@1.14.0 (or 0.30.3 for 0.x users)\n\nDelete node_modules/plain-crypto-js/\n\nRotate every secret, token, and credential on that machine\n\nCheck your network logs for connections to sfrclak[.]com or 142.11.206.73 on port 8000\n\nIf this happened on a CI runner, rotate any secrets that were injected during the affected build\n\nIf you were already pinned to a clean version and didn't run a fresh install between 00:21 and 03:15 UTC on March 31, you're fine.\n\nFor detailed remediation guidance, including CI/CD-specific steps, see:\n\nWhat happened\n\nThe attacker gained access to the lead maintainer's PC through a targeted social engineering campaign and RAT malware. This gave them access to the npm account credentials, which they used to publish the malicious versions.\n\nThe attack followed patterns documented in similar campaigns targeting open source maintainers.\n\nResolution\n\nComplete wipe of all lead maintainer devices as well as resetting of all credentials. This includes all accounts irrespective of platform, both personal and all other capacities.\n\nWhat's changing\n\nTo prevent this from happening again, these are the changes being made:\n\nAction\nType\n\nReset of all devices and credentials\nPrevention\n\nImmutable release setup\nPrevention\n\nProper adoption of OIDC flow for publishing\nPrevention\n\nImprovement of overall security posture\nPrevention\n\nUpdating of all GitHub actions to adopt best practices\nPrevention\n\nThis list is not the end. We will continue actively working on improving security beyond these items.\n\nAttack Timeline\n\nI don't have an exact timeline for when the initial compromise occurred, but this is the sequence of events for the package itself:\n\nAbout 2 weeks before March 31: social engineering campaign initiated against the lead maintainer\n\nMarch 30, 05:57 UTC: plain-crypto-js@4.2.0 published to npm\n\nMarch 31, 00:21 UTC: axios@1.14.1 published with plain-crypto-js@4.2.1 injected\n\nMarch 31, around 01:00 UTC: axios@0.30.4 published with the same payload\n\nMarch 31, around 01:00 UTC: first external detections\n\nMarch 31, around 01:00 UTC: community members file issues reporting the compromise. The attacker deletes them using the compromised account.\n\nMarch 31, 01:38 UTC: axios collaborator DigitalBrainJS opens PR chore(ci): add deprecate action; #10591 to deprecate the compromised versions, flags the deleted issues to the community, and contacts npm directly\n\nMarch 31, 03:15 UTC: malicious versions removed from npm\n\nMarch 31, 03:29 UTC: plain-crypto-js removed from npm\n\nFor detailed technical timelines:\n\nLessons learned\n\nWe are actively investigating how unauthorized access was obtained and reviewing all aspects of our security posture and access controls. While we do not have confirmed details to share at this time, this incident reinforces the need for continuous monitoring, strong account protections, and vigilance across both project infrastructure and individual maintainer environments.\n\nWe will continue to strengthen our practices in alignment with industry best practices and in collaboration with groups such as the OpenJS Security Working Group.\n\nSecurity posture should be continuously monitored and improved. Specifically from this incident:\n\nPublishing directly from a personal account was a risk that could have been avoided. The OIDC flow and immutable release setup we are now adopting should have been in place before this happened.\n\nThere was no automated way to detect an unauthorized publish. Detection depended entirely on the community noticing.\n\nOpen source maintainers with high-impact packages are active targets for sophisticated social engineering. Hyper vigilance is needed both on the registry and in a personal capacity.\n\nSummary for broarder audience\n\nWe can confirm that two compromised versions of Axios were briefly made available through a widely used software download system due to unauthorized access to the lead maintainer's account, not a change to the underlying code.\n\nWe are working with the companies that operate this system, along with security experts, to investigate and contain the issue. Organizations that installed these versions should remove them immediately and treat affected systems as potentially compromised, including rotating any sensitive credentials.\n\nThis was the result of a compromised lead maintainer's account, and we are actively investigating how access was obtained. We do not have confirmed details to share at this time.\n\nAcknowledgments\n\nThanks to @DigitalBrainJS for acting fast when the compromised account had higher permissions than his own and for getting npm to take action. Thanks to Open Source Community and the npm security team for their fast response.\n\nThe malicious versions have been removed from npm and are no longer infecting users. The immediate incident is resolved. We are actively working on the security improvements listed above to prevent this from happening again.\n\nI'll update this as the investigation progresses. Questions welcome in this thread.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "access",
+      "actively",
+      "axios",
+      "compromise",
+      "delete",
+      "github",
+      "linux",
+      "malicious",
+      "march",
+      "npm",
+      "post mortem",
+      "prevention",
+      "prevention\n\nimprovement",
+      "prevention\n\nupdating",
+      "publish",
+      "security",
+      "sfrclak[.]com",
+      "utc",
+      "version",
+      "windows"
+    ],
+    [
+      "npm"
+    ]
+  ]
+}

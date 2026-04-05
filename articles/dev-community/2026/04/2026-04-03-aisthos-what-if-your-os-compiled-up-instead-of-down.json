@@ -1,0 +1,44 @@
+{
+  "id": 8349,
+  "source": "DEV Community<",
+  "title": "AisthOS: What if your OS compiled UP instead of down?",
+  "url": "https://dev.to/desve/aisthos-what-if-your-os-compiled-up-instead-of-down-1glp",
+  "published_at": "2026-04-03T14:41:16Z",
+  "fetched_at": "2026-04-03T15:00:26.985792+00:00",
+  "author": "Vladimir Desyatov",
+  "summary": "<p>Every operating system you've ever used does the same thing: it takes your intent and compiles it <strong>down</strong> into hardware signals.</p>\n\n<p>What happens if you reverse that?</p>\n\n<h2>\n  \n  \n  The idea\n</h2>\n\n<p>Take raw sensor data — video, audio, accelerometer readings — and compile it <strong>upward</strong> into structured knowledge about the world. Not raw pixels. Not audio waveforms. Structured, anonymized semantic metadata.</p>\n\n<p>We call these units <strong>Sparks</strong>. A Spark might contain \"hand raised to 45 degrees, facial expression: surprise\" — but never the actual photo. Raw data exists only in volatile memory during processing and is deleted immediately.</p>\n\n<p>This is <a href=\"https://github.com/aisthos/aisthos\" rel=\"noopener noreferrer\">AisthOS</a> (from Greek <em>aisthesis</em> — perception). A Perception Operating System.</p>\n\n<h2>\n  \n  \n  Why build this?\n</h2>\n\n<p>Because the AI industry is hitting four walls simultaneously:</p>\n\n<p><strong>Wall 1",
+  "full_text": "Every operating system you've ever used does the same thing: it takes your intent and compiles it down into hardware signals.\n\nWhat happens if you reverse that?\n\n \n \n The idea\n\nTake raw sensor data — video, audio, accelerometer readings — and compile it upward into structured knowledge about the world. Not raw pixels. Not audio waveforms. Structured, anonymized semantic metadata.\n\nWe call these units Sparks. A Spark might contain \"hand raised to 45 degrees, facial expression: surprise\" — but never the actual photo. Raw data exists only in volatile memory during processing and is deleted immediately.\n\nThis is AisthOS (from Greek aisthesis — perception). A Perception Operating System.\n\n \n \n Why build this?\n\nBecause the AI industry is hitting four walls simultaneously:\n\nWall 1: Training data is running out. The web corpus that fed GPT-3/4 and LLaMA is exhausted. Epoch AI estimates high-quality public text will be fully consumed between 2026 and 2032.\n\nWall 2: Synthetic data causes model collapse. Shumailov et al. proved in Nature (2024) that training on AI-generated data causes irreversible degradation. Even mixing real and synthetic data doesn't fix it.\n\nWall 3: Annotation is manual and expensive. Tesla pays operators $24–48/hr to collect training data for Optimus — people in helmets with five cameras. The tools for continuous streaming annotation from live sensors don't exist.\n\nWall 4: GPUs and electricity are in shortage. H100 costs $25–40K with a 4–8 month waitlist. Data centers consumed 415 TWh in 2024; the IEA projects 945 TWh by 2030. Several U.S. states have imposed moratoriums on new data center construction.\n\n \n \n Three formalisms\n\nAisthOS rests on three concepts:\n\nTemplate — what to extract. A multimodal schema: T = (M, E, F, R) where M = modalities, E = entities, F = format, R = cross-modal relationships. Unlike Avro or Protobuf, Template fields are \"which knowledge to extract,\" not \"which bytes to save.\"\n\nFilter — when to extract. Semantic triggers, not numerical thresholds. Not \"temperature > 30°C\" but \"the mother said 'time to feed.'\"\n\nSpark — the result. A unit of anonymized knowledge (~200 bytes). Contains semantics, not data. Privacy-by-design as an architectural decision, not a policy checkbox.\n\nTogether they form the Perception Compiler.\n\n \n \n Does it actually work on real hardware?\n\nYes. Today.\n\nDevice\nChip\nFPS\nPower\n\nSmart glasses\nGAP9 RISC-V\n18 fps\n62.9 mW (9.3h battery)\n\nDashcam\nAmbarella CV72S\n4×5MP + AI\n<3 W\n\nRPi5 + Hailo-8L\n13 TOPS\n~120 fps (batch=8)\n4–5 W\n\nFull pipeline on RPi5:\n\ncapture(5ms) → detect(8ms) → classify(3ms) → filter(1ms) → spark(2ms) = 19ms → 52 fps\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe compression ratio: 1 second of 4K video (H.265) ≈ 2–3 MB. One Spark ≈ 200 bytes. That's over 10,000× reduction.\n\nA terabyte drive would hold Sparks from 16 years of continuous operation.\n\n \n \n Why not just use the cloud?\n\nBecause the math doesn't work anymore:\n\nCentralized GPU\nAisthOS (Edge)\n\nNode cost\nH100: $25–40K\nDevice: $70–200 (already purchased)\n\nShortage\nHBM +20%, 4–8 month wait\nBillions of devices already exist\n\nEnergy\nData centers: 415 → 945 TWh by 2030\n60 mW – 30 W per device\n\nPrivacy\nData goes to cloud\nData never leaves device\n\nScaling\nLinear cost increase\n+1 user = +1 free processor\n\nA million AisthOS devices = a million processors working for free. Each already paid for, deployed, and powered. Research shows 80% edge / 20% cloud delivers >75% cost savings.\n\nAnd the energy crisis is real: moratoriums on new data centers in Virginia, Georgia, Vermont. Dublin banned new grid connections. Companies are planning nuclear reactors for AI. AisthOS uses compute that society already manufactured.\n\n \n \n AisthOS Inside™: proving privacy, not promising it\n\nAny manufacturer can claim \"we respect your privacy.\" AisthOS Inside™ is an open certification standard — like Wi-Fi Certified — that makes privacy verifiable.\n\nSeven principles: no raw data storage, Sparks-only output, no PII, user sovereignty, visible indicator, no hidden modes, open audit.\n\nThe code is MIT (free). The certification mark requires passing tests. Four levels from free self-certification to enterprise.\n\nWe identified 6 security threat types (4 specific to Perception OS):\n\nTemplate Injection — fixed ontology schemas, max 8 fields, no free text\n\nFilter Surveillance — max 3 attributes, person-specific banned, entropy check\n\nPhysical Prompt Injection — text quarantine, dual PII detection, 95% fail-safe\n\nAdversarial PII Bypass — cascade detection across multiple architectures\n\nFull security analysis: Security Annex\n\n \n \n Where this is going\n\nNear term: companion AI robots, dashcam training data, retail behavior analytics, smart glasses (solving the Google Glass privacy problem).\n\nLong term: automated scientific discovery. Systems like AI-Newton (2025) can derive physical laws from structured data. AisthOS provides the missing perception layer — automatic conversion of real experiments into structured input.\n\nImagine a thousand devices observing physical phenomena and generating Sparks from which AI extracts patterns. That's the direction.\n\n \n \n Try it / contribute\n\nAisthOS is in early development. We're looking for:\n\nPrivacy/security researchers to review our threat model\n\nEdge AI engineers to test on new hardware\n\nCommunity members to discuss the certification standard\n\nAnyone to comment, critique, and challenge our assumptions\n\nGitHub: github.com/aisthos/aisthos\n\nWebsite: aisthos.dev\n\nLicense: MIT\n\nBuilt by Vladimir Desyatov with AI-assisted development. The collaborative process itself demonstrates the AisthOS philosophy: AI as a transparent tool that amplifies human capability.\n\nIf you're an arXiv author in cs.AI and willing to endorse a new submission, I'd be grateful — reach out via GitHub Issues.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "aisthos",
+      "certification",
+      "datum",
+      "device",
+      "edgeai",
+      "georgia",
+      "iea",
+      "node",
+      "opensource",
+      "perception",
+      "perception operating system",
+      "privacy",
+      "protobuf",
+      "security",
+      "spark",
+      "sparks",
+      "template",
+      "training",
+      "u.s.",
+      "virginia",
+      "wall"
+    ],
+    [
+      "edgeai",
+      "node",
+      "opensource"
+    ]
+  ]
+}

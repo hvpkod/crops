@@ -1,0 +1,38 @@
+{
+  "id": 8661,
+  "source": "Slashdot",
+  "title": "The Document Foundation Removes Dozens of Collabora Developers",
+  "url": "https://news.slashdot.org/story/26/04/04/0334217/the-document-foundation-removes-dozens-of-collabora-developers?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-04T16:34:00Z",
+  "fetched_at": "2026-04-04T16:40:20.527093+00:00",
+  "author": "EditorDavid",
+  "summary": "Long-time GNOME/OpenOffice.org/LibreOffice contributor\nMichael Meeks is now general manager of Collabora Productivity. And earlier this month he complained when LibreOffice decided to bring back its LibreOffice Online project, as reported by Neowin, which had been inactive since 2022. After the original project went dormant &mdash; to which Collabora was a major contributor &mdash; they forked the code and created their own product, Collabora Online. \n\nBut this week Meeks blogged about even more changes, writing that the Document Foundation (the nonprofit behind LibreOffice) \"has decided to eject from membership all Collabora staff and partners.\nThat includes over thirty people who have contributed faithfully to LibreOffice for many years.\" Meeks argues the ejections were \"based on unproven legal concerns and guilt by association.\"\n\nThis includes seven of the top ten core committers of all time (excluding release engineers) currently working for Collabora Productivity. The move is the ",
+  "full_text": "Long-time GNOME/OpenOffice.org/LibreOffice contributor\nMichael Meeks\n\n is now general manager of Collabora Productivity. And earlier this month he complained when LibreOffice decided to bring back its LibreOffice Online project, as reported by Neowin\n\n, which had been inactive since 2022. After the original project went dormant — to which Collabora was a major contributor — they forked the code and created their own product, Collabora Online. \n\nBut this week Meeks blogged about even more changes\n\n, writing that the Document Foundation (the nonprofit behind LibreOffice) \"has decided to eject from membership all Collabora staff and partners.\nThat includes over thirty people who have contributed faithfully to LibreOffice for many years.\" Meeks argues the ejections were \"based on unproven legal concerns and guilt by association.\"\n\nThis includes seven of the top ten core committers of all time (excluding release engineers) currently working for Collabora Productivity. The move is the culmination of TDF losing a large number of founders from membership over the last few years with: Thorsten Behrens, Jan 'Kendy' Holesovsky, Rene Engelhard, Caolan McNamara, Michael Meeks, Cor Nouws and Italo Vignoli no longer members. Of the remaining active founders, three of the last four are paid TDF staff (of whom none are programming on the core code). \n\nThe blog It's FOSS calls it \"LibreOffice Drama\n\n.\" They've confirmed the removals happened, also noting recently adopted Community Bylaws\n\n requiring members to step down if they're affiliated with a company in an active legal dispute with the Foundation. But The Documentation Foundation \"also makes clear that a membership revocation is not a ban from contributing, with the project remaining open to anyone, and expects Collabora to keep contributing 'when the time comes.'\" \n\nCollabora's Meeks adds in his blog post that there's \"bold and ongoing plans to create an entirely new, cut-down, differentiated Collabora Office\n\n for users that is smoother, more user friendly, and less feature dense than our Classic product (which will continue to be supported for years for our partners).\n\nThis gives a chance to innovate faster in a separate place on a smaller, more focused code-base with fewer build configurations, much less legacy, no Java, no database, web-based toolkit and more. We are excited to get executing on that.\n \n\nTo make this process easier, and to put to bed complaints about having our distro branches in TDF gerrit [for code review], and to move to self-hosted FOSS tooling we are launching our own gerrit to host our existing branch of core...\nWe will continue to make contributions to LibreOffice where that makes sense (if we are welcome to), but it clearly no longer makes much sense to continue investing heavily in building what remains of TDF's community and product for them — while being excluded from its governance. In this regard, we seem to be back where we were fifteen years ago.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "collabora",
+      "collabora productivity",
+      "community bylaws",
+      "continue",
+      "cor nouws",
+      "decide",
+      "foss",
+      "foundation",
+      "gerrit",
+      "gnome/openoffice.org/libreoffice",
+      "libreoffice",
+      "meeks",
+      "membership",
+      "neowin",
+      "opensource",
+      "remain",
+      "the document foundation",
+      "the documentation foundation"
+    ],
+    [
+      "opensource"
+    ]
+  ]
+}

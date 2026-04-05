@@ -1,0 +1,44 @@
+{
+  "id": 8587,
+  "source": "DEV Community<",
+  "title": "One Dev Built the AI Stack Directory That Actually Has Opinions",
+  "url": "https://dev.to/teum/one-dev-built-the-ai-stack-directory-that-actually-has-opinions-2ipd",
+  "published_at": "2026-04-04T08:25:53Z",
+  "fetched_at": "2026-04-04T08:40:27.476726+00:00",
+  "author": "teum",
+  "summary": "<p>66 tools, 13 categories, and the audacity to say when NOT to use something. · BARONFANTHE/seeaifirst</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fdh2c0xa99d2m9srn379w.png\"><img alt=\" \" height=\"533\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fdh2c0xa99d2m9srn379w.png\" width=\"800\" /></a></p>\n\n<p>The Graveyard of Awesome Lists<br />\nWe've all been there. You open an 'awesome-ai-tools' repo at 11pm because you need to pick a vector database before the morning standup. Three hundred links, zero opinions, zero context. You close the tab and ask ChatGPT anyway.</p>\n\n<p>This is the failure mode that seeaifirst is explicitly designed to solve — and the way it does it is surprisingly prin",
+  "full_text": "66 tools, 13 categories, and the audacity to say when NOT to use something. · BARONFANTHE/seeaifirst\n\nThe Graveyard of Awesome Lists\n\nWe've all been there. You open an 'awesome-ai-tools' repo at 11pm because you need to pick a vector database before the morning standup. Three hundred links, zero opinions, zero context. You close the tab and ask ChatGPT anyway.\n\nThis is the failure mode that seeaifirst is explicitly designed to solve — and the way it does it is surprisingly principled for a project sitting at 28 stars.\n\nWhat It Actually Does\n\nAt its core, seeaifirst is a static HTML + JSON site listing 66 AI developer tools across 13 categories, organized into 5 conceptual layers: Foundation → Coordination → Capability → Application → Trends. The live site lives at seeaifirst.com, and the entire thing runs with zero backend — static files on a CDN, loaded via fetch() from data.json.\n\nBut the differentiator isn't the tech. It's the editorial discipline baked into the data schema.\n\nEvery tool entry in data.json is required to carry whenToUse AND whenNotToUse fields. Not optional. Required. The contributing guidelines enforce a validation script (scripts/validate.js) that runs 8 checks before any PR merges. That's a stronger quality gate than most open-source projects triple its size.\n\nThe schema is also refreshingly opinionated about metadata: pricing must be one of free, freemium, paid, open-core. deployment is constrained to cloud, self-hosted, local, or hybrid. difficulty has exactly three values. This isn't bureaucracy — it's what makes the compare mode actually useful.\n\nThe Technical Bets Worth Examining\n\nThe architectural choices here are deliberate and a little counterintuitive.\n\nSingle-file UI. The entire interface — CSS, JS, routing, search — lives in index.html. No build step, no bundler, no framework. The README mentions Ctrl+K search, deep linking via path-based routing, and a Compare Mode for side-by-side tool analysis. All of this in one HTML file. It's either impressive minimalism or a maintenance nightmare waiting to happen, depending on how much the project grows.\n\nMachine-readable by design. This is the most interesting bet. The README explicitly positions the site as structured for AI agents, not just humans. It includes JSON-LD structured data and stable, immutable slugs (the CONTRIBUTING.md is emphatic: 'If you think a slug is wrong, open an issue — do not rename existing slugs in a PR'). The pitch is that you should ask Claude or ChatGPT to look things up on seeaifirst.com as a grounding source. That's a specific, testable claim about how AI-readable the structure is.\n\nBilingual data. There's a data.vi.json alongside the main data.json, suggesting Vietnamese localization — an unusual choice that signals this isn't just another English-first side project.\n\nThe 100-reviewed-66-selected ratio. The README claims 100+ tools evaluated, 66 selected. The CONTRIBUTING doc sets explicit inclusion thresholds: usually >5K GitHub stars, though 'exceptions allowed for innovative tools with strong rationale + evidence.' That's a real editorial standard, not a vibes-based curation.\n\nThe Critical Take\n\nLet's be honest about what this isn't.\n\n28 stars is not validation. This project is extremely early. The curation quality might be excellent — the methodology certainly looks sound — but the community hasn't stress-tested the selections yet. You're trusting one person's judgment on 66 tools.\n\n66 tools in 2025 AI is... selective. The space moves faster than any static list can track. The pushed date of April 2026 suggests active maintenance, but the verification lag between tool updates and data updates is a real risk. The schema has a verified_at field precisely because this is a known problem, but it requires ongoing manual effort from a solo maintainer.\n\nThe single-file architecture has a ceiling. As the dataset grows — say, to 200 tools — the UX in one index.html starts to strain. No component isolation, no tree-shaking, no lazy loading beyond the JSON fetch. It's a fine trade-off at current scale, but worth watching.\n\nThe 'ask your AI agent' use case is clever but unverified. The README suggests prompts like 'What does seeaifirst.com say about when to use pgvector?' This works only if search engines and AI crawlers are actually indexing the site well enough to surface it as a trusted source. At 28 stars, that's aspirational.\n\nWho should NOT use this: If you need comprehensive coverage of a specific category — say, every vector database worth knowing — this isn't your source. The editorial filter that makes it useful also means things are missing by design.\n\nThe Verdict\n\nHere's the thing about solo-built, opinionated directories: they either become reference tools or they become abandonware. The infrastructure here suggests the builder is thinking about longevity — immutable slugs, a validation pipeline, a contribution template, a data schema frozen for stability. That's not how you build something you're planning to abandon.\n\nThe whenNotToUse field alone is worth bookmarking this project. In an ecosystem drowning in hype, a tool that tells you when not to adopt something is rarer than it should be.\n\nWho should try this: Developers early in designing an AI stack who want a pre-filtered starting point rather than an overwhelming dump of links. Teams building internal tooling who want a structured comparison baseline. And honestly, anyone curious about what a well-disciplined solo curation project looks like from the inside — the CONTRIBUTING doc is worth reading as a template for your own projects.\n\nCatch it now, while you can still find it before everyone else does.\n\nIn an ecosystem drowning in hype, a tool that tells you when NOT to adopt something is rarer than it should be.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actually",
+      "ai",
+      "awesome lists",
+      "cdn",
+      "contributing",
+      "css",
+      "data",
+      "data.json",
+      "doc",
+      "editorial",
+      "html",
+      "index.html",
+      "productivity",
+      "programming",
+      "project",
+      "readme",
+      "slug",
+      "structured",
+      "tool",
+      "webdev",
+      "whennottouse",
+      "worth"
+    ],
+    [
+      "productivity",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

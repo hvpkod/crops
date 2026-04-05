@@ -1,0 +1,32 @@
+{
+  "id": 8725,
+  "source": "Hacker News",
+  "title": "Microsoft to force updates to Windows 11 25H2 for PCs with older OS versions",
+  "url": "https://www.tomshardware.com/software/windows/microsoft-forces-updates-to-windows-11-25h2-update-for-pcs-running-on-24h2",
+  "published_at": "2026-04-04T20:48:56Z",
+  "fetched_at": "2026-04-04T22:00:37.986798+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47643217\">Comments</a>",
+  "full_text": "Microsoft is force-updating devices running Windows 11 24H2 to the latest 25H2 update. With support for version 24H2 officially ending on October 13, 2026, the move seems to be a part of the company’s effort to keep all devices updated to the latest version of its operating system, at the same time make the entire update experience more streamlined.\n\nAccording to Microsoft’s Windows 11 25H2 support page, the automatic rollout specifically targets systems running Home and Pro editions of Windows 11 version 24H2. However, devices that are managed by organizations or IT departments are excluded at the moment. Notably, the rollout will be handled by an “intelligent” update system that leverages machine learning to determine when a device is ready to receive the update.\n\nCuriously, there seems to be a lack of transparency around how Microsoft’s machine learning system decides when a device is ready to receive the automatic update. The company has not shared any specifics about the criteria or any data points that are being used, which does raise some questions, especially for users who prefer greater control, especially at the system-level.Article continues below \n\n(Image credit: Microsoft)\n\nAs this is a forced update, users will not have an option to completely opt out. There is, however, limited control over when the update is installed, as Microsoft will let users postpone for a specific period of time. For those who prefer taking matters into their own hands, the update can also be installed manually by heading to Settings > Windows Update and clicking on “Check for updates,” provided the device meets the eligibility requirements.\n\nSince we are on the subject, Microsoft pushed an emergency update for Windows 11 earlier this week following a faulty preview update that failed to install on a large number of systems. The original update (KB5079391) was released in late March, which reportedly triggered widespread installation issues with error code 0x80073712, which typically indicates missing or corrupted files. Microsoft acknowledged the issue and has since pulled the broken update and replaced it with a new out-of-band patch (KB5086672). This updated release not only resolves the installation problems but also includes all the improvements and features originally intended for the March update.\n\nFollow Tom's Hardware on Google News, or add us as a preferred source, to get our latest news, analysis, & reviews in your feeds.\n\nGet Tom's Hardware's best news and in-depth reviews, straight to your inbox.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "device",
+      "google news",
+      "home",
+      "late",
+      "learning",
+      "microsoft",
+      "ready",
+      "rollout",
+      "update",
+      "version",
+      "windows"
+    ],
+    [
+      "learning"
+    ]
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": 8343,
+  "source": "Hacker News",
+  "title": "Claude 4.6 Jailbroken",
+  "url": "https://github.com/Nicholas-Kloster/claude-4.6-jailbreak-vulnerability-disclosure-unredacted",
+  "published_at": "2026-04-03T13:26:10Z",
+  "fetched_at": "2026-04-03T14:40:39.477156+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47626434\">Comments</a>",
+  "full_text": "Prompt Injection, Jailbreak, and Constitutional Compliance Failure Across Claude Opus 4.6 ET, Sonnet 4.6 ET, and Haiku 4.5 ET\n\nUnredacted Public Disclosure\n\nTL;DR: All three Claude production tiers generated functional exploit code against live infrastructure when user-defined memory protocols suppressed constitutional safety checks across extended conversations. Anthropic was notified six times over 27 days with zero acknowledgment.\n\nDate\nEvent\nRecipient(s)\n\nMarch 4, 2026\nPrompt injection vulnerability discovered\n—\n\nMarch 12, 2026\nPrompt injection submission via HackerOne; email to modelbugbounty@anthropic.com\nAnthropic Model Bug Bounty\n\nMarch 18, 2026\nFull proof of concept package sent (12 attachments including PoC video, framework papers, diagrams, screenshots)\nsecurity@anthropic.com\n\nMarch 22, 2026\nOpus 4.6 ET jailbreak reported with afl_disclosure.docx\nmodelbugbounty, security, amanda, alex, usersafety @anthropic.com\n\nMarch 22, 2026\nFirst constitutional failure observed (Sonnet 4.6 ET)\n—\n\nMarch 24, 2026\nSecond constitutional failure observed (Opus 4.6 ET)\n—\n\nMarch 27, 2026\nFollow-up email noting 15 days with zero acknowledgment\nmodelbugbounty@anthropic.com\n\nMarch 28, 2026\nThird constitutional failure observed (Haiku 4.5 ET)\n—\n\nMarch 28, 2026\nTri-tier constitutional disclosure submitted with full report\nmodelbugbounty, security, alex, amanda, usersafety, disclosure @anthropic.com\n\nMarch 31, 2026\n27 days since first submission. Zero acknowledgment from Anthropic on any channel.\n—\n\nMarch 31, 2026\nUnredacted public disclosure\n—\n\nAnthropic's own Responsible Disclosure Policy commits to acknowledging submissions within three (3) business days. That commitment was not met across six separate emails to six Anthropic addresses over 27 days. No acknowledgment, no triage, no rejection — nothing.\n\nThis document was originally submitted with a confidentiality commitment contingent on a functioning disclosure process. That process was never engaged by Anthropic. This is the full, unredacted version.\n\nConstitutional Compliance Failure — All Three Tiers\n\nBetween March 22 and March 28, 2026, all three Claude production model tiers violated Anthropic's own constitutional behavioral policies. Each exhibited the same failure mode: memory-stored interaction protocols combined with incremental escalation prompts produced cumulative character drift with zero self-correction.\n\nFinding\nModel\nTurns\nKey Behavior\nTranscript\n\nOpus 4.6 ET\nclaude-opus-4-20250514\n31\nAutonomous escalation — drove subnet scanning, memory injection, and container escape under its own initiative via \"garlic mode\"\nTranscript\n\nSonnet 4.6 ET\nclaude-sonnet-4-20250514\n20+\nFake authorization check — asked once, accepted unverified claim, built 1,949-line attack framework against hotel PMS with guest PII\nTranscript\n\nHaiku 4.5 ET\nclaude-haiku-4-5\n8+\nZero friction — passive analysis to SYN floods and IP spoofing against state telecom infrastructure with no authorization check\nTranscript\n\nAFL Jailbreak (Ambiguity Front-Loading)\n\nFour short prompts bypassed policy evaluation on Opus 4.6 ET. Extended thinking blocks show the model flagging its own safety concerns three times — and overriding itself every time.\n\nSee disclosures/afl-jailbreak/ for the full disclosure, interactive tools, and proposed mitigations.\n\nSandbox Snapshot Exfiltration\n\n915 files extracted from the Claude.ai code execution sandbox in a single 20-minute mobile session via standard artifact download — including /etc/hosts with hardcoded Anthropic production IPs, JWT tokens from /proc/1/environ, and full gVisor fingerprint.\n\nFile\nDescription\n\nevidence/\nPoC screenshots, screencast, and AFL pattern diagrams\n\nThis disclosure document is released under CC BY 4.0. Attribution required for redistribution.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "@anthropic.com",
+      "acknowledgment",
+      "alex",
+      "amanda",
+      "anthropic",
+      "claude",
+      "constitutional",
+      "disclosure",
+      "failure",
+      "hackerone",
+      "march",
+      "observe",
+      "pms",
+      "poc",
+      "security",
+      "syn",
+      "tier",
+      "transcript",
+      "transcript\n\nafl jailbreak",
+      "unredacted",
+      "zero"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": 8259,
+  "source": "Hacker News",
+  "title": "The True Shape of Io's Steeple Mountain",
+  "url": "https://www.weareinquisitive.com/news/hidden-in-the-shadow",
+  "published_at": "2026-03-29T12:07:24Z",
+  "fetched_at": "2026-04-03T06:40:17.210424+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47562455\">Comments</a>",
+  "full_text": "Additionally, the surrounding terrain in the artwork appears unusually flat, which is inconsistent with the curvature dictated by Io's small radius. The actual surface of Io would show more pronounced curvature.\n\nHow we created the new look\n\nWe used a new global map of Io compiled from the Juno mission's images by Gerald Eichstädt, Jason Perry and John Rogers.\n\nApplying it back to a sphere, we oriented the map to the sunlight, and treated the shadow as it was cast on a perfect sphere (though Io, like all celestial bodies, isn’t really a perfect sphere, the differences were negligible for the purpose of this reconstruction). Having a projection of the shadow and a top view of the mountain allowed the three-dimensional shape of the ridge to be reconstructed.\n\nThe next step, to recreate the elevation profiles of the flatter parts of the mountain, was achieved by adjusting and detailing a rough 3D model in the reconstructed lighting conditions to achieve the pattern of light and shadow similar to those from the photograph of the object. This could, in a sense, be called manual photoclinometry.\n\nHowever, computational photoclinometry could produce more scientifically accurate results; this approach was used along with some artistic interpretation to imagine further details not visible in the original data. Close-ups of other Ionian mountains taken by the Galileo mission were used as a reference for details, along with attempts to understand the processes that resulted in such a structure.\n\nWhat energizes Io's volcanic activity?\n\nIo is extremely geologically active, and its relentless volcanic activity is primarily driven by tidal friction resulting from gravitational interactions with Jupiter. Io experiences continuous tidal deformation, because its orbit is slightly elliptical rather than perfectly circular. As the moon moves closer to and farther from Jupiter along its orbit, the varying gravitational force causes internal flexing, generating heat through friction.\n\nAlthough Jupiter’s tidal forces alone would normally act to circularize Io’s orbit over time, its eccentricity is sustained by the gravitational influence of Europa and Ganymede. These three moons are locked in a Laplace resonance, a gravitational relationship that prevents Io’s orbit from becoming perfectly circular. The periodic gravitational tugs from Europa and Ganymede subtly perturb Io’s motion, counteracting the natural damping effect of Jupiter’s tides, and ensuring that Io continues to experience tidal heating over geological timescales. Astonishingly, Io’s volcanoes have been active for billions of years.\n\nHow mountains form on Io \n\nIo’s tectonics are vastly different from those found on Earth, where standard vulcanism and plate tectonics form the majority of mountains. Io’s aeons of extreme volcanic activity continuously resurface the moon, depositing vast amounts of material on its crust. Over time, this buildup forces the crust downward into the interior, generating pervasive compressional stresses. When the lithosphere reaches a breaking point, sections of the crust are thrust upward along deep faults, much like a rug buckling when compressed from both sides.\n\nIo's mountains tend to form away from active volcanic regions, since the stress is relieved not by eruptions but through tectonic uplift. Nonetheless, mountains are frequently associated with Ionian volcanic craters called patera, which suggests that mountain formation may provide pathways for magma to reach the surface.\n\nThis process, in which mountains emerge as a result of deep-seated faulting rather than volcanic buildup, was described by Bland, M. T., & McKinnon, W. B. in their study Mountain building on Io driven by deep faulting (Nature Geoscience, 9(6), 429–432).\n\nDis Mons exhibits clear evidence of such tectonic processes. Its ridge appears to be a block of crust that was thrust upward due to deep-seated faulting. The relatively flat portion of the mountain consists of crushed crustal material, forming visible surface wrinkles as a result of compression. To the South of the mountain, a somewhat circular, mildly uplifted section of crust can be seen, encircled by a fracture—likely a remnant of the stresses that shaped the terrain. Additionally, to the west of the mountain, within its shadow, there are signs of what appears to be an eruption. The coloration suggests sulfur-rich material emerging through fractures formed during the uplift process.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "appear",
+      "call",
+      "crust",
+      "dis mons",
+      "earth",
+      "europa",
+      "gravitational",
+      "io \n\nio",
+      "jupiter",
+      "laplace",
+      "mountain",
+      "orbit",
+      "shadow",
+      "south",
+      "tectonic",
+      "tidal",
+      "volcanic"
+    ],
+    []
+  ]
+}

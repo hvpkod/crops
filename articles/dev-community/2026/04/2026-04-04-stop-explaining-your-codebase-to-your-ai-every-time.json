@@ -1,0 +1,44 @@
+{
+  "id": 8707,
+  "source": "DEV Community<",
+  "title": "Stop Explaining Your Codebase to Your AI Every Time",
+  "url": "https://dev.to/hjarni/stop-explaining-your-codebase-to-your-ai-every-time-4klg",
+  "published_at": "2026-04-04T19:47:41Z",
+  "fetched_at": "2026-04-04T20:40:28.477689+00:00",
+  "author": "Evert",
+  "summary": "<p>Every conversation with your AI starts the same way. \"I'm building a Rails app, deployed on Hetzner, using SQLite...\" You've typed this a hundred times.</p>\n\n<p>Your AI is smart. But it has no memory. Every chat starts from zero. Your project context, your conventions, your past decisions — gone.</p>\n\n<p>What if your AI already knew all of that?                 </p>\n\n<p>Here are five notes that make that happen.                </p>\n\n<h2>\n  \n  \n  1. Your stack, saved once\n</h2>\n\n<p>Write one note with your tech stack, deployment setup, and conventions. Now every conversation starts with context.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fjifmv6hl1rzeuuw6tt8d.png\"><img alt=\"A tech stack note in Hjarni\" height=\"490\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2",
+  "full_text": "Every conversation with your AI starts the same way. \"I'm building a Rails app, deployed on Hetzner, using SQLite...\" You've typed this a hundred times.\n\nYour AI is smart. But it has no memory. Every chat starts from zero. Your project context, your conventions, your past decisions — gone.\n\nWhat if your AI already knew all of that? \n\nHere are five notes that make that happen. \n\n \n \n 1. Your stack, saved once\n\nWrite one note with your tech stack, deployment setup, and conventions. Now every conversation starts with context.\n\nNow ask: \"Write a background job that syncs user data to Stripe.\"\n\nYour AI reads the note. It knows it's Rails, knows you use Solid Queue, knows your conventions. No preamble needed.\n\n \n \n 2. Error fixes you'll hit again\n\nYou spend 45 minutes debugging a Kamal deploy. You find the fix. A week later, same error. You Google it again.\n\nSave the fix instead. Next time it happens: \"I'm getting a health check timeout on Kamal deploy. Have I seen this before?\"\n\nYour AI finds the fix immediately. Thirty seconds instead of forty-five minutes.\n\n \n \n 3. Architecture decisions with reasoning\n\nYou chose SQLite over Postgres. You went with Turbo instead of React. There were reasons. Three months later, you can't remember them.\n\nTitle: Why SQLite over Postgres \n\nSingle-server deployment on Hetzner. No connection pooling needed.\n\nLitestream for backups to S3.\n\nSimpler ops. One fewer service to manage.\n\nWill revisit if we need read replicas or concurrent writes beyond\n\nwhat WAL mode handles. \n\nWhen someone asks \"why not Postgres?\": \"Summarize our database decision and the reasoning.\" \n\nDone. No digging through old Slack threads. \n\n \n \n 4. Project rules your AI follows\n\nEvery codebase has unwritten rules. Where things go. What patterns you prefer. What to avoid. Your AI doesn't know any of them — unless you write them down. \n\nTitle: Project Conventions \n\nService objects live in app/services/.\n\nUse Minitest, not RSpec.\n\nPrefer Turbo Frames over custom JS.\n\nNo background jobs unless clearly needed.\n\nAll API responses use JSON serializers.\n\nKeep controllers thin — logic goes in models or services.\n\nNow when you ask your AI to write code, it follows your patterns. Not generic Stack Overflow patterns. \n\n \n \n 5. Code you'll reuse anyway\n\nEvery developer has code they reuse. Config patterns. Deployment scripts. Regex that took an hour to write. \n\nTitle: Snippet — Rack::Attack rate limiting \n\nconfig/initializers/rack_attack.rb\n\nRack::Attack.throttle(\"login/ip\", limit: 10, period: 60) do |req|\n\n req.ip if req.path == \"/session\" && req.post?\n\nend \n\nNext project: \"Show me how I set up rate limiting last time.\"\n\nYour AI finds the snippet. You paste and adapt. No digging through old repos. \n\n \n \n How this works\n\nYour AI can read your notes through MCP. It's a protocol that connects AI to external data. Hjarni is a note app with a built-in MCP server. \n\nNo embeddings setup. No extra system to manage. Just notes your AI can read. \n\nConnect it in two minutes: \n\nSign up at hjarni.com\n\nIn Claude or ChatGPT: add https://hjarni.com/mcp as a connector\n\nStart asking questions only your notes can answer\n\nFree tier gives you 25 notes with full MCP access. Ten notes in, your AI stops being a stranger.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "connect",
+      "decision",
+      "deployment",
+      "development",
+      "digging",
+      "follow",
+      "hetzner",
+      "kamal",
+      "know",
+      "mcp",
+      "note",
+      "postgres",
+      "productivity",
+      "react",
+      "rspec",
+      "slack",
+      "sqlite",
+      "start",
+      "turbo",
+      "turbo frames",
+      "wal"
+    ],
+    [
+      "development",
+      "productivity"
+    ]
+  ]
+}

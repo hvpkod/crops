@@ -1,0 +1,43 @@
+{
+  "id": 8564,
+  "source": "DEV Community<",
+  "title": "From Python to Laravel: Why I Built My Own IAM System Instead of Using Existing Packages",
+  "url": "https://dev.to/apurba_singh_196f99885e48/from-python-to-laravel-why-i-built-my-own-iam-system-instead-of-using-existing-packages-3a81",
+  "published_at": "2026-04-04T05:30:57Z",
+  "fetched_at": "2026-04-04T05:40:24.421108+00:00",
+  "author": "Apurba Singh",
+  "summary": "<p>As a backend developer, I’ve spent most of my career working with Python — FastAPI, Django, Flask.<br />\nI’ve always cared about one thing deeply:<br />\n👉 building systems that scale without becoming messy<br />\nBut there was one problem I kept running into… no matter the stack.</p>\n\n<p>🧠 <strong>The Problem: The “Global Role” Trap</strong><br />\nAt first, everything looks simple:<br />\n• Users<br />\n• Roles<br />\n• Permissions<br />\nBut as systems grow, things start breaking.<br />\nMost RBAC (Role-Based Access Control) packages assume:<br />\n👉 a user is either an Admin… or they aren’t.<br />\nBut real-world systems are never that simple.</p>\n\n<p><strong>A real scenario:</strong><br />\n• A user is a <strong>Manager in Branch A</strong><br />\n• The same user is a <strong>Viewer in Branch B</strong><br />\nNow ask yourself:<br />\n👉 How do you model this cleanly?</p>\n\n<p>Most of the time, we don’t.<br />\nWe write conditions like:<br />\nif ($user-&gt;role === 'manager' &amp;&amp; $branch_",
+  "full_text": "WeCoded 2026: Echoes of Experience 💜\n\n \n \n\n \n\nAs a backend developer, I’ve spent most of my career working with Python — FastAPI, Django, Flask.\n\nI’ve always cared about one thing deeply:\n\n👉 building systems that scale without becoming messy\n\nBut there was one problem I kept running into… no matter the stack.\n\n🧠 The Problem: The “Global Role” Trap\n\nAt first, everything looks simple:\n\n• Users\n\n• Roles\n\n• Permissions\n\nBut as systems grow, things start breaking.\n\nMost RBAC (Role-Based Access Control) packages assume:\n\n👉 a user is either an Admin… or they aren’t.\n\nBut real-world systems are never that simple.\n\nA real scenario:\n\n• A user is a Manager in Branch A\n\n• The same user is a Viewer in Branch B\n\nNow ask yourself:\n\n👉 How do you model this cleanly?\n\nMost of the time, we don’t.\n\nWe write conditions like:\n\nif ($user->role === 'manager' && $branch_id === 1) { ... }\n\nAnd slowly…\n\n• logic spreads everywhere\n\n• dependencies grow\n\n• and one small change breaks multiple parts of the system\n\n😵 When It Became a Problem\n\nAcross multiple projects, I saw the same pattern:\n\n• Roles started multiplying\n\n• Permissions became unclear\n\n• Debugging access issues became painful\n\nIt didn’t matter if I was using Python or Laravel.\n\n👉 The problem wasn’t the framework.\n\n👉 The problem was the model.\n\n🔄 The Turning Point\n\nWhile working on Laravel-based systems, I explored existing solutions like Spatie.\n\nThey are great — clean, simple, and widely used 👏\n\nBut for complex systems, I kept hitting limitations:\n\n• No real support for contextual authority\n\n• Difficult to manage multi-tenant permissions\n\n• Hard to model relationships between roles and scopes\n\nAt some point, I stopped trying to “work around” the problem.\n\n👉 I decided to rethink it.\n\n🚀 Building Laravel IAM\n\nInstead of focusing only on roles, I started thinking in terms of:\n\n👉 relationships + context + resolution\n\nThis led me to build:\n\nLaravel IAM (v0.2.0)\n\n⚙️ The Core Idea: The Four Levels of Truth\n\nInstead of hardcoding logic, the system resolves permissions through layered specificity:\n\n*Global *→ . (Super Admin)\n\nResource Wildcard → invoice.*\n\nAction Wildcard → *.approve\n\nAtomic Permission → invoice.approve\nThis makes permission checks:\n• predictable\n• scalable\n• easy to reason about\n\n🧩 Context Matters\n\nThe same role doesn’t mean the same thing everywhere.\n\nSo the system supports:\n\n• Tenant-based roles\n\n• Team-based roles\n\n• Branch-level permissions\n\n👉 Without turning your code into a mess\n\n💡 What I Learned\n\nThis journey taught me something important:\n\n👉 Authorization is not about roles — it’s about context\n\nAnd even more importantly:\n\n👉 Architecture matters more than framework\n\n⚙️ Under the Hood\n\nSome design decisions behind the system:\n\n• Registry Pattern → decoupled resources & actions\n\n• Flexible Role Assignment → supports IDs, slugs, or models\n\n• Scoped Middleware → supports contextual authorization\n\n• Blade Directives → clean UI permission checks\n\nAnd yes — everything is backed by a test suite simulating real workflows ✅\n\n🛠️ Open Source\n\nI’ve open-sourced the project and would genuinely love feedback:\n\n📦 https://packagist.org/packages/apurba-labs/laravel-iam\n\n💻 https://github.com/apurba-labs/laravel-iam\n\n💬 Let’s Talk\n\nHow do you handle complex permissions in your systems?\n\nHave you faced similar challenges with RBAC?\n\nThis post is part of the #WeCoded challenge — sharing real experiences from building systems across different stacks.\n\nBuilt with ☕ and logic by Apurba Labs.\n\n \n \n Laravel #PHP #Python #IAM #RBAC #SaaS #Backend #OpenSource #WeCoded #wecoded2026",
+  "tags": [
+    [
+      "&& $",
+      "1000-words",
+      "2026",
+      "building laravel iam",
+      "flask",
+      "keep",
+      "laravel",
+      "matter",
+      "n’t",
+      "opensource",
+      "permission",
+      "problem",
+      "rbac",
+      "real",
+      "role",
+      "role-based access control",
+      "saas",
+      "start",
+      "system",
+      "viewer",
+      "wecoded",
+      "wildcard",
+      "• permissions",
+      "• team"
+    ],
+    [
+      "opensource",
+      "wecoded"
+    ]
+  ]
+}

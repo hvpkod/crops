@@ -1,0 +1,37 @@
+{
+  "id": 8673,
+  "source": "DEV Community<",
+  "title": "Building a Multimodal Local AI Stack: Gemma 4 E2B, vLLM, and Hermes Agent",
+  "url": "https://dev.to/abdulhakkeempa/building-a-multimodal-local-ai-stack-gemma-4-e2b-vllm-and-hermes-agent-k8l",
+  "published_at": "2026-04-04T17:11:49Z",
+  "fetched_at": "2026-04-04T17:40:37.725796+00:00",
+  "author": "Abdul Hakkeem P A",
+  "summary": "<p>The Local AI movement just hit a massive milestone. With the release of Google's Gemma 4, 2-billion parameter models are no longer toys for simple chat. They're multimodal powerhouses purpose-built for advanced reasoning and agentic workflows.</p>\n\n<p>In this guide, we'll break down how to harness the Gemma 4 E2B (Effective 2B) model using <strong>vLLM</strong> and integrate it with the <strong>Hermes Agent</strong> for a fully local, multimodal stack.</p>\n\n<h2>\n  \n  \n  What is Gemma 4?\n</h2>\n\n<p>Google released Gemma 4 in four sizes: Effective 2B (E2B), Effective 4B (E4B), 26B Mixture of Experts, and 31B Dense. We're focused on the E2B; the one that fits on consumer hardware.</p>\n\n<p>Key capabilities:</p>\n\n<ul>\n<li>\n<strong>Multimodal from day one</strong> - all models natively process text, images, and video. The E2B and E4B edge models also support audio input for speech recognition.</li>\n<li>\n<strong>Long context</strong> - edge models like E2B feature a 128K context window.</li",
+  "full_text": "The Local AI movement just hit a massive milestone. With the release of Google's Gemma 4, 2-billion parameter models are no longer toys for simple chat. They're multimodal powerhouses purpose-built for advanced reasoning and agentic workflows.\n\nIn this guide, we'll break down how to harness the Gemma 4 E2B (Effective 2B) model using vLLM and integrate it with the Hermes Agent for a fully local, multimodal stack.\n\n \n \n What is Gemma 4?\n\nGoogle released Gemma 4 in four sizes: Effective 2B (E2B), Effective 4B (E4B), 26B Mixture of Experts, and 31B Dense. We're focused on the E2B; the one that fits on consumer hardware.\n\nKey capabilities:\n\nMultimodal from day one - all models natively process text, images, and video. The E2B and E4B edge models also support audio input for speech recognition.\n\nLong context - edge models like E2B feature a 128K context window.\n\nApache 2.0 licensed - commercially permissive, no strings attached.\n\n \n \n Why E2B + vLLM for a local agent stack?\n\nInstruction tuning — Gemma 4 excels at following system prompts, critical for an agent managing many skills.\n\nNative tool calling — function calling, structured JSON output, and native system instructions are built in, letting the agent reliably interact with tools and APIs.\n\nEfficiency — at 2B effective parameters, it leaves plenty of VRAM for the agent's KV cache, keeping response times fast even on an RTX 3060/4060.\n\n \n \n Step 1: Install vLLM\n\nYou'll need a HuggingFace account and access token, since Gemma 4 requires accepting Google's license on HF first. Then:\n\npip install uv\nuv venv && source .venv/bin/activate\nuv pip install -U vllm\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Step 2: Serve Gemma 4 E2B\n\nhf download google/gemma-4-e2b-it --local-dir ~/models/gemma-4-e2b-it\n\nvllm serve google/gemma-4-e2b-it \\\n --port 8000 \\\n --max-model-len 32768 \\\n --enable-auto-tool-choice \\\n --tool-call-parser Hermes \\\n --gpu-memory-utilization 0.85\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYour OpenAI-compatible endpoint is now live at http://localhost:8000/v1.\n\n \n \n Step 3: Install Hermes Agent\n\ncurl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Step 4: Point Hermes at your local model\n\nhermes model\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis walks you through selecting a provider. Choose Custom Endpoint and enter:\n\nBase URL: http://localhost:8000/v1\n\nModel: google/gemma-4-E2B-it\n\nThat's it. You now have a fully local, multimodal agent with 40+ built-in tools; web search, file operations, terminal access, browser automation, and more with zero cloud dependency.\n\nHave you tried Gemma 4 yet? Drop your opinion in the comments!",
+  "tags": [
+    [
+      ".venv/bin",
+      "2026",
+      "500-words",
+      "agent",
+      "ai",
+      "custom endpoint",
+      "effective",
+      "fullscreen",
+      "gemma",
+      "google",
+      "hermes",
+      "hf first",
+      "huggingface",
+      "install hermes",
+      "mcp",
+      "mode",
+      "model",
+      "multimodal",
+      "step",
+      "vllm",
+      "vram"
+    ],
+    []
+  ]
+}

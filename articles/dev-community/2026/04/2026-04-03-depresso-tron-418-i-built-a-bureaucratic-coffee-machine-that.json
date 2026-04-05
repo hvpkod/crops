@@ -1,0 +1,44 @@
+{
+  "id": 8352,
+  "source": "DEV Community<",
+  "title": "Depresso-Tron 418: I Built a Bureaucratic Coffee Machine That Cannot Make Coffee",
+  "url": "https://dev.to/greysquirr3l/depresso-tron-418-i-built-a-bureaucratic-coffee-machine-that-cannot-make-coffee-33pl",
+  "published_at": "2026-04-03T14:27:09Z",
+  "fetched_at": "2026-04-03T15:00:33.112149+00:00",
+  "author": "Nick Campbell",
+  "summary": "<p><em>This is a submission for the <a href=\"https://dev.to/challenges/aprilfools-2026\">DEV April Fools Challenge</a></em></p>\n\n<p>I want to be clear about something upfront: this server has been running in production for three days and has successfully brewed zero cups of coffee. I consider this a success.</p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p><a href=\"https://github.com/greysquirr3l/depresso-tron-418\" rel=\"noopener noreferrer\">Depresso-Tron 418</a> is an RFC 2324-compliant HTCPCP server. It implements the BREW and WHEN methods from the Hyper Text Coffee Pot Control Protocol, which is a real protocol that Larry Masinter published on April 1, 1998, and which the Internet Engineering Task Force technically never rescinded.</p>\n\n<h2>\n  \n  \n  Demo\n</h2>\n\n<p>You can try it right now at <a href=\"https://coffee.smartservices.tech\" rel=\"noopener noreferrer\">coffee.smartservices.tech</a>. I recommend going in without reading further. The experience is better cold.</p>\n\n<h2>\n  \n  \n  Code\n</h",
+  "full_text": "This is a submission for the DEV April Fools Challenge\n\nI want to be clear about something upfront: this server has been running in production for three days and has successfully brewed zero cups of coffee. I consider this a success.\n\n \n \n What I Built\n\nDepresso-Tron 418 is an RFC 2324-compliant HTCPCP server. It implements the BREW and WHEN methods from the Hyper Text Coffee Pot Control Protocol, which is a real protocol that Larry Masinter published on April 1, 1998, and which the Internet Engineering Task Force technically never rescinded.\n\n \n \n Demo\n\nYou can try it right now at coffee.smartservices.tech. I recommend going in without reading further. The experience is better cold.\n\n \n \n Code\n\n \n \n\n \n\nDepresso-Tron 418\n\nAn RFC 2324-compliant HTCPCP server that will earnestly refuse to make you coffee.\n\nApril Fools Challenge entry · #418challenge · #devchallenge\n\nLive demo: coffee.smartservices.tech\n\nThe Anti-Value Proposition\n\nMost applications help you manage your time. Depresso-Tron 418 actively wastes it by forcing you to navigate a multi-stage, bureaucratically-correct approval pipeline in order to \"brew\" a digital cup of coffee that:\n\ncannot be consumed\n\ndoes not exist as a file\n\nwill almost certainly be refused\n\nEvery engineer knows that the true value of a system is proportional to how many hoops it makes you jump through. By that metric, this is the most valuable software ever written.\n\nFeatures (All Load-Bearing)\n\nRFC 2324 Compliance\n\nThe server implements the BREW and WHEN methods per the Hyper Text Coffee Pot Control Protocol. WHEN controls the milk pour once the digital brew has been started. Using http:// instead of coffee:// does not trigger a…\n \n \n\n \n \n How I Built It\n\nGo 1.25, net/http, HTMX 2.0.4 with SSE extension, SQLite via modernc.org/sqlite (pure Go, no CGO), Gemini API via github.com/google/generative-ai-go. Everything — templates, static files, the teapot image — is compiled into the binary via //go:embed. The Docker image is 27MB on a scratch base.\n\n \n \n Prize Category\n\nBest Google AI Usage, Best Ode to Larry Masinter, or Community Favorite\n\n \n \n Additional Details\n\n \n \n The \"Feature\" List\n\nGetting coffee out of this server requires completing a multi-stage approval pipeline:\n\n1. Submit a Brew Permit\n\nThe server takes your application, thinks about it, and may: approve it, reject it, or enter an existential Identity Crisis and refuse to process anything until it figures out what it even is. There's a 15% chance at any time that it spontaneously enters Teapot Mode, where all BREW requests return 418 until it recovers.\n\n2. Pass the Gemini Bean Check\n\nYou describe your coffee beans to the AI barista. The barista is powered by gemini-2.5-flash and is constitutionally incapable of approving anything described as \"Folgers,\" \"instant,\" \"K-cup,\" \"store-bought,\" or \"decaf.\" Describing your beans as decaf triggers an immediate categorical refusal before the API call is even made. The server doesn't negotiate on decaf.\n\nApproval requires at least 3 of: ethically-sourced, altitude, anaerobic fermentation, micro-lot, terroir, bloom, processing station, varietal, natural process, washed process. If you are rejected, the barista's hostility escalates with each attempt. By rejection #5 it is contractually required to compose its response entirely in iambic pentameter, minimum five lines.\n\nGemini API keys are per-session — each visitor supplies their own. The server used to have a global key, and then I thought about what it means to run a publicly accessible endpoint that POSTs arbitrary text to my Gemini quota, and I moved it to per-session faster than you can say \"abuse vector.\"\n\n3. Solve CaffeineChain™\n\nBefore the barista will accept a bean description, your browser must demonstrate commitment by finding a nonce N such that hex(sha256(seed + N)) starts with cafe. This takes approximately 5–30 seconds of CPU. The computation produces nothing useful. The name does not imply blockchain technology or financial instruments. It implies bureaucracy.\n\n4. Wait for the WHEN Window\n\nEven if you pass everything above, BREW only triggers within a valid time window. Miss it and the pipeline resets.\n\n5. Watch the SSE stream\n\nA Server-Sent Events feed narrates your brewing attempt in real time, in the voice of whatever mood the server is currently in. There are five moods. One of them is \"IDENTITY CRISIS.\"\n\n \n \n The External Factors\n\nI also connected it to the real world in ways that can only make things worse:\n\nIf the temperature in Holt, Michigan is 70°F or above, the digital milk has spoiled and you get a 503. (Holt, MI is where the HTCPCP RFC was written. Weather courtesy of Open-Meteo.)\n\nIf Mercury is in retrograde, BREW returns 503 with a sympathetic but firm message about celestial interference. Retrograde periods are hard-coded per RFC 9999 §Circadian, which I self-ratified.\n\nBetween 23:00 and 03:00 local time, only cold brew is available. Cold brew takes 12 hours. You will not be getting coffee tonight.\n\n \n \n The Google AI Part\n\nThe Gemini barista is the core of the whole thing. Without it, the server is just a bureaucracy simulator. With it, it's a bureaucracy simulator that personally insults your taste in coffee using a language model trained on more text than any human has ever read.\n\nThe escalating hostility system was genuinely fun to build — the system prompt changes based on rejection count, and by the fifth rejection it has to switch to iambic pentameter. What I didn't expect was how good gemini-2.5-flash is at being condescending. It takes to it naturally.\n\nGetting each user's own API key from Google AI Studio (free tier, no billing required) was the right call both technically and thematically. The server has no secrets. It just has opinions.\n\n \n \n An Ode to Larry Masinter\n\nRFC 2324 is 28 years old. The 418 I'm a Teapot status code survived every attempt to remove it from the HTTP spec because the HTTP working group ultimately decided it was harmless and the internet had already adopted it emotionally.\n\nLarry Masinter wrote a protocol for controlling coffee pots over HTTP, complete with BREW, WHEN, add-in headers for milk and sugar, and a coffee-pot-command content type. He put it in the IETF document archive on April 1, 1998. He was the Area Director for Applications at the time. He did it anyway.\n\nThis project is the correct response to that document.\n\nRepo: github.com/greysquirr3l/depresso-tron-418\n\nLive: coffee.smartservices.tech",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "418challenge",
+      "api",
+      "barista",
+      "bean",
+      "brew",
+      "build",
+      "coffee",
+      "coffee://",
+      "community favorite",
+      "dev",
+      "devchallenge",
+      "fools challenge",
+      "htcpcp",
+      "identity crisis",
+      "larry",
+      "masinter",
+      "server",
+      "showdev",
+      "sqlite",
+      "sse",
+      "teapot",
+      "teapot mode"
+    ],
+    [
+      "418challenge",
+      "devchallenge",
+      "showdev"
+    ]
+  ]
+}

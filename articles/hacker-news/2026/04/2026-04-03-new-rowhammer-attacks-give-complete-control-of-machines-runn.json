@@ -1,0 +1,33 @@
+{
+  "id": 8287,
+  "source": "Hacker News",
+  "title": "New Rowhammer attacks give complete control of machines running Nvidia GPUs",
+  "url": "https://arstechnica.com/security/2026/04/new-rowhammer-attacks-give-complete-control-of-machines-running-nvidia-gpus/",
+  "published_at": "2026-04-03T08:15:12Z",
+  "fetched_at": "2026-04-03T10:00:29.206831+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47624317\">Comments</a>",
+  "full_text": "So where do we go now?\n\nThe researchers said that both the RTX 3060 and RTX 6000 cards are vulnerable. Changing BIOS defaults to enable IOMMU closes the vulnerability, they said. Short for input-output memory management unit, IOMMU maps device-visible virtual addresses to physical addresses on the host memory. It can be used to make certain parts of memory off-limits.\n\n“In the context of our attack, an IOMMU can simply restrict the GPU from accessing sensitive memory locations on the host,” Kwong explained. “IOMMU is, however, disabled by default in the BIOS to maximize compatibility and because enabling the IOMMU comes with a performance penalty due to the overhead of the address translations.”\n\nA separate mitigation is to enable Error Correcting Codes (ECC) on the GPU, something Nvidia allows to be done using a command line. Like IOMMU, enabling ECC incurs some performance overhead because it reduces the overall amount of available workable memory. Further, some Rowhammer attacks can overcome ECC mitigations.\n\nGPU users should understand that the only cards known to be vulnerable to Rowhammer are the RTX 3060 and RTX 6000 from the Ampere generation, which were introduced in 2020. It wouldn’t be surprising if newer generations of graphics cards from Nvidia and others are susceptible to the same types of attacks, but because the pace of academic research typically lags far behind the faster speed of product rollouts, there’s no way now to know.\n\nTop-tier cloud platforms typically provide security levels that go well beyond those available by default on hobbyist and consumer machines. Another thing to remember: There are no known instances of Rowhammer attacks ever being actively used in the wild.\n\nThe true value of the research is to put GPU makers and users alike on notice that Rowhammer attacks on these platforms have the potential to upend security in serious ways. More information about GDDRHammer and GeForge is available here.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "attack",
+      "available",
+      "bios",
+      "default",
+      "ecc",
+      "enable",
+      "gddrhammer",
+      "gpu",
+      "iommu",
+      "known",
+      "nvidia",
+      "performance",
+      "rowhammer",
+      "security",
+      "typically"
+    ],
+    []
+  ]
+}

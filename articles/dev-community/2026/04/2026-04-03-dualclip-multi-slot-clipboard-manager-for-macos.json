@@ -1,0 +1,38 @@
+{
+  "id": 8496,
+  "source": "DEV Community<",
+  "title": "DualClip: multi-slot clipboard manager for macOS",
+  "url": "https://dev.to/rakkunn/dualclip-multi-slot-clipboard-manager-44f5",
+  "published_at": "2026-04-03T23:09:10Z",
+  "fetched_at": "2026-04-03T23:40:27.448466+00:00",
+  "author": "Im Woojin",
+  "summary": "<p><strong>First project with macOS &amp; Swift</strong></p>\n\n<p>I wanted to share <strong>DualClip</strong>, a native macOS menu bar app I’ve been working on.</p>\n\n<p>While there are many great clipboard managers like Maccy or Paste, I found that most of them focus on \"History\"—searching through a vertical list of everything you've copied.</p>\n\n<p>I built DualClip because I needed something that works more like a \"Workbench.\" Instead of picking from a menu, DualClip gives you dedicated slots (A, B, and C) that you can access instantly via global hotkeys. </p>\n\n<p>🚀 How it differs from history-based managers:</p>\n\n<p>No List Selection: You don't have to break your flow to search or click an item from a list. You use ⌥⌘C to save to Slot B and ⌥⌘V to paste it instantly. </p>\n\n<p>Atomic Paste: When you trigger a secondary slot, the app performs a high-speed \"injection\"—swapping the system clipboard, pasting, and restoring the original content in less than 50ms. </p>\n\n<p>Parallel Workflow:",
+  "full_text": "First project with macOS & Swift\n\nI wanted to share DualClip, a native macOS menu bar app I’ve been working on.\n\nWhile there are many great clipboard managers like Maccy or Paste, I found that most of them focus on \"History\"—searching through a vertical list of everything you've copied.\n\nI built DualClip because I needed something that works more like a \"Workbench.\" Instead of picking from a menu, DualClip gives you dedicated slots (A, B, and C) that you can access instantly via global hotkeys. \n\n🚀 How it differs from history-based managers:\n\nNo List Selection: You don't have to break your flow to search or click an item from a list. You use ⌥⌘C to save to Slot B and ⌥⌘V to paste it instantly. \n\nAtomic Paste: When you trigger a secondary slot, the app performs a high-speed \"injection\"—swapping the system clipboard, pasting, and restoring the original content in less than 50ms. \n\nParallel Workflow: Perfect for developers moving IDs and Emails simultaneously, or translators working with source and target text in two separate slots. \n\n🔐 Privacy:\n\nAs a security enthusiast, I designed this with transparency in mind:\n\nIn-Memory Only: Clipboard data is stored strictly in RAM and is never written to disk.\n\nZero Network Access: The app has no network permissions. No telemetry, no analytics, no external communication. \n\n🛠 Tech Stack:\n\nLanguage: Swift 5.9+ / SwiftUI & AppKit Hybrid\n\nThe project is licensed under MIT, and I’d love to get some feedback or contributions from this community!\n\nThank you for reading my small project!\n\n🔗 GitHub Repository: https://github.com/RAKKUNN/DualClip",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "clipboard",
+      "dualclip",
+      "list",
+      "maccy",
+      "macos",
+      "macos & swift",
+      "mit",
+      "network",
+      "opensource",
+      "ram",
+      "showdev",
+      "slot",
+      "slot b and",
+      "swift",
+      "want",
+      "work"
+    ],
+    [
+      "network",
+      "opensource",
+      "showdev"
+    ]
+  ]
+}

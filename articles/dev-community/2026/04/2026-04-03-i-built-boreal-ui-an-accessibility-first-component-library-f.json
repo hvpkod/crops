@@ -1,0 +1,40 @@
+{
+  "id": 8461,
+  "source": "DEV Community<",
+  "title": "I Built Boreal UI — An Accessibility-First Component Library for React and Next.js",
+  "url": "https://dev.to/davec6662/i-built-boreal-ui-an-accessibility-first-component-library-for-react-and-nextjs-1pi3",
+  "published_at": "2026-04-03T20:10:37Z",
+  "fetched_at": "2026-04-03T21:00:33.486632+00:00",
+  "author": "Davin Chiupka",
+  "summary": "<p>During my two semesters of project management classes in college, we had roughly four months to come up with an idea, build an MVP, and complete the full project for our final grade. It was a lot to juggle and sometimes a little chaotic, but it taught me a lot about how real product development works. We had to think about user stories, planning, databases, back-end logic, wireframes, and front-end implementation all at the same time.</p>\n\n<p>Even with all of that, I was always most drawn to the front-end side. I’ve always enjoyed the creative side of development, and one of my favorite parts of the process was seeing wireframes turn into a real, usable interface. The problem was that every time we built a new application, I wanted to create the UI from scratch.</p>\n\n<p>A lot of the existing options just did not click with me. Many UI libraries felt too familiar, a little too corporate for my taste, or harder to shape into exactly what I wanted. I often felt like I was either stuck ",
+  "full_text": "During my two semesters of project management classes in college, we had roughly four months to come up with an idea, build an MVP, and complete the full project for our final grade. It was a lot to juggle and sometimes a little chaotic, but it taught me a lot about how real product development works. We had to think about user stories, planning, databases, back-end logic, wireframes, and front-end implementation all at the same time.\n\nEven with all of that, I was always most drawn to the front-end side. I’ve always enjoyed the creative side of development, and one of my favorite parts of the process was seeing wireframes turn into a real, usable interface. The problem was that every time we built a new application, I wanted to create the UI from scratch.\n\nA lot of the existing options just did not click with me. Many UI libraries felt too familiar, a little too corporate for my taste, or harder to shape into exactly what I wanted. I often felt like I was either stuck with someone else’s visual style or spending too much time fighting the framework to make it feel like my own.\n\nSo, after those classes ended, I made the very ambitious, and maybe slightly irrational, decision to build my own UI library from the ground up. Since I already loved building with React, I decided to make it work for both React Core and Next.js.\n\nThat became Boreal UI.\n\nBoreal UI has been the result of a lot of learning, trial and error, and time spent building and rebuilding components. The core idea behind it was simple: UI libraries should help developers create, not force them into a default look and feel. Components should be flexible enough to support creativity rather than limit it.\n\nThat is why Boreal UI puts such a strong focus on customization. One of my favorite features is the ability to define project-wide defaults, so instead of styling every component over and over, the whole app can feel consistent from the start.\n\nIt also includes built-in color schemes, including both light and dark themes, and you can register your own custom schemes as well. That means if you want your app to reflect your own branding or style, you can do that without a ton of extra setup.\n\nAccessibility was just as important to me. During my co-op at Fanshawe’s OER Studio, I worked on open educational resources like digital textbooks and interactive learning activities, and accessibility was always a major priority. The goal was to make sure those materials could be used by anyone without barriers, and I wanted that same thinking to carry into this project. Boreal UI was built to support websites that are easier for everyone to use.\n\nSo really, Boreal UI is my attempt to make building websites faster, more accessible, and more expressive at the same time. I wanted something practical, but also something that still leaves room for creativity.\n\nIf you want to check out Boreal UI, you can find the full documentation at borealui.ca or install it with npm install boreal-ui.\n\nI’d love to hear what you think. Try it out, build something with it, push it around a bit, and if you manage to break it, definitely let me know.\n\nThanks for reading.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "accessibility",
+      "boreal",
+      "build",
+      "building",
+      "component",
+      "fanshawe’s oer studio",
+      "favorite",
+      "feel",
+      "library",
+      "mvp",
+      "next.js",
+      "nextjs",
+      "react",
+      "react core",
+      "something",
+      "want",
+      "webcomponents",
+      "webdev"
+    ],
+    [
+      "nextjs",
+      "webcomponents",
+      "webdev"
+    ]
+  ]
+}

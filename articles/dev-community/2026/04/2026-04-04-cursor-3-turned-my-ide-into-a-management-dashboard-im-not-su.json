@@ -1,0 +1,42 @@
+{
+  "id": 8637,
+  "source": "DEV Community<",
+  "title": "Cursor 3 Turned My IDE Into a Management Dashboard. I'm Not Sure I Asked for That.",
+  "url": "https://dev.to/adioof/cursor-3-turned-my-ide-into-a-management-dashboard-im-not-sure-i-asked-for-that-277j",
+  "published_at": "2026-04-04T14:33:30Z",
+  "fetched_at": "2026-04-04T14:40:24.938735+00:00",
+  "author": "Aditya Agarwal",
+  "summary": "<p>Cursor 3 was shipped on April 2nd. The default interface is no longer an editor. It is a sidebar with agents.</p>\n\n\n\n\n<h2>\n  \n  \n  This Is Not a Feature Update\n</h2>\n\n<p>It's a manifesto on what we think developers are ready to do next.</p>\n\n<p>The new Agents Window allows you to spin up multiple AI agents in parallel — local, cloud, cross-repo — and manage them all in one place.</p>\n\n<p>Start a task on your laptop, send it to the cloud, go home, and pull it back in when you're ready to review.</p>\n\n<p>The editor is still there, behind a toggle. Like a legacy mode you keep around for sentimental reasons.</p>\n\n\n\n\n<h2>\n  \n  \n  Every Tool Is Racing to the Same Place\n</h2>\n\n<p>Windsurf describes itself as an \"agentic IDE.\" Claude Code does not run on anything but your terminal. It requires a 1M token context window. GitHub Copilot has long shipped agent mode across VS Code.</p>\n\n<p>Technology in the genre is converging pretty fast to this target destination.</p>\n\n<p><strong>The target i",
+  "full_text": "Cursor 3 was shipped on April 2nd. The default interface is no longer an editor. It is a sidebar with agents.\n\n \n \n This Is Not a Feature Update\n\nIt's a manifesto on what we think developers are ready to do next.\n\nThe new Agents Window allows you to spin up multiple AI agents in parallel — local, cloud, cross-repo — and manage them all in one place.\n\nStart a task on your laptop, send it to the cloud, go home, and pull it back in when you're ready to review.\n\nThe editor is still there, behind a toggle. Like a legacy mode you keep around for sentimental reasons.\n\n \n \n Every Tool Is Racing to the Same Place\n\nWindsurf describes itself as an \"agentic IDE.\" Claude Code does not run on anything but your terminal. It requires a 1M token context window. GitHub Copilot has long shipped agent mode across VS Code.\n\nTechnology in the genre is converging pretty fast to this target destination.\n\nThe target is: you stop writing code and start managing stuff that writes code.\n\n \n \n Here's Where It Gets Uncomfortable\n\nI have been shipping agent features for over a year now. The productivity jump is real.\n\nBut there's a difference between \"AI helps me code faster\" and \"my job is now supervising a fleet of autonomous coding bots.\"\n\nThe first one still feels like engineering. The second feels like middle management.\n\nCursor 3's Composer 2 model scored 61.7% on Terminal-Bench 2.0. That's solid. But solid doesn't mean you stop reviewing every line. It means you spend your day reviewing instead of writing. That's a fundamentally different job.\n\n \n \n Your IDE Is Now an Orchestration Layer\n\nThis shipment comes right after the expansion on the plugin marketplace. Where your agents now also talk to Jira, Figma, Slack, Datadog.\n\nThe IDE is no longer a text editor. It's an orchestration layer with a monthly subscription.\n\n \n \n The Irony Nobody's Noticed\n\nWhat used to be a joke about us spending too much time in meetings organizing work instead of doing it — is becoming reality.\n\nWe will soon be spending our coding hours organizing the writing of code. The agents will do most of the real work. You manage them.\n\nWe automated ourselves into the exact role we were trying to escape.\n\n \n \n The Forum Thread Says It All\n\nThe developers who pushed back on Cursor 3's review workflow on the forums aren't wrong. One thread called it a \"forced hijack\" of their commit process.\n\nThe frustration isn't about UI preferences. It's about a philosophical question → should the default developer experience assume you're not the one writing the code?\n\nCursor clearly thinks yes. And they might be right — eventually.\n\nBut we're in an awkward middle period where agent output is good enough to tempt you into trusting it and unreliable enough to punish you when you do.\n\n \n \n The Pricing Tells the Story\n\nThe $20/month Pro tier gives you unlimited tab completions and cloud agents. The Ultra tier at $200/month gives you 20x the usage.\n\nThe more you let agents do, the more it costs. Your bill scales with how little you personally write.\n\n \n \n The Real Risk\n\nI don't think the real danger is in the agents phasing us out as developers.\n\nThe real danger is that you are left in this gray twilight — not writing code because you're managing agents, but also not being able to write code because your agents aren't good enough to trust without supervision.\n\nThat's not the future of software engineering. That's an open-plan office with invisible direct reports.\n\n \n \n Who Thrives Here?\n\nSome developers will thrive in this. If you're already good at architecture, system design, and knowing what to build, managing agents is a force multiplier.\n\nBut if your entire skill set is writing code, the ground just shifted under your feet.\n\nThe IDE used to be where you built things. Now it's where you watch things get built.\n\nAre you excited about managing agent fleets, or does the shift feel like it's optimizing away the part of the job you actually liked? 👇",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "an orchestration layer",
+      "career",
+      "code",
+      "cursor",
+      "developer",
+      "discuss",
+      "enough",
+      "github copilot",
+      "ide",
+      "javascript",
+      "jira, figma",
+      "manage",
+      "programming",
+      "real",
+      "review",
+      "ship",
+      "slack, datadog",
+      "ultra",
+      "write"
+    ],
+    [
+      "career",
+      "discuss",
+      "programming"
+    ]
+  ]
+}

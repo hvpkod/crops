@@ -1,0 +1,39 @@
+{
+  "id": 8393,
+  "source": "DEV Community<",
+  "title": "Echoes of Experience : From Assumptions to Architecture",
+  "url": "https://dev.to/eyepatch5263/echoes-of-experience-from-assumptions-to-architecture-pfl",
+  "published_at": "2026-04-03T17:35:25Z",
+  "fetched_at": "2026-04-03T18:00:32.686738+00:00",
+  "author": "pratyush",
+  "summary": "<p>My first startup internship began with the kind of nervous excitement that only comes from stepping into a world I’d only experienced through tutorials, open-source repositories, and college hackathons. As a junior frontend developer, I was eager to contribute, to prove I belonged, and to absorb everything I could. What I didn’t expect was how quickly reality would strip away my assumptions and how gracefully my team would help me rebuild them.</p>\n\n<p>The startup pace was unpredictable: some days a blur of standups and pull requests, others quiet enough to catch a mid-afternoon IPL match. One such afternoon, I’d just submitted a PR, switched tabs to the cricket stream, and let my guard down. Then came the Teams ping. My tech lead needed to talk. I joined the call, still half in the match, and when he mentioned a testing error, I blurted out the first thing that came to mind: <em>“Maybe you’re just running it from the wrong directory?”</em></p>\n\n<p>The silence on the other end was i",
+  "full_text": "My first startup internship began with the kind of nervous excitement that only comes from stepping into a world I’d only experienced through tutorials, open-source repositories, and college hackathons. As a junior frontend developer, I was eager to contribute, to prove I belonged, and to absorb everything I could. What I didn’t expect was how quickly reality would strip away my assumptions and how gracefully my team would help me rebuild them.\n\nThe startup pace was unpredictable: some days a blur of standups and pull requests, others quiet enough to catch a mid-afternoon IPL match. One such afternoon, I’d just submitted a PR, switched tabs to the cricket stream, and let my guard down. Then came the Teams ping. My tech lead needed to talk. I joined the call, still half in the match, and when he mentioned a testing error, I blurted out the first thing that came to mind: “Maybe you’re just running it from the wrong directory?”\n\nThe silence on the other end was immediate. He didn’t raise his voice, but his tone was sharp, clear, and entirely deserved. He asked how I could assume a senior engineer would make such a fundamental mistake. In that moment, I wasn’t just corrected on a technical point; I was confronted with a professional blind spot. I had confused familiarity with expertise, and in doing so, I’d dismissed someone else’s experience. I braced for the worst, expecting a formal warning or even termination. Instead, I was given something far more valuable: a lesson in humility, and a reminder that in tech, how we communicate is as critical as the code we write.\n\nWeeks later, after my university exams, I transitioned to remote work. My first major assignment was building a dynamic form system. The team was split on which library to use, and the uncertainty felt heavy. Rather than wait for direction, I spent two days prototyping three different options, documenting their trade-offs, and finally recommending the one that best balanced flexibility and developer experience. I shipped the feature, proud of the initiative.\n\nPride, however, is a fragile thing when production throws a curveball. During a standup, a UI inconsistency emerged in one of the form fields. When my tech lead asked for my take, I fell back on a familiar escape: “Maybe it’s just how the framework behaves.” It wasn’t. And my tech lead knew it.\n\nWhat followed wasn’t a reprimand, but an invitation. He scheduled a debugging session with himself, the co-founder, and me. For the next two hours, I watched a masterclass in engineering. The co-founder didn’t guess. He didn’t blame. He opened the documentation, traced the rendering pipeline, and methodically isolated the issue. I finally understood why he was in the founder’s seat not because he knew every answer, but because he knew how to find them, and more importantly, how to teach others to do the same.\n\nThe solution required us to customize the form’s rendering logic instead of fighting the library’s defaults. He handed me the responsibility. I dove deep, wrote clean, documented code, and shipped the fix. When the co-founder praised the implementation, and the team acknowledged the turnaround, it wasn’t just validation of my code. It was acknowledgment of my growth.\n\nAround the same time, my college hackathon results were announced: first place. I shared the news with my startup team, and their congratulations felt different this time. It wasn’t just celebration; it was recognition of a developer who had learned to lead with curiosity instead of assumption.\n\nAs my internship drew to a close, I thanked them not just for the opportunity, but for the space to stumble, to learn, and to rebuild. That experience taught me three things I now carry into every line of code I write:\n\nHumility precedes expertise. Never assume you know why something broke before asking how it works.\n\nProcess protects progress. Always branch before you ship. Never push directly to main. Structure isn’t bureaucracy; it’s psychological safety.\n\nDocumentation is a dialogue, not a manual. Reading it deeply is how you move from using a tool to understanding it.\n\nThe tech industry doesn’t need more developers who pretend to know everything. It needs more who are brave enough to ask, listen, and iterate. To every intern reading this: your mistakes aren’t failures; they’re the raw material of your craft. And to every leader, mentor, or ally: the way you respond to a junior’s misstep doesn’t just fix a bug it shapes a career. Build teams where “I don’t know, but I’ll figure it out” is met with guidance, not judgment. Foster environments where psychological safety is the default, and you won’t just ship better products. You’ll cultivate the next generation of engineers who code with confidence, communicate with respect, and lead with empathy.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ask",
+      "career",
+      "dei",
+      "devchallenge",
+      "internship",
+      "ipl",
+      "know",
+      "lead",
+      "other",
+      "read",
+      "ship",
+      "startup",
+      "team",
+      "tech",
+      "wecoded"
+    ],
+    [
+      "career",
+      "dei",
+      "devchallenge",
+      "startup",
+      "wecoded"
+    ]
+  ]
+}

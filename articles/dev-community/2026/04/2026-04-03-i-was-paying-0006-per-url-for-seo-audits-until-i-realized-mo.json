@@ -1,0 +1,43 @@
+{
+  "id": 8354,
+  "source": "DEV Community<",
+  "title": "I Was Paying $0.006 Per URL for SEO Audits Until I Realized Most Needed $0",
+  "url": "https://dev.to/dannwaneri/i-was-paying-0006-per-url-for-seo-audits-until-i-realized-most-needed-0-132j",
+  "published_at": "2026-04-03T14:24:02Z",
+  "fetched_at": "2026-04-03T15:00:36.237691+00:00",
+  "author": "Daniel Nwaneri",
+  "summary": "<p><a href=\"https://dev.to/pascal_cescato_692b7a8a20\">Pascal CESCATO</a> read my SEO audit agent piece and left this in the comments:</p>\n\n<blockquote>\n<p>\"You don't need an LLM for this. Everything you're sending to Claude can be done directly in Python — zero cost, fully deterministic, no hallucination risk.\"</p>\n</blockquote>\n\n<p>He was right. And wrong. And the conversation that followed is the reason I rebuilt the entire thing.</p>\n\n\n\n\n<h3>\n  \n  \n  What Pascal Actually Said\n</h3>\n\n<p>The audit agent I published checks title length, meta description length, H1 count, and canonical tags. Pascal's point: those are character counts and presence checks. A regex does that. You don't pay $0.006 per URL for a regex.</p>\n\n<p>I pushed back. The <code>flags</code> array requires judgment — \"title reads like a navigation label rather than a page description\" isn't a character count. Pascal conceded, then reframed:</p>\n\n<blockquote>\n<p>\"Two-pass makes more sense. Deterministic Python for binar",
+  "full_text": "Pascal CESCATO read my SEO audit agent piece and left this in the comments:\n\n\"You don't need an LLM for this. Everything you're sending to Claude can be done directly in Python — zero cost, fully deterministic, no hallucination risk.\"\n\nHe was right. And wrong. And the conversation that followed is the reason I rebuilt the entire thing.\n\n \n \n What Pascal Actually Said\n\nThe audit agent I published checks title length, meta description length, H1 count, and canonical tags. Pascal's point: those are character counts and presence checks. A regex does that. You don't pay $0.006 per URL for a regex.\n\nI pushed back. The flags array requires judgment — \"title reads like a navigation label rather than a page description\" isn't a character count. Pascal conceded, then reframed:\n\n\"Two-pass makes more sense. Deterministic Python for binary checks, model call only on pages that pass the mechanical audit but need a second look. You pay per genuinely ambiguous case, not per URL.\"\n\nThat's a better architecture than what I shipped. I said so publicly.\n\nThen Julian Oczkowski extended it:\n\n\"Deterministic rules first, lightweight models for triage, larger models reserved for genuinely ambiguous edge cases. Keeps latency low, costs predictable, reduces unnecessary LLM dependency.\"\n\nThree people in a comment thread had just designed something I hadn't thought to name. Pascal called it two-pass. Julian called it tiered. I called it the cost curve — a sliding scale from free to expensive, routed by what the task actually requires.\n\n \n \n The Cost Curve\n\nTier 1 — Deterministic Python. Cost: $0.\n\nTitle >60 characters? FAIL. Description missing? FAIL. H1 count == 0? FAIL. These are not judgment calls. A model that can reason about Shakespeare does not need to be invoked to count to 60.\n\nTier 2 — Haiku. Cost: ~$0.0001 per URL.\n\nTitle present but 4 characters long. Description present but 30 characters. Status code is a redirect. These pass the mechanical audit but something is off. Haiku is cheap enough that calling it for ambiguous cases costs less than the time you'd spend debugging why the deterministic check missed something.\n\nTier 3 — Sonnet. Cost: ~$0.006 per URL.\n\nPages Haiku flags as needing semantic judgment. \"This title passes length but reads like a navigation label.\" \"This description duplicates the title verbatim.\" Sonnet earns its cost here. Not everywhere.\n\nThe insight is routing. Most pages on a typical agency site have mechanical issues — missing descriptions, long titles, no canonical. Those never need a model. The interesting cases — pages that pass every binary check but still feel wrong — are where the model earns its place.\n\nOn my last run of 50 URLs, 8 reached Sonnet. The rest resolved at Tier 1. Total cost dropped from ~$0.30 to ~$0.05. The 8 that hit Sonnet were the ones worth paying for.\n\n \n \n What I Actually Built\n\nI restructured the entire repo around this architecture.\n\ncore/ stays flat and MIT licensed. The original seven modules untouched. Anyone who cloned v1 still runs python core/index.py and gets identical behavior.\n\npremium/ adds four modules. cost_curve.py handles the tier routing — audit_url(snapshot, tiered=True) runs Tier 1 first, escalates to Haiku if something fails, escalates to Sonnet only if Haiku flags semantic ambiguity. multi_client.py manages project folders — --project acme reads and writes from projects/acme/ with isolated state, input, and reports. enhanced_reporter.py generates WeasyPrint PDFs with per-URL screenshots, issues sorted by severity, and suggested fixes. rewrite_agent.py is the one Pascal didn't anticipate — after the audit, --rewrite generates improvement suggestions using the same cost curve: Tier 1 truncates titles deterministically, Haiku writes meta description suggestions, Sonnet rewrites opening paragraphs. Pass --voice-sample ./my-writing.txt and the prompt includes a sample of your writing. The suggestions sound like you, not like Claude.\n\nmain.py is the unified entry point. Free users run python main.py and get v1 behavior. Pro users add --pro, set SEO_AGENT_LICENSE, unlock the premium layer.\n\nA full pro run looks like this:\n\npython main.py --project client-x --pro --tiered --rewrite\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat single command: reads from projects/client-x/input.csv, routes every URL through the cost curve, generates rewrite suggestions for failing pages, writes a PDF report with screenshots and severity levels, and appends a run record to the audit history.\n\n \n \n The Architecture Decision That Matters\n\ncore/ imports nothing from premium/. Ever.\n\nThis isn't just clean code. It's a trust contract with anyone who forks the repo. The MIT-licensed core is the public good — auditable, forkable, accepts PRs. The premium layer is proprietary and closed, but it builds on a foundation anyone can inspect.\n\nMads Hansen in the comments named the right question: how do you prevent the auditor from developing blind spots on recurring patterns? The answer I didn't have then: run history in state.json. Each completed run appends a record — timestamps, pass counts, fail counts, report path. Over time, \"this page has failed description length for six consecutive runs\" is a different signal than \"this page failed today.\" The audit becomes a monitor. Not just a snapshot.\n\n \n \n What the Comment Thread Cost\n\nNothing. And produced a better architecture than I would have built alone.\n\nPascal's pushback separated the deterministic from the semantic. Julian's production framing gave me the three-tier structure. Apex Stack's 89K-page site showed me where the orphan detection problem lives. Mads Hansen named the blind spot question I hadn't asked.\n\nNone of that was in the original article. All of it is in the repo now.\n\nThe public comment thread is the architecture review I didn't schedule. That's what happens when you publish the honest version — the demo that fails on your own content — instead of the staged one.\n\nThe staged demo would have passed. The honest one compounded.\n\nFull repo: dannwaneri/seo-agent. Core is MIT. Premium requires a license key. The freeCodeCamp tutorial covers the v1 build in detail: How to Build a Local SEO Audit Agent with Browser Use and Claude API.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "architecture",
+      "audit",
+      "automation",
+      "cost",
+      "description",
+      "deterministic python",
+      "haiku",
+      "llm",
+      "mit",
+      "page",
+      "pascal",
+      "pass",
+      "pdf",
+      "python",
+      "seo",
+      "the cost curve",
+      "tier",
+      "title",
+      "weasyprint",
+      "webdev"
+    ],
+    [
+      "architecture",
+      "python",
+      "webdev"
+    ]
+  ]
+}

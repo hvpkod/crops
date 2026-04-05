@@ -1,0 +1,42 @@
+{
+  "id": 8537,
+  "source": "DEV Community<",
+  "title": "I Got Tired of Surprise OpenAI Bills, So I Built a Dashboard to Track Them",
+  "url": "https://dev.to/amedinat/i-got-tired-of-surprise-openai-bills-so-i-built-a-dashboard-to-track-them-2e0f",
+  "published_at": "2026-04-04T02:09:49Z",
+  "fetched_at": "2026-04-04T02:40:28.701808+00:00",
+  "author": "John Medina",
+  "summary": "<p>A few months ago, I got a bill from OpenAI that was about 3x what I was expecting. No idea why. Was it the new summarization feature we shipped? A single power user going nuts? A cron job gone wild? I had no clue. The default OpenAI dashboard just gives you a total, which is not super helpful for finding the source of a spike.</p>\n\n<p>This was the final straw. I was tired of flying blind.</p>\n\n<h3>\n  \n  \n  The Problem: Totals Don't Tell the Whole Story\n</h3>\n\n<p>When you're running a SaaS that relies on multiple LLM providers, just knowing your total spend is useless. You need to know:</p>\n\n<ul>\n<li>Which provider is costing the most?</li>\n<li>Is <code>gpt-4o</code> suddenly more expensive than <code>claude-3-sonnet</code> for the same task?</li>\n<li>Which feature or user is responsible for that sudden spike?</li>\n</ul>\n\n<p>I looked for a tool that could give me this visibility without forcing me to proxy all my API calls through their servers. I didn't want to introduce another poi",
+  "full_text": "A few months ago, I got a bill from OpenAI that was about 3x what I was expecting. No idea why. Was it the new summarization feature we shipped? A single power user going nuts? A cron job gone wild? I had no clue. The default OpenAI dashboard just gives you a total, which is not super helpful for finding the source of a spike.\n\nThis was the final straw. I was tired of flying blind.\n\n \n \n The Problem: Totals Don't Tell the Whole Story\n\nWhen you're running a SaaS that relies on multiple LLM providers, just knowing your total spend is useless. You need to know:\n\nWhich provider is costing the most?\n\nIs gpt-4o suddenly more expensive than claude-3-sonnet for the same task?\n\nWhich feature or user is responsible for that sudden spike?\n\nI looked for a tool that could give me this visibility without forcing me to proxy all my API calls through their servers. I didn't want to introduce another point of failure or add latency. I just wanted to see my costs.\n\nNothing quite fit what I needed, so I did what any self-respecting developer does: I started building my own thing.\n\n \n \n The Build: A Glorified Cron Job\n\nI started simple. The core of the idea was a background job that would run every hour, hit the usage APIs for my providers (OpenAI, Anthropic, etc.), and store the normalized data in a Postgres database.\n\nThe stack was pretty straightforward:\n\nBackend: Inngest for the hourly polling jobs. It's reliable and has great logging.\n\nDatabase: Supabase for the Postgres DB and auth.\n\nFrontend: Next.js and Shadcn UI to build the dashboard.\n\nBut a simple stack doesn't mean a simple build. I hit a few interesting technical challenges.\n\nFirst, normalizing the data was a bigger pain than I expected. OpenAI's API returns usage in tokens. Anthropic's returns it in characters for some models and tokens for others. Their JSON structures are completely different. I had to write a flexible adapter layer to ingest these varied formats into a single, unified Postgres schema. The goal was to have one usage_data table where I could query cost in USD across all providers without complex joins or transformations on the fly.\n\nSecond, handling API rate limits and errors required some care. When you're polling multiple services, one of them is bound to fail or rate-limit you eventually. I built a simple exponential backoff mechanism into the Inngest function. If a provider's API call fails, it retries up to three times with increasing delays. This makes the data pipeline resilient to transient network issues and API hiccups without sending me a million error alerts.\n\nOne of the most important parts was security. I couldn't store the provider API keys in plain text. So, I made sure they were encrypted at rest with AES-256-GCM before being saved to the database.\n\n \n \n The Result: LLMeter\n\nAfter a few weekends of work, I had a working dashboard. I called it LLMeter.\n\nIt does exactly what I needed:\n\nIt connects directly to the provider APIs. No code changes, no proxies.\n\nIt pulls usage data every hour and shows me the actual costs, not just estimates.\n\nIt breaks down the costs by provider and model, so I can see exactly where my money is going.\n\nI can set budget alerts to get an email if my daily or monthly spend goes over a certain threshold.\n\nThe impact was immediate. After running LLMeter for a month, I discovered that nearly 70% of my costs were coming from a single background job that was mistakenly using gpt-4o for a simple classification task. Claude 3 Haiku could do the job just as well for a fraction of the price. A five-minute fix ended up saving me an estimated $200/month. That's the power of real visibility.\n\nIt now supports OpenAI, Anthropic, DeepSeek, and even OpenRouter, which is great for tracking costs across hundreds of smaller models.\n\n \n \n Lessons Learned Along the Way\n\nThis small project reinforced a few key lessons for me:\n\n Observability is Non-Negotiable. You can't optimize what you can't see. My initial guess about the summarization feature being the cost culprit was completely wrong. Without granular data, I would have wasted time \"optimizing\" the wrong part of my application.\n\n Make Onboarding Frictionless. The decision to avoid a proxy and use direct API integrations was critical. It meant I could adopt LLMeter for my own projects in minutes, without changing a single line of application code. For a developer tool, ease of integration is a core feature, not a nice-to-have.\n\n Security From Day One. When you're dealing with API keys that can literally burn money, you can't afford to be sloppy. Encrypting keys at rest wasn't a \"v2 feature,\" it was a requirement for the first line of code.\n\n \n \n Open Source, Of Course\n\nI figured other indie hackers and small teams probably have the same problem, so I made the whole thing open source (AGPL-3.0). You can self-host it on your own infrastructure if you want to.\n\nIf you're tired of surprise LLM bills, you can check it out here:\n\nLet me know what you think. And if you have any other horror stories about your LLM bills, I'd love to hear them in the comments.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "buildinpublic",
+      "cost",
+      "datum",
+      "feature",
+      "haiku",
+      "inngest",
+      "key",
+      "llm",
+      "llmeter",
+      "monitoring",
+      "openai",
+      "openrouter",
+      "opensource",
+      "postgres",
+      "provider",
+      "simple",
+      "start",
+      "tired",
+      "usd"
+    ],
+    [
+      "buildinpublic",
+      "monitoring",
+      "opensource"
+    ]
+  ]
+}

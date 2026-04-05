@@ -1,0 +1,37 @@
+{
+  "id": 8525,
+  "source": "Hacker News",
+  "title": "Windows++: C++ Application Framework for Windows by Paul DiLascia",
+  "url": "http://pauldilascia.com/wpp.htm",
+  "published_at": "2026-03-31T06:16:20Z",
+  "fetched_at": "2026-04-04T02:00:34.790191+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47583391\">Comments</a>",
+  "full_text": "Rolling your own application framework may seem\ncrazy, but with the advent of the web and the need for self-contained applets with a tiny\nfootprint, it makes more sense. MFC has got too huge and unwieldy; moreover, you can't easily change it when it doesn't do what you\nwant. On the other hand, writing a framework from scratch is a lot of work.\n\nWindows++ is a lightweight C++ application framework that\nlets you program Windows in\nC++. You can use it as the starting point for\nyour own framework. It contains all the usual goodies to hide WinMain and wrap the Windows\nAPI, and you can write the hello, world program in just\n20 lines of code!\n\nWindows++ supports both Borland and Microsoft compilers (as well as\nZortech :->) and runs on Win 3.1, Windows 95/98/NT/XP. The full\nDLL is only 84K, and Windows++ doesn't use message maps! Several\ncompanies have used Windows++ to build commercial apps—including the energizer bunny\nscreen saver! I used it to build a medical application for\northopedists. \n\nWindows++ comes with the entire class library, make files,\nand several sample programs, including a Mandelbrot generator\n (hint: drag a rectangle) and a program that learns to play tic-tac-toe, eventually drawing any opponent.\n\nDownload Windows++ for Win32 now!\n\nDownload original 16-bit version\n\nIf you want to learn how\nWindows++ (and any application framework like MFC) works, get my book Windows++:\nWriting Reusable Windows Code in C++ from your\nfavorite computer bookstore or Amazon.com. \n\nHere's what famed Undocumented Windows\nauthor Andrew Schulman wrote about Windows++:\n\n\"The nitty-gritty details of how Windows applications frameworks\nare implemented, and of how Windows programs can hide the Windows API, get rid of WinMain,\nget rid of switch statements, and generally make Windows code more readable, modular and\nreusable. This is a brilliant book!\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "amazon.com",
+      "application",
+      "borland",
+      "c++",
+      "code",
+      "dll",
+      "download",
+      "framework",
+      "hide",
+      "learn",
+      "mfc",
+      "microsoft",
+      "program",
+      "several",
+      "the windows api",
+      "windows",
+      "winmain",
+      "write",
+      "zortech"
+    ],
+    []
+  ]
+}

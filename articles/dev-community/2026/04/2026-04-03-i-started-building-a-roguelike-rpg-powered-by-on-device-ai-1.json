@@ -1,0 +1,39 @@
+{
+  "id": 8490,
+  "source": "DEV Community<",
+  "title": "I Started Building a Roguelike RPG — Powered by On-Device AI #1",
+  "url": "https://dev.to/as1as/i-started-building-a-roguelike-rpg-powered-by-on-device-ai-2o4i",
+  "published_at": "2026-04-03T23:29:30Z",
+  "fetched_at": "2026-04-03T23:40:20.644672+00:00",
+  "author": "as1as",
+  "summary": "<p>I've been getting into on-device AI lately.</p>\n\n<p>Not cloud AI. Not sending requests to a server somewhere. I mean a language model running entirely on the phone itself — no internet required, no API costs, no data leaving the device.</p>\n\n<p>When I learn something new, I have to build something. So I did.</p>\n\n\n\n\n<h2>\n  \n  \n  Why On-Device AI Is Interesting Right Now\n</h2>\n\n<p>It's slow. It's limited. Compared to cloud LLMs, it's nowhere close.</p>\n\n<p>But the direction is clear.</p>\n\n<p>Smartphone NPUs are getting significantly more powerful every year. Model compression techniques are improving every month. The performance that required a cloud GPU two years ago is starting to run on a phone today.</p>\n\n<p>The people who get familiar with this now will have an advantage when it becomes mainstream. That's why I'm learning it now.</p>\n\n\n\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>A roguelike RPG.</p>\n\n<p><strong>Help Wanted: Hero</strong> — Conquering the Demon Lord's Castle, 300 floor",
+  "full_text": "I've been getting into on-device AI lately.\n\nNot cloud AI. Not sending requests to a server somewhere. I mean a language model running entirely on the phone itself — no internet required, no API costs, no data leaving the device.\n\nWhen I learn something new, I have to build something. So I did.\n\n \n \n Why On-Device AI Is Interesting Right Now\n\nIt's slow. It's limited. Compared to cloud LLMs, it's nowhere close.\n\nBut the direction is clear.\n\nSmartphone NPUs are getting significantly more powerful every year. Model compression techniques are improving every month. The performance that required a cloud GPU two years ago is starting to run on a phone today.\n\nThe people who get familiar with this now will have an advantage when it becomes mainstream. That's why I'm learning it now.\n\n \n \n What I Built\n\nA roguelike RPG.\n\nHelp Wanted: Hero — Conquering the Demon Lord's Castle, 300 floors.\n\nAn on-device LLM generates the dungeon every 5 floors. Mob names, dialogue, boss patterns, hidden events — all created locally, no server involved.\n\nWhy a game? Because it's a domain where AI being wrong is fine.\n\nIf the mob name sounds weird, it's funny. If the boss dialogue is a little off, it adds to the charm. Games naturally absorb the limitations of small on-device models in a way that most other apps can't.\n\nAlso, roguelikes need fresh content every run. That's exactly what generative AI is good at.\n\n \n \n How It's Going\n\nI ran the first test on a Samsung Galaxy S24 Ultra.\n\nGenerating one dungeon set took 8 minutes and 43 seconds.\n\nThat's CPU-only inference with Phi-4-mini (3.8B, INT4 quantized) via ONNX Runtime on Android. NPU acceleration is essential. I'm currently hitting a wall trying to get QNN HTP working.\n\nThe next post will cover the full implementation — Unity + ONNX Runtime Android setup, building a C# tokenizer from scratch, the KV cache inference engine, and exactly where and why things broke.\n\nNext: Unity + ONNX Runtime Android — A Full Breakdown of What Went Wrong (and What Didn't)",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "android",
+      "api",
+      "boss",
+      "cloud",
+      "cpu",
+      "dungeon",
+      "exactly",
+      "gamedev",
+      "get",
+      "gpu",
+      "llm",
+      "npu",
+      "onnx",
+      "roguelike",
+      "rpg",
+      "runtime",
+      "unity",
+      "wrong"
+    ],
+    [
+      "gamedev"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 8624,
+  "source": "Hacker News",
+  "title": "Mbodi AI (YC P25) Is Hiring",
+  "url": "https://www.ycombinator.com/companies/mbodi-ai/jobs/mf9L3sy-senior-robotics-engineer-systems-controls",
+  "published_at": "2026-04-04T12:00:38Z",
+  "fetched_at": "2026-04-04T12:40:25.590401+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47638270\">Comments</a>",
+  "full_text": "About Mbodi\n\nJoin Mbodi AI (YC X25), an AI robotics startup founded by two former Googlers committed to pushing the boundaries of physical intelligence. Mbodi is an embodied AI platform that makes robots learn and operate like humans. Anyone can teach robots new skills by talking to them — and execute those skills reliably in production within minutes.\n\nWe are pioneering the next wave of robotics, where AI agents meet physical world applications. Backed by top investors and working with global industrial partners, such as ABB, we’re redefining what’s possible in robotics and automation.\n\nRole Overview\n\nWe’re looking for a Senior Robotics Engineer (Systems & Controls) to join our core team.\n\nYou will design and tune the systems that make robot behavior reliable under real-world constraints, turning task intent into stable, precise, production-grade motion on real hardware. This includes controller design, dynamics and system-response analysis, industrial hardware integration, and deployment through commissioning.\n\nThis is a hands-on role for someone equally comfortable with control design, motion behavior, hardware integration, and debugging across the full stack.\n\nWhat You’ll Do\n\nDesign and Tune Control Architectures: Design and tune controllers for robot motion using PID, feedforward, state-space methods, LQR, and MPC.\n\nFirst-Principles Modeling: Model system dynamics with block diagrams, transfer functions, and state-space methods; analyze stability, overshoot, settling time, damping, tracking error, and robustness.\n\nMotion Execution & OEM Interfacing: Build motion execution around industrial OEM controllers, accounting for latency, calibration error, joint limits, motion constraints, and fault handling.\n\nLead System Integration: Integrate our platform with real-world industrial robotic systems across sensors, network interfaces, safety I/O, and hardware.\n\nDeploy and Commission: Own bring-up, validation, commissioning, and on-site issue resolution in production environments.\n\nFull-Stack Debugging: Debug failures across controls, software, networking, calibration, and hardware.\n\nWhat We’re Looking For\n\nApplied Control Theory: Deep expertise in classical and modern control theory (Laplace transforms, frequency-domain analysis, LQR, MPC) with a proven track record of deploying these algorithms on physical hardware, not just in simulation.\n\nStrong Systems Intuition: A deep understanding of closed-loop system behavior, including stability, overshoot, tracking error, and robustness in messy physical environments.\n\nHardware & Commissioning Experience: Hands-on experience integrating, tuning, and commissioning industrial robot hardware (ABB, Fanuc, KUKA, UR) in real-world or production settings.\n\nSoftware Engineering: 4+ years of experience in robotics software. Strong C++/Python skills, especially at the boundary between high-level task planning services and deterministic robot execution.\n\nStartup DNA: High agency, strong bias toward action, and the ability to thrive in a fast-paced, execution-focused environment.\n\nPreferred Qualifications\n\nRAPID Proficiency: Deep experience programming and interfacing with ABB controllers via RAPID.\n\nROS2 Proficiency: Strong experience building production-grade robotics pipelines in ROS2.\n\nAdvanced Degree: PhD or equivalent experience in Robotics, Controls, Mechanical Engineering, Electrical Engineering, or a closely related field.\n\nCompensation\n\nSalary: $100K – $250K\n\nEquity: 0.50% – 2.00%",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "abb",
+      "deploy and commission",
+      "experience",
+      "fanuc",
+      "hardware",
+      "industrial",
+      "lqr",
+      "mbodi",
+      "mechanical engineering",
+      "motion",
+      "mpc",
+      "oem",
+      "physical",
+      "pid",
+      "robot",
+      "robotics",
+      "strong",
+      "strong systems intuition",
+      "systems"
+    ],
+    []
+  ]
+}

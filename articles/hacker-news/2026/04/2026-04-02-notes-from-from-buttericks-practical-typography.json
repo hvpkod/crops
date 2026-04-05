@@ -1,0 +1,34 @@
+{
+  "id": 8692,
+  "source": "Hacker News",
+  "title": "Notes from from Butterick's Practical Typography",
+  "url": "https://adamadam.blog/2026/04/01/my-notes-from-buttericks-practical-typography/",
+  "published_at": "2026-04-02T14:25:52Z",
+  "fetched_at": "2026-04-04T18:40:31.138615+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47614956\">Comments</a>",
+  "full_text": "I’ve just refreshed Butterick’s Practical Typography. The first time I read it was a couple of years ago and I’ve surely forgotten a bunch since. Here are a few thoughts I had during this read-through.\n\nTypography is like theater\n\nButterick cites three principles from The Elements of Typographic Style:\n\nGood typography is measured by how well it reinforces the meaning of the text, not by some abstract scale of merit. Typographic choices that work for one text won’t necessarily work for another. Corollary: good typographers don’t rely on rote solutions. One size never fits all.\n\nFor a given text, many typographic solutions would work equally well. Typography is not an algebra problem with one correct answer.\n\nYour ability to produce good typography depends on how well you understand the goals of your text, not on taste or visual training. Corollary: if you misunderstand the goals of your text, good typography becomes purely a matter of luck.\n\nWhat is good typography?\n\nThe three principles read exactly like theater to me. A play is just a way of presenting the script—so is the printed page. Different language, same goals, and the same three principles apply. To paraphrase:\n\nGood acting is measured by how well it reinforces the meaning of the text. A distant, stone-hearted Romeo would just confuse the audience.\n\nFor a given play, many acting choices would work equally well. A Romeo who’s impulsive comes across very differently from Romeo who’s both seductive and desperate. Both choices work.\n\nYour ability to make good choices as an actor depends on how well you understand what the playwright meant. Anthony Hopkins famously reads his lines 250 times to understand and internalize every single word.\n\nThings that stood out to me\n\nThis blog needs a typographical refresh. \n\nShow, don’t tell. The entire book shows visual examples of good and bad typesetting side by side. When HTML falls short, it uses SVG with fonts rendered as <path> elements to give every reader the same reading experience regardless of their device or installed fonts. That’s a really good use of SVG.\n\nMac shortcuts for curly quotes:\n\n„” pair is produced with option + [ and option + shift + [.\n\n‚’ pair is produced with option + ] and option + shift + ].\n\n(bonus) • is produced with option + 8.\n\nOptional hyphens are a thing. In HTML, that’s &shy; (s for soft, hy for hyphen). The browser only breaks the word there if it needs to.\n\nLetterspacing vs. kerning. Letterspacing adjusts the space between every pair of letters—useful for all caps and small caps, available via CSS letter-spacing. Kerning adjusts only specific pairs built into the font, available via CSS text-rendering: optimizeLegibility.\n\nButterick choice of capitalizing the links was highly illegible to me. I was briefly confused every time I saw a link in the middle of a sentence. Also, I couldn’t visually scan the page for links the way I normally do. I’d rather use color or underline—which Butterick advises against!\n\nThis science paper looks less legible to me after Butterick’s proposed changes—except for the double spaces. I really wish people would stop using double spaces after sentences.\n\nThis quote sent me back on a nostalgic path to 2000s, when tables and floating were the two tools we’ve had for positioning elements on websites: For layouts where text needs to be positioned side-by-side or floating at specific locations on the page. If making these is frustrating with the usual layout tools, try using a table.\n\nYour selection of borders can either support your tables or absolutely destroy their legibility. I’ve seen a similar visual in many places and I still love it. A thick border steals attention from the content. A minimal border supports comprehension by separating cells without obstructing the view.\n\nThis point is nicely supported with creative typesetting.\n\nTypewriter habits we should let go of in the age of computers.\n\nButterick on 960 grid-based designs: „if you take ugly shit and align it to a grid—it’s still ugly shit.” This is not how I would phrase it, but I won’t disagree.\n\nA closing word\n\nThis is a good impulse to refresh this blog. I’ve meant to do it for a while, but never gotten to it. Luckily this time, I’m equipped with the WordPress site importer I’m building. I’ll clone this site locally, update it with Claude, and then bring back those changes to the live site. We’ll see how that goes!\n\nIn any case, go read Practical Typography! Here’s are a few related books I’ve read and valued:",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "butterick",
+      "butterick’s practical typography",
+      "choice",
+      "css",
+      "html",
+      "n’t",
+      "option",
+      "pair",
+      "principle",
+      "produce",
+      "romeo",
+      "svg",
+      "theater",
+      "typographic",
+      "typography",
+      "wordpress"
+    ],
+    []
+  ]
+}

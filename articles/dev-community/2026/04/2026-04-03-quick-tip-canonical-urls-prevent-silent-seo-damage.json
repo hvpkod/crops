@@ -1,0 +1,35 @@
+{
+  "id": 8310,
+  "source": "DEV Community<",
+  "title": "Quick tip: canonical URLs prevent silent SEO damage",
+  "url": "https://dev.to/bengreenberg/quick-tip-canonical-urls-prevent-silent-seo-damage-3460",
+  "published_at": "2026-04-03T11:00:16Z",
+  "fetched_at": "2026-04-03T12:00:39.621946+00:00",
+  "author": "Ben Greenberg",
+  "summary": "<p>Quick tip on SEO:</p>\n\n<p>If your site is accessible at both <code>https://example.com</code> and <code>https://www.example.com</code>, Google sees two different sites and splits your ranking signals between them.</p>\n\n<p>Fix: add a canonical tag to every page:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight html\"><code><span class=\"nt\">&lt;link</span> <span class=\"na\">rel=</span><span class=\"s\">\"canonical\"</span> <span class=\"na\">href=</span><span class=\"s\">\"https://example.com/page\"</span> <span class=\"nt\">/&gt;</span>\n</code></pre>\n\n</div>\n\n\n\n<p>Check if yours is set correctly — the free audit tool at <a href=\"https://audit.hummusonrails.com/free\" rel=\"noopener noreferrer\">https://audit.hummusonrails.com/free</a> checks canonical tags along with 4 other key issues.</p>",
+  "full_text": "Quick tip on SEO:\n\nIf your site is accessible at both https://example.com and https://www.example.com, Google sees two different sites and splits your ranking signals between them.\n\nFix: add a canonical tag to every page:\n\n<link rel=\"canonical\" href=\"https://example.com/page\" />\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCheck if yours is set correctly — the free audit tool at https://audit.hummusonrails.com/free checks canonical tags along with 4 other key issues.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "accessible",
+      "canonical",
+      "check",
+      "correctly",
+      "devtips",
+      "google",
+      "quick",
+      "rank",
+      "see",
+      "seo",
+      "silent",
+      "url",
+      "webdev",
+      "yours"
+    ],
+    [
+      "devtips",
+      "webdev"
+    ]
+  ]
+}

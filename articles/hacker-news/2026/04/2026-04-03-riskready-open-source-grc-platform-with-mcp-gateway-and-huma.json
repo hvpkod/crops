@@ -1,0 +1,39 @@
+{
+  "id": 8320,
+  "source": "Hacker News",
+  "title": "RiskReady-open-source GRC platform with MCP gateway and human-approved mutations",
+  "url": "https://github.com/riskreadyeu/riskready-community",
+  "published_at": "2026-04-03T10:40:25Z",
+  "fetched_at": "2026-04-03T12:40:26.970482+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47625112\">Comments</a>",
+  "full_text": "RiskReady Community Edition\n\nOpen-source GRC platform. 254 AI tools. Human-approved autonomy.\n\ngit clone https://github.com/riskreadyeu/riskready-community.git\ncd riskready-community\ncp .env.example .env # edit: POSTGRES_PASSWORD, JWT_SECRET, ADMIN_EMAIL, ADMIN_PASSWORD\ndocker compose up -d # first run ~3 minutes\nopen http://localhost:9380 # log in as ciso@clearstream.ie / password123\n\nRequires Docker 24+ with Compose v2. Linux, macOS, or Windows (WSL2).\n\n9 MCP servers expose 254 tools that connect Claude directly to your compliance database — risks, controls, policies, incidents, audits, evidence, ITSM, and organisation governance.\n\nEvery AI mutation is proposed, not executed. A human reviews and approves each action before it touches the database. This holds for interactive chat, scheduled runs, and autonomous workflows.\n\nYou: \"Give me a full security posture assessment.\"\nAgent: Convenes AI Council → 6 specialists analyse in parallel → CISO synthesises\n → structured report with consensus, dissents, and prioritised actions\nCost: $0.19 on Haiku. $10 on Opus. 96% token reduction via tool search.\n\nMode\nHow it works\nAI cost to you\nSecurity\n\nWeb App\nBuilt-in chat UI with streaming, council, scheduled workflows\nYou pay per token\n8.1/10\n\nMCP Proxy\nClaude Desktop connects remotely via API key — one endpoint, all 254 tools\n$0\n8.9/10\n\nDirect\n9 stdio servers on your machine for local development\n$0\n2.3/10\n\nThe MCP Proxy is the recommended mode for teams. Each user brings their own Claude subscription. You provide the tools and the security layer. Connection modes compared →\n\nModule\nWhat it covers\n\nRisk Management\nRisk register, scenarios, KRIs, tolerance statements, treatment plans\n\nControls\nControl library, assessments, Statement of Applicability, gap analysis\n\nPolicies\nDocument lifecycle, version control, change requests, reviews, exceptions\n\nIncidents\nTracking, classification, response workflows, lessons learned\n\nAudits\nInternal audit planning, nonconformity tracking, corrective actions\n\nEvidence\nCollection, file storage, linking to controls, risks, and incidents\n\nITSM\nIT asset register, change management, capacity planning\n\nOrganisation\nStructure, departments, locations, committees, key personnel\n\nScreenshots (click to expand)\n\nComplex questions convene 6 specialist agents:\n\nAgent\nDomain\n\nRisk Analyst\nRisk register, scenarios, KRIs, tolerance, treatments\n\nControls Auditor\nControl effectiveness, SOA, assessments, gap analysis\n\nCompliance Officer\nPolicies, frameworks (ISO 27001, DORA, NIS2), governance\n\nIncident Commander\nIncident patterns, response metrics, lessons learned\n\nEvidence Auditor\nEvidence coverage, audit readiness, nonconformities\n\nCISO Strategist\nCross-domain synthesis — produces the final report\n\nEach member queries the database independently, then the CISO synthesises. All reasoning is preserved for audit. Benchmarks →\n\nEvery AI mutation goes through human approval. No exceptions, no auto-approve, not even for scheduled runs.\n\nThe 8-point agent security audit covers:\n\nIdentity & Authorization — per-user API keys with per-tool permission scoping\n\nMemory — 90-day TTL, injection scanning, org-scoped recall\n\nTool Trust — 254 first-party tools, Zod-validated, no third-party MCP servers\n\nBlast Radius — zero HTTP outbound, rate limiting, scoped API keys\n\nHuman Checkpoints — tiered severity (low/medium/high/critical) on all mutations\n\nOutput Validation — credential scanning, PII redaction, grounding guard\n\nCost Controls — token budgets, turn caps, council rate limits\n\nObservability — tool call logging, behavioral anomaly detection, source tracking\n\nFirst deploy auto-seeds ClearStream Payments Ltd — a fictional European fintech regulated under DORA and NIS2: 15 risks, 30 scenarios, 40 controls, 12 policies, 8 incidents, 20 assets, 5 nonconformities, 20 evidence records, and 6 months of trend data.\n\nLog in as ciso@clearstream.ie / password123 for the most complete view.\n\nGuide\n\nAI Platform Guide\nMCP servers, gateway, council, scheduler, workflows, approval pipeline\n\nDeployment\nDocker setup, env vars, production TLS, troubleshooting\n\nUser Guide\nWeb app walkthrough for all 8 GRC modules\n\nConnection Modes\nWeb App vs MCP Proxy vs Direct — feature comparison\n\nAgent Security Audit\n8-point framework with per-mode scoring and code references\n\nMCP Server Reference\nAll 254 tools with parameters and examples\n\nAPI Reference\nREST endpoints, request/response formats\n\nAdministration\nBackup, monitoring, updates, security hardening\n\ndocker compose up db -d\ncd apps/server && npm install && cp .env.example .env\nnpx prisma db push --schema=prisma/schema && npm run prisma:seed\nnpm run dev # backend :4000\ncd ../web && npm install && npm run dev # frontend :5173\n\nAdditional modules for larger organisations: Risk Appetite Cascade, Loss Magnitude (FAIR), Supply Chain Risk, BCM/BIA, Vulnerability Management, Application Security Posture, External Requirements Mapping.\n\nContributing · Security · License: AGPL-3.0",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "audit",
+      "ciso",
+      "claude",
+      "claude desktop",
+      "control",
+      "convenes ai council",
+      "evidence",
+      "haiku",
+      "incident",
+      "itsm",
+      "mcp",
+      "payments",
+      "risk",
+      "schedule",
+      "screenshots",
+      "security",
+      "server",
+      "soa",
+      "statement of applicability",
+      "tool"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 8583,
+  "source": "DEV Community<",
+  "title": "Build a Stunning \"About Us\" Page for Your Android App — OfficeAbout Library",
+  "url": "https://dev.to/alexdevson/build-a-stunning-about-us-page-for-your-android-app-officeabout-library-35d5",
+  "published_at": "2026-04-04T08:31:05Z",
+  "fetched_at": "2026-04-04T08:40:20.581821+00:00",
+  "author": "Alex Devson",
+  "summary": "<p>Every Android app needs an \"About\" page. It shows your team, version info, social links, and open-source licenses. But building one from scratch every time? Tedious.</p>\n\n<p><strong>OfficeAbout</strong> is an Android library that generates beautiful, Material Design \"About Us\" pages with just a few lines of code. No custom layouts, no XML headaches.</p>\n\n<h2>\n  \n  \n  What You Get\n</h2>\n\n<ul>\n<li>Beautiful Material Design about page</li>\n<li>Team member profiles with photos and roles</li>\n<li>Social media links (GitHub, Twitter, LinkedIn, etc.)</li>\n<li>App version and changelog display</li>\n<li>Open-source license attribution</li>\n<li>Customizable colors and themes</li>\n</ul>\n\n<h2>\n  \n  \n  How Simple Is It?\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight java\"><code><span class=\"nc\">OfficeAbout</span><span class=\"o\">.</span><span class=\"na\">init</span><span class=\"o\">(</span><span class=\"k\">this</span><span class=\"o\">)</span>\n    <span class=\"o\">.</span><spa",
+  "full_text": "Every Android app needs an \"About\" page. It shows your team, version info, social links, and open-source licenses. But building one from scratch every time? Tedious.\n\nOfficeAbout is an Android library that generates beautiful, Material Design \"About Us\" pages with just a few lines of code. No custom layouts, no XML headaches.\n\n \n \n What You Get\n\nBeautiful Material Design about page\n\nTeam member profiles with photos and roles\n\nSocial media links (GitHub, Twitter, LinkedIn, etc.)\n\nApp version and changelog display\n\nOpen-source license attribution\n\nCustomizable colors and themes\n\n \n \n How Simple Is It?\n\nOfficeAbout.init(this)\n .setAppName(\"My App\")\n .setAppVersion(\"1.0.0\")\n .addTeamMember(new TeamMember(\"John\", \"Developer\", photoUrl))\n .addSocialLink(SocialLink.GITHUB, \"https://github.com/myapp\")\n .show();\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's a complete, polished about page. Ready to ship.\n\n \n \n Why Use This?\n\nEvery indie developer spends hours building about pages that all look the same. OfficeAbout gives you a professional result in minutes, so you can focus on features that actually matter.\n\n \n \n Perfect For\n\nSolo developers who want professional-looking apps\n\nTeams that need consistent branding across apps\n\nOpen-source projects that want proper attribution\n\nMVPs where every hour counts\n\n⭐ GitHub: github.com/p32929/OfficeAbout\n\nBy @p32929 — stop rebuilding about pages from scratch.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "android",
+      "app",
+      "attribution",
+      "build",
+      "hour",
+      "java",
+      "library",
+      "linkedin",
+      "material",
+      "officeabout",
+      "page",
+      "showdev",
+      "ui",
+      "version",
+      "xml"
+    ],
+    [
+      "showdev",
+      "ui"
+    ]
+  ]
+}

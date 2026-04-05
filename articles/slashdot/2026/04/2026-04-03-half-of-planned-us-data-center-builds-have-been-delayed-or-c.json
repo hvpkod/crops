@@ -1,0 +1,38 @@
+{
+  "id": 8369,
+  "source": "Slashdot",
+  "title": "Half of Planned US Data Center Builds Have Been Delayed or Canceled",
+  "url": "https://hardware.slashdot.org/story/26/04/03/1558235/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-03T16:00:00Z",
+  "fetched_at": "2026-04-03T16:40:21.139357+00:00",
+  "author": "BeauHD",
+  "summary": "Despite hundreds of billions of dollars in investment, nearly half of planned U.S. data center projects are being delayed or canceled. \"One major reason behind these setbacks is the availability of key electrical components -- such as transformers, switchgear, and batteries -- that are used both at data center sites and outside of them,\" reports Tom's Hardware. \"Meanwhile, grid infrastructure is also stressed by electric vehicles and electrified heating systems.\" Tom's Hardware reports: Approximately 12 gigawatts (12 GW) of data center capacity is expected to come online in the U.S. in 2026, according to data by market intelligence firm Sightline Climate cited by Bloomberg. Yet only about one-third of that capacity is currently under active construction because of various constraints.\n \nElectrical infrastructure represents less than 10% of total data center cost, but it is as vital as compute hardware. A delay in any single element of the power chain can halt the entire project, which ",
+  "full_text": "Despite hundreds of billions of dollars in investment\n\n, nearly half of planned U.S. data center projects are being delayed or canceled\n\n. \"One major reason behind these setbacks is the availability of key electrical components -- such as transformers, switchgear, and batteries -- that are used both at data center sites and outside of them,\" reports Tom's Hardware. \"Meanwhile, grid infrastructure is also stressed by electric vehicles and electrified heating systems.\" Tom's Hardware reports: Approximately 12 gigawatts (12 GW) of data center capacity is expected to come online in the U.S. in 2026, according to data by market intelligence firm Sightline Climate cited by Bloomberg. Yet only about one-third of that capacity is currently under active construction because of various constraints.\n\n \n\nElectrical infrastructure represents less than 10% of total data center cost, but it is as vital as compute hardware. A delay in any single element of the power chain can halt the entire project, which makes transformers, switchgear, and similar devices critical items despite their relatively small share of CapEx. Due to high demand, lead times for high-power transformers have expanded dramatically in the U.S.: delivery typically took 24 to 30 months before 2020, but waiting periods can stretch to as long as five years today, according to Sightline Climate cited by Bloomberg. For AI data centers, this is a catastrophe as their deployment cycles are under 18 months.\n\n \n\nTo address shortages, companies are turning to global markets. As a result, Canada, Mexico, and South Korea became the biggest suppliers of high-power transformers for AI data centers to AI data centers. At the same time, imports of high-power transformers from China surged from fewer than 1,500 units in 2022 to more than 8,000 units in 2025 through October, according to Wood Mackenzie data cited by Bloomberg. The volatility of exports from China does not end with transformers, as the PRC accounts for over 40% of U.S. battery imports, while its share in certain transformer and switchgear categories remains near 30%, according to Bloomberg.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "bloomberg",
+      "canada",
+      "cancel",
+      "capex",
+      "center",
+      "china",
+      "cite",
+      "climate",
+      "datum",
+      "delay",
+      "mexico",
+      "plan",
+      "power",
+      "prc",
+      "sightline",
+      "sightline climate",
+      "south korea",
+      "transformer",
+      "u.s.",
+      "wood mackenzie"
+    ],
+    []
+  ]
+}

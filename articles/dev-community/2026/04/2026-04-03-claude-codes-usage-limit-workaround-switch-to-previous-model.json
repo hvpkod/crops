@@ -1,0 +1,35 @@
+{
+  "id": 8392,
+  "source": "DEV Community<",
+  "title": "Claude Code's Usage Limit Workaround: Switch to Previous Model with /compact",
+  "url": "https://dev.to/gentic_news/claude-codes-usage-limit-workaround-switch-to-previous-model-with-compact-77n",
+  "published_at": "2026-04-03T17:41:44Z",
+  "fetched_at": "2026-04-03T18:00:31.685661+00:00",
+  "author": "gentic news",
+  "summary": "<blockquote>\n<p>A concrete workflow to avoid Claude Code's usage limits: use the previous model version with the /compact flag set to 200k tokens for long, technical sessions.</p>\n</blockquote>\n\n<h2>\n  \n  \n  The Problem: Usage Burns Too Fast for Technical Work\n</h2>\n\n<p>If you're using Claude Code for serious technical work—repo cleanup, long document rewrites, or multi-step code refactors—you've likely hit the usage limit wall. As discussed in a recent Reddit thread, developers report burning through their allocated usage \"absurdly fast\" even with disciplined, minimal setups. The core issue isn't casual chat; it's the need for continuity in complex tasks where resetting a session breaks the workflow.</p>\n\n<h2>\n  \n  \n  The Solution: Model Version + Context Compression\n</h2>\n\n<p>The specific advice circulating among power users is a two-part configuration change:</p>\n\n<ol>\n<li> <strong>Switch to the previous Claude model.</strong> Don't use the latest Opus 4.6 for extended, iterative se",
+  "full_text": "A concrete workflow to avoid Claude Code's usage limits: use the previous model version with the /compact flag set to 200k tokens for long, technical sessions.\n\n \n \n The Problem: Usage Burns Too Fast for Technical Work\n\nIf you're using Claude Code for serious technical work—repo cleanup, long document rewrites, or multi-step code refactors—you've likely hit the usage limit wall. As discussed in a recent Reddit thread, developers report burning through their allocated usage \"absurdly fast\" even with disciplined, minimal setups. The core issue isn't casual chat; it's the need for continuity in complex tasks where resetting a session breaks the workflow.\n\n \n \n The Solution: Model Version + Context Compression\n\nThe specific advice circulating among power users is a two-part configuration change:\n\n Switch to the previous Claude model. Don't use the latest Opus 4.6 for extended, iterative sessions if you're hitting limits.\n\n Use the /compact flag with a 200k token target. This tells Claude Code to aggressively compress the conversation history, prioritizing recent context.\n\nYou can apply this when starting a Claude Code session from your terminal:\n\nclaude code --model claude-3-5-sonnet-20241022 --compact 200000\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOr, set it in your CLAUDE.md configuration for persistence:\n\n<!-- CLAUDE.md -->\nModel: claude-3-5-sonnet-20241022\nCompact: 200000\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Why This Works: Token Economics\n\nThe latest models, like Claude Opus 4.6, are incredibly capable but also more computationally expensive per token. For long sessions where the model re-processes the entire conversation history on each turn, this cost compounds rapidly. The previous generation models (like claude-3-5-sonnet) offer a vastly better performance-to-cost ratio for extended coding and analysis tasks.\n\nThe /compact flag is the other critical lever. By default, Claude Code may retain a vast amount of context. Setting --compact 200000 instructs the system to aim for a 200k token context window, actively summarizing or dropping older parts of the conversation to stay near that target. This prevents the silent usage drain from endlessly growing context.\n\n \n \n Implementing the Workflow\n\nDon't just change the model—adapt your prompting style to work with compression.\n\n Segment Large Tasks: Break a massive repo refactor into logical, folder-by-folder sessions. Use a final summary prompt at the end of each segment to hand off context.\n\n Be Explicit About Files: When context is compressed, file contents can be dropped. Use commands like /read explicitly when you need to revisit a file, rather than assuming it's in memory.\n\n Guide the Compression: After a significant milestone, you can prompt: \"Please summarize the changes we've made to utils/ so far for context compression.\" This gives the model a high-quality summary to retain.\n\nThis approach isn't about using shorter prompts; it's about smarter session management that aligns with how Claude Code's usage is calculated. For many developers, this single configuration shift has turned daily limit hits into a weekly occurrence.\n\nOriginally published on gentic.news",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "claude",
+      "code",
+      "configuration",
+      "context",
+      "flag",
+      "model",
+      "previous",
+      "product",
+      "programming",
+      "repo",
+      "session",
+      "tech",
+      "token",
+      "usage"
+    ],
+    [
+      "programming"
+    ]
+  ]
+}

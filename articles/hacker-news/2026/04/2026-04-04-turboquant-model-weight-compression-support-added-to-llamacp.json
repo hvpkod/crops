@@ -1,0 +1,32 @@
+{
+  "id": 8602,
+  "source": "Hacker News",
+  "title": "TurboQuant model weight compression support added to Llamacpp",
+  "url": "https://github.com/TheTom/llama-cpp-turboquant/pull/45",
+  "published_at": "2026-04-04T08:52:29Z",
+  "fetched_at": "2026-04-04T10:40:22.867116+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47637228\">Comments</a>",
+  "full_text": "Adds CUDA dequantization for TQ4_1S (5.0 bpv) and TQ3_1S (4.0 bpv)\nWHT-rotated weight compression types. These achieve 27-37% model size\nreduction at +1.0-1.9% PPL on Qwen/Phi families.\n\nBase types + Metal + CPU quantize/dequant from TheTom's PR TheTom#45.\nCUDA additions:\n\n- turbo-quant.cuh: weight centroids (N(0,1) Lloyd-Max, 16/8 levels),\n sign array for 32-element inverse WHT\n- dequantize.cuh: dequantize_tq4_1s/tq3_1s — full 32-element block\n inverse RHT (5 butterfly stages + normalize + unsign)\n- convert.cu: TQ4_1S/TQ3_1S in all 4 dequant dispatchers\n- ggml-cuda.cu: supports_op for MUL_MAT and GET_ROWS, excluded from\n mmvq/mmq (uses cuBLAS dequant-to-f16 path)\n\nThe cuBLAS path is correct for initial support. Future optimization:\npre-rotate activations via warp shuffle WHT (same pattern as KV cache\nQ rotation) to eliminate per-block inverse WHT.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "centroid",
+      "compression",
+      "cublas",
+      "cuda",
+      "dequantization",
+      "dispatcher",
+      "exclude",
+      "github",
+      "inverse",
+      "qwen/phi",
+      "rht",
+      "thetom",
+      "weight",
+      "wht"
+    ],
+    []
+  ]
+}

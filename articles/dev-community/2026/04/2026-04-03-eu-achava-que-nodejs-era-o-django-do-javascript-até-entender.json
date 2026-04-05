@@ -1,0 +1,38 @@
+{
+  "id": 8491,
+  "source": "DEV Community<",
+  "title": "Eu achava que Node.js era o “Django do JavaScript”… até entender isso",
+  "url": "https://dev.to/mffdeo/eu-achava-que-nodejs-era-o-django-do-javascript-ate-entender-isso-4904",
+  "published_at": "2026-04-03T23:25:52Z",
+  "fetched_at": "2026-04-03T23:40:21.491203+00:00",
+  "author": "Marcos Filipe",
+  "summary": "<p>Se você está começando no desenvolvimento web, deixa eu tentar adivinhar:</p>\n\n<p>Em algum momento você pensou algo como:</p>\n\n<blockquote>\n<p>“Se Django é o principal framework do Python… então Node.js deve ser tipo isso pro JavaScript, né?”</p>\n</blockquote>\n\n<p>Eu também pensei assim.</p>\n\n<p>E foi aí que começou a confusão.</p>\n\n\n\n\n<h2>\n  \n  \n  🤯 O momento em que tudo não fez sentido\n</h2>\n\n<p>Eu comecei a pesquisar sobre backend e vi coisas como:</p>\n\n<ul>\n<li>Node.js</li>\n<li>Express</li>\n<li>NestJS</li>\n<li>Django</li>\n<li>Flask</li>\n</ul>\n\n<p>E aí veio a dúvida:</p>\n\n<blockquote>\n<p>“Por que Python tem <em>um nome forte</em> (Django)… mas JavaScript tem vários?”</p>\n</blockquote>\n\n<p>Parecia que eu estava comparando coisas… que não eram comparáveis.</p>\n\n\n\n\n<h2>\n  \n  \n  💡 A virada de chave\n</h2>\n\n<p>Depois de um tempo, caiu a ficha:</p>\n\n<blockquote>\n<p><strong>Eu estava comparando um ambiente com um framework.</strong></p>\n</blockquote>\n\n<p>E isso muda tudo.</p>\n\n\n\n\n<h2>\n  ",
+  "full_text": "Se você está começando no desenvolvimento web, deixa eu tentar adivinhar:\n\nEm algum momento você pensou algo como:\n\n“Se Django é o principal framework do Python… então Node.js deve ser tipo isso pro JavaScript, né?”\n\nEu também pensei assim.\n\nE foi aí que começou a confusão.\n\n \n \n 🤯 O momento em que tudo não fez sentido\n\nEu comecei a pesquisar sobre backend e vi coisas como:\n\nNode.js\n\nExpress\n\nNestJS\n\nDjango\n\nFlask\n\nE aí veio a dúvida:\n\n“Por que Python tem um nome forte (Django)… mas JavaScript tem vários?”\n\nParecia que eu estava comparando coisas… que não eram comparáveis.\n\n \n \n 💡 A virada de chave\n\nDepois de um tempo, caiu a ficha:\n\nEu estava comparando um ambiente com um framework.\n\nE isso muda tudo.\n\n \n \n 🧱 A base vs a construção\n\nVamos simplificar ao máximo:\n\n \n \n 🔹 Node.js\n\nNão é um framework.\n\nÉ um ambiente que permite rodar JavaScript fora do navegador.\n\n👉 Ele é o terreno onde você vai construir.\n\n \n \n 🔹 Django\n\nÉ um framework completo para aplicações web em Python.\n\n👉 Ele já é praticamente a casa pronta.\n\n \n \n ⚖️ A comparação correta (agora sim faz sentido)\n\nQuando você ajusta a lente, fica claro:\n\nPython + Django ≈ Node.js + (Express | NestJS | AdonisJS)\n\nOu seja:\n\nNode.js sozinho não compete com Django\n\nVocê precisa de um framework junto\n\n \n \n 🏗️ Duas filosofias totalmente diferentes\n\nAqui é onde a escolha realmente importa 👇\n\n \n \n 🟦 Django — “já vem com tudo”\n\nDjango segue a ideia de:\n\n“Não perca tempo decidindo, só construa.”\n\nVocê já ganha:\n\nSistema de autenticação\n\nORM\n\nPainel admin\n\nSegurança pronta\n\n👉 Sensação: produtividade imediata\n\n \n \n 🟨 Node.js — “monte do seu jeito”\n\nNo mundo Node:\n\nVocê escolhe tudo:\n\nFramework (Express, NestJS…)\n\nBanco (Mongo, PostgreSQL…)\n\nORM (Prisma, Sequelize…)\n\nAuth (JWT, OAuth…)\n\n👉 Sensação: liberdade total (e um pouco de caos no começo)\n\n \n \n 🧠 O erro mais comum de iniciantes\n\nAchar que:\n\n“Node.js é um framework igual ao Django”\n\nQuando na verdade:\n\nNode.js é só o começo da stack\n\n \n \n 🚀 Então… qual é melhor?\n\nResposta honesta:\n\nDepende do tipo de dor que você quer ter 😂\n\n \n \n Vá de Django se você quer:\n\nComeçar rápido\n\nMenos decisões técnicas\n\nEstrutura pronta\n\n \n \n Vá de Node.js se você quer:\n\nFlexibilidade\n\nTrabalhar com JavaScript em tudo\n\nEntender melhor como as peças se conectam\n\n \n \n 🔥 Conclusão (a versão que eu gostaria de ter ouvido antes)\n\nDjango é um pacote completo. Node.js é uma caixa de ferramentas.\n\nUm te dá tudo pronto.\n\nO outro te dá liberdade pra montar.\n\nNenhum é melhor universalmente — só são diferentes.\n\n \n \n 💬 Agora me conta\n\nVocê também já confundiu isso no começo?\n\nOu ainda tá tentando decidir qual caminho seguir?\n\nComenta aí — sempre tem alguém passando pela mesma dúvida que você 👇",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "adonisjs",
+      "banco (mongo, postgresql",
+      "casa",
+      "confusão",
+      "django",
+      "entender",
+      "faz",
+      "fica",
+      "framework",
+      "isso",
+      "javascript",
+      "jwt",
+      "momento",
+      "nestjs",
+      "node.js",
+      "segurança",
+      "também",
+      "tipo",
+      "tudo",
+      "você"
+    ],
+    []
+  ]
+}

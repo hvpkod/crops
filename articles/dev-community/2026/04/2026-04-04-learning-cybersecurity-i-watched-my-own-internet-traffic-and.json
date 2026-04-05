@@ -1,0 +1,44 @@
+{
+  "id": 8710,
+  "source": "DEV Community<",
+  "title": "Learning Cybersecurity — I watched my own internet traffic, and it changed how I think about security",
+  "url": "https://dev.to/narasimha_mallegari_/learning-cybersecurity-i-watched-my-own-internet-traffic-and-it-changed-how-i-think-about-security-2eda",
+  "published_at": "2026-04-04T19:39:51Z",
+  "fetched_at": "2026-04-04T20:40:33.483708+00:00",
+  "author": "Narasimha Mallegari",
+  "summary": "<p>I am documenting every day of my cybersecurity learning journey publicly. </p>\n\n<h2>\n  \n  \n  What I did today\n</h2>\n\n<p>Watched Professor Messer's TCP/IP video, installed Wireshark, completed my first TryHackMe room, and spent about two hours actually watching packets move through my own network.</p>\n\n<h2>\n  \n  \n  The moment everything clicked\n</h2>\n\n<p>I have read about TCP handshakes probably five times in the last week. SYN, SYN-ACK, ACK. I understood the words. I could repeat them back. But I did not really understand them.</p>\n\n<p>Today I opened Wireshark, started a capture, loaded a website, and watched it happen in real time on my own machine. My computer sent a SYN. The server replied SYN-ACK. My machine confirmed with ACK. Then the data started flowing.</p>\n\n<p>That is the moment the moment theory became real for me. It is three packets. It happens in milliseconds. And it happens every single time any device anywhere connects to any other device on the internet.</p>\n\n<h2>\n ",
+  "full_text": "I am documenting every day of my cybersecurity learning journey publicly. \n\n \n \n What I did today\n\nWatched Professor Messer's TCP/IP video, installed Wireshark, completed my first TryHackMe room, and spent about two hours actually watching packets move through my own network.\n\n \n \n The moment everything clicked\n\nI have read about TCP handshakes probably five times in the last week. SYN, SYN-ACK, ACK. I understood the words. I could repeat them back. But I did not really understand them.\n\nToday I opened Wireshark, started a capture, loaded a website, and watched it happen in real time on my own machine. My computer sent a SYN. The server replied SYN-ACK. My machine confirmed with ACK. Then the data started flowing.\n\nThat is the moment the moment theory became real for me. It is three packets. It happens in milliseconds. And it happens every single time any device anywhere connects to any other device on the internet.\n\n \n \n The HTTP experiment that honestly surprised me\n\nI set up a Wireshark filter for HTTP traffic and visited a website that does not use HTTPS — neverssl.com, which exists specifically for this kind of testing.\n\nI found one of the captured packets and clicked on it. In the lower panel of Wireshark, I could read my entire web request. Every header. The browser I was using. The page I requested. Everything.\n\nPlain text. Completely readable.\n\nI knew HTTPS was important before today. But seeing HTTP traffic readable in Wireshark made it real in a way that reading about it never did. If I were on public WiFi at a coffee shop using an HTTP website, anyone else on that network could run Wireshark and read exactly what I was sending. Logins. Session tokens. Everything.\n\nThis is why security researchers talk about public WiFi being dangerous. It is not theoretical. You can literally watch it happen.\n\n \n \n DNS — something I never thought about before\n\nWhen you type a website address into your browser, your computer does not magically know where to go. It sends a DNS query first — essentially asking \"hey, what is the IP address for this domain name?\"\n\nIn Wireshark, I could see this happen before the page even started loading. The DNS query left my machine. A response came back with the IP address. Then the TCP connection to that IP started.\n\nEvery website visit involves this. You just never see it unless you are looking at the raw traffic.\n\n \n \n TryHackMe — first room done\n\nCompleted the \"What is Networking?\" room on TryHackMe today. It covered what networks are, IP addresses, MAC addresses, and the basics of ping and ICMP.\n\nOne thing I picked up that I did not know before: MAC addresses are hardware-level identifiers that cannot change, while IP addresses are assigned by the network and can change. So when a device connects to a new WiFi network, it gets a new IP — but its MAC address stays the same.\n\nThat distinction matters in security because MAC addresses can be used to track devices even when they change IP addresses, and MAC spoofing (faking your MAC address) is a real attack technique.\n\n \n \n Questions I left with today\n\nHow does a router decide the best path when there are multiple routes to a destination?\n\nWhat is inside a TLS certificate, and how does it prove a website is legitimate?\n\nIf WiFi is encrypted, why is it still possible for attackers to intercept traffic?\n\nThese go on my list.\n\n \n \n What is on the plan for tomorrow\n\nProfessor Messer Common Ports video — memorizing the standard port numbers\n\nFirst Nmap scan in Kali Linux on a legal test target\n\nTryHackMe OSI Model room\n\nDNS recon commands in terminal — nslookup, dig, host\n\nAll my notes are on my GitHub. If you are also learning cybersecurity and want to compare notes, feel free to connect.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ack",
+      "address",
+      "cybersecurity",
+      "dns",
+      "first nmap",
+      "http",
+      "learn",
+      "mac",
+      "network",
+      "networking",
+      "osi model",
+      "security",
+      "start",
+      "syn",
+      "syn-ack",
+      "tcp",
+      "tls",
+      "tryhackme",
+      "watch",
+      "website",
+      "wifi",
+      "wireshark"
+    ],
+    [
+      "cybersecurity",
+      "network",
+      "networking"
+    ]
+  ]
+}

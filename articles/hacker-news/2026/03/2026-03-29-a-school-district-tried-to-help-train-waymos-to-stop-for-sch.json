@@ -1,0 +1,35 @@
+{
+  "id": 8405,
+  "source": "Hacker News",
+  "title": "A School District Tried to Help Train Waymos to Stop for School Buses",
+  "url": "https://www.wired.com/story/a-school-district-tried-to-help-train-waymos-to-stop-for-school-buses-it-didnt-work/",
+  "published_at": "2026-03-29T12:08:24Z",
+  "fetched_at": "2026-04-03T18:40:27.183277+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47562462\">Comments</a>",
+  "full_text": "One of the purported advantages of self-driving car tech is that every car can learn from one vehicle’s mistakes. Here’s how Waymo puts it on its website: “The Waymo Driver learns from the collective experiences gathered across our fleet, including previous hardware generations.”\n\nBut in Austin, Waymo’s vehicles struggled for months to learn how to stop for school buses as drivers picked up and dropped off children. An official with the Austin Independent School District (AISD) alleged that the vehicles had, in at least 19 instances, “illegally and dangerously” passed the district’s school buses while their red lights were flashing and their stop arms were extended rather than coming to complete stops, as the law requires.\n\nIn early December, Waymo even issued a federal recall related to the incidents, acknowledging at least 12 of them to federal regulators at the National Highway Traffic Safety Administration (NHTSA), which oversees road safety. According to federal filings, engineers with the self-driving vehicle company had “developed software changes to address the behavior” weeks before.\n\nBut even after the recall, the school-bus-passing incidents continued, according to school officials and a report from the National Transportation Safety Board (NTSB), an independent federal safety watchdog that’s also investigating the situation.\n\nNow, email and text messages between school officials and Waymo representatives, obtained by WIRED through a public records request, show the lengths that the Austin public school district and Waymo went to try to solve the problem. AISD even hosted a half-day “data collection” event in a school parking lot in mid-December, the documents show, with several employees pulling together school buses and stop-arm signals from across the fleet so the self-driving car company could collect information related to vehicles and their flashing lights.\n\nStill, by mid-January, over a month later, the school district reported at least four more school-bus-passing incidents had taken place in Austin. “The data we collected from the beginning of the school year to the end of the semester shows that about 98 percent of people that receive one violation do not receive another,” an official with the school’s police department told the local NBC affiliate that month. “That tells us that the person is learning, but it does not appear the Waymo automated driver system is learning through its software updates, its recall, what have you, because we are still having violations.”\n\nThe situation raises questions about the self-driving technologies' curious blind spots and the industry’s ability to compensate for them even after they’ve been spotted.\n\nSelf-driving software has long struggled with recognizing flashing emergency lights and road safety devices with long, thin arms, including gates and stop-arms, says Missy Cummings, who researches autonomous vehicles at George Mason University and served as a safety adviser to the NHTSA during the Biden administration. “If [the company] didn't fix this a few years ago, the more they drive, the more it’s going to be a problem,” she says. “That’s exactly what’s happening here.”\n\nWaymo did not respond to WIRED’s requests for comment. A spokesperson for the Austin Independent School District referred WIRED to the NTSB while the incidents are under investigation. A spokesperson for the NTSB declined to answer WIRED’s questions while its investigation continues.\n\nIllegal Passing\n\nBy midwinter of 2025, AISD officials were frustrated. In one of the 19 incidents alleged by a lawyer for the district in a letter later released by federal road safety regulators, a Waymo passed a school bus letting off children “only moments after a student crossed in front of the vehicle, and while the student was still in the road.”\n\n“Alarmingly,” the lawyer wrote, five of the alleged incidents had occurred after Waymo had assured the district that it had updated its software to fix the problem. Federal regulators with the NHTSA had already launched a probe into the behavior. “Austin ISD is evaluating all potential legal remedies at its disposal and intends to take whatever action is necessary to protect the safety of its students, if required,” the lawyer warned.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "aisd",
+      "allege",
+      "austin",
+      "austin isd",
+      "district",
+      "federal",
+      "flash",
+      "george mason university",
+      "incident",
+      "nbc",
+      "nhtsa",
+      "ntsb",
+      "official",
+      "safety",
+      "school",
+      "vehicle",
+      "waymo"
+    ],
+    []
+  ]
+}

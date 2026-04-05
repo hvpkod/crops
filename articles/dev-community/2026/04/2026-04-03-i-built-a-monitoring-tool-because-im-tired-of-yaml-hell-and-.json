@@ -1,0 +1,45 @@
+{
+  "id": 8304,
+  "source": "DEV Community<",
+  "title": "I built a monitoring tool because I’m tired of \"YAML Hell\" and $500 Datadog bills.",
+  "url": "https://dev.to/sarvarim/i-built-a-monitoring-tool-because-im-tired-of-yaml-hell-and-500-datadog-bills-45fj",
+  "published_at": "2026-04-03T11:33:21Z",
+  "fetched_at": "2026-04-03T12:00:27.073906+00:00",
+  "author": "Merse Sarvari",
+  "summary": "<p>Hey everyone!</p>\n\n<p>I’m a solo developer, and like many of you, I’ve spent way too much time in <strong>\"Monitoring Purgatory.\"</strong> You know the place: you’re either flying blind with <code>console.log</code>, or you’re drowning in a sea of complex YAML configurations for enterprise tools that cost more than your rent.</p>\n\n<p>I wanted a <strong>\"Middle Ground.\"</strong> Something built specifically for the JavaScript ecosystem that just... works.</p>\n\n<p>So, I built <strong>Statvisor.</strong></p>\n\n\n\n\n<h3>\n  \n  \n  The Problem with Modern Monitoring\n</h3>\n\n<ol>\n<li> <strong>The \"Vercel Gap\":</strong> Vercel Analytics is great for the frontend, but it leaves your backend as a total black box especially if you aren't fully 100% serverless.</li>\n<li> <strong>The \"Datadog Tax\":</strong> Massive tools like Datadog are powerful, but the \"event taxes,\" complex agents, and steep learning curves are overkill for 90% of the apps we actually build.</li>\n<li> <strong>The \"Context Switch\"",
+  "full_text": "Hey everyone!\n\nI’m a solo developer, and like many of you, I’ve spent way too much time in \"Monitoring Purgatory.\" You know the place: you’re either flying blind with console.log, or you’re drowning in a sea of complex YAML configurations for enterprise tools that cost more than your rent.\n\nI wanted a \"Middle Ground.\" Something built specifically for the JavaScript ecosystem that just... works.\n\nSo, I built Statvisor.\n\n \n \n The Problem with Modern Monitoring\n\n The \"Vercel Gap\": Vercel Analytics is great for the frontend, but it leaves your backend as a total black box especially if you aren't fully 100% serverless.\n\n The \"Datadog Tax\": Massive tools like Datadog are powerful, but the \"event taxes,\" complex agents, and steep learning curves are overkill for 90% of the apps we actually build.\n\n The \"Context Switch\": Checking Sentry for errors, Vercel for Web Vitals, and another tool for API latency is exhausting.\n\n \n \n The Solution: One SDK for the Full Stack\n\nStatvisor is designed to be the \"Vital Signs\" for your entire app. You drop in one middleware, and you get your backend health and frontend experience in a single view.\n\nBackend: P50/P95/P99 latency and error rates per route.\n\nFrontend: Core Web Vitals (LCP, INP, CLS) tracked alongside your API.\n\nSetup: Under 2 minutes. No infrastructure to manage.\n\n// npm install @statvisor/sdk\nimport * as statvisor from \"@statvisor/sdk\";\n\n// Backend - any framework (Express, Fastify, Hono, Next.js)\napp.use(statvisor.express({ apiKey: \"your_key\" }));\n\n// Frontend - Drop in your React layout or Vanilla JS\n<StatvisorAnalytics frontendKey=\"pk_your_key\" />\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Built for Builders\n\nI’m launching this from zero today. No VC funding, no massive marketing team-just a tool I needed for my own projects.\n\nJavaScript Only: We focus 100% on the JS/TS ecosystem (Node, Bun, Deno, React).\n\nFlat Pricing: $12/month for Pro. No \"surprise\" bills or hidden event quotas.\n\nFree Tier: 30-day retention for your side projects, no credit card required.\n\n \n \n I'd love your feedback!\n\nI'm looking for the first few people to try it out and tell me what sucks, what’s missing, and what’s actually helpful. I’m building this in public and want to make it the best possible tool for the JS community.\n\nCheck it out here: Demo\n\nWhat’s the biggest \"monitoring headache\" you’ve had recently? Let’s talk in the comments!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "analytics",
+      "api",
+      "backend",
+      "build",
+      "datadog",
+      "ecosystem",
+      "express, fastify",
+      "hono",
+      "javascript",
+      "latency",
+      "lcp",
+      "massive",
+      "modern monitoring",
+      "monitoring",
+      "node",
+      "payments",
+      "problem",
+      "sdk",
+      "statvisor",
+      "tool",
+      "vercel",
+      "webdev"
+    ],
+    [
+      "analytics",
+      "monitoring",
+      "node",
+      "webdev"
+    ]
+  ]
+}

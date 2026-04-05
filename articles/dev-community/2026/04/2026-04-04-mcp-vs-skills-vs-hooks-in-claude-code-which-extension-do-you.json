@@ -1,0 +1,37 @@
+{
+  "id": 8543,
+  "source": "DEV Community<",
+  "title": "MCP vs Skills vs Hooks in Claude Code: Which Extension Do You Need?",
+  "url": "https://dev.to/bruce_he/mcp-vs-skills-vs-hooks-in-claude-code-which-extension-do-you-need-3b8i",
+  "published_at": "2026-04-04T01:45:04Z",
+  "fetched_at": "2026-04-04T02:40:37.347047+00:00",
+  "author": "Bruce He",
+  "summary": "<p><em>Originally published at <a href=\"https://www.heyuan110.com/posts/ai/2026-04-04-mcp-vs-skills-claude-code/\" rel=\"noopener noreferrer\">heyuan110.com</a></em></p>\n\n<p>Claude Code has three distinct extension mechanisms: <strong>MCP</strong> (Model Context Protocol), <strong>Skills</strong>, and <strong>Hooks</strong>. They look related on the surface, but they operate at fundamentally different layers:</p>\n\n<ul>\n<li>\n<strong>Hooks</strong> (bottom layer): Lifecycle event automation — \"what must always happen\"</li>\n<li>\n<strong>MCP</strong> (middle layer): External tool connections via open protocol — \"what can be done\"</li>\n<li>\n<strong>Skills</strong> (top layer): Reusable workflows and domain knowledge — \"how to do things well\"</li>\n</ul>\n\n<p><strong>This guide covers:</strong></p>\n\n<ul>\n<li>Three-layer architecture diagram</li>\n<li>Side-by-side comparison across 8 dimensions</li>\n<li>Same task implemented three different ways</li>\n<li>Decision framework: when to use which</li>\n<",
+  "full_text": "Originally published at heyuan110.com\n\nClaude Code has three distinct extension mechanisms: MCP (Model Context Protocol), Skills, and Hooks. They look related on the surface, but they operate at fundamentally different layers:\n\nHooks (bottom layer): Lifecycle event automation — \"what must always happen\"\n\nMCP (middle layer): External tool connections via open protocol — \"what can be done\"\n\nSkills (top layer): Reusable workflows and domain knowledge — \"how to do things well\"\n\nThis guide covers:\n\nThree-layer architecture diagram\n\nSide-by-side comparison across 8 dimensions\n\nSame task implemented three different ways\n\nDecision framework: when to use which\n\nCommon mistakes and how to avoid them\n\nRead the full article →\n\nIf you found this useful, check out my blog for more AI engineering guides.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "architecture",
+      "automation",
+      "claudecode",
+      "different",
+      "extension",
+      "hook",
+      "implement",
+      "lifecycle",
+      "mcp",
+      "publish",
+      "reusable",
+      "skills",
+      "skills vs hooks",
+      "tutorial"
+    ],
+    [
+      "architecture",
+      "claudecode",
+      "tutorial"
+    ]
+  ]
+}

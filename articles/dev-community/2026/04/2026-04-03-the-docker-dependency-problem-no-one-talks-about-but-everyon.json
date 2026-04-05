@@ -1,0 +1,32 @@
+{
+  "id": 8455,
+  "source": "DEV Community<",
+  "title": "The Docker Dependency Problem No One Talks About (But Everyone Feels)",
+  "url": "https://dev.to/mindmagic/the-docker-dependency-problem-no-one-talks-about-but-everyone-feels-56co",
+  "published_at": "2026-04-03T20:27:29Z",
+  "fetched_at": "2026-04-03T21:00:21.527238+00:00",
+  "author": "PixelNomad",
+  "summary": "<p>Docker is often described as the solution to “it works on my machine.” And to be fair, it really does solve a lot of pain.</p>\n\n<p>But after years of using it in real-world systems, I’ve noticed something: Docker doesn’t remove problems—it reshapes them into dependency relationships that are harder to see, debug, and sometimes even understand.</p>\n\n\n\n\n<h2>\n  \n  \n  1. “It works on my machine” didn’t disappear—it moved into containers\n</h2>\n\n<p>Before Docker:</p>\n\n<ul>\n<li>“It works on my machine” meant environment mismatch</li>\n</ul>\n\n<p>After Docker:</p>\n\n<ul>\n<li>“It works in my container” still doesn’t mean it works in production</li>\n</ul>\n\n<p>Now the mismatch becomes:</p>\n\n<ul>\n<li>base image differences</li>\n<li>missing system libraries</li>\n<li>subtle kernel behavior differences</li>\n<li>architecture mismatches (amd64 vs arm64 pain is real)</li>\n</ul>\n\n<p>We didn’t eliminate inconsistency—we encapsulated it.</p>\n\n\n\n\n<h2>\n  \n  \n  2. The hidden dependency chain inside images\n</h",
+  "full_text": "Docker is often described as the solution to “it works on my machine.” And to be fair, it really does solve a lot of pain.\n\nBut after years of using it in real-world systems, I’ve noticed something: Docker doesn’t remove problems—it reshapes them into dependency relationships that are harder to see, debug, and sometimes even understand.\n\n \n \n 1. “It works on my machine” didn’t disappear—it moved into containers\n\nBefore Docker:\n\n“It works on my machine” meant environment mismatch\n\nAfter Docker:\n\n“It works in my container” still doesn’t mean it works in production\n\nNow the mismatch becomes:\n\nbase image differences\n\nmissing system libraries\n\nsubtle kernel behavior differences\n\narchitecture mismatches (amd64 vs arm64 pain is real)\n\nWe didn’t eliminate inconsistency—we encapsulated it.\n\n \n \n 2. The hidden dependency chain inside images\n\nA Docker image looks clean and self-contained.\n\nBut inside it:\n\nDebian/Alpine/Ubuntu version matters\n\nlibc version silently affects everything\n\nOpenSSL versions break authentication in production\n\nPython/Node base image tags quietly shift over time\n\nYour “simple container” is actually:\n\na deep dependency tree frozen at a moment in time\n\nAnd when something breaks, you’re debugging layers inside layers.\n\n \n \n 3. Docker caching: the illusion of speed\n\nDocker build cache feels like magic:\n\nfast builds\n\nreused layers\n\ninstant feedback\n\nUntil it doesn’t work.\n\nThen you discover:\n\ncache invalidation is unpredictable\n\nsmall Dockerfile changes break unrelated layers\n\n“no cache” builds suddenly behave differently\n\nAt that point, debugging feels less like engineering and more like archaeology.\n\n \n \n 4. Microservices + Docker = distributed confusion\n\nDocker makes it easy to spin up services.\n\nToo easy.\n\nSoon you have:\n\n12 containers running locally\n\nservice A depends on B which depends on C\n\nenvironment variables passed through 3 layers\n\ndocker-compose files that look like spaghetti architecture diagrams\n\nNow debugging is not about one system—it’s about reconstructing a living network of dependencies.\n\n \n \n 5. The real Docker problem: reproducibility vs understanding\n\nDocker’s biggest promise is reproducibility.\n\nAnd it delivers—but with a tradeoff:\n\nYou get identical environments\n\nBut you often lose visibility into why something works\n\nEverything becomes:\n\n“It runs, so don’t touch it”\n\nThat mindset slowly shifts engineering culture from understanding systems to trusting artifacts.\n\n \n \n Final thought\n\nDocker is not the villain.\n\nIt’s a mirror.\n\nIt reflects the complexity we already had:\n\ndependency chains\n\nenvironment drift\n\nhidden coupling between services\n\nBut it also hides it just well enough that we forget it’s there—until something breaks at 2 AM.\n\nAnd maybe that’s the real lesson:\n\nModern IT didn’t eliminate complexity.\n\nIt just learned how to package it.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "architecture",
+      "container",
+      "debug",
+      "dependency",
+      "docker",
+      "dockerfile",
+      "environment",
+      "image",
+      "layer",
+      "mismatch",
+      "work"
+    ],
+    [
+      "architecture",
+      "environment"
+    ]
+  ]
+}

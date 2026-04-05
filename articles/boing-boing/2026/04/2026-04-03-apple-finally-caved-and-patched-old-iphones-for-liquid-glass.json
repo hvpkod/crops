@@ -1,0 +1,46 @@
+{
+  "id": 8429,
+  "source": "Boing Boing",
+  "title": "Apple finally caved and patched old iPhones for Liquid Glass haters",
+  "url": "https://boingboing.net/2026/04/03/apple-finally-caved-and-patched-old-iphones-for-liquid-glass-haters.html",
+  "published_at": "2026-04-03T16:52:54Z",
+  "fetched_at": "2026-04-03T19:20:33.248708+00:00",
+  "author": "Séamus Bellamy",
+  "summary": "<a href=\"https://boingboing.net/2026/04/03/apple-finally-caved-and-patched-old-iphones-for-liquid-glass-haters.html\" rel=\"nofollow\" title=\"Apple finally caved and patched old iPhones for Liquid Glass haters\"><img alt=\"Image via Apple\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"612\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2025/09/ipp.jpg?fit=1080%2C612&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1080\" /></a><p>You'll find tons of guides online that explain how to reduce the fugly of Apple's Liquid Glass design aesthetic in iPhone OS 26. And why not? It makes many on-screen elements hard to see, even in ideal lighting, and removes some of the customization freedom iPhones enjoyed in the last few iterations of the company's phone operating system. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/03/apple-finally-caved-and-patched-old-iphones-for-liquid-glass-haters.html\">Read the rest </a></p>\n<p>Th",
+  "full_text": "You'll find tons of guides online that explain how to reduce the fugly of Apple's Liquid Glass design aesthetic in iPhone OS 26. And why not? It makes many on-screen elements hard to see, even in ideal lighting, and removes some of the customization freedom iPhones enjoyed in the last few iterations of the company's phone operating system. Hell, I hated it so much that I put together a guide on how to roll back your laptop's operating system from Mac OS Tahoe to Sequoia. It looks like Apple's gotten the hint: so many people dislike Liquid Glass that they've held off on updating their hardware to the latest software and security patches. Given that this can leave the company's customers vulnerable to opportunistic hackers, it has done something I would never have expected: it made concessions.\n\nAccording to Gizmodo, earlier this week, Apple opted to make its latest security updates available to users who refuse to update their systems because of their disgust with Liquid Glass. Giz's Mike Pearl attributes this shift to the emergence of DarkSword, a serious zero-day vulnerability that allows attackers to hijack devices via infected websites. The attack is particularly nasty because it requires zero user interaction — merely landing on a malicious page can trigger the installation of spyware that harvests personal data, authentication credentials, and financial account details.\n\nOlder versions of iOS have already been updated to secure iPhones from the DarkSword exploit, but the remedy for anyone who could update from iOS 18 to iOS 26 but hadn't was… the admonition to update to iOS 26, and that was it.\n\nTo patch the massive security hole in their users' smartphone software, Apple's engineers slapped together a kind of update called a backport. It's not something that most companies are keen on: offering new features that only run on more recent hardware helps push planned obsolescence forward. But, in this case, the people have put their foot down.\n\nPreviously:",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "apple",
+      "darksword",
+      "giz",
+      "glass",
+      "guide",
+      "hardware",
+      "iphone",
+      "iphone os",
+      "iphones",
+      "late",
+      "liquid",
+      "liquid glass",
+      "mac os tahoe",
+      "operating",
+      "os updates",
+      "post",
+      "security",
+      "sequoia",
+      "software updates",
+      "together",
+      "update",
+      "user interface"
+    ],
+    [
+      "iphone os",
+      "liquid glass",
+      "os updates",
+      "software updates",
+      "user interface"
+    ]
+  ]
+}

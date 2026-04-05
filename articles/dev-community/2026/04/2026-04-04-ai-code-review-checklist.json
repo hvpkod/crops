@@ -1,0 +1,44 @@
+{
+  "id": 8702,
+  "source": "DEV Community<",
+  "title": "AI Code Review Checklist",
+  "url": "https://dev.to/krun_pro/ai-code-review-checklist-42j9",
+  "published_at": "2026-04-04T20:06:00Z",
+  "fetched_at": "2026-04-04T20:40:21.710106+00:00",
+  "author": "Krun_pro",
+  "summary": "<h2>How to Build a Better AI Code Review Checklist</h2>\n\n<p>AI writes code fast — that's not in question. The question is whether that code survives contact with production. This guide details how to build a better <a href=\"https://krun.pro/ai-generated-code/\" rel=\"noopener noreferrer\">ai code review checklist</a> to stop shipping garbage before your users find it. Skip the blind optimism. Treat every AI output as a pull request from a developer who never read your codebase, has no idea what your business does, and learned to code from Stack Overflow answers dated 2017.</p>\n\n\n\n\n<h2>TL;DR: Quick Takeaways</h2>\n\n<ul>\n  <li>\n<b>Tokens, not solutions:</b> LLMs predict the next character; they do not understand your architecture.</li>\n  <li>\n<b>Happy path bias:</b> AI skips edge cases, nulls, and failure states by default.</li>\n  <li>\n<b>Security amnesia:</b> SQL injections and hardcoded secrets are common without explicit prompts.</li>\n  <li>\n<b>Bloatware:</b> AI loves wrapping a one-liner",
+  "full_text": "How to Build a Better AI Code Review Checklist\n\nAI writes code fast — that's not in question. The question is whether that code survives contact with production. This guide details how to build a better ai code review checklist to stop shipping garbage before your users find it. Skip the blind optimism. Treat every AI output as a pull request from a developer who never read your codebase, has no idea what your business does, and learned to code from Stack Overflow answers dated 2017.\n\nTL;DR: Quick Takeaways\n\n \n\nTokens, not solutions: LLMs predict the next character; they do not understand your architecture.\n \n\nHappy path bias: AI skips edge cases, nulls, and failure states by default.\n \n\nSecurity amnesia: SQL injections and hardcoded secrets are common without explicit prompts.\n \n\nBloatware: AI loves wrapping a one-liner into an enterprise abstract factory nightmare.\n\nThe Illusion of Speed: Why AI Code Needs Manual Review\n\nYes, LLMs pushed raw coding velocity up by 40–50%. But here is what nobody puts in the press release: code review time has roughly doubled. The output volume went up, but the quality floor hit rock bottom. Is ai generated code safe for production without oversight? Absolutely not.\n\nLLMs operate on token probability. They don’t know your DB schema, your auth layer, or why that one function has a comment saying \"do NOT call this without a transaction.\" They pattern-match. The result is code that reads clean, compiles fine, and quietly accumulates technical debt at a rate that will make your future self angry. That is the actual cost of the speed boost.\n\nThe Ultimate AI Code Review Checklist\n\nUse this structured way to review ai code without missing the landmines. Go through each point on every non-trivial AI-generated block before it touches main.\n\n1. Validate Business Logic & Context Limitations\n\nAI generates code in a vacuum. Context window limitations mean the model literally cannot hold your full codebase in scope. The first question isn’t \"does this code run?\" — it is \"does this code solve the actual problem, or just the simplified version the AI invented?\" Check the ticket boundaries, not just the isolated function.\n\n2. Edge Cases and The Happy Path Hallucination\n\nAI loves the perfect scenario. This is how you spot hallucinations in chatgpt code — look for missing guards on empty inputs, absent null checks, and division operations with zero protection. The model isn’t lazy; it has just never been paged at 2 AM for a production crash.\n\n# AI-generated — zero edge case handling\ndef calculate_average(numbers):\n total = sum(numbers)\n return total / len(numbers)\n\n# Production-ready — defensive checks added\ndef calculate_average(numbers):\n if not numbers:\n return None\n if not all(isinstance(n, (int, float)) for n in numbers):\n raise TypeError(\"All elements must be numeric\")\n return sum(numbers) / len(numbers)\n\n3. Hidden Complexity and Hallucinated Over-Engineering\n\nBecause AI trained on enterprise codebases, it applies massive patterns to tasks that need none of them. Over-engineering is a genuine code smell in AI output: three classes and an interface just to format a date string. Apply KISS aggressively. If a native method solves the problem, delete the abstraction layers.\n\n4. Dependency Hell & Phantom Packages\n\nLLMs confidently reference APIs that were removed years ago or pull in a 400KB library to do something the standard lib handles in 3 lines. Verify every import exists on npm or PyPI right now, check the last commit date on the repo, and cross-reference method names against current docs.\n\n5. Security Vulnerabilities: Beyond the Surface\n\nWhy copilot makes security mistakes isn't mysterious: the training data is full of insecure code. The output is often a raw SQL string concatenation or hardcoded API keys. Scan for missing input sanitization on anything that touches the DOM and look for XSS vectors.\n\n# AI-generated — vulnerable to SQL injection\ndef get_user(email):\n query = f\"SELECT * FROM users WHERE email = '{email}'\"\n return db.execute(query)\n\n# Secure — parameterized query\ndef get_user(email):\n query = \"SELECT * FROM users WHERE email = ?\"\n return db.execute(query, (email,))\n\n6. Performance Under Load & Memory Leaks\n\nThe N+1 query problem is the ultimate signature of AI-generated ORM code — it fetches a list, then loops over it querying related data one record at a time. In Node.js, watch for event listeners attached inside loops with no cleanup. One endpoint doing that under load will eat your RAM for breakfast.\n\nBottom Line: Drop the Copilot Romanticism\n\nTo me, AI is just a hyperactive junior developer—well-read, incredibly fast, and completely devoid of common sense. I stopped expecting miracles and just baked these hard checks into my daily routine. If you don't want to waste your life hunting down memory leaks and broken edge cases, treat LLMs as a draft generator, nothing more. Let the machine do the typing, but never let it do the thinking. That is still our job.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "aicode",
+      "all(isinstance(n",
+      "api",
+      "check",
+      "checklist",
+      "code",
+      "dom",
+      "edge",
+      "githubcopilot",
+      "hell & phantom",
+      "llm",
+      "miss",
+      "none",
+      "query",
+      "quick takeaways",
+      "return",
+      "review",
+      "security",
+      "sql",
+      "stack overflow",
+      "tokens",
+      "xss"
+    ],
+    [
+      "aicode",
+      "githubcopilot"
+    ]
+  ]
+}

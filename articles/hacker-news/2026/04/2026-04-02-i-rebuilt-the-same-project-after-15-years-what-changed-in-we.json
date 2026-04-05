@@ -1,0 +1,37 @@
+{
+  "id": 8698,
+  "source": "Hacker News",
+  "title": "I rebuilt the same project after 15 years – what changed in web dev",
+  "url": "https://bamwor.com/en/news/rebuilt-same-project-after-15-years",
+  "published_at": "2026-04-02T05:06:12Z",
+  "fetched_at": "2026-04-04T19:20:27.777073+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47610191\">Comments</a>",
+  "full_text": "In 2011 I launched a website. In 2026 I rebuilt it from scratch. Same idea, same domain, same purpose. Everything else changed — but not in the ways I expected.\n\nBamwor, 2011\n\nBamwor, 2026\n\nThe backstory, briefly\n\nAround 2010, I built a site called Bamwor that pulled data from GeoNames and the CIA World Factbook, combined it, and presented it in a way that was searchable and browsable. Country profiles, city data, airports, demographics. It grew to 30,000 monthly visitors organically — no marketing budget, no social media strategy. Just Google sending people who searched for “population of Brazil” or “airports in Panama.”\n\nLife happened. I moved countries, changed careers, and Bamwor went offline. The domain expired. The code was lost. The project became a fading memory.\n\nFifteen years later, I rebuilt it from zero. Not because I was feeling nostalgic, but because the CIA World Factbook — the very source that inspired the original Bamwor — shut down in February 2026. The need hadn't gone away. If anything, it had grown.\n\nThe frontend: from “more is more” to “less is more”\n\nEurope page, 2011\n\nEurope page, 2026\n\nLook at those two screenshots. The 2011 design felt cutting-edge at the time: dark backgrounds, metallic textures, beveled borders, gradients on everything, a logo with 3D effects. It was inspired by Flash sites, gaming UIs, and sci-fi movie interfaces. CSS3 was new and exciting — you used every feature you could. The design screamed “look what I can do.”\n\nThe 2026 version has none of that. Editorial typography (Cormorant Garamond), generous whitespace, a warm cream-and-terracotta palette, zero decorative effects. The inspiration isn't software — it's publications like The Economist or National Geographic. The design is invisible. You don't notice it. You just see the information.\n\nWhat changed? The frontend simplified radically. The best websites of 2026 look like printed magazines, not sci-fi dashboards. Decoration left. Typography and space took center stage. We stopped showing off our tools and started getting out of the content's way.\n\nThe backend: from simple to absurdly complex\n\nHere's where the real inversion happened.\n\n2011 stack: PHP. MySQL. Shared hosting. FTP uploads. No version control (or SVN if you were lucky). Zero tests. Zero monitoring. “It works on my machine” was the deployment strategy. The total infrastructure fit in your head.\n\n2026 stack: Next.js 14 with React Server Components. PostgreSQL with PostGIS doing geospatial queries across 13.4 million city records. Docker containers orchestrated with compose. AWS EC2 behind Nginx reverse proxy and Cloudflare CDN. A full REST API with authentication, rate limiting, and tier-based access. An MCP server so AI agents can query world data natively. An npm package published on the registry. Redis caching. Prometheus monitoring with Grafana dashboards. Health checks. Log aggregation.\n\nThe complexity migrated. In 2011, you spent hours making a gradient render correctly in IE6. In 2026, you spend hours debugging Docker networking and tuning PostGIS spatial indexes. What the user sees got simpler. What the user doesn't see multiplied 10x.\n\nWhat didn't change\n\nPeople still search for “population of Brazil” on Google. The need for structured country data didn't evolve — it's been the same since 2011. Content is still king. A beautiful design with bad data is worthless. An ugly site with accurate, structured data still gets traffic.\n\nDistribution is still the hardest problem. In 2011, Bamwor got 30,000 monthly visitors without any SEO strategy. Today, with 170,000 pages indexed and sophisticated SEO, the battle for visibility is harder than ever. More competition, more noise, more algorithm changes. The fundamentals remain: make something useful, make it findable, keep it accurate.\n\nWhat surprised me\n\nThat the CIA World Factbook — the inspiration behind the original project — disappeared while Bamwor was being rebuilt. The irony wasn't lost on me.\n\nThat AI tools changed the economics of solo development. Things that would have taken a team of three developers several weeks in 2011 can be prototyped by a single person in hours. Not because AI writes perfect code — it doesn't — but because it collapses the research-and-boilerplate phases that used to dominate development time.\n\nThat the market for structured geographic data APIs is still surprisingly underserved. RestCountries exists but only covers basics. GeoNames has raw data but a dated API. There's a real gap for a modern, developer-friendly service that combines both.\n\nAnd that 15 years later, the mission is still the same: make the world's information accessible.\n\nIf you're sitting on a dead project from 2010, maybe it's worth revisiting. The tools changed. You changed. The world might need it now more than it did then.\n\nBamwor covers 261 countries and 13.4 million cities in 4 languages. The data, the API, and the MCP server are all live at bamwor.com.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bamwor",
+      "brazil",
+      "change",
+      "datum",
+      "europe",
+      "factbook",
+      "ftp",
+      "geonames",
+      "google",
+      "inspire",
+      "nginx",
+      "panama",
+      "php",
+      "react server components",
+      "rebuild",
+      "structured",
+      "svn",
+      "visitor",
+      "world"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 8638,
+  "source": "DEV Community<",
+  "title": "How to Build Forms in Strapi v5 with strapi-plugin-form-builder-cms",
+  "url": "https://dev.to/devcluna/how-to-build-forms-in-strapi-v5-with-strapi-plugin-form-builder-cms-393j",
+  "published_at": "2026-04-04T14:30:12Z",
+  "fetched_at": "2026-04-04T14:40:26.174957+00:00",
+  "author": "Cristhian Luna",
+  "summary": "<p><em>A step-by-step tutorial to install and configure this open-source plugin that lets you manage dynamic forms directly from the Strapi admin panel.</em></p>\n\n\n\n\n<p>If you've ever needed to handle contact forms, registrations, or any kind of data capture inside your Strapi project, you know how tedious it can be to set up from scratch. <strong>strapi-plugin-form-builder-cms</strong> solves exactly that: a plugin for Strapi v5 that gives you a full form builder right inside the admin panel.</p>\n\n<p>In this tutorial we'll install Strapi v5 from scratch, add the plugin, and have your first form running in under 15 minutes.</p>\n\n<blockquote>\n<p><strong>Prerequisites:</strong> Node.js 18 or 20 LTS, npm 6+, and basic knowledge of the terminal. This plugin works exclusively with Strapi v5.</p>\n</blockquote>\n\n<p>Repository: <a href=\"https://github.com/devCluna/strapi-plugin-form-builder-cms/tree/production\" rel=\"noopener noreferrer\">github.com/devCluna/strapi-plugin-form-builder-cms</a></p",
+  "full_text": "A step-by-step tutorial to install and configure this open-source plugin that lets you manage dynamic forms directly from the Strapi admin panel.\n\nIf you've ever needed to handle contact forms, registrations, or any kind of data capture inside your Strapi project, you know how tedious it can be to set up from scratch. strapi-plugin-form-builder-cms solves exactly that: a plugin for Strapi v5 that gives you a full form builder right inside the admin panel.\n\nIn this tutorial we'll install Strapi v5 from scratch, add the plugin, and have your first form running in under 15 minutes.\n\nPrerequisites: Node.js 18 or 20 LTS, npm 6+, and basic knowledge of the terminal. This plugin works exclusively with Strapi v5.\n\nRepository: github.com/devCluna/strapi-plugin-form-builder-cms\n\n \n \n Step 1 — Create your Strapi v5 project\n\nIf you already have a Strapi v5 project, skip to step 2. Otherwise, use the official CLI:\n\nnpx create-strapi-app@latest my-project\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe wizard will ask you a few questions. These are the recommended options for development:\n\nUse the default database (SQLite)? → Yes\nStart with an example structure? → No\nUse TypeScript? → Yes\nInstall dependencies with npm? → Yes\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOnce done, enter the project directory:\n\ncd my-project\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Step 2 — Install the plugin from GitHub\n\nRun this command from the root of your Strapi project:\n\nnpm install github:devCluna/strapi-plugin-form-builder-cms#production\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOr with yarn:\n\nyarn add github:devCluna/strapi-plugin-form-builder-cms#production\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNote: Installing directly from the production branch always gives you the latest version. To pin a specific version, replace #production with a commit hash.\n\n \n \n Step 3 — Register the plugin in your config\n\nOpen or create the file config/plugins.ts and add the following:\n\n// config/plugins.ts\n\nexport default {\n 'form-builder-cms': {\n enabled: true,\n },\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf the file already exists with other plugins, just add the form-builder-cms entry to the existing object.\n\n \n \n Step 4 — Rebuild the admin panel\n\nEvery time you add a plugin with an admin interface, Strapi needs to rebuild the panel:\n\nnpm run build\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis may take a couple of minutes. Once complete, start the dev server:\n\nnpm run develop\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOpen your browser at http://localhost:1337/admin. If this is your first run, it will prompt you to create an admin user.\n\n \n \n Step 5 — Create your first form\n\nOnce inside the admin panel, you'll see a new entry in the left sidebar called Form Builder. From there you can:\n\nCreate forms with a name and description\n\nAdd dynamic fields (text, email, number, date, select, checkbox, phone, etc.)\n\nConfigure per-field validations\n\nView submissions sent from the frontend\n\nTo create a new form, click Create new form, give it a name (e.g. Contact Form), and start adding fields using the Add field button.\n\n \n \n Step 6 — Consume the API from your frontend\n\nThe plugin exposes REST endpoints to fetch form structures and receive submissions:\n\nGET /api/form-builder-cms/forms\nGET /api/form-builder-cms/forms/:id\nPOST /api/form-builder-cms/forms/:id/submit\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nA practical JavaScript example:\n\n// Fetch the form structure\nconst res = await fetch(\n 'http://localhost:1337/api/form-builder-cms/forms/1'\n);\nconst { data } = await res.json();\n\n// Submit a response\nawait fetch(\n 'http://localhost:1337/api/form-builder-cms/forms/1/submit',\n {\n method: 'POST',\n headers: { 'Content-Type': 'application/json' },\n body: JSON.stringify({\n data: {\n name: 'Jane Doe',\n email: 'jane@example.com',\n message: 'Hi, I am interested in your service.',\n }\n })\n }\n);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPublic permissions: By default Strapi protects all endpoints. Go to Settings → Users & Permissions → Roles → Public and enable the form-builder-cms permissions you need to expose.\n\n \n \n Quick sanity check\n\nBefore moving on, confirm everything is working:\n\nThe admin sidebar shows Form Builder\n\nYou can create a form with at least one field\n\nGET /api/form-builder-cms/forms returns your form (with permissions enabled)\n\nA test POST appears in the submissions section of the admin\n\n \n \n Troubleshooting common issues\n\nThe plugin doesn't appear in the sidebar\n\nMake sure you ran npm run build after installing the plugin, and that the entry in config/plugins.ts is exactly form-builder-cms.\n\nError when installing from GitHub\n\nVerify you have network access to GitHub and that git is installed on your system. If the repository is private, you'll need to configure SSH authentication or a personal access token.\n\nServer won't start after installing the plugin\n\nCheck the terminal for dependency errors. Try deleting node_modules and package-lock.json, then run npm install again.\n\nThat's it. In just a few steps you have a fully functional form system inside Strapi v5 — no manual Content Type setup, no custom admin UI to build from scratch.\n\nIf the plugin saved you time, drop a ⭐ on GitHub at devCluna's repository. Contributions are always welcome.\n\nTags: Strapi, Strapi v5, Headless CMS, Plugin, Forms, Node.js, Tutorial",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "admin",
+      "api",
+      "cli",
+      "contact form",
+      "content-type'",
+      "create",
+      "devcluna",
+      "enter",
+      "exit",
+      "form builder\n\nyou",
+      "forms",
+      "fullscreen",
+      "instal",
+      "lts",
+      "mode",
+      "plugin",
+      "ssh",
+      "step",
+      "strapi",
+      "strapiv5",
+      "typescript"
+    ],
+    [
+      "forms",
+      "strapiv5",
+      "typescript"
+    ]
+  ]
+}

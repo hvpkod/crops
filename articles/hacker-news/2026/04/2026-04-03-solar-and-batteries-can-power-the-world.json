@@ -1,0 +1,31 @@
+{
+  "id": 8361,
+  "source": "Hacker News",
+  "title": "Solar and batteries can power the world",
+  "url": "https://nworbmot.org/blog/solar-battery-world.html",
+  "published_at": "2026-04-03T14:29:26Z",
+  "fetched_at": "2026-04-03T15:20:30.778695+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47627061\">Comments</a>",
+  "full_text": "The full set of technical assumptions, mostly leaning on the \nDanish Energy Agency Technology Database, can be found here:\n\nhttps://github.com/nworbmot/solar-battery-world/blob/main/defaults.csv\n\nAs well as the incremental energy cost for the lithium-ion batteries,\nan inverter cost of 177 €/kW in 2030 and 66 €/kW in 2050 is also\nincluded. The lithium-ion batteries have a round-trip efficiency of\n96%.\n\nThe model is based on model.energy but without the hydrogen\nstorage. It is optimised with free backup generation for the final\n10/5/1% then the costs are added back on top. This allows the user to\neasily increase the investment or fuel cost for the backup, since this\nis the most uncertain part of the costing.\n\nTo reproduce the optimisation on model.energy, choose the point\nlocation in \"Step 1\". Then for the technologies in \"Step 3\", disable\nwind and hydrogen storage. Under \"Advanced settings\" enable the\ncheckbox for \"Dispatchable technology 1\" and set both its overnight\ncost and marginal cost to zero. To get (100-x)% solar-battery\ncoverage, i.e. limit the backup to x% coverage, put a dummy emissions\nfactor of 100 gCO2/kWhel on the backup, and then activate the\ncheckbox for the overall CO2 limit and set the allowed emissions to x\ngCO2/kWhel. The CO2 emissions limit is being used as a proxy for\nthe overall backup fuel usage.\n\nOnce you have the optimisation result, you can add the backup costs\nseparately. For example, if the solar-battery system on its own costs\n50 €/MWh for (100-x)% coverage, where x=10,5,1, then you add for the\nbackup per €/MWh (assuming enough backup capacity to cover the entire load):\n\ninvestment cost * (annuity factor + FOM) / 8760 + fuel cost * x / efficiency\n\nFor the default back investment cost of 1 M€/MW, 25 year lifetime, 5% cost of capital, 3% yearly FOM, fuel cost of 30 €/MWhth, efficiency 50% you get\n\n1e6 * (0.071 + 0.03) / 8760 + 30*(x/100)/0.5 = (11.5 + 0.6x) €/MWh\n\nIf the investment cost rises to 2 M€/MW, the fixed part rises from\n11.5 €/MWh to 23 €/MWh.\n\nFor x=10 with the original settings, you get a total 17.5 €/MWh\ncontribution from the backup.\n\nIf the fuel cost rises from 30 €/MWh to 50 €/MWh, the backup\ncontribution rises to (11.5 + x) = 21.5 €/MWh.\n\nThe sensitivity of the total cost to the fuel cost is directly tied to\nx - the more solar and wind, the lower x and the less the fuel\ndependency becomes.\n\nTo supply the full demand with these assumptions with a fuel cost of\n30 €/MWhth would cost (11.5 + 60) = 71.5 €/MWh, which is more\nexpensive in most locations that the solar-battery-fuel\nsystem. However the cost of the backup fuel will vary by location\nbased on availability. If it rises to 60 €/MWhth the full system\ncosts would rise to (11.5 + 120) = 131.5 €/MWh.\n\nThe calculations are carried out for the 9196 1° by 1° pixels that\ncontains more than 10,000 people, which is enough to include 99.86% of\nthe population.\n\n90% of the population lives within 45 degrees of the equator:\n\nHere are the capacity factors (average production divided by capacity)\nfor solar and wind, at the locations where they are built by the model:\n\nThe setup is somewhat similar to a 2025 Ember report, but whereas they\nfixed the solar and battery capacities relative to a constant demand,\nand varied the location, we fix instead the fraction of load supplied,\nand optimise the solar and battery capacities.\n\nVictoria et al, 2021 also pointed out the coincidence of low seasonal\nsolar variation and the locations where most of the population lives\nin this nice graphic:",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "backup",
+      "cost",
+      "efficiency",
+      "emission",
+      "fom",
+      "fuel",
+      "investment",
+      "location",
+      "optimisation",
+      "rise",
+      "solar"
+    ],
+    [
+      "optimisation"
+    ]
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": 8466,
+  "source": "Hacker News",
+  "title": "Automatic Textbook Formalization",
+  "url": "https://github.com/facebookresearch/repoprover",
+  "published_at": "2026-04-03T20:13:50Z",
+  "fetched_at": "2026-04-03T21:20:23.184308+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47631648\">Comments</a>",
+  "full_text": "Code for Automatic Textbook Formalization (Gloeckle, Rammal, Arnal, Munos, Cabannes, Synnaeve, Hayat, 2026).\n\nRepoProver is a multi-agent scaffold for large-scale formalization of mathematics textbooks in Lean. It orchestrates multiple LLM agents that collaborate on a shared git repository with the Lean project: sketcher agents translate definitions and theorem statements, prover agents fill in proofs, and reviewer agents enforce quality via pull request reviews. Coordination happens through a lightweight file-system-based issue tracker and a merge queue that ensures the main branch always builds.\n\nThis code produced an automatic formalization of the graduate textbook Algebraic Combinatorics by Darij Grinberg.\n\nRequires Python 3.10+. Install in editable mode:\n\nPreparing a formalization project\n\nRepoProver operates on a Lean project repository. Before running, you need to set up:\n\nCreate a Lean project with Mathlib and build it:\n\nlake init MyProject math\nlake update\nlake build\n\nAdd LaTeX source files under a tex/ directory inside the project, organized by topic:\n\nMyProject/\n├── lakefile.lean\n├── lean-toolchain\n├── lake-manifest.json\n├── MyProject.lean # root import file\n├── MyProject/\n│ └── tex/ # LaTeX source chapters\n│ ├── all.tex # full textbook source (optional)\n│ ├── Topic1/\n│ │ ├── Chapter1.tex\n│ │ └── Chapter2.tex\n│ └── Topic2/\n│ └── ...\n├── manifest.json # chapter manifest (see below)\n├── CONTENTS.md # structure documentation (see below)\n└── issues/ # issue tracker (see below)\n\nThe tex files should be split by chapter/section so each can be assigned to a sketcher agent independently. An all.tex with the full source can be included for reference. Note that tex files are read-only — agents can read them but never modify source material.\n\nCreate a CONTENTS.md at the project root documenting the structure of tex sources and corresponding Lean files. The coordinator generates an initial version from the manifest, and agents update it as the Lean codebase evolves. It serves as the central reference for project structure, proof status and architecture notes.\n\nCreate a manifest.json at the project root listing the chapters to formalize and their target theorems/definitions. Each chapter entry has:\n\nid: unique identifier for the chapter\n\ntitle: human-readable chapter title\n\nsource_path: path to the LaTeX source file (relative to project root)\n\ntarget_theorems: list of theorem/definition IDs to formalize from this chapter\n\nSee configs/example_manifest.json for a full example from the algebraic combinatorics case study.\n\nCreate an empty issues/ directory at the project root. Agents use this as a lightweight file-system-based issue tracker — they create short YAML files here to flag blockers, request refactorings, or coordinate work across chapters.\n\nInitialize git (with branch name main) in the project if not already done — RepoProver uses git for version control, branching and merging.\n\npython -m repoprover run /path/to/lean/project --pool-size 10\n\nThis starts the main coordinator loop which launches sketcher, prover, maintainer and reviewer agents, manages the merge queue and tracks progress. The project state is saved in .repoprover/ inside the Lean project directory.\n\nUse --clean to start from scratch, --verbose for debug logging.\n\nFor distributed runs across multiple machines, use the stool launcher:\n\npython -m repoprover.stool --name myrun --project /path/to/lean/project\n\nThe stool launcher snapshots the repoprover code to a dump directory, symlinks the Lean project (avoiding slow copies of .lake/ and .git/) and submits a SLURM job. Rank 0 runs the coordinator in a background thread; all ranks (including rank 0) run as workers that pull tasks from the coordinator.\n\nOptions:\n\n--launcher bash — run directly if already inside an salloc session\n\n--pool-size N — number of Lean REPL instances per node (default: 10)\n\n--nodes N — number of SLURM nodes (default: 1)\n\n--agents-per-target N — max parallel agents per theorem/issue (default: 1)\n\n--prs-to-issues — convert pending PRs to issues when resuming a run\n\n--clean — wipe state and restart from scratch\n\n--dirs-exists-ok — reuse an existing dump directory\n\nSee configs/example.yaml for an example configuration.\n\n# Token usage breakdown by agent type and outcome\npython scripts/count_tokens.py /path/to/lean/project\n\n# Agent efficiency plots over time\npython scripts/plot_agent_efficiency.py /path/to/lean/project --out ./plots\n\nA toy project is included under examples/toy_project/ for quick testing. The setup script copies the files to a working directory, initializes git, fetches Mathlib and builds the project:\n\nbash examples/toy_project/setup.sh /tmp/repoprover-toy-test\n\nThen run repoprover on it:\n\nsource .venv/bin/activate\npython -m repoprover run /tmp/repoprover-toy-test --pool-size 2 --verbose\n\nThe toy project has one chapter with 4 trivial targets (a definition and 3 theorems about doubling natural numbers).\n\nTo inspect agent trajectories from a run:\n\npython -m repoprover.viewer --dir /path/to/lean/project/runs --port 8080\n\nThis project is licensed under the terms in LICENSE.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "algebraic combinatorics",
+      "automatic textbook formalization",
+      "chapter",
+      "file",
+      "formalization",
+      "latex",
+      "lean",
+      "lean repl",
+      "llm",
+      "mathlib",
+      "munos, cabannes,",
+      "project",
+      "python",
+      "repoprover",
+      "source",
+      "synnaeve",
+      "textbook"
+    ],
+    [
+      "python"
+    ]
+  ]
+}

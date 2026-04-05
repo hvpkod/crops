@@ -1,0 +1,37 @@
+{
+  "id": 8391,
+  "source": "DEV Community<",
+  "title": "Understanding Functions in JavaScript",
+  "url": "https://dev.to/athithya_sivasankarar/understanding-functions-in-javascript-220i",
+  "published_at": "2026-04-03T17:42:02Z",
+  "fetched_at": "2026-04-03T18:00:30.705696+00:00",
+  "author": "Athithya Sivasankarar",
+  "summary": "<p><strong>What is a Function?</strong></p>\n\n<p>A function is a block of code designed to perform a specific task.<br />\nInstead of writing the same code again and again, you can write it once inside a function and reuse it whenever needed.</p>\n\n<p><strong>Why Use Functions?</strong></p>\n\n<p>Functions are useful because they:</p>\n\n<p>Reduce code repetition<br />\nMake code easier to understand<br />\nHelp in organizing large programs<br />\nAllow reuse of logic</p>\n\n<p><strong>How to Create a Function</strong></p>\n\n<p>In JavaScript, you can create a function using the function keyword.</p>\n\n<p>Example:<br />\n<code>function greet() {<br />\n    console.log(\"Hello, welcome to JavaScript!\");<br />\n}<br />\n</code><br />\n<strong>How to Call a Function</strong></p>\n\n<p>To execute (run) a function, you simply call it by its name.</p>\n\n<p><code>greet();</code></p>\n\n<p><strong>Output:</strong><br />\nHello, welcome to JavaScript!</p>\n\n<p><strong>Functions with Parameters</strong></p>\n\n<p>Functions c",
+  "full_text": "What is a Function?\n\nA function is a block of code designed to perform a specific task.\n\nInstead of writing the same code again and again, you can write it once inside a function and reuse it whenever needed.\n\nWhy Use Functions?\n\nFunctions are useful because they:\n\nReduce code repetition\n\nMake code easier to understand\n\nHelp in organizing large programs\n\nAllow reuse of logic\n\nHow to Create a Function\n\nIn JavaScript, you can create a function using the function keyword.\n\nExample:\n\nfunction greet() {\n\n console.log(\"Hello, welcome to JavaScript!\");\n\n}\n\nHow to Call a Function\n\nTo execute (run) a function, you simply call it by its name.\n\ngreet();\n\nOutput:\n\nHello, welcome to JavaScript!\n\nFunctions with Parameters\n\nFunctions can take inputs called parameters.\n\nExample:\n\nfunction greetUser(name) {\n\n console.log(\"Hello \" + name);\n\n}\n\ngreetUser(\"Athithya\");\n\nOutput:\n\nHello Athithya\n\nFunctions with Return Value\n\nA function can return a value using the return keyword.\n\nExample:\n\nfunction add(a, b) {\n\n return a + b;\n\n}\n\nlet result = add(5, 3);\n\nconsole.log(result);\n\nOutput:\n\n8\n\nReference:\n\n[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions]",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "athithya",
+      "beginners",
+      "call",
+      "code",
+      "codenewbie",
+      "design",
+      "function",
+      "javascript",
+      "return",
+      "reuse",
+      "tutorial",
+      "understanding functions",
+      "value",
+      "welcome",
+      "write"
+    ],
+    [
+      "beginners",
+      "codenewbie",
+      "tutorial"
+    ]
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": 8350,
+  "source": "DEV Community<",
+  "title": "I Built ckpt: Automatic Checkpoints for AI Coding Sessions",
+  "url": "https://dev.to/moo_moo_5f1e2b4306785a535/i-built-ckpt-automatic-checkpoints-for-ai-coding-sessions-44gl",
+  "published_at": "2026-04-03T14:27:54Z",
+  "fetched_at": "2026-04-03T15:00:28.854207+00:00",
+  "author": "Moo Moo",
+  "summary": "<p>AI agents don't have Ctrl+Z.</p>\n\n<p>When they break your code, they don't undo. They re-read every file, reason about what went wrong, rewrite from scratch — burning tokens on code they already had right. Sometimes the \"fix\" breaks something else. And the cycle repeats.</p>\n\n<p>I got tired of watching this happen, so I built <strong>ckpt</strong>.</p>\n\n<h2>\n  \n  \n  What is ckpt?\n</h2>\n\n<p>ckpt is a CLI tool that runs in the background and auto-snapshots every change your AI coding agent makes. You get a full timeline of every step, and you can restore to any point instantly.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>ckpt watch        <span class=\"c\"># start watching — auto-snapshots every AI change</span>\n<span class=\"c\"># ... let your agent work ...</span>\nckpt steps        <span class=\"c\"># see what happened, step by step</span>\nckpt restore 3    <span class=\"c\"># go back to step 3</span>\nckpt end          <span class=\"c\"># squash in",
+  "full_text": "AI agents don't have Ctrl+Z.\n\nWhen they break your code, they don't undo. They re-read every file, reason about what went wrong, rewrite from scratch — burning tokens on code they already had right. Sometimes the \"fix\" breaks something else. And the cycle repeats.\n\nI got tired of watching this happen, so I built ckpt.\n\n \n \n What is ckpt?\n\nckpt is a CLI tool that runs in the background and auto-snapshots every change your AI coding agent makes. You get a full timeline of every step, and you can restore to any point instantly.\n\nckpt watch # start watching — auto-snapshots every AI change\n# ... let your agent work ...\nckpt steps # see what happened, step by step\nckpt restore 3 # go back to step 3\nckpt end # squash into one clean git commit\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIt's just git under the hood — hidden branch, real commits, squash when done. No new format, no database.\n\n \n \n The Problem\n\nAI agents edit your code in rapid bursts — 5, 10, 20 files at once. When something breaks, you have two bad options:\n\nUndo everything — lose all the good changes too\n\nManually figure out which change broke things — painful and slow\n\nEvery error-fix cycle where the agent re-reads and rewrites costs 500-2000 tokens just to get back to where you were. With ckpt, ckpt restore 3 takes milliseconds and costs zero tokens.\n\n \n \n Why Not Just Use IDE Checkpoints?\n\nCursor has timeline. Kiro has revert. But there are key differences:\n\nThe AI agent can operate ckpt — not just you. IDE checkpoints are buttons in a UI. The agent can't click them. With ckpt, the agent itself runs ckpt restore 3. It becomes self-correcting with no human in the loop.\n\nTerminal agents have nothing. Claude Code, Codex, Aider — zero checkpoint support. ckpt is the only checkpoint system that works for terminal-based agents.\n\nBranching. ckpt try approach-a -r 2 saves current work, goes back to step 2, and lets the agent try a completely different approach. Then ckpt trydiff approach-a compares the two. No IDE has this.\n\nPersistent history. IDE checkpoints disappear when you close the session. ckpt log keeps every session permanently.\n\n \n \n Quick Start\n\nnpm install -g @mohshomis/ckpt\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAdd this to your AI agent's system prompt:\n\nRun ckpt watch before starting work. If something breaks, run ckpt restore <step> instead of manually rewriting. When done, run ckpt end.\n\n \n \n Works With Everything\n\nKiro, Cursor, Claude Code, OpenAI Codex, GitHub Copilot, Windsurf, Aider — any agent that can run shell commands. It's just a CLI.\n\nThe repo is open source (MIT). Would love feedback — what's missing? What would make this more useful for your workflow?\n\n \n\n \n \n\n Automatic checkpoints for AI coding sessions. Per-step undo, branching, and restore — on top of git. Works with Kiro, Cursor, Claude Code, Codex, and any AI agent.\n \n \n \n\n \n\nckpt\n\nAutomatic checkpoints for AI coding sessions. Per-step undo, branching, and restore — on top of git.\n\nckpt watch # start watching — auto-snapshots every AI change\n# ... let Kiro / Cursor / Claude Code / Codex do its thing ...\nckpt steps # see what happened, step by step\nckpt restore 3 # go back to step 3\nckpt end # squash into one clean git commit\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe problem\n\nAI agents edit your code in rapid bursts — 5, 10, 20 files at once. When something breaks:\n\nUndo everything (Kiro/Cursor revert) — lose all the good changes too\n\nManually figure out which change broke things — painful and slow\n\nNo per-step undo. No timeline. No way to try a different approach without losing the first one.\n\nHow AI agents handle errors today (and why it's wasteful)\n\nWhen an AI agent breaks something, here's what actually happens:\n\nThe agent…",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai",
+      "aider",
+      "automatic",
+      "change",
+      "checkpoint",
+      "ckpt",
+      "cli",
+      "cod",
+      "cursor",
+      "git",
+      "github copilot",
+      "ide",
+      "manually",
+      "mit",
+      "openai codex",
+      "opensource",
+      "productivity",
+      "restore",
+      "squash",
+      "step",
+      "watch",
+      "windsurf"
+    ],
+    [
+      "git",
+      "opensource",
+      "productivity"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 8293,
+  "source": "Hacker News",
+  "title": "April 2026 TLDR Setup for Ollama and Gemma 4 26B on a Mac mini",
+  "url": "https://gist.github.com/greenstevester/fc49b4e60a4fef9effc79066c1033ae5",
+  "published_at": "2026-04-03T09:35:16Z",
+  "fetched_at": "2026-04-03T10:40:21.041048+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47624731\">Comments</a>",
+  "full_text": "April 2026 TLDR Setup for Ollama + Gemma 4 26B on a Mac mini (Apple Silicon)\n\nMac mini with Apple Silicon (M1/M2/M3/M4/M5)\n\nAt least 24GB unified memory for Gemma 4 26B\n\nmacOS with Homebrew installed\n\nInstall the Ollama macOS app via Homebrew cask (includes auto-updates and MLX backend):\n\nbrew install --cask ollama-app\n\nThis installs:\n\nOllama.app in /Applications/\n\nollama CLI at /opt/homebrew/bin/ollama\n\nThe Ollama icon will appear in the menu bar. Wait a few seconds for the server to initialize.\n\nVerify it's running:\n\nThis downloads ~17GB. Verify:\n\nollama list\n# NAME ID SIZE MODIFIED\n# gemma4:26b 5571076f3d70 17 GB ...\n\nollama run gemma4:26b \"Hello, what model are you?\"\n\nCheck that it's using GPU acceleration:\n\nollama ps\n# Should show CPU/GPU split, e.g. 14%/86% CPU/GPU\n\nStep 5: Configure Auto-Start on Login\n\n5a. Ollama App — Launch at Login\n\nClick the Ollama icon in the menu bar > Launch at Login (enable it).\n\nAlternatively, go to System Settings > General > Login Items and add Ollama.\n\n5b. Auto-Preload Gemma 4 on Startup\n\nCreate a launch agent that loads the model into memory after Ollama starts and keeps it warm:\n\ncat << 'EOF' > ~/Library/LaunchAgents/com.ollama.preload-gemma4.plist\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n <key>Label</key>\n <string>com.ollama.preload-gemma4</string>\n <key>ProgramArguments</key>\n <array>\n <string>/opt/homebrew/bin/ollama</string>\n <string>run</string>\n <string>gemma4:26b</string>\n <string></string>\n </array>\n <key>RunAtLoad</key>\n <true/>\n <key>StartInterval</key>\n <integer>300</integer>\n <key>StandardOutPath</key>\n <string>/tmp/ollama-preload.log</string>\n <key>StandardErrorPath</key>\n <string>/tmp/ollama-preload.log</string>\n</dict>\n</plist>\nEOF\n\nLoad the agent:\n\nlaunchctl load ~/Library/LaunchAgents/com.ollama.preload-gemma4.plist\n\nThis sends an empty prompt to ollama run every 5 minutes, keeping the model warm in memory.\n\n5c. Keep Models Loaded Indefinitely\n\nBy default, Ollama unloads models after 5 minutes of inactivity. To keep them loaded forever:\n\nlaunchctl setenv OLLAMA_KEEP_ALIVE \"-1\"\n\nThen restart Ollama for the change to take effect.\n\nNote: This environment variable is session-scoped. To persist across reboots, add\nexport OLLAMA_KEEP_ALIVE=\"-1\" to your ~/.zshrc, or set it via a dedicated launch agent.\n\nStep 6: Verify Everything Works\n\n# Check Ollama server is running\nollama list\n\n# Check model is loaded in memory\nollama ps\n\n# Check launch agent is registered\nlaunchctl list | grep ollama\n\nExpected output from ollama ps:\nNAME ID SIZE PROCESSOR CONTEXT UNTIL\ngemma4:26b 5571076f3d70 20 GB 14%/86% CPU/GPU 4096 Forever\n\nOllama exposes a local API at http://localhost:11434. Use it with coding agents:\n\n# Chat completion (OpenAI-compatible)\ncurl http://localhost:11434/v1/chat/completions \\\n -H \"Content-Type: application/json\" \\\n -d '{\n \"model\": \"gemma4:26b\",\n \"messages\": [{\"role\": \"user\", \"content\": \"Hello\"}]\n }'\n\nCommand\nDescription\n\nollama list\nList downloaded models\n\nollama ps\nShow running models & memory usage\n\nollama run gemma4:26b\nInteractive chat\n\nollama stop gemma4:26b\nUnload model from memory\n\nollama pull gemma4:26b\nUpdate model to latest version\n\nollama rm gemma4:26b\nDelete model\n\nUninstall / Remove Auto-Start\n\n# Remove the preload agent\nlaunchctl unload ~/Library/LaunchAgents/com.ollama.preload-gemma4.plist\nrm ~/Library/LaunchAgents/com.ollama.preload-gemma4.plist\n\n# Uninstall Ollama\nbrew uninstall --cask ollama-app\n\nWhat's New in Ollama v0.19+ (March 31, 2026)\n\nMLX Backend on Apple Silicon\n\nOn Apple Silicon, Ollama automatically uses Apple's MLX framework for faster inference — no manual configuration needed. M5/M5 Pro/M5 Max chips get additional acceleration via GPU Neural Accelerators. M4 and earlier still benefit from general MLX speedups.\n\nOllama now leverages NVIDIA's NVFP4 format to maintain model accuracy while reducing memory bandwidth and storage requirements for inference workloads. As more inference providers scale inference using NVFP4 format, this allows Ollama users to share the same results as they would in a production environment. It further opens up Ollama to run models optimized by NVIDIA's model optimizer.\n\nImproved Caching for Coding and Agentic Tasks\n\nLower memory utilization: Ollama reuses its cache across conversations, meaning less memory utilization and more cache hits when branching with a shared system prompt — especially useful with tools like Claude Code.\n\nIntelligent checkpoints: Ollama stores snapshots of its cache at intelligent locations in the prompt, resulting in less prompt processing and faster responses.\n\nSmarter eviction: Shared prefixes survive longer even when older branches are dropped.\n\nMemory: Gemma 4 26B uses ~20GB when loaded. On a 24GB Mac mini, this leaves ~4GB for the system — close memory-heavy apps before running.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "apple silicon",
+      "cli",
+      "gemma",
+      "gpu",
+      "homebrew",
+      "inference",
+      "launchctl",
+      "list",
+      "load",
+      "login",
+      "mac",
+      "memory",
+      "mlx",
+      "model",
+      "ollama",
+      "ollama + gemma",
+      "size",
+      "tldr setup for",
+      "uninstall"
+    ],
+    []
+  ]
+}

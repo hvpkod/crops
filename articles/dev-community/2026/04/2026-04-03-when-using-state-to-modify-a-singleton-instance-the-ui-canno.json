@@ -1,0 +1,40 @@
+{
+  "id": 8233,
+  "source": "DEV Community<",
+  "title": "When using @State to modify a singleton instance, the UI cannot be refreshed.",
+  "url": "https://dev.to/harmonyos/when-using-state-to-modify-a-singleton-instance-the-ui-cannot-be-refreshed-2dg4",
+  "published_at": "2026-04-03T02:14:00Z",
+  "fetched_at": "2026-04-03T03:00:47.709256+00:00",
+  "author": "HarmonyOS",
+  "summary": "<p><a href=\"https://forums.developer.huawei.com/forumPortal/en/topic/0203195892245993081?ha_source=dev-shequ&amp;ha_sourceId=89000192\" rel=\"noopener noreferrer\">Read the original article：When using @State to modify a singleton instance, the UI cannot be refreshed</a></p>\n\n<h3>\n  \n  \n  Context\n</h3>\n\n<p>When a singleton class instance is decorated with <code>@State</code>, changing its internal properties does not trigger a UI refresh.<br />\nFor example: in <strong>Page2</strong>, after toggling the color and returning to the <strong>Index</strong> page, the UI does not update accordingly.</p>\n\n<h3>\n  \n  \n  Description\n</h3>\n\n<ul>\n<li>\n<a href=\"https://developer.huawei.com/consumer/en/doc/harmonyos-guides/arkts-state\" rel=\"noopener noreferrer\"><code>@State</code></a> allows UI to refresh when the state variable itself changes.</li>\n<li>However, it does not track property changes inside a class instance.</li>\n<li>To observe inner property changes, <a href=\"https://developer.huawei.com/co",
+  "full_text": "Read the original article：When using @State to modify a singleton instance, the UI cannot be refreshed\n\n \n \n Context\n\nWhen a singleton class instance is decorated with @State, changing its internal properties does not trigger a UI refresh.\n\nFor example: in Page2, after toggling the color and returning to the Index page, the UI does not update accordingly.\n\n \n \n Description\n\n@State allows UI to refresh when the state variable itself changes.\n\nHowever, it does not track property changes inside a class instance.\n\nTo observe inner property changes, @Observed is needed.\n\nAlternatively, AppStorage can provide application-level state sharing, and variables with @StorageLink will synchronize automatically.\n\n \n \n Solution / Approach\n\n \n \n Option 1: Use @Observed\n\nDecorate the singleton class with @Observed.\n\nThis makes @State capable of observing property changes within the instance.\n\n@Observed\nexport class VoiceReadHelper {\n private static instance: VoiceReadHelper | null = null\n isSpeaking = false\n\n private constructor() { }\n\n static getInstance(): VoiceReadHelper {\n if (VoiceReadHelper.instance == null) {\n VoiceReadHelper.instance = new VoiceReadHelper()\n }\n return VoiceReadHelper.instance\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Option 2: Use AppStorage + @StorageLink\n\nSave the singleton instance into AppStorage when created.\n\nUse @StorageLink in pages to bind the shared instance for two-way synchronization.\n\n// VoiceReadHelper.ets\nexport class VoiceReadHelper {\n private static instance: VoiceReadHelper | null = null\n isSpeaking = false\n\n private constructor() { }\n\n static getInstance(): VoiceReadHelper {\n if (VoiceReadHelper.instance == null) {\n VoiceReadHelper.instance = new VoiceReadHelper()\n AppStorage.setOrCreate('VoiceReadHelper', VoiceReadHelper.instance)\n }\n return VoiceReadHelper.instance\n }\n}\nCopy codeCopy code\n// Index.ets\nimport { VoiceReadHelper } from './VoiceReadHelper'\n\n@Entry\n@Component\nstruct Index {\n @StorageLink('voiceReadHelper') voiceReadHelper: VoiceReadHelper = VoiceReadHelper.getInstance()\n\n build() {\n Column() {\n Text()\n .width(100)\n .height(100)\n .backgroundColor(this.voiceReadHelper.isSpeaking ? '#61CFBE' : '#8981F7')\n .borderRadius(8)\n .margin({ bottom: 100 })\n .onClick(() => {\n this.voiceReadHelper.isSpeaking = !this.voiceReadHelper.isSpeaking\n })\n\n Text('Go to Page2').onClick(() => {\n this.getUIContext().getRouter().pushUrl({ url: 'pages/Page2' });\n })\n }\n .height('100%')\n .width('100%')\n }\n}\nCopy codeCopy code\n// Page2.ets\nimport { VoiceReadHelper } from './VoiceReadHelper'\n\n@Entry\n@Component\nstruct Page2 {\n @StorageLink('voiceReadHelper') voiceReadHelper: VoiceReadHelper = VoiceReadHelper.getInstance()\n\n build() {\n Column() {\n Text()\n .width(100)\n .height(100)\n .backgroundColor(this.voiceReadHelper.isSpeaking ? '#61CFBE' : '#8981F7')\n .borderRadius(8)\n .margin({ bottom: 100 })\n .onClick(() => {\n this.voiceReadHelper.isSpeaking = !this.voiceReadHelper.isSpeaking\n })\n\n Text('This is Page2')\n }\n .height('100%')\n .width('100%')\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Key Takeaways\n\n@State cannot observe changes to properties inside a class instance.\n\nUse @Observed to make properties inside the class observable.\n\nUse AppStorage with @StorageLink for application-wide state sharing and automatic synchronization across pages.\n\nApplicable for:\n\nTheme switching\n\nConfiguration management (e.g., user preferences)\n\nMessage/notification systems\n\n \n \n Additional Resources\n\nhttps://developer.huawei.com/consumer/en/doc/harmonyos-guides/arkts-state-management-overview\n\nhttps://developer.huawei.com/consumer/en/doc/harmonyos-guides/arkts-observed-and-objectlink\n\n \n \n Written by Mehmet Algul",
+  "tags": [
+    [
+      "// index.ets",
+      "2026",
+      "500-words",
+      "@state",
+      "@storagelink",
+      "additional resources",
+      "appstorage",
+      "class",
+      "description\n\n@state",
+      "getinstance",
+      "harmonyos",
+      "instance",
+      "null",
+      "private",
+      "property",
+      "singleton",
+      "singletonclass",
+      "static",
+      "uirefreshissue",
+      "voicereadhelper"
+    ],
+    [
+      "harmonyos",
+      "singletonclass",
+      "uirefreshissue"
+    ]
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": 8229,
+  "source": "DEV Community<",
+  "title": "How the axios@1.14.1 supply chain attack worked (and how to protect yourself)",
+  "url": "https://dev.to/bigjenkie/how-the-axios1141-supply-chain-attack-worked-and-how-to-protect-yourself-jkh",
+  "published_at": "2026-04-03T02:23:48Z",
+  "fetched_at": "2026-04-03T03:00:39.085781+00:00",
+  "author": "bigjenkie",
+  "summary": "<p>On March 31, 2026, someone hijacked the npm account of axios's lead maintainer and published two malicious versions: <code>axios@1.14.1</code> and <code>axios@0.30.4</code>. Both contained a hidden dependency called <code>plain-crypto-js</code> whose postinstall script dropped a cross-platform RAT on every developer machine that ran <code>npm install</code>.</p>\n\n<p>The RAT harvested SSH keys, cloud tokens, AWS credentials, and anything else it could find. It was live on npm for over 12 hours before being pulled. Axios gets 40+ million weekly downloads.</p>\n\n<p>Here's how the attack worked, what the industry got wrong, and what you can do about it.</p>\n\n<h2>\n  \n  \n  The attack chain\n</h2>\n\n<p><strong>Step 1: Account takeover.</strong> The attacker changed the email on the user's npm account to an attacker-controlled ProtonMail address. npm did not require re-authentication for this change.</p>\n\n<p><strong>Step 2: Pre-staging.</strong> 18 hours before the main attack, the attacker pu",
+  "full_text": "On March 31, 2026, someone hijacked the npm account of axios's lead maintainer and published two malicious versions: axios@1.14.1 and axios@0.30.4. Both contained a hidden dependency called plain-crypto-js whose postinstall script dropped a cross-platform RAT on every developer machine that ran npm install.\n\nThe RAT harvested SSH keys, cloud tokens, AWS credentials, and anything else it could find. It was live on npm for over 12 hours before being pulled. Axios gets 40+ million weekly downloads.\n\nHere's how the attack worked, what the industry got wrong, and what you can do about it.\n\n \n \n The attack chain\n\nStep 1: Account takeover. The attacker changed the email on the user's npm account to an attacker-controlled ProtonMail address. npm did not require re-authentication for this change.\n\nStep 2: Pre-staging. 18 hours before the main attack, the attacker published plain-crypto-js@4.2.1 — a clean-looking package with no obvious malicious code. This gave it time to build a benign-looking publish history.\n\nStep 3: Payload delivery. The attacker published axios@1.14.1 (latest tag) and axios@0.30.4 (legacy tag) within 39 minutes of each other. Both added plain-crypto-js as a dependency.\n\nStep 4: Execution. When a developer ran npm install, npm resolved the new axios version, pulled in plain-crypto-js, and ran its postinstall script. That script:\n\nDetected the OS (macOS, Windows, or Linux)\n\nDownloaded a platform-specific RAT binary\n\nEstablished a C2 connection\n\nBegan harvesting credentials\n\nCleaned up after itself by rewriting its own package.json\n\nThe whole thing took less than 2 seconds.\n\n \n \n Why existing tools missed it\n\nnpm audit only checks against known CVEs. A brand-new malicious package has no CVE yet. npm audit said nothing.\n\nDependabot is reactive — it alerts after the advisory is published, not before. The advisory came 12+ hours after the malicious version was live.\n\nSnyk relies on its vulnerability database. Same problem — the database lags behind the attack.\n\nSocket.dev was the fastest to detect it (behavioral analysis flagged the new dependency and install script), but even Socket took hours to publish an alert.\n\nThe gap between \"malicious package published\" and \"advisory issued\" was 12+ hours. That's 12 hours where every npm install of axios pulled down a RAT.\n\n \n \n What actually protects you\n\nThe common advice is \"pin your dependencies\" and \"use lockfiles.\" That helps with automated installs, but it doesn't help when:\n\nA developer manually runs npm install axios@latest\n\nAn AI coding assistant runs npm install on your behalf\n\nYou're starting a new project and installing fresh\n\nWhat you actually need is a check that runs before install scripts execute. Something that looks at the package and says \"this is suspicious\" before it's too late.\n\n \n \n What we built\n\nAfter seeing the axios warning on r/ClaudeAI, we built Ward — an open-source tool that hooks into your package manager and checks every package before install scripts run.\n\n$ npm install axios@1.14.1\n✗ ward: BLOCKED\n This version steals SSH keys and cloud credentials\n Safe version: 1.14.0\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIt checks four things locally in under 200ms:\n\n1. Known threat database. Ward ships with 42 verified real-world attacks (axios, event-stream, ua-parser-js, colors/faker, the Solana web3.js compromise, the Shai-Hulud worm, and more). The database syncs daily from GitHub Advisories and community submissions.\n\n2. Typosquat detection. If you try to install axxios instead of axios, Ward warns you. It uses Levenshtein distance against the top 500 npm packages.\n\n3. Install script analysis. Ward flags packages with unknown preinstall/postinstall scripts. Known-safe patterns like node-gyp rebuild are allowed through.\n\n4. Version anomaly detection. Unexpected major version jumps (1.x to 4.x) and non-existent versions get flagged.\n\n \n \n Setup takes 30 seconds\n\nnpm install -g wardshield\nward init\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. Ward hooks into npm (and bun and yarn) transparently. You don't change your workflow — you just have protection.\n\n \n \n If you use AI coding assistants\n\nWard was built specifically for the AI-assisted development workflow. When Claude Code, Cursor, or Copilot runs npm install on your behalf, Ward screens it. There's a Claude Code hook that intercepts every install command before it executes.\n\nThis matters because AI tools install packages without you reviewing every one. The attack surface is larger when an agent is making decisions about your dependencies.\n\n \n \n The threat feed\n\nWe maintain a public threat feed at wardshield.com with every verified supply chain attack we track. There's also a JSON API at api.wardshield.com/threats if you want to build on top of it.\n\n \n \n It's free and open source\n\nWard is MIT licensed. The full local engine is free, unlimited, forever. No account needed, no cloud required. The source is at github.com/Vanguard-Defense-Solutions/ward.\n\nBuilt by Vanguard Defense Solutions.\n\nThe axios attack was not sophisticated. It was an account takeover followed by a dependency injection. The same attack pattern has been used successfully against event-stream (2018), ua-parser-js (2021), colors/faker (2022), @solana/web3.js (2024), and dozens more.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "account",
+      "attack",
+      "aws",
+      "axios",
+      "build",
+      "copilot",
+      "cursor",
+      "github advisories",
+      "hour",
+      "install",
+      "javascript",
+      "malicious",
+      "mit",
+      "npm",
+      "opensource",
+      "package",
+      "protonmail",
+      "publish",
+      "security",
+      "ssh",
+      "vanguard defense solutions",
+      "ward",
+      "windows"
+    ],
+    [
+      "npm",
+      "opensource"
+    ]
+  ]
+}

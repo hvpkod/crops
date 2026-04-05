@@ -1,0 +1,40 @@
+{
+  "id": 8640,
+  "source": "DEV Community<",
+  "title": "Day 3 - Added Security, Authentication and Jwt Tokens in REST API Project",
+  "url": "https://dev.to/bharathdhana/day-3-added-security-authentication-and-jwt-tokens-in-rest-api-project-3kal",
+  "published_at": "2026-04-04T14:28:18Z",
+  "fetched_at": "2026-04-04T14:40:28.786387+00:00",
+  "author": "Bharath Kumar J N",
+  "summary": "<p>I restarted my coding journey with a simple rule:</p>\n\n<p><strong>Improve 1% every day.</strong></p>\n\n<p>The features I worked on today include:</p>\n\n<ul>\n<li>Pagination\n</li>\n<li>Request Validation\n</li>\n<li>Spring Security\n</li>\n<li>JWT Authentication\n</li>\n</ul>\n\n\n\n\n<h2>\n  \n  \n  Pagination in the Task API\n</h2>\n\n<p>Earlier, my API returned all tasks at once. That works when the data is small, but in real applications the database can contain thousands of records.</p>\n\n<p>So I added <strong>pagination</strong> to the API.</p>\n\n<p>Now tasks can be fetched page by page instead of loading everything in one response. This improves performance and makes the API much easier for the frontend to handle.</p>\n\n\n\n\n<h2>\n  \n  \n  Request Validation\n</h2>\n\n<p>I also implemented <strong>request validation</strong>.</p>\n\n<p>Before this, the API would accept requests even if important fields like the title or description were missing. Now the API validates the input and returns an error if required",
+  "full_text": "I restarted my coding journey with a simple rule:\n\nImprove 1% every day.\n\nThe features I worked on today include:\n\nPagination\n\nRequest Validation\n\nSpring Security\n\nJWT Authentication\n\n \n \n Pagination in the Task API\n\nEarlier, my API returned all tasks at once. That works when the data is small, but in real applications the database can contain thousands of records.\n\nSo I added pagination to the API.\n\nNow tasks can be fetched page by page instead of loading everything in one response. This improves performance and makes the API much easier for the frontend to handle.\n\n \n \n Request Validation\n\nI also implemented request validation.\n\nBefore this, the API would accept requests even if important fields like the title or description were missing. Now the API validates the input and returns an error if required fields are not provided.\n\n \n \n Spring Security Integration\n\nAnother major step today was adding Spring Security.\n\nThis allows the application to protect certain endpoints and control who can access them. Authentication-related routes remain public, while task-related endpoints now require authentication.\n\n \n \n JWT Authentication\n\nTo handle authentication, I implemented JWT (JSON Web Token).\n\nInstead of storing sessions on the server, the application now uses token-based authentication. When a user logs in, the server generates a token. The client then sends that token with every request to access protected endpoints.\n\n \n \n What I Learned Today\n\nToday helped me understand several important backend concepts:\n\nWhy pagination is important for performance\n\nHow validation helps maintain data integrity\n\nHow Spring Security protects API endpoints\n\nHow JWT enables stateless authentication",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "add",
+      "api",
+      "authentication",
+      "career",
+      "endpoint",
+      "implement",
+      "important",
+      "java",
+      "jwt",
+      "jwt authentication",
+      "pagination",
+      "programming",
+      "request",
+      "request validation",
+      "security",
+      "spring",
+      "spring security",
+      "spring security integration",
+      "validation"
+    ],
+    [
+      "career",
+      "programming"
+    ]
+  ]
+}

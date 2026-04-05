@@ -1,0 +1,41 @@
+{
+  "id": 8230,
+  "source": "DEV Community<",
+  "title": "ClassPilot v2 Major Updates!",
+  "url": "https://dev.to/bonfire404/classpilot-v2-major-updates-5d2g",
+  "published_at": "2026-04-03T02:21:38Z",
+  "fetched_at": "2026-04-03T03:00:40.658839+00:00",
+  "author": "Bon Jury Pecaoco",
+  "summary": "<p>Hey everyone!<br />\nIt's been a while since I dropped an update here, but I'm really excited to share <strong>v2.0.3</strong> with y'all this is the first stable beta I feel genuinely proud to show off!<br />\n<strong>What's New in 2.0.3:</strong></p>\n\n<p><strong>Class Suspension and Vacant Time Feature</strong> – We've brought back the class suspension feature from version 1, now allowing you to suspend notifications for specific dates with custom reasons. We're also introducing the vacant time feature so you can easily see which time slots are free on any given day. This was one of the most requested features, and we're confident it'll make scheduling much more intuitive.</p>\n\n<p><strong>Liquid Glass Design Overhaul</strong> – Complete visual refresh across the board. The Manage and Library tab selectors, FAB (+) icon, home screen App Widget, bottom navigation bar, and switch selectors all feature the new liquid glass aesthetic. We've also significantly improved animations througho",
+  "full_text": "Hey everyone!\n\nIt's been a while since I dropped an update here, but I'm really excited to share v2.0.3 with y'all this is the first stable beta I feel genuinely proud to show off!\n\nWhat's New in 2.0.3:\n\nClass Suspension and Vacant Time Feature – We've brought back the class suspension feature from version 1, now allowing you to suspend notifications for specific dates with custom reasons. We're also introducing the vacant time feature so you can easily see which time slots are free on any given day. This was one of the most requested features, and we're confident it'll make scheduling much more intuitive.\n\nLiquid Glass Design Overhaul – Complete visual refresh across the board. The Manage and Library tab selectors, FAB (+) icon, home screen App Widget, bottom navigation bar, and switch selectors all feature the new liquid glass aesthetic. We've also significantly improved animations throughout the app, especially on modern devices, this was one of the biggest pain points in version 1 that we've now resolved.\n\nSmarter Backend Infrastructure – Completely rebuilt the worker system to handle file uploads and AI reviews simultaneously without server throttling. We're now running with 24/7 uptime and drastically improved response times compared to the resource-limited previous version. We've also made Ember integration-ready to connect across the wider BONFIRE BASE ecosystem. Check out https://ember.base69.studio/ and feel free to message us for access if you'd like to explore how the ecosystem works.\n\nInstant PDF Reading with Ember – Introducing Ember, the BONFIRE BASE AI system that connects across our entire platform. Ember now reads PDF attachments directly in the Chat interface with inline display and instant text extraction. This feature works exclusively with documents uploaded by users within the app, ensuring Ember only accesses academic materials as intended. We've also enhanced Ember's communication capabilities. Future plans include enabling Ember to scrape internet data for research across domains like history, news, agriculture, healthcare, finance, and economics, providing higher-confidence results, unbiased information as we continue refining the model through prompt engineering.\n\nWidget Improvements – Redesigned the Quote display for better readability, optimized initial load times after phone restarts, switched to a highly compressed splash format, and tweaked the widget for better battery optimization.\n\nEnhanced Local Notification Scheduling – Re-engineered the notification system to bypass Doze Mode on modern Android devices. Your reminders will now show up exactly when they're supposed to.\n\nNew App Logo Fresh liquid glass visual identity to match the refined design language across the app.\n\nLooking Ahead:\n\nI'm currently exploring opportunities to collaborate with someone to help redistribute this app on the Play Store in the future. If you're interested or know someone who might be, feel free to reach out!\n\nThis build feels like a real milestone for me. If you're curious about what ClassPilot is all about or want to try it out, check out the website: https://classpilot.base69.studio\n\nFor broader discussions or recommendations about the BONFIRE BASE ecosystem, visit: https://bonfire.base69.studio\n\nWould love to hear your thoughts or answer any questions!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "android",
+      "bonfire",
+      "classpilot",
+      "ember",
+      "enhance",
+      "fab",
+      "feature",
+      "glass",
+      "introducing",
+      "kotlin",
+      "liquid",
+      "manage",
+      "notification",
+      "pdf",
+      "productivity",
+      "programming",
+      "quote",
+      "vacant",
+      "vacant time feature"
+    ],
+    [
+      "productivity",
+      "programming"
+    ]
+  ]
+}

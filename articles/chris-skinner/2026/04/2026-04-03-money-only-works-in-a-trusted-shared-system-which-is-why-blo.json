@@ -1,0 +1,38 @@
+{
+  "id": 8282,
+  "source": "Chris Skinner",
+  "title": "Money only works in a trusted, shared system … which is why blockchains don’t work",
+  "url": "https://thefinanser.com/2026/04/money-only-works-in-a-trusted-shared-system-which-is-why-blockchains-dont-work/?utm_source=rss&utm_medium=rss&utm_campaign=money-only-works-in-a-trusted-shared-system-which-is-why-blockchains-dont-work",
+  "published_at": "2026-04-03T06:12:07Z",
+  "fetched_at": "2026-04-03T09:40:19.492108+00:00",
+  "author": "Chris M Skinner",
+  "summary": "<p>There’s a fundamental truth about money that we often forget: money only works because we all agree to use the same system. Whether it’s Visa, SWIFT or central bank money, the power of finance has always come from shared networks. The bigger the network, the more useful the money. This is why the latest working...</p>\n<p>The post <a href=\"https://thefinanser.com/2026/04/money-only-works-in-a-trusted-shared-system-which-is-why-blockchains-dont-work/\">Money only works in a trusted, shared system &#8230; which is why blockchains don&#8217;t work</a> appeared first on <a href=\"https://thefinanser.com\">Chris Skinner&#039;s blog</a>.</p>",
+  "full_text": "There’s a fundamental truth about money that we often forget: money only works because we all agree to use the same system. \n\nWhether it’s Visa, SWIFT or central bank money, the power of finance has always come from shared networks. The bigger the network, the more useful the money. This is why the latest working paper from the Bank for International Settlements (BIS) caught my attention because it challenges one of the biggest assumptions in crypto: that decentralisation can replace coordination.\n\nThe problem is that money needs a single network, and cryptocurrencies are trying to destroy that centralisation theme.\n\nFor decades, banking has been about building scale. As the BIS paper notes: “The usefulness of money increases with the size of the network using it.”\n\nBlockchain does the opposite. Instead of one network, we now have thousands. Instead of convergence, we get divergence.\n\nThe BIS paper makes a simple but powerful point: “Token-based systems are prone to fragmentation.” Not occasionally or accidentally, but by design.\n\nWhy?\n\nBecause every blockchain has Its own validators, its own incentives, its own governance, its own token, and crucially: “there is no mechanism to ensure coordination across different blockchains.”\n\nSo instead of a single, shared system, we get a landscape of competing ecosystems. That’s not a bug. That’s the design.\n\nThere’s another issue, and it’s one most people overlook, which is that blockchains are not free systems. They rely on validators – miners or stakers – who must be incentivised to behave honestly. As the BIS puts it: “validators must be compensated to ensure honest participation.”\n\nThat means you have to pay the network to keep it running, and that is a permanent commitment which leads directly to trade-offs: “this compensation requirement implies limits to scalability.”\n\nThe result is congestion, fees and limited throughput or, put more simply, you cannot scale decentralisation without increasing cost.\n\nThe key here is that we used to have a single place to go, but now we have too many place because we have moved from one internet of money to many.\n\nWe spent the past 50 years building a global financial network with one messaging layer (SWIFT) and a handful of dominant payment rails (Visa, Mastercard) that enabled increasing interoperability.\n\nNow we are moving to multiple blockchains with multiple tokens that have multiple standards.\n\nIT DOES NOT WORK.\n\nAs the BIS paper observes: “the equilibrium outcome is a fragmented system with multiple tokens and limited interoperability.”\n\nIn other words, we are rebuilding fragmentation into finance.\n\nThis is not an argument against blockchain. Far from it. It’s an argument about what comes next because, if the world is fragmenting, then the real opportunity is not the chain, it’s the connections between the chains.\n\nThis means we are moving into a new phase of moving from tokens to coordination.\n\nIf the first wave of crypto was about tokens, chains and decentralisation, the next wave is about interoperability, identity and orchestration. In other words, we move from programmable money to programmable financial ecosystems.\n\nAnd this is where it aligns with the third phase of banking and fintech which I call the intelligence revolution. The key is to have something that can navigate multiple networks, optimise across chains, manage liquidity and identity, and decide where value should move, how and when.\n\nThat “something” is not a person. It’s an agent.\n\nI have admitted many times that my single most naïve forecast was that we would not need intermediaries. We do need them. We need them to co-ordinate and organise in a trusted and regulated process.\n\nThis means that the real future is not one chain, but many that are managed by intelligence. So, forget the idea of one blockchain to rule them all. The future looks more like many chains with many tokens running on many systems, overlaid with intelligent agents, identity frameworks and interoperability layers.\n\nAs the BIS paper subtly implies, the challenge is no longer creating tokens but coordinating them. After all, banks created centralised coordination; blockchains create decentralised fragmentation; and now AI will create intelligent coordination. That’s the real race we’re now in. Not the race to tokenise everything, but the race to make sense of it.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bis",
+      "blockchain",
+      "crypto",
+      "fintech",
+      "grid",
+      "increase",
+      "instead",
+      "money",
+      "move",
+      "multiple",
+      "paper",
+      "payments",
+      "race",
+      "shared",
+      "token",
+      "visa"
+    ],
+    [
+      "blockchain",
+      "crypto",
+      "grid"
+    ]
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 8495,
+  "source": "DEV Community<",
+  "title": "My 3-Month Startup Directory Submission Journey — What Actually Moved the Needle",
+  "url": "https://dev.to/jim_l_efc70c3a738e9f4baa7/my-3-month-startup-directory-submission-journey-what-actually-moved-the-needle-gef",
+  "published_at": "2026-04-03T23:10:02Z",
+  "fetched_at": "2026-04-03T23:40:26.060320+00:00",
+  "author": "Jim L",
+  "summary": "<p>Over the last few months I submitted five websites to every free startup directory I could find. Not as a theoretical exercise — I needed backlinks. My domain rating was stuck at 20 and organic traffic was flat.</p>\n\n<p>Here is what actually happened.</p>\n\n<h2>\n  \n  \n  Month 1: The Naive Phase\n</h2>\n\n<p>I found a few GitHub repos listing 300+ directories and started submitting to everything. No filtering, no strategy. Just fill form, click submit, next.</p>\n\n<p>Success rate: roughly 40%.</p>\n\n<p>The other 60% was a mix of dead sites (404, parked domains, expired Bubble.io plans), paid-only directories pretending to be free, and forms that silently failed. I spent about 15 hours that first month and submitted to maybe 80 directories. Of those, about 30 actually listed my sites.</p>\n\n<p>The worst time wasters were directories running on Bubble.io with expired plans. They look legit until you hit submit and get a deployment error. I counted 12 of these in one week.</p>\n\n<h2>\n  \n  \n  Mo",
+  "full_text": "Over the last few months I submitted five websites to every free startup directory I could find. Not as a theoretical exercise — I needed backlinks. My domain rating was stuck at 20 and organic traffic was flat.\n\nHere is what actually happened.\n\n \n \n Month 1: The Naive Phase\n\nI found a few GitHub repos listing 300+ directories and started submitting to everything. No filtering, no strategy. Just fill form, click submit, next.\n\nSuccess rate: roughly 40%.\n\nThe other 60% was a mix of dead sites (404, parked domains, expired Bubble.io plans), paid-only directories pretending to be free, and forms that silently failed. I spent about 15 hours that first month and submitted to maybe 80 directories. Of those, about 30 actually listed my sites.\n\nThe worst time wasters were directories running on Bubble.io with expired plans. They look legit until you hit submit and get a deployment error. I counted 12 of these in one week.\n\n \n \n Month 2: Getting Strategic\n\nI started sorting directories by Ahrefs DR before submitting. Anything below DR 20 went to the bottom of the list. DR 50+ got done first.\n\nThree discoveries changed my approach:\n\nBlog comments work. I found a WordPress blog with DR 63 that gives dofollow links through the URL field in blog comments. One genuine comment with my website URL in the website field. No review process, no waiting. This single discovery was worth more than 20 low-DR directory submissions combined.\n\nProfile backlinks are underrated. Crunchbase (DR 91), Disqus (DR 91), StackShare (DR 89) — creating a profile on each of these takes under 10 minutes and gives you a link from a domain most people would pay good money for. Nobody talks about this because it is not exciting. But it works.\n\nBadge exchange is worth it. Some directories like twelve.tools (DR 80) and wired.business (DR 73) require you to put a small badge in your site footer. In exchange you get a dofollow link from a high-DR domain. The math works out heavily in your favor.\n\n \n \n Month 3: The Numbers\n\nAfter three months of systematic directory work across five websites:\n\nDomain rating: 20 to 29 (Ahrefs)\n\nReferring domains: 15 to 72\n\nDirectories submitted: 200+\n\nActually listed: roughly 110\n\nDead or fake: 60+\n\nPaid-only (despite claiming free): 30+\n\nDofollow confirmed: about 70\n\nThe directories that consistently showed up fastest in Ahrefs backlink reports: SaaSHub, ExactSeek, sitelike.org, twelve.tools, and Crunchbase profiles. Most others took 2-4 weeks to get crawled.\n\n \n \n What I Would Tell Someone Starting Today\n\nStart with DR 50+ directories. The ROI on low-DR directories is almost zero for SEO purposes.\n\nBatch your submissions to 5-10 per day. Some directories share IP tracking and will flag rapid submissions.\n\nKeep a spreadsheet. Track: directory name, DR, submit URL, whether you need to log in, CAPTCHA type, and submission date. You will forget what you already submitted otherwise.\n\nDo not pay for directory submissions. Every directory worth submitting to has a free tier. The paid-only directories at $29-149 per listing are not worth it when free alternatives with similar or higher DR exist.\n\n \n \n My Shortlist: Start With These 10\n\nIf I had to pick just 10 directories to submit to first:\n\nCrunchbase (DR 91) — profile with website link\n\ntwelve.tools (DR 80) — badge exchange, dofollow\n\nExactSeek (DR 73) — simple form, dofollow, 1/day limit\n\nwired.business (DR 73) — badge exchange, dofollow\n\nsitelike.org (DR 71) — text CAPTCHA, dofollow\n\nFuture Tools (DR 69) — AI tools focus\n\nSaaSHub (DR 55) — URL-only form, auto-detect\n\nSubmissionWebDirectory (DR 61) — image CAPTCHA\n\nStartup Inspire (DR 48) — multi-category\n\nMamavation (DR 63) — blog comment, instant dofollow\n\nI documented over 200 directories with DR scores, submit URLs, link types, and specific notes about CAPTCHAs and gotchas. That resource covers everything in detail if you want to go deeper.\n\nThe honest truth is that directory submissions alone will not get you to DR 50. But they are the foundation. Combined with profile backlinks, blog comment links, and content that naturally attracts links, the compound effect adds up faster than most people expect.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ahrefs",
+      "badge",
+      "bubble.io",
+      "buildinpublic",
+      "crunchbase",
+      "devjournal",
+      "directory",
+      "dofollow",
+      "exactseek",
+      "github",
+      "marketing",
+      "profile",
+      "seo",
+      "sitelike.org",
+      "stackshare",
+      "startup",
+      "submission",
+      "submit",
+      "success",
+      "wordpress",
+      "worth"
+    ],
+    [
+      "buildinpublic",
+      "devjournal",
+      "startup"
+    ]
+  ]
+}

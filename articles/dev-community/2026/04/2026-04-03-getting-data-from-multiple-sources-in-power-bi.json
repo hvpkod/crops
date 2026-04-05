@@ -1,0 +1,46 @@
+{
+  "id": 8385,
+  "source": "DEV Community<",
+  "title": "Getting Data from Multiple Sources in Power BI",
+  "url": "https://dev.to/ehinmetan_serah/getting-data-from-multiple-sources-in-power-bi-2mb",
+  "published_at": "2026-04-03T17:52:36Z",
+  "fetched_at": "2026-04-03T18:00:19.409671+00:00",
+  "author": "Ehinmetan serah",
+  "summary": "<h2>\n  \n  \n  <strong>Introduction</strong>\n</h2>\n\n<p>If you’re new to Power BI, one of the first things you need to learn is how to bring data into the tool.  In real-world projects, your data won’t come from just one place.  Power BI bridges this gap by allowing analysts to connect, transform, and unify data from multiple sources into a single semantic model.</p>\n\n<p>Whether you're working with Excel files, SQL databases, JSON documents, or cloud platforms like SharePoint and Azure, understanding how to connect these sources efficiently is critical for building scalable and insightful reports.</p>\n\n<p><strong>In this guide, you will learn how to:</strong><br />\n• Connect Power BI to multiple data sources efficiently<br />\n• Use Power Query to preview and explore your data<br />\n• Detect and resolve data quality issues early<br />\n• Build a strong foundation for accurate data modeling and reporting</p>\n\n<p>Architecture Overview<br />\nAt a high level, our Power BI data architecture cons",
+  "full_text": "Introduction\n\nIf you’re new to Power BI, one of the first things you need to learn is how to bring data into the tool. In real-world projects, your data won’t come from just one place. Power BI bridges this gap by allowing analysts to connect, transform, and unify data from multiple sources into a single semantic model.\n\nWhether you're working with Excel files, SQL databases, JSON documents, or cloud platforms like SharePoint and Azure, understanding how to connect these sources efficiently is critical for building scalable and insightful reports.\n\nIn this guide, you will learn how to:\n\n• Connect Power BI to multiple data sources efficiently\n\n• Use Power Query to preview and explore your data\n\n• Detect and resolve data quality issues early\n\n• Build a strong foundation for accurate data modeling and reporting\n\nArchitecture Overview\n\nAt a high level, our Power BI data architecture consists of:\n\n• Power BI Desktop as the reporting and modeling tool\n\n• Multiple data sources, including:\n\no Excel and Text/CSV files\n\no SQL Server databases\n\no JSON and PDF files\n\no SharePoint folders\n\nAll data flows into Power BI through Power Query, where it is reviewed and prepared before loading into the data model.\n\n \n \n Connecting Data from Multiple Sources\n\nPower BI allows you to connect to a wide range of data sources. Below are step-by-step guides for each major source.\n\n \n \n Step 1: Connecting to Excel\n\nOpen Power BI Desktop\n\nNavigate to Home → Get Data → Excel\n\nBrowse and select your Excel file\n\nIn the Navigator window, select the required sheets or tables\n\nClick Load (to import directly) or Transform Data (to clean first)\n\n \n \n Step 2: Connecting to Text/CSV Files\n\nOpen Power BI Desktop\n\nNavigate to Home → Get Data → Text/CSV\n\nBrowse and select the CSV file (e.g., Stimulating Sustainable.csv)\n\nPreview the dataset in the dialog window\n\nClick Load or Transform Data\n\n \n \n Step 3: Connecting to PDF\n\nOpen Power BI Desktop\n\nNavigate to Home → Get Data → PDF\n\nSelect the PDF file\n\nWait for Power BI to detect available tables\n\nSelect the desired table(s)\n\nClick Load or Transform Data\n\n \n \n Step 4: Connecting to JSON\n\nOpen Power BI Desktop\n\nNavigate to Home → Get Data → JSON\n\nSelect the JSON file\n\nOR input API endpoint\n\nLoad the data into Power Query\n\nExpand nested fields to structure the data properly\n\nClick Close & Apply\n\n \n \n Step 5: Connecting to SharePoint Folder\n\nOpen Power BI Desktop\n\nNavigate to Home → Get Data → SharePoint Folder\n\nEnter the SharePoint site URL\n\nClick OK and authenticate if required\n\nSelect files from the folder\n\nClick Combine & Transform Data\n\n \n \n Step 6: Connecting to MySQL Database\n\nOpen Power BI Desktop\n\nNavigate to Home → Get Data → MySQL Database\n\nEnter the server name and database\n\nProvide authentication credentials\n\nSelect the required tables\n\nClick Load or Transform Data\n\n \n \n Step 7: Connecting to SQL Server\n\nOpen Power BI Desktop\n\nNavigate to Home → Get Data → SQL Server\n\nEnter the server name (e.g., localhost)\n\nLeave the database field blank (or specify one if needed)\n\nClick OK\n\nSelect authentication method (e.g., Windows credentials)\n\n In the Navigator pane, expand the database (e.g., AdventureWorksDW2020)\n\nSelect required tables such as:\no DimEmployee\no DimProduct\no FactResellerSales\n\nClick Transform Data to open Power Query Editor\n\n \n \n Step 8: Connecting to Web Data\n\nOpen Power BI Desktop\n\nNavigate to Home → Get Data → Web\n\nEnter the URL of the web page or API\n\nClick OK\n\nSelect the data table or structure detected\n\nClick Load or Transform Data\n\n \n \n Step 9: Connecting to Azure Analysis Services\n\nOpen Power BI Desktop\n\nNavigate to Home → Get Data → Azure → Azure Analysis Services\n\nEnter the server name\n\nSelect the database/model\n\nChoose connection mode (Live connection recommended)\n\nClick Connect",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "analyst",
+      "beginners",
+      "connect",
+      "connecting data",
+      "database",
+      "datum",
+      "desktop",
+      "getting data",
+      "home",
+      "navigate",
+      "navigator",
+      "open",
+      "pdf",
+      "power",
+      "power bi",
+      "power query",
+      "select",
+      "sharepoint",
+      "sql",
+      "sql server",
+      "step",
+      "transform",
+      "tutorial",
+      "• detect"
+    ],
+    [
+      "analyst",
+      "beginners",
+      "tutorial"
+    ]
+  ]
+}

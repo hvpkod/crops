@@ -1,0 +1,38 @@
+{
+  "id": 8265,
+  "source": "Hacker News",
+  "title": "ESP32-S31: 320MHz 2C RV32IMAFCP+CLIC, 512KB SRAM, GbE, 802.11ax, 61 GPIO",
+  "url": "https://www.espressif.com/en/news/ESP32_S31_Release",
+  "published_at": "2026-03-29T09:39:23Z",
+  "fetched_at": "2026-04-03T08:40:28.287965+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47561678\">Comments</a>",
+  "full_text": "Espressif Systems (688018.SH) proudly announces the upcoming release of ESP32-S31, a high-performance dual-core Wi-Fi 6 + Bluetooth 5.4 + IEEE 802.15.4 + Ethernet System-on-Chip (SoC). Building on Espressif's proven track record, this versatile SoC addresses the growing demand for advanced IoT applications including consumer and industrial appliances, smart speakers, voice-controlled devices, and automation systems requiring comprehensive wireless connectivity, edge AI capabilities, rich HMI, and robust security features.\n\nESP32-S31 delivers comprehensive wireless connectivity by combining Wi-Fi 6 (802.11ax) in 2.4 GHz band, Bluetooth 5.4 with both Bluetooth LE (Low Energy) and Classic (BR/EDR) support, plus an IEEE 802.15.4 radio enabling Thread and Zigbee protocols for diverse IoT applications. ESP32-S31 will provide a seamless support for Matter protocol over Wi-Fi as well as Thread radio. \n\nWi-Fi 6 brings enhanced transmission efficiency and reduced power consumption for battery-powered devices. Bluetooth 5.4 adds LE Audio for high-quality wireless audio streaming, direction finding for precise location services, and Bluetooth Mesh 1.1 for scalable device communications, while Classic (BR/EDR) ensures compatibility with legacy audio devices and low-latency, high-throughput applications. \n\nAlso, the integrated 1000 Mbps Ethernet MAC, provides high-bandwidth wired connectivity for IoT applications. \n\nESP32-S31 includes a powerful dual-core, 32-bit RISC-V microcontroller running at 320MHz with MMU support, 60 GPIO pins, providing exceptional processing performance and design flexibility. One core features a wide 128-bit data path with SIMD instructions, enabling fast parallel processing. The SoC offers ample memory resources including 512 KB SRAM and support for high-speed 250 MHz 8-bit DDR PSRAM with concurrent flash and PSRAM access. Multiple dedicated SPI interfaces (up to Octal SPI) allow for flexible external memory expansion, and together with the wide SIMD data path, make ESP32-S31 ideal for memory-intensive multimedia and AI/ML workloads at the edge. \n\n \n\nThe ESP32-S31 provides comprehensive human-machine interface capabilities with a DVP camera interface (8 to 16-bit), versatile LCD support (8 to 24-bit parallel display) with hardware color space conversion, and up to 14 capacitive touch sensing channels. Dedicated hardware accelerators including JPEG codec, 2D graphics acceleration using PPA, and 2D-DMA enable efficient image processing and display updates. \n\nESP32-S31 delivers versatile audio capabilities with Bluetooth 5.4 LE Audio enabling high-quality, low-power streaming and Bluetooth Classic (BR/EDR) ensuring broad compatibility. Dual I2S controllers with hardware-level Bluetooth audio synchronization provide precise timing and minimal latency, eliminating software-based synchronization complexity. \n\nThe ESP32-S31 prioritizes comprehensive security with robust hardware-based protection mechanisms designed to meet stringent industry requirements. It incorporates secure key management using RAM-based PUF (Physically Unclonable Functions), secure boot, flash and PSRAM encryption, digital signature peripheral, cryptographic hardware acceleration, and protections against side-channel attacks and power glitch manipulation. A Trusted Execution Environment (TEE) with Access Permission Management (APM) enables software isolation for secure multi-application deployment. \n\nESP32-S31 includes a rich set of peripherals including USB OTG (high speed), TWAI (CAN 2.0 compatible), Ethernet MAC (1000Mbps), along with standard interfaces such as I2C, I2S, SPI, UART, LED PWM, ADC, SDIO, Timers, and DMA. \n\nESP32-S31 will be supported through Espressif's open-source IoT Development Framework - ESP-IDF, ESP-Matter (for Matter devices) and ESP-GMF (for multimedia applications). ESP32-S31 will also be usable as a connectivity co-processor with its support in ESP-Hosted and ESP-AT frameworks. ESP32-S31 will also work with ESP Private Agents platform as well as directly with common LLMs to build client devices that run or interact with AI agents to create voice-enabled and intelligent applications. \n\nThe ESP32-S31's comprehensive feature set makes it ideal for smart appliances, smart speakers, voice-controlled devices, smart home hubs, industrial automation systems, and multimedia IoT applications requiring advanced connectivity and processing capabilities.\n\nIf you are interested in the ESP32-S31 series of SoCs, you can contact Espressif's customer support team to request samples or receive further assistance—they will respond as quickly as possible.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai/ml",
+      "audio",
+      "bluetooth",
+      "capability",
+      "comprehensive",
+      "connectivity",
+      "dvp",
+      "enable",
+      "gpio",
+      "hmi",
+      "include",
+      "iot",
+      "le audio",
+      "mbps ethernet mac",
+      "mmu",
+      "multimedia",
+      "octal spi",
+      "psram",
+      "soc",
+      "versatile"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 8451,
+  "source": "DEV Community<",
+  "title": "I'm 12 and I built a 2KB 0 dependency alternative to CASL!",
+  "url": "https://dev.to/creeperkid2014/im-12-and-i-built-a-2kb-0-dependency-alternative-to-casl-g4a",
+  "published_at": "2026-04-03T20:45:08Z",
+  "fetched_at": "2026-04-03T21:00:17.246115+00:00",
+  "author": "CreeperGuy14",
+  "summary": "<p>I built permzplus, a 2KB auth engine with 0 dependencies and a 100/100 Socket quality score. It replaces recursive graph-walking with a one-pass linear scan to turn complex role-inheritance into $O(1)$ cached lookups. Check out the logic at policy.ts:111 and drop a star if you want high-performance ABAC without the 100KB library bloat. Link: <a href=\"https://github.com/PermzPlus/Permzplus\" rel=\"noopener noreferrer\">https://github.com/PermzPlus/Permzplus</a></p>\n\n<p>:D</p>",
+  "full_text": "I built permzplus, a 2KB auth engine with 0 dependencies and a 100/100 Socket quality score. It replaces recursive graph-walking with a one-pass linear scan to turn complex role-inheritance into $O(1)$ cached lookups. Check out the logic at policy.ts:111 and drop a star if you want high-performance ABAC without the 100KB library bloat. Link: https://github.com/PermzPlus/Permzplus\n\n:D",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "abac",
+      "alternative",
+      "build",
+      "cache",
+      "complex",
+      "dependency",
+      "linear",
+      "logic",
+      "node",
+      "npm",
+      "recursive",
+      "showdev",
+      "socket",
+      "typescript"
+    ],
+    [
+      "node",
+      "npm",
+      "showdev",
+      "typescript"
+    ]
+  ]
+}

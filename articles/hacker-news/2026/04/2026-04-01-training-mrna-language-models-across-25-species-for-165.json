@@ -1,0 +1,36 @@
+{
+  "id": 8651,
+  "source": "Hacker News",
+  "title": "Training mRNA Language Models Across 25 Species for $165",
+  "url": "https://news.ycombinator.com/item?id=47606244",
+  "published_at": "2026-04-01T20:38:24Z",
+  "fetched_at": "2026-04-04T15:20:27.222094+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47606244\">Comments</a>",
+  "full_text": "Training mRNA Language Models Across 25 Species for $16514 points by maziyar 2 hours ago | hide | past | favorite | 3 comments\n\nWe built an end-to-end protein AI pipeline covering structure prediction, sequence design, and codon optimization. After comparing multiple transformer architectures for codon-level language modeling, CodonRoBERTa-large-v2 emerged as the clear winner with a perplexity of 4.10 and a Spearman CAI correlation of 0.40, significantly outperforming ModernBERT. We then scaled to 25 species, trained 4 production models in 55 GPU-hours, and built a species-conditioned system that no other open-source project offers. Complete results, architectural decisions, and runnable code below.\n\nGuidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "api",
+      "apply",
+      "architecture",
+      "build",
+      "cai",
+      "codon",
+      "compare",
+      "contact",
+      "faq",
+      "language",
+      "maziyar",
+      "model",
+      "modernbert",
+      "mrna",
+      "species",
+      "training"
+    ],
+    [
+      "architecture"
+    ]
+  ]
+}

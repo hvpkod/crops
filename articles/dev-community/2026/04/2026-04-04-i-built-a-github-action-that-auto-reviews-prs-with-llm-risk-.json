@@ -1,0 +1,29 @@
+{
+  "id": 8742,
+  "source": "DEV Community<",
+  "title": "I built a GitHub Action that auto-reviews PRs with LLM — risk assessment + evidence mapping [alpha, OSS]",
+  "url": "https://dev.to/mordecaiusm922create/i-built-a-github-action-that-auto-reviews-prs-with-llm-risk-assessment-evidence-mapping-alpha-4oc",
+  "published_at": "2026-04-04T22:40:21Z",
+  "fetched_at": "2026-04-04T23:40:42.946961+00:00",
+  "author": "mordecaiusm922-create",
+  "summary": "<p>I built a GitHub Action that analyzes pull requests automatically and posts structured comments.</p>\n\n<h2>\n  \n  \n  What it does\n</h2>\n\n<ul>\n<li>Risk assessment (low/medium/high) based on file patterns and diff analysis</li>\n<li>Maps evidence to specific line numbers in the diff</li>\n<li>Detects security patterns: CVEs, broad exception handling, TLS misconfigurations</li>\n<li>Posts comment automatically on every PR</li>\n</ul>\n\n<h2>\n  \n  \n  Example comment it leaves on a PR\n</h2>\n\n<blockquote>\n<p>🟢 Risk: LOW</p>\n\n<p>What: mypy upgraded from 1.3 to 1.5.1 in pyproject.toml<br />\nWhy: Address bugs in mypy 1.5.1</p>\n\n<p>Evidence:</p>\n\n<ul>\n<li>pyproject.toml:L117 — mypy==1.5.1</li>\n</ul>\n</blockquote>\n\n<h2>\n  \n  \n  Install (~2 minutes)\n</h2>\n\n<p>Just add the workflow file and two secrets to your repo. Full instructions in the README.</p>\n\n<p>Repo: <a href=\"https://github.com/mordecaiusm922-create/devmind\" rel=\"noopener noreferrer\">https://github.com/mordecaiusm922-create/devmind</a></p>\n\n",
+  "full_text": "I built a GitHub Action that analyzes pull requests automatically and posts structured comments.\n\n \n \n What it does\n\nRisk assessment (low/medium/high) based on file patterns and diff analysis\n\nMaps evidence to specific line numbers in the diff\n\nDetects security patterns: CVEs, broad exception handling, TLS misconfigurations\n\nPosts comment automatically on every PR\n\n \n \n Example comment it leaves on a PR\n\n🟢 Risk: LOW\n\nWhat: mypy upgraded from 1.3 to 1.5.1 in pyproject.toml\n\nWhy: Address bugs in mypy 1.5.1\n\nEvidence:\n\npyproject.toml:L117 — mypy==1.5.1\n\n \n \n Install (~2 minutes)\n\nJust add the workflow file and two secrets to your repo. Full instructions in the README.\n\nRepo: https://github.com/mordecaiusm922-create/devmind\n\nStill alpha. Looking for feedback on what's useful and what's noise.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "action",
+      "analysis",
+      "assessment",
+      "automatically",
+      "build",
+      "comment",
+      "diff",
+      "evidence",
+      "mypy",
+      "oss",
+      "risk"
+    ],
+    []
+  ]
+}

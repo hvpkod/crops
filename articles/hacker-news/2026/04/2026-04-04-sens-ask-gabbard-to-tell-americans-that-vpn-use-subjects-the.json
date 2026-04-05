@@ -1,0 +1,37 @@
+{
+  "id": 8748,
+  "source": "Hacker News",
+  "title": "Sens Ask Gabbard to Tell Americans That VPN Use Subjects Them to Surveillance",
+  "url": "https://www.techdirt.com/2026/04/03/senators-ask-tulsi-gabbard-to-tell-americans-that-vpn-use-might-subject-them-to-domestic-surveillance/",
+  "published_at": "2026-04-04T23:27:54Z",
+  "fetched_at": "2026-04-05T00:40:26.411521+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47644605\">Comments</a>",
+  "full_text": "Senators Ask Tulsi Gabbard To Tell Americans That VPN Use Might Subject Them To Domestic Surveillance\n \n \n\n \n\n \n\nfrom the unfun-twist-on-an-old-story dept\n \n\n \n\nThis may not be an actual “Wyden siren,” but it still has his name attached to it. What’s being said here isn’t nearly as ominous as this single sentence he sent to CIA leadership earlier this year: \n\nI write to alert you to a classified letter I sent you earlier today in which I express deep concerns about CIA activities.\n\nFew people are capable of saying so much with so little. This one runs a bit longer, but it has implications that likely run deeper than the surface level issue raised by Wyden and others in a recent letter to Trump’s (satire is dead) Director of National Intelligence, Tulsi Gabbard. Here are the details, as reported by Dell Cameron for Wired: \n\nIn a letter sent Thursday to Director of National Intelligence Tulsi Gabbard, the lawmakers say that because VPNs obscure a user’s true location, and because intelligence agencies presume that communications of unknown origin are foreign, Americans may be inadvertently waiving the privacy protections they’re entitled to under the law.\n\nSeveral federal agencies, including the FBI, the National Security Agency, and the Federal Trade Commission, have recommended that consumers use VPNs to protect their privacy. But following that advice may inadvertently cost Americans the very protections they’re seeking.\n\nThe letter was signed by members of the Democratic Party’s progressive flank: Senators Ron Wyden, Elizabeth Warren, Edward Markey, and Alex Padilla, along with Representatives Pramila Jayapal and Sara Jacobs.\n\nThat’s alarming. It’s also a conundrum. VPN use (often required for remote logins to corporate systems) is a great way to secure connections that are otherwise insecure, like those made originating from people’s homes (to log into their work stuff) or utilizing public Wi-Fi. There are also more off-the-book uses, like circumventing regional content limitations or just ensuring your internet activity can’t be tied to your physical location. \n\nThe trade-off depends on the threat you’re trying to mitigate. It’s kind of like the trade-off in cell phone security. Using biometrics markers to unlock your phone might be the best option if what you’re mainly concerned with is theft of your device. A thief might be able to guess a password, but they won’t be able to duplicate an iris or a fingerprint.\n\nBut if the threat you’re more worried about is this government, you’ll want the passcode. Courts have generally found that fingerprints and eyeballs aren’t “testimonial,” so if you’re worried about being compelled to unlock your device, the Fifth Amendment tends to favor passwords, at least as far as the courts are concerned.\n\nIt’s almost the same thing here. VPNs might protect you against garden-variety criminals, but the intentional commingling of origin/destination points by VPNs could turn purely domestic communications into “foreign” communications the NSA can legally intercept (and the FBI, somewhat less-legally can dip into at will). \n\nThat’s the substance of the letter sent to Gabbard, in which the legislators ask the DNI to issue public guidance on VPN usage that makes it clear that doing so might subject users to (somewhat inadvertent) domestic surveillance:\n\nAmericans reportedly spend billions of dollars each year on commercial VPN services, many of which are offered by foreign-headquartered companies using servers located overseas. According to the Department of Homeland Security’s Cybersecurity and Infrastructure Security Agency, VPNs have the potential to be vulnerable to surveillance by foreign adversaries. While Americans should be warned of these risks, they should also be told if these VPN services, which are advertised as a privacy protection, including by elements of the federal government, could, in fact, negatively impact their rights against U.S. government surveillance. To that end, we urge you to be more transparent with the American public about whether the use of VPNs can impact their privacy with regard to U.S. government surveillance, and clarify what, if anything, American consumers can do to ensure they receive the privacy protections they are entitled to under the law and Constitution.\n\nI wouldn’t expect a response from ODNI. I mean, I wouldn’t expect one in any case, but I especially don’t expect Tulsi Gabbard to respond to a letter sent by a handful of Democratic Party members. \n\nA warning would be nice, but even an Intelligence Community overseen by competent professionals, rather than loyalists and Fox News commentators would be hard-pressed to present a solution. To be fair, this letter isn’t asking for a fix, but rather telling the Director of National Intelligence to inform the public of the risks of VPN usage, including increasing their odds of being swept up in NSA dragnets.\n\nCertainly the NSA isn’t concerned about “incidental collection.” It’s never been too concerned about its consistent “incidental” collection of US persons’ communications and data in the past and this isn’t going to budge the needle, especially since it means the NSA would have to do more work to filter out domestic communications and the FBI would be less than thrilled with any efforts made to deny it access to communications it doesn’t have the legal right to obtain on its own. \n\nSince the government won’t do this, it’s up to the general public, starting with everyone sharing the contents of this letter with others. VPNs can still offer considerable security benefits. But everyone needs to know that domestic surveillance is one of the possible side effects of utilizing this tech. \n\n \n\n Filed Under: alex padilla, domestic surveillance, ed markey, elizabeth warren, executive order 12333, fbi, national security, nsa, odni, pramila jayapal, ron wyden, sara jacobs, section 702, surveillance state, tulsi gabbard, vpn",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "americans",
+      "cia",
+      "communication",
+      "dni",
+      "domestic",
+      "fbi",
+      "gabbard",
+      "letter",
+      "national intelligence",
+      "nsa",
+      "senator",
+      "send",
+      "surveillance",
+      "the democratic party’s",
+      "trump’s",
+      "tulsi",
+      "tulsi gabbard",
+      "vpn",
+      "wyden"
+    ],
+    []
+  ]
+}

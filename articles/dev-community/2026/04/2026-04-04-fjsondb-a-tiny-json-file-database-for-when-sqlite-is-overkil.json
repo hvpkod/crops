@@ -1,0 +1,35 @@
+{
+  "id": 8591,
+  "source": "DEV Community<",
+  "title": "fjsondb — A Tiny JSON File Database for When SQLite Is Overkill",
+  "url": "https://dev.to/alexdevson/fjsondb-a-tiny-json-file-database-for-when-sqlite-is-overkill-2dah",
+  "published_at": "2026-04-04T08:17:11Z",
+  "fetched_at": "2026-04-04T08:40:36.316668+00:00",
+  "author": "Alex Devson",
+  "summary": "<p>Sometimes you need to store data, but setting up a full database feels like bringing a cannon to a knife fight. You just want to save some JSON to a file and read it back later.</p>\n\n<p><strong>fjsondb</strong> is a zero-dependency JSON file database. It stores your data as plain JSON files — human-readable, easy to debug, and trivially portable.</p>\n\n<h2>\n  \n  \n  Why Use a JSON File Database?\n</h2>\n\n<ul>\n<li>📁 Data stored as readable JSON files</li>\n<li>🚫 No database server to install or manage</li>\n<li>🔧 No schema migrations</li>\n<li>🪶 Zero dependencies</li>\n<li>⚡ Perfect for config storage, caching, small datasets</li>\n</ul>\n\n<h2>\n  \n  \n  Use Cases\n</h2>\n\n<ul>\n<li>\n<strong>CLI tools</strong> that need persistent settings</li>\n<li>\n<strong>Prototypes</strong> where a real DB is premature</li>\n<li>\n<strong>Small apps</strong> with &lt; 10k records</li>\n<li>\n<strong>Testing</strong> where you want human-readable test data</li>\n<li>\n<strong>Scripts</strong> that need to remember stat",
+  "full_text": "Sometimes you need to store data, but setting up a full database feels like bringing a cannon to a knife fight. You just want to save some JSON to a file and read it back later.\n\nfjsondb is a zero-dependency JSON file database. It stores your data as plain JSON files — human-readable, easy to debug, and trivially portable.\n\n \n \n Why Use a JSON File Database?\n\n📁 Data stored as readable JSON files\n\n🚫 No database server to install or manage\n\n🔧 No schema migrations\n\n🪶 Zero dependencies\n\n⚡ Perfect for config storage, caching, small datasets\n\n \n \n Use Cases\n\nCLI tools that need persistent settings\n\nPrototypes where a real DB is premature\n\nSmall apps with < 10k records\n\nTesting where you want human-readable test data\n\nScripts that need to remember state between runs\n\n \n \n How It Works\n\nSimple API — initialize with a file path, then read/write JSON objects. The data is stored as formatted JSON, so you can even edit it by hand if needed.\n\nNo ORM, no query language, no connection pooling. Just your data in a file.\n\n \n \n When NOT to Use This\n\nHigh-concurrency multi-user apps\n\nDatasets larger than a few MB\n\nComplex relational queries\n\nProduction web servers with heavy traffic\n\nFor everything else? fjsondb is perfect.\n\n \n \n Get Started\n\n⭐ GitHub: github.com/p32929/fjsondb\n\nBy @p32929 — because not every project needs PostgreSQL.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "app",
+      "backend",
+      "cli",
+      "data",
+      "database",
+      "dataset",
+      "datum",
+      "file",
+      "fjsondb",
+      "javascript",
+      "json",
+      "postgresql",
+      "set",
+      "showdev",
+      "store"
+    ],
+    [
+      "showdev"
+    ]
+  ]
+}

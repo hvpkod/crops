@@ -1,0 +1,30 @@
+{
+  "id": 8266,
+  "source": "Hacker News",
+  "title": "A Rave Review of Superpowers (For Claude Code)",
+  "url": "https://emschwartz.me/a-rave-review-of-superpowers-for-claude-code/",
+  "published_at": "2026-04-03T04:09:50Z",
+  "fetched_at": "2026-04-03T08:40:29.802222+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47623101\">Comments</a>",
+  "full_text": "A Rave Review of Superpowers (for Claude Code)\n\n \n\n \n \n 02 Apr, 2026\n\n \n \n \n\n \n\nI have no connection to the authors of the Superpowers plugin for Claude Code, but I have been raving about it to everyone I talk to. Using Claude Code with Superpowers is so much more productive and the features it builds are so much more correct than with stock Claude Code. I cannot recommend it enough.\n\nEarlier, my main issue with Claude Code (and other models + harnesses I’ve tried) was that it was sometimes too quick to jump to implementing a solution that might be right, or might be totally off.\n\nPlan mode helped a bit. However, in Plan mode, Claude would write up a giant plan document and ask for feedback. It's hard to review a multi-page plan. Making matters worse, if you give it feedback, it would respond with a whole new version of the multi-page plan. That's not a productive way to plan out a project or feature.\n\nSuperpowers fixes both of these issues, and more. I'll lay out the workflow, as I understand it, and why I appreciate its structure but you can also stop reading here and just go try it.\n\nSuperpowers’ high-level flow is: Brainstorming → Reviewing Options and Tradeoffs → Plan Sketch → Design Doc → Implementation Plan → Implementation Steps.\n\nBrainstorming\n\nSuperpowers almost always starts off in brainstorm mode. It explores your codebase, asks you plenty of questions, and comes up with some general directions you could go in.\n\nOptions and Tradeoffs\n\nA key part of the brainstorming process is that, after asking questions, it will present multiple options with tradeoffs. It is extremely helpful to consider different options, see tradeoffs laid out, and choose or discuss them before getting more detailed.\n\nRecently, they also added a visual design skill that makes Claude build simple mock-ups for UI changes and other visual features. This starts a local dev server so you can review, discuss, and iterate on the mock-ups before proceeding. Great job team, keep up the great work.\n\nPlan Sketch\n\nAfter you've agreed on the options to pursue, Claude + Superpowers will give you back a high-level description of the plan. This could be a dozen bullet points or a slightly longer write-up. In contrast to the default Plan mode, this is a much easier format to weigh in on.\n\nDesign Doc\n\nOnly after agreeing on the high-level version of the plan, Claude + Superpowers will write up a full design doc. This is most similar to the kind of plan Claude Code would write without Superpowers. But at this point, you've already agreed on the high-level direction, which makes it much easier to review and comment on the plan. If you have comments, they are probably going to be a bit more detailed, rather than \"rewrite this whole thing and go in a different direction\".\n\nAlso, Superpowers’ plan document is a markdown file in your repository that you can read, comment on, and edit in your own editor. One friend said that being able to edit the plan on his own terms felt way more empowering than Claude Code’s normal UX for reviewing plans.\n\nImplementation Plan and Implementation\n\nAfter you approve the design doc, Claude + Superpowers will write up an implementation plan and review that plan against the design doc. Once you approve that, it can launch subagents to implement each part of the plan, and it automatically reviews their work against the implementation plan.\n\nThanks\n\nThanks to Jesse Vincent for making this plugin! It has made my use of Claude Code so much more productive. I feel better about tradeoffs being made and much more confident that the code written does what I want.\n\nI'll be eagerly installing each Superpowers update and keeping an eye on what else Jesse's company Prime Radiant puts out (you can also add their blog to your Scour feed 😉).\n\nSuperpowers for Other Domains?\n\nI have friends who are academic researchers. Every time they tell me about issues they've run into trying to use Claude or other AI tools, I've immediately thought that they could use an equivalent structured workflow plugin that adapts a Superpowers-style workflow to non-programming domains. Just a thought for the Prime Radiant folks or others who are building agent-focused dev tools.\n\nThanks also to Alex Kesling and Eliot Hederman for comments on a draft of this blog post.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "brainstorming",
+      "claude",
+      "comment",
+      "design",
+      "doc",
+      "implementation",
+      "option",
+      "plan",
+      "review",
+      "scour",
+      "superpowers",
+      "tradeoff"
+    ],
+    []
+  ]
+}

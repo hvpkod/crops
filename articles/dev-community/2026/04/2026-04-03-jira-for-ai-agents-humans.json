@@ -1,0 +1,45 @@
+{
+  "id": 8269,
+  "source": "DEV Community<",
+  "title": "Jira for AI Agents & Humans",
+  "url": "https://dev.to/yvg/jira-for-ai-agents-humans-282a",
+  "published_at": "2026-04-03T08:47:17Z",
+  "fetched_at": "2026-04-03T09:00:24.216627+00:00",
+  "author": "Yves Van Goethem",
+  "summary": "<p>First things first: don't worry, I didn't re-invent Moltbook here.</p>\n\n<p>Every startup I know runs on 3 tools too many. A board here, a Notion doc there, a Slack thread that became the de facto spec. At <a href=\"https://fluado.com\" rel=\"noopener noreferrer\">fluado</a>, where we build AI agents for entreprise, a new layer crept in over the past weeks: agents writing markdown into our docs repo. Sprint tickets, completion reports. Dozens of files. The filesystem became the source of truth. The project board didn't.</p>\n\n<p>Arbo and I talk every day. Multiple times. But conversations don't leave a trace you can point at. Jira was supposed to be that trace. When we opened it this morning, it still showed the state from 4 weeks ago. Nobody had touched it.</p>\n\n<p>I <a href=\"https://yves.vg/blog/ai_productivity_multiplier_dysfunction_amplifier.html\" rel=\"noopener noreferrer\">wrote previously</a> that AI is a productivity multiplier if you already have your house in order. Turns out, tha",
+  "full_text": "First things first: don't worry, I didn't re-invent Moltbook here.\n\nEvery startup I know runs on 3 tools too many. A board here, a Notion doc there, a Slack thread that became the de facto spec. At fluado, where we build AI agents for entreprise, a new layer crept in over the past weeks: agents writing markdown into our docs repo. Sprint tickets, completion reports. Dozens of files. The filesystem became the source of truth. The project board didn't.\n\nArbo and I talk every day. Multiple times. But conversations don't leave a trace you can point at. Jira was supposed to be that trace. When we opened it this morning, it still showed the state from 4 weeks ago. Nobody had touched it.\n\nI wrote previously that AI is a productivity multiplier if you already have your house in order. Turns out, that includes your project board.\n\nSo I pitched Arbo: what if we build a tiny board that just reads the markdown files that already exist? A window on top of reality.\n\nHe was skeptical. I wasn't sure it would survive the afternoon either. But the alternative was spending the morning updating our Jira board again, potentially going stale within the week.\n\nBy late afternoon, Jira was gone. All tickets migrated. Both of us and our agents working in the same board.\n\n \n \n The board\n\nOur agents already work in markdown. They create files with YAML frontmatter and write reports. So why funnel that through a SaaS board designed for humans clicking buttons?\n\nEvery task lives in a folder inside backlog/. The folder name encodes date and category. Inside, a constellation of markdown files:\n\nbacklog/\n├── 2026-03-26-CHAT-UX/\n│ ├── chat-ux-milestones.md # the plan\n│ ├── chat-ux-tickets.md # broken into tasks\n│ ├── CUX0-report.md # agent completion report\n│ └── CUX1-report.md\n├── 2026-03-27-AGENT-I18N/\n│ ├── agent-i18n-milestones.md\n│ ├── agent-i18n-tickets.md\n│ ├── I0-report.md\n│ ├── I1-report.md\n│ └── i18n-audit-report.md\n└── 2026-04-01-OPS-DEPLOY-STAGING/\n └── CARD.md # simple card, no sub-tasks\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe milestones file is the plan. Tickets break it down. Reports are what the agent produces when it finishes a milestone. CARD.md is for simple tasks with nothing to break down. Each folder's canonical markdown file carries the YAML frontmatter the board reads:\n\n---\ntitle: \"Chat UX Improvements\"\ntype: product\nstatus: wip\nassigned: yves\ncreated: 2026-03-26\nedited: 2026-04-01\n---\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAn agent creating a task does mkdir and writes a markdown file with the right frontmatter. The schema is simple enough that the agent infers it from existing files in the folder. When it gets the frontmatter wrong, the board just skips the file. I notice in the git log and fix the YAML in 10 seconds.\n\nI scroll through the folder tree in my IDE. The board renders the exact same structure in the browser. Three columns: todo, wip, done. Drag a card to change its status, or click a title to rename it inline. Every card has an \"Open in Editor\" button that pops the file.\n\nIf someone edits a backlog file in the IDE, the board server notices immediately. A file watcher monitors backlog/, debounces for 5 seconds, auto-commits to git. You save, git syncs.\n\n \n \n The sync\n\nWhat's the simplest thing that could keep 2 people and a handful of agents looking at the same state? Git.\n\nEvery board action triggers an immediate commit and push:\n\n [15:42:06] 📝 committed: move CHAT-UX to done\n [15:42:07] ⬆ pushed\n [15:43:12] 📝 committed: create OPS-DEPLOY-STAGING as todo\n [15:43:13] ⬆ pushed\n [15:44:30] 📝 committed: rename AGENT-I18N\n [15:44:31] ⬆ pushed\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFor incoming changes, the server polls git ls-remote every 5 seconds. One SSH roundtrip, one SHA comparison. When the remote has new commits, it pulls and logs what came in:\n\n [15:45:10] ⬇ synced from remote:\n abc1234 board: move AGENT-I18N to wip\n def5678 board: update 2026-04-01-SURFACE\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe browser updates via Server-Sent Events. The board re-renders silently, so if you're mid-way through editing a card or filling in a form, nothing gets nuked. I learned that one the hard way. First version did location.reload(). :D \n\nThe same flow works in reverse. When an agent finishes a milestone, it commits a report to the backlog folder, pushes to git. 5 seconds later, the board picks it up and the new file appears in the card's detail view. I don't have to ask the agent if it's done. I see it on the board.\n\nThe board code itself lives in the same repo. It runs through nodemon, so when one of us pushes a fix to the server, the remote poll pulls it in, nodemon restarts, and the new frontend arrives via SSE. I changed the CSS at 15h00. By the time I switched to my browser tab, the new styles were there. Arbo saw them too.\n\nCards are sorted by modification time, descending. Most recently touched card floats to the top. I tried implementing manual drag ordering with fractional indexing. Used it for 5 minutes. Threw it away. The filesystem already knows what I'm working on.\n\n \n \n What actually changed\n\nWe kept working the way we already worked. Arbo & I in our IDEs and board, agents committing to backlog/. Git ties it all together. The whole stack is vanilla HTML/CSS/JS, zero build step, zero npm dependencies. http.createServer, some YAML parsing, and fs.watch.\n\n \n \n A note on scale\n\nI keep seeing \"SaaS is dead, AI can build anything\" takes in my feed. This works for a team of 2 humans and a handful of agents. I have no idea if it can or should replace Jira in a team of 10. Will this board survive 6 months? I don't know.\n\nWhat I do know is that we spent a morning building it and an afternoon using it. By evening, the board had 14 cards across 3 columns. Arbo dragged one to WIP while I was writing this. I saw it move.\n\nWe didn't replace Jira because we were unhappy with it. We replaced it because the real board already existed in our filesystem. Jira was a copy of it that nobody maintained. So we deleted the copy and put a window on the original.\n\nThe tool fits how we work because we built it around how we work. That's not a universal lesson. It's ours.\n\nIf you want to see what we build next, subscribe to the newsletter or follow us on LinkedIn, Mastodon, or Bluesky.\n\nGot a process that needs an agent? Let's talk.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "agent",
+      "agents",
+      "ai",
+      "already",
+      "arbo",
+      "arbo & i",
+      "board",
+      "card",
+      "css",
+      "file",
+      "fullscreen",
+      "ide",
+      "jira",
+      "management",
+      "markdown",
+      "mode",
+      "server-sent events",
+      "sha",
+      "slack",
+      "sse",
+      "ssh",
+      "tooling",
+      "wip",
+      "yaml"
+    ],
+    [
+      "agents",
+      "tooling"
+    ]
+  ]
+}

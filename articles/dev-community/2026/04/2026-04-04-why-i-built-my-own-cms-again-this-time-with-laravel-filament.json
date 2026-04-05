@@ -1,0 +1,38 @@
+{
+  "id": 8636,
+  "source": "DEV Community<",
+  "title": "Why I Built My Own CMS (Again) — This Time with Laravel + Filament",
+  "url": "https://dev.to/tallcms/why-i-built-my-own-cms-again-this-time-with-laravel-filament-2422",
+  "published_at": "2026-04-04T14:35:53Z",
+  "fetched_at": "2026-04-04T14:40:23.663818+00:00",
+  "author": "BuildWithTall",
+  "summary": "<p>Most developers don’t wake up thinking:</p>\n\n<blockquote>\n<p>“You know what the world needs? Another CMS.”</p>\n</blockquote>\n\n<p>And yet… here we are.</p>\n\n<p>The Problem with Existing CMS (From a Developer’s POV)</p>\n\n<p>I’ve worked with a lot of CMS platforms over the years — from WordPress to headless setups.</p>\n\n<p>They all work… until you try to do something slightly different.</p>\n\n<p>That’s when things get messy:</p>\n\n<ul>\n<li>You fight plugins instead of building features</li>\n<li>You bend your architecture around the CMS</li>\n<li>You inherit years of legacy decisions you didn’t sign up for</li>\n</ul>\n\n<p>At some point, I realized:</p>\n\n<p>I wasn’t building products — I was working around the CMS.</p>\n\n<p>The “What If” Question</p>\n\n<p>So I started asking:</p>\n\n<p>What if a CMS was built the way we build modern Laravel apps today?</p>\n\n<ul>\n<li>Not constrained by legacy.</li>\n<li>Not pretending to be everything for everyone.</li>\n</ul>\n\n<p>Just:</p>\n\n<ul>\n<li>Clean architec",
+  "full_text": "Most developers don’t wake up thinking:\n\n“You know what the world needs? Another CMS.”\n\nAnd yet… here we are.\n\nThe Problem with Existing CMS (From a Developer’s POV)\n\nI’ve worked with a lot of CMS platforms over the years — from WordPress to headless setups.\n\nThey all work… until you try to do something slightly different.\n\nThat’s when things get messy:\n\nYou fight plugins instead of building features\n\nYou bend your architecture around the CMS\n\nYou inherit years of legacy decisions you didn’t sign up for\n\nAt some point, I realized:\n\nI wasn’t building products — I was working around the CMS.\n\nThe “What If” Question\n\nSo I started asking:\n\nWhat if a CMS was built the way we build modern Laravel apps today?\n\nNot constrained by legacy.\n\nNot pretending to be everything for everyone.\n\nJust:\n\nClean architecture\n\nDeveloper-first\n\nExtensible by design\n\nActually enjoyable to work with\n\nWhy Laravel + Filament?\n\nIf you’re in the Laravel ecosystem, this part will make sense.\n\nLaravel gives you:\n\nStructure without being restrictive\n\nA clean service layer\n\nFirst-class DX\n\nFilament gives you:\n\nA powerful admin panel out of the box\n\nForms, tables, actions — already solved\n\nA consistent UI layer\n\nTogether, they solve 80% of what a CMS needs.\n\nThe remaining 20%?\n\nThat’s where things get interesting.\n\nThe Hard Parts (That No One Talks About)\n\nBuilding a CMS isn’t about CRUD.\n\nIt’s about abstractions.\n\n1. Content as Blocks (Not Fields)\n\nWhat I wanted:\n\nFlexible, composable content blocks\n\nBut that introduces problems:\n\nHow do you store them?\n\nHow do you version them?\n\nHow do you render them cleanly?\n\n2. Editor Experience vs Developer Control\n\nThere’s always tension between:\n\nGiving non-tech users flexibility\n\nKeeping developers sane\n\nToo flexible → chaos\n\nToo strict → unusable\n\nFinding that balance is harder than it sounds.\n\n3. Plugin Architecture\n\nI didn’t want:\n\n“Just hack it into the codebase”\n\nI wanted:\n\nA system where features can be dropped in cleanly\n\nWhich means:\n\nDiscovery\n\nRegistration\n\nIsolation\n\nExtensibility points\n\nI ended up building TallCMS, an open-source CMS powered by Laravel + Filament.\n\nCurrent features:\n\nBlock-based page builder\n\nPages & posts\n\nPublishing workflow (draft → scheduled → published)\n\nRevision history\n\nMedia library\n\nMenu builder\n\nPlugin architecture \n\nStill early. Still evolving.\n\nUnexpected Lessons\n\n1. Frameworks Matter More Than You Think\n\nWorking within Laravel + Filament constraints actually made things better.\n\nIt forced:\n\nConsistency\n\nReusability\n\nLess over-engineering\n\n2. Agentic Coding Is Powerful… But Dangerous\n\nI’ve been experimenting with AI-assisted development.\n\nWhat I learned:\n\nWithout structure → chaos\n\nWith a clear plan → massive acceleration\n\nI now always:\n\n1. Generate a plan\n\n2. Review it\n\n3. Execute in controlled steps\n\n3. CMS Is a Systems Problem\n\nIt’s not:\n\n“Build pages”\n\nIt’s:\n\n“Design a system that lets others build anything”\n\nThat shift changes everything.\n\nWhere This Is Going\n\nI’m still exploring:\n\nBetter block composition\n\nAI-assisted content creation\n\nMulti-site architecture\n\nDeveloper experience improvements\n\nCurious What Others Think\n\nIf you’ve ever:\n\nBuilt your own CMS\n\nFought with one\n\nOr are happily using one\n\nI’d love to hear:\n\nWhat’s the one thing your CMS does really well — or really badly?\n\nClosing\n\nI’m building this as an open-source project called TallCMS.\n\nNot trying to replace everything.\n\nJust trying to make something that feels right for modern Laravel developers.\n\nIf you’re curious, happy to share more.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "architecture",
+      "block",
+      "build",
+      "claude",
+      "cms",
+      "crud",
+      "filament",
+      "laravel",
+      "laravel + filament",
+      "media",
+      "other",
+      "pages &",
+      "plugin",
+      "thing",
+      "try",
+      "webdev",
+      "wordpress"
+    ],
+    [
+      "architecture",
+      "webdev"
+    ]
+  ]
+}

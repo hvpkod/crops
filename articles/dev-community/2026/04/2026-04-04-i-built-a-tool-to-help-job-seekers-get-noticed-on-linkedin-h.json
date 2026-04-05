@@ -1,0 +1,36 @@
+{
+  "id": 8584,
+  "source": "DEV Community<",
+  "title": "I Built a Tool to Help Job Seekers Get Noticed on LinkedIn (Here’s What I Learned)",
+  "url": "https://dev.to/muhammad_jahangeershams/i-built-a-tool-to-help-job-seekers-get-noticed-on-linkedin-heres-what-i-learned-4o3p",
+  "published_at": "2026-04-04T08:29:20Z",
+  "fetched_at": "2026-04-04T08:40:21.344124+00:00",
+  "author": "Muhammad Jahangeer Shams",
+  "summary": "<p>Most job seekers struggle on LinkedIn.</p>\n\n<p>Not because they lack skills…</p>\n\n<p>But because they’re invisible.</p>\n\n<p>After watching this pattern repeatedly, I decided to explore a different angle — instead of applying more, what if people focused on <strong>visibility first</strong>?</p>\n\n<p>That’s how I ended up building a small tool called LinkedCraft.</p>\n\n<h2>\n  \n  \n  The Problem I Noticed\n</h2>\n\n<p>People were:</p>\n\n<ul>\n<li>Sending connection requests with no response</li>\n<li>Applying to jobs and hearing nothing back</li>\n<li>Posting occasionally but getting low engagement</li>\n</ul>\n\n<p>But the biggest missed opportunity?</p>\n\n<p>👉 <strong>They weren’t commenting effectively.</strong></p>\n\n<h2>\n  \n  \n  Why Commenting Matters More Than You Think\n</h2>\n\n<p>When you comment on LinkedIn:</p>\n\n<ul>\n<li>Your profile gets exposed to new audiences</li>\n<li>Recruiters can discover you organically</li>\n<li>Conversations start without cold outreach</li>\n</ul>\n\n<p>But most commen",
+  "full_text": "Most job seekers struggle on LinkedIn.\n\nNot because they lack skills…\n\nBut because they’re invisible.\n\nAfter watching this pattern repeatedly, I decided to explore a different angle — instead of applying more, what if people focused on visibility first?\n\nThat’s how I ended up building a small tool called LinkedCraft.\n\n \n \n The Problem I Noticed\n\nPeople were:\n\nSending connection requests with no response\n\nApplying to jobs and hearing nothing back\n\nPosting occasionally but getting low engagement\n\nBut the biggest missed opportunity?\n\n👉 They weren’t commenting effectively.\n\n \n \n Why Commenting Matters More Than You Think\n\nWhen you comment on LinkedIn:\n\nYour profile gets exposed to new audiences\n\nRecruiters can discover you organically\n\nConversations start without cold outreach\n\nBut most comments look like this:\n\n“Great post!”\n\n“Thanks for sharing”\n\nWhich… does nothing.\n\n \n \n What I Learned While Building LinkedCraft\n\nWhile working on this project, I analyzed patterns behind comments that actually get engagement.\n\nHere’s what stood out:\n\n \n \n 1. Specificity beats generic responses\n\nComments that reference a specific point perform better.\n\n \n \n 2. Adding perspective increases replies\n\nEven a short personal insight can trigger engagement.\n\n \n \n 3. Questions create conversations\n\nThe best comments don’t end they invite responses.\n\n \n \n A Simple Framework That Works\n\nI found this structure useful:\n\n👉 Observation + Insight + Question\n\nExample:\n\n“Interesting point about hiring trends. I’ve noticed smaller teams prioritize adaptability over experience. Do you think this will become the norm?”\n\n \n \n Building the Tool\n\nThe idea behind LinkedCraft was simple:\n\n👉 Help users generate better, more thoughtful LinkedIn comments faster.\n\nNot spammy automation.\n\nBut structured, meaningful input that actually adds value.\n\n \n \n If You’re Curious\n\nI’ve shared detailed examples and breakdowns here:\n\n \n \n Final Thought\n\nMost people are trying to win on LinkedIn by doing more.\n\nBut the real shift is doing things differently.\n\nLess noise.\n\nMore value.\n\nMore visibility.\n\nIf you’ve experimented with LinkedIn growth strategies, I’d love to hear what worked for you.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "apply",
+      "build",
+      "career",
+      "comment",
+      "commenting",
+      "do",
+      "insight",
+      "linkedcraft",
+      "linkedin",
+      "notice",
+      "n’t",
+      "productivity",
+      "seeker",
+      "webdev"
+    ],
+    [
+      "career",
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

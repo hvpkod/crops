@@ -1,0 +1,46 @@
+{
+  "id": 8734,
+  "source": "DEV Community<",
+  "title": "My Last Few Months",
+  "url": "https://dev.to/coder0214h/my-last-few-months-306p",
+  "published_at": "2026-04-04T23:24:54Z",
+  "fetched_at": "2026-04-04T23:40:26.277124+00:00",
+  "author": "koded",
+  "summary": "<p>Nobody told me that doing everything at once was going to feel like this.</p>\n\n<p>Exams last month. A hackathon deadline this week. A full technical lead role at Teenovatex. A bootcamp I launched from scratch. And somewhere in between all of that, I wrote a book.</p>\n\n<p>This is what the last few months have actually looked like for me. Not the highlight reel. The whole thing.</p>\n\n<p>I am Koded. I build things. Sometimes too many things at the same time. And somewhere in the chaos of this season I stumbled into the most practical education of my life — one that no classroom, no book, and no two hour YouTube video could have given me.</p>\n\n<p>It started with a realization that hit me harder than I expected. I had been running on what I now call the bare minimum limiter. A quiet mental filter that killed high-effort ideas before they ever had a chance to breathe. Anything that felt like too much got scaled down automatically. I didn't even notice I was doing it.</p>\n\n<p>When I finall",
+  "full_text": "Nobody told me that doing everything at once was going to feel like this.\n\nExams last month. A hackathon deadline this week. A full technical lead role at Teenovatex. A bootcamp I launched from scratch. And somewhere in between all of that, I wrote a book.\n\nThis is what the last few months have actually looked like for me. Not the highlight reel. The whole thing.\n\nI am Koded. I build things. Sometimes too many things at the same time. And somewhere in the chaos of this season I stumbled into the most practical education of my life — one that no classroom, no book, and no two hour YouTube video could have given me.\n\nIt started with a realization that hit me harder than I expected. I had been running on what I now call the bare minimum limiter. A quiet mental filter that killed high-effort ideas before they ever had a chance to breathe. Anything that felt like too much got scaled down automatically. I didn't even notice I was doing it.\n\nWhen I finally saw it clearly I made a decision. April would be different. No limiter. Full throttle.\n\nSo here is what the last few months actually looked like.\n\nI built Janus.\n\nJanus is an AI-native execution framework I built for the Ranger Hackathon on Solana. The idea was simple but the execution was anything but — an autonomous trading bot that manages Delta-Neutral strategies on Drift Protocol while enforcing on-chain compliance through a smart contract policy engine and MPC sharded key security via the Ika Network.\n\nWhat that means in plain English — most AI trading bots require full private key access, which is terrifying from a security standpoint. Janus splits the key, enforces spend limits and protocol rules on-chain, and requires an atomic compliance check before any trade executes. The AI is an operator, not an owner. It literally cannot move funds without permission from the on-chain judge.\n\nFour layers. Python and Gemini for strategy. Drift V2 and Jupiter for trading. Solana and Anchor for enforcement. Ika Network for security. Built while I had exams. Built while I was launching a bootcamp. Built because removing the limiter meant I stopped asking myself if now was a good time.\n\nI led at Teenovatex.\n\nAs Technical Lead I have been making architecture decisions, running developer sessions, and making sure we are building things that actually matter. The role has taught me something I didn't expect — leadership is less about knowing the most and more about creating the conditions for other people to do their best work. That lesson has shown up everywhere else in my life since.\n\nI launched Stackd with Koded.\n\nFour days. That is how long it took to go from idea to paying students. Flier, pricing, copy, registration flow, WhatsApp community , built in a weekend. Then we hosted a free live session at Teenovatex. Thirty plus people showed up. We had a hostess, a TX rep, structured slides, a full script, interactive polls, real conversations. We broke down every major tech track in plain English and let people ask anything.\n\nThe response was something I didn't fully anticipate. People didn't just find it useful. They felt seen by it. Because we talked about the real stuff, tutorial hell, not knowing where to start, being scared that tech is too hard, watching everyone else figure it out while you're still standing still.\n\nWe now have paying students across all six tracks. More coming.\n\nI wrote a book.\n\nAfter the session I sat down and wrote The Cracked Dev Playbook. Thirteen chapters. The entire framework we taught in the session, which track is right for you, what your first thirty days look like, how to build a resume that actually gets interviews, why YouTube tutorials are failing you, and what Stackd is here to do about all of it.\n\nIt got over 100 reads in the first few hours. From a book I wrote in one sitting. After a hackathon build. After a live session. After exams.\n\nAnd here is what I actually learned from all of it. Not from reading. From doing.\n\nWarm leads go cold in five minutes. The moment someone says they're interested is the moment to act. Waiting even an hour changes the energy completely.\n\nFree value converts better than everything else. The free session brought in more students than every paid post combined. Give something real first. Trust does the selling for you.\n\nPeople buy from people. Every conversion happened in a direct conversation. Not from a caption. Not from a flier. From me talking to a person like a human being.\n\nStructure beats hustle. A clear offer, a clear price, and a frictionless way to register matters more than how loud you shout or how hard you grind.\n\nYour network is infrastructure. The senior developers in my circle are now tutoring on the platform. The resources around you are almost always being underused.\n\nAnd the biggest lesson of all — the bare minimum is a personality, not a strategy. Once it becomes your default you stop seeing the ceiling because you've convinced yourself the floor is enough.\n\nI am a few months into the most real education of my life. No campus. No lecturer. No exam; well, except the actual exams I was also sitting 😂. Just real decisions with real consequences and lessons that stick because they cost something.\n\nI don't know exactly where this goes. But I know I'm not doing the bare minimum anymore.\n\nAnd that changes everything.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actually",
+      "build",
+      "career",
+      "delta-neutral",
+      "devjournal",
+      "do",
+      "drift protocol",
+      "full",
+      "hackathon",
+      "ika network",
+      "janus",
+      "jupiter",
+      "learning",
+      "lesson",
+      "minimum",
+      "month",
+      "mpc",
+      "productivity",
+      "real",
+      "solana",
+      "teenovatex",
+      "the ika network",
+      "write"
+    ],
+    [
+      "career",
+      "devjournal",
+      "learning",
+      "productivity"
+    ]
+  ]
+}

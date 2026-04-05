@@ -1,0 +1,40 @@
+{
+  "id": 8494,
+  "source": "DEV Community<",
+  "title": "Como configurar o WSL para rodar em um HD externo",
+  "url": "https://dev.to/jeanmfdias/como-configurar-o-wsl-para-rodar-em-um-hd-externo-315b",
+  "published_at": "2026-04-03T23:10:53Z",
+  "fetched_at": "2026-04-03T23:40:25.018886+00:00",
+  "author": "Jean Dias",
+  "summary": "<p>Uma dúvida bastante comum entre desenvolvedores que utilizam Windows é: <strong>é possível configurar o WSL (Windows Subsystem for Linux) para rodar em um HD externo?</strong>  </p>\n\n<p>A resposta curta é: <strong>sim, é possível — e pode ser extremamente útil</strong>, principalmente para quem quer economizar espaço no SSD principal ou manter ambientes portáteis.</p>\n\n<p>Neste artigo, vou te mostrar o conceito, os motivos para fazer isso e um passo a passo prático.</p>\n\n\n\n\n<h2>\n  \n  \n  🤔 Por que usar o WSL em um HD externo?\n</h2>\n\n<p>Antes de tudo, vale entender quando isso faz sentido:</p>\n\n<ul>\n<li>Seu SSD principal está com pouco espaço</li>\n<li>Você trabalha com múltiplos projetos pesados</li>\n<li>Quer levar seu ambiente Linux para outro computador</li>\n<li>Deseja isolar ambientes de desenvolvimento</li>\n</ul>\n\n<p>Mas atenção: <strong>o desempenho pode ser inferior</strong>, dependendo da velocidade do HD (principalmente se for USB 2.0 ou HD mecânico).</p>\n\n\n\n\n<h2>\n  \n  \n  🧠 Co",
+  "full_text": "Uma dúvida bastante comum entre desenvolvedores que utilizam Windows é: é possível configurar o WSL (Windows Subsystem for Linux) para rodar em um HD externo? \n\nA resposta curta é: sim, é possível — e pode ser extremamente útil, principalmente para quem quer economizar espaço no SSD principal ou manter ambientes portáteis.\n\nNeste artigo, vou te mostrar o conceito, os motivos para fazer isso e um passo a passo prático.\n\n \n \n 🤔 Por que usar o WSL em um HD externo?\n\nAntes de tudo, vale entender quando isso faz sentido:\n\nSeu SSD principal está com pouco espaço\n\nVocê trabalha com múltiplos projetos pesados\n\nQuer levar seu ambiente Linux para outro computador\n\nDeseja isolar ambientes de desenvolvimento\n\nMas atenção: o desempenho pode ser inferior, dependendo da velocidade do HD (principalmente se for USB 2.0 ou HD mecânico).\n\n \n \n 🧠 Como o WSL armazena dados\n\nO WSL (principalmente o WSL2) utiliza um arquivo virtual (ext4.vhdx) que funciona como um “disco Linux”.\n\nPor padrão, ele fica em:\n\nC:\\Users\\SEU_USUARIO\\AppData\\Local\\Packages\\\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nA ideia aqui é mover esse ambiente para um HD externo.\n\n \n \n 🚀 Passo a passo para mover o WSL para um HD externo\n\n \n \n 1. Verifique suas distros instaladas\n\nAbra o PowerShell:\n\nwsl --list --verbose\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nExemplo de saída:\n\nNAME STATE VERSION\nUbuntu Running 2\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 2. Exporte a distro\n\nVocê vai gerar um backup da sua distro:\n\nwsl --export Ubuntu E:\\wsl\\ubuntu.tar\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSubstitua E: pelo caminho do seu HD externo.\n\n \n \n 3. Remova a distro atual\n\nwsl --unregister Ubuntu\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n⚠️ Isso apaga a instalação atual — só faça depois do export.\n\n \n \n 4. Importe para o HD externo\n\nAgora você recria a distro diretamente no HD externo:\n\nwsl --import Ubuntu E:\\wsl\\ubuntu E:\\wsl\\ubuntu.tar --version 2\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 5. Inicie normalmente\n\nwsl -d Ubuntu\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPronto — agora seu WSL está rodando a partir do HD externo 🎉\n\n \n \n ⚠️ Pontos de atenção\n\n \n \n 🔸 Performance\n\nSSD externo → desempenho ok\n\nHD externo → pode ficar lento\n\nUSB 3.0+ é altamente recomendado\n\n \n \n 🔸 Conexão\n\nSe você desconectar o HD externo:\n\nO WSL não vai iniciar\n\nPode gerar erros\n\n \n \n 🔸 Permissões\n\nEvite usar HD formatado como FAT32 — prefira:\n\nNTFS (Windows)\n\nou exFAT (com algumas limitações)\n\n \n \n 💡 Dica avançada: múltiplos ambientes\n\nVocê pode usar essa técnica para manter várias distros:\n\nwsl --import projeto-api E:\\wsl\\api api.tar\nwsl --import projeto-front E:\\wsl\\front front.tar\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIsso ajuda a isolar ambientes sem conflito.\n\n \n \n 🧾 Conclusão\n\nRodar o WSL em um HD externo é totalmente viável e pode ser uma solução excelente para:\n\nGanhar espaço no disco principal\n\nCriar ambientes portáteis\n\nOrganizar melhor seus projetos\n\nPor outro lado, é importante considerar o impacto na performance e garantir que o HD externo tenha uma boa velocidade de leitura e escrita.\n\nSe você trabalha com Docker, Laravel, Node ou projetos pesados, essa abordagem pode fazer bastante diferença na sua organização.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ambiente",
+      "como",
+      "externo",
+      "faz",
+      "fullscreen",
+      "isso",
+      "linux",
+      "mode",
+      "mostrar o conceito",
+      "para",
+      "para quem quer",
+      "passo",
+      "pode",
+      "quer",
+      "ssd",
+      "ubuntu",
+      "usb",
+      "você",
+      "vou",
+      "windows",
+      "windows subsystem",
+      "wsl"
+    ],
+    []
+  ]
+}

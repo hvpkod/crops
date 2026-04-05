@@ -1,0 +1,32 @@
+{
+  "id": 8595,
+  "source": "Hacker News",
+  "title": "Sequential Optimal Packing for PCB Placement",
+  "url": "https://blog.autorouting.com/p/sequential-optimal-packing-for-pcb",
+  "published_at": "2026-04-01T19:30:34Z",
+  "fetched_at": "2026-04-04T08:40:52.701919+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47605425\">Comments</a>",
+  "full_text": "Placing chips on a PCB is a difficult and consequential task. The way you place chips dramatically impacts how difficult it will be to route the PCB. There are signal integrity and power management issues with creating long paths between different components. The size of the PCB or where ports appear often is a design requirement that has to be considered and in some cases- pushed back on.\n\nHow does automatic placement fare? If you use a regular packing algorithm that minimizes the space usage, you will create a board that is nearly impossible to route. If you use a force-directed packing, where the netlist forms springs that pull chips close together based on their connections, you’ll get an unusual shape and suffer local minimums (it’s also wildly unpredictable)\n\nAn example component placement, considering the direct-path length of each trace that will need to be created\n\nWhen we’re thinking about packing algorithms, the first concern should be capturing human design requirements. The algorithm should, as closely as possible, understand statements like:\n\nThe USB port must be 2mm from the left edge on the top side\n\nThe decoupling capacitors must be near the power pins on the microcontroller\n\nThe left and right headers must be spaced 20mm apart, and aligned\n\nCopy the placement from the datasheet EXACTLY for this subcircuit\n\nHow do we capture these requirements? In tscircuit, they are captured through <group>/<subcircuit> tags with different layoutMode properties, also coordinate specifications like pcbLeftEdgeX=calc(board.minx + 2mm). In some cases, the entire layout can be resolved by ordering the computations properly, but more often than not, this way of specification is arduous for the user and inflexible as a design grows.\n\nFor underspecified placements, Sequential Optimal Packing is a fast, deterministic and legible solution for packing. It allows us to capture “flexible” design constraints in a predictable way.\n\nSequential Optimal packing sequentially packs chips in the Pack Order. Each time it packs a new chip, it selects the Optimal position based on the Cost Function. The Cost Function is established from the design intent for that specific chip.\n\nHere’s the algorithm in a nutshell:\n\nOrder your chips in the Pack Order\n\nIf there are no preplaced chips, pack the first chip in the center\n\nMain Loop:\n\nSimple!\n\nThis algorithm can be made fast because you can quickly compute a boundary along our existing packed chips and pads, then find the Cost Function minimum along each segment of the boundary. \n\nIn the animation below, you can see the algorithm in action. The lines from pin to pad help show what the components of the Cost Function are. You can think of the Cost Function as “summing” the lengths of all the lines or taking the minimum of all the line lengths as the cost.\n\nSequential optimal packing is easy to understand and visualize. You can easily watch each component pack one by one and vary the pack order or optimal packing function to achieve a desired outcome. Every individual packing decision is easy to understand.\n\nIf you are using tscircuit, you can debug the packing algorithm using the “Solvers” tab.\n\nSequential optimal packing is also extremely compatible with other layout mechanisms, like when you want to have a group of components that are in a reference configuration (from a datasheet) but should be packed together. You can also layout pre-computed positions before you begin packing- it’s compatible with partially packed existing layouts.\n\nSequential optimal packing is flawed in two major ways:\n\nThe best pack order is not initially obvious, early chips can be placed such that later chips don’t pack well\n\nSometimes the global optimal placement is impossible, because it requires two chips to be packed in locally sub-optimal positions\n\nBoth of these issues can be mitigated by treating sequential optimal placements as an initial approximation, then refining by “hardening” constraints. e.g. if you know you want a decoupling capacitor in an exact position relative to a chip, encode that such that the chip and decoupling capacitor are packed together. LLM loops can easily adapt the design intent representation to do this!\n\nSequential Optimal Packing is one of the key algorithms that should be included in the standard constraint algorithms for PCB design. It is highly debuggable, easy to understand, and can be tweaked in a feedback loop until you reach a global optimal placement. It should be a fundamental algorithm, similar to flexbox or CSS Grid, baked into every PCB engine.\n\nIf you’re interested in algorithm development, join our discord or follow me on twitter.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "algorithm",
+      "chip",
+      "css",
+      "decouple",
+      "design",
+      "optimal",
+      "pack",
+      "packing",
+      "pcb",
+      "placement",
+      "sequential",
+      "the cost function",
+      "the pack order",
+      "usb"
+    ],
+    []
+  ]
+}

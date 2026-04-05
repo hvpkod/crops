@@ -1,0 +1,43 @@
+{
+  "id": 8743,
+  "source": "DEV Community<",
+  "title": "Managing MCP Servers and Tools With Agentregistry OSS",
+  "url": "https://dev.to/thenjdevopsguy/managing-mcp-servers-and-tools-with-agentregistry-oss-4iga",
+  "published_at": "2026-04-04T22:38:18Z",
+  "fetched_at": "2026-04-04T23:40:43.436729+00:00",
+  "author": "Michael Levan",
+  "summary": "<p>Three big topics when it comes to MCP:</p>\n\n<ol>\n<li>How do you know the MCP Server is secure?</li>\n<li>Where is it stored?</li>\n<li>Is it version-controlled, or can anyone just change it at any time?</li>\n</ol>\n\n<p>And that's where having an MCP registry comes into play.</p>\n\n<p>In this blog post, you'll learn how to securely store your MCP Server, and it's available tools to be used later within your Agents.</p>\n\n<h2>\n  \n  \n  Quick Recap: What Is MCP?\n</h2>\n\n<p>Model Context Protocol (MCP) is a spec/standard created by and open-sourced Anthropic. The goal of MCP is to have a server that hosts tools, and these tools are able to implement certain functionality for what you're working on. For example, you can use a Kubernetes MCP Server that can do everything from list/describe/log Pods and deploy objects to Kubernetes. MCP uses JSON-RPC 2.0 for it's communication layer underneath the hood for communication between an Agent (the client) and MCP tools (hosted on the server).</p>\n\n<h3>",
+  "full_text": "Three big topics when it comes to MCP:\n\nHow do you know the MCP Server is secure?\n\nWhere is it stored?\n\nIs it version-controlled, or can anyone just change it at any time?\n\nAnd that's where having an MCP registry comes into play.\n\nIn this blog post, you'll learn how to securely store your MCP Server, and it's available tools to be used later within your Agents.\n\n \n \n Quick Recap: What Is MCP?\n\nModel Context Protocol (MCP) is a spec/standard created by and open-sourced Anthropic. The goal of MCP is to have a server that hosts tools, and these tools are able to implement certain functionality for what you're working on. For example, you can use a Kubernetes MCP Server that can do everything from list/describe/log Pods and deploy objects to Kubernetes. MCP uses JSON-RPC 2.0 for it's communication layer underneath the hood for communication between an Agent (the client) and MCP tools (hosted on the server).\n\n \n \n The \"Is MCP Dead\" Debate\n\nI was at MCPDevSummit in NY this week, and I caught a keynote that explained the need for MCP Server tools pretty nicely from a theoretical perspective. Right now, it may be easier for Agents to talk to MCP Server tools vs having them talk tens or hundreds of APIs directly. The reason why is that it's simpler for an Agent to call a tool and have that tool (because a tool, underneath the hood, is simply a function/method) call the APIs instead. What this could come down to is less tokens used and less context bloat, along with hopefully, better results.\n\n \n \n Configuring Agentregistry Locally\n\nWith an understanding of what MCP is at a high level, let's dive into the hands-on portion of this blog post. In this section, you'll get agentregistry deployed, which takes around 30 seconds.\n\nPull down the latest version of agentregistry.\n\ncurl -fsSL https://raw.githubusercontent.com/agentregistry-dev/agentregistry/main/scripts/get-arctl | bash\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nRun the following command, which starts the agentregistry daemon.\n\n arctl daemon start\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYou'll see an output similar to the following:\n\nStarting agentregistry daemon...\n✓ agentregistry daemon started successfully\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOpen Docker and you'll see agentregistry running along with a link you can click to reach the UI.\n\nYou should now see the agentregistry UI.\n\nSidenote: if you have a remote registry, you can connect to it with the following:\n\narctl --registry-url http://YOUR-HOST:12121 version\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Adding An MCP Server To Agentregistry\n\nWith agentregistry deployed, you can now add an MCP Server to the registry to ensure it's stored and secured. For testing purposes, lets use the filesystem MCP Server that's stored on GitHub.\n\nUsing arctl mcp publish, you'll pass in the following flags.\n\nMCP Server: server-filesystem\n\nType: NPM\n\nVersion: 0.6.3\n\narctl mcp publish io.github.modelcontextprotocol/server-filesystem --type npm --package-id\n @modelcontextprotocol/server-filesystem --version 0.6.3 --description 'MCP server for filesystem access' --git\n https://github.com/modelcontextprotocol/servers.git -v\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe MCP Server will now show in your registry.\n\nYou can also add your MCP Server via the UI.\n\nClick the purple + Add button and choose Server.\n\nAdd in the details about your MCP Server.\n\n \n \n Conclusion\n\nHaving a safe, secure, and reliable place to store something as prone to security incidents as MCP Servers is key to creating a proper posture for you and your organization when using AI. This is why agentregistry can also be used to store Agent Skills and prompts. Because the majority of what you're using is either a function/method (an MCP Server tool) or .MD files/text files, shadow AI can easily occur.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agentregistry",
+      "agents",
+      "ai",
+      "arctl",
+      "conclusion\n\nhaving",
+      "enter",
+      "exit",
+      "fullscreen",
+      "github",
+      "have",
+      "kubernetes",
+      "mcp",
+      "mcp server",
+      "mcp servers",
+      "mode",
+      "programming",
+      "quick recap",
+      "server",
+      "the mcp server",
+      "tool",
+      "tools with agentregistry",
+      "underneath"
+    ],
+    [
+      "agents",
+      "programming"
+    ]
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": 8538,
+  "source": "DEV Community<",
+  "title": "How to Turn a Go GUI App into a Mac App with Parall",
+  "url": "https://dev.to/ighor/how-to-turn-a-go-gui-app-into-a-mac-app-with-parall-2h6c",
+  "published_at": "2026-04-04T02:05:44Z",
+  "fetched_at": "2026-04-04T02:40:30.280854+00:00",
+  "author": "Ighor July",
+  "summary": "<p>I am the developer of Parall, and I have been using it for a very practical workflow on macOS that makes local GUI development much more convenient.</p>\n\n<p>Instead of opening Terminal every time, typing a command, and launching the app manually, I create a lightweight app bundle for the project and pin it to the Dock. Then the loop becomes very simple. Edit code, quit the app, click the Dock icon, and immediately run the latest code from the project folder.</p>\n\n<p>This is especially nice for learning Go GUI development, testing small local tools, and iterating on a project without extra friction.</p>\n\n<p>Here is a simple example using Go and Fyne.</p>\n\n<h2>\n  \n  \n  1. Create a Fyne project in a new folder\n</h2>\n\n<p>Create a new folder for the example project:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code><span class=\"nb\">mkdir</span> ~/Downloads/FyneParallDemo\n<span class=\"nb\">cd</span> ~/Downloads/FyneParallDemo\ngo mod init fyneparalldem",
+  "full_text": "I am the developer of Parall, and I have been using it for a very practical workflow on macOS that makes local GUI development much more convenient.\n\nInstead of opening Terminal every time, typing a command, and launching the app manually, I create a lightweight app bundle for the project and pin it to the Dock. Then the loop becomes very simple. Edit code, quit the app, click the Dock icon, and immediately run the latest code from the project folder.\n\nThis is especially nice for learning Go GUI development, testing small local tools, and iterating on a project without extra friction.\n\nHere is a simple example using Go and Fyne.\n\n \n \n 1. Create a Fyne project in a new folder\n\nCreate a new folder for the example project:\n\nmkdir ~/Downloads/FyneParallDemo\ncd ~/Downloads/FyneParallDemo\ngo mod init fyneparalldemo\ngo get fyne.io/fyne/v2@latest\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCreate main.go:\n\npackage main\n\nimport (\n \"fyne.io/fyne/v2\"\n \"fyne.io/fyne/v2/app\"\n \"fyne.io/fyne/v2/container\"\n \"fyne.io/fyne/v2/widget\"\n)\n\nfunc main() {\n a := app.New()\n w := a.NewWindow(\"Fyne Parall Demo\")\n w.Resize(fyne.NewSize(420, 200))\n\n label := widget.NewLabel(\"Hello from a local Fyne app\")\n button := widget.NewButton(\"Change text\", func() {\n label.SetText(\"You are running the latest code from your folder\")\n })\n\n w.SetContent(container.NewVBox(\n label,\n button,\n ))\n\n w.ShowAndRun()\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTest it once from Terminal:\n\ncd ~/Downloads/FyneParallDemo\ngo mod tidy\ngo run .\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf the window opens, the project is ready to use with Parall.\n\n \n \n 2. Run Parall and select Command Shortcut mode\n\nOpen Parall and create a new shortcut using Command Shortcut mode.\n\nThis is the mode that lets you launch a local command as a normal macOS app, with its own Dock icon and the window created by your Go code. This is not limited to Fyne. It can also work with other Go apps, other GUI frameworks, and more broadly with terminal apps that you want to launch through a normal macOS app shortcut.\n\n \n \n 3. Enter the command, arguments, and working directory\n\nFor this example, use the Go binary as the command.\n\nCommand path:\n\n/opt/homebrew/bin/go\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCommand arguments:\n\nrun .\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWorking directory:\n\n/Users/ighor/Downloads/FyneParallDemo\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEnvironment variables are not needed for this demo, so you can leave that field empty.\n\n \n \n 4. Configure the shortcut name and icon\n\nGive the shortcut a clean name, for example:\n\nFyne Parall Demo\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThen choose an icon for it. This is a small detail, but it makes the shortcut feel much more like a real app once it is pinned to the Dock.\n\n \n \n 5. Optionally enable a menu bar icon and Dock icon effects\n\nIf you want, enable the menu bar icon for the shortcut.\n\nThat gives you another way to identify and access the running shortcut from the macOS menu bar.\n\nYou can also enable Dock icon effects.\n\nThis is optional, but it adds something that most Mac apps do not have. Instead of trying to mimic a normal app experience, it gives the shortcut a more dynamic and distinctive feel.\n\n \n \n 6. Export the app bundle, approve it, and use it\n\nExport the shortcut as an app bundle.\n\nmacOS may ask you to approve or confirm the app the first time, depending on your system settings. Approve it, then launch it.\n\nAfter that, you can pin it to the Dock and use it like a normal app.\n\n \n \n Why this is useful for learning and testing\n\nThis setup is great for local Go GUI development because it shortens the feedback loop.\n\nYou keep your source code in a normal project folder.\n\nYou edit the Go files whenever you want.\n\nYou quit the running app.\n\nYou click the Dock icon again.\n\nThe latest code from the folder runs immediately.\n\nThat makes experimentation much easier than going through Terminal every time. It is especially useful when you are learning Fyne, testing UI changes, or building small local desktop tools that you want to relaunch often during development.\n\nThis is not about packaging a frozen standalone build for distribution. It is about making local development feel smoother and more natural on macOS.\n\nParall is available on the Mac App Store and can do much more than this post covers. Learn more here: https://parall.app",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "command",
+      "command shortcut",
+      "create main.go:",
+      "enter",
+      "exit",
+      "fullscreen",
+      "fyne",
+      "go",
+      "icon",
+      "local",
+      "mac",
+      "macos",
+      "mode",
+      "normal",
+      "parall",
+      "productivity",
+      "shortcut",
+      "showdev",
+      "terminal",
+      "tutorial"
+    ],
+    [
+      "productivity",
+      "showdev",
+      "tutorial"
+    ]
+  ]
+}

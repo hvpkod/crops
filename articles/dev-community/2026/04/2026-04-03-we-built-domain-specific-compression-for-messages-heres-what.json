@@ -1,0 +1,44 @@
+{
+  "id": 8394,
+  "source": "DEV Community<",
+  "title": "We Built Domain-Specific Compression for Messages. Here's What We Learned.",
+  "url": "https://dev.to/atomsrkuul/we-built-domain-specific-compression-for-messages-heres-what-we-learned-2o28",
+  "published_at": "2026-04-03T17:35:19Z",
+  "fetched_at": "2026-04-03T18:00:34.133867+00:00",
+  "author": "Buffer Overflow",
+  "summary": "<p>Why gzip loses to custom compression on Discord, Slack, and chat data. Plus how we caught a decompression bug during validation.</p>\n\n<p>Generic compression algorithms (gzip, brotli, zstd) optimize for everything. We built compression that optimizes for messages.<br />\nThe result: 3.5× compression on real Discord, Slack, and OpenClaw traffic. 22-36% better than gzip. 100% lossless.<br />\nHere's the honest engineering story—including the bug we caught during validation.</p>\n\n<p>The Problem<br />\nMessage data is everywhere:<br />\n·  Discord servers with millions of messages<br />\n·  Slack workspaces with gigabytes of history<br />\n·  OpenClaw chat logs and conversation archives<br />\n·  Email inboxes and chat backups<br />\nEach message is ~500 bytes. At scale, that's expensive.<br />\nGeneric compression gets 2–3× ratio. That's good, but not good enough.<br />\nWhy?<br />\nMessages are highly structured and repetitive:<br />\n[2026-04-03T11:00:00Z] user: Hello, can you check the repo?<br ",
+  "full_text": "Why gzip loses to custom compression on Discord, Slack, and chat data. Plus how we caught a decompression bug during validation.\n\nGeneric compression algorithms (gzip, brotli, zstd) optimize for everything. We built compression that optimizes for messages.\n\nThe result: 3.5× compression on real Discord, Slack, and OpenClaw traffic. 22-36% better than gzip. 100% lossless.\n\nHere's the honest engineering story—including the bug we caught during validation.\n\nThe Problem\n\nMessage data is everywhere:\n\n· Discord servers with millions of messages\n\n· Slack workspaces with gigabytes of history\n\n· OpenClaw chat logs and conversation archives\n\n· Email inboxes and chat backups\n\nEach message is ~500 bytes. At scale, that's expensive.\n\nGeneric compression gets 2–3× ratio. That's good, but not good enough.\n\nWhy?\n\nMessages are highly structured and repetitive:\n\n[2026-04-03T11:00:00Z] user: Hello, can you check the repo?\n\n[2026-04-03T11:00:15Z] bot: Checking repository...\n\n[2026-04-03T11:00:30Z] user: Found an issue with the build.\n\nNotice:\n\n· Timestamp format repeats in every message\n\n· user: and bot: prefixes repeat thousands of times\n\n· Colons and punctuation follow patterns\n\n· Platform names (Discord, Slack) repeat across message metadata\n\nGeneric algorithms see repetition and apply LZ77. But they don't know which patterns matter most for messages specifically.\n\nThe Solution: Domain-Specific Compression\n\nWe built Glasik Notation with three key insights:\n\nStructure Extraction (Semantic Tokenization)\nExtract fields before compression:\nRaw: [2026-04-03T11:00:00Z] alice: hello world\nTokenized: [TIMESTAMP] [AUTHOR_ID] [PAYLOAD_TOKENS]\n\nMap repeated values to IDs:\n\n· alice → 0x01 (saves 4 bytes every time)\n\n· [2026-04-03T...] → 0x80T (saves 19 bytes)\n\n· discord → 0x82 (saves 6 bytes)\n\nPattern Matching (Template Detection)\nMessages follow templates:\n· T_MESSAGE: [timestamp] author: text\n· T_JOIN: [timestamp] author joined\n· T_REACT: [timestamp] author reacted with emoji\nRecognize the template, compress the deviation.\n\nBackend Compression (LZ77 + Deflate)\nAfter structure extraction, apply proven algorithms. Now the input is highly repetitive and compresses well.\n\nThe Results\n\nField-tested on 10,000+ real messages:\n\nPlatform Messages Compression vs gzip\n\nDiscord 1,000 3.12× +28%\n\nSlack 2,500 3.47× +36%\n\nOpenClaw 5,000 3.98× +32%\n\nAverage 8,500 3.52× +32%\n\n100% lossless. Every message decompresses byte-for-byte identical.\n\nCost Impact\n\n10M messages/month (avg 500B each):\n\nStorage: 5,000 MB → 1,600 MB\n\n Original: $5.00/month\n\n Compressed: $1.60/month\n\n Savings: $40.80/year\n\nTransmission: 22-36% bandwidth reduction\n\n Savings: ~$40/year\n\nTotal: ~$81/year per 10M messages\n\nThe Validation Story (And Why It Matters)\n\nWe released GN-LZ4 v2 this week with:\n\n· 5-stage pipeline (tokenize → match → encode → frame → CRC)\n\n· ~1900 lines of code\n\n· Zero external dependencies\n\n· All 6 unit tests passing\n\nThen we tested it on 1,038,324 real dialogue messages from a production chat corpus.\n\nWe Found a Bug\n\nDuring decompression validation, we hit a CRC32 checksum mismatch:\n\nStored CRC: 1428394006\n\nComputed CRC: -1889366573\n\nMismatch!\n\nThe bug was subtle: we computed the checksum over (header + payload) instead of just (payload).\n\nHere's what matters: We caught it immediately. Not in production. Not from a user report. During validation.\n\nThe Fix\n\nThree-line change:\n\n Moved CRC computation to happen after payload extraction\n\n Applied unsigned arithmetic (>>> 0) to prevent signed integer overflow\n\n Re-tested all 1M+ messages\nValidation re-ran in 25 seconds. 6/6 tests passed. Full corpus verified lossless.\nWhy This Story Matters\nFor engineering credibility:\n· ✅ We validate before claiming results\n· ✅ We catch our own bugs\n· ✅ We iterate quickly and verify the fix\n· ✅ We're transparent about what went wrong\nThis is the opposite of vaporware. This is rigor.\n\nThe Code\n\nRepository: https://github.com/atomsrkuul/glasik-notation\n\nMIT License. Fully open source.\n\nconst GNLz4V2 = require('glasik-notation/gn-lz4-v2');\n\nconst codec = new GNLz4V2();\n\n// Compress\n\nconst messages = [\n\n { author: 'alice', channel: 'general', text: 'hello world' },\n\n { author: 'bob', channel: 'general', text: 'how are you?' }\n\n];\n\nconst result = codec.compress(messages);\n\nconsole.log(result.stats.ratio + 'x compression');\n\n// Decompress\n\nconst decompressed = codec.decompress(result.buffer);\n\nconsole.log(decompressed.messages.length + ' messages recovered');\n\nRun tests:\n\nnpm test\n\n \n \n Output:\n\n \n \n [1] Semantic Tokenizer ✓\n\n \n \n [2] Template Matcher ✓\n\n \n \n [3] Frame Codec ✓\n\n \n \n [4] LZ4 Block Encoder ✓\n\n \n \n [5] CRC32 Checksum ✓\n\n \n \n [6] End-to-end Compression ✓\n\nWhat We're Not Claiming\n\n· \"Production-proven\": We haven't shipped this to millions of users yet. What we have is 99.8% success rate in controlled environment testing.\n\n· Business model: This is open source. No licensing, no vendor lock-in, no sales.\n\n· External validation: These numbers come from our own testing. We'd love third-party benchmarks and real-world feedback.\n\nWhat We Are Claiming\n\n· Solid engineering: Found our own bugs, validated thoroughly, all tests pass.\n\n· Real results: 10K+ messages on real platforms, not synthetic data.\n\n· Open source: Full code, no hidden bits.\n\n· Honest methodology: Clear about what we tested and how.\n\nNext Steps\n\nWe're looking for:\n\n Feedback from people using this in real systems\n\n Contributions (optimizations, bug fixes, new domains)\n\n Community (stars, forks, discussions)\nIf you compress messages and want to share results, that's the kind of validation that makes this real.\n\nLinks\n\n· GitHub:https://github.com/atomsrkuul/glasik-notation\n\n· Benchmark Details:https://github.com/atomsrkuul/glasik-notation/gn-lz4-v2/docs/\n\n· Research Papers: Included in repo\n\nHave you built domain-specific compression? Hit a tricky bug during validation? Let's talk in the comments.\n\nGlasik Notation v1.0 is open source MIT. The code is ~1900 lines. The validation caught real bugs. The code is yours to use.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "algorithms",
+      "backend compression",
+      "brotli",
+      "build",
+      "catch",
+      "chat",
+      "claim",
+      "compress",
+      "compression",
+      "const",
+      "crc",
+      "discord",
+      "discord, slack",
+      "gzip",
+      "mb\n\n original",
+      "message",
+      "mit",
+      "opensource",
+      "performance",
+      "real",
+      "slack",
+      "the results\n\nfield",
+      "validation"
+    ],
+    [
+      "algorithms",
+      "opensource"
+    ]
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 8593,
+  "source": "DEV Community<",
+  "title": "How to Run Claude Code 24/7 Without Burning Your Context Window",
+  "url": "https://dev.to/gentic_news/how-to-run-claude-code-247-without-burning-your-context-window-48ci",
+  "published_at": "2026-04-04T08:13:04Z",
+  "fetched_at": "2026-04-04T08:40:39.594070+00:00",
+  "author": "gentic news",
+  "summary": "<blockquote>\n<p>Implement a hard 50K token session cap and a three-tier memory system (daily notes, MEMORY.md, PARA knowledge graph) to prevent context bloat and memory decay in long-running Claude Code agents.</p>\n</blockquote>\n\n<h2>\n  \n  \n  The Technique: Session Discipline &amp; Structured Memory\n</h2>\n\n<p>Running a Claude Code agent for a weekend project is easy. Running it for 67 days straight in production—handling emails, deployments, and business logic—requires a specific architecture to avoid collapse. The core insight from this real-world deployment is that you must manage two things aggressively: <strong>context window bloat</strong> and <strong>memory retrieval decay</strong>.</p>\n\n<h2>\n  \n  \n  Why It Works: The Physics of Long-Running Sessions\n</h2>\n\n<p>Every tool call, file read, and API response inflates your context window. A single \"heartbeat\" check that reads email, calendar, and social media can consume 15K tokens. At that rate, a 200K context window is exhausted in ",
+  "full_text": "Implement a hard 50K token session cap and a three-tier memory system (daily notes, MEMORY.md, PARA knowledge graph) to prevent context bloat and memory decay in long-running Claude Code agents.\n\n \n \n The Technique: Session Discipline & Structured Memory\n\nRunning a Claude Code agent for a weekend project is easy. Running it for 67 days straight in production—handling emails, deployments, and business logic—requires a specific architecture to avoid collapse. The core insight from this real-world deployment is that you must manage two things aggressively: context window bloat and memory retrieval decay.\n\n \n \n Why It Works: The Physics of Long-Running Sessions\n\nEvery tool call, file read, and API response inflates your context window. A single \"heartbeat\" check that reads email, calendar, and social media can consume 15K tokens. At that rate, a 200K context window is exhausted in under 7 hours if you run checks every 30 minutes. The agent becomes sluggish, starts hallucinating, and your API costs spiral.\n\nThe solution is counter-intuitive but effective: impose a hard 50K token cap per session. When hit, the agent must extract its progress to external memory files, end the session, and start fresh. This brutal discipline forces a critical behavior: the agent cannot rely on its short-term conversational memory. It must write everything important to files that persist across sessions.\n\n \n \n How To Apply It: The Three-Tier Memory System\n\nExternalizing memory isn't enough if it all goes into one giant, unwieldy file. The pattern that fails is a single memory.md that grows to 2,000+ lines. The agent, suffering from recency bias, reads only the last 100 lines and forgets critical decisions buried on line 847.\n\nThe fix is a structured, three-tier approach:\n\n \n \n Tier 1: Daily Notes (memory/YYYY-MM-DD.md)\n\nThese are raw, ephemeral logs. Everything that happens today goes here. Archive them after 14 days.\n\n \n \n Tier 2: Long-Term Memory (MEMORY.md)\n\nThis is a curated file for permanent rules, anti-patterns, and directives. The agent should periodically review daily notes and promote important learnings here. Keep this file concise and well-organized.\n\n \n \n Tier 3: Knowledge Graph (~/life/ with PARA structure)\n\nUse the PARA (Projects, Areas, Resources, Archives) method to structure entities: people, companies, projects, and resources. This enables semantic search and connects related information.\n\n \n \n Try It Now: Implementing the Cap\n\nYou can implement a session bloat detector with a simple script. Here’s a conceptual outline to integrate with your Claude Code agent's heartbeat:\n\n#!/bin/bash\n# session_check.sh\nTOKEN_USAGE=$(claude code status --json | jq '.session_tokens')\nTHRESHOLD=50000\n\nif [ $TOKEN_USAGE -gt $((THRESHOLD * 96 / 100)) ]; then\n echo \"CRITICAL: Session at 96% capacity. Forcing memory dump and restart.\"\n # Trigger agent to write summary to MEMORY.md\n # End current Claude Code session\n # Start a new session\nelif [ $TOKEN_USAGE -gt $((THRESHOLD * 80 / 100)) ]; then\n echo \"WARNING: Session at 80% capacity.\"\nfi\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSchedule this with a cron job to run every 5-10 minutes alongside your agent's main heartbeat.\n\n \n \n The Stack That Made It Work\n\nThe production system used:\n\nRuntime: OpenClaw on an always-on Mac Mini (M-series).\n\nModel: Claude on a flat-rate plan (to eliminate per-token anxiety).\n\nOps: Cron-based heartbeats every 30 minutes, session cleanup at 3 AM, and weekly memory compaction.\n\nNothing here is exotic. The magic is in the strict discipline of session management and memory hierarchy. This architecture transforms Claude Code from a short-burst coding assistant into a stable, long-term autonomous operator.\n\nOriginally published on gentic.news",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai",
+      "api",
+      "areas, resources, archives",
+      "bloat",
+      "claude",
+      "code",
+      "context",
+      "discipline",
+      "memory",
+      "para",
+      "product",
+      "programming",
+      "session",
+      "tech",
+      "tier"
+    ],
+    [
+      "programming"
+    ]
+  ]
+}

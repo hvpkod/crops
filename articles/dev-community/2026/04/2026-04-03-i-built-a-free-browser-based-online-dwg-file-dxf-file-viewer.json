@@ -1,0 +1,41 @@
+{
+  "id": 8302,
+  "source": "DEV Community<",
+  "title": "I Built a Free Browser-Based online DWG file & DXF file Viewer — No Install, No Signup",
+  "url": "https://dev.to/enthusiasts/i-built-a-free-browser-based-dwg-dxf-viewer-no-install-no-signup-2m5e",
+  "published_at": "2026-04-03T11:36:57Z",
+  "fetched_at": "2026-04-03T12:00:23.264674+00:00",
+  "author": "Enthusiast",
+  "summary": "<p>If you've ever worked with CAD files, you know the pain. Someone sends you a <code>.dwg</code> or <code>.dxf</code> file and you either need expensive software to open it or some clunky desktop viewer that takes forever to install.</p>\n\n<p>I ran into this problem constantly — so I decided to build something that solves it.</p>\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p><a href=\"https://www.blinkcad.com\" rel=\"noopener noreferrer\">BlinkCAD</a> — a free online DWG and DXF viewer that runs entirely in the browser. No downloads, no signups, just drag and drop your file and it opens.</p>\n\n<p>I built it using <strong>Next.js</strong>, <strong>Three.js</strong> for WebGL rendering, and <strong>Node.js</strong> on the backend. The goal was simple — make it as easy as possible to open a DWG file without installing anything.</p>\n\n<h2>\n  \n  \n  Features\n</h2>\n\n<ul>\n<li>\n<strong>Opens DWG and DXF files instantly</strong> in the browser</li>\n<li>\n<strong>Measurement tools</strong> — distances, angles, a",
+  "full_text": "If you've ever worked with CAD files, you know the pain. Someone sends you a .dwg or .dxf file and you either need expensive software to open it or some clunky desktop viewer that takes forever to install.\n\nI ran into this problem constantly — so I decided to build something that solves it.\n\n \n \n What I Built\n\nBlinkCAD — a free online DWG and DXF viewer that runs entirely in the browser. No downloads, no signups, just drag and drop your file and it opens.\n\nI built it using Next.js, Three.js for WebGL rendering, and Node.js on the backend. The goal was simple — make it as easy as possible to open a DWG file without installing anything.\n\n \n \n Features\n\nOpens DWG and DXF files instantly in the browser\n\nMeasurement tools — distances, angles, and areas directly on drawings\n\nLayer toggle — show/hide individual layers\n\nShare with a link — one-click shareable links with optional password protection\n\nAnnotation tools — line, rectangle, circle, pen\n\nNo signup required — zero friction, completely free\n\n \n \n Who Is It For?\n\nContractors checking blueprints on site, engineers sharing drawings with clients, architects sending files for approval, project managers who just need to quickly view a CAD file. Basically anyone who receives DWG files but doesn't have AutoCAD.\n\n \n \n Challenges I Faced\n\nRendering DWG files accurately in the browser is hard. The DWG format is proprietary and complex — handling all entity types, layer styles, block references, and coordinate systems was a massive challenge. Right now we're at about 85-90% rendering accuracy compared to AutoCAD, and actively working to improve it.\n\n \n \n Tech Stack\n\nFrontend: Next.js (React), Tailwind CSS\n\nRendering: Three.js (WebGL)\n\nBackend: Node.js\n\nStorage: AWS S3 (files auto-deleted within 24 hours)\n\nHosting: AWS\n\n \n \n What's Next\n\nWe're working on:\n\nImproving rendering accuracy toward near-AutoCAD quality\n\nAdding real-time collaboration features\n\nBuilding a sharing system that makes it dead simple to send CAD drawings to anyone\n\n \n \n Try It Out\n\nCheck it out at blinkcad.com — feedback from developers and CAD users is super valuable to us right now.\n\nIf you work with DWG or DXF files, I'd love to hear:\n\nWhat features would make this more useful for you?\n\nWhat's your current workflow for viewing CAD files?\n\nThanks for reading! 🚀",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "accuracy",
+      "beginners",
+      "build",
+      "cad",
+      "drawing",
+      "dwg",
+      "dxf",
+      "file",
+      "free",
+      "javascript",
+      "layer",
+      "node.js",
+      "productivity",
+      "render",
+      "signup",
+      "viewer",
+      "webdev",
+      "webgl",
+      "work"
+    ],
+    [
+      "beginners",
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

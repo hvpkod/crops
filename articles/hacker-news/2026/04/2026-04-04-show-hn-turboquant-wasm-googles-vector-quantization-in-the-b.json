@@ -1,0 +1,34 @@
+{
+  "id": 8655,
+  "source": "Hacker News",
+  "title": "Show HN: TurboQuant-WASM – Google's vector quantization in the browser",
+  "url": "https://github.com/teamchong/turboquant-wasm",
+  "published_at": "2026-04-04T14:53:16Z",
+  "fetched_at": "2026-04-04T16:00:20.699888+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47639567\">Comments</a>",
+  "full_text": "Experimental WASM + relaxed SIMD build of botirk38/turboquant for browsers and Node.js.\n\nBased on the paper \"TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate\" (Google Research, ICLR 2026).\n\nLive Demo — vector search, image similarity, and 3D Gaussian Splatting compression running in the browser.\n\nnpm package with embedded WASM — npm install turboquant-wasm\n\nRelaxed SIMD — @mulAdd FMA maps to f32x4.relaxed_madd\n\nSIMD-vectorized QJL sign packing/unpacking and scaling\n\nTypeScript API — TurboQuant.init() / encode() / decode() / dot()\n\nGolden-value tests — byte-identical output with the reference Zig implementation\n\nThe WASM binary uses relaxed SIMD instructions:\n\nRuntime\nMinimum Version\n\nChrome\n114+\n\nFirefox\n128+\n\nSafari\n18+\n\nNode.js\n20+\n\nimport { TurboQuant } from \"turboquant-wasm\";\n\nconst tq = await TurboQuant.init({ dim: 1024, seed: 42 });\n\n// Compress a vector (~4.5 bits/dim, ~6x compression)\nconst compressed = tq.encode(myFloat32Array);\n\n// Decode back\nconst decoded = tq.decode(compressed);\n\n// Fast dot product without decoding\nconst score = tq.dot(queryVector, compressed);\n\ntq.destroy();\n\nclass TurboQuant {\n static async init(config: { dim: number; seed: number }): Promise<TurboQuant>;\n encode(vector: Float32Array): Uint8Array;\n decode(compressed: Uint8Array): Float32Array;\n dot(query: Float32Array, compressed: Uint8Array): number;\n destroy(): void;\n}\n\n# Run tests\nzig test -target aarch64-macos src/turboquant.zig\n\n# Full npm build (zig -> wasm-opt -> base64 embed -> bun + tsc)\nbun run build\n\n# Build WASM only\nbun run build:zig\n\nRequires Zig 0.15.2 and Bun.\n\nEncoding preserves inner products — verified by golden-value tests and distortion bounds:\n\nMSE decreases with dimension (unit vectors)\n\nBits/dim is ~4.5 (payload only, excluding 22-byte header)\n\nDot product preservation — mean absolute error < 1.0 for unit vectors at dim=128\n\nBit-identical output with botirk38/turboquant for same input + seed\n\nMIT",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "bun",
+      "const",
+      "distortion",
+      "fma",
+      "google research",
+      "mit",
+      "node.js",
+      "product",
+      "relaxed",
+      "safari",
+      "simd",
+      "test",
+      "turboquant",
+      "vector",
+      "wasm",
+      "zig"
+    ],
+    []
+  ]
+}

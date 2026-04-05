@@ -1,0 +1,41 @@
+{
+  "id": 8372,
+  "source": "Quanta Magazine",
+  "title": "New Advances Bring the Era of Quantum Computers Closer Than Ever",
+  "url": "https://www.quantamagazine.org/new-advances-bring-the-era-of-quantum-computers-closer-than-ever-20260403/",
+  "published_at": "2026-04-03T15:19:16Z",
+  "fetched_at": "2026-04-03T17:00:18.806280+00:00",
+  "author": "Charlie Wood",
+  "summary": "<p>Some 30 years ago, the mathematician Peter Shor took a niche physics project &mdash; the dream of building a computer based on the counterintuitive rules of quantum mechanics &mdash; and shook the world. Shor worked out a way for quantum computers to swiftly solve a couple of math problems that classical computers could complete only after many billions of years. Those two math problems happened to be the&#8230;</p>\n<p><a href=\"https://www.quantamagazine.org/new-advances-bring-the-era-of-quantum-computers-closer-than-ever-20260403/\" rel=\"nofollow\">Source</a></p>",
+  "full_text": "In a white paper posted the same day as the Caltech paper, Gidney and his collaborators announced that they had developed a new quantum procedure specifically for breaking ECC that was at least 10 times as efficient than previous procedures. They estimated that most cryptocurrencies would yield in minutes to a machine with fewer than 500,000 qubits.\n\n“That tenfold reduction in the actual space-time cost of elliptic curve code breaking is hugely significant,” said Jeff Thompson, a physicist at Princeton University and CEO of the neutral atoms startup Logiqal.\n\nGoogle’s efficient implementation of Shor’s algorithm and Caltech’s new protocol suggest that smaller quantum computers will be able to pull off bigger feats than many researchers had realized. They also mark a turning point at which researchers are beginning to conceal crucial details that competitors or bad actors might find useful. For the first time, Google described their work using a “zero knowledge proof,” a technique for revealing that a program works without revealing exactly how it works.\n\n \n \n\n \n\n \n\nRobert Huang used a large language model to create a qLDPC code efficient enough to make one virtual qubit from only four atoms.\n \n \n \n \n\nGiven the rapid quantum progress, physicists say that switching out RSA and ECC for new cryptographic schemes that quantum computers can’t break is essential. In 2024, the National Institute of Standards and Technology published new codes that can keep secrets safe from both classical and quantum computers. And the U.S. government has laid out a plan to completely switch to these new codes by 2035. But some researchers believe that key players may need to act more quickly. Google, for instance, recently announced that it aims to stop relying on RSA and ECC by 2029.\n\n“If you were thinking about when you were going to do a post-quantum crypto transition, you should not be waiting any longer,” Thompson said. “This is the time to do it.”\n\nQuantum Dreams vs. Reality\n\nOpinions range on how plausible it will be for Oratomic to build a quantum computer as formidable as the one the physicists have described on paper. To one leader of neutral atom computing, the Caltech team’s projections are not particularly surprising. “They are broadly in line with what we and others have estimated,” said Lukin of Harvard, a founder of the neutral atom startup QuEra Computing. “But in these resource estimates details matter and it is important to work them out carefully.”\n\n \n \n\n \n\n \n\n“We just have to build these machines and see if they work,” said John Preskill.\n \n \n \n \n\nAnd a few key details remain vague — notably error correction steps crucial to the Caltech team’s rosiest projections — making it hard for external researchers to fully evaluate their claims.\n\nOther researchers question some of the team’s mechanical expectations. For example, the Caltech group made “aggressive assumptions about the speed of operations they can do,” Thompson said. The group claims in its paper that the machine will eventually be able pull off the entire error correction process — check for errors, interpret what it finds, fix the errors, replace any atoms that have gone astray, and prepare to do it all over again — once every millisecond.\n\nThe machine would also have to keep up that cadence of error correction for days or even weeks while a computation runs, a feat no group has accomplished. “I’d like to see a demonstration on a smaller scale, say, 100 or 1,000 qubits,” said Mark Saffman, a physicist at the University of Wisconsin-Madison and chief scientist for quantum information at Infleqtion, another neutral atom startup. “Show me that you can do a million rounds or something.”\n\nThe Caltech team knows its plan is ambitious and that integrating all the parts it has in mind will require a tremendous engineering and technological effort. At the same time, the physicists don’t see any insurmountable obstacles. “We just have to build these machines and see if they work,” Preskill said.\n\nNew Horizons\n\nIf any group succeeds at building a quantum computer that can realize Shor’s algorithm, it will mark the end an era — specifically, the “Noisy Intermediate Scale Quantum” era, as Preskill dubbed the pre-error-correction period in a 2018 paper. Each researcher has a vision for what to pursue first with a machine in the new “fault-tolerant” era.\n \n \n\nHuang said he would start by running Shor’s algorithm, just to prove that the device works. After that, he said he would try to use it to speed up machine learning — an application to be detailed in coming work.\n\nMost of the architects building quantum computers, whether at Oratomic or other startups, are physicists at heart. They’re interested in physics, not cryptography. Specifically, they’re interested in all the things a computer fluent in the language of quantum mechanics could teach them about the quantum realm, such as what sort of materials might become superconductors even at warm temperatures. Preskill, for his part, would like to simulate the quantum nature of space-time.\n\nThe Caltech group knows it has years of work ahead before any of its dreams have a chance of coming true. But the researchers can’t wait to get started. “Pick a cooler life quest than building the world’s first quantum computer with your friends!” said a jubilant Bluvstein, reached by phone shortly before their paper went live, before rushing off to celebrate.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "atom",
+      "caltech",
+      "computer",
+      "computer science",
+      "correction",
+      "ecc",
+      "google",
+      "group",
+      "infleqtion",
+      "machine",
+      "neutral",
+      "physicist",
+      "princeton university",
+      "quantum",
+      "quantum dreams",
+      "researcher",
+      "rsa",
+      "shor",
+      "thompson",
+      "u.s."
+    ],
+    [
+      "computer science"
+    ]
+  ]
+}

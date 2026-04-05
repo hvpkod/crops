@@ -1,0 +1,38 @@
+{
+  "id": 8296,
+  "source": "Hacker News",
+  "title": "Switzerland hosts 'CERN of semiconductor research'",
+  "url": "https://www.swissinfo.ch/eng/swiss-ai/switzerland-hosts-cern-of-semiconductor-research/91015332",
+  "published_at": "2026-04-03T10:01:50Z",
+  "fetched_at": "2026-04-03T10:40:39.084126+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47624879\">Comments</a>",
+  "full_text": "Universities use open-source technology to design chips \n \n Keystone / Laurent Gillieron \n \n \n\n \n\n Switzerland is fostering an open-source movement that frees universities and chip designers from the commercial shackles of monopolistic companies. \n\n \n\n \n\n \n \n \n \n \n \n \n \n Listen to the article \n \n Listening the article \n \n \n \n Toggle language selector \n \n \n\n \n \n \n\n \n \n \n \n English (US) \n \n \n \n\n \n \n \n \n English (British) \n \n \n \n \n\n \n \n \n Generated with artificial intelligence. \n \n\n \n\n \n This content was published on \n \n March 12, 2026 - 09:08 \n\nThe frenetic rise of artificial intelligence has put hefty new demands on the semiconductor industry. Supercomputers and data centres are hungry for more advanced specialised chips.\n\nThis has given a boost to universities, like the Swiss federal institutes of technology, which are working to design next generation semiconductors. But the research and production of these chips is hampered by restrictions on what’s called ‘Instruction Set Architecture’ (ISA).\n\nISA are essentially translators that determine how chips interact with software. And the most common ISAs are controlled by the American company Intel and the British firm ARM. The companies charge fees to work within their ISA systems and restrict how they can be adapted for new chip designs.\n\n More\n\n \n\n \n \n \n\n \n\n \n\n More \n \n\n \n Research frontiers \n \n \n\n How semiconductors are made \n \n\n \n \n \n This content was published on \n \n Aug 4, 2025 \n \n \n Making semiconductor chips for computers, machinery, transport and other devices is a costly and a lengthy process. How exactly is it done? \n \n \n \n \n Read more: How semiconductors are made \n \n\nThe answer to this dilemma is an open-source ISA called RISC-V, which was developed at the University of California, Berkeley, in 2010. The technology was transferred to a non-profit foundation in 2015, which moved from the United States to Zurich in 2020 as the RISC-V International Association.\n\n‘Freedom to operate’ in semiconductor research \n\nThe Swiss federal technology institute ETH Zurich was a founding member of the association in 2015. The open-source alternative “creates an infrastructure to innovate,” according to Luca Benini, professor of the department of information technology and electrical engineering.\n\n“Academics are essentially blocked from designing or adapting processors on proprietary ISAs,” he told Swissinfo. “You need explicit permission from the ISA owner. We moved to open-source ISA to give us freedom to operate.”\n\nThis has enabled ETH researchers to develop some 75 chips over the course of the last ten years. Switzerland does not compete head-to-head with countries like Taiwan, the United States and China, which have large chip manufacturing facilities. Instead, the Alpine nation focuses on niche areas, such as designing ultra-low-power semiconductors that use less energy.\n\n“We have designed RISC-V processors specialised for machine learning and inference and for LLM training,” said Benini. “We have been able to demonstrate 100-fold efficiency gains, which is a once-in-a-generation improvement.”\n\nThis is imperative in an era when AI and expanding data centres are consuming more electricity. The semiconductor industry is “refining each part of the process, reducing unnecessary computation and optimising to be more energy efficient,” Alain-Serge Porret, vice-president, Integrated & Wireless Systems at the Swiss Technology Innovation Center (CSEM), wrote in a post in the Semiwiki website.\n\n“Even leading companies that once championed aggressive scale are now looking how to properly size chips for the energy realities of today,” he added.\n\nThe public-private innovation agency CSEM was set up in the early 1980s by the Swiss government to collaborate between academic institutions and industry to ensure that Switzerland keeps pace with developments in technology.\n\nThe centre’s semiconductor research has flourished under the RISC-V umbrella. CSEM started developing processors with its own ISA but found the task of managing and maintaining the whole ecosystem time-consuming.\n\nThis requires a team of developers to keep the architecture updated and bug-free plus support services for companies applying the technology in their businesses.\n\nAssigning this task to an open-source community has freed resources for research and innovation, said Stéphane Emery, head of CSEM’s system-on-a-chip group. RISC-V brings together more than 4,500 academic institutions and companies such as Google, Huawei, Siemens and Sony, under one roof.\n\n More\n\n \n\n \n \n\n \n\n \n\n More \n \n\n \n Swiss AI \n \n \n\n How Switzerland could shape the chip industry’s power balance \n \n\n \n \n \n This content was published on \n \n Mar 12, 2026 \n \n \n Swiss-based RISC-V open-source movement frees chip designers from extra cost and restrictions. \n \n \n \n \n Read more: How Switzerland could shape the chip industry’s power balance \n \n\nThe group works together to maintain and strengthen the ISA by adding new applications and ratifying new extensions to the architecture.\n\n“It is important for academic research because we can exchange ideas with other universities and companies worldwide. It’s a very active ecosystem that is constantly evolving,” he said.\n\nResources freed by open-source approach \n\nCSEM has commercial links with several global brands, including a project to develop an ultra-low power chip for smartphones and tablets with the multinational United Semiconductor Japan (formerly known as Fujitsu).\n\nThe Swiss Federal Institute of Technology Lausanne (EPFL) has leveraged RISC-V for its own research projects as well. This includes the X-HEEP open-source microcontroller, which allows researchers to build and test energy-efficient embedded systems for ultra-low power edge computing, Internet of Things applications and biomedical wearables.\n\nThe open-source RISC-V ecosystem is vital for academic research institutions in Switzerland, according to Benini.\n\nBenini compares it to CERN, where physicists can test their theories using the particle accelerator. “RISC-V plays a similar role as a research infrastructure for computing systems. It’s a very important asset that enables research in software and specialised hardware to reach the outside world in a concrete form,” he said.\n\nEdited by Gabe Bullard/VdV\n\n \n\n Articles in this story",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "alpine",
+      "china",
+      "chip",
+      "company",
+      "eth",
+      "intel",
+      "isa",
+      "llm",
+      "publish",
+      "research",
+      "semiconductor",
+      "specialised",
+      "swiss",
+      "switzerland",
+      "taiwan",
+      "technology",
+      "the united states",
+      "university",
+      "zurich"
+    ],
+    []
+  ]
+}

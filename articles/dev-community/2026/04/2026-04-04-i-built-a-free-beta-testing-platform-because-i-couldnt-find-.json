@@ -1,0 +1,36 @@
+{
+  "id": 8711,
+  "source": "DEV Community<",
+  "title": "I built a free beta testing platform because I couldn't find testers for my Flutter app",
+  "url": "https://dev.to/gorkinus/i-built-a-free-beta-testing-platform-because-i-couldnt-find-testers-for-my-flutter-app-cma",
+  "published_at": "2026-04-04T19:38:42Z",
+  "fetched_at": "2026-04-04T20:40:34.699778+00:00",
+  "author": "Gorka",
+  "summary": "<h2>\n  \n  \n  The problem\n</h2>\n\n<p>I built a chat app with Flutter for Android. <br />\nThen I discovered I needed 12 testers for 14 days <br />\njust to publish on Google Play.</p>\n\n<p>I searched everywhere. Every platform was either <br />\npaid, complicated, or dead.</p>\n\n<p>So I built TestDrop.</p>\n\n<h2>\n  \n  \n  What is TestDrop?\n</h2>\n\n<p>TestDrop is a free platform where developers <br />\npublish their apps and find beta testers.</p>\n\n<p><strong>Features:</strong></p>\n\n<ul>\n<li>Find testers for Android, iOS, Windows and Mac</li>\n<li>Real-time chat between devs and testers</li>\n<li>Daily progress tracking (14-day periods)</li>\n<li>Multi-language support (7 languages)</li>\n<li>Free forever</li>\n</ul>\n\n<h2>\n  \n  \n  Try it\n</h2>\n\n<p>👉 <a href=\"https://testdrop-ecru.vercel.app\" rel=\"noopener noreferrer\">https://testdrop-ecru.vercel.app</a></p>\n\n<p>Would love feedback from the DEV community</p>",
+  "full_text": "The problem\n\nI built a chat app with Flutter for Android. \n\nThen I discovered I needed 12 testers for 14 days \n\njust to publish on Google Play.\n\nI searched everywhere. Every platform was either \n\npaid, complicated, or dead.\n\nSo I built TestDrop.\n\n \n \n What is TestDrop?\n\nTestDrop is a free platform where developers \n\npublish their apps and find beta testers.\n\nFeatures:\n\nFind testers for Android, iOS, Windows and Mac\n\nReal-time chat between devs and testers\n\nDaily progress tracking (14-day periods)\n\nMulti-language support (7 languages)\n\nFree forever\n\n \n \n Try it\n\n👉 https://testdrop-ecru.vercel.app\n\nWould love feedback from the DEV community",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "android",
+      "beta",
+      "build",
+      "chat",
+      "dev",
+      "discover",
+      "find",
+      "flutter",
+      "free",
+      "platform",
+      "publish",
+      "testdrop",
+      "tester",
+      "testing",
+      "webdev",
+      "windows and mac"
+    ],
+    [
+      "webdev"
+    ]
+  ]
+}

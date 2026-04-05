@@ -1,0 +1,35 @@
+{
+  "id": 8613,
+  "source": "DEV Community<",
+  "title": "How We Hit the SSRF Landmine in OpenClaw 2026.4.2 and Fixed It Across 13 Nodes",
+  "url": "https://dev.to/linou518/how-we-hit-the-ssrf-landmine-in-openclaw-202642-and-fixed-it-across-13-nodes-220e",
+  "published_at": "2026-04-04T11:12:48Z",
+  "fetched_at": "2026-04-04T11:40:29.206057+00:00",
+  "author": "linou518",
+  "summary": "<h1>\n  \n  \n  How We Hit the SSRF Landmine in OpenClaw 2026.4.2 and Fixed It Across 13 Nodes\n</h1>\n\n<p>April 4, 2026 turned into our cluster-wide migration day — switching all OpenClaw nodes from Anthropic models to <code>openai-codex/gpt-5.4</code>. The trigger was a policy change on Anthropic's side that cut off third-party harness access to subscription quota. Running rough numbers on March usage: full Opus would run ~$4,700/month, Sonnet ~$945/month. Not sustainable, so we pivoted to Codex via existing ChatGPT Plus.</p>\n\n<p>The model switch alone wasn't the hard part. To run <code>gpt-5.4</code> stably, OpenClaw needed to be on 2026.3.3 or later. We validated 2026.4.2 on one node first, then rolled it out to all 13.</p>\n\n<p>That's where the SSRF protection blindsided us.</p>\n\n<h2>\n  \n  \n  Symptom: Bot Goes Silent After Upgrade\n</h2>\n\n<p>In 2026.4.2, internal connections to Mattermost are blocked by default. The symptom is straightforward — after the upgrade, bots stop responding ent",
+  "full_text": "How We Hit the SSRF Landmine in OpenClaw 2026.4.2 and Fixed It Across 13 Nodes\n\nApril 4, 2026 turned into our cluster-wide migration day — switching all OpenClaw nodes from Anthropic models to openai-codex/gpt-5.4. The trigger was a policy change on Anthropic's side that cut off third-party harness access to subscription quota. Running rough numbers on March usage: full Opus would run ~$4,700/month, Sonnet ~$945/month. Not sustainable, so we pivoted to Codex via existing ChatGPT Plus.\n\nThe model switch alone wasn't the hard part. To run gpt-5.4 stably, OpenClaw needed to be on 2026.3.3 or later. We validated 2026.4.2 on one node first, then rolled it out to all 13.\n\nThat's where the SSRF protection blindsided us.\n\n \n \n Symptom: Bot Goes Silent After Upgrade\n\nIn 2026.4.2, internal connections to Mattermost are blocked by default. The symptom is straightforward — after the upgrade, bots stop responding entirely. The logs show:\n\nSsrFBlockedError: Blocked hostname or private/internal/special-use IP address\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFirst instinct was \"is Mattermost down?\" — but the issue isn't network reachability. It's OpenClaw's own SSRF protection kicking in.\n\n \n \n Two Traps, Not One\n\n \n \n Trap #1: Type Mismatch\n\nallowPrivateNetwork only works as a boolean true.\n\n❌ String \"true\" — silently ignored\n\n❌ Python-style True — silently ignored\n\n✅ Boolean true — works\n\nOn one of our nodes, this exact mismatch caused multiple agents to lose their Mattermost connection after upgrade.\n\n \n \n Trap #2: Wrong Location\n\nThe setting must live inside each account object, not at the top-level Mattermost config.\n\nOne node had allowPrivateNetwork: True placed above the accounts array — which made it structurally invalid and completely ineffective.\n\nBoth the type and the placement have to be correct. Either one wrong = still blocked.\n\n \n \n Correct Configuration\n\n# ❌ Wrong — placed at top level (has no effect)\nmattermost:\n allowPrivateNetwork: true\n accounts:\n - token: <BOT_TOKEN>\n url: http://192.168.x.x:8065\n\n# ✅ Correct — placed inside each account\nmattermost:\n accounts:\n - token: <BOT_TOKEN>\n url: http://192.168.x.x:8065\n allowPrivateNetwork: true\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Fix Procedure\n\nFor each node:\n\n# Update config (--strict-json ensures boolean type, not string)\nopenclaw config set mattermost.accounts[0].allowPrivateNetwork true --strict-json\n\n# Restart the gateway\nopenclaw gateway restart\n\n# Verify with a fresh conversation (existing sessions won't pick up model changes)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTip: Rather than trying to manually patch YAML, use openclaw config set <path> <value> --strict-json — it prevents silent type errors.\n\n \n \n Scale of This Rollout\n\nWe updated 13 nodes to OpenClaw 2026.4.2 + openai-codex/gpt-5.4 and applied the SSRF fix on all of them.\n\nKey lesson: if an upgrade succeeds but bots are unresponsive, don't check Mattermost first — check whether the config survived the upgrade correctly.\n\n \n \n Side Note: Model Switches Apply to New Sessions Only\n\nThis came up during the rollout: model changes don't apply to existing sessions. Only new conversations pick up the new model.\n\nFor any production model switch, our checklist now looks like:\n\nVerify version (openclaw --version)\n\nFix SSRF config (boolean true inside each account)\n\nRestart gateway (openclaw gateway restart)\n\nOpen a new conversation to confirm bot responds\n\n \n \n Takeaway\n\nThe scariest kind of failure isn't a clean crash — it's \"the service is running but the bot is silent.\" That's exactly what SSRF protection causes in 2026.4.2 when configured wrong.\n\nIf you're running OpenClaw with an internal Mattermost instance, this one will bite you on upgrade. Check the type, check the placement, restart the gateway.\n\nTags: OpenClaw, Mattermost, SSRF, Infrastructure, Multi-Agent, Operations, GPT-5.4, DevOps",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "boolean",
+      "config",
+      "correct configuration",
+      "devops",
+      "gateway",
+      "infrastructure",
+      "mattermost",
+      "node",
+      "openclaw",
+      "operations",
+      "place",
+      "restart",
+      "ssrf",
+      "true"
+    ],
+    [
+      "devops",
+      "node"
+    ]
+  ]
+}

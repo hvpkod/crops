@@ -1,0 +1,29 @@
+{
+  "id": 8380,
+  "source": "Hacker News",
+  "title": "If you're running OpenClaw, you probably got hacked in the last week",
+  "url": "https://old.reddit.com/r/sysadmin/comments/1sbdw29/if_youre_running_openclaw_you_probably_got_hacked/",
+  "published_at": "2026-04-03T16:21:32Z",
+  "fetched_at": "2026-04-03T17:20:20.924610+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47628608\">Comments</a>",
+  "full_text": "CVE-2026-33579 is actively exploitable and hits hard.\n\nWhat happened: The /pair approve command doesn't check who is approving. So someone with basic pairing access (the lowest permission tier) can approve themselves for admin. That's it. Full instance takeover, no secondary exploit needed. CVSS 8.6 HIGH.\n\nWhy this matters right now:\n\nPatch dropped March 29, NVD listing March 31. Two-day window for the vulns to spread before anyone saw it on NVD\n\n135k+ OpenClaw instances are publicly exposed\n\n63% of those run zero authentication. Meaning the \"low privilege required\" in the CVE = literally anyone on the internet can request pairing access and start the exploit chain\n\nThe attack is trivial:\n\nConnect to an unauthenticated OpenClaw instance → get pairing access (no credentials needed)\n\nRegister a fake device asking for operator.admin scope\n\nApprove your own request with /pair approve [request-id]\n\nSystem grants admin because it never checks if you are authorized to grant admin\n\nYou now control the entire instance — all data, all connected services, all credentials\n\nTakes maybe 30 seconds once you know the gap exists.\n\nWhat you need to do:\n\nCheck your version: openclaw --version. If it's anything before 2026.3.28, stop what you're doing\n\nUpgrade (one command: npm install openclaw@2026.3.28)\n\nRun forensics if you've been running vulnerable versions:\n\nList admin devices: openclaw devices list --format json and look for admins approved by pairing-only users\n\nCheck audit logs for /pair approve events in the last week\n\nIf registration and approval timestamps are seconds apart and approver isn't a known admin = you got hit",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "access",
+      "admin",
+      "approve",
+      "check",
+      "exploit",
+      "grant",
+      "instance",
+      "nvd",
+      "openclaw",
+      "pair",
+      "run"
+    ],
+    []
+  ]
+}

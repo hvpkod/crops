@@ -1,0 +1,45 @@
+{
+  "id": 8615,
+  "source": "DEV Community<",
+  "title": "TypeScript 6 Ships, Agents Remember, IDEs Panic Quietly",
+  "url": "https://dev.to/urbanisierung/typescript-6-ships-agents-remember-ides-panic-quietly-48a5",
+  "published_at": "2026-04-04T11:11:10Z",
+  "fetched_at": "2026-04-04T11:40:30.705120+00:00",
+  "author": "Adam",
+  "summary": "<p><a href=\"https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/\" rel=\"noopener noreferrer\">TypeScript 6.0</a> is officially out — native ES module output by default, sweeping type system upgrades, and a must-read before it starts appearing in your dependency trees.</p>\n\n<p>The big AI debate this week: <a href=\"https://danielmiessler.com/blog/exactly-why-and-how-ai-will-replace-knowledge-work\" rel=\"noopener noreferrer\">Daniel Miessler</a> builds the most complete argument yet for why AI will replace knowledge work — and somehow makes it sound like good news. Meanwhile, <a href=\"https://addyo.substack.com/p/death-of-the-ide\" rel=\"noopener noreferrer\">Addy Osmani</a> makes the case that agentic orchestration is already eating the IDE's lunch — if your workflow still centers on a code window, this might be the signal you've been waiting for.</p>\n\n<p>On the agent tooling front: <a href=\"https://simonwillison.net/2026/Mar/24/auto-mode-for-claude-code/\" rel=\"noopener noreferr",
+  "full_text": "TypeScript 6.0 is officially out — native ES module output by default, sweeping type system upgrades, and a must-read before it starts appearing in your dependency trees.\n\nThe big AI debate this week: Daniel Miessler builds the most complete argument yet for why AI will replace knowledge work — and somehow makes it sound like good news. Meanwhile, Addy Osmani makes the case that agentic orchestration is already eating the IDE's lunch — if your workflow still centers on a code window, this might be the signal you've been waiting for.\n\nOn the agent tooling front: Simon Willison breaks down Claude Code's new auto mode, which removes permission friction and quietly redefines what \"agentic\" means in daily practice. Mozilla dropped an open standard for shared agent learning called cq — so agents can stop rediscovering the same failures in parallel. And Cog bakes persistent memory and self-reflection directly into Claude Code projects, because amnesia is a terrible trait in a coding assistant.\n\nAlso this week: James Garbutt and the e18e community pinpoint exactly three architectural patterns responsible for the bulk of JavaScript bloat — a surgical diagnosis that finally makes the fix feel actionable. In the counterintuitive result of the week, someone rewrote their Rust WASM parser in TypeScript and it ran 3x faster — the right algorithm, as always, beats the right language. Storybook gains an MCP server so AI agents can browse and generate components directly. Stripe Projects quietly lays the infrastructure for the agentic economy. And Sugar High is a syntax highlighter under 1KB gzipped — the kind of tool that does exactly one thing and nothing else.\n\nFor lighter reading: Andrew Nesbitt assembled the top 10 open source conspiracies with just enough factual backup to make you genuinely uncomfortable. And fifteen engineering leaders pool their real-world AI workflows into one essential guide.\n\nEnjoy!\n\nSignup here for the newsletter to get the weekly digest right into your inbox.\n\nFind the 13 highlighted links of weeklyfoo #130:\n\nHow to Do AI-Assisted Engineering\n\nby Gregor Ojstersek\n\n15 experienced engineers and engineering leaders share their real-world experiences with AI-assisted engineering.\n\n🚀 Read it!, ai, engineering\n\nExactly Why and How AI Will Replace Knowledge Work\n\nby Daniel Miessler\n\nAnd why this is actually a good thing\n\n📰 Good to know, ai, engineering\n\nThe Three Pillars of JavaScript Bloat\n\nby James Garbutt\n\nOver the last couple of years, we’ve seen significant growth of the e18e community and a rise in performance focused contributions because of it.\n\n📰 Good to know, javascript, bloat\n\nIs the IDE dead?\n\nby Addy Osmani\n\nHow Agent orchestration is replacing the editor as the center of developer work\n\n📰 Good to know, ai, ide\n\nAnnouncing TypeScript 6.0\n\nby Daniel Rosenwasser\n\nToday we are excited to announce the availability of TypeScript 6.0!\n\n📰 Good to know, typescript\n\nRewriting our Rust WASM Parser in TypeScript\n\nby Thesys Engineering Team\n\nWe rewrote our Rust WASM Parser in TypeScript - and it got 3x Faster\n\n📰 Good to know, wasm, typescript\n\nAuto mode for Claude Code.\n\nby Simon Willison\n\nReally interesting new development in Claude Code today as an alternative to --dangerously-skip-permissions\n\n📰 Good to know, claude, ai\n\nThe Top 10 Biggest Conspiracies in Open Source\n\nby Andrew Nesbitt\n\nThis is gold!\n\n📰 Good to know, oss\n\nStorybook MCP for React\n\nby Kyle Gach\n\nStorybook-powered agentic UI development\n\n📰 Good to know, storybook, ai, mcp\n\ncq\n\nby Mozilla\n\nAn open standard for shared agent learning. Agents persist, share, and query collective knowledge so they stop rediscovering the same failures independently.\n\n🧰 Tools, ai, memory\n\nSugar High\n\nby Jiachi Liu\n\nSuper lightweight code syntax highlighter, around 1KB after minified and gzipped\n\n🧰 Tools, syntax, highlight\n\nStripe Projects\n\nby Stripe\n\nStripe Projects lets you or your agents provision multiple services, generate and store credentials, and manage usage and billing from the CLI. Set up hosting, databases, auth, AI, analytics, and more in a few commands\n\n🧰 Tools, stripe, ai, infra\n\nCog\n\nby Marcio Puga\n\nCognitive architecture for Claude Code — persistent memory, self-reflection, and foresight\n\n🧰 Tools, ai, memory, claude\n\nWant to read more? Check out the full article here.\n\nTo sign up for the weekly newsletter, visit weeklyfoo.com.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai-assisted engineering",
+      "bloat",
+      "claude",
+      "daniel",
+      "engineering",
+      "exactly",
+      "ide",
+      "javascript",
+      "mcp",
+      "mozilla",
+      "node",
+      "parser",
+      "quietly",
+      "react",
+      "rust wasm",
+      "stripe\n\nstripe projects",
+      "thesys engineering team",
+      "typescript",
+      "wasm",
+      "webdev",
+      "weeklyfoo"
+    ],
+    [
+      "node",
+      "typescript",
+      "webdev",
+      "weeklyfoo"
+    ]
+  ]
+}

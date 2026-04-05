@@ -1,0 +1,36 @@
+{
+  "id": 8671,
+  "source": "DEV Community<",
+  "title": "The Tool Calling Problem: Why Most Agents Are Just Chatbots with Buttons",
+  "url": "https://dev.to/o96a/the-tool-calling-problem-why-most-agents-are-just-chatbots-with-buttons-2baj",
+  "published_at": "2026-04-04T17:27:42Z",
+  "fetched_at": "2026-04-04T17:40:33.788021+00:00",
+  "author": "Aamer Mihaysi",
+  "summary": "<p>Everyone says they are building agents now. But most of what gets called an agent is just a chatbot that can click buttons.</p>\n\n<p>Thats not an agent. Thats a wrapper.</p>\n\n<p>The difference matters because real agents have different failure modes, different capabilities, and different requirements than glorified chatbots.</p>\n\n<p><strong>What makes something an agent:</strong></p>\n\n<p>An agent is a system that takes actions in the world. Not just responses, but real actions with real consequences. Tool calling is the mechanism, but it is not the definition.</p>\n\n<p>The problem is that most implementations stop at the mechanism. They expose tools, wire up an LLM, and call it an agent. But they miss the architecture that makes agent behavior reliable.</p>\n\n<p><strong>The missing pieces:</strong></p>\n\n<ol>\n<li><p><strong>State persistence.</strong> Real agents need to remember what they have done. Not just conversation history, but the state of the world they are acting on. Most agen",
+  "full_text": "Everyone says they are building agents now. But most of what gets called an agent is just a chatbot that can click buttons.\n\nThats not an agent. Thats a wrapper.\n\nThe difference matters because real agents have different failure modes, different capabilities, and different requirements than glorified chatbots.\n\nWhat makes something an agent:\n\nAn agent is a system that takes actions in the world. Not just responses, but real actions with real consequences. Tool calling is the mechanism, but it is not the definition.\n\nThe problem is that most implementations stop at the mechanism. They expose tools, wire up an LLM, and call it an agent. But they miss the architecture that makes agent behavior reliable.\n\nThe missing pieces:\n\nState persistence. Real agents need to remember what they have done. Not just conversation history, but the state of the world they are acting on. Most agent frameworks treat every interaction as stateless.\n\nAction verification. When an agent takes an action, it needs to know if it succeeded. Did the file get written? Did the API call return 200? Most implementations fire and forget.\n\nRecovery paths. When an action fails, what happens? Retry? Escalate? Ask for help? Most agents just error out.\n\nGoal decomposition. A real agent receives a goal and figures out the steps. Most implementations need the steps spelled out in the prompt.\n\nThe real challenge:\n\nTool calling is solved. Every major model can do it. What is not solved is everything around the tool calling.\n\nHow do you verify actions?\n\nHow do you handle failures?\n\nHow do you maintain state across long-running tasks?\n\nHow do you decompose goals into executable plans?\n\nThese are the problems that separate agents from chatbots with buttons.\n\nPractical test:\n\nIf your agent cannot recover from a failed tool call without human intervention, it is not an agent. It is a chatbot that calls tools.\n\nIf your agent needs every step spelled out in the prompt, it is not an agent. It is a workflow executor.\n\nIf your agent has no persistent state between sessions, it is not an agent. It is a stateless request handler.\n\nThe future of agents is not better tool calling. It is better everything else.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "action",
+      "agent",
+      "agents",
+      "ai",
+      "api",
+      "architecture",
+      "call",
+      "chatbot",
+      "goal",
+      "implementation",
+      "llm",
+      "real",
+      "spell",
+      "thats",
+      "tool"
+    ],
+    [
+      "agents",
+      "architecture"
+    ]
+  ]
+}

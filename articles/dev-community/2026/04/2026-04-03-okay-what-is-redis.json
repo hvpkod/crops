@@ -1,0 +1,37 @@
+{
+  "id": 8246,
+  "source": "DEV Community<",
+  "title": "Okay, What is Redis?",
+  "url": "https://dev.to/arunkrish11/okay-what-is-redis-447c",
+  "published_at": "2026-04-03T05:51:33Z",
+  "fetched_at": "2026-04-03T06:00:20.189994+00:00",
+  "author": "Arun Krish",
+  "summary": "<p>What is Redis?<br />\nRedis (Remote Dictionary Server) is an open-source, in-memory, NoSQL data structure store used primarily as a database, cache, and message broker. It stores data in RAM for extremely fast read/write speeds, commonly for caching, session management, and real-time analytics, handling data as key-value pairs.</p>\n\n<p>In simple words, it will act like a cache memory to store data as key - value pair. I watched a tutorial to understand Redis. He showed something like, if we don't use redis the website take too much time for each fetching. But if we use redis the first fetching only take that much time, second fetch onward the fetching time will be low.</p>\n\n<p>In order to understand that, you need to do this tutorial. The code is given below as github gist. Download or copy the code and dance with me.<br />\n<a href=\"https://gist.github.com/arunkrish11/4499ad99ecaf5aff4983f58e0a12bae6\" rel=\"noopener noreferrer\">Redis Gist Code</a></p>\n\n<p>You want to open your termina",
+  "full_text": "What is Redis?\n\nRedis (Remote Dictionary Server) is an open-source, in-memory, NoSQL data structure store used primarily as a database, cache, and message broker. It stores data in RAM for extremely fast read/write speeds, commonly for caching, session management, and real-time analytics, handling data as key-value pairs.\n\nIn simple words, it will act like a cache memory to store data as key - value pair. I watched a tutorial to understand Redis. He showed something like, if we don't use redis the website take too much time for each fetching. But if we use redis the first fetching only take that much time, second fetch onward the fetching time will be low.\n\nIn order to understand that, you need to do this tutorial. The code is given below as github gist. Download or copy the code and dance with me.\n\nRedis Gist Code\n\nYou want to open your terminal with current directory and run the two codes given below. One for installing the packages and second one for starting the port.\n\nnpm i\nnpm start\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYour port will be open at localhost:5000. You want to go to the url\n\nhttp://localhost:5000/repos/arunkrish11\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n(it is actually http://localhost:5000/repos/github_id), so you can see how many repos someone has. You can see something like this,\n\nNow you want to inspect the site and go to the network section. There will be something named finish time. It actually shows how time took to load the site, yeah the fetching time. Now you want to go to the code and remove the first section,\n\n// 1. Check cache\n const cached = await client.get(username);\n if (cached) {\n return res.send(`<h2>${username} has ${cached} repos (cached)</h2>`);\n }\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf you refresh the page, then you can see the fetching time is high for each time we refresh.\n\n(First fetching after code removal)\n\n(Second fetching after code removal)\n\nNow we want to paste the code that we removed earlier.If you refresh now, you can see the difference. The first fetching only take that much time, second onward the fetching time is low.\n\n(First fetching after the return of code)\n\n(Second fetching after the return of code)\n\nSo that's it. Catch you in another post. Til then take care, bye.\n\nCheckout my profiles.\n\nGitHub\n\nDevTo",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "beginners",
+      "code",
+      "database",
+      "datum",
+      "fetching",
+      "fullscreen",
+      "mode",
+      "nosql",
+      "onward",
+      "performance",
+      "ram",
+      "redis",
+      "second",
+      "something",
+      "store",
+      "tutorial"
+    ],
+    [
+      "beginners",
+      "tutorial"
+    ]
+  ]
+}

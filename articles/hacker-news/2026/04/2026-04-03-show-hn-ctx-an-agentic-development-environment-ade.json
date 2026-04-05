@@ -1,0 +1,35 @@
+{
+  "id": 8342,
+  "source": "Hacker News",
+  "title": "Show HN: ctx – an Agentic Development Environment (ADE)",
+  "url": "https://ctx.rs",
+  "published_at": "2026-04-03T13:45:02Z",
+  "fetched_at": "2026-04-03T14:40:38.747620+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47626598\">Comments</a>",
+  "full_text": "ctxis an Agentic Development Environment (ADE)\n\nAny coding agent. Containerized workspaces. Unified transcripts and review.\n\nctx is an Agentic Development Environment (ADE) for teams using multiple coding agents. It gives\nengineers one interface for the real Claude Code, Codex, Cursor, and more. It gives security and platform\nteams one controlled runtime with containerized disk and network isolation, one review surface,\nand durable transcripts.\n\nUse ctx on your own machine or against a remote devbox or VPS you control. For normal local\nworkflows, you do not need a ctx account, and you can bring your own providers, models, and\ncredentials.\n\nYour browser does not support the homepage demo video.\n\nWhat ctx helps you do\n\nUse Claude Code, Codex, Cursor, and other coding agents in one interface.\n\nRun agents in isolated containers with explicit disk and network controls.\n\nLet agents work with bounded autonomy instead of constant approval prompts.\n\nKeep tasks, sessions, diffs, transcripts, and artifacts in one review surface.\n\nRun work locally or on remote machines you control.\n\nKeep parallel tasks isolated in separate worktrees and land them cleanly with the agent merge queue.\n\nWhy standardize on the environment\n\nEngineers can use the agents they prefer without fragmenting the workflow.\n\nSecurity and platform teams can rely on one runtime model and one set of safety controls.\n\nReview, provenance, and task history stay in one place instead of being scattered across tools.\n\nYou can change harnesses and models over time without rebuilding team workflows around each one.\n\nGet started\n\nUse one small, low-risk task to validate the whole loop end to end: install, connect a provider,\nopen a workspace, run a task, and review the diff before you finalize changes.\n\nGood first tasks\n\nupdate one label or validation message\n\nfix one obvious bug in a narrow area\n\nmake one small UI, docs, or config change\n\nLearn more",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ade",
+      "agent",
+      "agentic",
+      "agentic development environment",
+      "cod",
+      "containerized",
+      "cursor",
+      "development",
+      "engineer",
+      "environment",
+      "security",
+      "task",
+      "team",
+      "vps"
+    ],
+    [
+      "development",
+      "environment"
+    ]
+  ]
+}

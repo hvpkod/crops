@@ -1,0 +1,36 @@
+{
+  "id": 8542,
+  "source": "DEV Community<",
+  "title": "Cursor Composer 2: The Kimi K2.5 Controversy and What It Means",
+  "url": "https://dev.to/bruce_he/cursor-composer-2-the-kimi-k25-controversy-and-what-it-means-2061",
+  "published_at": "2026-04-04T01:45:17Z",
+  "fetched_at": "2026-04-04T02:40:36.866802+00:00",
+  "author": "Bruce He",
+  "summary": "<p><em>Originally published at <a href=\"https://www.heyuan110.com/posts/ai/2026-04-04-cursor-composer-2-review/\" rel=\"noopener noreferrer\">heyuan110.com</a></em></p>\n\n<p>On March 19, Cursor shipped Composer 2 with a triumphant blog post. Three days later, a developer found <code>kimi-k2p5-rl-0317-s515-fast</code> in the API config. That single string unraveled a story about transparency, open-source ethics, and the global nature of AI infrastructure.</p>\n\n<p><strong>Key findings:</strong></p>\n\n<ul>\n<li>Composer 2 is built on Moonshot AI's Kimi K2.5 (Chinese open-source MoE model)</li>\n<li>Cursor's \"75% of compute was ours\" defense doesn't hold up</li>\n<li>CursorBench scores (61.3) are home-field advantage; Terminal-Bench gap vs Claude is only 3.7 points</li>\n<li>At $0.50/M input tokens, Composer 2 is 30x cheaper than Opus 4.6</li>\n<li>Most productive devs use both: Cursor for 80% daily tasks, Claude Code for 20% complex work</li>\n</ul>\n\n\n\n\n<p><strong><a href=\"https://www.heyuan110.com/",
+  "full_text": "Originally published at heyuan110.com\n\nOn March 19, Cursor shipped Composer 2 with a triumphant blog post. Three days later, a developer found kimi-k2p5-rl-0317-s515-fast in the API config. That single string unraveled a story about transparency, open-source ethics, and the global nature of AI infrastructure.\n\nKey findings:\n\nComposer 2 is built on Moonshot AI's Kimi K2.5 (Chinese open-source MoE model)\n\nCursor's \"75% of compute was ours\" defense doesn't hold up\n\nCursorBench scores (61.3) are home-field advantage; Terminal-Bench gap vs Claude is only 3.7 points\n\nAt $0.50/M input tokens, Composer 2 is 30x cheaper than Opus 4.6\n\nMost productive devs use both: Cursor for 80% daily tasks, Claude Code for 20% complex work\n\nRead the full article →\n\nIf you found this useful, check out my blog for more AI engineering guides.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "api",
+      "build",
+      "coding",
+      "composer",
+      "controversy",
+      "cursor",
+      "cursorbench",
+      "day",
+      "find",
+      "kimi",
+      "opensource",
+      "publish",
+      "ship",
+      "terminal-bench",
+      "unravel"
+    ],
+    [
+      "opensource"
+    ]
+  ]
+}

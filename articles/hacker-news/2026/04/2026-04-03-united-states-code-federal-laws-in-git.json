@@ -1,0 +1,35 @@
+{
+  "id": 8329,
+  "source": "Hacker News",
+  "title": "United States Code (federal laws) in Git",
+  "url": "https://github.com/nickvido/us-code",
+  "published_at": "2026-04-03T11:18:10Z",
+  "fetched_at": "2026-04-03T14:00:27.321416+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47625366\">Comments</a>",
+  "full_text": "🇺🇸 United States Code as a Git Repository\n\nThe entire United States Code — every title, chapter, and section — stored as Markdown in a Git repository. Each commit represents a point-in-time snapshot of federal law, with git diff revealing exactly what changed between enactments.\n\nLaws change. Understanding what changed and when has historically required navigating dense legal databases or reading legislative summaries written by someone else. Git solves this naturally:\n\ngit log — see the history of federal law from 2013 to present\n\ngit diff — see exactly what text changed between any two points in time\n\ngit blame — trace when a specific provision was added\n\nTags — jump to a specific Congress or year\n\nuscode/\n├── title-01-general-provisions/\n│ ├── _title.md # Title metadata\n│ ├── chapter-001-rules-of-construction.md\n│ ├── chapter-002-acts-and-resolutions-...md\n│ └── ...\n├── title-02-the-congress/\n├── title-03-the-president/\n├── ...\n└── title-54-national-park-service-and-related-programs/\n\n53 titles of the United States Code\n\n~2,950 chapter-level Markdown files\n\n~60,400 sections with full statutory text\n\n13 commits spanning 2013–2025 (one per OLRC release point)\n\nEach Markdown file includes YAML frontmatter with metadata (title number, chapter, heading, section count, source URL) and the full statutory text with cross-references, statutory notes, and amendment histories.\n\nEvery commit corresponds to an Office of the Law Revision Counsel (OLRC) release point — an official snapshot of the US Code as amended through a specific Public Law.\n\nTag\nPublic Law\nYear\nDescription\n\nannual/2013\n113-21\n2013\nEarliest available OLRC snapshot\n\ncongress/113\n113-296\n2014\nEnd of 113th Congress\n\nannual/2015\n114-38\n2015\n\ncongress/114\n114-329\n2017\nEnd of 114th Congress\n\nannual/2017\n115-51\n2017\n\ncongress/115\n115-442\n2019\nEnd of 115th Congress\n\nannual/2019\n116-91\n2019\n\ncongress/116\n116-344\n2021\nEnd of 116th Congress\n\nannual/2021\n117-81\n2021\n\nannual/2022\n117-262\n2022\n\ncongress/117\n117-262\n2022\nEnd of 117th Congress\n\nannual/2024\n118-158\n2024\n\ncongress/118\n118-158\n2024\nEnd of 118th Congress\n\nannual/2025\n119-73\n2025\nCurrent (latest)\n\n# What changed in federal law between the 115th and 116th Congress?\ngit diff congress/115..congress/116 --stat\n\n# Full text diff of Title 18 (Crimes) between 2019 and 2025\ngit diff annual/2019..annual/2025 -- uscode/title-18-crimes-and-criminal-procedure/\n\n# When was a specific section last modified?\ngit log --oneline -- \"uscode/title-18-crimes-and-criminal-procedure/chapter-044-firearms.md\"\n\n# How many files changed across the entire 12-year history?\ngit diff annual/2013..annual/2025 --stat | tail -1\n\nAll content is derived from the OLRC's official USLM XML release points. The XML is parsed and transformed to Markdown using us-code-tools.\n\nCross-reference links point to the official OLRC website for the preliminary (prelim) edition.\n\nEach chapter file follows this structure:\n\n---\ntitle: 18\nchapter: '44'\nheading: FIREARMS\nsection_count: 25\nsource: https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18&num=0&edition=prelim\n---\n\n<a id=\"section-921\"></a>\n\n## § 921. Definitions\n\n**(a)** As used in this chapter—\n\n**(1)** The term \"person\" and the term \"whoever\" include any individual...\n\n### Statutory Notes\n\n#### Amendments\n...\n\nSection headings use ## § with HTML anchor IDs for linking\n\nSubsections use bold labels: **(a)**, **(1)**, **(A)**, **(i)**\n\nCross-references link to other sections within the repo or to uscode.house.gov\n\nStatutory notes include amendment histories, effective dates, and related materials\n\nCoverage starts in 2013 — OLRC XML release points are only available from the 113th Congress onward\n\nCodified law only — this is the consolidated United States Code, not individual bills or public laws in directive format\n\nNot all titles are positive law — some titles are \"evidence of law\" rather than the legal text itself (see 1 USC § 204)\n\nAppendix titles (5A, 11a, 18a, 28a, 50A) are not yet included\n\n6 sections across titles 5, 10, 25, 28, 38, and 40 have duplicate section numbers in the source XML\n\nSee ROADMAP.md for planned features including:\n\nWeb interface with cross-reference graph\n\nBills as pull requests\n\nRoll call vote records\n\nFull-text search\n\nThe United States Code is a work of the US Government and is in the public domain (17 USC § 105).\n\nThe tooling used to generate this repository is available under the MIT License.\n\nBuilt by nickvido and v1d0b0t.\n\nRead the story: Every Law a Commit",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "change",
+      "commit",
+      "congress",
+      "diff",
+      "html",
+      "markdown",
+      "olrc",
+      "section",
+      "specific",
+      "statutory",
+      "text",
+      "the mit license",
+      "the us government",
+      "title",
+      "united states code",
+      "usc",
+      "xml"
+    ],
+    []
+  ]
+}

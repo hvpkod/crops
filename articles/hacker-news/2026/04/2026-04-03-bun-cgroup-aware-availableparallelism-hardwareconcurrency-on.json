@@ -1,0 +1,29 @@
+{
+  "id": 8319,
+  "source": "Hacker News",
+  "title": "Bun: cgroup-aware AvailableParallelism / HardwareConcurrency on Linux",
+  "url": "https://github.com/oven-sh/bun/pull/28801",
+  "published_at": "2026-04-03T11:09:58Z",
+  "fetched_at": "2026-04-03T12:40:25.475443+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47625311\">Comments</a>",
+  "full_text": "Routes navigator.hardwareConcurrency (and therefore\nos.availableParallelism()) through WTF::numberOfProcessorCores() instead\nof an inline sysconf/sysctl. On Linux this picks up the new\nsched_getaffinity + cgroup cpu.max capping in WTF, so containers with\n--cpus=N report N instead of the host core count.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "cap",
+      "cgroup",
+      "container",
+      "hardwareconcurrency",
+      "inline",
+      "instead",
+      "linux",
+      "pick",
+      "routes",
+      "therefore",
+      "wtf"
+    ],
+    []
+  ]
+}

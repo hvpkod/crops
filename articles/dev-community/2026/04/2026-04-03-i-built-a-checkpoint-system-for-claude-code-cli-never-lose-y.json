@@ -1,0 +1,38 @@
+{
+  "id": 8493,
+  "source": "DEV Community<",
+  "title": "I Built a Checkpoint System for Claude Code CLI — Never Lose Your Work Again",
+  "url": "https://dev.to/alexdevson/i-built-a-checkpoint-system-for-claude-code-cli-never-lose-your-work-again-11fc",
+  "published_at": "2026-04-03T23:12:27Z",
+  "fetched_at": "2026-04-03T23:40:24.293069+00:00",
+  "author": "Alex Devson",
+  "summary": "<p>If you use <strong>Claude Code CLI</strong>, you know the pain — long coding sessions, multiple changes across files, and no easy way to see what happened or roll back if something goes wrong.</p>\n\n<p><strong>ccheckpoints</strong> brings <strong>Cursor IDE-style checkpoints</strong> to Claude Code CLI. It automatically tracks your coding sessions and lets you navigate through your conversation history with a beautiful dashboard.</p>\n\n<h2>\n  \n  \n  What it does\n</h2>\n\n<ul>\n<li>🔄 <strong>Automatic session tracking</strong> — zero config needed</li>\n<li>👀 <strong>Visual diff viewer</strong> — see exactly what changed in each step</li>\n<li>🕐 <strong>Navigate through conversation history</strong> — scroll through everything Claude did</li>\n<li>⏪ <strong>Restore any checkpoint</strong> — go back to any point instantly</li>\n<li>🎨 <strong>Clean, modern dashboard UI</strong> — not just a CLI dump</li>\n</ul>\n\n<h2>\n  \n  \n  Install\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"h",
+  "full_text": "If you use Claude Code CLI, you know the pain — long coding sessions, multiple changes across files, and no easy way to see what happened or roll back if something goes wrong.\n\nccheckpoints brings Cursor IDE-style checkpoints to Claude Code CLI. It automatically tracks your coding sessions and lets you navigate through your conversation history with a beautiful dashboard.\n\n \n \n What it does\n\n🔄 Automatic session tracking — zero config needed\n\n👀 Visual diff viewer — see exactly what changed in each step\n\n🕐 Navigate through conversation history — scroll through everything Claude did\n\n⏪ Restore any checkpoint — go back to any point instantly\n\n🎨 Clean, modern dashboard UI — not just a CLI dump\n\n \n \n Install\n\nnpm install -g ccheckpoints\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. Next time you use Claude Code CLI, it starts tracking automatically.\n\n \n \n Why this exists\n\nI was using Claude Code CLI for hours-long sessions — refactoring entire codebases, adding features, fixing bugs. But sometimes Claude would make a change that broke something three steps later, and I had no way to go back to \"that version where everything worked.\"\n\nCursor IDE has checkpoints built in. Claude Code CLI didn't. So I built it.\n\n \n \n The dashboard\n\nRun ccheckpoints and you get a web dashboard showing:\n\nEvery session with timestamps\n\nFull diff view of each change\n\nOne-click restore to any checkpoint\n\nIt's like git history but for your AI coding sessions.\n\n \n \n Try it\n\nnpm install -g ccheckpoints\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n⭐ GitHub repo — Stars appreciated, issues welcome!\n\nIf you use Claude Code CLI and don't have this yet, you're flying blind. Give it a try.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "build",
+      "ccheckpoint",
+      "checkpoint",
+      "claude",
+      "claude code cli",
+      "cli",
+      "cod",
+      "code",
+      "cursor ide-style",
+      "dashboard",
+      "install",
+      "install\n\nnpm install",
+      "mode",
+      "productivity",
+      "session",
+      "typescript"
+    ],
+    [
+      "productivity",
+      "typescript"
+    ]
+  ]
+}

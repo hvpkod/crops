@@ -1,0 +1,35 @@
+{
+  "id": 8641,
+  "source": "DEV Community<",
+  "title": "The Agent Orchestration Problem Nobody Talks About",
+  "url": "https://dev.to/o96a/the-agent-orchestration-problem-nobody-talks-about-7kp",
+  "published_at": "2026-04-04T14:27:10Z",
+  "fetched_at": "2026-04-04T14:40:29.470670+00:00",
+  "author": "Aamer Mihaysi",
+  "summary": "<p>Everyone building agents eventually hits the same wall: one agent calls another, which calls another, and suddenly you have a chain of models all hallucinating off each other.</p>\n\n<p>Its the telephone game, but every participant is confidently making things up.</p>\n\n<p><strong>The naive approach that fails:</strong></p>\n\n<p>Agent A extracts data. Agent B summarizes. Agent C formats. Agent D sends.</p>\n\n<p>Each step compounds error. By the time Agent D acts, the original intent has mutated beyond recognition.</p>\n\n<p>This is why most multi-agent demos work great in controlled scenarios but fall apart in production.</p>\n\n<p><strong>What actually works:</strong></p>\n\n<p>The fix isnt smarter models. Its <strong>grounded handoffs</strong>.</p>\n\n<ol>\n<li><p><strong>Structured state, not natural language.</strong> Agents should pass JSON schemas or typed objects, not paragraphs of text. Natural language is lossy. Structured data is verifiable.</p></li>\n<li><p><strong>Single source of trut",
+  "full_text": "Everyone building agents eventually hits the same wall: one agent calls another, which calls another, and suddenly you have a chain of models all hallucinating off each other.\n\nIts the telephone game, but every participant is confidently making things up.\n\nThe naive approach that fails:\n\nAgent A extracts data. Agent B summarizes. Agent C formats. Agent D sends.\n\nEach step compounds error. By the time Agent D acts, the original intent has mutated beyond recognition.\n\nThis is why most multi-agent demos work great in controlled scenarios but fall apart in production.\n\nWhat actually works:\n\nThe fix isnt smarter models. Its grounded handoffs.\n\nStructured state, not natural language. Agents should pass JSON schemas or typed objects, not paragraphs of text. Natural language is lossy. Structured data is verifiable.\n\nSingle source of truth. All agents read from and write to the same context object. No telephone chains. Each agent sees the canonical state.\n\nExplicit failure modes. If Agent B receives garbage input, it should reject, not guess. Guessing is where confidence spirals begin.\n\nHuman checkpoints. Multi-step agent chains need review gates. The longer the chain, the more likely you need a human in the loop.\n\nThe MCP insight:\n\nModel Context Protocol isnt just about tools. Its about shared context. When every agent reads from the same MCP server, you eliminate drift.\n\nThe model doesnt need to remember what the previous agent said. It reads the current state.\n\nPractical pattern:\n\nInstead of:\n\nAgent A -> Agent B -> Agent C -> Output\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDo:\n\nAgent A -> State\nAgent B -> State\nAgent C -> State\nOutput -> State\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAll agents read from State. All agents write to State. The chain becomes a hub.\n\nThe real lesson:\n\nMulti-agent systems are not about coordination. They are about state management. Get that right and the orchestration follows.\n\nMost agent failures arent model failures. They are context failures. Fix the context, fix the system.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "agents",
+      "ai",
+      "architecture",
+      "chain",
+      "context",
+      "fullscreen",
+      "isnt",
+      "mcp",
+      "mode",
+      "model",
+      "orchestration",
+      "state",
+      "telephone"
+    ],
+    [
+      "agents",
+      "architecture"
+    ]
+  ]
+}

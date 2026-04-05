@@ -1,0 +1,42 @@
+{
+  "id": 8572,
+  "source": "DEV Community<",
+  "title": "Finding a Critical Logic Flaw in Legion Protocol’s Epoch Vesting",
+  "url": "https://dev.to/rdin777/finding-a-critical-logic-flaw-in-legion-protocols-epoch-vesting-39g6",
+  "published_at": "2026-04-04T05:15:37Z",
+  "fetched_at": "2026-04-04T05:40:40.383951+00:00",
+  "author": "rim dinov",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fe4wauowxv0z7lgwroubg.png\"><img alt=\" \" height=\"450\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fe4wauowxv0z7lgwroubg.png\" width=\"800\" /></a></p>\n\n<p>By RimDinov (<a class=\"mentioned-user\" href=\"https://dev.to/rdin777\">@rdin777</a>)</p>\n\n<p>While performing a deep-dive security audit of the Legion Protocol, I identified a critical vulnerability in their linear epoch-based vesting contract. This flaw isn't just a minor edge case — it’s a fundamental logic error that can lead to permanent loss of user funds and broken protocol invariants.</p>\n\n<p>In this article, I’ll break down how the vulnerability works, why the math fails, and how I built a ",
+  "full_text": "By RimDinov (@rdin777)\n\nWhile performing a deep-dive security audit of the Legion Protocol, I identified a critical vulnerability in their linear epoch-based vesting contract. This flaw isn't just a minor edge case — it’s a fundamental logic error that can lead to permanent loss of user funds and broken protocol invariants.\n\nIn this article, I’ll break down how the vulnerability works, why the math fails, and how I built a Proof-of-Concept (PoC) using Foundry to prove it.\n\nThe Architecture: Epoch vs. Linear Vesting\nMost vesting contracts use a simple linear formula based on block.timestamp. However, Legion implemented an Epoch-based approach. Tokens are unlocked in \"chunks\" (epochs) rather than every second.\n\nWhile this design can be useful for certain tokenomics, its implementation in LegionLinearEpochVesting.sol introduced a dangerous state dependency.\n\nThe Vulnerability: State-Dependent Vesting Math\nThe core issue lies in the _vestingSchedule function. Instead of being a pure function of time, the amount of vested tokens is calculated based on the global state variable s_lastClaimedEpoch.\n\nThe \"Double-Claim\" Trap\n\nTake a look at the vulnerable code snippet:\n\nSolidity\n\n// @notice Vulnerable calculation in LegionLinearEpochVesting.sol\n\nif (currentEpoch > s_lastClaimedEpoch) {\n\n amountVested = ((currentEpoch - 1) * _totalAllocation) / s_numberOfEpochs;\n\n}\n\nThe Logic Flaw: If a user (or bot) calls the release() function twice during the same epoch:\n\nThe first time currentEpoch > s_lastClaimedEpoch - the transaction goes through, tokens are transferred, s_lastClaimedEpoch is updated.\n\nThe second time, currentEpoch becomes EQUAL to s_lastClaimedEpoch. The if condition fails, and amountVested returns 0.\n\nIn certain scenarios, this may cause the contract to consider tokens \"issued\" even though the user received 0.\n\nThe \"Dust\" Problem: Precision Loss\nAnother critical issue is the handling of token decimals. The contract uses a fixed 1e18 denominator (likely from a Constants.sol file) without properly scaling for tokens like USDC or USDT (6 decimals).\n\nThis causes massive rounding errors. For low-decimal tokens, a significant portion of the funds (the \"dust\") will remain stuck in the contract forever because the math simply truncates the value to zero.\n\nProof of Concept (PoC)\nTo verify the impact, I wrote a dedicated exploit test in Foundry. The test simulates a user trying to claim multiple times and proves that funds become inaccessible due to the epoch-tracking logic.\n\nYou can find the full PoC and the audit repository here:\n\n👉 https://github.com/rdin777/ltgion-newaudit\n\nPro-Tip: Always run your tests with forge test -vvvv to see the exact state changes during the exploit.\n\nMitigation: How to Fix It\nTo fix these issues, I recommended the following to the Legion team:\n\nRemove State Dependency: Calculate the vested amount based strictly on block.timestamp and the totalAllocated, subtracting only the totalReleased so far.\n\nDynamic Scaling: Use ERC20(token).decimals() to handle precision instead of hardcoded constants.\n\nConclusion\n\nSmart contract security is about more than just finding reentrancy or overflow bugs. It's about understanding the business logic. Even a simple vesting contract can hide critical flaws if the state management isn't handled with extreme care.\n\nFollow me for more security deep-dives:\n\nGitHub: https://github.com/rdin777",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "base",
+      "blockchain",
+      "constants.sol",
+      "contract",
+      "critical",
+      "epoch",
+      "equal",
+      "foundry",
+      "legion",
+      "logic",
+      "poc",
+      "rimdinov",
+      "security",
+      "solidity",
+      "state",
+      "testing",
+      "token",
+      "tokens",
+      "usdc",
+      "vest",
+      "vested"
+    ],
+    [
+      "blockchain",
+      "solidity"
+    ]
+  ]
+}

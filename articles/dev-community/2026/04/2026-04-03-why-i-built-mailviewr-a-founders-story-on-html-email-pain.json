@@ -1,0 +1,43 @@
+{
+  "id": 8387,
+  "source": "DEV Community<",
+  "title": "Why I Built MailViewr: A Founder's Story on HTML Email Pain",
+  "url": "https://dev.to/codearenaindia/why-i-built-mailviewr-a-founders-story-on-html-email-pain-2ml4",
+  "published_at": "2026-04-03T17:50:38Z",
+  "fetched_at": "2026-04-03T18:00:22.908454+00:00",
+  "author": "codeArenaIndia",
+  "summary": "<blockquote>\n<p>A developer's journey from frustration to building a free tool that solves a problem nobody wants to talk about</p>\n</blockquote>\n\n<p><strong>Disclosure:</strong> I wrote this post and used ChatGPT to polish the writing. Per DEV guidelines, I'm disclosing that AI was used for editing and refinement while all the technical details and founder perspective are entirely from my own experience.</p>\n\n\n\n\n<h2>\n  \n  \n  The Problem I Lived Every Day\n</h2>\n\n<p>I'm a developer. And before I built MailViewr, I was stuck in a pattern I've seen countless times across the industry.</p>\n\n<p>Someone from marketing or management would ping me on Slack: \"Hey, can you put together an HTML email for this campaign? You know HTML, right?\"</p>\n\n<p>And just like that—I'd become the email developer.</p>\n\n<p>Not because I wanted to. Not because I'd chosen to specialize in email. Just because the assumption was simple: <strong>HTML is HTML. If you can build a website, you can build an email.</stron",
+  "full_text": "A developer's journey from frustration to building a free tool that solves a problem nobody wants to talk about\n\nDisclosure: I wrote this post and used ChatGPT to polish the writing. Per DEV guidelines, I'm disclosing that AI was used for editing and refinement while all the technical details and founder perspective are entirely from my own experience.\n\n \n \n The Problem I Lived Every Day\n\nI'm a developer. And before I built MailViewr, I was stuck in a pattern I've seen countless times across the industry.\n\nSomeone from marketing or management would ping me on Slack: \"Hey, can you put together an HTML email for this campaign? You know HTML, right?\"\n\nAnd just like that—I'd become the email developer.\n\nNot because I wanted to. Not because I'd chosen to specialize in email. Just because the assumption was simple: HTML is HTML. If you can build a website, you can build an email.\n\nThat assumption is dead wrong.\n\n \n \n The Moment I Decided to Build Something\n\nThe turning point came after my email—one I'd spent hours perfecting—arrived in my users' inboxes looking nothing like I'd designed it.\n\nIt was perfect in Chrome. Broken in Outlook.\n\nI'd styled it with flexbox, border-radius, modern CSS. All standard, all expected. Except Gmail strips <style> blocks. Outlook uses Microsoft Word to render HTML (not a browser). Apple Mail has its own rules. And mobile? That's a completely different world.\n\nI spent hours debugging. Testing in Chrome. Testing in Firefox. Sending test emails to myself on Gmail. On Outlook. On my phone. Checking again. Making a change. Sending again.\n\nAnd I still missed things.\n\nThe real wake-up call: Litmus starts at $99/month. Email on Acid isn't cheap either. These tools are built for teams with real email budgets. Not for developers like me who got handed a one-off task and told, \"Just figure it out.\"\n\n \n \n Why Nothing Existed for Developers Like Me\n\nThere's a massive gap in the email tools market. On one end: enterprise solutions like Litmus for dedicated teams with budgets. On the other: nothing.\n\nThe problem is knowledge, not budget. No bootcamp teaches MSO conditional comments. No web development course covers Gmail clipping limits or Outlook's Word rendering engine. You're expected to just... figure it out.\n\nSo I decided to build what I needed.\n\n \n \n How MailViewr Started\n\nThe idea was simple: give developers a tool to test HTML emails properly before sending them.\n\nMost email preview tools just render HTML in a browser—which tells you almost nothing about real client behavior. Instead, I built MailViewr around real email client rendering rules, continuously updated as clients evolve.\n\n \n \n A Real Technical Problem I Hit\n\nLet me give you a concrete example of the kind of thing that drove me to build this.\n\nI had a campaign email with a two-column layout. Beautiful in Figma. Responsive flexbox in the code. It looked perfect in Chrome, Firefox, and my email client.\n\nThen it went out. And in Outlook? Total disaster. The columns collapsed into a single line. The spacing was wrong. The background color on one section disappeared entirely.\n\nThe culprit: Outlook doesn't support flexbox or even some basic CSS properties.\n\nHere's what I learned to do:\n\n<!-- Instead of flexbox, use nested tables for layout -->\n<table role=\"presentation\" width=\"100%\">\n <tr>\n <td width=\"50%\" style=\"padding: 20px; background: #f5f5f5;\">\n Column 1\n </td>\n <td width=\"50%\" style=\"padding: 20px; background: #ffffff;\">\n Column 2\n </td>\n </tr>\n</table>\n\n<!-- Use MSO (Microsoft Office) conditional comments for Outlook-specific fixes -->\n<!--[if mso]>\n <style>\n .hide-mobile { display: block !important; }\n </style>\n<![endif]-->\n\n<!-- Inline all critical CSS, don't rely on <style> blocks -->\n<p style=\"font-family: Arial, sans-serif; color: #333; line-height: 1.6;\">\n This will work everywhere.\n</p>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe lesson: Email requires defensive CSS. You can't use modern techniques because you're building for clients from 2003 (Outlook) and custom rendering engines (Gmail). You build in layers: tables for layout, inline styles as baseline, then progressive enhancement with CSS that won't break if stripped.\n\nThis is why testing across clients isn't optional—it's how you discover what actually works.\n\n \n \n The Impact I've Seen\n\nSince launching, I've watched developers catch Outlook rendering issues before sending to 500 subscribers. I've seen freelancers save countless hours of trial-and-error testing. I've seen non-technical team members build professional emails without touching code.\n\nThe comments I get are always the same: \"I thought I was crazy. I thought I was bad at HTML because my email looked broken in Outlook.\" No—you're not bad at HTML. Email development is just a completely different discipline.\n\n \n \n What's Next\n\nWe're continuously expanding client coverage and improving compatibility detection. The goal is to make email testing something developers don't have to be afraid of.\n\n \n \n In Closing\n\nIf you've been handed an email task and felt lost—you're not bad at HTML. Email development is just fundamentally different from web development. It requires different knowledge, different techniques, and frankly, better tools.\n\nIf this resonates with you, or if you've got your own email disaster story, I'd genuinely love to hear it in the comments. Those conversations are what push me to keep building.\n\nFeel free to check out mailviewr.com if you're curious. Use it, don't use it—the goal was to build something useful, and hearing that it actually helps developers is reward enough.\n\nWhat's your worst email rendering nightmare? Drop it below—I want to know I'm not alone in this.\n\nMailViewr is free, no account required, because the tool exists specifically to solve a problem that shouldn't require a subscription.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "apple mail",
+      "build",
+      "chrome",
+      "client",
+      "css",
+      "dev",
+      "developer",
+      "email",
+      "emaildev",
+      "firefox",
+      "html",
+      "mailviewr",
+      "microsoft",
+      "outlook",
+      "rendering",
+      "see",
+      "send",
+      "showdev",
+      "slack",
+      "test",
+      "tooling"
+    ],
+    [
+      "emaildev",
+      "showdev",
+      "tooling"
+    ]
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": 8355,
+  "source": "DEV Community<",
+  "title": "How to Use rs-trafilatura with Scrapy",
+  "url": "https://dev.to/murroughfoley/how-to-use-rs-trafilatura-with-scrapy-1i9b",
+  "published_at": "2026-04-03T14:23:44Z",
+  "fetched_at": "2026-04-03T15:00:38.001480+00:00",
+  "author": "Murrough Foley",
+  "summary": "<p><a href=\"https://scrapy.org\" rel=\"noopener noreferrer\">Scrapy</a> is the standard Python framework for web scraping. It handles crawling, scheduling, and data pipelines. rs-trafilatura plugs into Scrapy as an item pipeline — your spider yields items with HTML, and the pipeline adds structured extraction results automatically.</p>\n\n<h2>\n  \n  \n  Install\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>pip <span class=\"nb\">install </span>rs-trafilatura scrapy\n</code></pre>\n\n</div>\n\n\n\n<h2>\n  \n  \n  Setup\n</h2>\n\n<p>Add the pipeline to your Scrapy project's <code>settings.py</code>:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight python\"><code><span class=\"n\">ITEM_PIPELINES</span> <span class=\"o\">=</span> <span class=\"p\">{</span>\n    <span class=\"sh\">\"</span><span class=\"s\">rs_trafilatura.scrapy.RsTrafilaturaPipeline</span><span class=\"sh\">\"</span><span class=\"p\">:</span> <span class=\"mi\">300</span><span class=\"p\">,</span>\n<s",
+  "full_text": "Scrapy is the standard Python framework for web scraping. It handles crawling, scheduling, and data pipelines. rs-trafilatura plugs into Scrapy as an item pipeline — your spider yields items with HTML, and the pipeline adds structured extraction results automatically.\n\n \n \n Install\n\npip install rs-trafilatura scrapy\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Setup\n\nAdd the pipeline to your Scrapy project's settings.py:\n\nITEM_PIPELINES = {\n \"rs_trafilatura.scrapy.RsTrafilaturaPipeline\": 300,\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. Every item that passes through the pipeline with a body (bytes) or html (string) field will get an extraction dict added to it.\n\n \n \n Writing the Spider\n\nYour spider yields items with the response body and URL:\n\nimport scrapy\n\nclass ContentSpider(scrapy.Spider):\n name = \"content\"\n start_urls = [\"https://example.com\"]\n\n def parse(self, response):\n yield {\n \"url\": response.url,\n \"body\": response.body, # raw bytes — rs-trafilatura auto-detects encoding\n }\n\n # Follow links\n for href in response.css(\"a::attr(href)\").getall():\n yield response.follow(href, self.parse)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe pipeline picks up body (bytes) or html (string). When it finds one, it runs extraction and adds the results under item[\"extraction\"].\n\n \n \n What the Pipeline Adds\n\nEach processed item gets an extraction dict:\n\n{\n \"url\": \"https://example.com/blog/post\",\n \"body\": b\"<html>...\",\n \"extraction\": {\n \"title\": \"Blog Post Title\",\n \"author\": \"John Doe\",\n \"date\": \"2026-01-15T00:00:00+00:00\",\n \"main_content\": \"The full extracted text...\",\n \"content_markdown\": \"# Blog Post Title\\n\\nThe full extracted text...\",\n \"page_type\": \"article\",\n \"extraction_quality\": 0.95,\n \"language\": \"en\",\n \"sitename\": \"Example Blog\",\n \"description\": \"A blog post about...\",\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Enabling Markdown Output\n\nAdd to settings.py:\n\nRS_TRAFILATURA_MARKDOWN = True\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis populates item[\"extraction\"][\"content_markdown\"] with GitHub Flavored Markdown.\n\n \n \n Filtering by Page Type\n\nThe page type classification lets you route items differently based on what kind of page they are:\n\nclass ContentSpider(scrapy.Spider):\n name = \"content\"\n start_urls = [\"https://example.com\"]\n\n custom_settings = {\n \"ITEM_PIPELINES\": {\n \"rs_trafilatura.scrapy.RsTrafilaturaPipeline\": 300,\n \"myproject.pipelines.PageTypeRouter\": 400,\n },\n }\n\n def parse(self, response):\n yield {\"url\": response.url, \"body\": response.body}\n for href in response.css(\"a::attr(href)\").getall():\n yield response.follow(href, self.parse)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n# myproject/pipelines.py\nclass PageTypeRouter:\n def process_item(self, item, spider):\n ext = item.get(\"extraction\", {})\n page_type = ext.get(\"page_type\", \"article\")\n\n if page_type == \"product\":\n # Save to products table\n save_product(item)\n elif page_type == \"forum\":\n # Save to discussions table\n save_forum_post(item)\n elif page_type == \"article\":\n # Save to articles table\n save_article(item)\n else:\n # Default handling\n save_generic(item)\n\n return item\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Filtering by Extraction Quality\n\nDrop items where extraction quality is low:\n\nclass QualityFilter:\n def process_item(self, item, spider):\n ext = item.get(\"extraction\", {})\n quality = ext.get(\"extraction_quality\", 0)\n\n if quality < 0.5:\n raise scrapy.exceptions.DropItem(\n f\"Low extraction quality ({quality:.2f}): {item['url']}\"\n )\n\n return item\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAdd it before the router:\n\nITEM_PIPELINES = {\n \"rs_trafilatura.scrapy.RsTrafilaturaPipeline\": 300,\n \"myproject.pipelines.QualityFilter\": 350,\n \"myproject.pipelines.PageTypeRouter\": 400,\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Exporting to JSON Lines\n\nScrapy's built-in feed exports work out of the box:\n\nscrapy crawl content -o output.jsonl\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEach line in output.jsonl will contain the full item including the extraction dict. You can then process it with any tool that reads JSON Lines.\n\n \n \n Performance\n\nrs-trafilatura extracts in ~44ms per page via compiled Rust (PyO3, no subprocess). On a typical Scrapy crawl, extraction adds negligible overhead compared to network latency. The pipeline processes items synchronously in the Scrapy reactor thread, but since extraction is CPU-bound and fast, it doesn't block the download pipeline.\n\nFor very high-throughput crawls (1000+ pages/second), consider running extraction in a separate process and communicating via Scrapy's item pipeline.\n\n \n \n Items Without HTML\n\nIf an item doesn't have body or html, the pipeline passes it through unchanged:\n\n# This item has no HTML — pipeline ignores it\nyield {\"url\": response.url, \"custom_data\": \"something\"}\n# → No \"extraction\" key added, item passes through as-is\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Links",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "cpu",
+      "dropitem",
+      "enter",
+      "exit",
+      "extraction",
+      "filtering",
+      "fullscreen",
+      "html",
+      "item",
+      "mode",
+      "output.jsonl",
+      "page type",
+      "pipeline",
+      "quality",
+      "rust",
+      "scrapy",
+      "scrapy scrapy",
+      "webcontentextraction",
+      "yield"
+    ],
+    [
+      "webcontentextraction"
+    ]
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 8452,
+  "source": "DEV Community<",
+  "title": "You’ll Never Forget OOPS Relationships Again",
+  "url": "https://dev.to/kirazxnxth/youll-never-forget-oops-relationships-again-ng7",
+  "published_at": "2026-04-03T20:42:53Z",
+  "fetched_at": "2026-04-03T21:00:17.620932+00:00",
+  "author": "Kira Zenith",
+  "summary": "<blockquote>\n<p>Every strong system you build starts with strong fundamentals.</p>\n</blockquote>\n\n<p>Most people read these concepts. Few actually remember them in interviews.</p>\n\n<p>Here’s the simplest way to lock them in forever 👇</p>\n\n\n\n\n<h2>\n  \n  \n  1. Association — “Just knowing each other”\n</h2>\n\n<p><strong>Two objects are related, but can exist independently.</strong></p>\n\n<p><strong>Example:</strong><br />\nA Teacher and a Student</p>\n\n<p>A teacher teaches students<br />\nBoth can exist without each other</p>\n\n<p><strong>Memory trick:</strong><br />\nPeople in the same WhatsApp group</p>\n\n\n\n\n<h2>\n  \n  \n  2. Aggregation — “Has-a (loose ownership)”\n</h2>\n\n<p><strong>One object contains another, but they can still live separately.</strong></p>\n\n<p><strong>Example:</strong><br />\nA Team has Players</p>\n\n<p>If the team is deleted, players still exist</p>\n\n<p><strong>Memory trick:</strong><br />\nCompany hires employees (they can resign)</p>\n\n\n\n\n<h2>\n  \n  \n  3. Composition — “Has-a (str",
+  "full_text": "Every strong system you build starts with strong fundamentals.\n\nMost people read these concepts. Few actually remember them in interviews.\n\nHere’s the simplest way to lock them in forever 👇\n\n \n \n 1. Association — “Just knowing each other”\n\nTwo objects are related, but can exist independently.\n\nExample:\n\nA Teacher and a Student\n\nA teacher teaches students\n\nBoth can exist without each other\n\nMemory trick:\n\nPeople in the same WhatsApp group\n\n \n \n 2. Aggregation — “Has-a (loose ownership)”\n\nOne object contains another, but they can still live separately.\n\nExample:\n\nA Team has Players\n\nIf the team is deleted, players still exist\n\nMemory trick:\n\nCompany hires employees (they can resign)\n\n \n \n 3. Composition — “Has-a (strong ownership)”\n\nOne object completely owns another. If parent dies, child dies.\n\nExample:\n\nA House has Rooms\n\nDestroy the house → rooms are gone\n\nMemory trick:\n\nHuman body → organs\n\n \n \n 4. Inheritance — “Is-a relationship”\n\nOne class inherits properties/behavior from another.\n\nExample:\n\nA Dog is an Animal\n\nDog gets all common animal traits\n\nMemory trick:\n\nChild inherits traits from parents\n\n \n \n Quick Sheet\n\nAssociation → uses\n\nAggregation → has (weak)\n\nComposition → has (strong)\n\nInheritance → is\n\n \n \n Interview Hack\n\nCan child exist without parent?\n→ YES → Aggregation\n→ NO → Composition\n\nIs it “is-a”?\n→ YES → Inheritance\n\nOtherwise?\n→ Association\n\n \n \n And About Cracking Big Companies...\n\nInterviews don’t test memory, they test clarity — this is your edge. So Today it’s OOP relationships — tomorrow it’s cracking your dream job 🚀",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "aggregation",
+      "architecture",
+      "association",
+      "career",
+      "composition",
+      "crack",
+      "exist",
+      "house",
+      "inherit",
+      "inheritance",
+      "interview hack\n\ncan",
+      "interviews",
+      "memory",
+      "object",
+      "productivity",
+      "programming",
+      "quick sheet\n\nassociation",
+      "rooms\n\ndestroy",
+      "teacher",
+      "whatsapp"
+    ],
+    [
+      "architecture",
+      "career",
+      "productivity",
+      "programming"
+    ]
+  ]
+}

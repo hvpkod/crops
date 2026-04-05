@@ -1,0 +1,35 @@
+{
+  "id": 8341,
+  "source": "Hacker News",
+  "title": "Big-Endian Testing with QEMU",
+  "url": "https://www.hanshq.net/big-endian-qemu.html",
+  "published_at": "2026-04-03T13:28:58Z",
+  "fetched_at": "2026-04-03T14:40:37.854799+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47626462\">Comments</a>",
+  "full_text": "In computing, the terms big endian and little endian refer to the order in which a value's bytes are stored in memory: with the most significant (big) or least significant (little) part first.\n\nFor example, the hexadecimal value 0x12345678 consists of four bytes. If we instruct a computer to store it at some memory address mem, the computer's endianness determines whether the least significant byte (0x78) or the most significant byte (0x12) gets stored at the first memory address, mem[0].\n\nAccording to Wikipedia, this terminology is borrowed from the book Gulliver's Travels which tells of a conflict between those who break boiled eggs at the larger end (the Big-Endians) and the smaller end (the Little-Endians).\n\nSome processor architectures support both modes, but most modern personal computers and smartphones are little-endian systems. (Intel x86_64 or ARM AArch64.)\n\nWhen programming, it is still important to write code that runs correctly on systems with either byte order (see for example The byte order fallacy). But without access to a big-endian machine, how does one test it?\n QEMU provides a convenient solution. With its user mode emulation we can easily run a binary on an emulated big-endian system, and we can use GCC to cross-compile to that system.\n\nThis program (endian.c) shows the effect of the byte order:\n\n#include <stdint.h>\n#include <stdio.h>\n\nint main(void)\n{\n uint32_t x = 0x12345678;\n int i;\n\n for (i = 0; i < sizeof(x); i++) {\n printf(\"mem[%d] = 0x%02x\\n\", i, ((char*)&x)[i]);\n }\n\n return 0;\n}\n\nOn my little-endian Linux machine it runs like this:\n\n$ gcc endian.c && ./a.out\nmem[0] = 0x78\nmem[1] = 0x56\nmem[2] = 0x34\nmem[3] = 0x12\n\nMIPS is a big-endian architecture. On a Debian system, we can install QEMU user mode emulation and GCC for MIPS like this:\n\n$ sudo apt-get install qemu-user gcc-mips-linux-gnu\n\nand build and run the same program:\n\n$ mips-linux-gnu-gcc -static endian.c && qemu-mips a.out\nmem[0] = 0x12\nmem[1] = 0x34\nmem[2] = 0x56\nmem[3] = 0x78\n\nNow we see the value stored in big-endian order!\n\nWe can get even more exotic, targeting IBM z/Architecture (s390x) which is also big-endian:\n\n$ sudo apt-get install gcc-s390x-linux-gnu\n$ s390x-linux-gnu-gcc -static endian.c && qemu-s390x a.out\nmem[0] = 0x12\nmem[1] = 0x34\nmem[2] = 0x56\nmem[3] = 0x78\n\nPretty neat!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "big-endian testing",
+      "byte",
+      "emulation",
+      "endian",
+      "gcc",
+      "gulliver",
+      "install",
+      "mips",
+      "order",
+      "qemu",
+      "significant",
+      "store",
+      "sudo",
+      "the big-endians",
+      "the little-endians",
+      "travels",
+      "wikipedia"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": 8312,
+  "source": "DEV Community<",
+  "title": "Gemma 4 VRAM Requirements: The hardware guide I wish I had",
+  "url": "https://dev.to/geek_/gemma-4-vram-requirements-the-hardware-guide-i-wish-i-had-3plo",
+  "published_at": "2026-04-03T10:56:58Z",
+  "fetched_at": "2026-04-03T12:00:42.603323+00:00",
+  "author": "GEEK",
+  "summary": "<p>Running Gemma 4 locally is amazing, but hardware mismatch is the #1 reason for a bad experience.</p>\n\n<p>I've compiled a practical guide for the different Gemma 4 tiers based on real-world VRAM usage:</p>\n\n<ul>\n<li>E2B / E4B : Perfect for 8GB RAM laptops and workflow validation.</li>\n<li>26B A4B : The sweet spot for 16GB-24GB GPU users.</li>\n<li>31B : For those who need reasoning quality on 24GB+ hardware.\nCheck out the full breakdown and the Ollama setup guide here: <a href=\"https://gemma4guide.com/\" rel=\"noopener noreferrer\">Gemma4Guide</a>\n</li>\n</ul>\n\n<p>I also included specific optimizations for Apple Silicon (M1-M4) unified memory. What are you running Gemma 4 on? Let's discuss in the comments!</p>",
+  "full_text": "Running Gemma 4 locally is amazing, but hardware mismatch is the #1 reason for a bad experience.\n\nI've compiled a practical guide for the different Gemma 4 tiers based on real-world VRAM usage:\n\nE2B / E4B : Perfect for 8GB RAM laptops and workflow validation.\n\n26B A4B : The sweet spot for 16GB-24GB GPU users.\n\n31B : For those who need reasoning quality on 24GB+ hardware.\nCheck out the full breakdown and the Ollama setup guide here: Gemma4Guide\n\nI also included specific optimizations for Apple Silicon (M1-M4) unified memory. What are you running Gemma 4 on? Let's discuss in the comments!",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "apple silicon",
+      "base",
+      "compile",
+      "discuss",
+      "gemma",
+      "gemma4",
+      "guide",
+      "hardware",
+      "include",
+      "llm",
+      "mismatch",
+      "ollama",
+      "run",
+      "tutorial",
+      "vram"
+    ],
+    [
+      "discuss",
+      "gemma4",
+      "tutorial"
+    ]
+  ]
+}

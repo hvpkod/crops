@@ -1,0 +1,33 @@
+{
+  "id": 8358,
+  "source": "Slashdot",
+  "title": "Perplexity's 'Incognito Mode' Is a 'Sham,' Lawsuit Says",
+  "url": "https://yro.slashdot.org/story/26/04/03/0124202/perplexitys-incognito-mode-is-a-sham-lawsuit-says?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-03T15:00:00Z",
+  "fetched_at": "2026-04-03T15:20:23.789695+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from Ars Technica: Perplexity's AI search engine encourages users to go deeper with their prompts by engaging in chat sessions that a lawsuit has alleged are often shared in their entirety with Google and Meta without users' knowledge or consent. \"This happened to every user regardless of whether or not they signed up for a Perplexity account,\" the lawsuit alleged, while stressing that \"enormous volumes of sensitive information from both subscribed and non-subscribed users\" are shared.\n \nUsing developer tools, the lawsuit found that opening prompts are always shared, as are any follow-up questions the search engine asks that a user clicks on. Privacy concerns are seemingly worse for non-subscribed users, the complaint alleged. Their initial prompts are shared with \"a URL through which the entire conversation may be accessed by third parties like Meta and Google.\" Disturbingly, the lawsuit alleged, chats are also shared with personally identifiable in",
+  "full_text": "An anonymous reader quotes a report from Ars Technica: Perplexity's AI search engine encourages users to go deeper with their prompts by engaging in chat sessions that a lawsuit has alleged are often shared in their entirety with Google and Meta without users' knowledge or consent. \"This happened to every user regardless of whether or not they signed up for a Perplexity account,\" the lawsuit alleged, while stressing that \"enormous volumes of sensitive information from both subscribed and non-subscribed users\" are shared.\n\n \n\nUsing developer tools, the lawsuit found that opening prompts are always shared, as are any follow-up questions the search engine asks that a user clicks on. Privacy concerns are seemingly worse for non-subscribed users, the complaint alleged. Their initial prompts are shared with \"a URL through which the entire conversation may be accessed by third parties like Meta and Google.\" Disturbingly, the lawsuit alleged, chats are also shared with personally identifiable information (PII), even when users who want to stay anonymous opt to use Perplexity's \"Incognito Mode.\" That mode, the lawsuit charged, is a \"sham.\"\n\n \n\n\"'Incognito' mode does nothing to protect users from having their conversations shared with Meta and Google,\" the complaint said. \"Even paid users who turned on the 'Incognito' feature still had their conversations shared with Meta and Google, along with their email addresses and other identifiers that allowed Meta and Google to personally identify them.\"\n\n \"Perplexity's failure to inform its users that their personal information has been disclosed to Meta and Google or to take any steps to halt the continued disclosure of users' information is malicious, oppressive, and in reckless disregard\" of users' rights, the lawsuit alleged.\n \n\n\"Nothing on Perplexity's website warns users that their conversations with its AI Machine will be shared with Meta and Google,\" Doe alleged. \"Much less does Perplexity warn subscribed users that its 'Incognito Mode' does not function to protect users' private conversations from disclosure to companies like Meta and Google.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai machine",
+      "complaint",
+      "conversation",
+      "court",
+      "google",
+      "information",
+      "lawsuit",
+      "meta",
+      "perplexity",
+      "personally",
+      "pii",
+      "prompt",
+      "share",
+      "subscribe",
+      "user"
+    ],
+    []
+  ]
+}

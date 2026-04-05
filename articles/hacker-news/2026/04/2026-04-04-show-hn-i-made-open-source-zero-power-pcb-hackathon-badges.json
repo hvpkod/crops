@@ -1,0 +1,37 @@
+{
+  "id": 8727,
+  "source": "Hacker News",
+  "title": "Show HN: I made open source, zero power PCB hackathon badges",
+  "url": "https://github.com/KaiPereira/Overglade-Badges",
+  "published_at": "2026-04-04T14:20:21Z",
+  "fetched_at": "2026-04-04T22:40:26.335924+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47639303\">Comments</a>",
+  "full_text": "Overglade Hackathon Badges\n\nThese are zero-power hackathon badges I designed for the overglade hackathon in singapore! They're powered by the RP2040 and have passive NFC and an onboard e-ink driver!\n\nPassive NFC tap for whatever your heart desires\n\nE-ink support so that you don't need any battery\n\n20 GPIO's broken out onto header pins for programming\n\nActive NFC mode if you want to do some more complicated stuff\n\nZero power, the board needs no power for it's core features\n\nRP2040 SoC with 4MB flash memory\n\nCool PCB and exposed copper art\n\nThe PCB is a simple, 2 layer board with ground fills on each layer. I also CAD'ed the shapes and art of the board to make sure everything was perfectly symmetrical!\n\nThe board is really easy to setup! Just plug it into your computer via USB-C, drop in the Pi Pico micropython bootloader and then upload the firmware using Thonny to the devboard!\n\nYou can modify the config.json to add your own personal details, and change the images by replacing the bitmaps (I like to use Magick for this)!\n\nThe boards are really easy to get manufactured if you'd like to have some of your own! They're much cheaper to order in bulk, at about less than $5/board and another $5 for the e-ink, but getting at MOQ will cost about $100 for 5 with PCBA (hand soldering is probably significantly cheaper though).\n\nI used JLC to PCBA my boards, you can just drag and drop the gerbers.zip, and then use the JLC BOM and designators/CPL all in the productions folder. Some of the part orientations might be off, so make sure you correct those!\n\nThese were badges for the overglade hackathon in singapore, a HackClub event for highschoolers!\n\nThanks to the whole overglade team for their hard work in putting the event together, and thanks to @nimitvijayvargee and @mpkendall for helping with firmware - @joysudo, @froppii and @mynameisashllee for helping with the art!\n\nKeep on hacking o7",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "badge",
+      "board",
+      "firmware",
+      "gpio",
+      "hackathon",
+      "help",
+      "kaipereira/overglade-badges",
+      "magick",
+      "moq",
+      "nfc",
+      "overglade",
+      "passive",
+      "pcb",
+      "pcba",
+      "pi pico",
+      "singapore",
+      "sure",
+      "thank",
+      "usb-c"
+    ],
+    []
+  ]
+}

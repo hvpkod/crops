@@ -1,0 +1,37 @@
+{
+  "id": 8552,
+  "source": "Slashdot",
+  "title": "'AI' Is Coming For Your Online Gaming Servers Next",
+  "url": "https://games.slashdot.org/story/26/04/03/2024233/ai-is-coming-for-your-online-gaming-servers-next?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-04T03:30:00Z",
+  "fetched_at": "2026-04-04T04:40:40.698023+00:00",
+  "author": "BeauHD",
+  "summary": "\"Consumer PC parts aren't the only things being gobbled up by the 'AI' industry,\" writes PCWorld's Michael Crider. \"A Starcraft-inspired strategy game is shutting down its multiplayer servers because the hosting company got bought out for 'AI.'\" The game will still be playable offline for now, but the shutdown highlights the ripple effects of the AI boom on the gaming industry. Amid the ongoing hardware shortages, AI companies are basically gobbling up as much infrastructure as they can to repurpose it for AI workloads. From the report: The game in question is Stormgate, a crowdfunded revival of the real-time strategy genre that has languished in the last decade or so. The developer Frost Giant Studios told its players on Discord (spotted by PC Gamer) that it would be unable to continue multiplayer access past the end of this month. The \"game server orchestration partner\" was bought by an AI company -- the developer's words, not mine -- which means that the multiplayer aspects of the g",
+  "full_text": "\"Consumer PC parts aren't the only things being gobbled up by the 'AI' industry,\" writes PCWorld's Michael Crider. \"A Starcraft-inspired strategy game is shutting down its multiplayer servers because the hosting company got bought out for 'AI\n\n.'\" The game will still be playable offline for now, but the shutdown highlights the ripple effects of the AI boom on the gaming industry. Amid the ongoing hardware shortages\n\n, AI companies are basically gobbling up as much infrastructure as they can to repurpose it for AI workloads. From the report: The game in question is Stormgate, a crowdfunded revival of the real-time strategy genre that has languished in the last decade or so. The developer Frost Giant Studios told its players on Discord (spotted by PC Gamer) that it would be unable to continue multiplayer access past the end of this month. The \"game server orchestration partner\" was bought by an AI company -- the developer's words, not mine -- which means that the multiplayer aspects of the game will have a \"planned outage.\"\n\n \n\nThe devs say the game will be patched for offline play, presumably including its single-player campaign mode and co-op modes, but \"online modes will not be available at that point.\" They're hoping to bring back online play in a later update, but that'll depend on \"finding a partner to support ongoing operations.\" That sounds like old-fashioned player-hosted games with lobbies aren't in the cards, at least not yet.\n\n \n\nFrost Giant's server provider is Hathora, which was bought by a company called Fireworks AI last month. Fireworks describes its offerings as \"open-source AI models at blazing speed, optimized for your use case, scaled globally with the Fireworks Inference Cloud.\" So, yeah, Hathora's infrastructure will likely be used for yet more generative \"AI.\" And according to GamesBeat, it's planning to shut down the game service aspect of its company completely. That means Stormgate probably isn't going to be the last game affected. Hathora also provides online services for Splitgate 2, among others. I'm contacting Hathora for comment and will update this story if I receive a response.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "aspect",
+      "buy",
+      "discord",
+      "fireworks",
+      "frost",
+      "frost giant studios",
+      "game",
+      "gamesbeat",
+      "gaming",
+      "hathora",
+      "multiplayer",
+      "ongoing",
+      "pcworld",
+      "server",
+      "starcraft",
+      "stormgate"
+    ],
+    [
+      "gaming"
+    ]
+  ]
+}

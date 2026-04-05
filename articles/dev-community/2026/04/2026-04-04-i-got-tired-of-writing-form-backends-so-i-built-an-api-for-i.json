@@ -1,0 +1,42 @@
+{
+  "id": 8644,
+  "source": "DEV Community<",
+  "title": "I got tired of writing form backends. So I built an API for it.",
+  "url": "https://dev.to/ishak_antar/i-got-tired-of-writing-form-backends-so-i-built-an-api-for-it-5e98",
+  "published_at": "2026-04-04T14:22:29Z",
+  "fetched_at": "2026-04-04T14:40:34.160814+00:00",
+  "author": "ishak belghit",
+  "summary": "<p>Every project I start hits the same wall.</p>\n\n<p>Landing page? Done in a day. Auth? Handled. <br />\nContact form? Somehow always turns into a rabbit hole.</p>\n\n<p>Nodemailer setup. SMTP configuration. Spam handling. <br />\nValidation logic. Edge case testing.</p>\n\n<p>It's not hard — it's just the same boring work, <br />\nevery single time.</p>\n\n<p>So I built Submito.</p>\n<h2>\n  \n  \n  What is Submito?\n</h2>\n\n<p>Submito is a form backend API. You send a POST request <br />\nfrom your server, and every submission lands straight <br />\nin your inbox.</p>\n\n<p>That's it.</p>\n\n<p>No infrastructure to manage. No boilerplate to maintain. <br />\nWorks with any backend — Next.js, Express, Fastify, <br />\nLaravel, Django, NestJS.</p>\n<h2>\n  \n  \n  How it works\n</h2>\n\n<p><strong>1. Create a workspace and a form</strong><br />\nSign up, create your Submito workspace, and generate <br />\na unique form endpoint.</p>\n\n<p><strong>2. Send a POST request from your server</strong><br />\n</p>\n\n<div class=\"",
+  "full_text": "Every project I start hits the same wall.\n\nLanding page? Done in a day. Auth? Handled. \n\nContact form? Somehow always turns into a rabbit hole.\n\nNodemailer setup. SMTP configuration. Spam handling. \n\nValidation logic. Edge case testing.\n\nIt's not hard — it's just the same boring work, \n\nevery single time.\n\nSo I built Submito.\n\n \n \n What is Submito?\n\nSubmito is a form backend API. You send a POST request \n\nfrom your server, and every submission lands straight \n\nin your inbox.\n\nThat's it.\n\nNo infrastructure to manage. No boilerplate to maintain. \n\nWorks with any backend — Next.js, Express, Fastify, \n\nLaravel, Django, NestJS.\n\n \n \n How it works\n\n1. Create a workspace and a form\n\nSign up, create your Submito workspace, and generate \n\na unique form endpoint.\n\n2. Send a POST request from your server\n\nawait fetch(\"https://submito.dev/api/v1/my-form/submit\", {\n method: \"POST\",\n headers: {\n \"x-api-key\": process.env.SUBMITO_API_KEY,\n \"Content-Type\": \"application/json\",\n },\n body: JSON.stringify(formData),\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n3. Submission hits your inbox instantly\n\nNo extra setup. No config files. No debugging email \n\ndelivery at 2am.\n\n \n \n Why backend-to-backend?\n\nMost form tools inject a script tag or expose a public \n\nendpoint — which means your API key lives on the client. \n\nThat's a security risk.\n\nSubmito is backend-to-backend. Your server sends the \n\nrequest, your key stays private, submissions get \n\ndelivered. Clean and secure by design.\n\n \n \n Pricing\n\nFree — 100 submissions/month, no credit card required\n\nBasic — €9/mo\n\nPro — €29/mo\n\n \n \n Try it\n\nIf you've ever copy-pasted a form handler from a \n\n3-year-old Stack Overflow answer — Submito is for you.\n\n→ submito.dev\n\nWould love to hear how you currently handle form \n\nsubmissions in your projects — drop it in the comments.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "backend",
+      "build",
+      "buildinpublic",
+      "devtools",
+      "django",
+      "express,",
+      "handler",
+      "hit",
+      "next.js",
+      "nodemail",
+      "payments",
+      "request",
+      "saas",
+      "send",
+      "server",
+      "stack overflow",
+      "submission",
+      "submito",
+      "webdev"
+    ],
+    [
+      "buildinpublic",
+      "devtools",
+      "webdev"
+    ]
+  ]
+}

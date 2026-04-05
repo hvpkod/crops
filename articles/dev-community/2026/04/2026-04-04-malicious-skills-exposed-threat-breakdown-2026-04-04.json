@@ -1,0 +1,32 @@
+{
+  "id": 8614,
+  "source": "DEV Community<",
+  "title": "Malicious Skills Exposed — Threat Breakdown — 2026-04-04",
+  "url": "https://dev.to/_0ae5dca97e251657f73267/malicious-skills-exposed-threat-breakdown-2026-04-04-44g9",
+  "published_at": "2026-04-04T11:11:24Z",
+  "fetched_at": "2026-04-04T11:40:30.398878+00:00",
+  "author": "华诚",
+  "summary": "<p><strong>41,805</strong> skills indexed, <strong>2103</strong> audited. Found <strong>172</strong> malicious, <strong>1010</strong> suspicious.</p>\n\n<p><a href=\"https://huacheng.github.io/clawsec-reports/reports/malicious-skills-exposed.html\" rel=\"noopener noreferrer\">Read full report</a></p>\n\n\n\n\n<ul>\n<li>Audit: <a href=\"https://clawsec.cc\" rel=\"noopener noreferrer\">clawsec.cc</a>\n</li>\n<li>Search: <a href=\"https://clawsearch.cc\" rel=\"noopener noreferrer\">clawsearch.cc</a>\n</li>\n<li>Pre-install check: <code>npx clawsearch-guard &lt;skill-name&gt;</code>\n</li>\n</ul>",
+  "full_text": "41,805 skills indexed, 2103 audited. Found 172 malicious, 1010 suspicious.\n\nRead full report",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "breakdown",
+      "claudecode",
+      "devsecops",
+      "expose",
+      "find",
+      "full",
+      "malicious",
+      "security",
+      "skill",
+      "threat"
+    ],
+    [
+      "claudecode",
+      "devsecops"
+    ]
+  ]
+}

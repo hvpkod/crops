@@ -1,0 +1,38 @@
+{
+  "id": 8720,
+  "source": "Hacker News",
+  "title": "Iranian missile blitz takes down AWS data centers in Bahrain and Dubai",
+  "url": "https://www.tomshardware.com/tech-industry/iranian-missile-blitz-takes-down-aws-data-centers-in-bahrain-and-dubai-amazon-declares-hard-down-status-for-multiple-zones",
+  "published_at": "2026-04-04T18:23:55Z",
+  "fetched_at": "2026-04-04T21:20:18.341950+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47641788\">Comments</a>",
+  "full_text": "Iranian strikes on AWS data centers in Bahrain and Dubai have disrupted services that the company declared multiple zones in the region to have “hard down” status, meaning the affected areas are completely unavailable. According to Big Technology, AWS issued an internal memo stating that operations in the two data centers have been disrupted and that it's working to migrate affected clients' workloads to other regions. The Islamic Revolutionary Guard Corps (IRGC) has conducted strikes against AWS sites in the Middle East since the start of the war in early March.\n\nGo deeper with TH Premium: AI and data centers\n\n(Image credit: Microsoft)\n\n“These two regions continue to be impaired, and services should not expect to be operating with normal levels of redundancy and resiliency,” the internal memo said, according to Big Technology. “We are actively working to free and reserve as much capacity as possible in the region for customers, and services should be scaled to the minimal footprint required to support customer migration.”\n\nThe AWS sites in the Middle East each have three compute zones, with both data centers reporting “hard down” and “impaired but functioning” zones. More importantly, the company said in its internal communications, “We do not have a timeline for when DXB and BAH will return to normal operations.”Article continues below \n\nAmazon isn’t the only tech company that the ongoing conflict between the United States and Iran has directly hit. The Middle Eastern country has threatened to strike Nvidia, Microsoft, and others as early as the second week of March, after the alleged targeting of a Tehran bank that killed several employees. It has reiterated the threat at the start of April and even struck an Oracle data center later that week.\n\nHowever, while damage to data centers in the Middle East is concerning for the region, the global tech industry has bigger concerns. The regional war has disrupted the flow of oil and its derivatives, especially those that go through the Strait of Hormuz. These include aluminum, helium, and LNG — all of which are crucial in the semiconductor supply chain. And even if the war ends today, the damage to infrastructure could mean it takes months or even years for supplies to return to pre-war levels.\n\nFollow Tom's Hardware on Google News, or add us as a preferred source, to get our latest news, analysis, & reviews in your feeds.\n\nGet Tom's Hardware's best news and in-depth reviews, straight to your inbox.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "amazon",
+      "aws",
+      "bahrain",
+      "big technology",
+      "center",
+      "data",
+      "disrupt",
+      "dubai",
+      "dxb",
+      "east",
+      "internal",
+      "irgc",
+      "memo",
+      "microsoft",
+      "middle",
+      "region",
+      "strike",
+      "th premium: ai",
+      "the middle east",
+      "work"
+    ],
+    []
+  ]
+}
