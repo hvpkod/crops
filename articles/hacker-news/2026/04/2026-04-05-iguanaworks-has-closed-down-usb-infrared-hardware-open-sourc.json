@@ -1,0 +1,37 @@
+{
+  "id": 8847,
+  "source": "Hacker News",
+  "title": "Iguanaworks has closed down. USB Infrared hardware open source maker",
+  "url": "http://iguanaworks.net/products/usb-ir-transceiver.html",
+  "published_at": "2026-04-05T13:18:05Z",
+  "fetched_at": "2026-04-05T14:00:22.589515+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47649148\">Comments</a>",
+  "full_text": "USB device to send and receive IR: have your computer send IR signals to your DVR; receive IR signals from a remote control. Works under Linux and Windows. Our standard USB IR Transceiver can send and receive infra-red (IR) signals. It comes in 3 different variations. Common to all versions:\n\n \nReceive Standard 38 kHz IR Signals\n \nTransmit IR Codes at (25 – 125 kHz carrier frequency)\n \nUSB device works under Linux and Windows\n\nThe difference between the three version are how IR is transmitted and received:\n\n \nDual Socket: Contains two stereo 3.5mm jacks for connecting wired IR emitters (also called blasters). Each jack can control two independent transmit channels, enabling a total of 4 independent IR sending channels. To transmit IR using this device, you need one of our IR Emitters per channel. To use two channels per socket, you need a stereo->mono adapter. Device has one on-board receive unit.\n \nSocket Receive: One stereo 3.5mm jack for connecting wired IR emitters and one stereo 3.5mm jack for connecting a wired receiver.\n\nTransmit Channels\n\n \n \n Device Type\n Port A\n Port B\n \n \n \n \n Dual Socket\n Channels 1 & 2*\n Channels 3 & 4*\n \n \n Socket Receive\n Channels 1 & 2*\n Receive Socket\n \n \n\n* Channel only accessible with stereo->mono adapter Uses on-board LED Requires wired IR emitter\n\nReceive Channels\n\nDual Socket, Dual LED and Hybrid all have on-board IR receivers opposite USB connector.\n\nSocket Receive version does not have on-board IR receiver, but Port B accepts a wired IR receiver. Socket Receive cannot receive IR signals without a separate wired IR receiver.\n\nSpecs\n\n \nReceive standard 38kHz carrier IR signals used by most remotes\n \nTransmit IR with 10ft transmit range (depending on receiver) and 50° cone angle\n \nUSB device compatible with USB 1.1 and 2.0\n \nTransmit IR on up to 4 independent channels.\n \nUser adjustable transmission carrier frequency from 25kHz to 100kHz\n \nCompatible with LIRC and WinLIRC\n\nOverview\n\nOur USB IR Transmitter/Receiver is a standard USB device that can transmit and receive the infrared codes supported by LIRC (Linux only) and WinLIRC (Windows only). Combined with (Win)LIRC, this device can communicate with most home electronics, such as TVs, stereos, DVD players, receivers, and their associated remote controls. When used with MythTV, you can turn your computer into a TiVo-like media center. We can send and receive IR under Linux and Windows. We do not support MAC OS X, although there is an UNSUPPORTED MAC OS/X project. Decoding remote control commands is currently supported under Linux via LIRC and under Windows via WinLIRC. Our software, both binaries and source code, is available in the Downloads section and is licensed under the GPL. We happily accept patches to our code. We would like to extend the ability to decode remote control signals MAC OS/X either through LIRC or an alternative.\n\nAccessories",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "channel",
+      "device",
+      "downloads",
+      "dual",
+      "dvr",
+      "ir emitters",
+      "lirc",
+      "mac",
+      "mythtv",
+      "port b",
+      "receive",
+      "remote",
+      "signal",
+      "socket",
+      "transmit",
+      "usb",
+      "windows",
+      "winlirc\n\noverview",
+      "wire"
+    ],
+    []
+  ]
+}

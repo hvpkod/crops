@@ -1,0 +1,32 @@
+{
+  "id": 8968,
+  "source": "Slashdot",
+  "title": "Claude Code Leak Reveals a 'Stealth' Mode for GenAI Code Contributions - and a 'Frustration Words' Regex",
+  "url": "https://developers.slashdot.org/story/26/04/05/2339243/claude-code-leak-reveals-a-stealth-mode-for-genai-code-contributions---and-a-frustration-words-regex?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-05T23:41:00Z",
+  "fetched_at": "2026-04-06T00:40:25.148942+00:00",
+  "author": "EditorDavid",
+  "summary": "That leak of Claude Code's source code \"revealed \"all kinds of juicy details,\" writes PC World. \nThe more than 500,000 lines of code included: \n- An 'undercover mode' for Claude that allows it to make 'stealth' contributions to public code bases\n- An 'always-on' agent for Claude Code\n- A Tamagotchi-style 'Buddy' for Claude \n\n\"But one of the stranger bits discovered in the leak is that Claude Code is actively watching our chat messages for words and phrases &mdash; including f-bombs and other curses &mdash; that serve as signs of user frustration.\"\nSpecifically, Claude Code includes a file called \"userPromptKeywords.ts\" with a simple pattern-matching tool called regex, which sweeps each and every message submitted to Claude for certain text matches. In this particular case, the regex pattern is watching for \"wtf,\" \"wth,\" \"omfg,\" \"dumbass,\" \"horrible,\" \"awful,\" \"piece of &mdash; -\" (insert your favorite four-letter word for that one), \"f &mdash; you,\" \"screw this,\" \"this sucks,\" and seve",
+  "full_text": "That leak of Claude Code\n\n's source code \"revealed \"all kinds of juicy details,\" writes PC World\n\n. \n\nThe more than 500,000 lines of code included: \n\n- An 'undercover mode' for Claude that allows it to make 'stealth' contributions to public code bases\n\n- An 'always-on' agent for Claude Code\n\n- A Tamagotchi-style 'Buddy' for Claude \n\n\"But one of the stranger bits discovered in the leak is that Claude Code is actively watching our chat messages\n\n for words and phrases — including f-bombs and other curses — that serve as signs of user frustration.\"\nSpecifically, Claude Code includes a file called \"userPromptKeywords.ts\" with a simple pattern-matching tool called regex, which sweeps each and every message submitted to Claude for certain text matches. In this particular case, the regex pattern is watching for \"wtf,\" \"wth,\" \"omfg,\" \"dumbass,\" \"horrible,\" \"awful,\" \"piece of — -\" (insert your favorite four-letter word for that one), \"f — you,\" \"screw this,\" \"this sucks,\" and several other colorful metaphors... While the Claude Code leak revealed the existence of the \"frustration words\" regex, it doesn't give any indication of why Claude Code is scouring messages for these words or what it's doing with them.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "call",
+      "claude",
+      "claude code",
+      "code",
+      "contribution",
+      "juicy",
+      "leak",
+      "message",
+      "regex",
+      "watch",
+      "word"
+    ],
+    [
+      "ai"
+    ]
+  ]
+}

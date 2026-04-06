@@ -1,0 +1,36 @@
+{
+  "id": 8957,
+  "source": "DEV Community<",
+  "title": "How We Introduced Cortical Help Without Breaking the Site Experience",
+  "url": "https://dev.to/xandertaylor/how-we-introduced-cortical-help-without-breaking-the-site-experience-1j2e",
+  "published_at": "2026-04-05T23:22:24Z",
+  "fetched_at": "2026-04-05T23:40:23.013497+00:00",
+  "author": "Xander Taylor",
+  "summary": "<h1>\n  \n  \n  How We Introduced Cortical Help Without Breaking the Site Experience\n</h1>\n\n<p>When teams add AI chat to a website, the common failure mode is obvious: it feels bolted on.</p>\n\n<p>The visual style does not match.<br />\nThe language is generic.<br />\nThe placement interrupts core conversion flow.</p>\n\n<p>For Cortical Help, we wanted the opposite.</p>\n\n<h2>\n  \n  \n  The brief\n</h2>\n\n<p>The assistant should:</p>\n\n<ul>\n<li>feel native to the TIZZLE brand</li>\n<li>support visitors without hijacking the page</li>\n<li>stay useful for real pre-project questions</li>\n<li>work cleanly across light and dark theme contexts</li>\n</ul>\n\n<h2>\n  \n  \n  What we focused on\n</h2>\n\n<h2>\n  \n  \n  1) Brand alignment first\n</h2>\n\n<p>Instead of treating the assistant as a third-party widget, we designed it as part of the site language.</p>\n\n<p>That meant matching:</p>\n\n<ul>\n<li>typography</li>\n<li>spacing rhythm</li>\n<li>motion behavior</li>\n<li>interaction tone</li>\n</ul>\n\n<p>If a user opens suppor",
+  "full_text": "How We Introduced Cortical Help Without Breaking the Site Experience\n\nWhen teams add AI chat to a website, the common failure mode is obvious: it feels bolted on.\n\nThe visual style does not match.\n\nThe language is generic.\n\nThe placement interrupts core conversion flow.\n\nFor Cortical Help, we wanted the opposite.\n\n \n \n The brief\n\nThe assistant should:\n\nfeel native to the TIZZLE brand\n\nsupport visitors without hijacking the page\n\nstay useful for real pre-project questions\n\nwork cleanly across light and dark theme contexts\n\n \n \n What we focused on\n\n \n \n 1) Brand alignment first\n\nInstead of treating the assistant as a third-party widget, we designed it as part of the site language.\n\nThat meant matching:\n\ntypography\n\nspacing rhythm\n\nmotion behavior\n\ninteraction tone\n\nIf a user opens support, it should still feel like the same product system.\n\n \n \n 2) Placement that supports conversion\n\nCortical Help is available when users need context, but it does not compete with primary calls-to-action.\n\nThe goal is simple: make help available without creating interface noise.\n\n \n \n 3) Useful guidance, not chatbot theater\n\nMost AI assistants fail because they are wordy and vague.\n\nWe constrained responses toward practical outcomes:\n\nclarify service fit\n\nguide scope questions\n\nreduce friction before contact\n\nThat keeps the assistant aligned with business intent rather than novelty.\n\n \n \n 4) Production reliability\n\nEven lightweight assistant features need real deployment discipline.\n\nWe treated Cortical Help as part of the product surface, with the same standards for:\n\nenvironment setup\n\ngraceful failure behavior\n\nvisual consistency under theme changes\n\n \n \n What this changed\n\nCortical Help now acts as a low-friction support layer for visitors who need direction before committing to a call.\n\nIt does not replace human discovery.\n\nIt shortens the path to it.\n\n \n \n Final thought\n\nAI support works best when it is treated like product design, not a plugin install.\n\nThat is how we approached Cortical Help.\n\nExplore the full TIZZLE experience at tizzle.org",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "assistant",
+      "break",
+      "cortical",
+      "cortical help",
+      "help",
+      "introduce",
+      "placement",
+      "support",
+      "tizzle",
+      "treat",
+      "ux",
+      "visitor",
+      "webdev"
+    ],
+    [
+      "ai",
+      "ux",
+      "webdev"
+    ]
+  ]
+}

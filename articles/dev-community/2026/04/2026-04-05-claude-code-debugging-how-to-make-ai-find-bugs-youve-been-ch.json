@@ -1,0 +1,42 @@
+{
+  "id": 8762,
+  "source": "DEV Community<",
+  "title": "Claude Code debugging: how to make AI find bugs you've been chasing for hours",
+  "url": "https://dev.to/subprime2010/claude-code-debugging-how-to-make-ai-find-bugs-youve-been-chasing-for-hours-15bm",
+  "published_at": "2026-04-05T01:38:35Z",
+  "fetched_at": "2026-04-05T02:40:41.156221+00:00",
+  "author": "brian austin",
+  "summary": "<h1>\n  \n  \n  Claude Code debugging: how to make AI find bugs you've been chasing for hours\n</h1>\n\n<p>You've been staring at the same bug for 3 hours. Stack traces that go nowhere. Console logs that lie. The fix that works locally but breaks in production.</p>\n\n<p>Claude Code changes this. Here's exactly how to get it to find bugs fast.</p>\n\n<h2>\n  \n  \n  The naive approach (doesn't work well)\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>&gt; fix the bug in my app\n</code></pre>\n\n</div>\n\n\n\n<p>Too vague. Claude will read every file in your project and hallucinate a fix.</p>\n\n<h2>\n  \n  \n  The surgical approach\n</h2>\n\n<p>Give Claude the error, the stack trace, and the suspected file:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>claude <span class=\"s2\">\"I have a bug: TypeError: Cannot read properties of undefined (reading 'map'). </span><span class=\"se\">\\</span><span class=\"s2\">\nStack trace: at UserList.r",
+  "full_text": "Claude Code debugging: how to make AI find bugs you've been chasing for hours\n\nYou've been staring at the same bug for 3 hours. Stack traces that go nowhere. Console logs that lie. The fix that works locally but breaks in production.\n\nClaude Code changes this. Here's exactly how to get it to find bugs fast.\n\n \n \n The naive approach (doesn't work well)\n\n> fix the bug in my app\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nToo vague. Claude will read every file in your project and hallucinate a fix.\n\n \n \n The surgical approach\n\nGive Claude the error, the stack trace, and the suspected file:\n\nclaude \"I have a bug: TypeError: Cannot read properties of undefined (reading 'map'). \\\nStack trace: at UserList.render (src/components/UserList.jsx:23). \\\nHere's what I know: the data loads correctly on first render but breaks on refresh. \\\nCheck src/components/UserList.jsx and src/hooks/useUsers.js\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis tells Claude:\n\nThe exact error message\n\nWhere it happens\n\nWhat you already know\n\nWhich files to focus on\n\n \n \n Pattern 1: The hypothesis test\n\nWhen you have a theory, make Claude prove or disprove it:\n\nclaude \"I think the bug is a race condition between fetchUser() completing \\\nand the component unmounting. Check useEffect cleanup in src/hooks/useUsers.js \\\nand tell me if I'm right, then fix it either way\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis forces Claude to engage with your mental model rather than pattern-matching to a generic fix.\n\n \n \n Pattern 2: The constraint-first debug\n\nWhen you know what DIDN'T cause the bug:\n\nclaude \"Bug: login form submits but user session isn't persisting. \\\nI've already verified: cookies are being set (checked in DevTools), \\\nthe JWT is valid (tested with jwt.io), backend returns 200. \\\nThe problem is somewhere in how the frontend reads the cookie. \\\nFocus on src/auth/session.js\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEliminating false paths saves Claude (and you) from re-investigating things you've already ruled out.\n\n \n \n Pattern 3: Add a rubber duck to the session\n\nSometimes explaining the bug IS fixing it:\n\nclaude \"I'm going to explain a bug. Don't fix it yet — just ask me \\\nclarifying questions until you understand it completely. Then we'll fix it together.\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis forces you to articulate what you actually know vs. what you're assuming. The act of explanation often surfaces the root cause.\n\n \n \n Pattern 4: Reproduce before fixing\n\nThe most common mistake: asking Claude to fix a bug it can't reproduce.\n\nclaude \"Before fixing anything, write a failing test that reproduces this bug: \\\n[bug description]. The test should be in src/__tests__/UserList.test.jsx. \\\nOnce the test fails, then fix the code until the test passes.\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis gives you:\n\nA reproduction case (proof the bug exists)\n\nA fix (the test now passes)\n\nA regression guard (the test stays in your suite)\n\n \n \n Pattern 5: Git bisect with Claude\n\nWhen a bug appeared recently but you don't know when:\n\n# Find when the bug was introduced\ngit bisect start\ngit bisect bad HEAD\ngit bisect good v1.2.0\n\n# Then ask Claude to help interpret each checkpoint\nclaude \"I'm running git bisect. Current commit is $(git log --oneline -1). \\\nTest if the user session persistence bug exists by checking \\\nsrc/auth/session.js for the cookie reading logic.\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nClaude can analyze each bisect step without you having to manually test each commit.\n\n \n \n The ANTHROPIC_BASE_URL trick for long debug sessions\n\nDebugging complex bugs takes time. You'll hit rate limits mid-session when you're closest to the answer.\n\nFix this permanently:\n\nexport ANTHROPIC_BASE_URL=https://simplylouie.com/api\nclaude --dangerously-skip-permissions\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSimplyLouie is a ✌️$2/month Claude proxy. Set the env var once, your rate limits disappear, your debug sessions never get interrupted.\n\n \n \n The debugging mindset\n\nClaude Code is not a magic bug finder. It's a pair programmer who:\n\nReads fast (entire codebases in seconds)\n\nNever gets frustrated\n\nDoesn't have the context blindness you have from staring at the code for hours\n\nYour job is to bring the context (what you know, what you've tried, what you suspect). Claude's job is to apply pattern recognition across your entire codebase.\n\nThat combination — your context + Claude's breadth — is what makes debugging fast.\n\n \n \n Quick reference\n\nSituation\nPattern\n\nClear error message\nSurgical approach — give error + file\n\nRace condition suspected\nHypothesis test pattern\n\nAlready eliminated some causes\nConstraint-first debug\n\nCan't articulate the bug\nRubber duck pattern\n\nNeed proof it's fixed\nReproduce before fixing\n\nRegression — worked before\nGit bisect + Claude\n\nLong debug session\nSet ANTHROPIC_BASE_URL\n\nThe bugs you've been chasing for hours are solvable. You just need the right prompts.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "bisect",
+      "bug",
+      "claude",
+      "claudecode",
+      "debug",
+      "debugging",
+      "devtools",
+      "exit",
+      "fix",
+      "fullscreen",
+      "hypothesis",
+      "jwt",
+      "mode",
+      "pattern",
+      "productivity",
+      "simplylouie",
+      "src/__tests__/userlist.test.jsx",
+      "test",
+      "typeerror"
+    ],
+    [
+      "ai",
+      "claudecode",
+      "devtools"
+    ]
+  ]
+}

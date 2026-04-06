@@ -1,0 +1,41 @@
+{
+  "id": 8778,
+  "source": "DEV Community<",
+  "title": "My Claude Code Buddy Moved Into My MacBook's Notch and I Can't Stop Looking at It",
+  "url": "https://dev.to/krisying/my-claude-code-buddy-moved-into-my-macbooks-notch-and-i-cant-stop-looking-at-it-3d6e",
+  "published_at": "2026-04-05T05:13:26Z",
+  "fetched_at": "2026-04-05T05:40:21.444650+00:00",
+  "author": "KrisYing",
+  "summary": "<p>I'm literally losing productivity because I keep expanding my MacBook's notch to check on my AI buddy.</p>\n\n<p>Let me explain.</p>\n\n<h2>\n  \n  \n  It Started With a Problem\n</h2>\n\n<p>I run 5-8 Claude Code sessions simultaneously. Different projects, different terminals, total chaos. I was Alt-Tabbing like a maniac, missing permission requests, forgetting which session finished.</p>\n\n<p>Then I built <strong>CodeIsland</strong> and everything changed.</p>\n\n<h2>\n  \n  \n  Wait, Your Notch Does WHAT?\n</h2>\n\n<p>Yes. The MacBook notch. That ugly camera cutout everyone complained about. It's now the most useful part of my screen.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fraw.githubusercontent.com%2Fxmqywx%2FCodeIsland%2Fmain%2Fdocs%2Fscreenshots%2F01-workspace.png\"><img alt=\"Full workspace\" height=\"450\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=",
+  "full_text": "I'm literally losing productivity because I keep expanding my MacBook's notch to check on my AI buddy.\n\nLet me explain.\n\n \n \n It Started With a Problem\n\nI run 5-8 Claude Code sessions simultaneously. Different projects, different terminals, total chaos. I was Alt-Tabbing like a maniac, missing permission requests, forgetting which session finished.\n\nThen I built CodeIsland and everything changed.\n\n \n \n Wait, Your Notch Does WHAT?\n\nYes. The MacBook notch. That ugly camera cutout everyone complained about. It's now the most useful part of my screen.\n\nThis is my actual workflow. 8 Claude Code sessions. Zero Alt-Tab.\n\nSee that tiny green dot and pixel cat at the top? That's CodeIsland. It sits in the notch, watching all my Claude sessions. When I hover over it, it expands into a full control panel:\n\nEvery session at a glance. Color-coded terminals. Usage stats. And yes, that's my buddy in the corner.\n\n \n \n The Buddy Thing Hit Different\n\nOk here's where it gets ridiculous. You know Claude Code's /buddy feature? The little ASCII companion that grows with your usage?\n\nMine is a Legendary Octopus named Kris. PATIENCE stat maxed at 100. Look at this absolute unit:\n\n★★★★★ LEGENDARY. I didn't choose the octopus life.\n\nCodeIsland computes your buddy's stats using the exact same algorithm as Claude Code (Bun.hash + Mulberry32). Same species, same rarity, same stats. It even detects if you've patched your install with any-buddy.\n\nThe buddy floats in the bottom-right corner of the panel, doing idle animations. I catch myself just... watching it. This is a problem.\n\n \n \n But Actually It's Insanely Useful\n\nOk let me be serious for a second. Here's what blew my mind:\n\n \n \n 1. It Knows Which Terminal Tab I'm Looking At\n\nWhen a Claude session finishes, CodeIsland checks: \"Is the user already looking at this session's terminal?\" If yes, it doesn't popup. If you're in a different tab, it alerts you.\n\nThis works at the workspace level in cmux, session level in iTerm2, and window level in Ghostty. No more \"I KNOW, I'M LOOKING AT IT\" moments.\n\n \n \n 2. I Answer Claude's Questions From the Notch\n\nWhen Claude uses AskUserQuestion, the options appear as buttons right in the notch panel. I click \"Option A\" and it sends the answer directly to my terminal via cmux send. I don't even switch windows.\n\n \n \n 3. Usage Stats From the OAuth API\n\nSee that? 5h window at 22%, 7d at 30%. CodeIsland reads your OAuth token from macOS Keychain and calls Anthropic's API directly. Zero config. I always know how much headroom I have.\n\n \n \n 4. Code Diffs in the Chat View\n\nFull conversation history with code diffs, tool calls, and status indicators\n\nClick any session to see the full conversation. Green lines for additions, red for deletions. \"Go to Terminal\" button at the bottom.\n\n \n \n The Setup Takes 30 Seconds\n\nDownload from GitHub Releases\n\nDrag to Applications\n\nRun sudo xattr -rd com.apple.quarantine /Applications/Code\\ Island.app\n\nLaunch. Done.\n\nIt auto-installs hooks into your Claude Code config. Zero config needed.\n\nCompact settings with everything you need\n\n \n \n The Stack\n\nFor the nerds:\n\nPure Swift + SwiftUI, native macOS\n\nUnix socket for real-time hook events\n\nAnthropic OAuth API for usage stats\n\nAppleScript for terminal detection (cmux/iTerm2/Ghostty/Terminal.app)\n\nmacOS Keychain for zero-config auth\n\n \n \n It's Free. Like, Actually Free.\n\nNo subscription. No telemetry. No commercial intentions. Just a passion project by someone who got tired of Alt-Tabbing.\n\nGitHub: github.com/xmqywx/CodeIsland\n\nWorks best with cmux (modern terminal multiplexer on Ghostty), but supports iTerm2, Ghostty, Terminal.app, Warp, VS Code, Cursor, and more.\n\nIf you try it, let me know what you think. And if you star the repo... my octopus buddy thanks you. 🐙\n\nYes, this post was written while CodeIsland was monitoring 3 Claude Code sessions in my notch. No sessions were harmed in the making of this article.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "alt-tabbing",
+      "api",
+      "ascii",
+      "buddy",
+      "claude",
+      "code",
+      "codeisland",
+      "cursor",
+      "different",
+      "look",
+      "macbook",
+      "macos",
+      "notch",
+      "octopus",
+      "session",
+      "showdev",
+      "terminal",
+      "terminal.app"
+    ],
+    [
+      "ai",
+      "macos",
+      "showdev"
+    ]
+  ]
+}

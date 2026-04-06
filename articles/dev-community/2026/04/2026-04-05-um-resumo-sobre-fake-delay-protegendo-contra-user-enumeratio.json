@@ -1,0 +1,41 @@
+{
+  "id": 8962,
+  "source": "DEV Community<",
+  "title": "Um resumo sobre Fake Delay – Protegendo contra User Enumeration",
+  "url": "https://dev.to/determinado96/um-resumo-sobre-fake-delay-protegendo-contra-user-enumeration-4b1f",
+  "published_at": "2026-04-05T23:12:39Z",
+  "fetched_at": "2026-04-05T23:40:30.787862+00:00",
+  "author": "Determinado 96",
+  "summary": "<h2>\n  \n  \n  O que é Fake Delay?\n</h2>\n\n<p>Fake delay é um atraso intencional adicionado em respostas do sistema para evitar que atacantes descubram informações sensíveis apenas pelo tempo de resposta.</p>\n\n<ul>\n<li>Problema comum: sistemas podem responder mais rápido ou mais lento dependendo do dado solicitado, permitindo que alguém deduza informações privadas (como usuários existentes, senhas ou recursos).</li>\n<li>Solução: introduzir um tempo de resposta uniforme, mesmo quando a ação falha, garantindo que nenhuma informação seja revelada pelo tempo.</li>\n<li>Analogia: é como ficar sempre no mesmo ritmo de atendimento, independentemente de o pedido estar correto ou errado, para que ninguém consiga adivinhar o que acontece “por trás do balcão”.</li>\n</ul>",
+  "full_text": "O que é Fake Delay?\n\nFake delay é um atraso intencional adicionado em respostas do sistema para evitar que atacantes descubram informações sensíveis apenas pelo tempo de resposta.\n\nProblema comum: sistemas podem responder mais rápido ou mais lento dependendo do dado solicitado, permitindo que alguém deduza informações privadas (como usuários existentes, senhas ou recursos).\n\nSolução: introduzir um tempo de resposta uniforme, mesmo quando a ação falha, garantindo que nenhuma informação seja revelada pelo tempo.\n\nAnalogia: é como ficar sempre no mesmo ritmo de atendimento, independentemente de o pedido estar correto ou errado, para que ninguém consiga adivinhar o que acontece “por trás do balcão”.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "analogia",
+      "atraso",
+      "backend",
+      "cybersecurity",
+      "dado",
+      "delay",
+      "fake",
+      "informaçõe",
+      "infosec",
+      "mais",
+      "mesmo",
+      "para",
+      "pelo",
+      "permitindo que",
+      "resposta",
+      "security",
+      "sistema",
+      "solicitado",
+      "tempo"
+    ],
+    [
+      "backend",
+      "cybersecurity",
+      "infosec"
+    ]
+  ]
+}

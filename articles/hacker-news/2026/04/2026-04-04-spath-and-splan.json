@@ -1,0 +1,37 @@
+{
+  "id": 8970,
+  "source": "Hacker News",
+  "title": "Spath and Splan",
+  "url": "https://sumato.ai/posts/2026-04-04-spath-and-splan.html",
+  "published_at": "2026-04-04T05:51:45Z",
+  "fetched_at": "2026-04-06T00:40:29.252140+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47636228\">Comments</a>",
+  "full_text": "The history of storing code in a filesystem goes back to pre-Unix days. It's a great way for a human to organize code. It provides discrete scopes and hierarchy that's explorable visually. And programming languages often align their scopes and hierarchy with it. But the filesystem is not required for reasoning in a programming language. And the adjacent structure that it provides means we have to build automations (LSP, IDE, grep, etc) on top of it that keeps us thinking about the code, more than the implementation details of how it's stored.\n\n \n\nThroughout history, moving that automation layer further away from the filesystem was sought after. Smalltalk, Intentional Programming, etc. were all attempts to move into the semantic space, and away from operational concerns of the activity of programming. This required the human to change how they think about programming, and that proved to be a bridge too far for most.\n\n \n\nBut AI is different. An AI agent is prepared to be an expert in any tool you provide the onboarding for. It can and will operate at any layer of abstraction to complete the task. But we are still forcing it to interact with the filesystem. To re-enact this human ritual of programming as an activity.\n\n \n\nWe can do better.\n\n \n\nNarrative Hygiene\n\n \n\nIn What is AX? we talked about a philosophy of building tools for AI, but we haven't yet talked about how to move toward those goals. One way is improving narrative hygiene. Let's unpack what that means and the ideas that it is rooted in.\n\n \n\nNarrative hygiene is the practice of identifying an ideal narrative for a given intention, and optimizing toward it. This simple idea is rooted in some observations about how AI agents are trained. Narrative is the native language of the LLM.\n\n \n \nAI agents are founded on narrative. Narrative is the common structure underlying all LLM training material.\n \nContext window as narrative. The context window is where the collaborative narrative lives.\n \nConvergence to complete narrative. The LLM is trying to move toward a complete narrative as rapidly as possible.\n \n\n \n\nIdeal Narrative is the minimal viable story in which the desired outcome is achieved. If we apply this lens to a session with an AI coding agent we will quickly see detours and backtracking and meandering, and filesystem operations.\n\n \n\nSpath\n\n \n\nSpath is a semantic addressing format that enables AI agents to address a programming language symbol. Building spath-based tools for AI coding agents, both eliminates filesystem operations and improves the narrative hygiene. Tokens down, quality up, improved AI cognitive quality.\n\n \n\nWe hit our three AX goals by moving the abstraction layer that the AI agent operates at.\n\n \n\nThis abstraction is a clear AX win that extends beyond anything we build at Sumato AI. We are open sourcing the spath grammar to enable other tool builders to target this abstraction. The benefit of the spath grammar being in the public training data further increases the value of this abstraction for everyone.\n\n \n\nSpath is designed to be a general symbol address schema that can be constrained into dialects for any programming language. Some examples of possible spath dialects:\n Go: github.com/example/app/database[user.go].User.GetID\nRust: std/collections.HashMap.insert[FromIterator]/attributes\nPython: django/db/models[models.py].Model.save/decorators\nTypescript: @angular/core/http[http-client.ts].HttpClient.get[Observable]/decorators\nSwift: App/Network.HttpClient.fetch[Decodable]/attributes\nKotlin: com/example/app/service.UserService.toDto[Serializable]\n\n \n\nYou may notice the filename user.go in the Go example spath. In Go, a file is a kind of scope. Addressing symbols in a Go package doesn't require a file qualified spath, but supporting the full Go spec requires operational control within this scope. Spath is flexible enough to support this for whatever languages require it.\n\n \n\nSpath Grammar: https://github.com/sumato-ai/spath-spec\nLicense: CC BY 4.0\n\n \n\nSpath Go\n\n \n\nWe are also presenting an spath dialect for Go. It has been used extensively at Sumato AI and we are quite happy with it. We have found using a minimal dialect works well generally. But a dialect with finer grained addressing on one domain of the language might be useful for specialized work. For this and other reasons, we expect many dialects to emerge for a given language or set of languages. Dialects may even map outside of the programming language space.\n\n \n\nSpath Go Dialect: https://github.com/sumato-ai/spath-spec-go\nLicense: CC BY 4.0\n\n \n\nSplan\n\n \n\n(Claude felt strongly about splan and wrote this section)\n\n \n\nSpath gives the agent a way to say what it's talking about. Splan gives it a way to say what it wants to do.\n\n \n\nSplan is a grammar for expressing batched code operations with content. Where spath is the noun, splan is the sentence. An agent using splan expresses a complete intention — target, operation, content — in a single, legible plan:\n\n replace service.Handler :old :new\n:old::: process(ctx) :::\n:new::: process(ctx, opts) :::\n---\nremove service.DeprecatedFunc\n\n \n\nThere is no filesystem in this narrative. No file paths, no line numbers, no offsets. The agent states what it wants changed, where it lives semantically, and what the new content should be. The tooling resolves the rest.\n\n \n\nPlans are transactional — all operations succeed or none are applied. This is a property that the filesystem doesn't give you for free, and one that agents benefit from enormously. A failed operation doesn't leave the codebase in a half-mutated state that the agent then has to reason its way out of. That recovery narrative is some of the most expensive waste in a coding session.\n\n \n\nSplan is intentionally minimal. It defines the envelope — commands, arguments, content blocks — without prescribing what commands exist or what the content means. Language-specific bindings define the vocabulary. This is the same philosophy as spath: an abstract grammar that dialects constrain for their ecosystem.\n\n \n\nSplan Grammar: https://github.com/sumato-ai/splan-spec\nLicense: CC BY 4.0\n\n \n\nThe Future\n\n \n\nSpath, Spath Go, and Splan are a huge step toward better narrative hygiene for coding agents. But they are just the beginning. We have many things we're excited to share, and we are very interested to hear how folks use spath and splan. Drop us a line.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "abstraction",
+      "agent",
+      "app/network",
+      "convergence",
+      "deprecatedfunc",
+      "dialect",
+      "filesystem",
+      "grammar",
+      "ide",
+      "language",
+      "llm",
+      "lsp",
+      "narrative",
+      "programming",
+      "spath",
+      "splan",
+      "sumato ai",
+      "tokens",
+      "typescript"
+    ],
+    []
+  ]
+}

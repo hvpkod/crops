@@ -1,0 +1,40 @@
+{
+  "id": 8790,
+  "source": "Hacker News",
+  "title": "Zml-smi: universal monitoring tool for GPUs, TPUs and NPUs",
+  "url": "https://zml.ai/posts/zml-smi/",
+  "published_at": "2026-03-31T13:29:53Z",
+  "fetched_at": "2026-04-05T06:00:31.829241+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47587089\">Comments</a>",
+  "full_text": "zml-smi is a universal diagnostic and monitoring tool for GPUs, TPUs and NPUs.\nIt provides real-time insights into the performance and health of your hardware.\n\nIt is a mix between nvidia-smi and nvtop.\n\nIt transparently supports all the platforms ZML supports. That is NVIDIA, AMD, Google TPU\nand AWS Trainium devices. It will be extended to support more platforms in the future as ZML\ncontinues to expand its hardware support.\n\nGetting started\n\nYou can download zml-smi from the official mirror.$ curl -LO 'https://mirror.zml.ai/zml-smi/zml-smi-v0.2.tar.zst'\n$ tar -xf zml-smi-v0.2.tar.zst\n$ ./zml-smi/zml-smi\n\nListing devices$ zml-smi\n\nMonitoring devices\n\nThe --top flag provides real-time monitoring of device performance, including utilization, temperature, and memory usage.$ zml-smi --top\n\nCompletely sandboxed\n\nzml-smi doesn’t require any software on the target machine besides the device driver and\nthe GLIBC (mostly due to the fact that some shared objects from vendors are loaded).\n\nMetrics\n\nHost\n\nzml-smi displays host-level metrics such as CPU model and utilization, memory usage, and temperature.\n\nAvailable metrics\n\nHostname, Kernel, CPU Model, CPU Core Count, Memory Used / Total, Uptime, Load Average (1m / 5m / 15m), Device Count\n\nProcesses\n\nzml-smi also provides insights into the processes utilizing the devices, including their resource usage and command\nlines. This is available for all platforms.\n\nAvailable metrics\n\nPID, Device Index, Device Utilization, Device Memory, Process Command Line\n\nNVIDIA\n\nMetrics are given through the NVML library,\nwhich ships with the driver. As such, it is expected to be on the system.\n\nAvailable metrics\n\nGPU Utilization, Temperature, Power Draw, Encoder Utilization, Decoder Utilization, VRAM Used, VRAM Total,\nMemory Bus Width, Temperature, Fan Speed, Power Draw, Power Limit, Graphics Clock, SM Clock, Memory Clock,\nMax Graphics Clock, Max Memory Clock, PCIe Link Generation, PCIe Link Width, PCIe TX Throughput,\nPCIe RX Throughput\n\nAMD\n\nMetrics are provided through the AMD SMI library.\nzml-smi ships with it in its sandbox.\n\nIn order to support the latest AMD GPUs, zml-smi at build time downloads the amdgpu.ids file from\nboth Mesa and ROCm (7.2.1 at the time of this article) and merges them together.\nThis allows zml-smi to recognize and report on the latest AMD GPU models, even if\nthey are not yet included in the official ROCm release. This is the case for Ryzen AI Max+\n395 (Strix Halo) for instance.\n\nSandboxing that file turned somewhat tricky. Because libdrm-amdgpu expects to find it in\n/opt/amdgpu/share/libdrm/amdgpu.ids, we had to get a bit creative. We didn’t want to install anything\noutside the binary sandbox. Nor did we want to patch that string inside libdrm.\n\nSo we created a shared object named zmlxrocm.so that is added to the DT_NEEDED section of libdrm_amdgpu.so.1.\nThen, fopen64 is renamed to zmlxrocm_fopen64, which is then provided by zmlxrocm.so. Since we now sit between\nlibdrm and fopen64, we can intercept the call to fopen64, compare the path against\n/opt/amdgpu/share/libdrm/amdgpu.ids and redirect it to the sandboxed copy of the file.\n\nAvailable metrics\n\nGPU Utilization, Memory Usage, Temperature, Power Draw, VRAM Used, VRAM Total, Temperature, Fan Speed,\nPower Draw, Power Limit, Graphics Clock, SoC Clock, Memory Clock, Max Graphics Clock, Max Memory Clock,\nPCIe Bandwidth, PCIe Link Generation, PCIe Link Width\n\nTPU\n\nMetrics are provided via the local gRPC endpoint exposed by the TPU runtime. Those are the same metrics\nexposed to the tpu-info tool from Google.\n\nAvailable metrics\n\nTensorCore Duty Cycle, HBM Used, HBM Total\n\nAWS Trainium\n\nMetrics are provided through a private API found in libnrt.so, which zml-smi embeds in its sandbox. Those are\nthe same metrics provided by the neuron-top\nutility.\n\nAvailable metrics\n\nCore Utilization, HBM Used, HBM Total, Tensor Memory, Constant Memory, Model Code, Shared Scratchpad,\nNonshared Scratchpad, Runtime Memory, Driver Memory, DMA Rings, Collectives, Notifications",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "amd",
+      "available",
+      "aws trainium",
+      "cpu",
+      "cpu core count",
+      "cpu model",
+      "device",
+      "device count\n\nprocesses",
+      "google tpu",
+      "graphics",
+      "memory",
+      "metric",
+      "monitoring",
+      "nvidia-smi",
+      "pcie",
+      "power",
+      "provide",
+      "vram",
+      "zml",
+      "zml-smi"
+    ],
+    [
+      "monitoring"
+    ]
+  ]
+}

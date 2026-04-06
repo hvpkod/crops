@@ -1,0 +1,43 @@
+{
+  "id": 8894,
+  "source": "DEV Community<",
+  "title": "HOW TO PUBLISH A POWER BI REPORT AND EMBED IT INTO A WEBSITE",
+  "url": "https://dev.to/emkoki/how-to-publish-a-power-bi-report-and-embed-it-into-a-website-2adn",
+  "published_at": "2026-04-05T17:23:17Z",
+  "fetched_at": "2026-04-05T17:40:26.886208+00:00",
+  "author": "Emman Kibet",
+  "summary": "<p><strong>Introduction to Power BI</strong><br />\nPower BI is Microsoft's flagship business intelligence platform that transforms raw data into interactive visualizations and actionable insights. It consists of two main components:<br />\n<em>Power BI Desktop</em>: A Windows application for data modeling, transformation (Power Query), calculations (DAX), and report creation<br />\n<em>Power BI Service</em>: A cloud-based SaaS platform for sharing, collaborating, and distributing reports across organizations<br />\nThroughout this course, you've mastered queries, DAX calculations, data modeling, relationships/joins, and visualization creation. The final step in the BI workflow is publishing your reports so stakeholders can access insights—and optionally embedding them publicly or securely into websites.</p>\n\n<p><strong>Part 1: Creating a Workspace</strong><br />\nWorkspaces are collaborative environments in Power BI Service where you store, organize, and share content.<br />\n<em>Step 1: Ac",
+  "full_text": "Introduction to Power BI\n\nPower BI is Microsoft's flagship business intelligence platform that transforms raw data into interactive visualizations and actionable insights. It consists of two main components:\n\nPower BI Desktop: A Windows application for data modeling, transformation (Power Query), calculations (DAX), and report creation\n\nPower BI Service: A cloud-based SaaS platform for sharing, collaborating, and distributing reports across organizations\n\nThroughout this course, you've mastered queries, DAX calculations, data modeling, relationships/joins, and visualization creation. The final step in the BI workflow is publishing your reports so stakeholders can access insights—and optionally embedding them publicly or securely into websites.\n\nPart 1: Creating a Workspace\n\nWorkspaces are collaborative environments in Power BI Service where you store, organize, and share content.\n\nStep 1: Access Power BI Service\n\nNavigate to app.powerbi.com and sign in with your Microsoft credentials\n\nYou'll land on the Home page showing recent content and recommended reports\n\n_Step 2: Create a New Workspace\n\n_1.In the left navigation pane, click Workspaces → Create a workspace\n\n2.In the dialog that appears, configure:\n\n-Workspace name: Electronics-Sales-Analytics (or your preferred name)\n\n-Description: \"Week 3 Assignment - Electronics Sales Dashboard\"\n\n-Advanced settings (optional): Configure workspace OneDrive, license mode, or contact list\n\n3.Click Apply to create the workspace\n\nPart 2: Uploading and Publishing Your Report\n\nYou have two methods to get your .pbix file into the workspace:\n\nMethod A: Upload via Power BI Service (Browser)\n\n1.In your new workspace, click Upload → Browse\n\n2.Locate your Electronics_Sales_Assignment.pbix file\n\n3.Select Open and wait for the upload to complete\n\n4.Power BI automatically creates:\n\n A Report (the visualizations)\n\n A Semantic Model/Dataset (the underlying data model)\n\nMethod B: Publish from Power BI Desktop\n\n1.Open your .pbix file in Power BI Desktop\n\n2.Click File → Publish → Publish to Power BI\n\n Alternative: Click the Publish button on the Home ribbon\n\n3.Sign in to Power BI if prompted\n\n4.Select your destination workspace from the list\n\n5.Click Select to publish\n\nPart 3: Generating Embed Codes\n\nPower BI offers three embedding methods depending on your security requirements:\n\n| Method | Security Level | Best For |\n\n| --------------------- | -------------------------- | ------------------------------------ |\n\n| Publish to Web | Public (no authentication) | Public data, blogs, marketing |\n\n| Secure Embed | Private (requires login) | Internal portals, confidential data |\n\n| Power BI Embedded | Developer-controlled | ISVs, custom applications |\n\n*Method 1: Publish to Web (Public) *\n\nSteps:\n\n1.In Power BI Service, open your published report\n\n2.Navigate to File → Embed report → Publish to web (public)\n\n3.Review the information dialog and click Create embed code\n\n4.Read the security warning carefully, then click Publish\n\n5.In the Success dialog, configure:\n\n Size: Choose dimensions (e.g., 800×600)\n\n Default page: Select which report page displays first\n\n Placeholder image (optional): Improves page load speed\n\nCopy either:\n\n Link URL: For sharing via email or direct links\n\n HTML iframe code: For embedding in websites\n\n*Method 2: Secure Embed *\n\nFor secure, authenticated access:\n\n1.Go to File → Embed report → Website or portal\n\n2.Copy the provided URL or HTML code\n\n3.Users must sign in with Power BI Pro/PPU licenses to view\n\n4.Ensure you've shared the report with intended users via the Share button\n\nPart 4: Embedding the Report on a Website\n\nFor Static Websites (HTML)\n\nPaste the iframe code directly into your HTML:\n\nFor Content Management Systems (WordPress, etc.)\n\n1.Add a Custom HTML block\n\n2..Paste the iframe code provided by Power BI\n\n3.Adjust width/height to fit your theme's content area\n\n _For SharePoint Online _\n\n1.In Power BI: File → Embed in SharePoint Online\n\n2.Copy the provided link\n\n3.In SharePoint: Add a Power BI web part\n\n4.Paste the link into the web part properties\n\nPart 5: GitHub Submission\n\nAs per assignment requirements, upload your source file to GitHub:\n\n1.Create a GitHub repository (e.g., powerbi-electronics-sales)\n\n2.Upload files:\n\n Electronics_Sales_Assignment.pbix (your Power BI file)\n\n README.md (documentation)\n\n embed-code.txt (containing your generated HTML iframe code)\n\nConclusion\n\nPublishing and embedding Power BI reports bridges the gap between data analysis and business action.",
+  "tags": [
+    [
+      "-workspace",
+      "1000-words",
+      "2026",
+      "a semantic model/dataset",
+      "analytics",
+      "embed",
+      "file",
+      "file → embed",
+      "home",
+      "iframe",
+      "microsoft",
+      "onedrive",
+      "part",
+      "power",
+      "power bi",
+      "power bi desktop",
+      "power bi service",
+      "publish",
+      "report",
+      "secure embed",
+      "tutorial",
+      "webdev",
+      "website",
+      "workspace"
+    ],
+    [
+      "tutorial",
+      "webdev"
+    ]
+  ]
+}

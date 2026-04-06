@@ -1,0 +1,39 @@
+{
+  "id": 8956,
+  "source": "DEV Community<",
+  "title": "[Rust Guide] 1.3. Rust Cargo",
+  "url": "https://dev.to/someb1oody/rust-guide-13-rust-cargo-6eg",
+  "published_at": "2026-04-05T23:24:00Z",
+  "fetched_at": "2026-04-05T23:40:21.589236+00:00",
+  "author": "SomeB1oody",
+  "summary": "<h1>\n  \n  \n  1.3.0. Review\n</h1>\n\n<p>At the end of the <strong><a href=\"https://dev.to/someb1oody/rust-guide-12-basic-understanding-of-rust-and-printing-hello-world-51ik\">1.2. Basic Understanding of Rust and Printing \"Hello World\"</a></strong> article, it was mentioned that only small, simple Rust projects are suitable for compilation using <code>rustc</code>, while large projects require <strong>Cargo</strong>. This article provides a detailed introduction to Cargo.</p>\n\n<h1>\n  \n  \n  1.3.1. What is Cargo\n</h1>\n\n<p>Cargo is Rust's build system and package manager. Its functions include building code, downloading dependent libraries, building these libraries...</p>\n\n<p>Cargo is installed automatically when installing Rust. To check if Cargo is correctly installed: enter the command <code>cargo --version</code> in the terminal </p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A",
+  "full_text": "1.3.0. Review\n\nAt the end of the 1.2. Basic Understanding of Rust and Printing \"Hello World\" article, it was mentioned that only small, simple Rust projects are suitable for compilation using rustc, while large projects require Cargo. This article provides a detailed introduction to Cargo.\n\n \n \n 1.3.1. What is Cargo\n\nCargo is Rust's build system and package manager. Its functions include building code, downloading dependent libraries, building these libraries...\n\nCargo is installed automatically when installing Rust. To check if Cargo is correctly installed: enter the command cargo --version in the terminal \n\n \n \n 1.3.2. Creating Projects with Cargo\n\nProjects created in RustRover automatically configure Cargo, and you can see a file called Cargo.toml in the left project structure.\n\nFor non-RustRover users, you can configure Cargo in the terminal:\n\nCopy the folder path where you want Cargo to be located, open terminal, enter command cd desired_path\n\nThen enter command cargo new desired_project_name to create the project\n\nOpen this path in your IDE, the project will be under the Cargo project name folder you created\n\nThe final project structure should look like this: \n\nPS: Some IDEs won't have the target folder and Cargo.lock file - they appear only after the first compilation\n\nProject structure analysis:\n\nsrc is the abbreviation for Source Code, this folder stores your code\n\n.gitignore indicates that a Git repository has been initialized when creating this project. You can also use other VCS (Version Control System) or not use VCS at all - just add --vcs for configuration when creating the project (the cargo new desired_project_name step)\n\nThe content of Cargo.toml will be explained below\n\n \n \n 1.3.3. Cargo.toml\n\nThe .toml (Tom's Obvious, Minimal Language) format is Cargo's configuration file format\n\nIts content is as follows: \n\nContent analysis:\n\n[package] is a section header, indicating that the content below is used to configure the package\n\nname specifies the project name\n\nversion specifies the project version\n\nauthors specifies the project authors, optional and not present here. If present, the format should be: authors = [\"your_name <your_email@xxx.com>\"]\n\nedition specifies the Rust version being used\n\n[dependencies] is another section header, the content below is used to configure dependencies. It lists the project's dependencies. If there are no dependencies, it's empty below.\n\nPS: In Rust, code packages (libraries) are called crates\n\n \n \n 1.3.4. Project Structure Format\n\nAll source code should be in the src directory\n\nCargo.toml should be in the top-level directory\n\nThe top-level directory can contain: README, licenses, configuration files, and other files unrelated to source code\n\n \n \n 1.3.5. Converting Non-Cargo Projects to Use Cargo\n\nMove source code to the src directory\n\nCreate Cargo.toml and fill in the configuration based on the source code\n\n \n \n 1.3.6. Building Cargo Projects\n\nCopy the folder path where the Cargo project is located, open terminal, enter command cd Cargo_project_path\n\nEnter command cargo build. This command creates an executable file. On Windows, its path is target\\debug\\your_Cargo_project_name.exe; on Linux/MacOS, its path is target/debug/your_Cargo_project_name\n\nExecute this executable file, first ensure you've completed step one. For Windows, enter .\\target\\debug\\your_Cargo_project_name.exe in terminal; for Linux/MacOS, enter ./target/debug/your_Cargo_project_name in terminal\n\nRunning cargo build for the first time will generate a cargo.lock file in the top-level directory\n\n \n \n 1.3.7. Cargo.lock\n\ncargo.lock is generated after the project's first compilation (some IDEs automatically generate it before the first compilation). Its content is as follows: \n\nThis file's purpose is to track the exact versions of project dependencies. As the comment in this file states, you should not and are not recommended to manually modify this file.\n\n \n \n 1.3.8. Running Cargo Projects\n\nCopy the folder path where the Cargo project is located, open terminal, enter command cd Cargo_project_path\n\nEnter command cargo run\n\ncargo run is actually a two-step operation—compile code + execute result. It first generates an executable file, then runs this executable file. If it has compiled successfully before and the source code hasn't changed, it will directly run the executable file.\n\n \n \n 1.3.9. Code Checking\n\nThe purpose of cargo check is to check code to ensure it can compile successfully, but it doesn't produce an executable file. cargo check is much faster than cargo build. When writing code, you can repeatedly use cargo check to improve efficiency.\n\nUsage:\n\nCopy the folder path where the Cargo project is located, open terminal, enter command cd Cargo_project_path\n\nEnter command cargo check\n\n \n \n 1.3.10. Building for Release\n\nThe cargo build command is used for development (debugging). When you've finished writing code and want to release it, you should use cargo build --release, the release build command, instead of cargo build. Comparing the two, the former takes longer to compile code, but the code runs faster. The executable file generated by the former will be in target/release instead of target/debug.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "building cargo projects",
+      "cargo",
+      "code",
+      "command",
+      "enter",
+      "executable",
+      "folder",
+      "format",
+      "learning",
+      "linux/macos",
+      "path",
+      "programming",
+      "project",
+      "rust",
+      "rustrover",
+      "specify",
+      "vcs",
+      "version control system",
+      "windows"
+    ],
+    [
+      "learning"
+    ]
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": 8779,
+  "source": "DEV Community<",
+  "title": "I Turned My MacBook's Notch Into a Control Center for AI Coding Agents",
+  "url": "https://dev.to/krisying/i-turned-my-macbooks-notch-into-a-control-center-for-ai-coding-agents-2o57",
+  "published_at": "2026-04-05T05:09:38Z",
+  "fetched_at": "2026-04-05T05:40:22.783524+00:00",
+  "author": "KrisYing",
+  "summary": "<p>Every developer using Claude Code knows the pain: you have 5+ terminal sessions running, Claude is asking for permission in one tab, waiting for input in another, and you're buried in a third. You Alt-Tab frantically, lose context, and waste time.</p>\n\n<p>So I built <strong>CodeIsland</strong> — a free, open-source macOS app that turns your MacBook's notch (Dynamic Island) into a real-time dashboard for all your AI coding agents.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>When you're running multiple Claude Code sessions across different projects, there's no way to see everything at a glance. You're constantly switching between terminals to:</p>\n\n<ul>\n<li>Check which session finished</li>\n<li>Approve permission requests</li>\n<li>Answer Claude's questions</li>\n<li>Monitor usage limits</li>\n</ul>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fraw.githubusercontent.com%2Fxm",
+  "full_text": "Every developer using Claude Code knows the pain: you have 5+ terminal sessions running, Claude is asking for permission in one tab, waiting for input in another, and you're buried in a third. You Alt-Tab frantically, lose context, and waste time.\n\nSo I built CodeIsland — a free, open-source macOS app that turns your MacBook's notch (Dynamic Island) into a real-time dashboard for all your AI coding agents.\n\n \n \n The Problem\n\nWhen you're running multiple Claude Code sessions across different projects, there's no way to see everything at a glance. You're constantly switching between terminals to:\n\nCheck which session finished\n\nApprove permission requests\n\nAnswer Claude's questions\n\nMonitor usage limits\n\nMultiple Claude Code sessions in cmux, with CodeIsland monitoring everything from the notch\n\n \n \n The Solution: Your Notch, Supercharged\n\nCodeIsland lives in your MacBook's notch. When collapsed, it shows a tiny status indicator. When expanded, it becomes a full control panel.\n\nSession list showing active projects, terminal tags, usage stats, and your Claude Code buddy\n\n \n \n What You Can Do From the Notch\n\n1. Monitor All Sessions\n\nEvery Claude Code session appears in a clean list with:\n\nColor-coded terminal tags (cmux blue, Ghostty purple, iTerm green)\n\nActive sessions highlighted with accent backgrounds\n\nReal-time tool tracking and subagent status\n\n2. Claude Usage Monitoring\n\nReal-time 5h/7d usage percentage pulled directly from Anthropic's OAuth API. No plugins needed — reads your token from macOS Keychain.\n\n5h 22% and 7d 30% usage with progress bars and reset timers\n\n3. Chat History & Code Diffs\n\nClick any session to see the full conversation, including tool calls with status indicators and code diffs with green/red highlighting.\n\nFull conversation view with tool calls, code edits, and \"Go to Terminal\" button\n\n4. Meet Your Buddy\n\nFull integration with Claude Code's /buddy system. See your companion's species, rarity, stats, and personality.\n\nLegendary Octopus \"Kris\" with full ASCII art and stat bars\n\n5. Smart Settings\n\nCompact two-column layout with everything you need.\n\nClean settings with Star & Feedback buttons — v1.8.0\n\n \n \n Smart Features That Matter\n\n \n \n Smart Popup Suppression\n\nThe most annoying thing about notification apps? They interrupt you when you're already looking at the thing they're notifying about.\n\nCodeIsland detects which terminal tab you're currently viewing. If a Claude session finishes in a cmux workspace you're already looking at, it won't popup. It only alerts you about sessions you can't see.\n\nSupported: cmux (workspace-level), iTerm2 (session-level), Ghostty (window-level), Terminal.app (tab-level).\n\n \n \n AskUserQuestion Quick Reply\n\nWhen Claude asks you a multiple-choice question, the options appear as buttons directly in the notch. Click one, and the answer is sent to your terminal automatically via cmux send — no window switching needed.\n\n \n \n One-Click Terminal Jump\n\nEvery session has a green terminal button. Click it, and CodeIsland finds the exact cmux workspace (or iTerm tab, or Ghostty window) and brings it to front.\n\n \n \n Subagent Tracking\n\nWhen Claude spawns subagents, you see them in real-time with ⚡ badges and collapsible detail views showing each agent's task.\n\n \n \n Terminal Support\n\nTerminal\nDetection\nJump\nQuick Reply\nSmart Suppression\n\ncmux\nAuto\nWorkspace-level\n✅\nWorkspace-level\n\niTerm2\nAuto\nAppleScript\n✅\nSession-level\n\nGhostty\nAuto\nAppleScript\n-\nWindow-level\n\nTerminal.app\nAuto\nActivate\n✅\nTab-level\n\nWarp\nAuto\nActivate\n-\n-\n\nVS Code\nAuto\nActivate\n-\n-\n\n+ 5 more\nAuto\nActivate\n-\n-\n\n \n \n Tech Stack\n\nSwift + SwiftUI — Native macOS, ~70 Swift files\n\nUnix Socket — Hook events from Claude Code via Python bridge\n\nAnthropic OAuth API — Direct usage stats, no middleware\n\nmacOS Keychain — Zero-config authentication\n\nAppleScript — Terminal detection and control\n\n \n \n Get It\n\nIt's completely free and open-source. No commercial intentions — just a passion project.\n\ngit clone https://github.com/xmqywx/CodeIsland.git\ncd CodeIsland\nxcodebuild -scheme ClaudeIsland -configuration Release build\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGitHub: github.com/xmqywx/CodeIsland\n\nWorks best with cmux — the modern terminal multiplexer built on Ghostty.\n\nIf you find it useful, a ⭐ on GitHub would mean the world. It's what keeps us shipping updates.\n\nBuilt entirely with Claude Code, of course. 🐱",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "activate",
+      "ai",
+      "applescript",
+      "auto",
+      "claude",
+      "cmux",
+      "code",
+      "codeisland",
+      "dynamic island",
+      "github",
+      "macbook",
+      "macos",
+      "notch",
+      "opensource",
+      "session",
+      "smart features",
+      "star & feedback",
+      "terminal",
+      "terminal.app",
+      "usage"
+    ],
+    [
+      "ai",
+      "macos",
+      "opensource"
+    ]
+  ]
+}

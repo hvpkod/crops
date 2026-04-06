@@ -1,0 +1,42 @@
+{
+  "id": 8926,
+  "source": "DEV Community<",
+  "title": "100 C# Tips I Wish I Knew Earlier (Part 1)",
+  "url": "https://dev.to/troymiller824/100-c-tips-i-wish-i-knew-earlier-part-1-4o35",
+  "published_at": "2026-04-05T20:07:49Z",
+  "fetched_at": "2026-04-05T20:40:29.800248+00:00",
+  "author": "Troy Miller",
+  "summary": "<p>After 20+ years working with C#, I've collected small lessons that made a huge difference in how I write code.</p>\n\n<p>Some of these saved me hours of debugging. Others improved performance or made my code cleaner overnight.</p>\n\n<p>Here are <strong>25 practical C# tips</strong> I wish I knew earlier.</p>\n\n\n\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F50ucg9eei0t2j5iix4w2.webp\"><img alt=\"C# coding tips illustration with code snippets\" height=\"405\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F50ucg9eei0t2j5iix4w2.webp\" width=\"720\" /></a></p>\n\n<h2>\n  \n  \n  Modern C# Features That Improve Your Code\n</h2>\n\n<h3>\n  \n  \n  1. Embrace Primary Constructors\n</h3>\n\n<p>I once refactored a class ",
+  "full_text": "After 20+ years working with C#, I've collected small lessons that made a huge difference in how I write code.\n\nSome of these saved me hours of debugging. Others improved performance or made my code cleaner overnight.\n\nHere are 25 practical C# tips I wish I knew earlier.\n\n \n \n Modern C# Features That Improve Your Code\n\n \n \n 1. Embrace Primary Constructors\n\nI once refactored a class with multiple constructors doing the same thing. It was messy.\n\nPrimary constructors simplify everything:\n\npublic class Person(string name, int age)\n{\n public string Name { get; } = name;\n public int Age { get; } = age;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCleaner, shorter, and easier to maintain.\n\n \n \n 2. Use Collection Expressions\n\nInitializing collections used to feel verbose.\n\nList<int> numbers = [1, 2, 3, 4, 5];\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nLess typing, more clarity.\n\n \n \n 3. Use nameof for Safer Refactoring\n\nA typo once cost me hours.\n\nConsole.WriteLine(nameof(Person.Name));\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow the compiler helps you catch mistakes.\n\n \n \n 4. Use Null-Coalescing for Safer Code\n\nNull reference bugs are painful.\n\nstring name = person.Name ?? \"Unknown\";\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSimple and safe.\n\n \n \n 5. Pattern Matching = Cleaner Logic\n\nRefactoring large conditionals becomes much easier:\n\nif (person is { Age: > 18, Name: not null })\n{\n Console.WriteLine($\"{person.Name} is an adult.\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 6. Prefer String Interpolation\n\nReadable and clean:\n\nstring message = $\"Hello, {person.Name}!\";\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 7. Use Tuples Instead of Extra Classes\n\npublic (string, int) GetPersonInfo()\n{\n return (\"Alice\", 30);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nLightweight and efficient.\n\n \n \n 8. Use Local Functions for Better Structure\n\nvoid Process()\n{\n int Add(int a, int b) => a + b;\n Console.WriteLine(Add(1, 2));\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nKeeps logic scoped and readable.\n\n \n \n 9. Use using var Instead of Nested Blocks\n\nusing var reader = new StreamReader(\"file.txt\");\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCleaner resource management.\n\n \n \n 10. Use IAsyncEnumerable for Streaming Data\n\npublic async IAsyncEnumerable<int> GetData()\n{\n for (int i = 0; i < 5; i++)\n {\n await Task.Delay(100);\n yield return i;\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGreat for performance.\n\n \n \n Code Quality & Clean Design\n\n \n \n 11. Use Records for Immutable Data\n\npublic record Person(string Name, int Age);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNo more boilerplate.\n\n \n \n 12. Nullable Reference Types Save You\n\nstring? name = null;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCatch issues at compile time.\n\n \n \n 13. Switch Expressions > Switch Statements\n\nstring result = age switch\n{\n > 18 => \"Adult\",\n _ => \"Minor\"\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 14. Use with for Object Updates\n\nvar updated = person with { Age = 31 };\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 15. File-Scoped Namespaces Reduce Noise\n\nnamespace MyApp;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCleaner files instantly.\n\n \n \n 16. Use required for Safer Models\n\npublic class Person\n{\n public required string Name { get; set; }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 17. Init-Only Properties for Immutability\n\npublic string Name { get; init; }\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 18. Global Using Saves Repetition\n\nglobal using System;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 19. CallerArgumentExpression for Debugging\n\npublic void Validate(bool condition, \n [CallerArgumentExpression(\"condition\")] string msg = \"\")\n{\n if (!condition) throw new Exception(msg);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 20. Default Interface Methods\n\npublic interface ILogger\n{\n void Log(string msg) => Console.WriteLine(msg);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Performance & Advanced Tips\n\n \n \n 21. Use Span for High Performance\n\nSpan<int> numbers = stackalloc int[10];\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 22. Use ArrayPool to Reduce GC Pressure\n\nvar pool = ArrayPool<int>.Shared;\nvar arr = pool.Rent(10);\npool.Return(arr);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 23. Use ValueTask for Lightweight Async\n\npublic ValueTask<int> GetValueAsync() => new(42);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 24. ConfigureAwait for Better Performance\n\nawait Task.Delay(100).ConfigureAwait(false);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 25. Use Stopwatch to Measure Performance\n\nvar sw = Stopwatch.StartNew();\n// code\nsw.Stop();\nConsole.WriteLine(sw.ElapsedMilliseconds);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Final Thoughts\n\nThese small improvements compound over time.\n\nThey made my code:\n\nCleaner\n\nFaster\n\nEasier to maintain",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "cleaner",
+      "constructor",
+      "csharp",
+      "dotnet",
+      "elapsedmilliseconds",
+      "embrace primary constructors",
+      "enter",
+      "exit",
+      "file-scoped namespaces",
+      "fullscreen",
+      "ilogger",
+      "keeps",
+      "mode",
+      "name",
+      "performance",
+      "programming",
+      "public",
+      "startnew",
+      "string",
+      "webdev"
+    ],
+    [
+      "csharp",
+      "dotnet",
+      "webdev"
+    ]
+  ]
+}

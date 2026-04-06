@@ -1,0 +1,44 @@
+{
+  "id": 8753,
+  "source": "DEV Community<",
+  "title": "Want Your AI to Stay Private? Run a Fully Local LLM with Open WebUI + Ollama",
+  "url": "https://dev.to/micheal_angelo_41cea4e81a/want-your-ai-to-stay-private-run-a-fully-local-llm-with-open-webui-ollama-3c8f",
+  "published_at": "2026-04-05T02:21:55Z",
+  "fetched_at": "2026-04-05T02:40:19.769867+00:00",
+  "author": "Micheal Angelo",
+  "summary": "<h1>\n  \n  \n  Want Your AI to Stay Private? Run a Fully Local LLM with Open WebUI + Ollama\n</h1>\n\n<p>As LLMs become part of daily workflows, one question comes up more often:</p>\n\n<blockquote>\n<p>Where does the data go?</p>\n</blockquote>\n\n<p>Most cloud-based AI tools send prompts and responses to remote servers for processing.<br /><br />\nFor many use cases, that’s perfectly fine.</p>\n\n<p>But in some situations:</p>\n\n<ul>\n<li>Sensitive code</li>\n<li>Personal notes</li>\n<li>Internal documentation</li>\n<li>Experimental ideas</li>\n</ul>\n\n<p>You may prefer not to send that data outside your machine.</p>\n\n<p>This is where <strong>local LLM setups</strong> become useful.</p>\n\n\n<h2>\n  \n  \n  🧠 What This Setup Provides\n</h2>\n\n<p>This setup creates a <strong>fully local ChatGPT-like experience</strong>:</p>\n\n<ul>\n<li>Runs entirely on your machine</li>\n<li>No external API calls</li>\n<li>No data leaving your system</li>\n<li>Modern chat interface</li>\n<li>Model switching support</li>\n</ul>\n\n\n<h2>\n  ",
+  "full_text": "Want Your AI to Stay Private? Run a Fully Local LLM with Open WebUI + Ollama\n\nAs LLMs become part of daily workflows, one question comes up more often:\n\nWhere does the data go?\n\nMost cloud-based AI tools send prompts and responses to remote servers for processing.\n\nFor many use cases, that’s perfectly fine.\n\nBut in some situations:\n\nSensitive code\n\nPersonal notes\n\nInternal documentation\n\nExperimental ideas\n\nYou may prefer not to send that data outside your machine.\n\nThis is where local LLM setups become useful.\n\n \n \n 🧠 What This Setup Provides\n\nThis setup creates a fully local ChatGPT-like experience:\n\nRuns entirely on your machine\n\nNo external API calls\n\nNo data leaving your system\n\nModern chat interface\n\nModel switching support\n\n \n \n ⚙️ Architecture Overview\n\nBrowser (Open WebUI)\n ↓\nDocker Container (Open WebUI)\n ↓\nOllama API (localhost:11434)\n ↓\nLocal LLM Model (e.g., mistral)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEverything runs locally.\n\n \n \n 🧩 Components\n\n \n \n 1. Ollama\n\nRuns LLM models locally and exposes an API.\n\n \n \n 2. Open WebUI\n\nProvides a ChatGPT-like interface with:\n\nChat history\n\nModel selection\n\nClean UI\n\n🔗 https://openwebui.com/\n\n \n \n 3. Docker\n\nRuns Open WebUI in an isolated container.\n\n \n \n 🚀 Installation & Setup\n\n \n \n 1. Install Ollama\n\ncurl -fsSL https://ollama.com/install.sh | sh\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 2. Start Ollama\n\nollama serve\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf you see:\n\naddress already in use\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIt simply means Ollama is already running.\n\n \n \n 3. Pull a Model\n\nollama pull mistral\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCheck available models:\n\nollama list\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 4. Run Open WebUI\n\nsudo docker run -d \\\n --network=host \\\n -v open-webui:/app/backend/data \\\n -e OLLAMA_BASE_URL=http://127.0.0.1:11434 \\\n --name open-webui \\\n --restart unless-stopped \\\n ghcr.io/open-webui/open-webui:main\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🌐 Access the Interface\n\nOpen your browser:\n\nhttp://localhost:8080\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYou now have a local ChatGPT-style interface.\n\n \n \n 🔗 Important Fix (Docker Networking)\n\nIf Open WebUI cannot detect Ollama:\n\nUse:\n\n--network=host\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis allows the container to directly access:\n\nhttp://127.0.0.1:11434\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWithout this, Docker may isolate the container from the local API.\n\n \n \n ▶️ Daily Usage\n\n \n \n Start WebUI\n\nsudo docker start open-webui\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Stop WebUI\n\nsudo docker stop open-webui\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Check Models\n\nollama list\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Run Model in Terminal\n\nollama run mistral\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🔁 Troubleshooting\n\n \n \n Port already in use (11434)\n\nOllama is already running — no action required.\n\n \n \n Model not visible in UI\n\nsudo docker restart open-webui\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Connection issue\n\nCheck:\n\ncurl http://127.0.0.1:11434\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🔒 Why This Matters\n\nThis setup ensures:\n\nPrompts stay local\n\nFiles remain on your machine\n\nNo external logging or tracking\n\nFull control over your environment\n\nIt is especially useful for:\n\nDevelopers working with sensitive code\n\nOffline workflows\n\nLearning and experimentation\n\nPrivacy-conscious users\n\n \n \n ⚠️ Trade-offs\n\nLocal models are not identical to large cloud models.\n\nExpect:\n\nSlightly lower reasoning capability\n\nSlower responses (CPU-based inference)\n\nLimited context window (depending on model)\n\nBut for many use cases, they are more than sufficient.\n\n \n \n ⚡ Final Result\n\nYou now have:\n\nA local LLM (e.g., Mistral)\n\nA ChatGPT-like interface\n\nA fully private AI environment\n\nNo dependency on external APIs\n\n \n \n 🧾 Quick Cheat Sheet\n\n# Start WebUI\nsudo docker start open-webui\n\n# Open UI\nhttp://localhost:8080\n\n# Check models\nollama list\n\n# Run model\nollama run mistral\n\n# Stop WebUI\nsudo docker stop open-webui\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🏁 Final Thought\n\nCloud AI is powerful and convenient.\n\nLocal AI is controlled and private.\n\nBoth have their place.\n\nThis setup simply gives you the option.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "cpu",
+      "daily usage",
+      "docker",
+      "docker container",
+      "enter",
+      "exit",
+      "fullscreen",
+      "installation & setup",
+      "linux",
+      "llm",
+      "local",
+      "mode",
+      "model",
+      "ollama",
+      "ollama\n\nruns llm",
+      "opensource",
+      "port",
+      "privacy",
+      "setup",
+      "troubleshooting",
+      "webui"
+    ],
+    [
+      "ai",
+      "opensource"
+    ]
+  ]
+}

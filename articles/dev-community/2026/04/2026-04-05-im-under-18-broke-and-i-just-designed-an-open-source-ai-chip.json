@@ -1,0 +1,44 @@
+{
+  "id": 8808,
+  "source": "DEV Community<",
+  "title": "I'm under 18, broke, and I just designed an open-source AI chip. Here's the full story.",
+  "url": "https://dev.to/alexzoofficial/im-under-18-broke-and-i-just-designed-an-open-source-ai-chip-heres-the-full-story-33mk",
+  "published_at": "2026-04-05T07:56:57Z",
+  "fetched_at": "2026-04-05T08:40:35.358827+00:00",
+  "author": "Alexzo",
+  "summary": "<p>I don't have a team.<br />\nI don't have funding.<br />\nI don't have a lab.</p>\n\n<p>I have a laptop, an internet connection, and an obsession with chips.</p>\n\n<p>This is the story of T1C — Tier 1 Chip — and why I built it.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fg9o4avrb1teeovr97wi0.png\"><img alt=\"We designed it. world build it.\" height=\"447\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fg9o4avrb1teeovr97wi0.png\" width=\"800\" /></a></p>\n\n<p>It started with a frustration.</p>\n\n<p>Every time I read about AI hardware, it was the same story. NVIDIA charges $30,000 for an H100. TSMC charges millions for a custom fab run. Apple Silicon is beautiful but completely closed. Intel, Qualc",
+  "full_text": "I don't have a team.\n\nI don't have funding.\n\nI don't have a lab.\n\nI have a laptop, an internet connection, and an obsession with chips.\n\nThis is the story of T1C — Tier 1 Chip — and why I built it.\n\nIt started with a frustration.\n\nEvery time I read about AI hardware, it was the same story. NVIDIA charges $30,000 for an H100. TSMC charges millions for a custom fab run. Apple Silicon is beautiful but completely closed. Intel, Qualcomm, AMD — all of them — locked behind NDAs, closed architectures, and billion-dollar relationships.\n\nI kept thinking: why does no one make an open-source AI chip that a real person can actually fabricate?\n\nNot a toy. Not a demo. A real architecture with real specs, real physics, and a real path to silicon.\n\nSo I built one.\n\nT1C uses Digital In-Memory Computing — D-IMC. Instead of sending data back and forth between memory and processor (the classic Von Neumann bottleneck that kills every conventional AI chip), computation happens near the memory itself. Less data movement. Less power. More speed for the kinds of workloads LLMs actually need.\n\nThe process node is 65nm LP via GlobalFoundries community shuttle — or 130nm via IHP Germany, which is completely free for open source research. Yes, free.\n\nOne blade = 8 MAAU chips. One blade costs $280–$650 depending on your path. Eight blades gets you a cluster that can run LLaMA 70B at 10–16 tokens per second. Total cost: under $5,200.\n\nCompare that to a single H100 at $30,000. Closed. Proprietary. Not yours.\n\nBut I'm not going to pretend this was easy or that everything worked perfectly.\n\nThe first version had HBM-Lite on-package memory. Sounds great on paper. In practice, it requires TSMC CoWoS packaging — millions of dollars, only available to Samsung and TSMC customers. Completely impossible for DIY. So I scrapped it.\n\nReplaced with 4x LPDDR5X chips per MAAU, 128-bit wide bus, assembled on a standard PCB. Bandwidth: 168 GB/s. Enough for everything T1C needs to do. Cost: $15–35 instead of $70. Better.\n\nThe voltage system was another nightmare. Even 10mV of fluctuation causes timing violations, wrong computation, or a full chip crash. Dynamic current switching changes 1000x in one nanosecond — no VRM can respond fast enough alone. So I built a 5-layer Adaptive Voltage Stack: on-chip LDOs, MOM capacitors, PCB ceramics, bulk caps, and an I2C adaptive VRM. Combined result: ±3mV stability. Better than most commercial MCUs.\n\nThe TurboQuant implementation had a bug. The original design used PolarQuant + QJL — a 1-bit error correction stage. Five independent community teams confirmed: QJL increases variance. Softmax amplifies it. Attention scores degrade. My original claim of \"zero accuracy loss at 3-bit for all models\" was wrong. I documented it publicly, dropped the QJL stage entirely, and went PolarQuant-only. 4-bit is now the default — lossless for every model size.\n\nI didn't hide these problems. I documented every single one with the exact fix applied. That's the only way open source hardware can actually work.\n\nThe architecture includes MIM — Multi-Instance MAAU. Each physical chip can be partitioned into up to 4 isolated hardware slices, each with independent SRAM via hardware MMU, dedicated DMA channel, its own LDO power domain, and a separate clock domain.\n\nNVIDIA calls this MIG on the H100. T1C has it too — in open-source Verilog RTL, runtime-resizable in under 100ms without a system reboot, at $0 cost because it's already in the design.\n\nEverything is MIT licensed.\n\nFull Verilog RTL. GDSII files for both GF 65nm and IHP 130nm. KiCad PCB for the 8-layer blade. ISA specification. Verilator simulation model so software developers can write compilers before the chip physically exists. Boot ROM. Basic assembler. Full BOM with LCSC and Mouser links and real prices.\n\nThe software roadmap is staged and honest. Day one: a working matrix multiply that proves the chip actually computes. Month 3–6: llama.cpp backend so LLMs run on T1C. Month 6–12: ONNX Runtime. Month 12–18: PyTorch. Month 24+: HuggingFace integration, self-sustaining community, companies building products on top.\n\nT1C is not faster than an RTX 4090 per dollar right now. I want to be clear about that.\n\nT1C's value is something different. It's the first open-source AI accelerator with D-IMC architecture that a human being can actually fabricate. It's the chip that RISC-V was for CPUs — not the fastest thing, but the open thing. The thing you can hold in your hand and say: I built this. I understand every transistor. I can modify it, improve it, and build products on it.\n\nOverall production readiness score: 9.2/10.\n\nArchitecture: 9/10.\n\nVoltage stability: 10/10. TurboQuant implementation: 10/10. \n\nMIM hardware isolation: 10/10. Documentation honesty: 10/10.\n\nReal engineering. Honest numbers. \n\nOpen future.\n\nFrom India — for the world.\n\nWe Design It. World Builds It.\n\nFull spec: https://alexzo.vercel.app/t1c\n\nDeep dive blog: https://alexzo.vercel.app/blog/8\n\nGitHub repo: https://github.com/Alexzoofficial/T1C",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actually",
+      "ai",
+      "amd",
+      "blade",
+      "build",
+      "chip",
+      "completely",
+      "digital in-memory computing",
+      "diy",
+      "full",
+      "hardware",
+      "hbm",
+      "ihp germany",
+      "intel",
+      "opensource",
+      "pcb",
+      "real",
+      "samsung",
+      "tsmc",
+      "voltage",
+      "von neumann",
+      "webdev"
+    ],
+    [
+      "ai",
+      "opensource",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": 8846,
+  "source": "Hacker News",
+  "title": "Someone at BrowserStack Is Leaking Users' Email Address",
+  "url": "https://shkspr.mobi/blog/2026/04/someone-at-browserstack-is-leaking-users-email-address/",
+  "published_at": "2026-04-05T13:14:38Z",
+  "fetched_at": "2026-04-05T14:00:21.456971+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47649117\">Comments</a>",
+  "full_text": "Like all good nerds, I generate a unique email address for every service I sign up to. This has several advantages - it allows me to see if a message is legitimately from a service, if a service is hacked the hackers can't go credential stuffing, and I instantly know who leaked my address.\n \n\nA few weeks ago I signed up for BrowserStack as I wanted to join their Open Source programme. I had a few emails back-and-forth with their support team and finally got set up.\n \n\nA couple of days later I received an email to that email address from someone other than BrowserStack. After a brief discussion, the emailer told me they got my details from Apollo.io.\n \n\nNaturally, I reached out to Apollo to ask them where they got my details from.\n \n\nThey replied:\n \n\n \n\nYour email address was derived using our proprietary algorithm that leverages publicly accessible information combined with typical corporate email structures (e.g., firstname.lastname@companydomain.com).\n \n \n\nWow! A proprietary algorithm, eh? I wonder how much AI it takes to work out \"firstname.lastname\"????\n \n\nObviously, their response was inaccurate. There's no way their magical if-else statement could have derived the specific email I'd used with BrowserStack. I called them out on their bullshit and they replied with:\n \n\n \n\nYour email address came from BrowserStack (browserstack.com) one of our customers who participates in our customer contributor network by sharing their business contacts with the Apollo platform.\n \n\nThe date of collection is 2026-02-25.\n \n \n\nSo I emailed BrowserStack a simple \"Hey guys, what the fuck?\"\n \n \n\nI love their cheery little \"No spam, we promise!\"\n \n\nDespite multiple attempts to contact them, BrowserStack never replied.\n \n\nGiven that this email address was only used with one company, I think there are a few likely possibilities for how Apollo got it.\n \n \nBrowserStack routinely sell or give away their users' data.\n \nA third-party service used by BrowserStack siphons off information to send to others.\n \nAn employee or contractor at BrowserStack is exfiltrating user data and transferring it elsewhere.\n \n \n\nThere are other, more nefarious, explanations - but I consider that to be unlikely. I suspect it is just the normalisation of the shabby trade in personal information undertaken by entities with no respect for privacy.\n \n\nBut, it turns out, it gets worse. My next blog post reveals how Apollo got my phone number from from a very big company.\n \n\nBe seeing you 👌",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "address",
+      "apollo",
+      "browserstack",
+      "contact",
+      "date",
+      "derive",
+      "email",
+      "information",
+      "proprietary",
+      "service"
+    ],
+    []
+  ]
+}

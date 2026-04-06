@@ -1,0 +1,29 @@
+{
+  "id": 8771,
+  "source": "Hacker News",
+  "title": "Show HN: mailtrim – find what's actually filling your Gmail inbox",
+  "url": "https://news.ycombinator.com/item?id=47645719",
+  "published_at": "2026-04-05T02:53:21Z",
+  "fetched_at": "2026-04-05T04:00:28.761078+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47645719\">Comments</a>",
+  "full_text": "I always assumed Gmail bloat came from large attachments. \n Turns out 3 senders were responsible for 30% of my inbox — \n thousands of tiny emails I'd never thought to clean up.\n\n I built mailtrim to surface this pattern: \n \n - ranks senders by actual storage impact (not just count) \n - confidence scoring on what's safe to bulk-delete \n - 30-day undo on everything — nothing is permanent by default\n - runs entirely locally, no email data leaves your machine \n \n Free, open source (MIT). No subscription, no backend.\n \n One friction point upfront: Gmail API setup is one-time, ~15 min. \n After that it's just `mailtrim stats` and `mailtrim purge`. \n \n Keen to hear feedback on the confidence/safety model especially — \n that's the part I'm least sure I've got right. \n \n https://github.com/sadhgurutech/mailtrim",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "assume",
+      "build",
+      "come",
+      "email",
+      "fill",
+      "gmail",
+      "inbox",
+      "keen",
+      "mailtrim",
+      "mit",
+      "sender"
+    ],
+    []
+  ]
+}

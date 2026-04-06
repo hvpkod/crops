@@ -1,0 +1,39 @@
+{
+  "id": 8806,
+  "source": "DEV Community<",
+  "title": "Understanding Scope, Hoisting, and Closures like a Pro!",
+  "url": "https://dev.to/rafsan-jany-ratul/understanding-scope-hoisting-and-closures-like-a-pro-152h",
+  "published_at": "2026-04-05T08:00:46Z",
+  "fetched_at": "2026-04-05T08:40:31.382976+00:00",
+  "author": "Rafsan Jany Ratul",
+  "summary": "<p>🔹 <strong>What is Scope?</strong></p>\n\n<p>Scope defines the accessibility of variables in your code.</p>\n\n<p>Simply put:</p>\n\n<p>Scope decides where in your code a variable can be used.</p>\n\n<p>In JavaScript, every variable has a “boundary.” Outside this boundary, the variable is unavailable.</p>\n\n<p><strong>Why is Scope important?</strong></p>\n\n<ul>\n<li>Prevent variable conflicts</li>\n<li>Manage memory efficiently</li>\n<li>Make code predictable</li>\n</ul>\n\n<p><strong>Main types of Scope:</strong></p>\n\n<p><strong>Global Scope</strong> → accessible from anywhere<br />\n<strong>Function Scope</strong> → accessible only within a function<br />\n<strong>Block Scope</strong> → accessible within {} (using let or const)<br />\n<strong>Lexical Scope</strong> → determined by the code’s written structure</p>\n\n<p><strong>🔹 Scope Example</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code><span class=\"kd\">let</span> <span class=\"nx\">person</span> ",
+  "full_text": "🔹 What is Scope?\n\nScope defines the accessibility of variables in your code.\n\nSimply put:\n\nScope decides where in your code a variable can be used.\n\nIn JavaScript, every variable has a “boundary.” Outside this boundary, the variable is unavailable.\n\nWhy is Scope important?\n\nPrevent variable conflicts\n\nManage memory efficiently\n\nMake code predictable\n\nMain types of Scope:\n\nGlobal Scope → accessible from anywhere\n\nFunction Scope → accessible only within a function\n\nBlock Scope → accessible within {} (using let or const)\n\nLexical Scope → determined by the code’s written structure\n\n🔹 Scope Example\n\nlet person = [1,2,3,4,5]; // global scope\n\nfunction total(num1, num2) {\n const result = num1 + num2; // function scope\n\n if(true) {\n var result1 = num1 * num2; // function scope (var)\n }\n\n console.log(result1); // accessible\n console.log(person); // global access\n}\n\ntotal(10, 20);\n\nconsole.log(result); // ❌ Error, function scope\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTakeaways:\n\nresult is not accessible outside the function\n\nresult1 is accessible inside function due to var being function-scoped\n\n🔹 What is Hoisting?\n\nHoisting is JavaScript’s behavior where variable and function declarations are moved to memory at the beginning of the execution phase.\n\nIn other words:\n\nBefore your code runs, JS prepares memory for all declared variables and functions.\n\nImportant points:\n\nvar → hoisted and initialized as undefined\n\nlet / const → hoisted but not initialized (they stay in the Temporal Dead Zone)\n\nFunction declarations → fully hoisted\n\nCommon misconception:\n\nSome think hoisting literally “moves code to the top,” but technically, it’s a memory preparation process.\n\n🔹 Hoisting Example\n\nconsole.log(a); // undefined\nvar a = 10;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nInternally, JavaScript interprets it as:\n\nvar a;\nconsole.log(a); // undefined\na = 10;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nUsing let or const:\n\nconsole.log(b); // ❌ ReferenceError\nlet b = 10;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis happens because let/const are hoisted but not initialized, creating the Temporal Dead Zone (TDZ).\n\n🔹 What are Closures?\n\nA closure is when a function “remembers” variables from its outer scope even after the outer function has finished executing.\n\nSimply:\n\nFunction + its surrounding environment = Closure\n\nWhy closures are useful:\n\nMaintain private data\n\nKeep state between function calls\n\nWidely used in real-world JS (event handlers, React hooks, etc.) \n\n🔹 Closure Example\n\nfunction total() {\n let counter = 0;\n\n return function() {\n counter++;\n console.log(counter);\n }\n}\n\nUsage:\n\nconst result1 = total();\n\nresult1(); // 1\nresult1(); // 2\n\nconst result2 = total();\n\nresult2(); // 1\nresult1(); // 3\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nKey points:\n\ncounter is not global\n\nThe inner function remembers its value\n\nEach call to total() creates a new memory instance\n\n🔹 Lexical Scope (The backbone of closures)\n\nfunction outer() {\n let a = 10;\n\n return function inner() {\n console.log(a);\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe inner function is declared inside the outer function\n\nTherefore, it can access variable a\n\nThis is lexical scope, which allows closures to work\n\n How These Concepts Connect\n\nScope → defines where a variable lives\n\nLexical Scope → defines what variables a function can access based on the written code\n\nClosure → allows functions to “remember” variables from outer scopes\n\nAll three work together in JavaScript!\n\nSummary\n\nScope → variable boundaries\n\nHoisting → memory preparation before execution\n\nLexical Scope → determines access based on code structure\n\nClosure → functions remember outer data\n\nFinal Thought\n\nMany unexpected behaviors in JavaScript happen because these concepts are unclear.\n\nOnce Scope, Hoisting, Lexical Scope, and Closures are understood, JavaScript becomes predictable and much easier to work with\n\n #webdevelopment #frontend #closure #hoisting #scope #lexicalscope #learntocode",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "accessible",
+      "closure",
+      "closure example",
+      "clouser",
+      "fullscreen",
+      "function",
+      "hoist",
+      "javascript",
+      "keep",
+      "lexical",
+      "lexical scope",
+      "mode",
+      "outer",
+      "react",
+      "scope",
+      "variable",
+      "webdev"
+    ],
+    [
+      "clouser",
+      "javascript",
+      "webdev"
+    ]
+  ]
+}

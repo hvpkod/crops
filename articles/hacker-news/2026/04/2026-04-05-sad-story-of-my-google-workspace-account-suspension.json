@@ -1,0 +1,33 @@
+{
+  "id": 8842,
+  "source": "Hacker News",
+  "title": "Sad Story of My Google Workspace Account Suspension",
+  "url": "https://zencapital.substack.com/p/sad-story-of-my-google-workspace",
+  "published_at": "2026-04-05T11:48:13Z",
+  "fetched_at": "2026-04-05T12:40:36.442503+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47648404\">Comments</a>",
+  "full_text": "As the title suggests, I have finally become the victim of Google’s account suspension. The reason given over the phone was that my account had been “hijacked” - when in reality, I was simply the one accessing it from overseas.\n\nDespite repeatedly explaining this, they ignored my assertions and continue to hold my email hostage. I understand they may believe they’re protecting me from social engineering, but a DNS verification was already completed to prove I own the domain. While suspended, no emails are received and no forwards work.\n\nOn Saturday, April 4, around 5:00 AM I removed my phone number from the account. I am travelling to the UK for a short period and did not want to have roaming on my Australian phone. Despite setting up an authenticator and passkey, gmail insisted that I use my phone number to login via SMS. Ofcourse, this was not what I wanted. So I removed the recovery phone, expecting the system to fall back to my authenticator. I was in the UK to negotiate a business outcome - I should have realised that if Gmail fails, everything downstream fails with it.\n\nOn Saturday, April 4, at 5:06 AM, I received a notification saying my authenticator had been removed. It hadn’t. The authenticator was still active on my phone - it was the recovery phone I had removed. Google apparently conflated the two.\n\nI had my logged-in laptop, phone, passkey, and backup codes, but none of it worked.\n\nEvery recovery attempt kept hitting the same “something went wrong” dead end, despite tapping the correct recovery prompt on my phone.\n\nThis email is the sole account on my Google Workspace - and the super admin account. A single point of failure. It has three aliases across different domains. Email, Drive, Calendar, payroll, and authentication for multiple services are all tied to it.\n\nI had multiple email forwards configured precisely for situations like this, but because the account is suspended, forwards don’t work either. Payroll is tomorrow. I won’t be able to run it because of my reliance on Gmail-based authentication. I cannot login to Pipedrive - sales CRM because I use Google Auth. I can’t login to our Task management app. I can’t login to our internal systems because - you guessed it - it releied on Google Oauth.\n\nThen, it get worse. \n\nI tried account recovery and was asked to verify DNS ownership via CNAME and TXT records. I did this promptly. Meanwhile, the recovery email option told me I’d need to wait 30 days.\n\nThirty days of a suspended business email. No incoming mail. No forwards. Nothing.\n\nSo Google will suspend my email for 30 days and no emails will be received during this time. \n\nFortunately, I run another Google Workspace account. I logged into that admin console and contacted Google support through it. The rep told me to fill out a form at a link - which required me to log in. With my suspended account. Which I obviously can’t do.\n\nAnother rep on chat told me the account was “simply suspended” and that I could recover it in incognito mode. I told them I’d already tried this multiple times and hit the same error every time. They filed another ticket.\n\nI tell them - I have already done this numerous times and it fails with the same error I got previously.\n\nThis back-and-forth repeated several times over 24 hours. There are now four open cases. None of the case managers seem to know what’s happening - one case gets closed in favour of another, then reopened because the other was closed.\n\nI read community forums and reach out Google Workspace on X.com. They ask for case numbers which I promptly give and they tell me to wait.\n\nI finally reached someone by phone and explained that I had removed the phone number myself. I asked them to verify the DNS record, confirmed I’d passed their “knowledge test.” They said everything checked out and that there would be a resolution within a few hours. They confirmed as much in a follow-up email.\n\nMore than 40 hours have passed. Having chatted to someone on the phone. I’ve since been told the person handling my case isn’t on shift for another 90 minutes. This means I will likely miss payroll. A negotiation with a business associate will need to be rescheduled. I could give them my personal email, but I’d rather keep business and personal separate.\n\nUpdate 1 - I know I can simply change the MX record to someone else but It has its own challenges.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "account",
+      "authenticator",
+      "cname",
+      "dns",
+      "email",
+      "google",
+      "google oauth",
+      "login",
+      "n’t",
+      "phone",
+      "receive",
+      "recovery",
+      "remove",
+      "txt",
+      "workspace"
+    ],
+    []
+  ]
+}

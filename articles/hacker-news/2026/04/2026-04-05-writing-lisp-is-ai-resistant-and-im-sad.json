@@ -1,0 +1,37 @@
+{
+  "id": 8770,
+  "source": "Hacker News",
+  "title": "Writing Lisp Is AI Resistant and I'm Sad",
+  "url": "https://blog.djhaskin.com/blog/writing-lisp-is-ai-resistant-and-im-sad/",
+  "published_at": "2026-04-05T02:01:31Z",
+  "fetched_at": "2026-04-05T04:00:26.656011+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47645468\">Comments</a>",
+  "full_text": "In an insulting, ironic blow to the neats, the\nscruffies created an AI that\nmuch prefers to write anything but Lisp.\n\nI use agentic AI a lot at work to do my job as a DevOps engineer. I use\nOpenRouter with the Goose CLI\ntool, and I've gotten a pretty good\nconfiguration\nfile\ngoing with it.\n\nI have lately started writing a tool that converts between different RSS reader\nformats. I started writing it in Lisp, of\ncourse. It's my favorite language.\n\nI had a problem though. I had to teach the AI how to use the REPL. Initially, I\nhad it run commands to interact with the REPL via\ntmux, e.g. tmux capture-pane\n-t 0.0 -p | tail -n 1. It worked okay, but I noticed that REPL development was\nvery hard for the AI. Claude really spun its wheels. Lesser AIs would be very\nmuch worse. I'd blow $10-$20 in a handful of minutes with not much to show for\nit but sort of OK lisp code that I ended up rewriting. I tried doing it with\ncheaper AIs like DeepSeek and\nQwen, which I found did OK at work for\nsome tasks, but it wasn't working.\n\nI figured maybe if I made REPL development smoother, the AI would do a better\njob. I wanted to give goose unlimited rights to the REPL while still guarding\ngeneral command rights, too. So, I created a tool called\ntmux-repl-mcp that would make\ninteracting with the REPL more straightforward. Instead of consuming a ton of\ntokens, executing a bunch of sleep commands, and parsing tmux output, the could\njust run execute_command in the repl and get its output.\n\nI wrote this tool in Python since a lot of my AI tooling in my goose\nconfiguration file was built around\nuvx already. I liked that I just had\nto install uvx and all of a sudden goose could use all these tools. I\nalready had all this stuff built up in my configuration file, so I figured it\nwould be easier for folks to use if it were distributed in the same way.\nBesides, the official guide to write an MCP\nserver were in\nnon-lisp languages anyway.\n\nThe difference in writing Python and Lisp with AI was of course dramatic,\ndownright wild. I got it to write all of the code and all the tests for the\ncode. I had to debug it semi-manually, but I was still able to bang together\nthis more-than-nothing tool in like a day or two, and with cheap models at that. Worst\nof all, the experience for me was the same in many ways: I wrote code by being a\npoor man's product owner to the AI for both, only the AI would perform well with\nthe Python. I felt none of the happiness I usually feel just writing Lisp.\n\nGoing back to my actual project was painful. I ended up writing one of the files\n(src/newsboat.lisp) by hand. I was in the middle of debugging it when I\nrealized how much harder it was to write with AI in Lisp. I had to switch back\nto Claude, which at least makes some progress relative to the others. The\ntmux-repl-mcp tool helped, but I still blew through $10 in like 30 minutes.\nThe signal-to-noise ratio, or in other words, the wheel-spinning-to-progress\nratio in the AI session was night and day compared to Python. And in AI, you pay\nfor the noise and the signal together.\n\nNow I'm thinking of rewriting it in Go. With AI, code is\ncheap, but\nonly if you use a language for which AI has a lot of training data. \n\nAnother frustration has been tooling. Lisp has a lot of tools to choose from. I\nlike using OCICL instead of QuickLisp, for\nexample, but I had to tell the AI to not use\nquicklisp every single session. It was like\nbuilt into the AI to use it. This also helped me realize that AI generates code\nsort of on a path of least resistance.\n\nThere are reasons other than a lack of training data that makes lisp\nparticularly AI resistant. The high-latency request-reponse way we interact with\nAI APIs does not work well with REPLs. REPL development makes programming easier\nand better by reducing that latency for humans, but there's already high latency\nanyways in these APIs. The downside of not using REPLs is that you have to have\nhigher accuracy when writing code and you can only test big batches of code at\nonce, but AI can write hundreds of lines in one go so that it just makes sense\nfor the AI to use a language that doesn't use the REPL.\n\nIt is orders of magnitude easier and cheaper to write in high-internet-volume\nlanguages like Go and Python than it is to write in Lisp. The advent of AI has\nconverted language popularity into real dollars-and-cents-per-million-tokens\ncost savings. What's more, building in one language or the other makes no\ndifference to how I experience the language; either way, in the ideal case,\nI'm a rather opinionated micro-managy product owner. That is really sad. \n\nIt reminds me of a tale that was told in my hometown about Plank\nRoad in Naperville,\nIL. The nineteenth century roads\nwere always muddy, so a bunch of investors created a road that was planked, or\nmade of wood. The makers of the road would charge money for using the road.\nLater, the railroad offered to build a railroad through Naperville, but they\ndeclined, saying they were making plenty of money on the plank road, so the\nrailroad was built in another city. Everyone stopped using the plank road in\nfavor of rail, and it eventually survived only in name with no one using it in\nits original form.\n\nI know money is not an issue here, at least for me. However, I can't help but\nmake the comparison in my head. The Plank Road must have been way nicer to\ntraverse than the muddy roads, evoking joy in the travelers when comparing it\nwith travelling in the mud, just like Lisp makes me feel versus writing in\nsomething else. However, when the railroad came along, all the farmers had to do\nwas load it into the cars. With ease like that, why use the silly road at all?\n\nIt's just another example of\nWorse is Better. However, Lisp has\nsurvived this worse-is-better internet era for decades. I wonder what we'll\nlearn as it survives the AI era as well. I like the neats camp. It's more fun.\nI wonder what adaptations will be necessary to make AIs work better on Lisp.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "build",
+      "claude",
+      "devops",
+      "goose",
+      "language",
+      "lisp",
+      "make",
+      "mcp",
+      "naperville",
+      "ocicl",
+      "plank",
+      "plank\nroad",
+      "quicklisp",
+      "railroad",
+      "repl",
+      "road",
+      "rss",
+      "write",
+      "writing lisp"
+    ],
+    []
+  ]
+}

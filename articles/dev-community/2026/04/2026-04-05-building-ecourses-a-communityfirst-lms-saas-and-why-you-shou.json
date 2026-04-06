@@ -1,0 +1,44 @@
+{
+  "id": 8809,
+  "source": "DEV Community<",
+  "title": "Building eCourses: A Community‑First LMS SaaS (and Why You Should Build in Public)",
+  "url": "https://dev.to/mateebhussain/building-ecourses-a-community-first-lms-saas-and-why-you-should-build-in-public-3g56",
+  "published_at": "2026-04-05T07:54:22Z",
+  "fetched_at": "2026-04-05T08:40:36.933344+00:00",
+  "author": "Ateeb Hussain",
+  "summary": "<p>I’m building a <strong>Learning Management System SaaS</strong> called <strong>eCourses</strong>, designed specifically for small communities and independent educators who feel priced out or over‑engineered by existing platforms.</p>\n\n<p>This post is the first in a series where I’ll walk through the architecture, decisions, and “lessons learned” from shipping an LMS from scratch — in public, open source, and on a tight budget.</p>\n\n<h2>\n  \n  \n  Why I Built eCourses\n</h2>\n\n<p>Most LMS platforms are either:</p>\n\n<ul>\n<li>Too expensive for solo creators and small communities.\n</li>\n<li>Too complex for simple “course + modules + lessons + live sessions” workflows.\n</li>\n<li>Too rigid to let instructors experiment with their own teaching style.</li>\n</ul>\n\n<p>I wanted something that:</p>\n\n<ul>\n<li>Feels native to <strong>communities</strong> (not just single instructors).\n</li>\n<li>Scales technically and financially under <strong>$10/month</strong> at reasonable load.\n</li>\n<li>Lets me e",
+  "full_text": "I’m building a Learning Management System SaaS called eCourses, designed specifically for small communities and independent educators who feel priced out or over‑engineered by existing platforms.\n\nThis post is the first in a series where I’ll walk through the architecture, decisions, and “lessons learned” from shipping an LMS from scratch — in public, open source, and on a tight budget.\n\n \n \n Why I Built eCourses\n\nMost LMS platforms are either:\n\nToo expensive for solo creators and small communities.\n\nToo complex for simple “course + modules + lessons + live sessions” workflows.\n\nToo rigid to let instructors experiment with their own teaching style.\n\nI wanted something that:\n\nFeels native to communities (not just single instructors).\n\nScales technically and financially under $10/month at reasonable load.\n\nLets me experiment with API design, caching, and complex state in a real product context.\n\nThat’s how eCourses started — as a personal itch, and now as a real product and portfolio project.\n\n \n \n What eCourses Is (Right Now)\n\nAt its core, eCourses is:\n\nA community‑scoped LMS SaaS with communitySlug‑based routing.\n\nAn admin panel where instructors can:\n\nCreate, edit, and soft‑delete courses (with image upload via ImageKit).\n\nReorder modules and lessons with drag‑and‑drop (optimistic UI, two‑pass index transactions).\n\nAssign non‑student members as instructors.\n\nA structure that prepares the ground for:\n\nPublic course pages.\n\nVideo upload and playback.\n\nLive sessions and recordings.\n\nStudent progress tracking and analytics.\n\nThe live version is currently deployed at https://ecourses-sigma.vercel.app, and the whole stack is open source under the MIT license.\n\n \n \n The Big Picture: Tech Stack\n\nRight now the stack is optimized for type‑safe, fast iteration rather than maximal feature‑bloat:\n\nLayer\nTech / Pattern\n\nFramework\nNext.js 15 (App Router + Turbopack)\n\nLanguage\nTypeScript\n\nAuth\nClerk\n\nDatabase\nPostgreSQL\n\nORM\nPrisma v7\n\nCache\nUpstash Redis\n\nFile Storage\nImageKit\n\nFrontend UI\nTailwind CSS v4 + shadcn/ui + dnd‑kit, nuqs, React Hook Form + Zod\n\nState (HTTP)\nTanStack Query v5 (React Query v4 in browser)\n\nThis gives me strong typing, rapid iteration, and a clear path to a mobile‑ready backend later.\n\n \n \n If You Want to Follow Along\n\nRight now eCourses is:\n\nYou can:\n\nStar / fork the repo and open issues or PRs.\n\nComment here with questions or suggestions (especially around LMS‑specific UX, API patterns, or caching).\n\nFollow as I keep shipping and documenting — if you’ve ever wondered what a “real‑sized” LMS architecture looks like at SaaS‑scale, this is a good place to watch it evolve.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "buildinpublic",
+      "community",
+      "css",
+      "ecourses",
+      "experiment",
+      "imagekit",
+      "instructor",
+      "learning management system",
+      "lesson",
+      "live",
+      "lms",
+      "mit",
+      "nuqs",
+      "open",
+      "opensource",
+      "react query",
+      "saas",
+      "ship",
+      "stack",
+      "tanstack query",
+      "webdev"
+    ],
+    [
+      "buildinpublic",
+      "opensource",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 8961,
+  "source": "DEV Community<",
+  "title": "How I render 10,000 live aircraft at 60fps in the browser with Rust, WASM, and raw WebGL2",
+  "url": "https://dev.to/hao_jiang_c21b032bd6fbcfa/how-i-render-10000-live-aircraft-at-60fps-in-the-browser-with-rust-wasm-and-raw-webgl2-4360",
+  "published_at": "2026-04-05T23:17:31Z",
+  "fetched_at": "2026-04-05T23:40:29.527821+00:00",
+  "author": "Hao Jiang",
+  "summary": "<p>I've been working on <a href=\"https://flight-viz.com\" rel=\"noopener noreferrer\">Flight-Viz</a>, a real-time flight tracker that plots live aircraft on a 3D globe — entirely in the browser. No plugins, no Canvas2D, just Rust compiled to WebAssembly with raw WebGL2 shaders. I wanted to share some of the rendering and data challenges since they took me a while to figure out.</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr9ew6k3tzjpgl4s89crp.png\"><img alt=\"3D globe view with thousands of live aircraft\" height=\"473\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr9ew6k3tzjpgl4s89crp.png\" width=\"800\" /></a></p>\n\n<h2>\n  \n  \n  The problem\n</h2>\n\n<p>I wanted to show 10,000+ aircraft moving s",
+  "full_text": "I've been working on Flight-Viz, a real-time flight tracker that plots live aircraft on a 3D globe — entirely in the browser. No plugins, no Canvas2D, just Rust compiled to WebAssembly with raw WebGL2 shaders. I wanted to share some of the rendering and data challenges since they took me a while to figure out.\n\n \n \n The problem\n\nI wanted to show 10,000+ aircraft moving smoothly on a 3D globe at 60fps. Each plane has its own position, altitude, heading, and aircraft type. The data updates every 2 minutes from OpenSky Network, but planes need to look like they're moving continuously.\n\n \n \n Instanced rendering with SDF icons\n\nInstead of loading sprite textures for each aircraft, I draw all the icons purely in the fragment shader using signed distance fields. There are 5 different shapes — commercial jet, cargo plane, propeller plane, helicopter, and military fighter — each built from combinations of SDF primitives (boxes, circles, lines) using min/max operations.\n\nA single float per instance (a_type) tells the shader which shape to draw. The nice thing about this approach is the icons scale perfectly at any zoom level, there's no texture memory used, and all 10K aircraft render in a single glDrawArraysInstanced call.\n\nEach instance carries 12 floats (48 bytes): world position, altitude, heading, surface normal, tangent vector, and aircraft type. The vertex shader uses the normal and tangent to orient a billboard quad on the sphere surface so the plane always points in its heading direction.\n\n \n \n Classifying aircraft without an API call\n\nOpenSky doesn't tell you what kind of aircraft it is, so I classify them by callsign:\n\nThree-letter ICAO code + digits (like AAL100, DAL500) = commercial airline\n\nFDX, UPS, GTI = cargo\n\nN-numbers (like N80SL) = private/GA propeller plane\n\nRCH, EVAC, callsigns starting with NAVY/ARMY = military\n\nPHI, ERA, callsigns containing HELI = helicopter\n\nIt's not perfect, but it's surprisingly accurate and costs zero API calls.\n\n \n \n Smooth movement between updates\n\nFlight data only updates every 2 minutes, so between updates I linearly interpolate between the previous and current positions. Once interpolation reaches t=1.0, I switch to dead reckoning — extrapolating using the plane's last known velocity and heading so it doesn't freeze in place. When new data arrives, it snaps to the real position and starts interpolating again.\n\n \n \n Supplemental data from FlightRadar24\n\nOpenSky covers about 6,000-10,000 flights. For flights not in OpenSky (like regional carriers), I fetch live positions on-demand from FlightRadar24 through a Cloudflare Worker proxy. This keeps the requests off my server IP and uses Cloudflare's edge caching. The worker is about 50 lines of JavaScript and runs on the free tier (100K requests/day).\n\nI also built a live airport departure/arrival board that looks like a real airport FIDS display — dark blue background, color-coded status, gate info — all from FR24's airport schedule API.\n\n \n \n The stack\n\nRust → WASM via Trunk (wasm-pack alternative)\n\negui for the UI (side panel, windows, popups)\n\nglow for raw WebGL2 bindings\n\nCustom GLSL shaders for globe, atmosphere, stars, map tiles, weather overlay, flight icons, route lines\n\nOpenSky Network for live flight positions (OAuth2 + account rotation for credits)\n\nFlightRadar24 via Cloudflare Workers for supplemental data\n\nnginx on a $5 VPS for caching and serving\n\nTotal WASM binary is about 4MB gzipped. Loads fast, caches well on CDN.\n\n \n \n Try it\n\nLive at flight-viz.com — you can search any flight number (even ones not shown on the map), click airports for live departure boards, filter by airline or country, and toggle between globe and flat map mode.\n\nHappy to answer questions about any of the rendering or data pipeline stuff. The SDF-based icon approach in particular has been really fun to work with and I think it's underused for this kind of real-time data viz.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "aircraft",
+      "airport",
+      "api",
+      "datum",
+      "flight",
+      "globe",
+      "gti",
+      "icon",
+      "live",
+      "navy",
+      "opensky",
+      "opensky network",
+      "rch",
+      "rendering",
+      "rust",
+      "sdf",
+      "shader",
+      "showdev",
+      "ups",
+      "wasm",
+      "webassembly",
+      "webgl"
+    ],
+    [
+      "showdev",
+      "webgl"
+    ]
+  ]
+}

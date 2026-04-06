@@ -1,0 +1,38 @@
+{
+  "id": 8940,
+  "source": "Marginal Revolution",
+  "title": "The CA Minimum Wage Increase: Summing Up",
+  "url": "https://marginalrevolution.com/marginalrevolution/2026/04/the-ca-minimum-wage-increase-summing-up.html?utm_source=rss&utm_medium=rss&utm_campaign=the-ca-minimum-wage-increase-summing-up",
+  "published_at": "2026-04-05T11:21:43Z",
+  "fetched_at": "2026-04-05T21:40:19.748288+00:00",
+  "author": "Alex Tabarrok",
+  "summary": "<p>Two recent joint-papers <a href=\"https://www.nber.org/papers/w34033\">Did California&#8217;s Fast Food Minimum Wage Reduce Employment?</a> by Clemens, Edwards and Meer and <a href=\"https://www.nber.org/papers/w34990\">The Effects of California&#8217;s $20 Fast Food Minimum Wage on Prices</a> by Clemens, Edwards, Meer and Nguyen give what I think is a plausible and consistent account of California&#8217;s $20 fast food minimum wage.</p>\n<p>California&#8217;s $20 fast food minimum wage raised wages in the sector by roughly 8 percent relative to the rest of the country but employment fell by 2.3 to 3.9 percent (depending on specification, median ~3.2%), translating to about 18,000 lost jobs. Food away from home (FAFH) prices in California&#8217;s four CPI-reporting MSAs rose 3.3–3.6 percent relative to 17 control MSAs. Falsification tests on Food at Home and All Items Less Food and Energy show zero differential movement—this is specific to restaurant prices.</p>\n<p>What&#8217;s interesti",
+  "full_text": "Two recent joint-papers Did California’s Fast Food Minimum Wage Reduce Employment? by Clemens, Edwards and Meer and The Effects of California’s $20 Fast Food Minimum Wage on Prices by Clemens, Edwards, Meer and Nguyen give what I think is a plausible and consistent account of California’s $20 fast food minimum wage.\n\nCalifornia’s $20 fast food minimum wage raised wages in the sector by roughly 8 percent relative to the rest of the country but employment fell by 2.3 to 3.9 percent (depending on specification, median ~3.2%), translating to about 18,000 lost jobs. Food away from home (FAFH) prices in California’s four CPI-reporting MSAs rose 3.3–3.6 percent relative to 17 control MSAs. Falsification tests on Food at Home and All Items Less Food and Energy show zero differential movement—this is specific to restaurant prices.\n\nWhat’s interesting is that the papers are independently estimated but the fit is consistent. The price paper uses Andreyeva et al.’s demand elasticity of -0.8 to convert the estimated price increases into an implied quantity declines: about 3.9–4.1 percent in limited-service and 1.7–1.8 percent in full-service. These align well with the employment declines of 3.2 and 2.1 percent estimated in the first paper.\n\nThe consistency tells us something about the mechanism. One thing we have learned about the minimum wage in recent years is that the pass-through effect is large and more of the employment decline is driven by pass through than by labor-capital substitution. In other words, prices rose, quantity demanded fell, and that’s what killed the jobs—not robots replacing workers. Not today, anyway.\n\nIn terms of welfare, the bulk of employed workers get an 8% wage increase, a small minority get disemployed. The big transfer was from consumers to workers. California has roughly 39 million residents, all of whom face 3.3–3.6% higher FAFH prices. The transfer is likely regressive — lower-income households spend a larger budget share on fast food specifically. So the policy effectively taxes low-income consumers generally to raise wages for a subset of low-income workers, while eliminating jobs for another subset. Your mileage may vary but I don’t see this as a big win for workers. We thought small increases in the minimum wage were absorbed–maybe some were or maybe they were just hard to estimate–but you can’t extrapolate the small increases to big ones–the effect is non-linear. Big increases in the minimum wage start to bite.\n\nAs usual, when it comes to fast food there is no such thing as a free lunch.\n\nAddendum: Clemens’s JEP paper continues to be the masterclass in how to think through minimum wage issues.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "andreyeva",
+      "california",
+      "clemens, edwards, meer",
+      "consumer",
+      "economics",
+      "employment",
+      "estimate",
+      "fast",
+      "food",
+      "food and drink",
+      "increase",
+      "law",
+      "meer",
+      "minimum",
+      "price",
+      "wage"
+    ],
+    [
+      "economics",
+      "food and drink",
+      "law"
+    ]
+  ]
+}

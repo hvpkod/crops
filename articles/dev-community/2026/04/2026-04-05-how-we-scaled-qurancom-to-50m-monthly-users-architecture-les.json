@@ -1,0 +1,45 @@
+{
+  "id": 8958,
+  "source": "DEV Community<",
+  "title": "How We Scaled Quran.com to 50M Monthly Users: Architecture Lessons From the Inside",
+  "url": "https://dev.to/mzunain/how-we-scaled-qurancom-to-50m-monthly-users-architecture-lessons-from-the-inside-i33",
+  "published_at": "2026-04-05T23:21:10Z",
+  "fetched_at": "2026-04-05T23:40:23.796960+00:00",
+  "author": "Muhammad Zulqarnain",
+  "summary": "<h1>\n  \n  \n  How We Scaled Quran.com to 50M Monthly Users: Architecture Lessons From the Inside\n</h1>\n\n<p>Scaling a web application to serve 50 million monthly users is not just a technical challenge — it is an architectural one. At Quran.com, one of the world's most visited Islamic resources, I led the frontend engineering effort that took the platform from struggling under load to reliably serving tens of millions of users globally.</p>\n\n<p>Here's what I learned.</p>\n\n<h2>\n  \n  \n  Start With the Right Foundation: Next.js and ISR\n</h2>\n\n<p>When I joined the team, Quran.com was running a single-page React app with client-side rendering. Every page load hit the server, every user got the same slow first paint. The fix was a full migration to Next.js with Incremental Static Regeneration (ISR).</p>\n\n<p>ISR lets you pre-render pages at build time and revalidate them in the background on a schedule. For content like Surah pages — which rarely change — we set revalidation to 3600 seconds (1 ",
+  "full_text": "How We Scaled Quran.com to 50M Monthly Users: Architecture Lessons From the Inside\n\nScaling a web application to serve 50 million monthly users is not just a technical challenge — it is an architectural one. At Quran.com, one of the world's most visited Islamic resources, I led the frontend engineering effort that took the platform from struggling under load to reliably serving tens of millions of users globally.\n\nHere's what I learned.\n\n \n \n Start With the Right Foundation: Next.js and ISR\n\nWhen I joined the team, Quran.com was running a single-page React app with client-side rendering. Every page load hit the server, every user got the same slow first paint. The fix was a full migration to Next.js with Incremental Static Regeneration (ISR).\n\nISR lets you pre-render pages at build time and revalidate them in the background on a schedule. For content like Surah pages — which rarely change — we set revalidation to 3600 seconds (1 hour). This meant most users hit pre-rendered HTML instantly instead of waiting for server execution.\n\nResult: Time to first byte dropped by over 70% for users in Asia and the Middle East, where our traffic is heaviest.\n\n \n \n Edge Caching: The Second Layer\n\nISR alone was not enough. We layered Cloudflare in front of Vercel, configured to cache ISR-generated pages at the CDN edge. Users in Riyadh, Karachi, Jakarta — wherever they are — now get pages served from a node close to them.\n\nThe configuration that made this work:\n\n// next.config.js\nmodule.exports = {\n async headers() {\n return [\n {\n source: '/surah/:id*',\n headers: [\n {\n key: 'Cache-Control',\n value: 'public, s-maxage=3600, stale-while-revalidate=86400'\n }\n ]\n }\n ]\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe stale-while-revalidate header is the key. It tells the CDN: serve the cached version immediately, and revalidate in the background. Users never wait.\n\nResult: CDN cache hit rate went from ~40% to 92%.\n\n \n \n Code Splitting and Bundle Optimization\n\nA 50M-user app cannot afford bloated JavaScript bundles. We audited every dependency and applied aggressive code splitting:\n\nDynamic imports for heavy components (audio player, translation viewer)\n\nRoute-based splitting via Next.js dynamic routing\n\nMoving user preferences (theme, language settings) to client-side state to avoid cache busting on every personalized request\n\nResult: Initial JS bundle size reduced by ~45%.\n\n \n \n What Scaling Actually Teaches You\n\nThe biggest lesson from working at this scale: the architecture decisions that seem like premature optimization are often the decisions that matter most.\n\nISR is not a performance trick — it is a scalability strategy. At 50 million users, every millisecond you shave off the critical path compounds. A 100ms improvement in TTFB means millions of users per day load faster, engage more, and return more often.\n\nIf you are building a content-heavy Next.js application, do not wait until you have scale problems to think about ISR and edge caching. Build it right the first time.\n\n \n \n The Stack at a Glance\n\nFramework: Next.js 14 (App Router, ISR)\n\nCDN: Cloudflare\n\nDeployment: Vercel\n\nState: React Query + Zustand\n\nLanguages: TypeScript throughout\n\nIf you have questions about scaling Next.js in production or want to talk architecture, reach out at zunain.com.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "architecture",
+      "asia",
+      "cdn",
+      "cloudflare",
+      "html",
+      "incremental static regeneration",
+      "karachi",
+      "lessons",
+      "million",
+      "monthly",
+      "nextjs",
+      "optimization",
+      "page",
+      "performance",
+      "quran.com",
+      "revalidate",
+      "riyadh",
+      "scale",
+      "splitting",
+      "surah",
+      "the middle east",
+      "user",
+      "webdev"
+    ],
+    [
+      "architecture",
+      "nextjs",
+      "webdev"
+    ]
+  ]
+}

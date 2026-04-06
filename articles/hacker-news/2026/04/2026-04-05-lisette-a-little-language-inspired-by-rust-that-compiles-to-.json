@@ -1,0 +1,29 @@
+{
+  "id": 8795,
+  "source": "Hacker News",
+  "title": "Lisette a little language inspired by Rust that compiles to Go",
+  "url": "https://lisette.run/",
+  "published_at": "2026-04-05T06:57:19Z",
+  "fetched_at": "2026-04-05T08:00:26.118955+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47646843\">Comments</a>",
+  "full_text": "Lisette\na little\n language\ninspired by Rust\nthat compiles to Go\n \n \n\n Algebraic data types · Pattern matching · No nil · \n\n Hindley-Milner type system · Immutable by default\n\n Interoperability with Go's ecosystem\n \n \n \n\n \n\n import \"go:fmt\"\nimport \"go:io\"\nimport \"go:os\"\n\nfn load_config(path: string) -> Result<Cfg, error> {\n let file = os.Open(path)?\n defer file.Close()\n let data = io.ReadAll(file)?\n parse_yaml(data)\n}\n\nfn main() {\n match load_config(\"app.yaml\") {\n Ok(config) => start(config),\n Err(e) => fmt.Println(\"error:\", e),\n }\n}",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "algebraic",
+      "datum",
+      "hindley-milner",
+      "immutable",
+      "import",
+      "inspire",
+      "interoperability",
+      "lisette",
+      "matching",
+      "rust",
+      "type"
+    ],
+    []
+  ]
+}

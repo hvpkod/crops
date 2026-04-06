@@ -1,0 +1,30 @@
+{
+  "id": 8877,
+  "source": "Slashdot",
+  "title": "Chrome 148 Will Start 'Lazy Loading' Video and Audio to Improve Performance",
+  "url": "https://slashdot.org/story/26/04/05/0031201/chrome-148-will-start-lazy-loading-video-and-audio-to-improve-performance?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-05T16:34:00Z",
+  "fetched_at": "2026-04-05T16:40:21.750757+00:00",
+  "author": "EditorDavid",
+  "summary": "\"Google has announced that it's currently testing a new feature for Chrome 148 that could speed up day-to-day browsing,\" reports PC World:\n\n\n[T]he browser can intelligently postpone the loading of certain elements. Why load all images at the start when it can instead load images as you get close to them while scrolling? Chrome and Chromium-based browsers have had built-in lazy loading support for images and iframes since 2019, but this feature would make browsers capable of lazy loading video and audio elements, too. Note, however, that this won't benefit YouTube video embeds &mdash; those are already lazy loadable since they're embedded using iframes. Actual video and audio elements are rarer but not uncommon. In addition to Chrome, lazy loading of video and audio elements is also expected to be added to other Chromium-based browsers, including Microsoft Edge and Vivaldi.\n<p><div class=\"share_submission\">\n<a class=\"slashpop\" href=\"http://twitter.com/home?status=Chrome+148+Will+Start+'",
+  "full_text": "\"Google has announced that it's currently testing a new feature for Chrome 148 that could speed up day-to-day browsing,\" reports PC World\n\n:\n\n[T]he browser can intelligently postpone the loading of certain elements. Why load all images at the start when it can instead load images as you get close to them while scrolling? Chrome and Chromium-based browsers have had built-in lazy loading support for images and iframes since 2019, but this feature would make browsers capable of lazy loading video and audio elements, too. Note, however, that this won't benefit YouTube video embeds — those are already lazy loadable since they're embedded using iframes. Actual video and audio elements are rarer but not uncommon. In addition to Chrome, lazy loading of video and audio elements is also expected to be added to other Chromium-based browsers, including Microsoft Edge and Vivaldi.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "announce",
+      "audio",
+      "browser",
+      "chrome",
+      "chromium",
+      "element",
+      "image",
+      "lazy",
+      "load",
+      "loading",
+      "microsoft edge",
+      "video"
+    ],
+    []
+  ]
+}

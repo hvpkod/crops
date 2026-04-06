@@ -1,0 +1,40 @@
+{
+  "id": 8801,
+  "source": "DEV Community<",
+  "title": "I guess we now have Sprite Animations",
+  "url": "https://dev.to/clyh/i-guess-we-now-have-sprite-animations-3489",
+  "published_at": "2026-04-05T08:35:59Z",
+  "fetched_at": "2026-04-05T08:40:22.992680+00:00",
+  "author": "clyh",
+  "summary": "<p>A while back I posted something about wgpu, and making a game engine.<br />\nI've since worked on it a bit more, and now we somehow have Animated Sprites! 🎉</p>\n\n<p>Yay!</p>\n\n<p>Here’s how it works:</p>\n\n<ul>\n<li>I loaded a spritesheet and slice it into individual sprites.</li>\n<li>These sprites are grouped into animations, which are then handed off to the SpriteAnimator.</li>\n<li>The SpriteAnimator tells the SpriteRenderer which sprite to display at any given time.</li>\n</ul>\n\n<p>The sprites aren’t independent images. Each one stores UV coordinates corresponding to its region on the spritesheet.</p>\n\n<p>The SpriteRenderer then simply renders a 2D quad using the sprite’s UV coordinates, effectively showing the correct pixels from the spritesheet.</p>\n\n<p>Meanwhile, the SpriteAnimator handles all the animation logic, controlling which sprite the renderer should display and when.</p>\n\n<p>It’s rather simple, really. Here it is in action:</p>\n\n<p>  \n  \n</p>\n\n<p>P.S:</p>\n\n<ul>\n<li>I also ",
+  "full_text": "A while back I posted something about wgpu, and making a game engine.\n\nI've since worked on it a bit more, and now we somehow have Animated Sprites! 🎉\n\nYay!\n\nHere’s how it works:\n\nI loaded a spritesheet and slice it into individual sprites.\n\nThese sprites are grouped into animations, which are then handed off to the SpriteAnimator.\n\nThe SpriteAnimator tells the SpriteRenderer which sprite to display at any given time.\n\nThe sprites aren’t independent images. Each one stores UV coordinates corresponding to its region on the spritesheet.\n\nThe SpriteRenderer then simply renders a 2D quad using the sprite’s UV coordinates, effectively showing the correct pixels from the spritesheet.\n\nMeanwhile, the SpriteAnimator handles all the animation logic, controlling which sprite the renderer should display and when.\n\nIt’s rather simple, really. Here it is in action:\n\n VIDEO\n\nP.S:\n\nI also implemented text rendering as you can see in the FPS counter at the top left corner of the window in the example gif. Perhaps I will talk about it another day.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "animated sprites",
+      "animation",
+      "display",
+      "fps",
+      "gamedev",
+      "load",
+      "post",
+      "render",
+      "rust",
+      "showdev",
+      "sideprojects",
+      "sprite",
+      "sprite animations",
+      "spriteanimator",
+      "spriterenderer",
+      "spritesheet",
+      "work"
+    ],
+    [
+      "gamedev",
+      "post",
+      "showdev",
+      "sideprojects"
+    ]
+  ]
+}

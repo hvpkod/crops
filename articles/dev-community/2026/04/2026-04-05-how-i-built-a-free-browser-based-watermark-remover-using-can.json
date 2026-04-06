@@ -1,0 +1,37 @@
+{
+  "id": 8859,
+  "source": "DEV Community<",
+  "title": "How I built a free browser-based watermark remover using Canvas API",
+  "url": "https://dev.to/dan_dan_26ba75efedd611b1f/how-i-built-a-free-browser-based-watermark-remover-using-canvas-api-1if3",
+  "published_at": "2026-04-05T14:13:12Z",
+  "fetched_at": "2026-04-05T14:40:38.128793+00:00",
+  "author": "Dan Dan",
+  "summary": "<p>I recently built CleanMark — a free, browser-based watermark removal tool that runs entirely in your<br />\n  browser with no uploads, no registration, and no cost.</p>\n\n<p>Try it here: <a href=\"https://cleanmark.org\" rel=\"noopener noreferrer\">https://cleanmark.org</a></p>\n\n<p>## The core idea</p>\n\n<p>Most watermark removers send your image to a server. CleanMark does everything locally using the<br />\n  browser's Canvas API — your image never leaves your device.</p>\n\n<p>## How Canvas inpainting works</p>\n\n<p>The technique is called inpainting — filling in a selected region based on surrounding pixels.        </p>\n\n<p>Here's the basic flow:                                                                                </p>\n\n<ol>\n<li>User selects the watermark area with a brush or rectangle tool\n</li>\n<li>The selection becomes a mask (white = remove, black = keep)\n</li>\n<li>For each masked pixel, sample neighboring non-masked pixels\n</li>\n<li>Fill the masked area using a weighted aver",
+  "full_text": "I recently built CleanMark — a free, browser-based watermark removal tool that runs entirely in your\n\n browser with no uploads, no registration, and no cost.\n\nTry it here: https://cleanmark.org\n\n## The core idea\n\nMost watermark removers send your image to a server. CleanMark does everything locally using the\n\n browser's Canvas API — your image never leaves your device.\n\n## How Canvas inpainting works\n\nThe technique is called inpainting — filling in a selected region based on surrounding pixels. \n\nHere's the basic flow: \n\nUser selects the watermark area with a brush or rectangle tool\n\nThe selection becomes a mask (white = remove, black = keep)\n\nFor each masked pixel, sample neighboring non-masked pixels\n\nFill the masked area using a weighted average of those neighbors\n\nThe sampling strategy matters a lot. A naive approach just averages nearby pixels, which creates a\n\n blurry patch. A better approach uses patch-based matching — find a similar texture patch elsewhere in \n\n the image and copy it in. \n\nFor CleanMark, I implemented a fast approximation: \n\nScan outward from each masked pixel in concentric rings\n\nWeight closer pixels more heavily\n\nApply a slight blur to blend edges\n\nThis works well for simple backgrounds (gradients, solid colors, textures) which covers most watermark\n\n use cases. \n\n## Why browser-only? \n\nPrivacy: your images stay on your device\n\nCost: no server = no hosting bill\n\nSpeed: no upload/download round trip\n\n## Stack \n\nNext.js (App Router)\n\nCanvas API for image processing\n\nnext-intl for i18n (English + Chinese)\n\n## What's next \n\nImprove inpainting quality for complex backgrounds\n\nAdd batch processing\n\nOpen source the core algorithm\n\nIf you're building image tools in the browser, the Canvas API is more powerful than most people\n\n realize. Happy to answer questions about the implementation.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "average",
+      "build",
+      "canvas",
+      "cleanmark",
+      "image",
+      "inpainte",
+      "javascript",
+      "mask",
+      "nextjs",
+      "opensource",
+      "pixel",
+      "processing",
+      "watermark",
+      "webdev"
+    ],
+    [
+      "javascript",
+      "nextjs",
+      "opensource",
+      "webdev"
+    ]
+  ]
+}

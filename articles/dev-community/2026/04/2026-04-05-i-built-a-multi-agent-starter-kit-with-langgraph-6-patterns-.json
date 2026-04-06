@@ -1,0 +1,42 @@
+{
+  "id": 8860,
+  "source": "DEV Community<",
+  "title": "I Built a Multi-Agent Starter Kit with LangGraph — 6 Patterns, 5 Providers, One Command",
+  "url": "https://dev.to/ac12644/i-built-a-multi-agent-starter-kit-with-langgraph-6-patterns-5-providers-one-command-b8g",
+  "published_at": "2026-04-05T14:09:08Z",
+  "fetched_at": "2026-04-05T14:40:38.869372+00:00",
+  "author": "Abhishek Chauhan",
+  "summary": "<p>If you've built more than one LangGraph project, you know the drill. Supervisor setup. Provider config. Handoff tools. Persistence. Streaming endpoint. Same boilerplate, different repo.</p>\n\n<p>So I stopped rewriting it and packaged the whole thing.</p>\n\n<h2>\n  \n  \n  <a href=\"https://github.com/ac12644/langgraph-starter-kit\" rel=\"noopener noreferrer\">LangGraph Starter Kit</a>\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>npx create-langgraph-app\n</code></pre>\n\n</div>\n\n\n<p>Interactive CLI. Pick your provider, pick your patterns, get a project that runs.</p>\n\n<p>Or clone the full kit with everything included.</p>\n\n\n<h2>\n  \n  \n  6 Patterns\n</h2>\n\n<p>Each one is a standalone app you can use, modify, or delete:</p>\n\n<ul>\n<li>\n<strong>Supervisor</strong> — central coordinator routes tasks to worker agents</li>\n<li>\n<strong>Swarm</strong> — agents hand off to each other with transfer tools, no central brain</li>\n<li>\n<strong>Human-in-the-Loop</strong",
+  "full_text": "If you've built more than one LangGraph project, you know the drill. Supervisor setup. Provider config. Handoff tools. Persistence. Streaming endpoint. Same boilerplate, different repo.\n\nSo I stopped rewriting it and packaged the whole thing.\n\nnpx create-langgraph-app\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nInteractive CLI. Pick your provider, pick your patterns, get a project that runs.\n\nOr clone the full kit with everything included.\n\n \n \n 6 Patterns\n\nEach one is a standalone app you can use, modify, or delete:\n\nSupervisor — central coordinator routes tasks to worker agents\n\nSwarm — agents hand off to each other with transfer tools, no central brain\n\nHuman-in-the-Loop — graph pauses for approval before destructive actions\n\nStructured Output — typed JSON responses validated by Zod\n\nResearch Agent — web search + scraping, supervisor coordinates a researcher and writer\n\nRAG — in-memory vector store, semantic retrieval, no external DB\n\n \n \n 5 Providers\n\nLLM_PROVIDER=anthropic\nANTHROPIC_API_KEY=sk-ant-...\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTwo lines. Done.\n\nOpenAI, Anthropic, Google, Groq, Ollama (local). Each has a sensible default model. Override with LLM_MODEL if you want.\n\n \n \n Extending It\n\nexport function createMyApp() {\n const agent = makeAgent({\n name: \"my_agent\",\n llm,\n tools: [/* your tools */],\n system: \"You are a helpful assistant.\",\n });\n\n return makeSupervisor({\n agents: [agent],\n llm,\n outputMode: \"last_message\",\n supervisorName: \"my_supervisor\",\n });\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nRegister in the server. New endpoint with streaming, threads, and persistence.\n\n \n \n Also Ships With\n\nMCP tool integration (stdio + HTTP)\n\nSSE streaming on every endpoint\n\nLangGraph Studio config\n\nLangSmith tracing (one env var)\n\nDocker Compose with Postgres\n\n25+ tests, GitHub Actions CI\n\nRailway + Render deploy configs\n\n \n \n Get Started\n\nnpx create-langgraph-app\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOr:\n\ngit clone https://github.com/ac12644/langgraph-starter-kit.git\ncd langgraph-starter-kit\nnpm install && cp .env.example .env\nnpm run dev\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n\n \n \n\n Boilerplate for building multi-agent AI systems with LangGraph. Includes Swarm and Supervisor patterns, memory, tools, and HTTP API out of the box.\n \n \n \n\n \n\nLangGraph Starter Kit\n\n The fastest way to build production-ready multi-agent apps with LangGraph\n\n \n\n 6 patterns. 5 providers. One command.\n\n \n\n \n \n \n \n \n\n Quick Start •\n Patterns •\n Providers •\n API •\n Contributing\n\nWhy This Exists\n\nBuilding multi-agent systems with LangGraph means writing the same boilerplate over and over — setting up supervisors, wiring handoff tools, configuring providers, adding persistence. This starter kit gives you all of that out of the box so you can focus on your agent logic, not infrastructure.\n\nnpx create-langgraph-app\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhat you get:\n\nPick your LLM provider (OpenAI, Anthropic, Google, Groq, or local Ollama)\n\nChoose which agent patterns you need\n\nGet a ready-to-run project with tests, types, and a Fastify server\n\nOr clone the full kit with all 6 patterns included.\n\nArchitecture\n\n ┌─────────────────────────────────────────────┐\n │ LangGraph Starter Kit │\n └──────────────────┬──────────────────────────┘\n │\n ┌──────────────────┼──────────────────────┐\n ▼ ▼ ▼\n ┌─────────────┐ ┌─────────────┐ ┌─────────────┐\n │ CLI Demo │ │ HTTP Server │ │ LangGraph │\n │ npm\n\n…\n \n \n\nApache 2.0. PRs welcome.\n\nWhat are you building with LangGraph? Curious what patterns people are reaching for.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "ai",
+      "clone",
+      "enter",
+      "exit",
+      "fullscreen",
+      "google",
+      "groq",
+      "langchain",
+      "langgraph",
+      "langsmith",
+      "mcp",
+      "mode",
+      "openai",
+      "pattern",
+      "programming",
+      "register",
+      "sse",
+      "starter",
+      "supervisor",
+      "zod\n\nresearch"
+    ],
+    [
+      "ai",
+      "langchain"
+    ]
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": 8954,
+  "source": "DEV Community<",
+  "title": "Building LinkedIN Job Application Agents - Part 3",
+  "url": "https://dev.to/mindy_jen_phd/building-linkedin-job-application-agents-part-3-in6",
+  "published_at": "2026-04-05T23:34:17Z",
+  "fetched_at": "2026-04-05T23:40:18.845090+00:00",
+  "author": "Mindy Jen",
+  "summary": "<h2>\n  \n  \n  🎯 Project Overview\n</h2>\n\n<p><code>HunterAgent</code> transforms the tedious job application process into an intelligent, automated workflow. Instead of spending hours crafting resumes and cover letters for each position, candidates can focus on interview preparation while AI handles the repetitive tasks.</p>\n\n<h2>\n  \n  \n  🧠 AI Agent Architecture\n</h2>\n\n<p>The system consists of 6 specialized AI agents, all using OpenAI’s Responses API:</p>\n\n<p>🔍 JobDiscoveryAgent: Real web search for job opportunities on LinkedIn, Indeed with URL validation<br />\n📄 ResumeOptimizerAgent (ResumeManager): AI-powered resume customization with industry research and ATS optimization<br />\n✍️ CoverLetterAgent (LetterWriter): Personalized cover letters with live company research and multiple tone variations<br />\n🚀 ApplicationSubmitterAgent: Automated form filling and submission using Playwright MCP integration [planned; not implemented yet]<br />\n📧 EmailNotificationAgent: Send a daily digest wit",
+  "full_text": "🎯 Project Overview\n\nHunterAgent transforms the tedious job application process into an intelligent, automated workflow. Instead of spending hours crafting resumes and cover letters for each position, candidates can focus on interview preparation while AI handles the repetitive tasks.\n\n \n \n 🧠 AI Agent Architecture\n\nThe system consists of 6 specialized AI agents, all using OpenAI’s Responses API:\n\n🔍 JobDiscoveryAgent: Real web search for job opportunities on LinkedIn, Indeed with URL validation\n\n📄 ResumeOptimizerAgent (ResumeManager): AI-powered resume customization with industry research and ATS optimization\n\n✍️ CoverLetterAgent (LetterWriter): Personalized cover letters with live company research and multiple tone variations\n\n🚀 ApplicationSubmitterAgent: Automated form filling and submission using Playwright MCP integration [planned; not implemented yet]\n\n📧 EmailNotificationAgent: Send a daily digest with all matching jobs to your Gmail. [Gmail MCP integration for workflow updates and application confirmations. (planned - not implemented yet)] \n\n👥 NetworkContactsAgent: Identify 3 people or the employee directory in the target company.\n\n \n \n 🛠️ Technology Stack\n\nFrontend: Streamlit + Pandas (Python web framework)\n\nBackend: Integrated Python application\n\nDatabase: Supabase (PostgreSQL + Storage)\n\nAI: OpenAI SDK for intelligent agents\n\nLinkedIn Scraping: linkedin-mcp-server via MCP for web scraping\n\nIndeed Scraping: requests + BeautifulSoup4\n\nBrowser Automation: Playwright\n\nEmail: Python smtplib for notifications (Gmail SMTP)\n\n🚀 Recent Achievements (April 5, 2026)\n\n✅ ALL 6 AI agents migrated to OpenAI Responses API\n\n✅ Real web search integration working in production\n\n✅ Fixed all broken imports and API references\n\n✅ Complete multi-agent orchestration system implemented\n\n✅ Production-ready foundation for automated job applications\n\n📈 Technical Metrics\n\nAgents: 6 production-ready AI agents\n\nAPI Migration: 100% Responses API adoption\n\nWeb Search: Real-time job discovery implemented\n\nImport Issues: All resolved (0 broken imports)\n\nTest Coverage: All core components verified\n\nArchitecture: Unified BaseAgent pattern established",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "ai",
+      "api",
+      "application",
+      "automate",
+      "automation",
+      "building linkedin",
+      "claude",
+      "complete",
+      "gmail mcp",
+      "implement",
+      "indeed",
+      "integration",
+      "letter",
+      "letterwriter",
+      "linkedin",
+      "mcp",
+      "openai",
+      "openai responses api",
+      "openai’s responses api:",
+      "playwright",
+      "playwright mcp",
+      "response",
+      "resume"
+    ],
+    [
+      "ai",
+      "automation"
+    ]
+  ]
+}

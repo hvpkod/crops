@@ -1,0 +1,35 @@
+{
+  "id": 8883,
+  "source": "Hacker News",
+  "title": "Perfmon – Consolidate your favorite CLI monitoring tools into a single TUI",
+  "url": "https://github.com/sumant1122/Perfmon",
+  "published_at": "2026-04-05T14:16:28Z",
+  "fetched_at": "2026-04-05T16:40:35.295482+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47649701\">Comments</a>",
+  "full_text": "Traditional performance monitors often overwhelm users with information or lack the flexibility to show exactly what you need. Perfmon solves this by providing:\n\nConsolidation: View output from multiple diagnostic tools (like top, vmstat, netstat) in one place.\n\nFocus: A clean, tabbed interface lets you switch between different metrics without terminal clutter.\n\nVisibility: Real-time sparklines provide an immediate \"at-a-glance\" health check of your system's core resources.\n\nFlexibility: Don't like the defaults? Bring your own shell commands via a simple TOML file.\n\n🚀 Blazing Fast: Written in Go with minimal CPU and memory overhead.\n\n📂 Tabbed Navigation: Organize your monitoring tools into logical, navigable views.\n\n📈 Live Sparklines: Visual summaries for Load, CPU, Memory, and Network.\n\n🎨 Adaptive Themes: Seamlessly toggle between Light and Dark modes.\n\n⚙️ Deeply Configurable: Custom commands, refresh intervals, and environment-specific settings.\n\n🐧 Cross-Platform: Intelligent defaults for both Linux and macOS.\n\nDownload the latest pre-compiled binaries from the Releases page.\n\ngo install github.com/sumant1122/Perfmon@latest\n\ngit clone https://github.com/sumant1122/Perfmon.git\ncd Perfmon\nmake build\n# Binary will be in the project root\n\nSimply run the command to start monitoring with default system tools:\n\nKey\nAction\n\nTab / Shift+Tab\nNext / Previous Tab\n\nj / k (or ↓/↑)\nScroll through command output\n\nt\nToggle Light/Dark theme\n\nv\nDisplay version information\n\nq / Esc / Ctrl+C\nExit Perfmon\n\nPerfmon is designed to be personalized. It looks for perfmon.toml in:\n\n$PERFMON_CONFIG\n\n~/.config/perfmon/config.toml\n\nCurrent working directory\n\n# Interval for updating the sparklines and default tabs\nglobal_refresh_interval = \"5s\"\n\n[[tab]]\ntitle = \"Process Explorer\"\ncmd = [\"top\", \"-b\", \"-n\", \"1\"]\nrefresh_interval = \"2s\" # Specific interval for this tab\n\n[[tab]]\ntitle = \"Network Connections\"\ncmd = [\"ss\", \"-tulpn\"]\n\nWe utilize a simple Makefile for a streamlined development experience:\n\nmake run: Start the application in development mode.\n\nmake build: Compile the binary.\n\nmake test: Execute the test suite.\n\nmake lint: Run the golangci-lint (if installed).\n\nWe love contributions! Whether it's a bug report, a new feature idea, or a documentation improvement, please feel free to:\n\nCheck out the Contributing Guidelines.\n\nOpen an Issue.\n\nSubmit a Pull Request.\n\nDistributed under the MIT License. See LICENSE for details.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "command",
+      "cpu",
+      "default",
+      "interval",
+      "load",
+      "monitor",
+      "perfmon",
+      "scroll",
+      "simple",
+      "sparkline",
+      "tabbed",
+      "the mit license",
+      "title",
+      "toggle",
+      "toggle light/dark",
+      "toml",
+      "tui"
+    ],
+    []
+  ]
+}

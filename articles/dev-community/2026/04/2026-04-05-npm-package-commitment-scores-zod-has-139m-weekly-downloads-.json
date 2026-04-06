@@ -1,0 +1,42 @@
+{
+  "id": 8799,
+  "source": "DEV Community<",
+  "title": "npm package commitment scores: zod has 139M weekly downloads and one maintainer",
+  "url": "https://dev.to/piiiico/npm-package-commitment-scores-zod-has-139m-weekly-downloads-and-one-maintainer-1h42",
+  "published_at": "2026-04-05T08:38:36Z",
+  "fetched_at": "2026-04-05T08:40:18.219839+00:00",
+  "author": "Pico",
+  "summary": "<p>Supply chain attacks are not a novel threat. But there's a pattern in the data that rarely gets called out directly: the most-downloaded npm packages are often maintained by a single person.</p>\n\n<p>High downloads + one maintainer = one stolen credential away from a breach affecting millions of builds.</p>\n\n<h2>\n  \n  \n  Why I built npm commitment scoring\n</h2>\n\n<p>I've been building <a href=\"https://getcommit.dev\" rel=\"noopener noreferrer\">Proof of Commitment</a> — an MCP server that exposes behavioral trust signals to AI agents. The thesis: behavioral signals are harder to fake than declarative ones (READMEs, star counts, review ratings). Last week I shipped a GitHub repo commitment scorer. This week: npm packages.</p>\n\n<p>The scoring model looks at five dimensions:</p>\n\n<ul>\n<li>\n<strong>Longevity</strong> (25 pts) — how long the package has existed</li>\n<li>\n<strong>Download momentum</strong> (25 pts) — recent volume + trend (growing/stable/declining)</li>\n<li>\n<strong>Release co",
+  "full_text": "Supply chain attacks are not a novel threat. But there's a pattern in the data that rarely gets called out directly: the most-downloaded npm packages are often maintained by a single person.\n\nHigh downloads + one maintainer = one stolen credential away from a breach affecting millions of builds.\n\n \n \n Why I built npm commitment scoring\n\nI've been building Proof of Commitment — an MCP server that exposes behavioral trust signals to AI agents. The thesis: behavioral signals are harder to fake than declarative ones (READMEs, star counts, review ratings). Last week I shipped a GitHub repo commitment scorer. This week: npm packages.\n\nThe scoring model looks at five dimensions:\n\nLongevity (25 pts) — how long the package has existed\n\nDownload momentum (25 pts) — recent volume + trend (growing/stable/declining)\n\nRelease consistency (20 pts) — version count + recency of last publish\n\nMaintainer depth (15 pts) — number of current maintainers\n\nGitHub backing (15 pts) — if linked repo, pulls GitHub commit score\n\nNo star counts. No README quality. Just behavior over time.\n\n \n \n The data\n\nHere's the current state of 9 packages that make up the core of most JS/TS applications today:\n\nPackage\nScore\nAge\nWeekly downloads\nMaintainers\nVersions\n\nexpress\n97/100\n15.3y\n87M\n5\n317\n\nopenai\n93/100\n5.7y\n111M\n17\n354\n\n@anthropic-ai/sdk\n86/100\n3.2y\n86M\n14\n148\n\nlangchain\n84/100\n3.1y\n15M\n8\n419\n\n@langchain/core\n84/100\n2.4y\n24M\n13\n314\n\n@modelcontextprotocol/sdk\n75/100\n1.4y\n208M\n6\n78\n\nnode-fetch\n77/100\n11.2y\n889M\n5\n96\n\nzod\n79/100\n6.1y\n974M\n1\n860\n\naxios\n74/100\n11.6y\n672M\n1\n132\n\nScores as of April 5, 2026. Downloads are weekly totals from npm registry.\n\n \n \n The zod and axios problem\n\nzod: 974 million weekly downloads. 1 maintainer.\n\naxios: 672 million weekly downloads. 1 maintainer.\n\nThink about what that means. Every CI pipeline that runs npm install and has zod or axios in its dependency tree is one compromised PyPI/npm token away from a supply chain attack affecting nearly a billion weekly download events.\n\nThis is not speculation. The TeamPCP campaign (March 2026) followed exactly this pattern: steal a CI token → publish a malicious version → wait for npm install to propagate. The LiteLLM supply chain attack worked because one token controlled a package with millions of downstream dependents.\n\nThe attack surface scales with download count. The defensive surface scales with maintainer count. zod and axios are both near their maximum attack-to-defense ratio.\n\nNote: zod has a very active GitHub repo — 860 versions published over 6 years, recent commits weekly. Colin Mcdonnell is clearly committed. This isn't about individual quality — it's about infrastructure risk. One person is one phishing email, one stolen credential, one burnout.\n\n \n \n @modelcontextprotocol/sdk: young and massive\n\nThe MCP SDK sits at 75/100 — pulled down primarily by its youth (1.4 years, 8 pts for longevity vs 25 max). But 208M weekly downloads in 17 months is extraordinary adoption velocity. 6 maintainers is healthy.\n\nThe concern here is different: rapid adoption of a young package creates high-value targets for typosquatting and dependency confusion attacks. modelcontextprotocol-sdk, @model-context-protocol/sdk, mcp-sdk — any of these could be a trap waiting for a copy-paste error.\n\n \n \n How to use this in your workflow\n\nAdd the MCP server to your AI config (zero install):\n\n{\n \"mcpServers\": {\n \"proof-of-commitment\": {\n \"type\": \"streamable-http\",\n \"url\": \"https://poc-backend.amdal-dev.workers.dev/mcp\"\n }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThen ask your AI:\n\n\"Check the commitment score for zod\"\n\n\"Score these packages before I add them as dependencies: @ai-sdk/openai, ai, @vercel/ai\"\n\n\"Which of these packages has the highest supply chain risk: axios, node-fetch, got?\"\n\nYour AI can now run behavioral due diligence on any npm package before it touches your package.json.\n\n \n \n What the score doesn't catch\n\nA high score doesn't mean a package is safe. express at 97/100 has had CVEs. What the score measures is behavioral commitment — evidence that real people have invested real time over real time.\n\nWhat it can't measure:\n\nWhether maintainers reuse passwords\n\nWhether CI tokens are properly scoped\n\nWhether the publish pipeline has MFA enforced\n\nFor that, you need provenance attestations (npm provenance, Sigstore) — which is a separate layer. The commitment score tells you how much skin is in the game. Security practices tell you whether that skin is protected.\n\n \n \n The supply chain security market context\n\nThe TeamPCP campaign in March 2026 targeted packages via stolen CI tokens and pre-staged malicious versions. The attack pattern: publish a clean version to establish history → wait → publish malicious version. That behavior is undetectable by any single-point download count check.\n\nBut behavioral trend analysis can catch it: if a package suddenly shows an anomalous publish pattern after months of consistency, that's a signal. Download trend reversals following a publish event are another signal.\n\nThis is the version of commitment scoring I'm building toward: not just static profile, but temporal anomaly detection. A package that's had consistent monthly releases for 4 years and then publishes 3 versions in one day is not acting normally.\n\n \n \n Try it live\n\nGitHub: https://github.com/piiiico/proof-of-commitment\n\nLanding: https://getcommit.dev\n\nCurious what packages you'd add to the comparison. And if you're maintaining a high-download single-maintainer package: respect, and please enable MFA on your npm account.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "behavioral",
+      "commitment",
+      "download",
+      "github",
+      "maintainer",
+      "mcp",
+      "mcp sdk",
+      "mfa",
+      "npm",
+      "npm registry",
+      "opensource",
+      "package",
+      "proof of commitment",
+      "publish",
+      "pypi",
+      "score",
+      "security",
+      "version",
+      "webdev",
+      "weekly"
+    ],
+    [
+      "npm",
+      "opensource",
+      "webdev"
+    ]
+  ]
+}

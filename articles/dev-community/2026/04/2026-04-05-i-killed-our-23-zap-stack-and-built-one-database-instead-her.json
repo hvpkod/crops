@@ -1,0 +1,43 @@
+{
+  "id": 8851,
+  "source": "DEV Community<",
+  "title": "I Killed Our 23-Zap Stack and Built One Database Instead — Here's Why Middleware Always Fails",
+  "url": "https://dev.to/arham_mirkar/i-killed-our-23-zap-stack-and-built-one-database-instead-heres-why-middleware-always-fails-20lj",
+  "published_at": "2026-04-05T14:35:43Z",
+  "fetched_at": "2026-04-05T14:40:21.020865+00:00",
+  "author": "Arham Mirkar",
+  "summary": "<h2>\n  \n  \n  We Used to Run 23 Zaps\n</h2>\n\n<p>Slack → Asana (task from message), Asana → Notion (status sync), <br />\nNotion → HubSpot (client updates), HubSpot → Slack (deal alerts).</p>\n\n<p>Every week: at least 2 silently broken. We'd find out 48+ hours <br />\nlater when a client asked why nothing had moved.</p>\n\n<p>The problem wasn't our Zaps. It was the architecture.</p>\n<h2>\n  \n  \n  The 5 Technical Reasons Zapier Always Breaks\n</h2>\n\n<p><strong>1. API Schema Drift</strong><br />\nWhen Notion migrated to v2, thousands of Zaps broke overnight. <br />\nNo warning. Silent failure until a trigger runs and errors out.</p>\n\n<p><strong>2. Rate Limiting</strong><br />\nSlack, Asana, Notion each have API rate limits. Under heavy use, <br />\nZapier hits them and silently drops automation runs. From your end: <br />\nnothing looks wrong. Tasks are just never created.</p>\n\n<p><strong>3. OAuth Token Expiry</strong><br />\nStored credentials expire. Zapier handles most renewals — but <br />\naggressiv",
+  "full_text": "We Used to Run 23 Zaps\n\nSlack → Asana (task from message), Asana → Notion (status sync), \n\nNotion → HubSpot (client updates), HubSpot → Slack (deal alerts).\n\nEvery week: at least 2 silently broken. We'd find out 48+ hours \n\nlater when a client asked why nothing had moved.\n\nThe problem wasn't our Zaps. It was the architecture.\n\n \n \n The 5 Technical Reasons Zapier Always Breaks\n\n1. API Schema Drift\n\nWhen Notion migrated to v2, thousands of Zaps broke overnight. \n\nNo warning. Silent failure until a trigger runs and errors out.\n\n2. Rate Limiting\n\nSlack, Asana, Notion each have API rate limits. Under heavy use, \n\nZapier hits them and silently drops automation runs. From your end: \n\nnothing looks wrong. Tasks are just never created.\n\n3. OAuth Token Expiry\n\nStored credentials expire. Zapier handles most renewals — but \n\naggressive token rotation on the tool side silently breaks auth \n\nuntil a Zap runs and fails.\n\n4. Webhook Timeouts\n\nZapier must acknowledge webhook receipt within 30s. Any network \n\nblip = event lost. No retry. No trace. No task in Asana.\n\n5. Missing Context (The Unfixable One)\n\nEven when Zapier works perfectly, it copies fields between \n\nisolated databases. A task created from a Slack message has \n\nno reference to the conversation. The Asana AI has no idea \n\nwhat the client actually said. This isn't fixable by better Zaps.\n\n \n \n What We Built Instead\n\nAt Kobin, every module — inbox, tasks, CRM, vault, calendar — \n\nshares one Supabase database with the same foreign keys.\n\n// Every entity shares project_id + client_id\ntype Message = { id, project_id, client_id, content, ... }\ntype Task = { id, project_id, client_id, title, ... }\ntype File = { id, project_id, client_id, drive_id, ... }\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhen a client message arrives:\n\nIt already has project_id and client_id — no sync needed\n\nConverting it to a task takes one click, context included\n\nThe task appears in the client portal immediately (same FK)\n\nThe AI sees messages + tasks + files simultaneously\n\nZero Zaps. Zero webhooks. Zero silent failures at 2am.\n\n \n \n The Cost Comparison\n\nZapier stack (5 people):\n\nSlack + Asana + Notion + Zapier = $231/month\n\n+ HubSpot = $281–321/month\n\n+ ~8hrs/month maintenance @ $75/hr = ~$900/month total\n\nKobin: $49/month. All of the above, natively connected.\n\nFull post with the architecture breakdown and FAQ:\n\nhttps://www.kobin.team/blog/zapier-slack-asana-notion-alternative\n\nHappy to discuss the real-time WebSocket approach we use for \n\ncross-module updates vs polling in the comments — it's an \n\ninteresting tradeoff for unified workspaces.\n\nBuilding Kobin in public — agency OS replacing the Zapier stack.\n\nClosed beta: kobin.team",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "asana",
+      "buildinpublic",
+      "client",
+      "file",
+      "hubspot",
+      "hubspot → slack",
+      "kobin",
+      "message",
+      "notion",
+      "productivity",
+      "rate limiting\n\nslack,",
+      "silently",
+      "slack",
+      "startup",
+      "supabase",
+      "task",
+      "the asana ai",
+      "webdev",
+      "websocket",
+      "zapier",
+      "zaps"
+    ],
+    [
+      "buildinpublic",
+      "webdev"
+    ]
+  ]
+}

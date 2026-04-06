@@ -1,0 +1,36 @@
+{
+  "id": 8820,
+  "source": "Hacker News",
+  "title": "Talk like caveman",
+  "url": "https://github.com/JuliusBrussee/caveman",
+  "published_at": "2026-04-05T08:56:18Z",
+  "fetched_at": "2026-04-05T10:40:17.519446+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47647455\">Comments</a>",
+  "full_text": "why use many token when few token do trick\n\n Install •\n Before/After •\n Why\n\nA Claude Code skill that makes Claude talk like a caveman — cutting ~75% of tokens while keeping full technical accuracy.\n\nBased on the viral observation that caveman-speak dramatically reduces LLM token usage without losing technical substance. So we made it a one-line install.\n\n🗣️ Normal Claude (69 tokens)\n\n\"The reason your React component is re-rendering is likely because you're creating a new object reference on each render cycle. When you pass an inline object as a prop, React's shallow comparison sees it as a different object every time, which triggers a re-render. I'd recommend using useMemo to memoize the object.\"\n\n🪨 Caveman Claude (19 tokens)\n\n\"New object ref each render. Inline object prop = new ref = re-render. Wrap in useMemo.\"\n\n\"Sure! I'd be happy to help you with that. The issue you're experiencing is most likely caused by your authentication middleware not properly validating the token expiry. Let me take a look and suggest a fix.\"\n\n\"Bug in auth middleware. Token expiry check use < not <=. Fix:\"\n\nSame fix. 75% less word. Brain still big.\n\nnpx skills add JuliusBrussee/caveman\n\nOr with Claude Code plugin system:\n\nclaude plugin marketplace add JuliusBrussee/caveman\nclaude plugin install caveman@caveman\n\nOne rock. That it.\n\nTrigger with:\n\n/caveman\n\n\"talk like caveman\"\n\n\"caveman mode\"\n\n\"less tokens please\"\n\nStop with: \"stop caveman\" or \"normal mode\"\n\nThing\nCaveman Do?\n\nEnglish explanation\n🪨 Caveman smash filler words\n\nCode blocks\n✍️ Write normal (caveman not stupid)\n\nTechnical terms\n🧠 Keep exact (polymorphism stay polymorphism)\n\nError messages\n📋 Quote exact\n\nGit commits & PRs\n✍️ Write normal\n\nArticles (a, an, the)\n💀 Gone\n\nPleasantries\n💀 \"Sure I'd be happy to\" is dead\n\nHedging\n💀 \"It might be worth considering\" extinct\n\n┌─────────────────────────────────────┐\n│ TOKENS SAVED ████████ 75% │\n│ TECHNICAL ACCURACY ████████ 100%│\n│ SPEED INCREASE ████████ ~3x │\n│ VIBES ████████ OOG │\n└─────────────────────────────────────┘\n\nSave money — 75% less token = 75% less cost on output\n\nFaster response — less token to generate = speed go brrr\n\nSame accuracy — all technical info kept, only fluff removed\n\nFun — every code review become comedy\n\nCaveman not dumb. Caveman efficient.\n\nNormal LLM waste token on:\n\n\"I'd be happy to help you with that\" (8 wasted tokens)\n\n\"The reason this is happening is because\" (7 wasted tokens)\n\n\"I would recommend that you consider\" (7 wasted tokens)\n\n\"Sure, let me take a look at that for you\" (10 wasted tokens)\n\nCaveman say what need saying. Then stop.\n\nIf caveman save you mass token, mass money — leave mass star. ⭐\n\nMIT — free like mass mammoth on open plain.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "brain",
+      "caveman",
+      "caveman@caveman",
+      "claude",
+      "github",
+      "happy",
+      "install •\n before",
+      "juliusbrussee",
+      "keep",
+      "less",
+      "mass",
+      "normal",
+      "object",
+      "react",
+      "ref",
+      "technical",
+      "token",
+      "waste"
+    ],
+    []
+  ]
+}

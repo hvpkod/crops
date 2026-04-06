@@ -1,0 +1,42 @@
+{
+  "id": 8965,
+  "source": "DEV Community<",
+  "title": "[Rust Guide] 1.0. Intro",
+  "url": "https://dev.to/someb1oody/rust-guide-10-intro-5f2e",
+  "published_at": "2026-04-05T23:06:07Z",
+  "fetched_at": "2026-04-05T23:40:35.088779+00:00",
+  "author": "SomeB1oody",
+  "summary": "<h2>\n  \n  \n  1.0.1 Preface\n</h2>\n\n<p>This project (both code and notes) was documented during my self-learning journey with Rust. It might contain inaccuracies or unclear expressions, so I ask for your understanding. If you benefit from it, all the better.</p>\n\n<h2>\n  \n  \n  1.0.2 Why Use Rust\n</h2>\n\n<ul>\n<li><p><strong>Rust is reliable and efficient</strong>.</p></li>\n<li>\n<p>Rust can replace C and C++ with <strong>similar performance</strong> but <strong>higher safety</strong>, and it does not require frequent recompilation to check for errors like C and C++. Key advantages include:</p>\n\n<ul>\n<li>Memory safety (prevents null pointer dereferencing, dangling pointers, and data races).</li>\n<li>Thread safety (ensures multithreaded code is safe before execution).</li>\n<li>Avoids undefined behavior (e.g., array out-of-bounds, uninitialized variables, or accessing freed memory).</li>\n</ul>\n\n\n</li>\n\n<li><p>Rust provides <strong>modern language features</strong> (e.g., generics, traits, patte",
+  "full_text": "1.0.1 Preface\n\nThis project (both code and notes) was documented during my self-learning journey with Rust. It might contain inaccuracies or unclear expressions, so I ask for your understanding. If you benefit from it, all the better.\n\n \n \n 1.0.2 Why Use Rust\n\nRust is reliable and efficient.\n\nRust can replace C and C++ with similar performance but higher safety, and it does not require frequent recompilation to check for errors like C and C++. Key advantages include:\n\nMemory safety (prevents null pointer dereferencing, dangling pointers, and data races).\n\nThread safety (ensures multithreaded code is safe before execution).\n\nAvoids undefined behavior (e.g., array out-of-bounds, uninitialized variables, or accessing freed memory).\n\nRust provides modern language features (e.g., generics, traits, pattern matching).\n\nRust offers a modern toolchain. Rust's Cargo shares similar principles with Python’s pip. Unlike the cumbersome dependency configuration of C/C++, Cargo provides a user-friendly dependency management experience akin to Python, while maintaining C/C++-level performance.\n\n \n \n 1.0.3 Applicable Scenarios\n\nWhen performance is required: Rust can control memory as precisely as C (using unsafe) while also providing modern conveniences (e.g., ownership system and pattern matching). Python, on the other hand, prioritizes developer efficiency but sacrifices performance.\n\nWhen memory safety is critical: Rust’s static checks at compile time ensure strong memory safety, making it highly suitable for scenarios requiring error prevention, such as operating systems, embedded systems, and network servers.\n\nWhen efficient use of multi-core processors is needed: Rust natively supports efficient concurrency and multi-core programming without sacrificing safety, making it particularly advantageous in scenarios requiring high throughput and concurrent tasks (e.g., web servers, distributed systems, real-time computing).\n\nRust excels in the following domains:\n\nWeb services\n\nWebAssembly (Rust and C/C++ outperform C# and Java significantly in terms of performance)\n\nCommand-line tools\n\nNetwork programming\n\nEmbedded devices\n\nSystem programming\n\n \n \n 1.0.4 Comparison with Other Languages\n\nCategory\nLanguage\nFeatures\n\nMachine Code\nBinary\nClosest to hardware, executed directly by CPU.\n\nAssembly\nAssembly\nUses mnemonics to replace machine code, e.g., MOV AX, BX.\n\nLow-level\nC, C++\nClose to hardware, provides limited abstraction.\n\nMid-level\nRust, Go\nPerformance similar to low-level languages with higher abstraction.\n\nHigh-level\nPython, Java\nHigher-level abstraction, easier to read and use.\n\nHigh-level and low-level languages are not strictly opposed but exist on a continuous spectrum:\n\nLower-level languages offer greater control over hardware but require more complex coding and lower development efficiency.\n\nHigher-level languages offer greater abstraction and automation but may introduce runtime overhead and lose fine-grained hardware control.\n\nRust’s advantages:\n\nHigh performance\n\nStrong safety guarantees\n\nExcellent support for concurrency\n\nRust’s position as a mid-level language offers the following benefits:\n\nC/C++: Excellent performance but lacking in safety; Rust ensures safety with comparable performance.\n\nJava/C#: Ensures memory safety (using garbage collection) and offers numerous features, but performance is weaker; Rust achieves similar safety levels with superior performance.\n\n \n \n 1.0.5 History of Rust\n\nRust originated as a research project by Mozilla, with the Firefox browser being a notable application example.\n\nMozilla developed the Servo experimental browser engine using Rust (initiated in 2012, first preview released in 2016). Servo’s architecture is entirely parallelized. Unfortunately, in August 2020, Mozilla laid off most of the Servo development team. From November 17, 2020, Servo was transferred to the Linux Foundation. Parts of Servo’s functionality have already been integrated into Firefox.\n\nThe Quantum version of Firefox incorporates Servo’s CSS rendering engine. Rust has brought significant performance improvements to Firefox.\n\n \n \n 1.0.6 Rust Users and Case Studies\n\nGoogle: The Fuschia operating system, where Rust constitutes 30% of the codebase.\n\nAmazon: A Linux-based operating system designed for running containers directly on bare metal or virtual machines.\n\nSystem76: Developed the next-generation secure operating system Redox entirely in Rust.\n\nStanford and University of Michigan: An embedded real-time operating system used in Google’s cryptographic products.\n\nMicrosoft: Rewrote certain low-level components in Windows using Rust.\n\nMicrosoft: The WinRT/Rust project.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "applicable scenarios",
+      "assembly\nassembly\nuses",
+      "avoids",
+      "c/c++",
+      "c/c++-level",
+      "cargo",
+      "comparison",
+      "cpu",
+      "embed",
+      "language",
+      "learning",
+      "memory",
+      "offer",
+      "operating",
+      "performance",
+      "programming",
+      "python’s",
+      "rust",
+      "safety",
+      "servo",
+      "similar",
+      "webassembly"
+    ],
+    [
+      "learning"
+    ]
+  ]
+}

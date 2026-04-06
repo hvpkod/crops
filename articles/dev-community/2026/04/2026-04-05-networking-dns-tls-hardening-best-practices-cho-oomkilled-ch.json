@@ -1,0 +1,40 @@
+{
+  "id": 8831,
+  "source": "DEV Community<",
+  "title": "Networking / DNS / TLS: hardening & best practices cho OOMKilled (checklist + ví dụ)",
+  "url": "https://dev.to/alexcarteruk/networking-dns-tls-hardening-best-practices-cho-oomkilled-checklist-vi-du-1j1p",
+  "published_at": "2026-04-05T11:13:23Z",
+  "fetched_at": "2026-04-05T11:40:31.074987+00:00",
+  "author": "Alex Carter",
+  "summary": "<p>Nếu bạn làm DevOps/SRE, kiểu gì cũng gặp những tình huống <em>đau đầu</em> giống nhau: lỗi chỉ xuất hiện ở production, alert kêu cả đêm, hoặc pipeline lúc xanh lúc đỏ.</p>\n\n<p>Bài này chia sẻ kinh nghiệm thực chiến cho chủ đề <strong>OOMKilled</strong> trong bối cảnh <strong>Networking / DNS / TLS</strong> — theo format: <em>triệu chứng → nguyên nhân gốc → cách xử lý → checklist</em>.</p>\n\n<h2>\n  \n  \n  Tình huống hôm nay (case thực tế)\n</h2>\n\n<p>Trong hệ thống <strong>Networking / DNS / TLS</strong>, bạn gặp vấn đề <strong>OOMKilled</strong> ở production. Điều khó chịu là nó không xảy ra ổn định: có ngày bình thường, có ngày lại bùng lên đúng giờ cao điểm.</p>\n\n<h2>\n  \n  \n  Vấn đề nhiều người gặp\n</h2>\n\n<ul>\n<li>Triệu chứng “khó chịu”: lúc có lúc không.</li>\n<li>Khó tái hiện (reproduce) ở local/staging.</li>\n<li>Debug tốn thời gian vì thiếu dữ liệu (logs/metrics/traces).</li>\n</ul>\n\n<h2>\n  \n  \n  Nguyên nhân gốc (root causes) thường gặp\n</h2>\n\n<ol>\n<li>\n<strong>Môi trường và cấu hình",
+  "full_text": "Nếu bạn làm DevOps/SRE, kiểu gì cũng gặp những tình huống đau đầu giống nhau: lỗi chỉ xuất hiện ở production, alert kêu cả đêm, hoặc pipeline lúc xanh lúc đỏ.\n\nBài này chia sẻ kinh nghiệm thực chiến cho chủ đề OOMKilled trong bối cảnh Networking / DNS / TLS — theo format: triệu chứng → nguyên nhân gốc → cách xử lý → checklist.\n\n \n \n Tình huống hôm nay (case thực tế)\n\nTrong hệ thống Networking / DNS / TLS, bạn gặp vấn đề OOMKilled ở production. Điều khó chịu là nó không xảy ra ổn định: có ngày bình thường, có ngày lại bùng lên đúng giờ cao điểm.\n\n \n \n Vấn đề nhiều người gặp\n\nTriệu chứng “khó chịu”: lúc có lúc không.\n\nKhó tái hiện (reproduce) ở local/staging.\n\nDebug tốn thời gian vì thiếu dữ liệu (logs/metrics/traces).\n\n \n \n Nguyên nhân gốc (root causes) thường gặp\n\nMôi trường và cấu hình lệch nhau giữa các nơi chạy.\n\nThiếu kiểm soát dữ liệu/traffic (spike, burst, batch job, retry storm).\n\nGiới hạn tài nguyên / timeout / quota đặt chưa sát thực tế.\n\nThiếu observability khiến bạn đoán mò.\n\n \n \n Cách giải quyết (thực chiến)\n\n \n \n 1) Thu thập tín hiệu đúng trước khi “đập”\n\nXác định impact: user bị ảnh hưởng gì? error rate/latency ra sao?\n\nChốt “sự thật”: xảy ra ở endpoint nào, thời điểm nào, tần suất nào.\n\n \n \n 2) Bổ sung observability để debug nhanh\n\nMetrics: tỉ lệ lỗi, latency p95/p99, saturation.\n\nLogs: có correlation id, log theo request/trace.\n\nTraces: thấy điểm nghẽn xuyên service.\n\nGợi ý: OpenTelemetry là bước khởi đầu đáng giá nếu bạn chưa triển khai traces.\n\n \n \n 3) Chốt hướng fix bằng checklist (ít đoán, nhiều đo)\n\n[ ] Có ngưỡng timeout hợp lý và có retry có kiểm soát\n\n[ ] Giới hạn tài nguyên (CPU/RAM) đặt theo đo đạc, không đặt theo cảm giác\n\n[ ] Có rate limit/circuit breaker cho downstream hay bị nghẽn\n\n[ ] Có dashboard/alert theo user impact (SLO) thay vì chỉ theo resource\n\n \n \n Mẹo nhỏ: test luồng email/notification (không dùng email thật)\n\nNếu bạn cần test password reset, webhook, hoặc alert qua email trong staging mà không muốn dùng email cá nhân, một hộp thư temp mail như temp mail thường tiện hơn (dùng vừa đủ, đừng phụ thuộc cho production).\n\n \n \n 3 FAQ\n\n \n \n FAQ 1: Khi nào nên bật retry?\n\nChỉ nên retry khi bạn đo được lỗi là transient và retry có giới hạn. Nếu retry che lấp lỗi thật, bạn sẽ trả giá ở production.\n\n \n \n FAQ 2: Làm sao phân biệt “lỗi hệ thống” và “lỗi do load spike”?\n\nNhìn theo thời gian: spike có pattern (giờ cao điểm, batch, deploy). Kết hợp metrics saturation (CPU, queue, DB connections) để xác nhận.\n\n \n \n FAQ 3: Nên ưu tiên logs hay metrics?\n\nBắt đầu với metrics để thấy xu hướng và đặt alert đúng. Sau đó logs/traces giúp drill-down khi có sự cố.\n\n \n \n Bài trong series\n\n \n \n Tài liệu tham khảo",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "cpu/ram",
+      "devops",
+      "dns",
+      "faq",
+      "giới",
+      "làm devops/sre",
+      "môi",
+      "mẹo",
+      "networking",
+      "nguyên",
+      "nhìn",
+      "oomkilled",
+      "opentelemetry",
+      "retry",
+      "security",
+      "slo",
+      "theo",
+      "thiếu",
+      "thời",
+      "thực",
+      "thực chiến",
+      "trong"
+    ],
+    []
+  ]
+}

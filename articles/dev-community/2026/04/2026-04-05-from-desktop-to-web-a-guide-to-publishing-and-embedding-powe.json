@@ -1,0 +1,42 @@
+{
+  "id": 8932,
+  "source": "DEV Community<",
+  "title": "From Desktop to Web: A Guide to Publishing and Embedding Power BI Reports",
+  "url": "https://dev.to/derickmenje/from-desktop-to-web-a-guide-to-publishing-and-embedding-power-bi-reports-bkj",
+  "published_at": "2026-04-05T19:54:31Z",
+  "fetched_at": "2026-04-05T20:40:44.930072+00:00",
+  "author": "Menje",
+  "summary": "<p>Power BI is a powerful business intelligence tool that transforms raw data into immersive, interactive visual stories. However, the true value of a report is realized only when it is shared with stakeholders. Publishing is the process of moving your report from the local Power BI Desktop environment to the cloud-based Power BI Service, where it can be managed, shared, and integrated into other platforms like company websites or portals.</p>\n\n<h2>\n  \n  \n  Step 1: Creating a Workspace\n</h2>\n\n<p>A Workspace is a collaborative container in the Power BI Service where you house your reports, dashboards, and datasets.</p>\n\n<ol>\n<li>Sign in to the Power BI Service.</li>\n<li>On the left-hand navigation pane, click on Workspaces. <img alt=\" \" height=\"370\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwxpmgw5sstpv7tzn6c01.png\" width=\"800\" />\n</li>\n<li>Select Create ",
+  "full_text": "Power BI is a powerful business intelligence tool that transforms raw data into immersive, interactive visual stories. However, the true value of a report is realized only when it is shared with stakeholders. Publishing is the process of moving your report from the local Power BI Desktop environment to the cloud-based Power BI Service, where it can be managed, shared, and integrated into other platforms like company websites or portals.\n\n \n \n Step 1: Creating a Workspace\n\nA Workspace is a collaborative container in the Power BI Service where you house your reports, dashboards, and datasets.\n\nSign in to the Power BI Service.\n\nOn the left-hand navigation pane, click on Workspaces. \n\nSelect Create a workspace (usually at the bottom of the pane). \n\nGive your workspace a unique name (e.g., \"Sales Analytics 2026\") and description. Click Save. You now have a dedicated \"folder\" in the cloud for your project.\n\n \n \n Step 2: Uploading and Publishing Your Report\n\nOnce your report is ready in Power BI Desktop, you need to push it to the workspace you just created.\n\nOpen your report in Power BI Desktop.\n\nOn the Home tab of the ribbon, click the Publish button on the far right. \n\nA dialog box will appear asking you to select a destination. Choose the Workspace you created in Step 1.\n\nClick Select. Power BI will begin uploading the file and its underlying data model.\n\nOnce the \"Success!\" message appears, click the link to open the report in the Power BI Service.\n\n \n \n Step 3: Generating the Embed Code\n\nTo put your report on a website, you need a snippet of code (an iFrame) that tells the website how to display the Power BI content.\n\nIn Power BI Service, open the report you just published.\n\nClick the File menu in the top left corner. \n\nSelect Embed report.\n\nChoose Publish to web (Public).\n\nNote: This option makes the data visible to anyone with the link. For internal company data, you would typically use the \"Website or portal\" option, which requires users to sign in.\n\nClick Create embed code and then Publish to confirm.\n\nA dialog will appear showing two links: a URL for email sharing and an HTML iFrame code for website embedding. Copy the iFrame code.\n\n \n \n Step 4: Embedding the Report on a Website\n\nNow, you simply need to place that code into the HTML structure of your website. (For this, I used a basic custom HTML code from W3Schools HTML tutorials.)\n\nOpen the HTML editor of your website (e.g., WordPress, Wix, or a custom .html file). \n\nNavigate to the page or section where you want the report to appear.\n\nPaste the iFrame code you copied in Step 3. \n\nSave and refresh your webpage. Your interactive Power BI report should now be live on the site! \n\n \n \n Key Insights\n\n• Security First: \"Publish to Web\" is for public data only. Always use \"Website or Portal\" for sensitive business data to ensure only authorized users can see the visuals.\n\n• Data Freshness: Publishing is a one-time move. To keep the website data current, you must configure a Scheduled Refresh in the Power BI Service settings.\n\n• Mobile Optimization: If your website is viewed on phones, consider creating a Mobile Layout in Power BI Desktop before publishing to ensure the charts resize correctly.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "analytics",
+      "beginners",
+      "code",
+      "create",
+      "datum",
+      "home",
+      "html",
+      "iframe",
+      "microsoft",
+      "power",
+      "power bi",
+      "power bi desktop",
+      "power bi service",
+      "publish",
+      "select embed",
+      "step",
+      "success",
+      "tutorial",
+      "website",
+      "wordpress",
+      "workspace"
+    ],
+    [
+      "beginners",
+      "tutorial"
+    ]
+  ]
+}

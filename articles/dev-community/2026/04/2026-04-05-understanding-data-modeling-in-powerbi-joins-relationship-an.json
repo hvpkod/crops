@@ -1,0 +1,44 @@
+{
+  "id": 8805,
+  "source": "DEV Community<",
+  "title": "# Understanding Data Modeling in PowerBI: Joins, Relationship and Schemas.",
+  "url": "https://dev.to/nyamatari_brian_c41e0c389/-understanding-data-modeling-in-powerbi-joins-relationship-and-schemas-1imn",
+  "published_at": "2026-04-05T08:01:39Z",
+  "fetched_at": "2026-04-05T08:40:30.223980+00:00",
+  "author": "Nyamatari Brian",
+  "summary": "<h2>\n  \n  \n  Introduction.\n</h2>\n\n<p>Data Modeling is a good backbone of making Data Science and Analytics in PowerBI very successful. We are going to look into:</p>\n\n<ul>\n<li>Data modeling fundamentals.</li>\n<li>SQL Joins.</li>\n<li>PowerBI relationships.</li>\n<li>Facts vs deimension tables.</li>\n<li>Data schema.</li>\n</ul>\n\n<h2>\n  \n  \n  The big Question; WHAT is data modeling.\n</h2>\n\n<p>Well Data modeling is the process of organizing and structuring data from multiple sources into a logical format for analysis.</p>\n\n<p>Here it is all about:</p>\n\n<ul>\n<li>The Table connection.</li>\n<li>Defining relationships.</li>\n<li>Structuring data into facts and dimension tables.</li>\n<li>Optimizing performance.</li>\n</ul>\n\n<p>Just imagine all this like making your data easy and smooth to read and interpret.</p>\n\n<h2>\n  \n  \n  SQL joins.\n</h2>\n\n<p>This is basically where we use joins to make data jointed from multiple tables using a common column.</p>\n\n<h3>\n  \n  \n  1. INNER JOIN.\n</h3>\n\n<p>This only",
+  "full_text": "Introduction.\n\nData Modeling is a good backbone of making Data Science and Analytics in PowerBI very successful. We are going to look into:\n\nData modeling fundamentals.\n\nSQL Joins.\n\nPowerBI relationships.\n\nFacts vs deimension tables.\n\nData schema.\n\n \n \n The big Question; WHAT is data modeling.\n\nWell Data modeling is the process of organizing and structuring data from multiple sources into a logical format for analysis.\n\nHere it is all about:\n\nThe Table connection.\n\nDefining relationships.\n\nStructuring data into facts and dimension tables.\n\nOptimizing performance.\n\nJust imagine all this like making your data easy and smooth to read and interpret.\n\n \n \n SQL joins.\n\nThis is basically where we use joins to make data jointed from multiple tables using a common column.\n\n \n \n 1. INNER JOIN.\n\nThis only returns matching records in both tables.\n\n \n \n 2. LEFT JOIN.\n\nHere in the records are all returned from left side of the table and matching the records from the right.\n\n \n \n 3. RIGHT JOIN.\n\nThis is basically the vice versa of LEFT JOIN, the records from the right table and matching ones from the left.\n\n \n \n 4. FULL OUTER JOIN.\n\nThis returns all records from both tables whether matched or unmatched.\n\n \n \n 5. LEFT ANTI JOIN.\n\nThe returning record in the table that do not exist in the right.\n\n \n \n 6. RIGHT ANTI JOIN.\n\nThe returns records in the right table that do not exist in the left.\n\n \n \n Steps in the creation of join in PowerBI.\n\nOpen PowerBi desktop.\n\nSelect the datasets you want to use.\n\nClick on transform data.\n\nSelect a table.\n\nClick on merge queries.\n\nChoose the second table.\n\nSelect on matching columns.\n\nChoose the join type of your choice.\n\nClick OK and expand the columns\n\n \n \n PowerBI Relationships.\n\nThe datasets can connects to each other without ever merging them.\n\n \n \n Types of Relationships\n\n \n \n 1. One to many. (1:M)\n\nHere is where a table from dataset A relates to many tables in dataset B. Example; A customer can make many orders.\n\n \n \n 2. One to One.(1:1)\n\nIn this relationship the table matches exactly one in another table.\n\n \n \n 3. Many to Many.(M:M)\n\nHere both tables from datasets contains duplicate values.\n\n \n \n Key concepts.\n\n \n \n Cardinality.\n\nThis is where tables are defined by how they relate;\n\nOne-to-many.\n\nMany-to-many.\n\nOne-to-one.\n\n \n \n Cross filter direction.\n\nIn this we get to understand;\n\nBoth directions and allows two way filtering but may cause ambiguty.\n\nSingle direction.\n\n \n \n Active and inactive relationships.\n\nIn this relationship the active is usually the default and indirect usually requires the DAX.(User relationship)\n\n \n \n Facts vs Dimension Tables.\n\n \n \n Fact Table.\n\nThis is where it contains data that can be measured.\n\nExample: Sales Amount.\n\n \n \n Dimension Table.\n\nHere the data is descriptive.\n\nExample: Name of a customer.\n\n \n \n DATA MODELLING SCHEMAS.\n\nThey are;\n\n \n \n 1. Star Schema.\n\nStructure:\n\nOne Central fact table.\n\nMultiple dimension tables.\n\n \n \n 2. Snowflake Schema.\n\nThey usually normalize structures where dimensions are split.\n\nIt has an advantage of saving storage.\n\n \n \n 3. Flat Table.\n\nIn this schema all the data is stored in one table.\n\nIt is very simple but also has poor performance on large datasets.\n\n \n \n CONCLUSION.\n\nData modelling in PowerBI is essential for building accurate and high-performing dashboards. By understanding joins, relationships, schemas and table structures you can create models that are both efficient and scalable.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "b. example",
+      "cross",
+      "data modeling",
+      "dataengineering",
+      "datascience",
+      "dataset",
+      "datum",
+      "dimension",
+      "dimension table",
+      "fact",
+      "fact table",
+      "left",
+      "match",
+      "microsoft",
+      "modeling",
+      "powerbi",
+      "record",
+      "relationship",
+      "schemas",
+      "sql",
+      "table",
+      "types of relationships"
+    ],
+    [
+      "dataengineering",
+      "datascience",
+      "powerbi"
+    ]
+  ]
+}

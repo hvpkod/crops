@@ -1,0 +1,36 @@
+{
+  "id": 8757,
+  "source": "DEV Community<",
+  "title": "When AI Collapses Fact and Assumption",
+  "url": "https://dev.to/gtzilla/when-ai-collapses-fact-and-assumption-24ka",
+  "published_at": "2026-04-05T02:13:25Z",
+  "fetched_at": "2026-04-05T02:40:30.782467+00:00",
+  "author": "Gregory Tomlinson",
+  "summary": "<p>Blended inference is the baseline response mode of LLMs. Smooth prose is the goal. In software, that smoothness can hide the boundary between grounded analysis and inferred assumptions.</p>\n\n<p>The generation process does not distinguish between a token the model can support and one it filled in. Everything comes out at the same confidence level.</p>\n\n<p>I ran a small experiment on a Python caching service by asking:</p>\n\n<blockquote>\n<p>We’re seeing latency spikes on our report generation API. What should we look at?</p>\n</blockquote>\n\n<p>The baseline response correctly identified concrete areas to improve in the file: no lock or request coalescing on cache miss, a cleanup job that scans all of Redis, a stale flag that never gets checked, and synchronized TTL expiry.</p>\n\n<p>In the same answer, at the same confidence level, it also said things like:</p>\n\n<ul>\n<li>“If this runs periodically on the same Redis used by the API, it is a strong candidate for periodic spikes.”</li>\n<li>“I",
+  "full_text": "Blended inference is the baseline response mode of LLMs. Smooth prose is the goal. In software, that smoothness can hide the boundary between grounded analysis and inferred assumptions.\n\nThe generation process does not distinguish between a token the model can support and one it filled in. Everything comes out at the same confidence level.\n\nI ran a small experiment on a Python caching service by asking:\n\nWe’re seeing latency spikes on our report generation API. What should we look at?\n\nThe baseline response correctly identified concrete areas to improve in the file: no lock or request coalescing on cache miss, a cleanup job that scans all of Redis, a stale flag that never gets checked, and synchronized TTL expiry.\n\nIn the same answer, at the same confidence level, it also said things like:\n\n“If this runs periodically on the same Redis used by the API, it is a strong candidate for periodic spikes.”\n\n“If many hot reports are created around the same time—after deploy, after nightly prefetch, after business-hour traffic ramps up—they can expire around the same time too.”\n\n“Correlate p95/p99 latency with cache hit rate for /reports/generate.”\n\nNone of those lines are absurd. Some may even be useful.\n\nThe model did not know my Redis topology. It did not know my traffic shape. It did not know whether I had that telemetry. It did not verify the correlation it recommended.\n\nIt moved from what it could support from the file to assumptions about the surrounding system and wrote both in the same voice.\n\nInstead, the burden of sifting grounded analysis out of a flood of smooth prose falls on me.\n\nThat changed what review required from me. I could not just ask whether a sentence was wrong. I had to decompose the answer: what came directly from the file, what followed from reasoning over the file, and what entered because the model filled in missing context.\n\nI then reran the same prompt and the same code using VDG protocol.\n\nThe concrete analysis stayed. But the response could no longer glide past what it did not know. Instead of silently leaning on unknowns, the response had to put those unknowns in the Gap section:\n\n“No request metrics were provided, so it is unknown whether spikes are dominated by aggregate_transactions runtime, Redis latency, or concurrent duplicate work.”\n\n“No Redis topology was provided. It is unknown whether this cache is dedicated or shared, how many total keys live in db=0, and whether Redis CPU or memory pressure is present.”\n\n“No traffic-shape data was provided. It is unknown whether a small set of hot report keys dominates traffic or whether demand is evenly distributed.”\n\n“No client retry behavior was provided. It is unknown whether callers retry generate aggressively on slow responses, which would magnify stampedes.”\n\nI could see what the file supported, what the model inferred, and what remained open.\n\nThat is the value of VDG protocol. Not just a consistent response shape, but a way to force the model to take on the burden of separating grounded analysis from inferred assumptions.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "analysis",
+      "api",
+      "cache",
+      "fill",
+      "ground",
+      "infer",
+      "model",
+      "productivity",
+      "redis",
+      "response",
+      "softwareengineering",
+      "traffic",
+      "ttl",
+      "unknown"
+    ],
+    [
+      "ai",
+      "softwareengineering"
+    ]
+  ]
+}

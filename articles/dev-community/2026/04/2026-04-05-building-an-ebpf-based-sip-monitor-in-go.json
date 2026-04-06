@@ -1,0 +1,43 @@
+{
+  "id": 8823,
+  "source": "DEV Community<",
+  "title": "Building an eBPF-based SIP Monitor in Go",
+  "url": "https://dev.to/aibudaevv/building-an-ebpf-based-sip-monitor-in-go-3igk",
+  "published_at": "2026-04-05T11:25:32Z",
+  "fetched_at": "2026-04-05T11:40:20.105712+00:00",
+  "author": "Aleksey Budaev",
+  "summary": "<p>I recently built a SIP monitoring service that uses eBPF to capture SIP traffic directly in the Linux kernel and export metrics to Prometheus. The entire pipeline from packet to Prometheus metric takes ~3μs in userspace.</p>\n\n<p>Here's how it works and what I learned along the way.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>Monitoring SIP/VoIP infrastructure at scale requires tracking call success rates, active dialogs, and response codes — without adding latency to the signaling path.</p>\n\n<p>I wanted something that:</p>\n\n<ul>\n<li>Processes packets in kernel space</li>\n<li>Exports standard Prometheus metrics</li>\n<li>Runs as a single container</li>\n<li>Tracks SIP dialogs per RFC 3261</li>\n<li>Implements RFC 6076 performance metrics (Session Establishment Ratio)</li>\n</ul>\n\n<h2>\n  \n  \n  Architecture\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>SIP Traffic → NIC → eBPF socket filter → ringbuf → Go poller → SIP parser → Prometheus\n</code></pre",
+  "full_text": "I recently built a SIP monitoring service that uses eBPF to capture SIP traffic directly in the Linux kernel and export metrics to Prometheus. The entire pipeline from packet to Prometheus metric takes ~3μs in userspace.\n\nHere's how it works and what I learned along the way.\n\n \n \n The Problem\n\nMonitoring SIP/VoIP infrastructure at scale requires tracking call success rates, active dialogs, and response codes — without adding latency to the signaling path.\n\nI wanted something that:\n\nProcesses packets in kernel space\n\nExports standard Prometheus metrics\n\nRuns as a single container\n\nTracks SIP dialogs per RFC 3261\n\nImplements RFC 6076 performance metrics (Session Establishment Ratio)\n\n \n \n Architecture\n\nSIP Traffic → NIC → eBPF socket filter → ringbuf → Go poller → SIP parser → Prometheus\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe eBPF program (written in C) attaches as a socket filter via AF_PACKET. It intercepts UDP packets on configurable SIP ports (default 5060/5061), copies them to a ring buffer, and the Go userspace process polls and parses them.\n\nThe C program does three things:\n\nParse Ethernet/IP/UDP headers — handles both regular and VLAN-tagged frames\n\nFilter SIP traffic — checks UDP ports (configurable via environment variables)\n\nCopy to ringbuf — pushes matching packets to userspace\n\nLoaded via cilium/ebpf — the Go library handles BPF map creation, program loading, and ringbuf polling.\n\nKnown limitation: The eBPF verifier doesn't allow variable-length bpf_skb_load_bytes, so I copy packets in 64-byte blocks. Planning to migrate to AF_PACKET with PACKET_RX_RING (mmap) for arbitrary sizes.\n\n \n \n The Go Part\n\nThe Go side is straightforward:\n\nPoll ringbuf for new packets\n\nParse raw SIP messages (method/status, headers, Call-ID, tags)\n\nUpdate Prometheus counters\n\nTrack SIP dialog lifecycle\n\n \n \n Dialog Tracking\n\nSIP dialogs are identified by {Call-ID, From tag, To tag}. Tags are sorted lexicographically for consistent IDs.\n\nDialog created on 200 OK response to INVITE\n\nDialog terminated on 200 OK response to BYE\n\nExpired dialogs cleaned up every 1 second (based on Session-Expires header, default 30 min)\n\n \n \n Metrics Exported\n\n~30 Prometheus counters:\n\nPer-method: sip_exporter_invite_total, sip_exporter_bye_total, sip_exporter_register_total, etc.\n\nPer-status: sip_exporter_200_total, sip_exporter_404_total, sip_exporter_500_total, etc.\n\nSession count: sip_exporter_sessions (active dialogs gauge)\n\nRFC 6076 SER: sip_exporter_ser — Session Establishment Ratio\n\nThe SER metric is interesting because it follows RFC 6076 exactly:\n\nSER = (INVITE → 200 OK) / (Total INVITE - INVITE → 3xx) × 100\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n3xx redirects are excluded from the denominator — they're routing instructions, not failures.\n\n \n \n Performance\n\nBenchmarks on Intel i7-8665U (userspace only):\n\nOperation\nLatency\nThroughput\nMemory\n\nPacket parsing (L2→SIP)\n~124 ns\n8M pkt/sec\n32 B/op\n\nSIP header parsing\n~1.2 μs\n800k pkt/sec\n350 B/op\n\nFull processing (with metrics)\n~3 μs\n300k pkt/sec\n1000 B/op\n\nThese are userspace numbers. Actual latency depends on kernel eBPF overhead and system load.\n\n \n \n E2E Testing\n\nE2E tests use SIPp via testcontainers-go to generate real SIP traffic and verify that metrics match expected values. Tests cover success/failure scenarios and validate proper dialog cleanup.\n\n \n \n Quick Start\n\nservices:\n sip-exporter:\n image: frzq/sip-exporter:0.5.0\n privileged: true\n network_mode: host\n environment:\n - SIP_EXPORTER_INTERFACE=eth0\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\ndocker-compose up -d\ncurl http://localhost:2112/metrics\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What's Next\n\nMore RFC 6076 metrics (Session Setup Time, Response Time)\n\n \n \n Links\n\nHappy to answer questions about the eBPF integration, SIP dialog state machine, or Prometheus metric design. Drop a comment below!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "af_packet",
+      "call-id",
+      "dialog",
+      "ebpf",
+      "fullscreen",
+      "go",
+      "invite",
+      "metric",
+      "mode",
+      "monitoring",
+      "nic",
+      "packet",
+      "parse",
+      "prometheus",
+      "ringbuf",
+      "sip",
+      "sip monitor",
+      "sip_exporter_register_total",
+      "traffic",
+      "udp",
+      "vlan",
+      "voip"
+    ],
+    [
+      "monitoring",
+      "voip"
+    ]
+  ]
+}

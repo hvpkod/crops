@@ -1,0 +1,35 @@
+{
+  "id": 8794,
+  "source": "Hacker News",
+  "title": "Demonstrating Real Time AV2 Decoding on Consumer Laptops",
+  "url": "http://aomedia.org/blog%20posts/Demonstrating-Real-Time-AV2-Decoding-on-Consumer-Laptops/",
+  "published_at": "2026-04-05T01:32:28Z",
+  "fetched_at": "2026-04-05T06:40:28.667881+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47645305\">Comments</a>",
+  "full_text": "Now that the AV2 specification\nis publicly available after\nfive years of hard work,\nAOMedia members are already demonstrating it in real-world playback\nenvironments. At CES 2026, AOMedia members Google, and VideoLAN participated in\nAV2 decoding demonstrations, with support from THX. They showed real-time AV2\nplayback on laptops using current reference implementations, spanning both\nnative applications and browser-based streaming pipelines.\n\nTogether, these efforts showed that AV2 decoding can operate end-to-end in\nrealistic playback scenarios and on widely available laptop-class systems.\n\nNative application decoding with VLC\n\nVideoLAN demonstrated real-time AV2 decoding using VLC 4 running on a macOS\nlaptop. The playback occurred in a native desktop media player rather than in a\nweb browser. The same approach also ran on other platforms, reflecting VLC’s\ncross-platform design.\n\nThe demonstration used a VLC plugin integrating the AVM reference decoder. The\nplugin was built against the latest AV2 development branch and executed on an\nARM-based macOS system.\n\nThis work represents the first known demonstration of AV2 decoding in a native\ndesktop media player on laptops. It showed that AV2 decoding can be integrated\ninto an existing media player architecture and run in real time on standard\nconsumer hardware.\n\nWeb-based decoding and streaming pipeline\n\nA second demonstration showed AV2 decoding in a browser-based streaming\nenvironment. Google demonstrated AV2 playback using Chrome to play AV2 videos\nstreamed from YouTube to a gaming laptop, with real time playback at 1080p and\n24 frames per second.\n\nFor this demonstration, a set of videos was encoded using a pre-release AV2\nbitstream generated with the libavm reference encoder. The content was delivered\nvia an existing streaming platform and played back using a custom browser build\nthat incorporated the libavm reference decoder.\n\nThis demonstration exercised a complete encode-to-decode pipeline and showed that\nAV2 can function within a browser-based playback environment on consumer laptop\nhardware.\n\nTechnical observations\n\nAcross both demonstrations, several technical observations emerged:\n\n \nAV2 decoding is already functional in real playback environments using\nreference implementations.\n \nReal-time decoding was achieved at common resolutions on laptop-class hardware.\n \nAV2 can be integrated through multiple implementation paths, including native\napplications and web-based streaming stacks.\n\nThe demonstrations focused on feasibility and integration rather than on\noptimized performance or benchmarking.\n\nContext and next steps\n\nBoth demonstrations relied on reference decoders and pre-release AV2 code. The\nresults should not be interpreted as final performance characteristics, but as\nan indication of current implementation progress.\n\nAs AV2 development continues, further work will focus on optimization, additional\nplatform support, and production-grade implementations. AOMedia and its members\nwill continue to share technical updates as AV2 advances toward broader adoption.\n\nFollow AOMedia on LinkedIn\nto stay up to date on AV2 development, implementation updates, and future\ntechnical demonstrations.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "aomedia",
+      "avm",
+      "decoding",
+      "demonstration",
+      "google",
+      "linkedin",
+      "member",
+      "native",
+      "playback",
+      "reference",
+      "show",
+      "streaming",
+      "technical",
+      "thx",
+      "videolan",
+      "vlc",
+      "youtube"
+    ],
+    []
+  ]
+}

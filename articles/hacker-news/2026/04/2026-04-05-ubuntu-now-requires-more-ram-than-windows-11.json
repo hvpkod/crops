@@ -1,0 +1,35 @@
+{
+  "id": 8840,
+  "source": "Hacker News",
+  "title": "Ubuntu now requires more RAM than Windows 11",
+  "url": "https://www.howtogeek.com/ubuntu-now-requires-more-ram-than-windows-11/",
+  "published_at": "2026-04-05T11:57:25Z",
+  "fetched_at": "2026-04-05T12:40:33.656644+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47648452\">Comments</a>",
+  "full_text": "While Linux has long been associated with lightweight performance and breathing life into aging machines, Canonical’s release notes for Ubuntu 26.04 LTS signal a clear evolution towards modern computing workloads. The company is quietly bumping its minimum memory requirements for the Linux distro—a widely-used open-source operating system and a beginner-friendly gateway into the Linux world. \n\n Canonical is no longer pretending that 4GB is enough\n \n\n A slow climb from 1GB to 6GB\n \n\nThe Ubuntu 26.04 LTS code named ‘Resolute Raccoon’ raises the baseline memory to 6GB, alongside a 2GHz dual-core processor, and 25GB of storage. This isn’t the first time the bar has been raised. Ubuntu 14.04 LTS (Trusty Tahr) set the floor at 1GB—a modest ask when it launched more than a decade ago in 2014. Then came the Ubuntu 18.04 LTS (Bionic Beaver) that pushed the number to 4GB, surviving quite well in the era of 16GB being considered standard for mid-range laptops. \n\nFast-forward to today, Resolute Raccoon is moving the needle again with a 50 percent increase over the previous version. At first, the jump sounds steep on paper, but the pace of change has been quite slow. The requirements have only been revised twice in over a decade. \n\nThe change isn't about the core operating system becoming resource-hungry. Instead, it reflects the way people use computers today—multiple browser tabs, web apps, and multitasking workflows, all of which demand additional memory. Canonical seems to be upfront here by pushing the official minimum requirement to 6GB, making it less about what’s required to boot the machine and more about having a usable experience. \n\n Closing the gap with Windows 11\n \n\n Linux's advantage is slowly shrinking\n \n\nUbuntu’s new minimum requirement lands in an interesting spot when compared against Windows 11. Microsoft’s operating system requires just 4GB RAM, although real-world usage often tells a different story. Usually, 8GB is considered the sweet spot to handle modern apps and multitasking. \n\nThat said, Ubuntu’s new 6GB baseline narrows the historical gap where the Linux distro had the upper hand for running on low-spec hardware that Windows couldn’t handle. It sits right in between—higher than Windows 11’s minimum, but closer to modern workload expectations. \n\nNotably, Canonical isn’t making 6GB memory a hard requirement for Ubuntu 26.04. It will still install on machines that fall below the minimum requirement, but users will have to deal with slower performance. \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n Related\n \n \n\n \n \n \n \n\n \n \n\nCanonical is retiring Totem and System Monitor for a modern look.\n \n\n \n\n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n \n \n\nThe shift stings a little for anyone who relied on Ubuntu specifically because it could revive an aging machine. But several lighter alternatives like Xubuntu and Lubuntu still cater to those with 2GB or 4GB RAM systems. For most users though, this is simply Ubuntu catching up to how people compute in 2026. \n\n \n\n \n \n \n\nSource: Ubuntu",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "age",
+      "bionic beaver",
+      "canonical",
+      "canonical’s",
+      "consider",
+      "linux",
+      "microsoft",
+      "minimum",
+      "operating",
+      "ram",
+      "requirement",
+      "resolute raccoon",
+      "system",
+      "totem",
+      "ubuntu",
+      "ubuntu’s",
+      "windows"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 8750,
+  "source": "Hacker News",
+  "title": "Show HN: M. C. Escher spiral in WebGL inspired by 3Blue1Brown",
+  "url": "https://static.laszlokorte.de/escher/",
+  "published_at": "2026-04-04T19:43:54Z",
+  "fetched_at": "2026-04-05T01:20:22.482377+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47642601\">Comments</a>",
+  "full_text": "Show Shader / About\n \n\n See\n this fantastic 3Blue1Brown video\n for an in depth explanation.\n \n \n\n To summarize: The original idea is\n popularized by\n M. C. Escher\n in their artworks.\n \n \n\n The\n droste effect\n is the idea of embedding a smaller version of an\n image into itself leading to an (theoretically)\n infinitely repeating recursive depth.\n \n \n\n Escher took this idea even further by breaking the\n boundary between two recursive images and morphing\n them together. This leads to the visual impression\n that there are no separate instances of a repeated\n image but just a single image spiraling inwards.\n \n \n\n This effect can also be recognized as\n strange loop\n as done by\n Douglas Hofstadter\n in his book\n Gödel, Escher, Bach.\n \n \n\n Computationally, to turn any classic image into a\n droste image a smaller version of the classic image\n has just to be renderered somewhere ontop of the\n original image. Depending on the scaling factor\n between nested images this has to be repeated until\n the threshold of the required display resolution is\n met, so that nobody can recognize that there are in\n fact not infinite smaller and smaller images.\n \n \n\n Generating an Escher spiral to connect all the\n recursive images smoothly is slightly more\n sophisticated. We need to transform the\n (x,y)-coordinates of the image into polar\n coordinates of radius and angle measured from the\n center point in the image at which the recursion\n takes place. This makes both coordinates periodic:\n The angle is obviously periodic and the radius is\n periodic in droste images because when moving\n inwards or outwards the image will repeat after some\n period\n \n \n\n So just changing the images coordinate system from\n cartesian to polar coordinates enables us to see and\n to express the periodicity of the image much more\n clearly.\n \n \n\n The next trick is to transform (rotate and scale)\n the image in its polar coordinate space. The key\n insight required for this is that all concetric\n circles from the original image are straight\n horzontall lines inside the polar space (because\n they have all the same radius but different angles\n in the original image).\n \n \n\n So in the polar space all the smaller and smaller\n instances of the droste image are unwrapped into\n equally sized rows below to each other. To break\n their separation we just have to break the horzontal\n row structure seperating them. This can easily be\n done by just rotating everything in polar space so\n that a single image instance runs diagonally across\n multiple (actually all infinite) rows.\n \n \n\n After the rotation both a single horzontal line and\n a single vertical line in polar space run through\n all image instances. When now transforming back into\n cartesian coordinates this leads to all the instaces\n of the images having both all radii and and angles\n in common, resulting in a spiralling effect. The\n only tricky part is to do the polar space rotation\n in such a way that the period of the spiral turning\n lines up with the image being scaled.\n \n \n\n Overall this trick of first transforming into polar\n coordinates, then doing a simple rotation and\n finally transforming back can be compared to the\n application of the fourier transform in signal\n processing. The fourier transform can be used to\n apply linear filters to a signal. Instead of\n computing the convolution of the filter kernel with\n the input signal in the time domain it can be done\n as a simple element-wise multiplication in the\n frequency. Instead of doing a complicated\n calculation directly we first transform into another\n coordinate system, do a simple calculation there and\n them transform back. For the Escher effect for\n calculating a crazy spiral in cartesian space, we\n just move to polar coordinates, to a simple rotation\n and them move back.\n \n \n\n Below you can read the WebGL vertex and and fragment\n shaders for doing the the transformation.\n \n \n\n Some other people have already built some really\n cool demos of the same effect. For example this\n recreation Eschers Print Gallery\n and\n the same effect to applied to playing video.\n \n \n\nVertex Shader\n \n \n\nFramgnet Shader",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "angle",
+      "coordinate",
+      "droste",
+      "escher",
+      "image",
+      "m.c.",
+      "polar",
+      "rotation",
+      "shader",
+      "small",
+      "transform",
+      "webgl"
+    ],
+    [
+      "webgl"
+    ]
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": 8922,
+  "source": "DEV Community<",
+  "title": "I built a faster alternative to cp and rsync — here's how it works",
+  "url": "https://dev.to/krit83/i-built-a-faster-alternative-to-cp-and-rsync-heres-how-it-works-39fa",
+  "published_at": "2026-04-05T20:27:08Z",
+  "fetched_at": "2026-04-05T20:40:22.118192+00:00",
+  "author": "krit.k83 (ΚρητικόςIGB)",
+  "summary": "<p>I'm a systems engineer. I spend a lot of time copying files — backups to USB drives, transfers to NAS boxes, moving data between servers over SSH. And I kept running into the same frustrations:</p>\n\n<ul>\n<li>\n<code>cp -r</code> is painfully slow on HDDs when you have tens of thousands of small files</li>\n<li>\n<code>rsync</code> is powerful but complex, and still slow for bulk copies</li>\n<li>\n<code>scp</code> and SFTP top out at 1-2 MB/s on transfers that should be much faster</li>\n<li>No tool tells you upfront if the destination even has enough space</li>\n</ul>\n\n<p>So I built <strong>fast-copy</strong> — a Python CLI that copies files at maximum sequential disk speed.</p>\n\n<h2>\n  \n  \n  The core idea\n</h2>\n\n<p>When you run <code>cp -r</code>, files are read in directory order — which is essentially random on disk. Every file seek on an HDD costs 5-10ms. Multiply that by 60,000 files and you're spending minutes just on head movement.</p>\n\n<p>fast-copy does something different: it res",
+  "full_text": "I'm a systems engineer. I spend a lot of time copying files — backups to USB drives, transfers to NAS boxes, moving data between servers over SSH. And I kept running into the same frustrations:\n\ncp -r is painfully slow on HDDs when you have tens of thousands of small files\n\nrsync is powerful but complex, and still slow for bulk copies\n\nscp and SFTP top out at 1-2 MB/s on transfers that should be much faster\n\nNo tool tells you upfront if the destination even has enough space\n\nSo I built fast-copy — a Python CLI that copies files at maximum sequential disk speed.\n\n \n \n The core idea\n\nWhen you run cp -r, files are read in directory order — which is essentially random on disk. Every file seek on an HDD costs 5-10ms. Multiply that by 60,000 files and you're spending minutes just on head movement.\n\nfast-copy does something different: it resolves the physical disk offset of every file before copying. On Linux it uses FIEMAP, on macOS fcntl, on Windows FSCTL. Then it sorts files by block position and reads them sequentially.\n\nThat alone makes a big difference. But there's more.\n\n \n \n Deduplication\n\nMany directories have duplicate files — node_modules across projects, cached downloads, backup copies. fast-copy hashes every file with xxHash-128 (or SHA-256 as fallback), copies each unique file once, and creates hard links for duplicates.\n\nIn my test with 92K files, over half were duplicates — saving 379 MB and a lot of I/O time.\n\nIt also keeps a SQLite database of hashes, so repeated copies to the same destination skip files that were already copied in previous runs.\n\n \n \n SSH tar streaming\n\nThis is the part I'm most proud of. Instead of using SFTP (which has significant protocol overhead), fast-copy streams files as chunked ~100 MB tar batches over raw SSH channels.\n\nThe remote side runs tar xf - and files land directly on disk — no temp files, no SFTP overhead. This even works on servers that have SFTP disabled, like some Synology NAS configurations.\n\nThree modes are supported:\n\nLocal → Remote\n\nRemote → Local\n\nRemote → Remote (relay through your machine)\n\n \n \n Real benchmarks\n\nLocal copy — 92K files to USB:\n\n44,718 unique files copied + 47,146 hard-linked\n\n509.8 MB written, 378.9 MB saved by dedup\n\n17.9 seconds, 28.5 MB/s\n\nAll files verified after copy\n\nRemote to local — 92K files over LAN:\n\n509.8 MB downloaded in 14 minutes\n\n46,951 duplicates detected, saving 378.5 MB of transfer\n\n3x faster than SFTP\n\n \n \n Getting started\n\nThe simplest way — just run the Python script:\n\npython fast_copy.py /source /destination\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOr download a standalone binary (no Python needed) from the Releases page — available for Linux, macOS, and Windows.\n\nFor SSH transfers, install paramiko:\n\npip install paramiko\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFor faster hashing:\n\npip install xxhash\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Links\n\nI'd love to hear feedback — especially from anyone dealing with large file transfers or backup workflows. What tools are you currently using? What's missing from them?",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "cli",
+      "copy",
+      "disk",
+      "duplicate",
+      "fast",
+      "fiemap",
+      "file",
+      "hdd",
+      "linux",
+      "mode",
+      "nas",
+      "opensource",
+      "productivity",
+      "python",
+      "remote",
+      "sftp",
+      "sqlite",
+      "ssh",
+      "synology nas",
+      "transfer",
+      "usb",
+      "windows fsctl"
+    ],
+    [
+      "opensource"
+    ]
+  ]
+}

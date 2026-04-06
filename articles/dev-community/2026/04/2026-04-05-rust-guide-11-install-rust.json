@@ -1,0 +1,39 @@
+{
+  "id": 8963,
+  "source": "DEV Community<",
+  "title": "[Rust Guide] 1.1. Install Rust",
+  "url": "https://dev.to/someb1oody/rust-guide-11-install-rust-4ph9",
+  "published_at": "2026-04-05T23:12:28Z",
+  "fetched_at": "2026-04-05T23:40:31.604359+00:00",
+  "author": "SomeB1oody",
+  "summary": "<h1>\n  \n  \n  1.1.1. Installing Rust from the Official Website\n</h1>\n\n<p>Go to the <a href=\"https://www.rust-lang.org/\" rel=\"noopener noreferrer\">Rust official website</a>, where you can set the language in the top-right corner.<br />\n<a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fbrtb8hu1i85owdq7u9jz.png\"><img alt=\" \" height=\"381\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fbrtb8hu1i85owdq7u9jz.png\" width=\"800\" /></a></p>\n\n<p>Click \"Get Started\" and you will see the following interface:<br />\n<a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%",
+  "full_text": "1.1.1. Installing Rust from the Official Website\n\nGo to the Rust official website, where you can set the language in the top-right corner.\n\nClick \"Get Started\" and you will see the following interface:\n\nChoose the appropriate version based on your operating system: 32-BIT for 32-bit systems and 64-BIT for 64-bit systems. Most computers today are 64-bit. If you are unsure, as long as your computer isn’t very old, downloading the 64-bit version should work fine.\n\nTo download Rust for MacOS, Linux, or the Windows Linux Subsystem, execute the following command in your terminal:\n\ncurl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOpen the downloaded installer, and you will see the following interface:\n\nThere are three options:\n\nOption 1 (Default): Standard installation\n\nOption 2: Custom installation, allowing you to customize the installation path, components, toolchain version, etc.\n\nOption 3: Cancel installation\n\nFor most users, Option 1 is sufficient (either type 1 and press Enter, or just press Enter).\n\nIf you see the following screen, Rust has been successfully installed:\n\nThe installer will prompt you to restart your shell. Press Enter to exit the program. At this point, Rust installation is complete.\n\n \n \n 1.1.2. Command Line Operations for Rust\n\nRust commands can be executed in the terminal in Windows (Win11 includes it by default; if not, search for Windows Terminal in the Microsoft Store to download).\n\nUpdate Rust: rustup update\nRust is a rapidly evolving language, so it’s recommended to perform this operation periodically to get the latest version.\n\nUninstall Rust: rustup self uninstall\n\nVerify Installation: rustc --version or rustc -V\n\nThe result format: rustc x.y.z (xxxxxxxxx yyyy-mm-dd):\n\nx.y.z: Version number\n\nxxxxxxxxx: Current version’s hash value\n\nyyyy-mm-dd: Submission date of the current version\n\n• Open Local Rust Documentation Manual: rustup doc\n\n \n \n Development Tools\n\nInstall the Rust plugin for VS Code\n\nVIM\n\nHelix\n\nRustRover\n\n…",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "command",
+      "command line operations",
+      "default",
+      "development tools",
+      "doc",
+      "follow",
+      "installation",
+      "learning",
+      "option",
+      "press",
+      "programming",
+      "rust",
+      "rustc",
+      "rustup",
+      "the microsoft store",
+      "uninstall",
+      "version",
+      "windows",
+      "windows terminal"
+    ],
+    [
+      "learning"
+    ]
+  ]
+}

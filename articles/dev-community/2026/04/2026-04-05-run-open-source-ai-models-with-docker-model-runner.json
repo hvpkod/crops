@@ -1,0 +1,41 @@
+{
+  "id": 8760,
+  "source": "DEV Community<",
+  "title": "Run Open Source AI Models with Docker Model Runner",
+  "url": "https://dev.to/sreeni5018/run-open-source-ai-modelswith-docker-model-runner-5hei",
+  "published_at": "2026-04-05T01:52:02Z",
+  "fetched_at": "2026-04-05T02:40:37.458203+00:00",
+  "author": "Seenivasa Ramadurai",
+  "summary": "<h2>\n  \n  \n  Introduction\n</h2>\n\n<p>If you've spent any time in <strong>software</strong> <strong>development</strong>, <strong>cloud</strong> engineering, or <strong>microservices</strong> architecture, the name <strong>Docker</strong> needs no introduction. But for those newer to the ecosystem, here's the short version.</p>\n\n<p><strong>Docker</strong> is an <strong>open platform for developing, shipping, and running applications</strong>. Its core idea is elegant: separate your application from the underlying infrastructure so you can build fast, test consistently, and deploy confidently. By standardizing how code is packaged and delivered, Docker dramatically shrinks the gap between \"it works on my machine\" and \"it works in production.\"</p>\n\n<h3>\n  \n  \n  What is Docker Desktop?\n</h3>\n\n<p>Docker Desktop takes everything Docker offers and wraps it into a single, batteries-included application for macOS, Windows, and Linux. It bundles the Docker Engine, CLI, <strong>Docker</strong> <st",
+  "full_text": "Introduction\n\nIf you've spent any time in software development, cloud engineering, or microservices architecture, the name Docker needs no introduction. But for those newer to the ecosystem, here's the short version.\n\nDocker is an open platform for developing, shipping, and running applications. Its core idea is elegant: separate your application from the underlying infrastructure so you can build fast, test consistently, and deploy confidently. By standardizing how code is packaged and delivered, Docker dramatically shrinks the gap between \"it works on my machine\" and \"it works in production.\"\n\n \n \n What is Docker Desktop?\n\nDocker Desktop takes everything Docker offers and wraps it into a single, batteries-included application for macOS, Windows, and Linux. It bundles the Docker Engine, CLI, Docker Compose, Kubernetes, and a visual dashboard giving developers a complete container workflow without ever touching low level OS configuration.\n\nOver the years, Docker Desktop has become the de facto local development environment for millions of engineers worldwide. Version 4.x doubled down on AI workloads, and the latest releases ship with Docker Model Runner as a first class, built in feature accessible directly from the Docker Dashboard or the CLI you already use every day.\n\n \n \n What is Docker Model Runner?\n\nDocker Model Runner (DMR) is an inference engine embedded directly into Docker Desktop. It lets you pull, run, and interact with open-source large language models using the same familiar docker CLI no new tools, no configuration headaches, no surprises.\n\nUnder the hood, DMR uses llama.cpp as its runtime backend, delivering high performance inference on both CPU and GPU — Metal on Apple Silicon, CUDA on Linux and Windows out of the box.\n\nModels are distributed as OCI compliant artifacts through Docker Hub's ai/ namespace. That means model versioning, access control, and distribution are all handled by the same battle tested infrastructure already powering your container images.\n\n\"What Docker did for application packaging, Model Runner does for AI inference one pull command, consistent behavior everywhere.\"\n\n \n \n When to Use Docker Model Runner\n\n \n \n How It Works Under the Hood\n\nWhen you run a model through DMR, Docker Desktop spins up a local HTTP server exposing an OpenAI-compatible REST API including /v1/chat/completions, /v1/completions, and /v1/models. Any application or SDK already speaking the OpenAI protocol works against DMR with zero code changes, making it a drop in local alternative for AI-powered development.\n\nInstall Latest Docker Desktop based on your OS \n\nStart the Docker Desktop \n\nClick the Settings icon top Right corner \n\nSelect AI and enable Docker Model Runner, Enable DMR and Host TCP as shown below . \n\nNote: Default TCP port is 12434 , you can change it whatever free port available in your machine , Mine i set it 5018 \n\nNext, click the models left side as shown below \n\nNow, click pull and download the model and run it. \n\nBelow screenshot shows i pulled or downloaded two open source models \n\n \n \n Test the Model within docker desktop itself\n\n \n \n Testing GPT-OSS\n\nThe docker model subcommand is your primary interface. Let's walk through pulling and running qwen3.5 step by step.\n\n \n \n 1. Pull a model from Docker Hub\n\n \n \n 2. List available models ( what models, downloaded locally )\n\n \n \n Quick reference cheat sheet\n\n \n \n Why Docker Model Runner matters\n\n \n \n Using DMR in your applications\n\nPython with the OpenAI SDK\n\nSince DMR speaks the OpenAI protocol, swap the base URL and you're done no model specific library needed:\n\nfrom openai import OpenAI\n\nclient = OpenAI(\n base_url=\"http://localhost:5018/engines/v1\",\n api_key=\"not-needed\",\n)\n\nwhile True:\n user_input = input(\"You: \")\n if user_input.lower() in [\"exit\", \"quit\", \"bye\"]:\n break\n response = client.chat.completions.create(\n model=\"gpt-oss\", messages=[{\"role\": \"user\", \"content\": user_input}]\n )\n print(response.choices[0].message.content)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Testing the above code.\n\nDocker Model Runner closes the gap between containerized application development and AI-powered application development. By treating models as OCI(Open Container Initiative) artifacts and exposing a standard OpenAI compatible API, DMR lets you build with local LLMs using the same mental model, the same toolchain, and the same workflows you already use for everything else.\n\nThe combination of zero setup inference, hardware acceleration, and Compose integration makes DMR the most practical way to add local AI capabilities to any project whether you're building a RAG pipeline, a coding assistant, or a document summarizer.\n\nThanks\n\nSreeni Ramadorai",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "already",
+      "application",
+      "below",
+      "cli",
+      "cpu",
+      "desktop",
+      "development",
+      "docker",
+      "docker desktop",
+      "docker hub's",
+      "gpu",
+      "linux",
+      "local",
+      "model",
+      "oci",
+      "openai",
+      "runner",
+      "sdk",
+      "select ai",
+      "windows"
+    ],
+    [
+      "ai"
+    ]
+  ]
+}

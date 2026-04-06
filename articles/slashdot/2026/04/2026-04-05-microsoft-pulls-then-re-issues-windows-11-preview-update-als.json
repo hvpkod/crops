@@ -1,0 +1,37 @@
+{
+  "id": 8751,
+  "source": "Slashdot",
+  "title": "Microsoft Pulls Then Re-Issues Windows 11 Preview Update.  Also Begins Force-Updating Windows 11",
+  "url": "https://tech.slashdot.org/story/26/04/05/001246/microsoft-pulls-then-re-issues-windows-11-preview-update-also-begins-force-updating-windows-11?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-05T01:34:00Z",
+  "fetched_at": "2026-04-05T02:00:30.850508+00:00",
+  "author": "EditorDavid",
+  "summary": "Nine days ago Microsoft released a non-security \"preview\" update for Windows 11 &mdash; not mandatory for the average Windows user, notes ZDNet, \"but rather as optional, more for IT admins and power users who want to test them.\" \n TechRepublic adds that the update \"was to bring 'production-ready improvements' and generally ensure system stability by optimizing different Windows services.\" So it's ironic that some (but not all) users reported instead that the update \"blocks users at the door, refusing to install or crashing midway through the process.\" \n\n\"It apparently impacted enough people to force Microsoft to take action,\" writes ZDNet. \"Microsoft paused and then pulled the update,\" and then Tuesday released a new update \"designed to replace the glitchy one. This one includes all the new features and improvements from the previous preview update, but also fixes the installation issues that clobbered that update.\" \nMeanwhile, as Windows 11 version 24H2 approaches its end of life this",
+  "full_text": "Nine days ago Microsoft released a non-security \"preview\" update for Windows 11 — not mandatory for the average Windows user, notes ZDNet\n\n, \"but rather as optional, more for IT admins and power users who want to test them.\" \n TechRepublic\n\n adds that the update \"was to bring 'production-ready improvements' and generally ensure system stability by optimizing different Windows services.\" So it's ironic that some (but not all) users reported instead that the update \"blocks users at the door, refusing to install or crashing midway through the process.\" \n\n\"It apparently impacted enough people to force Microsoft to take action,\" writes ZDNet\n\n. \"Microsoft paused and then pulled the update,\" and then Tuesday released a new update \"designed to replace the glitchy one. This one includes all the new features and improvements from the previous preview update, but also fixes the installation issues that clobbered that update.\" \n\nMeanwhile, as Windows 11 version 24H2 approaches its end of life this October, Microsoft is now force-updating users to the latest version, reports BleepingComputer\n\n:\n\n\"The machine learning-based intelligent rollout has expanded to all devices running Home and Pro editions of Windows 11, version 24H2 that are not managed by IT departments,\" Microsoft said in a Monday update to the Windows release health dashboard... \"No action is required, and you can choose when to restart your device or postpone the update.\"\n \n\n Neowin reports\n\n:\n\n The good news is that the update from version 24H2 to 25H2 is a minor enablement package, as the two operating systems share the same codebase. As such, the update won't take long, and you should not encounter any disruptions, compatibility issues, or previously unseen bugs... Microsoft recently promised to implement big changes in how Windows Update works, including the ability to postpone updates for as long as you want. However, Microsoft has yet to clarify if that includes staying on a release beyond its support period. \n\nThanks to long-time Slashdot reader Ol Olsoc for sharing the news.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "begins force-updating windows",
+      "bleepingcomputer",
+      "device",
+      "home",
+      "microsoft",
+      "microsoft pulls",
+      "postpone",
+      "preview",
+      "release",
+      "techrepublic",
+      "update",
+      "user",
+      "version",
+      "windows",
+      "windows update",
+      "zdnet"
+    ],
+    [
+      "ai"
+    ]
+  ]
+}

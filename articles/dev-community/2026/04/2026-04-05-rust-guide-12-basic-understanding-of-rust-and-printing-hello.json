@@ -1,0 +1,39 @@
+{
+  "id": 8960,
+  "source": "DEV Community<",
+  "title": "[Rust Guide] 1.2. Basic Understanding of Rust and Printing \"Hello World\"",
+  "url": "https://dev.to/someb1oody/rust-guide-12-basic-understanding-of-rust-and-printing-hello-world-51ik",
+  "published_at": "2026-04-05T23:19:23Z",
+  "fetched_at": "2026-04-05T23:40:28.461843+00:00",
+  "author": "SomeB1oody",
+  "summary": "<h1>\n  \n  \n  1.2.0. Side Note\n</h1>\n\n<p>I will continue using RustRover for demonstrations in future articles.</p>\n\n<h1>\n  \n  \n  1.2.1. Writing Rust Programs\n</h1>\n\n<ul>\n<li><p>File extension: <code>.rs</code></p></li>\n<li><p>Naming convention: Snake case (lowercase letters, words separated by underscores) Example: <code>hello_world.rs</code></p></li>\n</ul>\n\n<h1>\n  \n  \n  1.2.2. Printing Hello World\n</h1>\n\n<h2>\n  \n  \n  Step 1: Create a New Rust Project\n</h2>\n\n<p>Open RustRover, click \"New Project\", and you'll see the following interface: </p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffp1w730wywwlwtv14v4l.png\"><img alt=\" \" height=\"654\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffp1w7",
+  "full_text": "1.2.0. Side Note\n\nI will continue using RustRover for demonstrations in future articles.\n\n \n \n 1.2.1. Writing Rust Programs\n\n \n \n 1.2.2. Printing Hello World\n\n \n \n Step 1: Create a New Rust Project\n\nOpen RustRover, click \"New Project\", and you'll see the following interface: \n\nModify the project storage path or select the toolchain location according to your needs, then click create. If the IDE doesn't recognize the toolchain, please check if you have downloaded and installed Rust - there's an installation tutorial on the homepage.\n\n \n \n Step 2: Write Code\n\nSince RustRover automatically configures Cargo for new projects (we'll cover this next time), the project will directly generate main.rs with Hello World printing code: \n\nUnderstanding the code:\n\nfn main(){\n println!(\"Hello World\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nfn: Indicates creating a function (equivalent to function in JS, func in Go, def in Python)\n\nmain(){}: main is the function name, () contains parameters (leave empty if none), {} contains the function body. The main function is special - it's the first code executed in every Rust executable program \n\nprintln!();: println!() is the print function, with the content to print inside the parentheses. The ! in the function name indicates this is a macro function, a concept we'll cover later. This macro function call must end with ; because they are equivalent to statements.\n\n\"Hello World\": \"\" represents a string, Hello World is the content of this string\n\nNote: Rust indentation uses 4 spaces instead of 1 Tab, because Tab has the drawback of displaying differently under different editor configurations - some show 2 characters, some 4 characters, so space indentation is more stable.\n\n \n \n Step 3: Run\n\nSimply click the run button in the upper left corner of RustRover (or Ctrl + F5), and you'll see Hello World successfully printed: \n\nFor non-RustRover users, you can also run through the terminal:\n\nOpen terminal, copy the folder path where the .rs file is located, input command cd folder_path to open this folder in terminal. \n\nInput command rustc main.rs to compile. If your program name isn't main.rs, you can replace it with your own program name. You'll see two additional files with the same name but different extensions appear in the program directory (Linux/macOS only has one, no .pdb file). The .pdb file is a debug symbol file for Windows platform, and .exe is the executable file. \n\nFor Windows, input .\\main.exe in terminal; for Linux/MacOS, input ./main in terminal. If your program name isn't main, just replace main here with your program name. \n\nNote: Compilation and execution are two separate steps\n\nYou must compile before running a Rust program, command: rustc your_program_name.rs\n\nAfter successful compilation, a binary file is generated (Windows platform also generates a .pdb file)\n\nRust is an ahead-of-time compiled language, meaning you can compile the program first, then give the executable file to others to run (without needing to install Rust)\n\nrustc is only suitable for simple Rust programs, complex Rust programs require Cargo (next chapter will cover this)",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "executable",
+      "file",
+      "function",
+      "hello",
+      "hello world",
+      "ide",
+      "input",
+      "learning",
+      "linux/macos",
+      "print",
+      "printing hello world",
+      "program",
+      "programming",
+      "python",
+      "rust",
+      "rustc",
+      "rustrover",
+      "windows",
+      "writing rust programs"
+    ],
+    [
+      "learning"
+    ]
+  ]
+}

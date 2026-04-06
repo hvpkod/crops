@@ -1,0 +1,41 @@
+{
+  "id": 8833,
+  "source": "DEV Community<",
+  "title": "Tailwind CSS in Micro Frontend Monorepo — Setup Guide",
+  "url": "https://dev.to/srinu_desetti/tailwind-css-in-micro-frontend-monorepo-setup-guide-473k",
+  "published_at": "2026-04-05T11:09:52Z",
+  "fetched_at": "2026-04-05T11:40:33.627617+00:00",
+  "author": "Srinu Web developer",
+  "summary": "<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>// Production build output:\n// styles.css — 0 classes generated\n// ERROR: @tailwind directives treated as plain text\n</code></pre>\n\n</div>\n\n\n\n<p>This happens when you set up Tailwind CSS in a micro frontend monorepo the same way you would in a standard React app. It does not work that way.</p>\n\n<p>Each MFE is an independent Webpack build. Tailwind is a PostCSS plugin that runs at build time inside <code>postcss-loader</code>. A single root-level <code>tailwind.config.js</code> will NOT be resolved by apps in <code>apps/products/</code> — each app needs its own.</p>\n\n<p>The content paths also differ between host and remote MFEs. The host scans <code>./src/**</code>, <code>./public/**</code>, and <code>./index.html</code>. Remotes only scan <code>./src/**</code> and <code>./src/index.html</code> because they are loaded into the host at runtime.</p>\n\n<p>What the full guide covers:</p>\n\n<ul>\n<li>\n<strong>Step-",
+  "full_text": "// Production build output:\n// styles.css — 0 classes generated\n// ERROR: @tailwind directives treated as plain text\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis happens when you set up Tailwind CSS in a micro frontend monorepo the same way you would in a standard React app. It does not work that way.\n\nEach MFE is an independent Webpack build. Tailwind is a PostCSS plugin that runs at build time inside postcss-loader. A single root-level tailwind.config.js will NOT be resolved by apps in apps/products/ — each app needs its own.\n\nThe content paths also differ between host and remote MFEs. The host scans ./src/**, ./public/**, and ./index.html. Remotes only scan ./src/** and ./src/index.html because they are loaded into the host at runtime.\n\nWhat the full guide covers:\n\nStep-by-step installation — root + per-app dependencies with npm workspaces\n\nPer-MFE tailwind.config.js — host vs remote content path differences\n\nPostCSS + Webpack wiring — the 3-loader chain (MiniCssExtractPlugin -> css-loader -> postcss-loader)\n\nWhy CSS is NOT shared via Module Federation — build-time vs runtime\n\nShared Tailwind presets — consistent theming without duplicating configs\n\nCSS isolation with prefix — when and why to use it\n\n5 common mistakes — wrong content paths, root-level config, missing postcss-loader, and more\n\nRead the full guide with code examples from a real production monorepo:\n\nhttps://blog.srinudesetti.in/micro-frontend/react/tailwind-css-micro-frontend-monorepo",
+  "tags": [
+    [
+      "+ webpack",
+      "2026",
+      "500-words",
+      "apps/products/",
+      "content",
+      "css",
+      "guide",
+      "host",
+      "mfe",
+      "micro",
+      "microfrontend",
+      "module federation",
+      "monorepo",
+      "postcss",
+      "react",
+      "remote",
+      "share",
+      "srinudesetti",
+      "tailwind",
+      "tailwindcss",
+      "webpack"
+    ],
+    [
+      "microfrontend",
+      "srinudesetti",
+      "tailwindcss"
+    ]
+  ]
+}

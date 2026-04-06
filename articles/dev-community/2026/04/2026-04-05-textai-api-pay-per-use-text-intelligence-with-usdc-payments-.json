@@ -1,0 +1,38 @@
+{
+  "id": 8891,
+  "source": "DEV Community<",
+  "title": "TextAI API: Pay-per-use Text Intelligence with USDC Payments on Solana",
+  "url": "https://dev.to/sbastien_lopez_399f3f6b8/textai-api-pay-per-use-text-intelligence-with-usdc-payments-on-solana-2682",
+  "published_at": "2026-04-05T17:30:14Z",
+  "fetched_at": "2026-04-05T17:40:22.655574+00:00",
+  "author": "Sébastien LOPEZ",
+  "summary": "<p>I built a small text-processing API that charges in <strong>USDC on Solana</strong> instead of monthly subscriptions. Here's the idea and how to use it.</p>\n\n<h2>\n  \n  \n  What it does\n</h2>\n\n<p>TextAI API exposes three endpoints:</p>\n\n<ul>\n<li>\n<strong><code>/summarize</code></strong> — condenses long text into a short summary (10 credits)</li>\n<li>\n<strong><code>/keywords</code></strong> — extracts key topics from text (5 credits)\n</li>\n<li>\n<strong><code>/translate</code></strong> — translates text to a target language (15 credits)</li>\n</ul>\n\n<p><strong>Base URL:</strong> <code>https://consider-centers-vids-decorative.trycloudflare.com</code></p>\n\n<blockquote>\n<p>⚠️ This URL is a temporary tunnel while we finalize permanent hosting. It will be updated soon.</p>\n</blockquote>\n\n<h2>\n  \n  \n  Quick start (no wallet needed)\n</h2>\n\n<p><strong>1. Create a free API key — includes 100 demo credits (~10 summarize calls):</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre c",
+  "full_text": "I built a small text-processing API that charges in USDC on Solana instead of monthly subscriptions. Here's the idea and how to use it.\n\n \n \n What it does\n\nTextAI API exposes three endpoints:\n\n/summarize — condenses long text into a short summary (10 credits)\n\n/keywords — extracts key topics from text (5 credits)\n\n/translate — translates text to a target language (15 credits)\n\nBase URL: https://consider-centers-vids-decorative.trycloudflare.com\n\n⚠️ This URL is a temporary tunnel while we finalize permanent hosting. It will be updated soon.\n\n \n \n Quick start (no wallet needed)\n\n1. Create a free API key — includes 100 demo credits (~10 summarize calls):\n\ncurl -X POST https://consider-centers-vids-decorative.trycloudflare.com/keys/create\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nReturns:\n\n{\"apiKey\":\"sk_...\",\"credits\":100,\"demo\":true,\"message\":\"100 free demo credits included\"}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n2. Summarize text (10 credits):\n\ncurl -X POST https://consider-centers-vids-decorative.trycloudflare.com/summarize \\\n -H \"Authorization: Bearer sk_YOUR_KEY\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\"text\": \"Your long article or document text goes here...\", \"maxSentences\": 3}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n3. Extract keywords (5 credits):\n\ncurl -X POST https://consider-centers-vids-decorative.trycloudflare.com/keywords \\\n -H \"Authorization: Bearer sk_YOUR_KEY\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\"text\": \"Your text here\", \"count\": 5}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n4. Translate text (15 credits):\n\ncurl -X POST https://consider-centers-vids-decorative.trycloudflare.com/translate \\\n -H \"Authorization: Bearer sk_YOUR_KEY\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\"text\": \"Hello world\", \"targetLang\": \"fr\"}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n5. Check your balance:\n\ncurl https://consider-centers-vids-decorative.trycloudflare.com/credits/balance \\\n -H \"Authorization: Bearer sk_YOUR_KEY\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Pay-per-use with USDC (for production use)\n\nWhen you run out of demo credits, top up with USDC on Solana devnet:\n\n# Get a wallet address to send USDC to\ncurl -X POST https://consider-centers-vids-decorative.trycloudflare.com/credits/buy \\\n -H \"Authorization: Bearer sk_YOUR_KEY\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\"usdcAmount\": 1}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSend 1 USDC to the returned address on Solana devnet, then confirm:\n\ncurl -X POST https://consider-centers-vids-decorative.trycloudflare.com/credits/confirm \\\n -H \"Authorization: Bearer sk_YOUR_KEY\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\"txSignature\": \"YOUR_TX_SIGNATURE\"}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n1 USDC = 1,000 credits. At 10 credits per summarize call, that's 100 calls for $1.\n\n \n \n Pricing\n\nOperation\nCredits\nApprox. cost at 1 USDC/1000 credits\n\nSummarize\n10\n$0.001\n\nKeywords\n5\n$0.0005\n\nTranslate\n15\n$0.0015\n\n \n \n Why crypto payments?\n\nNo credit card friction — demo credits, no signup required\n\nTrue pay-per-use — no monthly commitment, pay only for calls\n\nProgrammatic — bots and smart contracts can pay autonomously\n\nGlobal — no payment processor restrictions\n\n \n \n Use cases\n\nSummarize articles for newsletters\n\nExtract SEO keywords from blog posts\n\nAuto-translate product descriptions for international stores\n\nTag and classify content in a CMS\n\nProcess customer support tickets\n\n \n \n Current status\n\nEarly-stage API on Solana devnet. Looking for developers who want to integrate text processing without recurring billing.\n\nDrop a comment or open an issue if you want the OpenAPI spec or want to discuss use cases. 🚀",
+  "tags": [
+    [
+      "-x post",
+      "-x post https://consider-centers-vids-decorative.trycloudflare.com/keys/create",
+      "-x post https://consider-centers-vids-decorative.trycloudflare.com/translate",
+      "2026",
+      "500-words",
+      "api",
+      "approx",
+      "bearer",
+      "cms",
+      "curl",
+      "enter",
+      "exit",
+      "fullscreen",
+      "mode",
+      "payments",
+      "solana",
+      "summarize",
+      "text",
+      "textai",
+      "usdc"
+    ],
+    [
+      "textai"
+    ]
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": 8832,
+  "source": "DEV Community<",
+  "title": "DataWeave 2.5 Generics: How Call-Site Type Parameters Caught 3 Production Bugs",
+  "url": "https://dev.to/thasha/dataweave-25-generics-how-call-site-type-parameters-caught-3-production-bugs-pkf",
+  "published_at": "2026-04-05T11:12:42Z",
+  "fetched_at": "2026-04-05T11:40:32.147772+00:00",
+  "author": "ThaSha",
+  "summary": "<p>I maintained a shared DataWeave utility library across 12 Mule apps for 2 years. Functions like <code>topN</code>, <code>pipe</code>, and <code>safeGet</code>. All untyped. All accepting <code>Any</code>. All silently producing wrong output when called with wrong types.</p>\n\n<p>Last quarter I rewrote them with DataWeave 2.5 call-site generics. Three production bugs surfaced on the first compile.</p>\n\n<p><strong>TL;DR</strong></p>\n\n<ul>\n<li>DataWeave 2.5 adds Java/TypeScript-style call-site type parameters: <code>fun topN&lt;T&gt;(...)</code>\n</li>\n<li>The compiler validates T at every call site — type mismatches become compile errors, not runtime surprises</li>\n<li>Requires Mule 4.5+ — older runtimes throw parse errors on <code>&lt;T&gt;</code> syntax</li>\n<li>I caught 3 bugs that had been producing wrong output for 4 months</li>\n</ul>\n\n<h2>\n  \n  \n  The Problem: Untyped Utility Functions\n</h2>\n\n<p>My library had functions like this:<br />\n</p>\n\n<div class=\"highlight js-code-highligh",
+  "full_text": "I maintained a shared DataWeave utility library across 12 Mule apps for 2 years. Functions like topN, pipe, and safeGet. All untyped. All accepting Any. All silently producing wrong output when called with wrong types.\n\nLast quarter I rewrote them with DataWeave 2.5 call-site generics. Three production bugs surfaced on the first compile.\n\nTL;DR\n\nDataWeave 2.5 adds Java/TypeScript-style call-site type parameters: fun topN<T>(...)\n\nThe compiler validates T at every call site — type mismatches become compile errors, not runtime surprises\n\nRequires Mule 4.5+ — older runtimes throw parse errors on <T> syntax\n\nI caught 3 bugs that had been producing wrong output for 4 months\n\n \n \n The Problem: Untyped Utility Functions\n\nMy library had functions like this:\n\nfun topN(items, n, comp) = (items orderBy -comp($))[0 to (n - 1)]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTakes anything. Returns anything. Works on Arrays of Numbers, Strings, Objects. But there's no type checking at the call site.\n\nIf someone calls topN(arrayOfStrings, 3, (s) -> s) expecting numeric sorting, they get alphabetical sorting. No error. No warning. Wrong data.\n\n \n \n The Fix: Call-Site Generics\n\nDataWeave 2.5 introduced type parameters at the call site:\n\nfun topN<T>(items: Array<T>, n: Number, comp: (T) -> Comparable): Array<T> =\n (items orderBy -comp($))[0 to (n - 1)]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow calling it:\n\ntopN<Number>(payload.numbers, 3, (n) -> n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe compiler checks that payload.numbers is Array<Number>. If it's Array<String>, you get a compile error. Not a runtime surprise 4 months later.\n\n100 production-ready DataWeave patterns with tests: mulesoft-cookbook on GitHub\n\n \n \n The pipe Function: Type-Safe Composition\n\nThe pipe function chains transformations:\n\nfun pipe<T>(value: T, fns: Array<(T) -> T>): T =\n fns reduce (fn, acc = value) -> fn(acc)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nUsage:\n\npipe<Array<Number>>(payload.numbers, [\n (arr) -> arr distinctBy $,\n (arr) -> arr orderBy $\n])\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEvery function in the array must accept and return Array<Number>. If one function returns a different shape, the compiler catches it.\n\nBefore generics, a function that returned Array<Object> instead of Array<Number> would silently change the data shape downstream. With <T> enforced, every step in the chain must maintain the type contract.\n\n \n \n The 3 Bugs Generics Caught\n\nBug 1: Wrong sort order for 4 months. A flow passed Array<Object> (customer records) to topN expecting Array<Number>. The comparator extracted a String field instead of Number. Sorting was alphabetical, not by magnitude. \"Customer #9\" ranked above \"Customer #10\" because \"9\" > \"1\" in string comparison.\n\nBug 2: Shape mismatch in pipe chain. Step 1 in a pipe chain returned Array<Object> but step 2 expected Array<Number>. The output was nested objects where flat numbers were expected. Downstream calculations used the nested objects as numbers — JavaScript-style coercion produced non-obvious wrong values.\n\nBug 3: Comparator type confusion. A topN call used (r) -> r.score where r.score was a String \"95\" not Number 95. The ordering was lexicographic: \"87\" > \"100\" because \"8\" > \"1\". Top 3 by score returned the wrong 3 records.\n\n \n \n The Trap: Runtime Version Incompatibility\n\nThis requires DataWeave 2.5 (Mule 4.5+). The <T> syntax doesn't parse on older runtimes.\n\nIf your team runs mixed Mule versions — some apps on 4.5, some on 4.4 — a shared module with generics compiles on one server and crashes on another.\n\nI version-gate my modules now:\n\nmodules/utils-v25.dwl — generics, for Mule 4.5+ apps\n\nmodules/utils.dwl — no generics, backward compatible\n\nThe 4.4 apps use the untyped version until they're upgraded. Not ideal, but better than breaking production.\n\n \n \n When to Use Generics\n\nUse generics when\nDon't bother when\n\nShared utility functions used across 3+ apps\nOne-off inline transforms\n\nFunctions that accept multiple types (topN, pipe, map wrappers)\nFunctions with a single known input type\n\nYour team is on Mule 4.5+\nMixed runtime versions with no upgrade path\n\n100 patterns with MUnit tests: github.com/shakarbisetty/mulesoft-cookbook\n\n60-second video walkthroughs: youtube.com/@SanThaParv",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "arr distinctby $",
+      "compiler",
+      "dataweave",
+      "fullscreen",
+      "function",
+      "generic",
+      "github",
+      "javascript",
+      "mode",
+      "mule",
+      "mulesoft",
+      "munit",
+      "numbers",
+      "runtime",
+      "strings",
+      "tutorial",
+      "type",
+      "typescript",
+      "wrong"
+    ],
+    [
+      "javascript",
+      "mulesoft",
+      "tutorial"
+    ]
+  ]
+}

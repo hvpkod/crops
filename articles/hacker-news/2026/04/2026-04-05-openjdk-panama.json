@@ -1,0 +1,32 @@
+{
+  "id": 8950,
+  "source": "Hacker News",
+  "title": "OpenJDK: Panama",
+  "url": "https://openjdk.org/projects/panama/",
+  "published_at": "2026-04-05T18:33:38Z",
+  "fetched_at": "2026-04-05T23:20:25.781088+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47652442\">Comments</a>",
+  "full_text": "Project Panama: Interconnecting JVM and native code\n\nWe are improving and enriching the connections between the Java\nvirtual machine and well-defined but “foreign”\n(non-Java) APIs, including many interfaces commonly used by C\nprogrammers.\n\nTo this end, Project Panama will include most or all of these\ncomponents:\n\nnative function calling from JVM\n\nnative data access from JVM or inside JVM heap\n\nnew data layouts in JVM heap\n\nnative metadata definition for JVM\n\nheader file API extraction tools (jextract)\n\nnative library management APIs\n\nnative-oriented interpreter and runtime\n“hooks”\n\nclass and method resolution “hooks”\n\nnative-oriented JIT optimizations\n\ntooling or wrapper interposition for safety\n\nexploratory work with difficult-to-integrate native\nlibraries\n\nCommunity\n\nThis Project is sponsored by the Hotspot Group.\n\nMailing lists & News\n\nDesign documents\n\nJEPs\n\nTalks\n\nRepository organization\n\nProject Panama is designed to incubate a series of components\nfor eventual inclusion in the JDK, via curated merge. Project\nPanama features are being actively developed in the following\nrepositories:\n\nPanama\nforeign support, which adds support for foreign memory access,\nas well as for foreign function calls;\n\nPanama\nvector support, which adds vectorization support in Java\nthrough JVM intriniscs; and\n\njextract, a\ntool which mechanically generate Java bindings from native library\nheaders.\n\nThe legacy Panama repository is also available here, although we do\nnot expect to carry out further work there; as such this repository\nshould not be used (and in the future we might make this more\nexplicit by marking the legacy repository as read-only).",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "add",
+      "api",
+      "foreign",
+      "heap",
+      "java",
+      "jdk",
+      "legacy",
+      "library",
+      "native",
+      "panama",
+      "project",
+      "project panama",
+      "repository",
+      "the hotspot group"
+    ],
+    []
+  ]
+}

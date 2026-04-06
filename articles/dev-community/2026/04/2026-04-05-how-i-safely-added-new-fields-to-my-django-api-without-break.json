@@ -1,0 +1,41 @@
+{
+  "id": 8888,
+  "source": "DEV Community<",
+  "title": "How I Safely Added New Fields to My Django API Without Breaking Existing Users (Inboxit Case Study)",
+  "url": "https://dev.to/popthemy/how-i-safely-added-new-fields-to-my-django-api-without-breaking-existing-users-inboxit-case-study-5489",
+  "published_at": "2026-04-05T17:36:25Z",
+  "fetched_at": "2026-04-05T17:40:17.538600+00:00",
+  "author": "Popoola Temilorun",
+  "summary": "<p>While building <strong>Inboxit</strong> a plug-and-play tool that forwards website form submissions to email, Slack, or WhatsApp, I needed to add new fields and change serializers to support more features.</p>\n\n<p>The API was already live in production with real users. Changing models and serializers risked breaking existing integrations.</p>\n\n<p>Here’s exactly how I handled it using the <strong>Expand-Contract</strong> pattern and API versioning.</p>\n\n<h3>\n  \n  \n  The Situation\n</h3>\n\n<p>I had to add new fields to the main model. At the same time, I wanted to improve the response structure.</p>\n\n<p>If I just updated the existing serializer, all current integrations would break.</p>\n\n<h3>\n  \n  \n  My Approach: API Versioning + Expand-Contract\n</h3>\n\n<p>I decided to introduce <strong>v2</strong> while keeping <strong>v1</strong> fully functional.</p>\n\n<h4>\n  \n  \n  Step 1: Expand\n</h4>\n\n<ul>\n<li>Added the new fields to the Django model (kept the old fields intact).</li>\n</ul>\n\n<p>Here’",
+  "full_text": "While building Inboxit a plug-and-play tool that forwards website form submissions to email, Slack, or WhatsApp, I needed to add new fields and change serializers to support more features.\n\nThe API was already live in production with real users. Changing models and serializers risked breaking existing integrations.\n\nHere’s exactly how I handled it using the Expand-Contract pattern and API versioning.\n\n \n \n The Situation\n\nI had to add new fields to the main model. At the same time, I wanted to improve the response structure.\n\nIf I just updated the existing serializer, all current integrations would break.\n\n \n \n My Approach: API Versioning + Expand-Contract\n\nI decided to introduce v2 while keeping v1 fully functional.\n\n \n \n Step 1: Expand\n\nAdded the new fields to the Django model (kept the old fields intact).\n\nHere’s what the model looked like after adding the new fields:\n\n \n \n Step 2: Versioning in URLs\n\nI set up URL versioning so both versions could coexist:\n\n# urls.py\nurlpatterns = [\n path('api/v1/', include('inboxit.api.v1.urls')), # Old version (still active)\n path('api/v2/', include('inboxit.api.v2.urls')), # New version\n]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOld clients continue using /api/v1/ without any change.\n\n \n \n Step 3: Migration & Contract Phase\n\nUpdated code to support both versions where needed.\n\nAdded logging to track which version clients were using.\n\nOnce most traffic moved to v2, I’ll fully deprecate v1 with proper notice.\n\n \n \n Key Lessons\n\nNever modify a live API in place if users depend on it.\n\nUse versioning early (/api/v1/, /api/v2/) to give yourself room to evolve without affecting integrations.\n\nThe Expand-Contract pattern (add new → migrate → remove old) prevents painful rollbacks.\n\nAlways communicate deprecation timelines to users.\n\nThis approach let me add new features to Inboxit without disrupting existing integrations.\n\nHave you had to version an API in production?\n\nWhat strategy worked best for you — URL versioning, header-based, or something else?\n\nI’d love to hear your experiences in the comments 😎😎.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "add",
+      "api",
+      "apiversioning",
+      "backend",
+      "break",
+      "djangorestframework",
+      "exist",
+      "expand-contract",
+      "field",
+      "inboxit",
+      "python",
+      "serializer",
+      "slack",
+      "step",
+      "the expand-contract",
+      "update",
+      "version",
+      "versioning",
+      "whatsapp"
+    ],
+    [
+      "apiversioning",
+      "backend",
+      "djangorestframework"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 8838,
+  "source": "Slashdot",
+  "title": "Does Ubuntu Now Require More RAM Than Windows 11?",
+  "url": "https://news.slashdot.org/story/26/04/04/2158228/does-ubuntu-now-require-more-ram-than-windows-11?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-05T11:34:00Z",
+  "fetched_at": "2026-04-05T12:40:30.353870+00:00",
+  "author": "EditorDavid",
+  "summary": "\"Canonical is no longer pretending that 4GB is enough,\" writes the blog How-to-Geek, noting Ubuntu 26.04 LTS \"raises the baseline memory to 6GB, alongside a 2GHz dual-core processor, and 25GB of storage...\"\n\nUbuntu 14.04 LTS (Trusty Tahr) set the floor at 1GB &mdash; a modest ask when it launched more than a decade ago in 2014. Then came the Ubuntu 18.04 LTS (Bionic Beaver) that pushed the number to 4GB, surviving quite well in the era of 16GB being considered standard for mid-range laptops.... Ubuntu's new minimum requirement lands in an interesting spot when compared against Windows 11. Microsoft's operating system requires just 4GB RAM, although real-world usage often tells a different story. Usually, 8GB is considered the sweet spot to handle modern apps and multitasking. \n\nThe blog OMG Ubuntu argues this change is \"not because Ubuntu requires 2GB more memory than it did, but more the way we compute does.\"\nit's more of an honesty bump. Components that make up the distro &mdash; the",
+  "full_text": "\"Canonical is no longer pretending that 4GB is enough,\" writes the blog How-to-Geek\n\n, noting Ubuntu 26.04 LTS \"raises the baseline memory to 6GB, alongside a 2GHz dual-core processor, and 25GB of storage...\"\n\nUbuntu 14.04 LTS (Trusty Tahr) set the floor at 1GB — a modest ask when it launched more than a decade ago in 2014. Then came the Ubuntu 18.04 LTS (Bionic Beaver) that pushed the number to 4GB, surviving quite well in the era of 16GB being considered standard for mid-range laptops.... Ubuntu's new minimum requirement lands in an interesting spot when compared against Windows 11. Microsoft's operating system requires just 4GB RAM, although real-world usage often tells a different story. Usually, 8GB is considered the sweet spot to handle modern apps and multitasking. \n\nThe blog OMG Ubuntu\n\n argues this change is \"not because Ubuntu requires 2GB more memory than it did\n\n, but more the way we compute does.\"\nit's more of an honesty bump. Components that make up the distro — the GNOME desktop and extensions, modern web browsers (and the sites we load in them) and the kinds of apps we use (and keep running) whilst multitasking are more demanding... The Resolute Raccoon's memory requirements better reflect real-world multitasking. \n \n\nUbuntu 26.04 LTS can be installed on devices with less than 6GB RAM (but not less than 25GB of disk space). The experience may not be as smooth or as responsive as developers intend (so you don't get to complain), but it will work. I installed Ubuntu 26.04 Beta on a laptop with just 2 GB of memory — slow to the point of frustration in use, but otherwise functional. \n \n\nIf you have a device with 4 GB RAM and you can't upgrade (soldered memory is a thing, and e-waste can be avoided), then alternatives exist. Many Ubuntu flavours, like Lubuntu, have lower system requirements than the main edition. Plus, there's always the manual option using the Ubuntu netboot installer to install a base system and then built out a more minimal system from there.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "app",
+      "bionic beaver",
+      "consider",
+      "gnome",
+      "instal",
+      "less",
+      "memory",
+      "microsoft",
+      "ram",
+      "require",
+      "requirement",
+      "spot",
+      "system",
+      "ubuntu"
+    ],
+    []
+  ]
+}

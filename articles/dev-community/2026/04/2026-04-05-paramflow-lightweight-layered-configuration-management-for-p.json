@@ -1,0 +1,35 @@
+{
+  "id": 8862,
+  "source": "DEV Community<",
+  "title": "ParamFlow – lightweight layered configuration management for Python",
+  "url": "https://dev.to/mduszyk/paramflow-lightweight-layered-configuration-management-for-python-4l29",
+  "published_at": "2026-04-05T14:07:44Z",
+  "fetched_at": "2026-04-05T14:40:41.000945+00:00",
+  "author": "Michał",
+  "summary": "<h2>\n  \n  \n  What My Project Does\n</h2>\n\n<p>I kept running into the same friction in ML projects — managing config files,<br />\nenvironment variables, and CLI args separately, writing boilerplate to merge<br />\nthem, and losing track of what parameters ran in which experiment.</p>\n\n<p>ParamFlow solves this with a single call:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight python\"><code><span class=\"kn\">import</span> <span class=\"n\">paramflow</span> <span class=\"k\">as</span> <span class=\"n\">pf</span>\n\n<span class=\"n\">params</span> <span class=\"o\">=</span> <span class=\"n\">pf</span><span class=\"p\">.</span><span class=\"nf\">load</span><span class=\"p\">(</span><span class=\"sh\">'</span><span class=\"s\">params.toml</span><span class=\"sh\">'</span><span class=\"p\">)</span>\n<span class=\"nf\">print</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"p\">.</span><span class=\"n\">learning_rate</span><span class=\"p\">)</span>  <span class=\"c1\"># 0.001\n</span>",
+  "full_text": "What My Project Does\n\nI kept running into the same friction in ML projects — managing config files,\n\nenvironment variables, and CLI args separately, writing boilerplate to merge\n\nthem, and losing track of what parameters ran in which experiment.\n\nParamFlow solves this with a single call:\n\nimport paramflow as pf\n\nparams = pf.load('params.toml')\nprint(params.learning_rate) # 0.001\nprint(params.batch_size) # 64\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIt merges config files, env vars, and CLI args in a defined order, activates\n\nnamed profiles, and returns a plain Python dict — no conversion needed, works\n\nwith json.dumps, **unpacking, any serialization library.\n\nNo schemas, no type annotations — types are inferred from the config file values.\n\nYou can override any parameter at runtime without touching the code:\n\npython train.py --profile large --learning_rate 0.0005\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nor\n\nP_LEARNING_RATE=0.0005 python train.py\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Target Audience\n\nPython developers who need simple, flexible config management. Particularly\n\nuseful for ML/research projects where reproducibility matters — every run logs\n\nexactly what parameters were used.\n\nGitHub: https://github.com/mduszyk/paramflow\n\nPyPI: https://pypi.org/project/paramflow/",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "arg",
+      "cli",
+      "config",
+      "devops",
+      "exit",
+      "fullscreen",
+      "machinelearning",
+      "merge",
+      "mode",
+      "opensource",
+      "parameter",
+      "paramflow",
+      "project",
+      "python"
+    ],
+    [
+      "machinelearning",
+      "opensource"
+    ]
+  ]
+}

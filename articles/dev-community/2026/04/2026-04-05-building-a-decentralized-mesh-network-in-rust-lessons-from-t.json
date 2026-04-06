@@ -1,0 +1,46 @@
+{
+  "id": 8925,
+  "source": "DEV Community<",
+  "title": "Building a Decentralized Mesh Network in Rust — Lessons from the Global South",
+  "url": "https://dev.to/phantomojo/building-a-decentralized-mesh-network-in-rust-lessons-from-the-global-south-k44",
+  "published_at": "2026-04-05T20:09:30Z",
+  "fetched_at": "2026-04-05T20:40:27.821922+00:00",
+  "author": "Michael Muriithi",
+  "summary": "<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>2.6 billion people lack reliable internet access. When disasters strike,<br />\ninfrastructure fails, or communities are remote — traditional communication<br />\nbreaks down precisely when coordination is most critical.</p>\n\n<p>I'm a cybersecurity student in Nairobi, Kenya. I've seen what happens when<br />\ncommunities lose connectivity: families can't check on each other after floods,<br />\nrescue teams can't coordinate, and activists can't organize safely.</p>\n\n<p>So I built <strong>GhostWire</strong> — a decentralized, censorship-resistant mesh<br />\ncommunication platform that works without any central servers.</p>\n\n\n<h2>\n  \n  \n  What Is GhostWire?\n</h2>\n\n<p>GhostWire is a peer-to-peer encrypted communication platform written in Rust.<br />\nInstead of connecting to a server, devices connect directly to each other.<br />\nMessages hop from node to node through whatever path is available.</p>\n\n<p>If a node goes offline, the mesh routes around it. If t",
+  "full_text": "The Problem\n\n2.6 billion people lack reliable internet access. When disasters strike,\n\ninfrastructure fails, or communities are remote — traditional communication\n\nbreaks down precisely when coordination is most critical.\n\nI'm a cybersecurity student in Nairobi, Kenya. I've seen what happens when\n\ncommunities lose connectivity: families can't check on each other after floods,\n\nrescue teams can't coordinate, and activists can't organize safely.\n\nSo I built GhostWire — a decentralized, censorship-resistant mesh\n\ncommunication platform that works without any central servers.\n\n \n \n What Is GhostWire?\n\nGhostWire is a peer-to-peer encrypted communication platform written in Rust.\n\nInstead of connecting to a server, devices connect directly to each other.\n\nMessages hop from node to node through whatever path is available.\n\nIf a node goes offline, the mesh routes around it. If the internet goes down,\n\nGhostWire switches to WiFi Direct, Bluetooth, or even LoRa radio.\n\nLive site: https://phantomojo.github.io/GhostWire-secure-mesh-communication/\n\nGitHub: https://github.com/Phantomojo/GhostWire-secure-mesh-communication\n\n \n \n The Architecture\n\n \n \n Networking: libp2p\n\nWe use libp2p — the same P2P networking stack used by\n\nIPFS and Ethereum. It handles peer discovery, connection establishment, and\n\nmultiplexing. On top of that, we run a S/Kademlia-hardened DHT for routing\n\nand Gossipsub for message propagation.\n\n// Simplified peer discovery\nlet swarm = SwarmBuilder::with_new_identity()\n .with_tokio()\n .with_tcp(\n tcp::Config::default(),\n noise::Config::new,\n yamux::Config::default,\n )?\n .with_behaviour(|_| Behaviour::new())?\n .build();\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Encryption: Defense in Depth\n\nEvery message is encrypted end-to-end before it leaves your device:\n\nLayer\nAlgorithm\nPurpose\n\nSymmetric\nAES-256-GCM\nMessage encryption + integrity\n\nKey Exchange\nX25519\nPerfect forward secrecy\n\nSignatures\nEd25519\nIdentity verification\n\nPost-Quantum\nML-KEM-768\nFuture-proof (planned)\n\nNo server, no relay, no intermediate node ever sees plaintext.\n\n \n \n AI-Powered Routing\n\nThis is where GhostWire gets interesting. Instead of using fixed routing rules,\n\nwe trained AI models on real mesh network data from Barcelona's GuifiSants\n\n— one of the world's largest community mesh networks.\n\nL1 — LightGBM anomaly detector: AUC 1.0, 76.7μs inference, exported as\nONNX and wired into Rust via ONNX Runtime\n\nL3 — Graph Neural Network: Trained on 7,931 samples across 63 nodes over\n31 days. Learns which paths work best in real conditions.\n\n# Training pipeline (simplified)\nmodel = lgb.LGBMRegressor(\n n_estimators=500,\n learning_rate=0.05,\n max_depth=7,\n num_leaves=31\n)\nmodel.fit(X_train, y_train)\nonnx_model = convert_lightgbm(model, initial_types=initial_type)\nonnx.save(onnx_model, \"ghostwire_routing.onnx\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe model runs in 76.7 microseconds — fast enough for real-time routing\n\ndecisions on a Raspberry Pi.\n\n \n \n 7 Transport Layers\n\nTransport\nRange\nUse Case\n\nWiFi Direct\n~100m\nUrban mesh, device-to-device\n\nBluetooth LE\n~50m\nIndoor, low-power\n\nLoRa\n~15km\nRural, long-range\n\nWebRTC\nInternet\nBridge across networks\n\nTCP/IP\nInternet\nStandard connectivity\n\nReticulum\nMulti-hop\nAmateur radio mesh\n\nBriar\nBluetooth/WiFi\nActivist communication\n\nGhostWire selects the best available path automatically. No internet? It falls\n\nback to RF mesh. No WiFi? Bluetooth. The mesh adapts.\n\n \n \n Why Rust?\n\nThree reasons:\n\nMemory safety without GC — GhostWire runs on resource-constrained devices\n\n(Raspberry Pi, old laptops). We can't afford a garbage collector pause during\n\nemergency communication.\n\nFearless concurrency — The networking stack handles hundreds of\n\nsimultaneous peer connections. Rust's ownership model means we don't worry\n\nabout data races.\n\nPerformance — The LightGBM inference runs in 76.7μs. The crypto is\n\nhardware-accelerated. Rust lets us squeeze every microsecond out of the\n\nhardware.\n\n \n \n The Human Side\n\nGhostWire isn't just a technical project. It's built on a philosophy:\n\nIn Hindu and Buddhist cosmology, Indra's Net is an infinite web. At each\n\nintersection hangs a jewel. Each reflected in all others. No jewel is more\n\nimportant. The net has no center. The net has no edge.\n\nThe original internet architects independently rediscovered what African\n\nphilosophy had encoded for millennia: systems built on mutual relationship\n\nrather than central authority are more resilient, more equitable, and more\n\naligned with existence itself.\n\nWe're building this as part of the GCD4F 2026 competition (Global Climate\n\nData for Future) under the \"AI for Society\" track, representing the Open\n\nUniversity of Kenya.\n\n \n \n We Need Contributors\n\nGhostWire is AGPL-3.0 licensed and actively seeking contributors:\n\nRust developers — libp2p networking, transport layers, crypto\n\nAI/ML engineers — GNN model training, routing optimization\n\nSecurity researchers — independent audit, threat modeling\n\nFrontend developers — React/TypeScript dashboard\n\nDocumentation writers — guides, tutorials, translations\n\nGood first issues are labeled on GitHub. Our CONTRIBUTING.md has detailed\n\nsetup instructions.\n\n \n \n Links\n\nBuilt in Nairobi, for the world. 🇰🇪",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "ai-powered routing",
+      "architecture",
+      "build",
+      "communication",
+      "dht",
+      "discuss",
+      "ethereum",
+      "ghostwire",
+      "gossipsub",
+      "internet",
+      "ipfs",
+      "kenya",
+      "mesh",
+      "message",
+      "nairobi",
+      "node",
+      "opensource",
+      "peer",
+      "privacy",
+      "rout",
+      "rust",
+      "the global south"
+    ],
+    [
+      "ai",
+      "architecture",
+      "discuss",
+      "opensource"
+    ]
+  ]
+}
