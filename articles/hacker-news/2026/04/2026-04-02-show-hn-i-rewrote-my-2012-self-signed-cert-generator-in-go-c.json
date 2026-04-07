@@ -1,0 +1,29 @@
+{
+  "id": 9023,
+  "source": "Hacker News",
+  "title": "Show HN: I rewrote my 2012 self-signed cert generator in Go – cert-depot.com",
+  "url": "https://news.ycombinator.com/item?id=47613622",
+  "published_at": "2026-04-02T12:36:10Z",
+  "fetched_at": "2026-04-06T06:20:19.695782+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47613622\">Comments</a>",
+  "full_text": "Back in 2012 I built https://cert-depot.com\n\n as a weekend project. Node.js + Express + jQuery, shelling out to OpenSSL for certificate generation. It worked but I eventually let it rot. https://news.ycombinator.com/item?id=4766743\n\nRewrote it from scratch in Go. The entire thing is a single binary with no external dependencies:\n\n1. Certificate generation uses Go's crypto/x509 (no OpenSSL)\n\n2. Certificates are generated in memory and streamed directly — nothing is stored on the server\n\n3. RSA 2048/4096 and ECDSA P-256/P-384\n\n4. Subject Alternative Names (required by browsers since Chrome 58)\n\n5. ZIP (PEM files) or PFX/PKCS#12 output\n\nYou comments / suggestions / bug reports are very welcome. Thanks.\n\nSource: https://github.com/dimastopel/certdepot",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "browser",
+      "build",
+      "certificate",
+      "openssl",
+      "pfx",
+      "rewrote",
+      "shell",
+      "store",
+      "stream",
+      "use",
+      "work"
+    ],
+    []
+  ]
+}

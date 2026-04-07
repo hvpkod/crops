@@ -1,0 +1,46 @@
+{
+  "id": 9157,
+  "source": "DEV Community<",
+  "title": "Um resumo sobre coesão e SRP",
+  "url": "https://dev.to/determinado96/um-resumo-sobre-coesao-e-srp-gf6",
+  "published_at": "2026-04-06T17:23:09Z",
+  "fetched_at": "2026-04-06T17:40:31.519159+00:00",
+  "author": "Determinado 96",
+  "summary": "<h2>\n  \n  \n  O que é uma classe coesa?\n</h2>\n\n<p>Uma classe coesa é aquela que tem apenas uma responsabilidade.<br />\nClasses coesas são menores, mais organizadas, fáceis de manter e reutilizar.</p>\n\n<h2>\n  \n  \n  Exemplo de classe com baixa coesão\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code><span class=\"kd\">class</span> <span class=\"nc\">CalculadoraDeSalario</span> <span class=\"p\">{</span>\n  <span class=\"nf\">calcula</span><span class=\"p\">(</span><span class=\"nx\">funcionario</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n    <span class=\"k\">if </span><span class=\"p\">(</span><span class=\"nx\">funcionario</span><span class=\"p\">.</span><span class=\"nx\">cargo</span> <span class=\"o\">===</span> <span class=\"dl\">\"</span><span class=\"s2\">DESENVOLVEDOR</span><span class=\"dl\">\"</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n      <span class=\"k\">return</span> <span class=\"k\">this</span><span class=\"p\">.</span><span class=\"nf\">dezOuVin",
+  "full_text": "O que é uma classe coesa?\n\nUma classe coesa é aquela que tem apenas uma responsabilidade.\n\nClasses coesas são menores, mais organizadas, fáceis de manter e reutilizar.\n\n \n \n Exemplo de classe com baixa coesão\n\nclass CalculadoraDeSalario {\n calcula(funcionario) {\n if (funcionario.cargo === \"DESENVOLVEDOR\") {\n return this.dezOuVintePorcento(funcionario);\n }\n\n if (funcionario.cargo === \"DBA\" || funcionario.cargo === \"TESTER\") {\n return this.quinzeOuVinteCincoPorcento(funcionario);\n }\n\n throw new Error(\"Funcionário inválido\");\n }\n\n dezOuVintePorcento(funcionario) {\n if (funcionario.salarioBase > 3000) {\n return funcionario.salarioBase * 0.8;\n }\n return funcionario.salarioBase * 0.9;\n }\n\n quinzeOuVinteCincoPorcento(funcionario) {\n if (funcionario.salarioBase > 2000) {\n return funcionario.salarioBase * 0.75;\n }\n return funcionario.salarioBase * 0.85;\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Problemas dessa classe\n\nA classe precisa saber todos os cargos.\n\nMuitos ifs → sempre que surgir um novo cargo, a classe precisa ser alterada.\n\nAs regras de cálculo não podem ser reutilizadas facilmente.\n\nA classe tem mais de uma responsabilidade (decidir o cargo + calcular o salário).\n\nOu seja, baixa coesão e alto acoplamento.\n\nO ideal seria cada regra de cálculo estar em uma classe separada. Isso aumenta a coesão e facilita reutilização e manutenção.\n\n \n \n Por que essa classe é difícil de reutilizar?\n\nImagine que você queira reutilizar apenas a regra dezOuVintePorcento() em outro lugar do sistema.\n\nVocê não consegue usar só o método, porque ele está dentro da classe CalculadoraDeSalario.\n\nEntão você é obrigado a:\n\nInstanciar a classe\n\nCriar um objeto funcionário\n\nPassar o funcionário\n\nSó então usar o método\n\nOu seja, para reutilizar uma regra de cálculo, você precisa levar a classe inteira junto.\n\nIsso é um sinal claro de baixa coesão, porque a classe está fazendo coisas demais.\n\n \n \n Exemplo de classe refatorada com alta coesão\n\nclass Cargo {\n calculaSalario(salarioBase) {\n throw new Error(\"Método deve ser implementado pela subclasse\");\n }\n}\n\nclass Desenvolvedor extends Cargo {\n calculaSalario(salarioBase) {\n return salarioBase > 3000\n ? salarioBase * 0.8\n : salarioBase * 0.9;\n }\n}\n\nclass Dba extends Cargo {\n calculaSalario(salarioBase) {\n return salarioBase > 2000\n ? salarioBase * 0.75\n : salarioBase * 0.85;\n }\n}\n\nclass Tester extends Cargo {\n calculaSalario(salarioBase) {\n return salarioBase > 2000\n ? salarioBase * 0.75\n : salarioBase * 0.85;\n }\n}\n\nconst RegrasPorCargo = {\n DESENVOLVEDOR: new Desenvolvedor(),\n DBA: new Dba(),\n TESTER: new Tester()\n};\n\nclass CalculadoraDeSalarioRefatorada {\n calcula(funcionario) {\n const regra = RegrasPorCargo[funcionario.cargo];\n\n if (!regra) {\n throw new Error(\"Funcionário inválido\");\n }\n\n return regra.calculaSalario(funcionario.salarioBase);\n }\n}\n\nconst funcionario2 = {\n cargo: \"DESENVOLVEDOR\",\n salarioBase: 3500\n};\n\nconst calculadora2 = new CalculadoraDeSalarioRefatorada();\n\nconsole.log(calculadora2.calcula(funcionario2));\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Primeiro passo para entender a refatoração\n\nAntes da refatoração, a classe CalculadoraDeSalario mudava por dois motivos:\n\nQuando surgia um novo cargo\n\nQuando surgia uma nova regra de cálculo\n\nOu seja, a classe tinha mais de um motivo para mudar, o que quebra o SRP (Single Responsibility Principle).\n\nSe observarmos os métodos de cálculo, mesmo sendo diferentes, todos têm o mesmo formato:\n\nRecebem o salário\n\nAplicam uma regra\n\nRetornam o salário calculado\n\nOu seja, todos seguem a mesma abstração.\n\nEntão a ideia da refatoração é criar uma classe para cada regra de cálculo, todas com o mesmo método calculaSalario().\n\nO que ganhamos com isso?\n\nCada regra fica isolada\n\nUma mudança em uma regra não afeta as outras\n\nAs classes ficam menores\n\nAs classes ficam mais coesas\n\nO sistema fica mais fácil de manter\n\nPodemos adicionar novos cargos sem alterar código existente\n\nAgora cada classe tem apenas um motivo para mudar: a sua própria regra de cálculo.\n\n \n \n Por que não separar em pequenos métodos?\n\nSe separamos um método grande em pequenos métodos não teremos reuso isolado.\n\n \n \n Referência\n\nEste exemplo e a ideia de refatoração foram inspirados no livro: Orientação a Objetos e SOLID para Ninjas - Projetando classes flexíveis - MAURÍCIO ANICHE",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "architecture",
+      "beginners",
+      "cargo",
+      "classe",
+      "codequality",
+      "coesão",
+      "dba",
+      "desenvolvedor",
+      "exemplo de classe",
+      "imagine",
+      "javascript",
+      "mais",
+      "método",
+      "para",
+      "primeiro",
+      "problemas",
+      "queira reutilizar",
+      "regra",
+      "return",
+      "salariobase",
+      "srp",
+      "tester",
+      "uma",
+      "você"
+    ],
+    [
+      "architecture",
+      "beginners",
+      "codequality"
+    ]
+  ]
+}

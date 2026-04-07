@@ -1,0 +1,39 @@
+{
+  "id": 9092,
+  "source": "DEV Community<",
+  "title": "Why Your First Project Should Be Embarrassingly Bad",
+  "url": "https://dev.to/devkoan/why-your-first-project-should-be-embarrassingly-bad-424g",
+  "published_at": "2026-04-06T14:21:35Z",
+  "fetched_at": "2026-04-06T14:40:33.567682+00:00",
+  "author": "dev koan",
+  "summary": "<p>My first project had a hardcoded API key in the source code. The navigation crashed if you rotated your phone. The icon was something I made in PowerPoint.</p>\n\n<p>I shipped it anyway. It got maybe 12 downloads, most of them from my family. I'm pretty sure my mom downloaded it twice because she thought the first one didn't work.</p>\n\n<p>That project was terrible. It was also the most important thing I ever built.</p>\n\n<h2>\n  \n  \n  The perfectionism trap\n</h2>\n\n<p>I talk to a lot of junior developers who have been \"working on\" their first project for six months, a year, sometimes longer. They're still tweaking it. Still refactoring. Still reading about the \"correct\" architecture before writing more code.</p>\n\n<p>They're not building. They're hiding.</p>\n\n<p>I get it. Putting something out there with your name on it is scary. What if people judge it? What if other developers look at the code and think you're bad at this? What if it gets a one-star review — or worse, no reaction at all",
+  "full_text": "My first project had a hardcoded API key in the source code. The navigation crashed if you rotated your phone. The icon was something I made in PowerPoint.\n\nI shipped it anyway. It got maybe 12 downloads, most of them from my family. I'm pretty sure my mom downloaded it twice because she thought the first one didn't work.\n\nThat project was terrible. It was also the most important thing I ever built.\n\n \n \n The perfectionism trap\n\nI talk to a lot of junior developers who have been \"working on\" their first project for six months, a year, sometimes longer. They're still tweaking it. Still refactoring. Still reading about the \"correct\" architecture before writing more code.\n\nThey're not building. They're hiding.\n\nI get it. Putting something out there with your name on it is scary. What if people judge it? What if other developers look at the code and think you're bad at this? What if it gets a one-star review — or worse, no reaction at all?\n\nHere's what actually happens: nobody cares. Not in a mean way. In a freeing way. Whether it's an app on the store, a tool on GitHub, or a side project on your portfolio — your first one will be invisible. Nobody is going to find it and judge you.\n\n \n \n What shipping teaches you that building doesn't\n\nThere's a set of skills you can only learn by actually releasing something. Not by reading about releasing. Not by planning to release. By doing it.\n\nYou learn how deployment works — the real version, not the documentation version. You learn that your project breaks in environments you didn't test in. You learn that the feature you spent two weeks on doesn't get used, and the thing you threw in last-minute is the one people mention.\n\nYou learn that real users do things you never imagined. They click things you didn't expect. They enter text in fields you thought were obvious. They find bugs in features you were sure were solid.\n\nNone of this happens while it's sitting in a private repo.\n\n \n \n \"But it's not ready\"\n\nIt's not. It won't be. That's fine. Ship it anyway.\n\nYour code six months from now won't be good enough either, by the standards of you-in-two-years. This never stops. If you wait until your code is good enough, you will wait forever, because the finish line keeps moving as you improve.\n\nThe developer who shipped ten bad projects and learned from each one is in a completely different place than the developer who spent the same time perfecting one project that nobody ever used.\n\nI still cringe when I look at my old code. That cringing is evidence that I've grown. If you look at code you wrote six months ago and you're NOT embarrassed, that's the worrying sign — it means you haven't improved.\n\n \n \n Just ship the thing\n\nIf you have a side project sitting in a private repo right now — half-finished, messy, not quite ready — I want you to seriously consider shipping it. This week. As-is.\n\nIt doesn't need to be good. The act of shipping it will teach you things that six more months of building never will.\n\nYour second project will be better. Your third will be better than that. But none of them happen until the first one is out the door.\n\nMake it embarrassingly bad. Ship it. Move on. That's how this works.\n\nI've shipped over 20 projects in the past decade. The first few were awful. I wrote down every mistake I made along the way — 100 of them, collected into a free guide for junior developers. Grab it here.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "beginners",
+      "career",
+      "developer",
+      "github",
+      "learn",
+      "month",
+      "nobody",
+      "powerpoint",
+      "productivity",
+      "programming",
+      "project",
+      "ship",
+      "shipping",
+      "sit",
+      "spend",
+      "thing"
+    ],
+    [
+      "beginners",
+      "github",
+      "productivity"
+    ]
+  ]
+}

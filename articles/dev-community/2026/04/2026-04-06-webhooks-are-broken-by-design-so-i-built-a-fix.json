@@ -1,0 +1,34 @@
+{
+  "id": 9247,
+  "source": "DEV Community<",
+  "title": "Webhooks Are Broken by Design — So I Built a Fix",
+  "url": "https://dev.to/roombambar9/webhooks-are-broken-by-design-so-i-built-a-fix-4pk7",
+  "published_at": "2026-04-06T22:40:30Z",
+  "fetched_at": "2026-04-06T23:20:39.656292+00:00",
+  "author": "Taras",
+  "summary": "<p>If you've ever integrated a third-party service, you've dealt with webhooks. Payment processed? Webhook. New subscriber? Webhook. File uploaded? Webhook.</p>\n\n<p>They feel simple. A POST request hits your server and you handle it. Done.</p>\n\n<p>Except it's not that simple. Not even close.</p>\n\n\n\n\n<p><strong>The Problem Nobody Talks About</strong></p>\n\n<p>Webhooks are a \"fire and forget\" mechanism. The sender makes one HTTP request to your endpoint. If that request fails — your server is down, restarting, overloaded, or just returned a 500 — most senders either give up or retry a handful of times with no real strategy.</p>\n\n<p>And you never know it happened.</p>\n\n<p>No error in your dashboard. No alert. The event is just gone.</p>\n\n<p>This is a fundamental design flaw that affects every system using webhooks:</p>\n\n<ul>\n<li>\n<em>E-commerce platforms</em> — an order.paid webhook drops, your fulfillment system never triggers</li>\n<li>\n<em>CI/CD pipelines</em> — a push event is missed, y",
+  "full_text": "If you've ever integrated a third-party service, you've dealt with webhooks. Payment processed? Webhook. New subscriber? Webhook. File uploaded? Webhook.\n\nThey feel simple. A POST request hits your server and you handle it. Done.\n\nExcept it's not that simple. Not even close.\n\nThe Problem Nobody Talks About\n\nWebhooks are a \"fire and forget\" mechanism. The sender makes one HTTP request to your endpoint. If that request fails — your server is down, restarting, overloaded, or just returned a 500 — most senders either give up or retry a handful of times with no real strategy.\n\nAnd you never know it happened.\n\nNo error in your dashboard. No alert. The event is just gone.\n\nThis is a fundamental design flaw that affects every system using webhooks:\n\nE-commerce platforms — an order.paid webhook drops, your fulfillment system never triggers\n\nCI/CD pipelines — a push event is missed, your deployment never kicks off\n\nSaaS integrations — a subscription.cancelled webhook fails, you keep charging a customer who already left\n\nIoT and data pipelines — sensor events silently disappear under load\n\nThe downstream consequences can be severe: lost revenue, broken workflows, angry customers, and hours of debugging with no clear trail.\n\n**\n\nWhy This Is Hard to Solve on Your Side**\n\nThe natural reaction is \"I'll just make my endpoint more reliable.\" But that only solves half the problem.\n\nEven with 99.9% uptime, you'll have:\n\nPlanned deployments (your server restarts)\n\nDatabase connection spikes\n\nCold starts on serverless functions\n\nNetwork blips between the sender and your server\n\nAnd here's the thing — you don't control the sender. Stripe, GitHub, Shopify — they decide how many retries they do and when. Some\n\nretry 3 times over an hour. Some retry once. Some don't retry at all.\n\nYou're building your system around delivery guarantees you don't actually have.\n\nWhat a Real Solution Looks Like\n\nThe right fix is a reliability layer that sits between the sender and your application:\n\n1. Accept the webhook immediately — always return 200, store the raw payload\n\n2. Queue async delivery to your actual endpoint\n\n3. Retry with exponential backoff — 30s, 5min, 30min, 2h, 24h\n\n4. Track every attempt — status codes, errors, timestamps\n\n5. Let you inspect and manually retry anything that failed\n\nThis decouples receipt from processing. The sender's job is done the moment your relay accepts the request. Everything after that is your problem to solve — reliably.\n\nWhy I Built My Own\n\nI ran into this problem on a project integrating multiple payment and subscription providers. Events were being missed. I couldn't tell if it was my server, the network, or the sender. There was no audit trail.\n\nI looked at existing solutions. Some were too expensive for a side project. Some were too complex to self-host. Most were black boxes I couldn't modify or extend.\n\nSo I built Webhook Relay Layer — an open, self-hostable reliability platform.\n\nThe stack is straightforward: FastAPI for async webhook ingestion, Celery + Redis for the task queue and retry logic, PostgreSQL for durable event storage, and a simple dashboard to monitor everything in real time.\n\nThe core principle: no webhook ever disappears silently again.\n\nEvery event is stored on receipt. Every delivery attempt is logged. Every failure is retryable — automatically or manually. You always know what happened.\n\nWhat's Next\n\nThis is the first post in a series where I'll go deeper on:\n\nHow the retry engine works under the hood\n\nWebhook security: HMAC signatures and replay attack prevention\n\nHandling high-throughput ingestion without dropping events\n\nGoing from local Docker setup to production\n\nIf you've been burned by dropped webhooks before, I'd love to hear your story in the comments.\n\nLet me know if you want to add code snippets, shorten any section, or shift the tone.\n\nTired of webhooks ghosting you? Your events deserve better treatment.\n\nGive them a reliable home → https://webhookrelay.org/",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "build",
+      "celery + redis",
+      "delivery",
+      "event",
+      "hmac",
+      "iot",
+      "payments",
+      "problem",
+      "retry",
+      "sender",
+      "server",
+      "shopify",
+      "silently",
+      "solve",
+      "webhook",
+      "webhook relay layer"
+    ],
+    []
+  ]
+}

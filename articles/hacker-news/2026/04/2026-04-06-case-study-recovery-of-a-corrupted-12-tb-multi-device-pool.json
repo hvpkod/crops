@@ -1,0 +1,37 @@
+{
+  "id": 9003,
+  "source": "Hacker News",
+  "title": "Case study: recovery of a corrupted 12 TB multi-device pool",
+  "url": "https://github.com/kdave/btrfs-progs/issues/1107",
+  "published_at": "2026-04-06T02:28:40Z",
+  "fetched_at": "2026-04-06T04:40:23.435525+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47656303\">Comments</a>",
+  "full_text": "Hello, and thanks in advance for reading.\n\nThis is not a bug report. It is a case study write up of a recovery effort on a severely corrupted 12 TB multi-device pool, shared here in case any of the observations are useful to btrfs-progs development. The goal is constructive, not a complaint.\n\nOne paragraph summary\n\nA hard power cycle on a 3 device pool (data single, metadata DUP, DM-SMR disks) left the extent tree and free space tree in a state that no native repair path could resolve. A subsequent btrfs check --repair run entered an infinite loop of 46,000+ commits with zero net progress, rotating the 4 backup_roots slots past any pre-crash rollback point. Recovery eventually succeeded through a set of 14 custom C tools built against the internal btrfs-progs API, with a final data loss of about 7.2 MB out of 4.59 TB (0.00016 percent). The pool is now fully operational.\n\nFull analysis\n\nI wrote the case up in a structured way that covers environment, timeline, root cause classification, the bulletproof safety criterion we derived empirically, and 9 specific areas where a relatively small upstream change would have prevented the need for most of the custom tooling.\n\nhttps://github.com/msedek/btrfs_fixes/blob/main/INCIDENT-ANALYSIS.md\n\nThe nine proposed improvement areas, in order of expected impact on operators hitting similar cases:\n\nA. Progress detection in btrfs check --repair so 46,000 commit loops abort with a clear message instead of destroying backup_roots.\n\nB. Symmetric handling of BTRFS_ADD_DELAYED_REF in reinit_extent_tree, matching the existing BTRFS_DROP_DELAYED_REF exemption.\n\nC. Sibling safety precheck in btrfs_del_items rebalance so a drain below LEAF_DATA_SIZE/4 does not trigger push_leaf_left on a stale sharable sibling.\n\nD. Supervised EEXIST handling in alloc_reserved_tree_block with three explicit modes (error, silent, update).\n\nE. A btrfs rescue rebuild-extent-tree subcommand that operates from a pre-scanned ref list, as an alternative to the currently deadlocking --init-extent-tree.\n\nF. A btrfs rescue clean-orphan-inodes subcommand with a built-in dry-run that applies the bulletproof 5-condition check and produces a machine-readable plan.\n\nG. A btrfs rescue fix-bg-accounting for surgical BLOCK_GROUP_ITEM.used fixes after bulk extent tree rebuild.\n\nH. Clearer documentation that backup_roots[0..3] is a four commit sliding window, not historical backup (widely misunderstood).\n\nI. Documentation of the DIR i_size = sum(namelen * 2) rule, which bit us during orphan dir entry cleanup and is not currently written down in any user facing place.\n\nReference implementation\n\nAll 14 custom tools, along with the single-line patch to alloc_reserved_tree_block, are published in GPL-2.0 form at:\n\nhttps://github.com/msedek/btrfs_fixes\n\nEvery tool has a read-only scan mode by default and a --write mode that is opt-in. The README.md explains the execution order used during recovery. I am not proposing these as upstream patches directly. Most of the proposals above are not single function changes and getting any of them accepted would require a design discussion with people more familiar than me with the subsystems involved. Sharing the reference implementation felt more useful than opening nine separate pull requests without context.\n\nHow I would like this to be received\n\nPlease treat this as input, not as a demand. If any single observation or proposal is worth pursuing, I am happy to expand the analysis, provide additional evidence from the session logs, or test any proposed patch against the class of damage we hit. If none of it is useful, no problem, and thanks for the tool set that got us most of the way there.\n\nThanks again.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "b. symmetric",
+      "btrfs",
+      "btrfs_add_delayed_ref",
+      "bulletproof",
+      "case",
+      "dir",
+      "dm-smr",
+      "eexist",
+      "github hello",
+      "i. documentation",
+      "patch",
+      "propose",
+      "recovery",
+      "ref",
+      "reference",
+      "rescue",
+      "subcommand",
+      "thank"
+    ],
+    []
+  ]
+}

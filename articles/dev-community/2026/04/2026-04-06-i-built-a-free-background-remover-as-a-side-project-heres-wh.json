@@ -1,0 +1,44 @@
+{
+  "id": 9087,
+  "source": "DEV Community<",
+  "title": "I Built a Free Background Remover as a Side Project – Here's What I Learned",
+  "url": "https://dev.to/wally_ulysses_0ec9e2a7eea/title-i-built-a-free-background-remover-as-a-side-project-heres-what-i-learned-2dg5",
+  "published_at": "2026-04-06T14:31:24Z",
+  "fetched_at": "2026-04-06T14:40:26.038864+00:00",
+  "author": "Wally Ulysses",
+  "summary": "<p><strong>The Frustration That Started It All</strong></p>\n\n<p>I kept needing to remove backgrounds from product images. Every tool I tried either slapped a watermark on the result, charged credits for basic use, or had a clunky UI that felt stuck in 2015.</p>\n\n<p>So I built my own: <strong><a href=\"https://image-backgroundremover.site\" rel=\"noopener noreferrer\">image-backgroundremover.site</a></strong></p>\n\n<p>Here's the full breakdown — tech stack, decisions, mistakes, and lessons.</p>\n\n\n\n\n<p><strong>What It Does</strong></p>\n\n<ul>\n<li>🖼️ Remove image backgrounds instantly (powered by remove.bg API)</li>\n<li>🆓 1 free try without signing up (IP-limited)</li>\n<li>🎁 3 more free credits after creating an account</li>\n<li>💳 Pay-as-you-go credits or monthly subscriptions</li>\n<li>🔐 Google OAuth login</li>\n</ul>\n\n<p>No watermarks on paid results. No hidden limits.</p>\n\n\n\n\n<p><strong>Tech Stack</strong></p>\n\n<div class=\"table-wrapper-paragraph\"><table>\n<thead>\n<tr>\n<th>Layer</th>\n<th>Choice",
+  "full_text": "The Frustration That Started It All\n\nI kept needing to remove backgrounds from product images. Every tool I tried either slapped a watermark on the result, charged credits for basic use, or had a clunky UI that felt stuck in 2015.\n\nSo I built my own: image-backgroundremover.site\n\nHere's the full breakdown — tech stack, decisions, mistakes, and lessons.\n\nWhat It Does\n\n🖼️ Remove image backgrounds instantly (powered by remove.bg API)\n\n🆓 1 free try without signing up (IP-limited)\n\n🎁 3 more free credits after creating an account\n\n💳 Pay-as-you-go credits or monthly subscriptions\n\n🔐 Google OAuth login\n\nNo watermarks on paid results. No hidden limits.\n\nTech Stack\n\nLayer\nChoice\nWhy\n\nFramework\nNext.js 16\nFast, full-stack, easy deploy\n\nStyling\nTailwind CSS\nRapid UI, no fighting CSS\n\nDatabase\nCloudflare D1\nServerless SQL, free tier generous\n\nAuth\nGoogle OAuth\nUsers trust it, easy to implement\n\nPayments\nPayPal\nGlobal coverage, easy API\n\nAPI\nremove.bg\nBest accuracy I found\n\nThe whole thing runs on Cloudflare Workers — near-zero infra cost at low traffic.\n\nPricing\n\nI spent a surprising amount of time on this. The goal: profitable but not greedy.\n\nCredit Packs:\n\n$4.99 → 10 credits\n\n$14.99 → 50 credits\n\n$39.99 → 140 credits\n\nMonthly Subscriptions:\n\n$9.99/mo → 30 credits/month\n\n$24.99/mo → 85 credits/month\n\n$49.99/mo → 175 credits/month\n\nremove.bg costs me $0.20/image, so margins land around 45–65% depending on the plan.\n\nWhat I Learned\n\n \n \n 1. Ship fast, polish later\n\nI gave myself 5 days to launch. It forced prioritization. The UI isn't perfect, but it works, and real user feedback is worth more than another week of tweaking in isolation.\n\n \n \n 2. Freemium is a moat\n\nThe 1 free try without signup removes all friction. People can see the quality before committing anything. Conversion is better than I expected.\n\n \n \n 3. Cloudflare D1 is underrated\n\nFor a small SaaS, D1 is perfect. SQL syntax, generous free tier, no cold starts. I'd use it again.\n\n \n \n 4. PayPal webhooks are painful\n\nSetting up PayPal's webhook verification took way longer than expected. The docs are... not great. But once it worked, it's been reliable.\n\nWhat's Next\n\nAdd support for bulk image processing\n\nImprove the landing page SEO\n\nExplore other background-related tools (maybe background replacement?)\n\nTry It\n\n👉 image-backgroundremover.site\n\nNo signup required for your first try. If you have feedback — especially on UX or pricing — I'd genuinely love to hear it in the comments.\n\nBuilding in public, one side project at a time.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "background",
+      "build",
+      "buildinpublic",
+      "cloudflare",
+      "cloudflare workers",
+      "credit",
+      "css",
+      "easy",
+      "free",
+      "learn",
+      "nextjs",
+      "payments",
+      "paypal",
+      "remove",
+      "sideprojects",
+      "sql",
+      "tech",
+      "watermark",
+      "webdev"
+    ],
+    [
+      "buildinpublic",
+      "nextjs",
+      "sideprojects",
+      "tech",
+      "webdev"
+    ]
+  ]
+}

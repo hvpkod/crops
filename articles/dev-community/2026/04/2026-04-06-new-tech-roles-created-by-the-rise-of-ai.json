@@ -1,0 +1,45 @@
+{
+  "id": 9242,
+  "source": "DEV Community<",
+  "title": "New Tech Roles Created by the Rise of AI",
+  "url": "https://dev.to/mteheran/new-tech-roles-created-by-the-rise-of-ai-3362",
+  "published_at": "2026-04-06T22:58:22Z",
+  "fetched_at": "2026-04-06T23:20:30.456726+00:00",
+  "author": "Miguel Teheran",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F0v7riaa3klx476bwmxmo.webp\"><img alt=\"New AI tech roles\" height=\"450\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F0v7riaa3klx476bwmxmo.webp\" width=\"800\" /></a></p>\n\n<p>Artificial intelligence has transformed many roles and responsibilities in the technology world. Since around 2010, we have seen data-related roles such as Data Analyst, Data Engineer, and Data Scientist. However, today the landscape goes far beyond analyzing data to build machine learning models.</p>\n\n<p>The widespread adoption of AI — and more importantly, how it is applied within software projects — has created entirely new job positions. These roles are built on strong progr",
+  "full_text": "Artificial intelligence has transformed many roles and responsibilities in the technology world. Since around 2010, we have seen data-related roles such as Data Analyst, Data Engineer, and Data Scientist. However, today the landscape goes far beyond analyzing data to build machine learning models.\n\nThe widespread adoption of AI — and more importantly, how it is applied within software projects — has created entirely new job positions. These roles are built on strong programming foundations, but their daily activities are fundamentally different, centered around interacting with, orchestrating, and operationalizing artificial intelligence.\n\nBelow are some of the emerging roles shaped by this new AI-driven era.\n\n \n \n Intelligence Engineer\n\n \n \n (Applied AI Engineer)\n\nThe Intelligence Engineer designs and integrates artificial intelligence capabilities into systems, digital products, and development processes. Their goal is to turn AI models into practical, scalable solutions that meet business needs by automating tasks, making decisions, and creating measurable value.\n\nKey activities include:\n\nDesigning architectures that integrate AI models (LLMs, ML models, external APIs).\n\nBuilding pipelines using RAG, embeddings, and vector databases.\n\nDesigning and optimizing structured prompts.\n\nOrchestrating agents and autonomous workflows.\n\nEvaluating and improving the quality of AI-generated outputs.\n\nImplementing validations, metrics, and security controls.\n\nOptimizing cost, latency, and overall model performance.\n\n \n \n Agentic AI Expert\n\n \n \n (Agent-Based AI Specialist)\n\nThe Agentic AI Expert specializes in designing, implementing, and optimizing systems built around autonomous AI agents. Their focus is creating architectures where multiple agents perceive, reason, make decisions, and execute actions in coordination to solve complex problems and automate end-to-end processes.\n\nKey activities include:\n\nDesigning autonomous agents and agent-based systems.\n\nDefining planning, memory, and decision-making mechanisms.\n\nImplementing agents with access to tools, APIs, and databases.\n\nOrchestrating communication and coordination between agents.\n\nEvaluating agent performance, stability, and alignment.\n\nMitigating risks such as infinite loops, unintended actions, or goal drift.\n\nOptimizing cost, latency, and efficient model usage.\nIntegrating agentic systems into business products and processes.\n\n \n \n Agentic Systems Architect\n\n \n \n (Architect of Intelligent Agent-Based Systems)\n\nThe Agentic Systems Architect is responsible for designing the architecture of systems powered by autonomous AI agents. This role defines how multiple agents perceive information, reason, make decisions, and execute actions in a coordinated way — ensuring scalability, security, and alignment with business objectives.\n\nKey activities include:\n\nDesigning scalable and resilient multi-agent architectures.\n\nDefining memory, planning, and decision-making structures.\n\nDesigning coordination and communication mechanisms between agents.\n\nIntegrating agents with APIs, databases, external tools, and enterprise systems.\n\nEstablishing governance, control, and supervision rules for autonomous agents.\n\nMitigating risks such as infinite loops, unintended actions, or strategic misalignment.\n\nOptimizing performance, latency, and model execution costs.\n\nCollaborating with product and business teams to translate strategic goals into functional autonomous systems.\n\n \n \n AI Product Manager\n\nThe AI Product Manager defines, designs, and leads AI-powered products. This role connects AI technical capabilities with business and user needs, making strategic decisions about model usage, risk management, user experience, and technical feasibility to ensure AI delivers measurable value.\n\nKey activities include:\n\nDefining the vision and strategy for AI-based products.\n\nIdentifying high-impact AI use cases.\n\nPrioritizing features considering impact, cost, and risk.\nCollaborating with engineering and data teams on architecture and technical scope.\n\nEvaluating performance metrics (accuracy, latency, cost, adoption).\n\nManaging risks related to bias, privacy, and regulatory compliance.\n\nDesigning user experiences that integrate AI clearly and responsibly.\n\nContinuously monitoring and optimizing product performance in production.\n\n \n \n AI Tech Lead\n\nThe AI Tech Lead is the technical leader responsible for designing and overseeing the implementation of AI-based solutions within development teams. This role defines technical architecture, establishes best practices, and ensures AI systems are scalable, secure, and aligned with product and business goals.\n\nActing as a bridge between strategy, product, and engineering, the AI Tech Lead ensures technical excellence across AI initiatives.\n\nKey activities include:\n\nDefining the technical architecture of AI-driven solutions.\n\nLeading the implementation of models, pipelines, and intelligent systems.\n\nEstablishing quality, security, and governance standards in AI projects.\n\nGuiding teams on best practices for integrating LLMs, RAG systems, and agents.\n\nReviewing code and validating AI-generated outputs.\n\nMaking technical decisions regarding models, tools, and frameworks.\n\nAligning technical decisions with product strategy and stakeholder objectives.\n\n \n \n Agentic AI Engineer\n\nThe Agentic AI Engineer designs, develops, and implements autonomous AI agents. They build systems where agents can perceive, reason, plan, and act independently — integrating with tools, APIs, and real-world environments to automate complex processes.\n\nTheir focus is turning AI models into operational agents that function reliably within production systems.\n\nKey activities include:\n\nDeveloping and implementing autonomous agents using LLMs and tools such as LangChain.\n\nDesigning memory, planning, and decision-making mechanisms.\n\nIntegrating agents with APIs, databases, and external tools.\n\nBuilding multi-agent architectures and coordination workflows.\n\nImplementing monitoring and behavior validation systems.\n\nOptimizing latency, cost, and execution efficiency.\n\nTesting, evaluating, and continuously improving agent performance.\n\nHere are a few examples of new roles created by the rapid adoption of AI in products and business processes.\n\nIf you know other roles created by this technological revolution, feel free to share them in the comments.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "activity",
+      "agent",
+      "agentic",
+      "agentic ai expert",
+      "agentic systems architect",
+      "ai",
+      "applied ai engineer",
+      "architect of intelligent",
+      "autonomous",
+      "create",
+      "data analyst",
+      "data engineer",
+      "data scientist",
+      "designing",
+      "integrate",
+      "intelligence engineer",
+      "langchain",
+      "optimize",
+      "role",
+      "roles",
+      "software",
+      "tech",
+      "technical"
+    ],
+    [
+      "roles",
+      "software",
+      "tech"
+    ]
+  ]
+}

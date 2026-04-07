@@ -1,0 +1,45 @@
+{
+  "id": 8983,
+  "source": "DEV Community<",
+  "title": "Services no Kubernetes",
+  "url": "https://dev.to/deividferraz/services-no-kubernetes-4khc",
+  "published_at": "2026-04-06T02:07:57Z",
+  "fetched_at": "2026-04-06T02:40:28.142713+00:00",
+  "author": "DeividFerraz",
+  "summary": "<p>🚀 O que eu aprendi sobre Kubernetes Service (e por que isso finalmente fez sentido pra mim)</p>\n\n<p>Depois de apanhar um pouco tentando entender como minha API realmente “se comunica” dentro do cluster, finalmente caiu a ficha sobre o papel do Service no Kubernetes.</p>\n\n<p>Se você também já ficou confuso com Pods mudando de IP, balanceamento e tipos de Service… esse resumo pode te ajudar 👇</p>\n\n<p>🧠 Primeiro insight (o mais importante)<br />\n👉 Pods são efêmeros</p>\n\n<p>Eles sobem e caem</p>\n\n<p>O IP muda o tempo todo</p>\n\n<p>👉 Service resolve isso</p>\n\n<p>Dá um IP fixo + DNS estável</p>\n\n<p>E ainda faz load balancing automaticamente</p>\n\n<p>⚙️ Como o Service realmente funciona<br />\nO Service não “conhece” ReplicaSet, Deployment nem nada disso.</p>\n\n<p>Ele só faz:</p>\n\n<p>selector:<br />\n  app: minha-api<br />\nE pensa:</p>\n\n<p>“Vou mandar tráfego pra qualquer Pod com essa label”</p>\n\n<p>💥 Pronto. É assim que ele encontra os Pods.</p>\n\n<p>⚖️ Load Balancing<br />\nSe você tem 3 Pods:<",
+  "full_text": "🚀 O que eu aprendi sobre Kubernetes Service (e por que isso finalmente fez sentido pra mim)\n\nDepois de apanhar um pouco tentando entender como minha API realmente “se comunica” dentro do cluster, finalmente caiu a ficha sobre o papel do Service no Kubernetes.\n\nSe você também já ficou confuso com Pods mudando de IP, balanceamento e tipos de Service… esse resumo pode te ajudar 👇\n\n🧠 Primeiro insight (o mais importante)\n\n👉 Pods são efêmeros\n\nEles sobem e caem\n\nO IP muda o tempo todo\n\n👉 Service resolve isso\n\nDá um IP fixo + DNS estável\n\nE ainda faz load balancing automaticamente\n\n⚙️ Como o Service realmente funciona\n\nO Service não “conhece” ReplicaSet, Deployment nem nada disso.\n\nEle só faz:\n\nselector:\n\n app: minha-api\n\nE pensa:\n\n“Vou mandar tráfego pra qualquer Pod com essa label”\n\n💥 Pronto. É assim que ele encontra os Pods.\n\n⚖️ Load Balancing\n\nSe você tem 3 Pods:\n\nPod A (IP 10.0.0.1)\n\nPod B (IP 10.0.0.2)\n\nPod C (IP 10.0.0.3)\n\nO Service faz:\n\nCliente → Service → distribui entre A, B, C\n\n👉 Você não precisa saber os IPs 👉 Você não precisa atualizar nada manualmente\n\n🔌 Sobre portas\n\nports:\n\nport: 80\ntargetPort: 3000\nport → porta do Service\n\ntargetPort → porta do container\n\n💡 Dica: use named ports pra deixar mais claro:\n\nports:\n\nport: 80\ntargetPort: http\nUm ponto importante. Esse (http) é apenas o nome dado para a porta na sessão de containers.ports dentro do yaml do POD, ou no meu caso do ReplicaSet.\n\n🌐 Os 2 tipos mais usados na prática\n\n🔵 1. ClusterIP (padrão)\n\n👉 Usado para comunicação interna\n\ntype: ClusterIP\n\n✔️ Só funciona dentro do cluster ✔️ Ideal para microservices ✔️ Mais seguro\n\nExemplo real:\n\nbackend falando com banco\n\nAPI interna chamando outro serviço\n\n🟢 2. LoadBalancer\n\n👉 Usado para expor para fora\n\ntype: LoadBalancer\n\n✔️ Cria um IP externo ✔️ Acessível via internet ✔️ Ideal para APIs públicas\n\nExemplo:\n\nsua API que será consumida por frontend ou terceiros\n\n🧠 Boas práticas que aprendi\n\n✅ Use labels consistentes (app, tier, etc.) ✅ Prefira ClusterIP por padrão (segurança) ✅ Só use LoadBalancer quando precisar expor ✅ Use named ports pra facilitar manutenção ✅ Sempre confira os endpoints se algo não funcionar.\n\n🔥 Resumo mental\n\nPod = efêmero \n\nService = estável \n\nLabels = conexão 🔗\n\nService = load balancer automático ⚖️\n\n💬 Conclusão\n\nO Service não é só “um detalhe” do Kubernetes.\n\nEle é o que transforma:\n\n👉 containers isolados em 👉 um sistema distribuído que funciona de verdade",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "clusterip",
+      "como o service",
+      "de service",
+      "dentro",
+      "devops",
+      "dns",
+      "faz",
+      "funciona",
+      "funciona\n\no service",
+      "kubernetes",
+      "kubernetes service",
+      "loadbalancer",
+      "mais",
+      "networking",
+      "para",
+      "pods.",
+      "porta",
+      "primeiro",
+      "sentido pra mim",
+      "service",
+      "sobre",
+      "tutorial",
+      "você"
+    ],
+    [
+      "devops",
+      "tutorial"
+    ]
+  ]
+}

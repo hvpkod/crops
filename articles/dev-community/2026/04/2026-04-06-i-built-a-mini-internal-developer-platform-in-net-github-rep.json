@@ -1,0 +1,42 @@
+{
+  "id": 9019,
+  "source": "DEV Community<",
+  "title": "I built a Mini Internal Developer Platform in .NET — GitHub repos + Kubernetes deployments from a single API call",
+  "url": "https://dev.to/aftabkh4n/i-built-a-mini-internal-developer-platform-in-net-github-repos-kubernetes-deployments-from-a-4l0d",
+  "published_at": "2026-04-06T05:15:36Z",
+  "fetched_at": "2026-04-06T05:40:34.490826+00:00",
+  "author": "Aftab Bashir",
+  "summary": "<p>Most teams I've worked with waste 2-3 hours every time they spin up a <br />\nnew microservice. Create the repo, write the Dockerfile, set up CI, <br />\nwrite Kubernetes manifests, configure ingress — same boilerplate, every <br />\nsingle time.</p>\n\n<p>I decided to automate all of it. One API call. Everything done <br />\nautomatically.</p>\n<h2>\n  \n  \n  What it does\n</h2>\n\n<p>POST to <code>/api/services</code> with a service name and language, and the <br />\nplatform automatically:</p>\n\n<ul>\n<li>Creates a GitHub repository</li>\n<li>Commits a Dockerfile and GitHub Actions CI pipeline</li>\n<li>Creates a Kubernetes Deployment, Service, and Ingress</li>\n<li>Streams real-time status updates to a live dashboard via SignalR</li>\n</ul>\n\n<p>The HTTP response comes back in under 200ms. All the work happens in a <br />\nbackground worker.</p>\n<h2>\n  \n  \n  The architecture\n</h2>\n\n<p>The system is split into four .NET projects:</p>\n\n<ul>\n<li>\n<code>Idp.Api</code> — ASP.NET Core 9 API, the entry poi",
+  "full_text": "Most teams I've worked with waste 2-3 hours every time they spin up a \n\nnew microservice. Create the repo, write the Dockerfile, set up CI, \n\nwrite Kubernetes manifests, configure ingress — same boilerplate, every \n\nsingle time.\n\nI decided to automate all of it. One API call. Everything done \n\nautomatically.\n\n \n \n What it does\n\nPOST to /api/services with a service name and language, and the \n\nplatform automatically:\n\nCreates a GitHub repository\n\nCommits a Dockerfile and GitHub Actions CI pipeline\n\nCreates a Kubernetes Deployment, Service, and Ingress\n\nStreams real-time status updates to a live dashboard via SignalR\n\nThe HTTP response comes back in under 200ms. All the work happens in a \n\nbackground worker.\n\n \n \n The architecture\n\nThe system is split into four .NET projects:\n\nIdp.Api — ASP.NET Core 9 API, the entry point\n\nIdp.Core — domain models and interfaces\n\nIdp.Infrastructure — GitHub and Kubernetes integrations\n\nIdp.Worker — background provisioning pipeline\n\nWhen a request comes in, the controller does one thing — saves a record \n\nto PostgreSQL with status queued and returns 202 Accepted. The \n\nbackground worker polls every 5 seconds, picks up queued jobs, and runs \n\nthe full provisioning pipeline.\n\n \n \n The GitHub integration\n\nI used Octokit.net to talk to the GitHub REST API. Here is what happens \n\nwhen you provision a new service:\n\nvar repo = await client.Repository.Create(new NewRepository(serviceName)\n{\n Description = description,\n Private = false,\n AutoInit = true\n});\n\n// Give GitHub a moment to initialise\nawait Task.Delay(2000, ct);\n\n// Commit Dockerfile\nawait client.Repository.Content.CreateFile(\n organisation, serviceName, \"Dockerfile\",\n new CreateFileRequest(\"chore: add Dockerfile\", GetDockerfile(language)));\n\n// Commit CI workflow\nawait client.Repository.Content.CreateFile(\n organisation, serviceName, \".github/workflows/ci.yml\",\n new CreateFileRequest(\"chore: add CI workflow\", GetCiWorkflow()));\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe AutoInit: true creates an initial commit so we can push files \n\nimmediately. The 2 second delay is important — without it, GitHub \n\nsometimes returns a 404 when you try to commit to a freshly created repo.\n\n \n \n The Kubernetes integration\n\nI used the official KubernetesClient NuGet package to create K8s \n\nobjects from C#:\n\n// Create Deployment\nawait client.AppsV1.CreateNamespacedDeploymentAsync(deployment, ns);\n\n// Create Service\nawait client.CoreV1.CreateNamespacedServiceAsync(service, ns);\n\n// Create Ingress\nawait client.NetworkingV1.CreateNamespacedIngressAsync(ingress, ns);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEach service gets its own namespace, which keeps things clean and makes \n\nit easy to delete a service and all its resources in one command.\n\n \n \n Real-time updates with SignalR\n\nThe background worker pushes status updates to all connected browsers \n\nas provisioning progresses:\n\nawait hubContext.Clients.All.SendAsync(\"StatusChanged\", new\n{\n ServiceId = serviceId,\n ServiceName = serviceName,\n Status = status, // queued → creating_repo → deploying_k8s → deployed\n RepoUrl = repoUrl,\n ServiceUrl = serviceUrl\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe dashboard listens for these events and updates the UI in real time \n\n— no polling, no page refresh.\n\n \n \n What I learned\n\nAlways use async provisioning. The first version was synchronous — \n\nthe HTTP request sat open for 6 seconds while GitHub did its work. \n\nMoving to a background worker with a queue made the API feel instant.\n\nGitHub needs a moment after repo creation. If you immediately try \n\nto commit files to a freshly created repo, you get a 404. A 2 second \n\ndelay after AutoInit fixes it reliably.\n\nHandle conflicts gracefully in Kubernetes. If you try to create a \n\nresource that already exists, K8s returns a 409 Conflict. Catching that \n\nand either replacing or skipping makes the system idempotent.\n\nSecrets in git history are permanent. I accidentally committed my \n\nGitHub token inside the bin/ folder early on. Even after deleting it, \n\nit was in git history. I had to force push a rewritten history and \n\nimmediately rotate the token. Always add **/bin/ and **/obj/ to \n\n.gitignore before your first commit.\n\n \n \n The stack\n\nLayer\nTechnology\n\nAPI\nASP.NET Core 9\n\nDatabase\nPostgreSQL + Entity Framework Core 9\n\nGitHub automation\nOctokit.net\n\nKubernetes automation\nKubernetesClient\n\nReal-time updates\nSignalR\n\nLogging\nSerilog\n\nAPI docs\nScalar\n\n \n \n Try it yourself\n\nThe full source code is on GitHub:\n\nhttps://github.com/aftabkh4n/idp-platform\n\nClone it, add your GitHub token to appsettings.json, spin up a \n\nPostgreSQL container, and run it. You should have a working IDP in under \n\n5 minutes.\n\nThis is one of four portfolio projects I am building to demonstrate \n\nsenior backend engineering skills. Next up: a full Data Platform API \n\nwith search, analytics, and recommendations.\n\nIf you found this useful or have questions, drop a comment below.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "await",
+      "background",
+      "commit",
+      "commit dockerfile",
+      "create",
+      "createfile",
+      "devops",
+      "dockerfile",
+      "dotnet",
+      "github",
+      "github actions ci",
+      "ingress",
+      "ingress\n\nstreams",
+      "kubernetes",
+      "octokit.net",
+      "postgresql",
+      "provision",
+      "queue",
+      "signalr"
+    ],
+    [
+      "devops",
+      "dotnet",
+      "github"
+    ]
+  ]
+}

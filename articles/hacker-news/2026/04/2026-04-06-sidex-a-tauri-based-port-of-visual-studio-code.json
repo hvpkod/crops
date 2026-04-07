@@ -1,0 +1,38 @@
+{
+  "id": 9024,
+  "source": "Hacker News",
+  "title": "SideX – A Tauri-based port of Visual Studio Code",
+  "url": "https://github.com/Sidenai/sidex",
+  "published_at": "2026-04-06T06:49:42Z",
+  "fetched_at": "2026-04-06T07:00:19.151506+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47657699\">Comments</a>",
+  "full_text": "A Tauri-based port of Visual Studio Code. Same architecture, native performance, fraction of the size.\n\nEarly Release — This project is in active development. Many features are not fully working yet. We're releasing early because a lot of people wanted to help build this out. If you're into open source and want to help make a lightweight, native code editor a reality, you're in the right place.\n\nSideX is a 1:1 architectural port (HEAVILY STRIPPED) of VSCode that replaces Electron with Tauri (Rust backend + native webview). The entire VSCode workbench - editor, terminal, extensions, themes, keybindings — ported to run on a native shell.\n\n5,600+ TypeScript files from VSCode's source, ported and adapted\n\nRust backend replacing Electron's main process\n\nZero Electron imports remaining in the codebase\n\nLightweight — fraction of VSCode's install size\n\nGoal: 200mb RAM usage.\n\nThis is an early release. Here's an honest look at where things stand:\n\nWorking:\n\nCore editor (Monaco) with syntax highlighting, IntelliSense basics\n\nFile explorer — open folders, create/edit/delete files\n\nIntegrated terminal (PTY via Rust)\n\nBasic Git integration\n\nTheme support\n\nNative menus\n\nExtension loading from Open VSX\n\nIn Progress / Unstable:\n\nMany workbench features are stubbed or partially implemented\n\nExtension host is early-stage — not all extensions will work\n\nDebugging support is scaffolded but incomplete\n\nSettings/keybindings UI may have rough edges\n\nSome platform services are placeholder implementations\n\nMulti-window support is limited\n\nWe need help across the board. See Contributing below.\n\n# Clone the repo\ngit clone https://github.com/Sidenai/sidex.git\ncd sidex\n\n# Install dependencies\nnpm install\n\n# Start dev server with hot reload\nnpm run tauri dev\n\nBuilding from source (not distributing pre-built binaries yet):\n\n# Install dependencies (if not already done)\nnpm install\n\n# Build the frontend (increase memory for large codebase)\n# macOS / Linux:\nNODE_OPTIONS=\"--max-old-space-size=12288\" npm run build\n\n# Windows (PowerShell):\n$env:NODE_OPTIONS=\"--max-old-space-size=12288\"\nnpm run build\n\n# Build the Tauri app (takes 5-10 minutes)\nnpx tauri build\n\nLinux blank screen: If you get a blank/white screen on Linux, run with:\n\nWEBKIT_DISABLE_DMABUF_RENDERER=1 npm run tauri dev\n\nSideX preserves VSCode's layered architecture and replaces the Electron runtime with Tauri:\n\nVSCode (Electron) SideX (Tauri)\n───────────────── ─────────────\nElectron Main Process → Tauri Rust Backend\n BrowserWindow → WebviewWindow\n ipcMain / ipcRenderer → invoke() + events\n Node.js APIs (fs, pty, etc.) → Rust commands (std::fs, portable-pty)\n Menu / Dialog / Clipboard → Tauri plugins\n\nRenderer (DOM + TypeScript) → Same (runs in native webview)\nExtension Host → Sidecar process (in progress)\n\nsidex/\n├── src/ # TypeScript frontend (VSCode workbench)\n│ ├── vs/\n│ │ ├── base/ # Foundation utilities\n│ │ ├── platform/ # Platform services (DI)\n│ │ ├── editor/ # Monaco editor\n│ │ ├── workbench/ # IDE shell, features, services\n│ │ └── code/ # Application entry\n│ └── main.ts # Frontend entry point\n├── src-tauri/ # Rust backend\n│ ├── src/\n│ │ ├── commands/ # fs, terminal, search, git, window, etc.\n│ │ ├── lib.rs # App setup, menu, command registration\n│ │ └── main.rs # Entry point\n│ └── Cargo.toml\n├── index.html # HTML shell\n├── vite.config.ts # Vite config (port 1420)\n└── package.json\n\nFor a deep dive into the architecture, see ARCHITECTURE.md.\n\nWe want your help. Seriously.\n\nThis project was released early specifically so the community can help build it out. There's a ton of work to do — from fixing bugs to implementing entire subsystems.\n\nFork the repo and create a branch for your work\n\nPick something — check the Issues tab, or just find something broken and fix it\n\nSubmit a PR — we'll review it, and if it gets merged, you'll be added as a contributor\n\nTerminal — Shell integration, profile detection, stability\n\nExtensions — Extension host compatibility, API coverage\n\nFile System — Watcher reliability, large file handling\n\nEditor — IntelliSense integration, language services\n\nDebugging — Debug adapter protocol implementation\n\nSettings — Settings UI, keybinding editor\n\nSearch — Workspace search reliability and performance\n\nPlatform — Windows and Linux testing and fixes\n\nUI Polish — Layout issues, theming gaps, accessibility\n\nThe codebase follows VSCode's patterns — if you've worked on VSCode, you'll feel right at home\n\nTypeScript imports use .js extensions (ES modules)\n\nServices use VSCode's dependency injection with @inject decorators\n\nRust commands are in src-tauri/src/commands/ — add new ones and register in lib.rs\n\nSee AGENTS.md for a detailed guide to the codebase (useful for AI-assisted development too)\n\nLayer\nTechnology\n\nFrontend\nTypeScript, Vite 6, Monaco Editor, xterm.js\n\nBackend\nRust, Tauri 2, portable-pty, rusqlite, tokio\n\nEditor\nMonaco (from VSCode source)\n\nTerminal\nxterm.js + Rust PTY via portable-pty\n\nExtensions\nOpen VSX registry\n\nStorage\nSQLite (via rusqlite)\n\nCommunity\n\nMIT - This project is a port of Visual Studio Code (Code - OSS), which is licensed under the MIT License. See LICENSE for details.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "backend",
+      "dom",
+      "editor",
+      "electron",
+      "electron main process",
+      "extension",
+      "frontend",
+      "intellisense",
+      "linux",
+      "monaco",
+      "native",
+      "powershell",
+      "ram",
+      "rust",
+      "sidex",
+      "tauri",
+      "terminal",
+      "vscode"
+    ],
+    [
+      "electron"
+    ]
+  ]
+}

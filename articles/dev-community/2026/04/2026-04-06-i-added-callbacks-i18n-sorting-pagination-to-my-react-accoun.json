@@ -1,0 +1,44 @@
+{
+  "id": 9249,
+  "source": "DEV Community<",
+  "title": "I added callbacks, i18n, sorting & pagination to my React accounting component — here's what changed",
+  "url": "https://dev.to/ruth3rl/i-added-callbacks-i18n-sorting-pagination-to-my-react-accounting-component-heres-what-changed-8k",
+  "published_at": "2026-04-06T22:31:55Z",
+  "fetched_at": "2026-04-06T23:20:41.842405+00:00",
+  "author": "Ruthel Cedrick Ascens BALOCK",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fi9coc3eoqtkfzredk25x.png\"><img alt=\" \" height=\"448\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fi9coc3eoqtkfzredk25x.png\" width=\"800\" /></a></p>\n\n<p>react-accounting-diary v2.2.0: now with onChange/onAdd/onDelete, 30+ i18n labels, sortable columns, pagination, balance validation, and keyboard navigation.</p>\n\n<h2>\n  \n  \n  TL;DR\n</h2>\n\n<p><a href=\"https://www.npmjs.com/package/react-accounting-diary\" rel=\"noopener noreferrer\">react-accounting-diary</a> is a lightweight React component for generating accounting diaries with export to PNG, JPEG, PDF, CSV, and Excel.</p>\n\n<p><strong>v2.2.0</strong> just dropped with 10 new features that make it a",
+  "full_text": "react-accounting-diary v2.2.0: now with onChange/onAdd/onDelete, 30+ i18n labels, sortable columns, pagination, balance validation, and keyboard navigation.\n\n \n \n TL;DR\n\nreact-accounting-diary is a lightweight React component for generating accounting diaries with export to PNG, JPEG, PDF, CSV, and Excel.\n\nv2.2.0 just dropped with 10 new features that make it actually usable in production apps. Here's what changed and why.\n\n \n \n The problem with v2.1\n\nThe component worked — you could render transactions, export them, undo/redo. But you couldn't do anything with the data. No callbacks, no way to sync with your state, no way to know when a user added or deleted a transaction.\n\nIt was a demo, not a library.\n\n \n \n What's new in v2.2.0\n\n \n \n 1. Callback props\n\nThe biggest missing piece. You can now hook into every data change:\n\n<AccountingDiary\n data={transactions}\n onChange={setTransactions}\n onAdd={(item) => api.post('/transactions', item)}\n onEdit={(old, updated) => api.put(`/transactions/${old.id}`, updated)}\n onDelete={(item) => api.delete(`/transactions/${item.id}`)}\n/>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nonChange fires on every mutation (add, edit, delete, undo, redo, clear). The specific callbacks (onAdd, onEdit, onDelete) give you granular control.\n\n \n \n 2. Controlled mode\n\nWorks with any state management — React state, Redux, Zustand, whatever:\n\nconst [data, setData] = useState([]);\n\n<AccountingDiary\n data={data}\n onChange={setData}\n/>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 3. i18n / Localisation\n\nEvery label is now customizable. 30+ keys:\n\n<AccountingDiary\n labels={{\n debit: 'Débit',\n credit: 'Crédit',\n addTransaction: 'Ajouter une transaction',\n grandTotal: 'Total Général',\n balanced: 'Équilibré',\n unbalanced: 'Déséquilibré',\n search: 'Rechercher...',\n noData: 'Aucune transaction.',\n // ... 22 more keys\n }}\n/>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOnly override what you need. English defaults for everything else.\n\n \n \n 4. Grand total & balance validation\n\nAutomatic debit vs credit totals with a visual badge:\n\n✅ ✓ Balanced (green) when debit = credit\n\n⚠️ ⚠ Unbalanced (red) with the exact difference\n\nComputed on all filtered data, not just the current page.\n\n \n \n 5. Sortable columns\n\nClick any column header to sort:\n\nDate — chronological\n\nAccount — alphabetical\n\nAmount — numerical\n\nClick again to toggle asc/desc. Sort indicator (↑↓) shows current state.\n\n \n \n 6. Pagination\n\n<AccountingDiary pageSize={20} />\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSimple. Page navigation appears automatically when needed.\n\n \n \n 7. Delete transactions\n\nEach row now has a context menu (⋮) with Edit and Delete. The old standalone edit button is gone — everything is grouped in a clean green dropdown.\n\n \n \n 8. Empty state\n\nWhen there are no transactions, instead of a blank space you get an icon, a message, and a CTA button that opens the add dialog directly.\n\n \n \n 9. Keyboard navigation\n\nTab through rows\n\nEnter/Space to open the actions menu\n\nEscape to close menus and dialogs\n\nFull ARIA attributes (role=\"row\", role=\"menu\", aria-haspopup, etc.)\n\n \n \n 10. Project cleanup\n\nRemoved dev server from the lib package\n\nExternalized react/jsx-runtime (fixes the ReactCurrentDispatcher error with React 19)\n\nDropped unused deps (prettier, terser, vitest)\n\nModernized TypeScript config\n\n \n \n Install\n\nnpm install react-accounting-diary\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Minimal example\n\nimport AccountingDiary from 'react-accounting-diary';\n\nfunction App() {\n return (\n <AccountingDiary\n title=\"My Company\"\n columnHeader={true}\n showGrandTotal={true}\n pageSize={10}\n onChange={(data) => console.log(data)}\n />\n );\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Numbers\n\nBundle: ~18KB gzipped (ESM)\n\nReact: 16.8+ / 17 / 18 / 19\n\nTypeScript: full support\n\nZero external CSS\n\n \n \n What's next\n\n[ ] Live demo on GitHub Pages\n\n[ ] Storybook playground\n\n[ ] onExport callback\n\n[ ] Row drag & drop reordering\n\nGitHub: ruthel/react-accounting-diary\n\nnpm: react-accounting-diary\n\nIf this is useful, a ⭐ on GitHub helps a lot. Feedback and PRs welcome.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "accountingdiary\n labels=",
+      "add",
+      "callback",
+      "component",
+      "csv",
+      "drop",
+      "débit",
+      "enter",
+      "exit",
+      "fullscreen",
+      "jpeg",
+      "mode",
+      "opensource",
+      "pdf",
+      "png",
+      "react",
+      "redo",
+      "redux",
+      "sortable",
+      "typescript",
+      "webdev",
+      "zustand"
+    ],
+    [
+      "opensource",
+      "typescript",
+      "webdev"
+    ]
+  ]
+}

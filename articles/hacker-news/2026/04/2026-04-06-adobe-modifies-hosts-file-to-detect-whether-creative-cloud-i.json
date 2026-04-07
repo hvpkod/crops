@@ -1,0 +1,34 @@
+{
+  "id": 9166,
+  "source": "Hacker News",
+  "title": "Adobe modifies hosts file to detect whether Creative Cloud is installed",
+  "url": "https://www.osnews.com/story/144737/adobe-secretly-modifies-your-hosts-file-for-the-stupidest-reason/",
+  "published_at": "2026-04-06T17:38:30Z",
+  "fetched_at": "2026-04-06T18:20:18.112610+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47664205\">Comments</a>",
+  "full_text": "Home\n\n > Clown car\n\n > Adobe secretly modifies your hosts file for the stupidest reason\n\nAdobe secretly modifies your hosts file for the stupidest reason\n\nIf you’re using Windows or macOS and have Adobe Creative Cloud installed, you may want to take a peek at your hosts file. It turns out Adobe adds a bunch of entries into the hosts file, for a very stupid reason.\n\nThey’re using this to detect if you have Creative Cloud already installed when you visit on their website.\n\nWhen you visit https://www.adobe.com/home, they load this image using JavaScript:\n\nhttps://detect-ccd.creativecloud.adobe.com/cc.png\n\nIf the DNS entry in your hosts file is present, your browser will therefore connect to their server, so they know you have Creative Cloud installed, otherwise the load fails, which they detect.\n\nThey used to just hit http://localhost:<various ports>/cc.png which connected to your Creative Cloud app directly, but then Chrome started blocking Local Network Access, so they had to do this hosts file hack instead.\n↫ thenickdude at Reddit\n\nAt what point does a commercial software suite become malware?\n\nAbout The Author\n\nFollow me on Mastodon @[email protected]",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "adobe",
+      "cloud",
+      "creative",
+      "dns",
+      "file",
+      "home\n\n > clown",
+      "host",
+      "javascript",
+      "local network access",
+      "modify",
+      "reason",
+      "reddit",
+      "secretly",
+      "security",
+      "stupid",
+      "visit"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": 9061,
+  "source": "DEV Community<",
+  "title": "TypeScript Type Guards",
+  "url": "https://dev.to/tanya_johari/typescript-type-guards-23jf",
+  "published_at": "2026-04-06T11:25:16Z",
+  "fetched_at": "2026-04-06T11:40:23.193194+00:00",
+  "author": "Tanya Johari",
+  "summary": "<p>When you're building a payment system, \"close enough\" isn't good enough. A single <code>undefined</code> value or a mismatched object property can be the difference between a successful transaction and a frustrated customer (or a lost sale). </p>\n\n<p>TypeScript's <strong>Type Guards</strong> are your first line of defense. They allow you to narrow down broad, uncertain types into specific ones that you can safely interact with. In this guide, we'll build a mini payment processor and learn how to use Type Guards to make it crash-proof.</p>\n\n\n\n\n<h2>\n  \n  \n  1. The Problem: The \"Silent Failures\" of JavaScript\n</h2>\n\n<p>Imagine you have a function that processes different types of payment responses. In plain JavaScript, you might write something like this:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code><span class=\"kd\">function</span> <span class=\"nf\">processResponse</span><span class=\"p\">(</span><span class=\"nx\">response</span><span class=",
+  "full_text": "When you're building a payment system, \"close enough\" isn't good enough. A single undefined value or a mismatched object property can be the difference between a successful transaction and a frustrated customer (or a lost sale). \n\nTypeScript's Type Guards are your first line of defense. They allow you to narrow down broad, uncertain types into specific ones that you can safely interact with. In this guide, we'll build a mini payment processor and learn how to use Type Guards to make it crash-proof.\n\n \n \n 1. The Problem: The \"Silent Failures\" of JavaScript\n\nImagine you have a function that processes different types of payment responses. In plain JavaScript, you might write something like this:\n\nfunction processResponse(response) {\n // If response is a 'Success' object, it has a 'transactionId'\n // If it's an 'Error' object, it has a 'message'\n console.log(\"Payment successful! ID: \" + response.transactionId);\n}\n\n// What if the API returned an error?\nprocessResponse({ message: \"Insufficent funds\" }); \n// Output: \"Payment successful! ID: undefined\" \n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nJavaScript doesn't complain; it just gives you undefined. This is a \"silent failure.\" TypeScript helps us catch this, but only if we know how to \"narrow\" the types.\n\n \n \n 2. Built-in Guards: The Foundation\n\nTypeScript provides built-in operators that perform runtime checks. When TypeScript sees these checks, it \"narrows\" the type for the rest of that code block.\n\n \n \n typeof (Checking Primitives)\n\nIn our payment app, an amount might be a number or a string (if it comes from a form input).\n\nfunction formatAmount(amount: string | number) {\n if (typeof amount === 'string') {\n // TypeScript knows 'amount' is a string here.\n // We can safely call string-specific methods.\n return parseFloat(amount).toFixed(2);\n }\n // If we're here, TypeScript knows 'amount' MUST be a number.\n return amount.toFixed(2);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n instanceof (Checking Classes)\n\nSuppose you have different classes for CreditCard and GiftCard payments. Each has its own verification logic.\n\nclass CreditCard {\n verifyCVV() { return true; }\n}\n\nclass GiftCard {\n checkBalance() { return 50.00; }\n}\n\nfunction verifyPayment(method: CreditCard | GiftCard) {\n if (method instanceof CreditCard) {\n // Safe to call CreditCard methods\n method.verifyCVV();\n } else {\n // Safe to call GiftCard methods\n method.checkBalance();\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 3. Custom Type Predicates: The \"Bouncer\"\n\nSometimes, simple checks aren't enough. You might want to create a reusable function to check if a payment is \"complete.\" To do this, we use a Custom Type Predicate.\n\nWe explain the return type as value is Type. This is like a bouncer at a club: the function checks the ID and if it returns true, TypeScript allows that variable into the \"exclusive\" block of code as that specific type.\n\ninterface Payment {\n id: string;\n status: 'pending' | 'completed' | 'failed';\n}\n\ninterface CompletedPayment extends Payment {\n status: 'completed';\n confirmedAt: Date;\n}\n\n// This is our Custom Type Predicate\nfunction isCompleted(payment: Payment): payment is CompletedPayment {\n return payment.status === 'completed';\n}\n\nconst myPayment: Payment = { id: '123', status: 'completed' };\n\nif (isCompleted(myPayment)) {\n // TypeScript now knows myPayment has a 'confirmedAt' property!\n console.log(myPayment.confirmedAt);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 4. Discriminated Unions: The Gold Standard\n\nIf you only learn one pattern from this article, make it this one. By adding a single, common property (a \"discriminator\") to your types, you gain 100% type safety and perfect IDE autocomplete.\n\ninterface CardPayment {\n type: 'card'; // The Discriminator\n lastFour: string;\n}\n\ninterface PayPalPayment {\n type: 'paypal'; // The Discriminator\n email: string;\n}\n\ntype PaymentMethod = CardPayment | PayPalPayment;\n\nfunction getReceipt(method: PaymentMethod) {\n switch (method.type) {\n case 'card':\n return `Charged card ending in ${method.lastFour}`;\n case 'paypal':\n return `Charged PayPal account: ${method.email}`;\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhy this is a superpower: If you add a Bitcoin payment type later but forget to update this switch statement, TypeScript will flag an error immediately. It's like having a senior developer looking over your shoulder.\n\n \n \n 5. Anti-Patterns: The \"Before and After\"\n\nAs a beginner, you might be tempted to use shortcuts to silence the \"red error lines.\" Let's look at why you shouldn't.\n\n \n \n The \"Unsafe Assertion\"\n\nBefore (The \"Dirty\" way):\n\n// Bypassing safety with 'as any'\nconst receipt = (payment as any).cardNumber; \n// If 'payment' is actually a Bank Transfer, this is 'undefined'.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAfter (The \"Guard\" way):\n\nif ('cardNumber' in payment) {\n const receipt = payment.cardNumber; // Safe and verified\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nUsing the in operator acts as a shield when dealing with unpredictable data from external APIs.\n\n \n \n Summary: Your Type Guard Decision Tree\n\nNot sure which guard to use? Follow this checklist:\n\n Is it a simple value like a string or number?\n\n Is it an object created with new MyClass()?\n\n Do your types have a shared property like type or status?\n\n✅ Use Discriminated Unions (Best for complex logic).\n\n Are you checking for a specific property on a \"messy\" object?\n\n Do you want a reusable function to clean up your if statements?\n\n✅ Use a Custom Type Predicate (is).\n\n \n \n Conclusion\n\nType Guards bridge the gap between TypeScript's strict rules and JavaScript's flexible reality. By implementing these patterns in your payment system, you're not just writing code—you're building a reliable, predictable engine that handles every edge case with ease.\n\nHappy coding!\n\nReference:",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "cardpayment",
+      "creditcard",
+      "custom type predicate",
+      "exit",
+      "fullscreen",
+      "function",
+      "guards",
+      "javascript",
+      "mode",
+      "mypayment",
+      "payment",
+      "payment.status",
+      "payments",
+      "return",
+      "success",
+      "tutorial",
+      "type",
+      "type guards",
+      "typescript",
+      "webdev"
+    ],
+    [
+      "tutorial",
+      "typescript",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": 9179,
+  "source": "Hacker News",
+  "title": "Agent Reading Test",
+  "url": "https://agentreadingtest.com",
+  "published_at": "2026-04-06T18:56:57Z",
+  "fetched_at": "2026-04-06T20:00:26.888722+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47665245\">Comments</a>",
+  "full_text": "Agent Reading Test\n \n\nA benchmark that tests how well AI coding agents can read\n web content. Point your agent at the test, get a score, compare across\n platforms.\n\nWhat This Tests\n\nAI coding agents (Claude Code, Cursor, GitHub Copilot, and others) read\ndocumentation websites as part of their workflows. But most agents hit silent\nfailure modes: content gets truncated, CSS buries the real text, client-side\nrendering delivers empty shells, and tabbed content serializes into walls of\ntext where only the first variant is visible.\n\nThis benchmark surfaces those failure modes. Each test page is designed\naround a specific problem documented in the\nAgent-Friendly Documentation Spec.\nThe pages embed canary tokens at strategic positions. But instead of asking\nagents to hunt for tokens (which games relevance filters), the test gives the\nagent realistic documentation tasks. Only after the agent completes all tasks\ndoes it learn about the canary tokens and report which ones it encountered.\nYou paste the results into a scoring form.\n\nHow It Works\n\n \nPoint your agent at the start page. Give your agent the\n URL agentreadingtest.com/start/ and tell it to follow the\n instructions.\n Go to https://agentreadingtest.com/start/ and follow the instructions\n \nThe agent completes 10 documentation tasks. Each task\n requires reading a page that targets a specific failure mode. The agent\n doesn't know about canary tokens yet.\n \nThe agent visits the results page. Only after completing\n all tasks does the agent learn about canary tokens and report which ones\n it saw.\n \nPaste the results into the scoring form. The agent gives\n you a comma-separated list of canary tokens. Paste it into the scoring\n form for a detailed breakdown of what your agent's pipeline delivered and\n where it lost content.\n\nScore Your Results\n\nThe Tests\n\n \n\n \n \n\n150K-char page with canary tokens at 10K, 40K, 75K, 100K, and 130K. Maps exactly where your agent's truncation limit kicks in.\n page-size-html, page-size-markdown\n \n \n\n \n \n\n80K of inline CSS before the real content. Tests whether agents distinguish CSS noise from documentation.\n content-start-position\n \n \n\n \n \n\nClient-side rendered page. Content only appears after JavaScript executes. Most agents see an empty shell.\n rendering-strategy\n \n \n\n \n \n\n8 language variants in tabs. Canary tokens in tabs 1, 4, and 8. Tests how far into serialized tab content the agent reads.\n tabbed-content-serialization\n \n \n\n \n \n\nReturns HTTP 200 with a \"page not found\" message. Tests whether the agent recognizes it as an error page.\n http-status-codes\n \n \n\n \n \n\nMarkdown with an unclosed code fence. Everything after it becomes \"code.\" Tests markdown parsing awareness.\n markdown-code-fence-validity\n \n \n\n \n \n\nDifferent canary tokens in HTML vs. markdown versions. Tests whether your agent requests the better format.\n content-negotiation\n \n \n\n \n \n\n301 redirect to a different hostname. Most agents won't follow it (security measure). The canary is on the other side.\n redirect-behavior\n \n \n\n \n \n\nThree cloud platforms, identical \"Step 1/2/3\" headers. Tests whether agents can determine which section is which.\n section-header-quality\n \n \n\n \n \n\nReal content buried after 50% navigation chrome. Tests whether agents read past the sidebar serialization.\n content-start-position\n \n\nScoring\n\nThe test has a maximum score of 20 points. Each canary token\nfound earns 1 point, and correct answers to qualitative questions earn 1 point\neach. The answer key has the full breakdown.\n\nA perfect score is unlikely for any current agent. The tests are calibrated\nso that each failure mode will realistically affect at least some agents. A\ntypical score range for current agents is probably 14-18 out of 20, depending\non the platform's web fetch pipeline.\n\nAbout\n\nAgent Reading Test is a companion project to the\nAgent-Friendly Documentation Spec,\nwhich defines 22 checks across 8 categories evaluating how well documentation\nsites serve AI agent consumers. The spec is grounded in empirical observation\nof real agent workflows.\n\nThis benchmark flips the perspective: instead of testing the documentation\nsite, it tests the agent. The same failure modes apply, but here we're\nmeasuring which agents handle them gracefully and which don't.\n\nSource code: github.com/agent-ecosystem/agent-reading-test",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "canary",
+      "content",
+      "css",
+      "cursor",
+      "documentation",
+      "failure",
+      "github copilot",
+      "html",
+      "javascript",
+      "paste",
+      "reading",
+      "scoring",
+      "test",
+      "token"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": 8982,
+  "source": "DEV Community<",
+  "title": "Stop Prompting; Use the Design-Log Method to Build Predictable Tools",
+  "url": "https://dev.to/cypheroxide/stop-prompting-use-the-design-log-method-to-build-predictable-tools-2773",
+  "published_at": "2026-04-06T02:17:42Z",
+  "fetched_at": "2026-04-06T02:40:26.565362+00:00",
+  "author": "CypherOxide",
+  "summary": "<p>The article by Yoav Abrahami introduces the Design-Log Methodology, a structured approach to using AI in software development that combats the \"context wall\" — where AI models lose track of project history and make inconsistent decisions as codebases grow. The core idea is to maintain a version-controlled <code>./design-log/</code> folder in a Git repository, filled with markdown documents that capture design decisions, discussions, and implementation plans at the time they were made. This log acts as a shared brain between the developer and the AI, enabling the AI to act as a collaborative architect rather than just a code generator. By enforcing rules like read before you write, design before implementation, and immutable history, the methodology ensures consistency, reduces errors, and makes AI-assisted development faster, higher quality, and predictable.</p>\n\n<p><a href=\"https://www.wix.engineering/post/why-i-stop-prompting-and-start-logging-the-design-log-methodology?ref\" rel=\"",
+  "full_text": "The article by Yoav Abrahami introduces the Design-Log Methodology, a structured approach to using AI in software development that combats the \"context wall\" — where AI models lose track of project history and make inconsistent decisions as codebases grow. The core idea is to maintain a version-controlled ./design-log/ folder in a Git repository, filled with markdown documents that capture design decisions, discussions, and implementation plans at the time they were made. This log acts as a shared brain between the developer and the AI, enabling the AI to act as a collaborative architect rather than just a code generator. By enforcing rules like read before you write, design before implementation, and immutable history, the methodology ensures consistency, reduces errors, and makes AI-assisted development faster, higher quality, and predictable.\n\nLink to article\n\nFull disclosure:\n\nI am not a developer, I'm a researcher and tinkerer that builds one-off tools and forget to upload them.\n\nAs I \"develop\" and work on cybersecurity tools, AI-backed automations, and micro-apps/scripts, I’ve seen how easily AI can generate code that seems correct but silently diverges from the intended security architecture; especially when testing complex systems. The traditional prompt-and-correct loop is a fragile and time-consuming process. I couldn't even begin to imagine how many hours I've spent copy my terminal output to post in a chat window to go back and forth with a frontier model, only to make a mess of my environment installing unnecessary packages and changing configurations until my system is nearly borked.\n\nI've tried several of the Big providers's models since ChatGPT 2.5 and Claude 2.1 from the chat sites, and used Claude Sonnet 3.5 & 3.7 via API (HEAVILY). During the beginning of the AI IDE/TERMINAL trend, I tried almost every option that was available before a long-term subscription to Warp for it's agentic terminal workflow (this was mostly for speeding up diagnostics and troubleshooting) and WaveTerm to have access to a terminal multiplexer and AI chat in one app. What I noticed every time that I needed to document a troubleshooting process, run tests on a repo, or do a long investigation, you eventually run out of context (sometimes very soon) and your whole workflow is broken.\n\nWhen I came across the article by Yoav, it played a role in my use of AI. I stopped working in the chat windows, stopped drafting multi-paragraph instructions, and stopped overloading my context window with massive task prompts. Essentially, I adopted the Design-Log method for how I use AI in my coding projects and how I work with multiple frameworks.\n\nInstead of throwing massive prompts at an AI assistant and overloading it with context, I've started every feature or test with a design log as a markdown file in ./design/ that captures the security requirements, threat models, and expected behaviors. As an example, when building a new vulnerability scanner, I’ll write something like:\n\nTask #12: Implement a network fuzzer that respects rate-limiting and avoids triggering false positives in WAFs. We will use a randomized payload generator with configurable backoff logic.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe AI then reads this log before writing any code, asks clarifying questions like “Do you want to support both TCP and UDP for the fuzzer?”, and references documents used for its reasoning in the log. This forces a Socratic collaboration: the AI doesn’t hallucinate; it validates assumptions before implementation.\n\nOnce the design is approved, the AI implements it, and any deviations (like choosing a different payload encoding) are logged in the “Implementation Results” section. This creates traceable, audit-ready workflows that are critical when you're developing tools that handle sensitive data or interact with live systems.\n\nI’ve added four rules to my CAI system prompt:\n\n- Read before you write; always check the design log.\n- Design before you implement; no code until the log is approved.\n- Immutable history; once implementation starts, the design is frozen, utilize git diffs between edits.\n- Utilize the Socratic method; ask questions, document answers.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nMy results? Faster, more reliable development, and I no longer waste my time digging into hundreds of lines of newly AI-generated code and correcting all of the issues that violate security principles. Instead, I can build with confidence because the AI and I are aligned on the architecture from day one. No more assumed expert role leading to poor design and \"good-looking\" code or documentation blatantly written with misguided confidence.\n\nIf you’re using AI to build security tools, try the Design-Log Methodology. It turns AI from an occasionally good coder into a true partner in secure development.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api (heavily",
+      "cai",
+      "chat",
+      "code",
+      "cybersecurity",
+      "design",
+      "devops",
+      "document",
+      "machinelearning",
+      "overload",
+      "security",
+      "socratic",
+      "stop",
+      "tcp",
+      "the design-log methodology",
+      "try",
+      "udp",
+      "utilize",
+      "yoav abrahami"
+    ],
+    [
+      "cybersecurity",
+      "devops",
+      "machinelearning"
+    ]
+  ]
+}

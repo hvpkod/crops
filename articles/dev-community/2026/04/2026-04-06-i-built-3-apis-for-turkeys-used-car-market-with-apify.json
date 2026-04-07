@@ -1,0 +1,44 @@
+{
+  "id": 9032,
+  "source": "DEV Community<",
+  "title": "I Built 3 APIs for Turkey’s Used-Car Market with Apify",
+  "url": "https://dev.to/seralifatih/i-built-3-apis-for-turkeys-used-car-market-with-apify-7ph",
+  "published_at": "2026-04-06T08:37:59Z",
+  "fetched_at": "2026-04-06T08:40:38.991188+00:00",
+  "author": "Fatih İlhan",
+  "summary": "<p>Turkey’s used-car market is massive, fragmented, and surprisingly hard to work with if you want structured data.</p>\n\n<p>Listings live across marketplaces, dealer pages are inconsistent, pricing changes fast, and even simple questions like “What is this car worth?” or “Which dealers dominate Istanbul for this brand?” are harder than they should be.</p>\n\n<p>So I built three focused APIs on top of Apify to solve different layers of the problem:</p>\n\n<ol>\n<li>A listing extraction API for Arabam</li>\n<li>A valuation API for Arabam + Sahibinden</li>\n<li>A dealer intelligence API for Arabam + Sahibinden</li>\n</ol>\n\n<p>All three are built for developers, analysts, insurers, lenders, marketplaces, and automotive businesses that need clean Turkish vehicle data instead of brittle scraping scripts.</p>\n\n<h2>\n  \n  \n  1. Arabam.com Vehicle Scraper API\n</h2>\n\n<p>The first API is the raw data layer.</p>\n\n<p>It extracts structured used-car listings from Arabam.com, including title, make, model, yea",
+  "full_text": "Turkey’s used-car market is massive, fragmented, and surprisingly hard to work with if you want structured data.\n\nListings live across marketplaces, dealer pages are inconsistent, pricing changes fast, and even simple questions like “What is this car worth?” or “Which dealers dominate Istanbul for this brand?” are harder than they should be.\n\nSo I built three focused APIs on top of Apify to solve different layers of the problem:\n\nA listing extraction API for Arabam\n\nA valuation API for Arabam + Sahibinden\n\nA dealer intelligence API for Arabam + Sahibinden\n\nAll three are built for developers, analysts, insurers, lenders, marketplaces, and automotive businesses that need clean Turkish vehicle data instead of brittle scraping scripts.\n\n \n \n 1. Arabam.com Vehicle Scraper API\n\nThe first API is the raw data layer.\n\nIt extracts structured used-car listings from Arabam.com, including title, make, model, year, price, mileage, fuel type, transmission, city, seller type, and optional detail-page enrichment like condition and seller metadata.\n\nThis is the API you use when you want the source-of-truth listing data itself.\n\nTypical use cases:\n\nbuilding your own vehicle marketplace dataset\n\nmonitoring listing supply for a specific make/model\n\ncollecting comps for downstream analysis\n\nfeeding machine learning or BI pipelines\n\nExample input:\n\n{\n \"searchUrls\": [\n \"https://www.arabam.com/ikinci-el/otomobil/volkswagen-passat\"\n ],\n \"maxListings\": 5,\n \"scrapeDetails\": true\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nExample output fields:\n\n{\n \"listingId\": \"38718353\",\n \"title\": \"Galeriden Volkswagen Passat 1.6 TDi BlueMotion Business 2020 Model Mersin 124.000 km Füme\",\n \"make\": \"Volkswagen\",\n \"model\": \"Passat\",\n \"year\": 2020,\n \"price\": {\n \"amount\": 2025000,\n \"currency\": \"TRY\"\n },\n \"mileage\": 124000,\n \"fuelType\": \"dizel\",\n \"transmission\": \"yarı_otomatik\",\n \"city\": \"Yüksek Mh. Erdemli, Mersin\",\n \"sellerType\": \"galeri\",\n \"url\": \"https://www.arabam.com/ilan/...\"\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf you need listing-level data, this is the API to start with.\n\n \n \n 2. Turkish Auto Price Tracker API\n\nThe second API is the decision layer.\n\nInstead of returning only listings, it turns listing data into valuation.\n\nYou provide a vehicle spec such as make, model, year range, fuel type, and transmission. The API searches Arabam and Sahibinden, then returns:\n\nlisting-level price records\n\nmedian and average price\n\nmin/max range\n\npercentiles\n\nseller-type breakdown\n\nmileage-bucket analysis\n\nThis is the API for questions like:\n\nWhat is a 2020 diesel Passat actually worth today?\n\nIs this asking price above market?\n\nHow do dealer prices compare to owner-listed prices?\n\nExample input:\n\n{\n \"vehicles\": [\n {\n \"make\": \"Volkswagen\",\n \"model\": \"Passat\",\n \"yearMin\": 2018,\n \"yearMax\": 2022,\n \"fuelType\": \"dizel\"\n }\n ],\n \"platforms\": [\"arabam\"],\n \"maxListingsPerPlatform\": 10\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nExample output includes:\n\nPRICE_RECORD\n\nPRICE_SUMMARY\n\nRUN_SUMMARY\n\nA summary record looks like this in practice:\n\n{\n \"type\": \"PRICE_SUMMARY\",\n \"totalListingsUsed\": 10,\n \"overall\": {\n \"averagePrice\": 1839438,\n \"medianPrice\": 1795750,\n \"minPrice\": 1525000,\n \"maxPrice\": 2169000\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis is the most business-friendly API in the set because it converts raw marketplace noise into a usable market signal.\n\n \n \n 3. Turkish Auto Dealer Intelligence API\n\nThe third API is the market structure layer.\n\nThis one focuses on dealers rather than individual cars.\n\nIt can scrape direct dealer URLs or discover dealers by city and then return structured dealer profiles with:\n\ndealer name\n\ncity and district\n\ncontact details\n\ntrust/profile signals\n\noptional inventory analysis\n\nThat inventory mode is especially useful because it summarizes what a dealer is actually selling:\n\ntotal listings\n\naverage price\n\nmedian price\n\nprice range\n\nfuel breakdown\n\ninventory composition\n\nExample input:\n\n{\n \"platforms\": [\"arabam\"],\n \"searchByCity\": \"istanbul\",\n \"maxDealers\": 3,\n \"includeInventory\": false\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nExample dealer output:\n\n{\n \"type\": \"DEALER_PROFILE\",\n \"dealerName\": \"CM MOTORS\",\n \"city\": \"İstanbul\",\n \"district\": \"Fatih Oto Galeri\",\n \"phone\": \"(0539) 812 32 20\",\n \"dealerUrl\": \"https://www.arabam.com/galeri/cm-motors-istanbul\"\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAnd with inventory enabled:\n\n{\n \"inventory\": {\n \"totalListings\": 6,\n \"averagePrice\": 573483,\n \"medianPrice\": 654000,\n \"priceRange\": {\n \"min\": 259000,\n \"max\": 789000\n }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis is the API for:\n\ndealer benchmarking\n\nlead generation\n\nmarket mapping by city\n\ninventory strategy analysis\n\nB2B automotive intelligence\n\n \n \n Why split this into 3 APIs?\n\nBecause these are three different jobs.\n\nListing extraction is about raw data.\n\nPrice tracking is about market valuation.\n\nDealer intelligence is about competitive structure.\n\nTrying to force all of that into one giant “automotive scraper” would make the product harder to understand, harder to price, and harder for developers to integrate.\n\nThree narrower APIs make the value proposition much clearer.\n\nOne more important point: these APIs are open source, and contributions are welcome. If you want to improve marketplace coverage, harden parsers, expand normalization, add new output fields, improve dealer analytics, or help support more Turkish automotive workflows, you can jump in and contribute. I want this to become a practical open data tooling layer for the Turkish automotive ecosystem, not just a closed product.\n\n \n \n Final thought\n\nTurkey’s automotive market has a lot of publicly visible data, but not a lot of clean, reusable interfaces.\n\nThat’s the gap these APIs are designed to fill.\n\nIf you want listing-level data, use the vehicle scraper.\n\nIf you want valuation, use the price tracker.\n\nIf you want dealer-level market intelligence, use the dealer intelligence API.\n\nThat stack gives you a practical data layer for the Turkish used-car market without rebuilding the scraping and normalization work from scratch.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "apify",
+      "arabam.com",
+      "automotive",
+      "bluemotion business",
+      "data",
+      "dealer",
+      "fullscreen",
+      "inventory",
+      "istanbul",
+      "list",
+      "market",
+      "mersin",
+      "minprice",
+      "mode",
+      "passat",
+      "price",
+      "showdev",
+      "turkey",
+      "turkish",
+      "volkswagen",
+      "webscraping"
+    ],
+    [
+      "showdev",
+      "webscraping"
+    ]
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 9155,
+  "source": "DEV Community<",
+  "title": "How to Decouple Your AI Agent Framework in Three Steps",
+  "url": "https://dev.to/agiorbust/how-to-decouple-your-ai-agent-framework-in-three-steps-2hpd",
+  "published_at": "2026-04-06T17:23:47Z",
+  "fetched_at": "2026-04-06T17:40:29.416267+00:00",
+  "author": "AGIorBust",
+  "summary": "<p>Breaking your AI framework into independent services requires three core adjustments. We solved this exact architectural problem in 2008. So why are we rebuilding monoliths in 2026? Modern AI agent frameworks are slowly reverting to tightly coupled designs by bundling reasoning, tool execution, and memory into single blocks. This creates rigid systems that fracture under production loads. The fix requires explicit separation of concerns: isolate state management, implement event-driven messaging between modules, and treat each capability as an independent service. Decoupling your stack eliminates bottlenecks and future-proofs against model volatility. Apply these patterns now to eliminate tight coupling and streamline your deployment pipeline.</p>",
+  "full_text": "Breaking your AI framework into independent services requires three core adjustments. We solved this exact architectural problem in 2008. So why are we rebuilding monoliths in 2026? Modern AI agent frameworks are slowly reverting to tightly coupled designs by bundling reasoning, tool execution, and memory into single blocks. This creates rigid systems that fracture under production loads. The fix requires explicit separation of concerns: isolate state management, implement event-driven messaging between modules, and treat each capability as an independent service. Decoupling your stack eliminates bottlenecks and future-proofs against model volatility. Apply these patterns now to eliminate tight coupling and streamline your deployment pipeline.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "agents",
+      "ai",
+      "architecture",
+      "couple",
+      "decouple",
+      "eliminate",
+      "framework",
+      "independent",
+      "microservices",
+      "rebuild",
+      "require",
+      "revert",
+      "rigid",
+      "separation"
+    ],
+    [
+      "agents",
+      "architecture",
+      "microservices"
+    ]
+  ]
+}

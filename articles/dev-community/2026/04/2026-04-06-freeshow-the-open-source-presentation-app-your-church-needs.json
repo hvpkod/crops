@@ -1,0 +1,44 @@
+{
+  "id": 9149,
+  "source": "DEV Community<",
+  "title": "FreeShow: The Open Source Presentation App Your Church Needs",
+  "url": "https://dev.to/lporras/freeshow-the-open-source-presentation-app-your-church-needs-mo0",
+  "published_at": "2026-04-06T17:34:11Z",
+  "fetched_at": "2026-04-06T17:40:20.822614+00:00",
+  "author": "Luis Porras",
+  "summary": "<h2>\n  \n  \n  Serving My Church Through Code\n</h2>\n\n<p>Ever since I joined <a href=\"https://www.instagram.com/comunidadfamiliareal/\" rel=\"noopener noreferrer\">Comunidad Familia Real</a>, I've always had a deep desire to serve. Over time, I've been able to do that through the audiovisual team and currently as the leader of our worship band.</p>\n\n<p>But I also wanted to contribute from my talent as a software developer. And I finally found the perfect way to do both.</p>\n\n<h2>\n  \n  \n  Discovering FreeShow\n</h2>\n\n<p>If you've ever been part of a church tech team, you know the struggle: most presentation software for worship is either expensive, proprietary, or clunky. That's why I was thrilled when I discovered <a href=\"https://freeshow.app\" rel=\"noopener noreferrer\">FreeShow</a> — a <strong>free and open source</strong> presentation app designed specifically for churches and live events.</p>\n\n<p>FreeShow lets you handle everything your church needs in one place:</p>\n\n<ul>\n<li>\n<strong>Scr",
+  "full_text": "Serving My Church Through Code\n\nEver since I joined Comunidad Familia Real, I've always had a deep desire to serve. Over time, I've been able to do that through the audiovisual team and currently as the leader of our worship band.\n\nBut I also wanted to contribute from my talent as a software developer. And I finally found the perfect way to do both.\n\n \n \n Discovering FreeShow\n\nIf you've ever been part of a church tech team, you know the struggle: most presentation software for worship is either expensive, proprietary, or clunky. That's why I was thrilled when I discovered FreeShow — a free and open source presentation app designed specifically for churches and live events.\n\nFreeShow lets you handle everything your church needs in one place:\n\nScripture display during sermons\n\nSong lyrics with real-time live display\n\nImages and slides for announcements\n\nInstrumental audio playback\n\nWelcome videos and media\n\nStage display for musicians and speakers\n\nAnd the best part? It's completely free. No subscriptions, no licenses, no limitations.\n\n \n \n Why FreeShow Stands Out\n\nHere's what makes FreeShow special compared to other church presentation tools:\n\nFeature\nFreeShow\nProPresenter\nEasyWorship\n\nPrice\nFree\n$399+\n$199+\n\nOpen Source\nYes\nNo\nNo\n\nCross-platform\nWindows, Mac, Linux\nWindows, Mac\nWindows only\n\nBible integration\nBuilt-in\nBuilt-in\nBuilt-in\n\nLive lyrics\nYes\nYes\nYes\n\nMIDI support\nYes\nYes\nLimited\n\nNDI output\nYes\nYes\nNo\n\n \n \n How We Use It at Our Church\n\nAt Comunidad Familia Real, we started implementing FreeShow to support our weekly services. Here's how we use it:\n\nDuring the sermon — We display Scripture passages on screen so the congregation can follow along\n\nWorship time — Live song lyrics are projected in real time as our band plays\n\nWelcome and announcements — Videos and image slides before and between services\n\nInstrumental background — Ambient music during prayer and reflection moments\n\nThe transition was smooth, and our team picked it up quickly. The interface is intuitive enough that even volunteers with no tech background can operate it.\n\n \n \n From User to Contributor\n\nI liked FreeShow so much that I decided to contribute back to the project. I'm excited to share that my first Pull Request was accepted and is available in the latest version of FreeShow!\n\nView my PR on GitHub\n\nThere's something deeply satisfying about using your professional skills to serve your community AND contribute to a project that helps churches around the world.\n\n \n \n Why Your Church Should Try FreeShow\n\nIf your church is:\n\nPaying for expensive presentation software — FreeShow does what you need, for free\n\nUsing PowerPoint or Google Slides for worship — FreeShow is purpose-built for church services\n\nLooking for something that \"just works\" — it's lightweight, fast, and easy to set up\n\nRunning on different operating systems — it works on Windows, Mac, and Linux\n\nGive it a try. You have nothing to lose.\n\n \n \n Get Started\n\nDownload FreeShow at freeshow.app\n\nImport your song library or create new songs directly in the app\n\nAdd your Bible translations\n\nSet up your output screens\n\nYou're ready for Sunday!\n\nThe FreeShow documentation is a great place to learn the basics, Garry Bjr's YouTube channel has excellent tutorials and walkthroughs, and the community on GitHub is welcoming and active.\n\n \n \n Contribute!\n\nFreeShow is open source and welcomes contributions. Whether you're a developer, designer, translator, or just someone who wants to help improve the documentation — there's a place for you.\n\nCheck out the GitHub repository to get started.\n\nI'm grateful for the opportunities to serve and keep growing as a developer. Technology can be a powerful tool for our communities — and open source makes it accessible to everyone.\n\nHave you used FreeShow or a similar tool at your church? I'd love to hear about your experience in the comments!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "church",
+      "comunidad familia real",
+      "contribute",
+      "display",
+      "electron",
+      "freeshow",
+      "github",
+      "google slides",
+      "ndi",
+      "node",
+      "open",
+      "opensource",
+      "our church",
+      "powerpoint",
+      "presentation",
+      "slides",
+      "source",
+      "videos",
+      "welcome",
+      "windows, mac",
+      "worship"
+    ],
+    [
+      "electron",
+      "github",
+      "node",
+      "opensource"
+    ]
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": 9013,
+  "source": "DEV Community<",
+  "title": "I Got Tired of Opening 5 Different Sites to Plan My Nutrition — So I Built One Free Hub",
+  "url": "https://dev.to/ryancadev/i-got-tired-of-opening-5-different-sites-to-plan-my-nutrition-so-i-built-one-free-hub-4g2e",
+  "published_at": "2026-04-06T05:24:09Z",
+  "fetched_at": "2026-04-06T05:40:26.545339+00:00",
+  "author": "Ryan Caldwell",
+  "summary": "<p>I'm a web developer who also happens to care about fitness. And something has bugged me for years.</p>\n\n<p>Every time I want to recalculate my nutrition plan, I open five different websites:</p>\n\n<ol>\n<li>One for TDEE</li>\n<li>One for macros</li>\n<li>One for calorie deficit targets</li>\n<li>One for protein intake</li>\n<li>One for body fat percentage</li>\n</ol>\n\n<p>Half of these sites now require an account. Most are drowning in ads. A couple have started paywalling features that used to be free — for <em>running a math formula</em>.</p>\n\n<p>These are calculators. They take numbers in and spit numbers out. There is no reason they need an account, an app download, or a subscription.</p>\n\n<p>So I built all of them into one place.</p>\n\n<h2>\n  \n  \n  14 Free Health &amp; Fitness Calculators\n</h2>\n\n<p><strong><a href=\"https://anytools.io/anytools/health\" rel=\"noopener noreferrer\">Anytools.io/health</a></strong> — everything in one spot, zero friction:</p>\n\n<h3>\n  \n  \n  For Nutrition Planni",
+  "full_text": "I'm a web developer who also happens to care about fitness. And something has bugged me for years.\n\nEvery time I want to recalculate my nutrition plan, I open five different websites:\n\nOne for TDEE\n\nOne for macros\n\nOne for calorie deficit targets\n\nOne for protein intake\n\nOne for body fat percentage\n\nHalf of these sites now require an account. Most are drowning in ads. A couple have started paywalling features that used to be free — for running a math formula.\n\nThese are calculators. They take numbers in and spit numbers out. There is no reason they need an account, an app download, or a subscription.\n\nSo I built all of them into one place.\n\n \n \n 14 Free Health & Fitness Calculators\n\nAnytools.io/health — everything in one spot, zero friction:\n\n \n \n For Nutrition Planning\n\nTDEE Calculator — Uses the Mifflin-St Jeor equation (the most accurate BMR formula according to the Academy of Nutrition and Dietetics). Enter your stats, get maintenance calories plus targets for weight loss and gain.\n\nMacro Calculator — Protein, carbs, and fat split based on your specific goal: weight loss, maintenance, muscle gain, or custom ratios.\n\nCalorie Deficit Calculator — Set your target weight, get the daily deficit needed, and see a realistic timeline.\n\nProtein Intake Calculator — Based on body weight and activity level. Shows the range recommended by current sports nutrition research.\n\n \n \n For Training\n\nHeart Rate Zone Calculator — Uses the Karvonen method (based on heart rate reserve), which is significantly more accurate than the generic 220-minus-age formula. Shows all five training zones with target ranges.\n\nOne Rep Max Calculator — Enter your working weight and reps, get estimated 1RM using three different formulas (Epley, Brzycki, Lombardi) so you can compare.\n\nPace Calculator — For runners: enter any two of distance, time, and pace to calculate the third. Includes race time projections for 5K, 10K, half marathon, and marathon.\n\nVO2 Max Estimator — Estimates aerobic fitness level based on your running performance.\n\n \n \n For Body Composition\n\nBody Fat Calculator — US Navy method using simple tape measurements. No calipers needed.\n\nIdeal Body Weight Calculator — Compares four different formulas (Devine, Robinson, Miller, Hamwi) side by side so you can see the range.\n\nBMI Calculator — With context about what the number actually means and its limitations.\n\n \n \n Other Tools\n\nWater Intake Calculator — Based on body weight, activity level, and climate.\n\nSleep Calculator — Calculates optimal bedtimes based on 90-minute sleep cycles.\n\nBAC Calculator — Blood alcohol content estimator.\n\n \n \n Why I Built These as a Web Developer\n\nI could have built a mobile app. But I didn't, for specific reasons:\n\nNo download friction. Nobody wants to install an app just to run a TDEE calculation once. A website you can bookmark works on every device, every platform, instantly.\n\nClient-side processing. Every calculation runs in your browser. Your body measurements, weight, and health data never leave your device. I didn't want to build a tool that collects sensitive health data on a server — that's unnecessary for a calculator.\n\nNo accounts. There's nothing to sign up for because there's nothing to store. You enter numbers, you get results, you close the tab. If you want to recalculate in three months, you just come back.\n\nNo ads. The calculators are fast and clean because they don't need to load 47 ad scripts before showing you a number.\n\n \n \n The Formulas Are Transparent\n\nSomething that bothers me about most online calculators: they don't tell you which formula they're using. You get a number with no context.\n\nEvery calculator on Anytools shows which equation it uses, cites the research behind it, and in several cases lets you compare multiple formulas side by side. The TDEE calculator uses Mifflin-St Jeor. The heart rate zones use Karvonen. The 1RM calculator shows Epley, Brzycki, and Lombardi simultaneously.\n\nIf you care about the math, it's there. If you don't, you still get accurate results.\n\n \n \n What Else Is On the Site\n\nThe health calculators are part of a larger platform. Anytools.io also has:\n\n26 developer tools — JSON formatter, JWT decoder, regex tester, Base64, password generator, etc.\n\n24 design tools — Color palette generator, CSS generators (flexbox, grid, glassmorphism), contrast checker, etc.\n\n16 calculators — Compound interest, loan, mortgage, tip, unit converter, etc.\n\nSame principles everywhere: free, no accounts, client-side, no tracking.\n\nIf you use any of these calculators regularly, I'd genuinely like to know: what's the one fitness/nutrition calculator you wish existed but doesn't? I'm actively building new tools and user requests get prioritized.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bac",
+      "base",
+      "bmr",
+      "body",
+      "brzycki",
+      "build",
+      "calculator",
+      "devine",
+      "epley",
+      "formula",
+      "karvonen",
+      "lombardi",
+      "nutrition",
+      "nutrition planning",
+      "show",
+      "tdee",
+      "tools\n\nwater intake",
+      "us navy",
+      "webdev",
+      "weight"
+    ],
+    [
+      "webdev"
+    ]
+  ]
+}

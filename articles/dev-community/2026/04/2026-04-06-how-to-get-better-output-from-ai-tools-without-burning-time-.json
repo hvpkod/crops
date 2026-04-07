@@ -1,0 +1,40 @@
+{
+  "id": 9094,
+  "source": "DEV Community<",
+  "title": "How to Get Better Output from AI Tools (Without Burning Time and Tokens)",
+  "url": "https://dev.to/israjurrahman/how-to-get-better-output-from-ai-tools-without-burning-time-and-tokens-1nbd",
+  "published_at": "2026-04-06T14:20:14Z",
+  "fetched_at": "2026-04-06T14:40:35.898343+00:00",
+  "author": "Israjur Rahman",
+  "summary": "<p>Most engineers blame the AI when they get bad results. The real issue? The prompt.</p>\n\n<p>Here's what actually works:</p>\n\n\n\n\n<p><strong>1. Be specific upfront</strong><br />\nVague prompts = vague answers.<br />\n❌ \"Write a function to handle errors.\"<br />\n✅ \"Write a Python FastAPI middleware that catches async errors and returns a structured JSON response with status code and message.\"</p>\n\n<p><strong>2. Use constraints</strong><br />\nTell the AI what <em>not</em> to do.<br />\n\"No comments. No print statements. Use async/await with httpx, not requests.\"<br />\nConstraints cut bloat before it's even generated.</p>\n\n<p><strong>3. Give an example</strong><br />\nPoint it to your existing code and say \"match this style.\" Whether you're using Claude Code, Cursor, or GitHub Copilot, letting AI read your codebase directly means it aligns with your naming conventions, patterns, and architecture, no lengthy explanation needed. If you're on a browser-based AI, just paste a snippet, same idea,",
+  "full_text": "Most engineers blame the AI when they get bad results. The real issue? The prompt.\n\nHere's what actually works:\n\n1. Be specific upfront\n\nVague prompts = vague answers.\n\n❌ \"Write a function to handle errors.\"\n\n✅ \"Write a Python FastAPI middleware that catches async errors and returns a structured JSON response with status code and message.\"\n\n2. Use constraints\n\nTell the AI what not to do.\n\n\"No comments. No print statements. Use async/await with httpx, not requests.\"\n\nConstraints cut bloat before it's even generated.\n\n3. Give an example\n\nPoint it to your existing code and say \"match this style.\" Whether you're using Claude Code, Cursor, or GitHub Copilot, letting AI read your codebase directly means it aligns with your naming conventions, patterns, and architecture, no lengthy explanation needed. If you're on a browser-based AI, just paste a snippet, same idea, same result.\n\n4. Assign a role\n\n\"You are a senior backend engineer reviewing this API design for scalability issues.\"\n\nIt steers the reasoning frame and gets you a sharper, more focused review.\n\n5. Break complex tasks apart\n\nDon't ask AI to \"build a full auth system\" in one prompt.\n\nInstead: models → routes → decorators/dependencies → pytest tests. Each step builds on the last and errors are easier to catch.\n\n6. Refine, don't regenerate\n\nSomething's off? Don't restart. Say:\n\n\"This Python function is returning None instead of the parsed JSON, debug just this function, don't touch the rest.\"\n\nTargeted edits save tokens and preserve what's already working.\n\n7. Control output length\n\n\"Give me 3 approaches to this caching problem, one paragraph each.\"\n\nLonger output ≠ better output. It just takes more time to read and review.\n\n8. Know when AI can mislead you\n\nDesigning system architecture, making security-critical decisions, or estimating performance at scale, AI can sound very confident and still be completely wrong. Always validate its output with your own judgment and domain knowledge.\n\nThe core principle?\n\nAI won't fix a bad brief. The quality of your output is directly proportional to the clarity of your input.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "constraints",
+      "cursor",
+      "directly",
+      "error",
+      "function",
+      "github copilot",
+      "middleware",
+      "naming",
+      "output",
+      "productivity",
+      "programming",
+      "promptengineering",
+      "python",
+      "tokens",
+      "vague",
+      "well"
+    ],
+    [
+      "productivity",
+      "promptengineering",
+      "python"
+    ]
+  ]
+}

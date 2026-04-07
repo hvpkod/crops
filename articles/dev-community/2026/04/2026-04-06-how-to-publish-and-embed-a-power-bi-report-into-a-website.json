@@ -1,0 +1,41 @@
+{
+  "id": 9152,
+  "source": "DEV Community<",
+  "title": "How to Publish and Embed a Power BI Report into a Website",
+  "url": "https://dev.to/blinton_kiarie_906fad362c/how-to-publish-and-embed-a-power-bi-report-into-a-website-412",
+  "published_at": "2026-04-06T17:26:42Z",
+  "fetched_at": "2026-04-06T17:40:25.681203+00:00",
+  "author": "Blinton Kiarie",
+  "summary": "<p><strong>A complete, step-by-step guide</strong></p>\n\n<h2>\n  \n  \n  Introduction to Power BI\n</h2>\n\n<p>In today’s data-driven world, businesses rely on clear, interactive insights to make decisions. Power BI, developed by Microsoft, is a powerful business analytics tool that transforms raw data into visually rich dashboards and reports.</p>\n\n<p>One of its most valuable capabilities is the ability to publish reports online and embed them into websites, making insights accessible to a wider audience—whether internal teams or the public.</p>\n\n<p>This guide walks you through the entire publishing and embedding process, from workspace creation to live website integration.</p>\n\n<h2>\n  \n  \n  Step 1: Create a Workspace\n</h2>\n\n<p>A workspace in Power BI is a collaborative environment where reports and dashboards are stored and managed.</p>\n\n<p>Steps:<br />\nLog in to Power BI Service (<a href=\"https://app.powerbi.com\" rel=\"noopener noreferrer\">https://app.powerbi.com</a><br />\n)<br />\nFrom the ",
+  "full_text": "A complete, step-by-step guide\n\n \n \n Introduction to Power BI\n\nIn today’s data-driven world, businesses rely on clear, interactive insights to make decisions. Power BI, developed by Microsoft, is a powerful business analytics tool that transforms raw data into visually rich dashboards and reports.\n\nOne of its most valuable capabilities is the ability to publish reports online and embed them into websites, making insights accessible to a wider audience—whether internal teams or the public.\n\nThis guide walks you through the entire publishing and embedding process, from workspace creation to live website integration.\n\n \n \n Step 1: Create a Workspace\n\nA workspace in Power BI is a collaborative environment where reports and dashboards are stored and managed.\n\nSteps:\n\nLog in to Power BI Service (https://app.powerbi.com\n\n)\n\nFrom the left panel, click Workspaces\n\nSelect + New workspace\n\nEnter:\n\nWorkspace Name\n\nDescription (optional)\n\nClick Save\n\n \n \n Step 2: Upload and Publish Your Report\n\nOnce your workspace is ready, you need to upload your Power BI report.\n\nSteps:\n\nOpen your report in Power BI Desktop\n\nClick Publish (top menu)\n\nSign in if prompted\n\nSelect the workspace you created\n\nClick Select\n\nAlternatively (via browser):\n\nGo to workspace → Click Upload → Select .pbix file\n\n \n \n Step 3: Generate the Embed Code\n\nAfter publishing, Power BI allows you to generate an embed link or iframe.\n\nImportant:\n\nThere are two main embedding methods:\n\nPublic (Publish to Web) → Anyone can view\n\nSecure Embed → Requires authentication\n\nSteps (Public Embed):\n\nOpen your report in Power BI Service\n\nClick File → Embed report → Publish to web\n\nClick Create embed code\n\nCopy the generated iframe code\n\nExample Code:\n\n<iframe width=\"800\" height=\"600\"\nsrc=\"https://app.powerbi.com/view?r=YOUR_REPORT_ID\"\nframeborder=\"0\" allowFullScreen=\"true\"></iframe>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Step 4: Embed the Report on a Website\n\nNow you can place your report directly into any webpage.\n\nSteps:\n\nOpen your website’s HTML file (or CMS editor)\n\nPaste the iframe code where you want the report displayed\n\nSave and publish your webpage\n\nExample:\n\n<div class=\"report-container\">\n <iframe width=\"100%\" height=\"600\"\n src=\"https://app.powerbi.com/view?r=YOUR_REPORT_ID\"\n frameborder=\"0\" allowFullScreen=\"true\"></iframe>\n</div>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nsecure embedding\n\nFor internal or sensitive data:\n\nUse Power BI Embedded (Azure)\n\nRequires authentication\n\nEnsures only authorized users can access reports\n\nkey insights\n\nWhat You Learned:\n\nWorkspaces organize and manage reports efficiently\n\nPublishing connects Power BI Desktop to the cloud\n\nEmbed codes allow seamless integration into websites\n\nPublic embedding is easy—but not secure\n\nTips:\n\nUse responsive iframe sizes for mobile compatibility\n\nAvoid “Publish to Web” for confidential data\n\nOptimize report performance before embedding\n\nUse role-based security for enterprise dashboards\n\n \n \n Conclusion\n\nPublishing and embedding a Power BI report transforms static analysis into interactive, accessible insights. Whether you're showcasing dashboards to stakeholders or integrating analytics into a website, this process bridges the gap between data and decision-making.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "analytics",
+      "beginners",
+      "cms",
+      "conclusion\n\npublishing",
+      "dashboard",
+      "embed",
+      "iframe",
+      "microsoft",
+      "power",
+      "power bi",
+      "power bi desktop",
+      "power bi service",
+      "publish",
+      "select",
+      "step",
+      "tutorial",
+      "website",
+      "workspace",
+      "your_report_id"
+    ],
+    [
+      "analytics",
+      "beginners",
+      "tutorial"
+    ]
+  ]
+}

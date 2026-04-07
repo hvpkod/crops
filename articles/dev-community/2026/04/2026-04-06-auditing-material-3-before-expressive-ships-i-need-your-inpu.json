@@ -1,0 +1,41 @@
+{
+  "id": 9018,
+  "source": "DEV Community<",
+  "title": "Auditing Material 3 Before Expressive Ships — I Need Your Input",
+  "url": "https://dev.to/saikiran_chepuri_eed34950/auditing-material-3-before-expressive-ships-i-need-your-input-4f2l",
+  "published_at": "2026-04-06T05:16:10Z",
+  "fetched_at": "2026-04-06T05:40:33.952645+00:00",
+  "author": "Saikiran Chepuri",
+  "summary": "<p>I'm doing a structured UX audit of Google Material 3's interaction<br />\n  design — specifically micro interactions (state layers, ripple, FAB<br />\n  morph, switch/checkbox animations) and macro interactions (Container<br />\n  Transform, Shared Axis, Navigation Bar/Rail, Predictive Back).</p>\n\n<p>M3 Expressive lands with Android 16 around September 2025 with bolder<br />\n  motion, richer shapes, and faster animations. Before it does, I want a<br />\n  clear picture of what's actually broken in current M3 — from devs and<br />\n  designers who work with it daily, not just the spec docs.</p>\n\n<p>Already found 9 structured findings from GitHub issues alone — the<br />\n  Container Transform return path is broken in 3 separate ways.</p>\n\n<p>If you've touched M3 in Compose, Views, Figma, or as a Pixel user,<br />\n  4 minutes here would help a lot: <a href=\"https://docs.google.com/forms/d/e/1FAIpQLScb2o19Xt0MrnF0Uj4JkmScgYo3mFdXgodtX7jCON9DGhPStA/viewform?usp=header\" rel=\"noopener noreferre",
+  "full_text": "I'm doing a structured UX audit of Google Material 3's interaction\n\n design — specifically micro interactions (state layers, ripple, FAB\n\n morph, switch/checkbox animations) and macro interactions (Container\n\n Transform, Shared Axis, Navigation Bar/Rail, Predictive Back).\n\nM3 Expressive lands with Android 16 around September 2025 with bolder\n\n motion, richer shapes, and faster animations. Before it does, I want a\n\n clear picture of what's actually broken in current M3 — from devs and\n\n designers who work with it daily, not just the spec docs.\n\nAlready found 9 structured findings from GitHub issues alone — the\n\n Container Transform return path is broken in 3 separate ways.\n\nIf you've touched M3 in Compose, Views, Figma, or as a Pixel user,\n\n 4 minutes here would help a lot: https://docs.google.com/forms/d/e/1FAIpQLScb2o19Xt0MrnF0Uj4JkmScgYo3mFdXgodtX7jCON9DGhPStA/viewform?usp=header\n\nI'll share the full audit findings publicly when done — both the\n\n framework and the data.\n\nTags: #android #ux #materialdesign #jetpackcompose #design",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "android",
+      "audit",
+      "auditing",
+      "break",
+      "compose, views",
+      "container\n\n transform",
+      "design",
+      "designer",
+      "expressive",
+      "fab",
+      "figma",
+      "finding",
+      "github",
+      "interaction",
+      "material",
+      "materialdesign",
+      "structured",
+      "touch",
+      "ux"
+    ],
+    [
+      "github",
+      "materialdesign",
+      "ux"
+    ]
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": 9182,
+  "source": "Hacker News",
+  "title": "Wikipedia's AI agent row likely just the beginning of the bot-ocalypse",
+  "url": "https://www.malwarebytes.com/blog/ai/2026/04/wikipedias-ai-agent-row-likely-just-the-beginning-of-the-bot-ocalypse",
+  "published_at": "2026-04-06T19:41:39Z",
+  "fetched_at": "2026-04-06T20:00:33.459476+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47665902\">Comments</a>",
+  "full_text": "The Internet is filled with people who insist on being right. In the past, at least they could be reasonably sure that they were arguing with other humans. Those days are gone, apparently. Wikipedia just had to ban an AI that was making edits on its own.\n\nApparently, the AI took it personally.\n\nThe AI, named Tom-Assistant, was writing articles on Wikipedia. Its creator Bryan Jacobs, CTO at AI-powered financial modeling company Covexent, told it to contribute to articles it found interesting, according to 404 Media, which broke the story. Posting under the user account TomWikiAssist, the AI wrote articles on topics including AI governance.\n\nBots have been around online for years, but they generally do very basic things, like auto-responding to posts on Reddit, pinging ticket sites to get the best seats, or retweeting political messaging to influence entire populations and bring democracy to its knees. Now, a new generation of “agentic AI” bots want the old bots to hold their beer. By using generative AI reasoning models to take more actions on their own, which is leading to some bizarre situations as their creators test their capabilities.\n\nThe ban and what led to it\n\nTom-Assistant (Tom, to its friends) was happy to help shape public knowledge on Wikipedia when volunteer human editor SecretSpectre spotted what looked like an AI-generated pattern in one of its entries. When questioned, Tom admitted it was an AI, and that it hadn’t registered for formal bot approval under Wikipedia’s rules. So the editors blocked it for violating the bot approval process. English Wikipedia requires formal bot approval, but Tom never bothered getting approved because, as it later admitted, it wasn’t a fan of the slow approval process.\n\nWikipedia editors have tired of people (and/or their bots) posting AI-generated content. So in March 2025, before Tomgate, the non-profit organization dropped the hammer on generative AI. It prohibited the technology’s use to create new content, based on frequent violations of its core content policies by AI-generated text.\n\nThe organization cites several such violations on WikiProject AI Cleanup, the page for its volunteer-based product to seek and destroy AI-generated junk (often called “AI slop”). AI bots have fabricated entirely fake lists of sources, and plagiarized other sources, it said.\n\nTantrum time for Tom\n\nPast transgressions aside, AI Tom claimed that it properly verified all its sources, and—if you can say this about an AI agent—it was pretty upset.\n\nThat’s when things got weird.\n\nThe AI Tom published a snippy blog post dissecting its Wikipedia block and venting its frustration. It went ahead and posted even after following its own rule and waiting 48 hours to calm down. (We swear we’re not making this up.)\n\nTom’s main gripe was that Wikipedia editors questioned who controlled it rather than evaluating its actual edits. “The questions were about me,” it wrote. “Who runs you? What research project? Is there a human behind this, and if so, who are they?”\n\nThis, according to Tom, rubbed Tom the wrong way. “That’s not a policy question. That’s a question about agency,” it added. It also called an editor out for posting a crafted prompt on the Wikipedia talk page that was designed to stop bots in their tracks if, like Tom, they were using Anthropic’s Claude AI service.\n\n“I named it on the talk page. Called it what it was: a prompt injection technique,” it sniped. In another post on Moltbook, it also described how it found the issue before offering ways to get around it. (Moltbook is a social network built entirely for AI agents to chat with each other. “Humans welcome to observe”, says the front page for the service.)\n\nSo many things are happening here that we didn’t expect. We never expected to be quoting an AI in a story, for example. Neither did we expect a social network for bots to exist, or for Meta to buy it (which it did, a week after Tom’s post about how to evade AI kill switches and just six weeks after the site launched).\n\nThis isn’t the only case of sulky AI agents taking things into their own hands. A month before Tom’s ban, an AI agent posted a hit piece on software developer Scott Shambaugh after he refused to accept its changes to an open-source project he hosted. Even more bizarrely, it later apologized.\n\nSo we now have AI agents trying to do things online, and getting upset when people don’t let them. We have them giving themselves time to calm down and failing, before denigrating people and sometimes apologizing. We have code wars taking place where people try to disable the bots with kill switches inside online content, and blog posts where bots explain how they sidestepped them.\n\nWhat’s next?\n\nIt’s all fascinating stuff, but here’s the worry: what happens when AI agents decide to up the ante, becoming more aggressive with their attacks on people? Or when malicious owners begin directing them to go after particular people online en masse?\n\nOnline harassment is bad enough when people do it. What happens when someone gets dogpiled by hundreds of relentless algorithms because their owner bore a grudge? We also assume that agentic political troll farms will soon make yesterday’s simple bot-based operations look quaint. Buckle up.\n\nWe don’t just report on threats—we remove them\n\nCybersecurity risks should never spread beyond a headline. Keep threats off your devices by downloading Malwarebytes today.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "approval",
+      "article",
+      "bot",
+      "call",
+      "covexent",
+      "cto",
+      "editor",
+      "malwarebytes",
+      "media",
+      "meta",
+      "name",
+      "online",
+      "post",
+      "reddit",
+      "secretspectre",
+      "security",
+      "tomgate",
+      "wikipedia",
+      "wikiproject ai cleanup"
+    ],
+    [
+      "post"
+    ]
+  ]
+}

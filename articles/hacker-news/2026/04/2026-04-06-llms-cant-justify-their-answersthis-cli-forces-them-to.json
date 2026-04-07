@@ -1,0 +1,29 @@
+{
+  "id": 8997,
+  "source": "Hacker News",
+  "title": "LLMs can't justify their answers–this CLI forces them to",
+  "url": "https://wheat.grainulation.com/",
+  "published_at": "2026-04-06T01:07:51Z",
+  "fetched_at": "2026-04-06T03:20:29.203111+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47655721\">Comments</a>",
+  "full_text": "/research \"GraphQL performance characteristics\"\n \n\nGather evidence\n \n\nwheat reads your codebase, searches the web, and records what it finds. Each finding gets a type (factual, risk, estimate) and an evidence grade — from \"stated\" (someone said it) to \"tested\" (prototype-validated).\n \n\nr001 [factual|documented] GraphQL eliminates over-fetching for\n mobile clients, reducing payload size 40-60%\nr002 [factual|web] GraphQL N+1 query problem requires DataLoader\n or equivalent batching layer\nr003 [risk|documented] Existing REST caching (CDN, HTTP) does not\n transfer to GraphQL without custom solutions",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "batching",
+      "cache",
+      "cdn",
+      "dataloader",
+      "eliminate",
+      "equivalent",
+      "evidence",
+      "exist",
+      "graphql",
+      "reduce",
+      "wheat"
+    ],
+    []
+  ]
+}

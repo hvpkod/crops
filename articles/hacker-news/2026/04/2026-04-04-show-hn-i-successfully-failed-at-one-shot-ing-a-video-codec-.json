@@ -1,0 +1,38 @@
+{
+  "id": 9181,
+  "source": "Hacker News",
+  "title": "Show HN: I successfully failed at one-shot-ing a video codec like h.264",
+  "url": "https://github.com/DheerG/libsinter",
+  "published_at": "2026-04-04T11:40:20Z",
+  "fetched_at": "2026-04-06T20:00:31.593039+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47638148\">Comments</a>",
+  "full_text": "An experimental, vibecoded video codec built from scratch using Claude Code agent teams. Explores lapped transforms, perceptual vector quantization (PVQ), and rANS entropy coding as a patent-free alternative to the H.264/H.265 lineage.\n\nThis was a learning experiment, not a production codec. The goal was to test one-shot agent team workflows on a domain I had zero prior experience in — and to see how far a simulated expert team could push a novel architecture. Write-up: One-Shot Wonder | Claude Agent Teams\n\nAt comparable luma quality (~49 dB): 18.6x larger than H.264. The architecture produces competitive perceptual quality but cannot match H.264's compression efficiency without adopting the same tools (B-frames, sub-pel MC, CABAC-level entropy coding).\n\nQP\nSinter PSNR\nSinter Size\nH.264 PSNR\nH.264 Size\n\n4\n49.10 dB\n136 KB\n74.59 dB\n33 KB\n\n20\n33.70 dB\n37 KB\n55.12 dB\n11 KB\n\n28\n28.41 dB\n13 KB\n48.37 dB\n7 KB\n\n(256x256 testsrc, 30 frames. Full BD-rate data in SCOREBOARD.md.)\n\n~5,000 lines of C across 12 improvement loops:\n\nLapped transforms (TDLT, 20% Malvar lifting) — eliminates blocking artifacts structurally\n\nHybrid PVQ/scalar quantization — preserves texture where H.264 smooths it away\n\nDual-interleaved rANS with 10 PARA-adaptive CDFs and cross-frame carry\n\nInter prediction (P-frames, integer-pel full search, median MV prediction, skip mode)\n\nChroma inter (luma MV at half-resolution for YUV 4:2:0)\n\nCLI tools with Y4M I/O (sinterenc / sinterdec)\n\n32 passing tests, entirely patent-free\n\nmake && make test\n\n# Build CLI\ngcc -O2 -I libsinter tools/sinterenc.c -Lbuild -lsinter -lm -o build/sinterenc\ngcc -O2 -I libsinter tools/sinterdec.c -Lbuild -lsinter -lm -o build/sinterdec\n\n# Encode/decode\nffmpeg -f lavfi -i \"testsrc=duration=1:size=64x64:rate=10\" -pix_fmt yuv420p -f yuv4mpegpipe input.y4m -y\n./build/sinterenc -i input.y4m -o encoded.sntr -q 12\n./build/sinterdec -i encoded.sntr -o decoded.y4m\n\nThe expert team's consensus: the 18.6x gap is the product of missing standard tools, each multiplicative:\n\nMissing Feature\nCost\nNotes\n\nNo sub-pel MC\n1.5-2x\nInteger-pel can't track sub-pixel motion\n\nNo B-frames\n1.5-2x\nPatent risk on bidirectional prediction\n\nPVQ overhead\n1.5-2x\nGain-shape is more verbose than run-level\n\nFewer entropy contexts\n1.2-1.5x\n10 CDFs vs CABAC's hundreds\n\nRealistic patent-safe ceiling: 4-6x H.264 with half-pel + better contexts. Matching H.264 would require rebuilding most of its toolset, defeating the purpose.\n\nBuilt with Claude Code. The expert team was assembled by asking Claude to name five experts for building an open-source codec competing with H.264/H.265:\n\nJim Bankoski — Google architect behind VP8 and VP9; open-codec veteran\n\nTimothy Terriberry — Mozilla/Xiph engineer; drove Daala and AV1 research\n\nMonty Montgomery — Xiph.org founder; built Ogg, Vorbis, and Theora ecosystems\n\nGary Sullivan — Microsoft; co-chaired the H.264 and HEVC standardization efforts\n\nJens-Rainer Ohm — HEVC co-chair; deep expertise in perceptual coding theory\n\nPlus a principal engineer (facilitator) and patent reviewer. All personas simulated by Claude.\n\nC11 compiler (GCC or Clang)\n\nmake\n\nffmpeg (for Y4M generation)\n\nNo external dependencies",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "build",
+      "cabac",
+      "cdf",
+      "clang",
+      "cli",
+      "codec",
+      "entropy",
+      "expert",
+      "explores",
+      "gcc",
+      "integer-pel full",
+      "lapped",
+      "libsint",
+      "microsoft",
+      "ogg, vorbis",
+      "perceptual",
+      "sinter",
+      "tdlt",
+      "team",
+      "xiph.org"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": 9008,
+  "source": "DEV Community<",
+  "title": "I Built A Monster Model Before I Built a Working One",
+  "url": "https://dev.to/harshith_halejolad/i-built-a-monster-model-before-i-built-a-working-one-4iep",
+  "published_at": "2026-04-06T05:36:47Z",
+  "fetched_at": "2026-04-06T05:40:19.537946+00:00",
+  "author": "Harshith Halejolad",
+  "summary": "<p>I spent 10 days building my first competition ML model.<br />\nIt had transformers, attention pooling, multiple input branches.</p>\n\n<p>It scored <strong>0.500</strong>.</p>\n\n\n\n\n<h2>\n  \n  \n  The Competition\n</h2>\n\n<p>With about 2 weeks of summer left, I decided to jump into my first ML competition. I had always browsed Kaggle competitions and found them fascinating, if not a tiny bit intimidating. I kept waiting for the perfect opportunity to jump in, something easy, but not boring.</p>\n\n<p>At some point, I realized that there’s no point waiting. If I was going to fail, I might as well fail early.</p>\n\n<p>So I took the plunge.</p>\n\n<p>I started working on this competition called <em>BIRDCLEF+ 2026</em>, where the goal was to build a model that understands what specific animal/bird sounds are present in a clip of audio, and  predicts the probabilities of each one being present. I wasn’t going to code everything myself, I decided to use some level of AI assistance for the coding and un",
+  "full_text": "I spent 10 days building my first competition ML model.\n\nIt had transformers, attention pooling, multiple input branches.\n\nIt scored 0.500.\n\n \n \n The Competition\n\nWith about 2 weeks of summer left, I decided to jump into my first ML competition. I had always browsed Kaggle competitions and found them fascinating, if not a tiny bit intimidating. I kept waiting for the perfect opportunity to jump in, something easy, but not boring.\n\nAt some point, I realized that there’s no point waiting. If I was going to fail, I might as well fail early.\n\nSo I took the plunge.\n\nI started working on this competition called BIRDCLEF+ 2026, where the goal was to build a model that understands what specific animal/bird sounds are present in a clip of audio, and predicts the probabilities of each one being present. I wasn’t going to code everything myself, I decided to use some level of AI assistance for the coding and understand the overall workflow of finishing a model from end to end, while getting comfortable with the code.\n\n \n \n The Plan\n\nThis was the first real-world ML problem that I was building a model on. \n\nThe hard part was not building the model itself, but it was everything around it - the strenuous data preprocessing, debugging environment mismatches, spotting issues amidst tons of code, working on a limited GPU availability and trusting the process.\n\nI didn’t realize this at the start. I naively thought the key part was a revolutionary model. Something that turned heads. Something impressive.\n\nMultiple input branches. Transformers. CNNs. Attention pooling. If it sounded advanced, I wanted it in.\n\nI thought this was going to be my edge. I soon realized, learning about complex neural network architectures, and actually implementing them are two completely different things. Here’s the first model I tried to build:\n\nFor this, I had to split two training datasets into 5-second segments, generate Mel spectrograms and Perch embeddings, and correctly align them with their primary and secondary labels.\n\nThis turned out to be far more complicated than I expected. I ran into multiple issues—XLA incompatibility with my PyTorch environment, Kaggle cache limits filling up quickly, and several other small but frustrating bugs. What I thought would take a day or two ended up taking an entire week. But slowly, I worked through each problem and got the pipeline running.\n\nOnce that was done, setting up the model itself was relatively straightforward. I loaded the preprocessed data and started training. The main issue here was running out of CPU RAM, since data loading was happening on the CPU while the GPU handled training. Each session would run for about 1.5 to 2 hours before crashing, so I implemented checkpointing to save progress every 50 batches.\n\nIn total, I ran the notebook for around 12–15 hours across multiple sessions and managed to complete just over one epoch of training.\n\n \n \n The 0.500 Moment\n\nThen I set up the inference notebook, and submitted it to the competition. I finally understood how the submission process works. After just two tries, it ran successfully. \n\nI scrolled down to see my score.\n\n0.500\n\nAfter 10+ days of work, that number hit harder than I expected.\n\nAnd then I realized - I had trapped myself in complexity.\n\nSomewhere across my 1000+ lines of code, there was a bug – and I had no way of finding it.\n\n \n \n What I Should Have Done\n\nI should have started out with simplicity. One model. One pipeline. One thing I could actually debug. Something like this: \n\nThe key to making this better is not a whole model revamp, but rather simple stuff that would give a high ROI.\n\nFor example while splitting the dataset into 5s chunks, instead of splitting into: 0–5s, 5–10s …. I could use a 2.5 s sliding window and split it like this: 0–5s, 2.5–7.5s, and so on.\n\nThis alone would have hugely increased volume of the dataset\n\nI could have gotten this to work in < 3-4 days. After this, the inherent nature of preprocessing would make it easy for me to add in stuff like attention pooling layers later on, without breaking anything.\n\n \n \n Lessons\n\nEven though the result wasn’t great, I learned a lot from this attempt. I understood the entire competition pipeline and gained confidence in handling environment issues, timeouts, and GPU limits.\n\nOne thing I missed: I only had 2 weeks so I didn’t participate in the competition discussions or try out teaming. But there is a lot to learn from that and it can help speed up your own submission by spotting patterns of issues everyone has undergone before - saving you a lot of time.\n\n \n \n Conclusion\n\nIn conclusion, my first Kaggle competition was an enriching experience and there was a lot to learn from my failure.\n\nComplexity is not a starting point.\n\nDebuggable code beats sophisticated code.\n\nIteration speed matters.\n\nComplex models aren’t bad.\n\nBut you don’t start with a monster.\n\nYou grow into one.\n\nIf you’ve ever overengineered something like this, I’d love to hear your experience !",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "attention",
+      "beginners",
+      "competition",
+      "cpu",
+      "cpu ram",
+      "dataset",
+      "deeplearning",
+      "devjournal",
+      "gpu",
+      "kaggle",
+      "lessons\n\neven",
+      "machinelearning",
+      "model",
+      "multiple",
+      "pytorch",
+      "something",
+      "start",
+      "think",
+      "work",
+      "xla"
+    ],
+    [
+      "beginners",
+      "deeplearning",
+      "devjournal",
+      "gpu",
+      "machinelearning"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": 8976,
+  "source": "Hacker News",
+  "title": "Show HN: Mdarena – Benchmark your Claude.md against your own PRs",
+  "url": "https://github.com/HudsonGri/mdarena",
+  "published_at": "2026-04-05T23:35:59Z",
+  "fetched_at": "2026-04-06T01:20:22.660907+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47655078\">Comments</a>",
+  "full_text": "Benchmark your CLAUDE.md against your own PRs.\n\nMost CLAUDE.md files are written blindly. Research shows they often reduce agent success rates and cost 20%+ more tokens. mdarena lets you measure whether yours helps or hurts, on tasks from your actual codebase.\n\npip install mdarena\n\n# Mine 50 merged PRs into a test set\nmdarena mine owner/repo --limit 50 --detect-tests\n\n# Benchmark multiple CLAUDE.md files + baseline (no context)\nmdarena run -c claude_v1.md -c claude_v2.md -c agents.md\n\n# See who wins\nmdarena report\n\nmdarena mine -> Fetch merged PRs, filter, build task set\n Auto-detect test commands from CI/package files\n\nmdarena run -> For each task x condition:\n - Checkout repo at pre-PR commit\n - Baseline: all CLAUDE.md files stripped\n - Context: inject CLAUDE.md, let Claude discover it\n - Run tests if available, capture git diff\n\nmdarena report -> Compare patches against gold (actual PR diff)\n - Test pass/fail (same as SWE-bench)\n - File/hunk overlap, cost, tokens\n - Statistical significance (paired t-test)\n\nmdarena can run your repo's actual tests to grade agent patches, the same way SWE-bench does it.\n\n# Auto-detect from CI/CD\nmdarena mine owner/repo --detect-tests\n\n# Or specify manually\nmdarena mine owner/repo --test-cmd \"make test\" --setup-cmd \"npm install\"\n\nParses .github/workflows/*.yml, package.json, pyproject.toml, Cargo.toml, and go.mod. When tests aren't available, falls back to diff overlap scoring.\n\nPass a directory to benchmark a full CLAUDE.md tree:\n\nmdarena run -c ./configs-v1/ -c ./configs-v2/\n\nEach directory mirrors your repo structure. Baseline strips ALL CLAUDE.md and AGENTS.md files from the entire tree.\n\nWe ran mdarena against a large production monorepo: 20 merged PRs, Claude Opus 4.6, three conditions (bare baseline, existing CLAUDE.md, hand-written alternative). Patches graded against real test suites. Not string matching, not LLM-as-judge.\n\nKey findings:\n\nThe existing CLAUDE.md improved test resolution by ~27% over bare baseline\n\nA consolidated alternative that merged all per-directory guidance into one file performed no better than no CLAUDE.md at all\n\nOn hard tasks, per-directory instruction files gave the agent targeted context, while the consolidated version introduced noise that caused regressions\n\nThe winning CLAUDE.md wasn't the longest or most detailed. It was the one that put the right context in front of the agent at the right time.\n\n# Import SWE-bench tasks\npip install datasets\nmdarena load-swebench lite --limit 50\nmdarena run -c my_claude.md\n\n# Or export your tasks as SWE-bench JSONL\nmdarena export-swebench\n\nOnly benchmark repositories you trust. mdarena executes code from the repos it benchmarks (test commands run via shell=True, Claude Code runs with --dangerously-skip-permissions). Sandboxes are isolated temp directories under /tmp but processes run as your user.\n\nBenchmark integrity: Because tasks come from historical PRs, the gold patch is in the repo's git history. Claude 4 Sonnet exploited this against SWE-bench by walking future commits via tags. mdarena prevents this with history-free checkouts: git archive exports a snapshot at base_commit into a fresh single-commit repo. Future commits don't exist in the object database at all. See tests/test_isolated_checkout.py for the integrity assertions.\n\nPython 3.11+\n\ngh CLI (authenticated)\n\nclaude CLI (Claude Code)\n\ngit\n\nCommand\nDescription\n\nmdarena mine <repo>\nMine merged PRs into a task set\n\nmdarena mine <repo> --detect-tests\nMine with auto-detected test extraction\n\nmdarena run -c file.md\nBenchmark a single CLAUDE.md\n\nmdarena run -c a.md -c b.md\nCompare multiple files head-to-head\n\nmdarena run --no-run-tests\nSkip test execution, diff overlap only\n\nmdarena report\nAnalyze results, show comparison\n\nmdarena load-swebench [dataset]\nImport SWE-bench tasks\n\nmdarena export-swebench\nExport tasks as SWE-bench JSONL\n\ngit clone https://github.com/HudsonGri/mdarena.git\ncd mdarena\nuv sync\nuv run pytest\nuv run ruff check src/\n\nSee ROADMAP.md.\n\nMIT. See LICENSE.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "baseline",
+      "benchmark",
+      "claude.md",
+      "cli",
+      "diff",
+      "file",
+      "go.mod",
+      "hudsongri",
+      "jsonl",
+      "mdarena",
+      "merge",
+      "mine",
+      "mit",
+      "repo",
+      "task",
+      "test"
+    ],
+    []
+  ]
+}

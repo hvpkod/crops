@@ -1,0 +1,42 @@
+{
+  "id": 9184,
+  "source": "DEV Community<",
+  "title": "From Doer To Manager",
+  "url": "https://dev.to/lingxin_wang_3b88f34b4014/from-doer-to-manager-1gpa",
+  "published_at": "2026-04-06T20:16:32Z",
+  "fetched_at": "2026-04-06T20:20:22.996108+00:00",
+  "author": "lingxin wang",
+  "summary": "<h1>\n  \n  \n  I Had It Completely Backwards\n</h1>\n\n\n\n\n<p>When I started working on this AI Agent project, I fell into a trap.</p>\n\n<p>I was thinking: how do I teach AI to write SQL?</p>\n\n<p>I actually started listing rules — \"use BETWEEN for dates,\" \"remember JOIN for multi-table queries,\" \"field names use underscores not camelCase\"...</p>\n\n<p>Halfway through I realized something was off. This list would be endless. And honestly, my own SQL wasn't that great. How was I supposed to \"teach\" an AI?</p>\n\n<p>Then my mentor said something that clicked:</p>\n\n<blockquote>\n<p>\"AI doesn't need you to teach it SQL. It already knows. It knows more than you do.\"</p>\n</blockquote>\n\n<p>So where was the problem?</p>\n\n\n\n\n<h2>\n  \n  \n  The Real Problem\n</h2>\n\n<p>The issue wasn't that AI can't write code. The issue was <strong>it didn't know what my database looked like</strong>.</p>\n\n<p>It's like a transfer student.</p>\n\n<p>Their math foundation is solid — they know all the theorems and formulas. But give",
+  "full_text": "I Had It Completely Backwards\n\nWhen I started working on this AI Agent project, I fell into a trap.\n\nI was thinking: how do I teach AI to write SQL?\n\nI actually started listing rules — \"use BETWEEN for dates,\" \"remember JOIN for multi-table queries,\" \"field names use underscores not camelCase\"...\n\nHalfway through I realized something was off. This list would be endless. And honestly, my own SQL wasn't that great. How was I supposed to \"teach\" an AI?\n\nThen my mentor said something that clicked:\n\n\"AI doesn't need you to teach it SQL. It already knows. It knows more than you do.\"\n\nSo where was the problem?\n\n \n \n The Real Problem\n\nThe issue wasn't that AI can't write code. The issue was it didn't know what my database looked like.\n\nIt's like a transfer student.\n\nTheir math foundation is solid — they know all the theorems and formulas. But give them a word problem and they're stuck — because they don't know the background. The problem says \"distance between A and B is 500 km,\" they don't know what A and B are. It says \"Xiaoming's speed is 60 km/h,\" they don't know who Xiaoming is.\n\nAI is the same way.\n\nYou ask it \"find all high-risk patients\" — it doesn't know what criteria define high-risk. Your database has a risk_level field, it doesn't know. The values are 'high', 'medium', 'low', it doesn't know that either.\n\nPlenty of capability, missing information.\n\n \n \n Give It \"Background Knowledge\" Like a Teacher\n\nOnce I understood this, the approach became clear.\n\nI didn't need to teach AI how to write SQL. I needed to tell it what my database looks like.\n\nJust like a good teacher doesn't assume students know everything. They provide background first:\n\n\"A is Beijing, B is Shanghai\"\n\n\"Xiaoming rides a bicycle, relatively slow\"\n\n\"This problem is about pursuit\"\n\nWith that background, the student can solve it themselves.\n\nSame with AI. I give it this information:\n\n\"Your database has 11 tables\"\n\n\"Patient info is in the patient table\"\n\n\"High-risk marking is in ob_profile.risk_level, values are 'high' or 'low'\"\n\nWith this, it can write correct SQL on its own.\n\n \n \n How to Pass Information Efficiently\n\nBut there's a problem: database structure information is extensive. 11 tables, dozens of fields, each with types, constraints, relationships... writing it all out is thousands of words.\n\nGive all of it to the AI? You could, but it's wasteful.\n\nIt's like teaching a class. You don't read the entire textbook aloud. You highlight key points: these pages matter, this formula will be on the test, this example is important.\n\nThe code does the same thing.\n\nOriginal database definition looks like this:\n\nCREATE TABLE patient (\n patient_id INTEGER NOT NULL PRIMARY KEY,\n name VARCHAR(100) NOT NULL,\n age INTEGER,\n created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCompressed, it becomes:\n\npatient(patient_id:int*PK, name:str*NN, age:int, created_at:ts)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNo information lost, 70% shorter.\n\nThis is the trick for giving AI reading comprehension: high information density, minimal fluff, clear priorities.\n\n \n \n A Mindset Shift\n\nAfter this lesson, I had a significant realization:\n\nThe core skill for using AI isn't programming — it's information organization.\n\nBefore, when I coded, my mindset was \"I do it\" — I write functions, I call APIs, I debug.\n\nNow with AI, the mindset needs to shift to \"I provide information\" — I organize the database structure, clarify business rules, spell out constraints.\n\nIt's like going from student to teacher.\n\nStudents care about \"how do I solve this problem.\" Teachers care about \"how do I explain the background so students can solve it themselves.\"\n\nUsing AI means being the AI's teacher.\n\n \n \n For People Just Starting Out\n\nIf you're also learning AI Agent development, here's what I'd share:\n\nDon't try to \"teach\" AI how to do things.\n\nAI is smart enough. Most skills it already has. What you need to do:\n\nFigure out what information it's missing\n\nOrganize that information into a clear, compact format\n\nProvide it at the right moment\n\nThis skill will become increasingly important.\n\nYou're not just passing database schema to AI — you'll pass code context, conversation history, business rules. It's all the same thing: efficiently deliver the information AI needs.\n\n \n \n What I'm Taking Away\n\nThe biggest change from this lesson isn't learning how to extract Schema. It's realizing a role shift:\n\nFrom \"person who does things\" to \"person who manages information.\"\n\nI used to think the core programmer skill was writing code.\n\nNow I think the core skill in the AI era might be organizing and transmitting information.\n\nAI can help write code. But how to organize information, when to provide it, how much to give — those judgments still require humans.\n\nThat's my early-career perspective on \"how to work in the AI era.\"\n\nHope it's helpful to others on the same learning path.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agents",
+      "ai",
+      "beijing",
+      "database",
+      "give",
+      "halfway",
+      "information",
+      "int*pk",
+      "integer",
+      "mindset",
+      "null primary key",
+      "organize",
+      "provide",
+      "shanghai",
+      "skill",
+      "sql",
+      "str*nn",
+      "student",
+      "teach",
+      "the real problem",
+      "write",
+      "xiaoming"
+    ],
+    [
+      "agents"
+    ]
+  ]
+}

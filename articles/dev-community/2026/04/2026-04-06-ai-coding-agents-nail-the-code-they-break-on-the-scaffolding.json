@@ -1,0 +1,40 @@
+{
+  "id": 9010,
+  "source": "DEV Community<",
+  "title": "AI coding agents nail the code. They break on the scaffolding.",
+  "url": "https://dev.to/urbanisierung/stay-ahead-in-web-development-latest-news-tools-and-insights-131-1n7h",
+  "published_at": "2026-04-06T05:28:16Z",
+  "fetched_at": "2026-04-06T05:40:21.982861+00:00",
+  "author": "Adam",
+  "summary": "<p>Signup <a href=\"https://weeklyfoo.com\" rel=\"noopener noreferrer\">here</a> for the newsletter to get the weekly digest right into your inbox.</p>\n\n<p>When AI coding agents fall short, the failure is almost never \"it generated bad code.\" The failure is everything else — the environment state, the implicit decisions baked into a config three years ago, the reason that dependency is pinned to that version.</p>\n\n<p>Joel Andrews published one of the more grounded take-downs of AI coding agents this week. Not a hype piece in either direction — just a practitioner's account of where these tools consistently fall apart in real production environments. The pattern he describes maps to something Daniel Miessler flagged in his April AI synthesis: most of what developers call \"work\" was actually maintaining an elaborate, fragile state required <em>for</em> work to happen. The AI exposed it by stumbling directly into it.</p>\n\n<p>This is what \"scaffolding\" means in practice. Your agent can write a",
+  "full_text": "Signup here for the newsletter to get the weekly digest right into your inbox.\n\nWhen AI coding agents fall short, the failure is almost never \"it generated bad code.\" The failure is everything else — the environment state, the implicit decisions baked into a config three years ago, the reason that dependency is pinned to that version.\n\nJoel Andrews published one of the more grounded take-downs of AI coding agents this week. Not a hype piece in either direction — just a practitioner's account of where these tools consistently fall apart in real production environments. The pattern he describes maps to something Daniel Miessler flagged in his April AI synthesis: most of what developers call \"work\" was actually maintaining an elaborate, fragile state required for work to happen. The AI exposed it by stumbling directly into it.\n\nThis is what \"scaffolding\" means in practice. Your agent can write a correct function. It cannot know why your test suite is configured with that specific mock, or why a particular environment variable gets overridden in staging but not local. That context lives in heads and in Slack threads and in the institutional memory of whoever set it up in 2022. The model doesn't have it.\n\nDrew Breunig's framing of the second phase of agentic development makes more sense through this lens. Phase one was: can the AI generate code? (Yes, mostly.) Phase two is: can the agent operate within the scaffolding well enough to do something useful end-to-end? The answer right now is: inconsistently, and the variance is high. Spec-driven development isn't just a prompt engineering trick — it's an attempt to externalize the scaffolding into something the agent can read.\n\nWhat's encouraging is that we're getting honest data now. The honeymoon period where everything was demos and benchmarks is ending. Practitioners are writing up where it works and where it doesn't, and the failure modes are getting specific enough to be actionable.\n\nSome uncomfortable truths about AI coding agents — grounded production observations from Joel Andrews on where agents consistently fall short, with specifics that let you actually plan around them\n\nThe 2nd Phase of Agentic Development — Drew Breunig's model for the phase shift from \"can it code?\" to spec-driven idiosyncratic tooling\n\nThe Most Important Ideas in AI Right Now (April 2026) — Daniel Miessler's quarterly synthesis, worth reading for the self-improvement and transparency threads that contextualize where the capability ceiling actually sits\n\nInside the Claude Code source — Haseeb Qureshi's reverse-engineering of the Claude Code CLI from the full TypeScript leak; seeing the internals clarifies how the scaffolding problem is being handled at the tool level\n\nThe next useful thing the AI tooling community could build isn't a better code generator. It's better scaffolding capture — structured context files, agent instructions, decision logs that encode why the codebase is the way it is. The teams building that layer now will get substantially more out of agents than teams that keep treating them as fast autocomplete.\n\nWant to read more? Check out the full issue here.\n\nTo sign up for the weekly newsletter, visit weeklyfoo.com.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "andrews",
+      "cod",
+      "consistently",
+      "failure",
+      "ground",
+      "javascript",
+      "node",
+      "phase",
+      "scaffold",
+      "slack",
+      "specific",
+      "tooling",
+      "typescript",
+      "webdev",
+      "weeklyfoo"
+    ],
+    [
+      "node",
+      "tooling",
+      "typescript",
+      "webdev",
+      "weeklyfoo"
+    ]
+  ]
+}

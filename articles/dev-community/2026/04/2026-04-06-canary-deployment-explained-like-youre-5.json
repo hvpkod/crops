@@ -1,0 +1,37 @@
+{
+  "id": 9248,
+  "source": "DEV Community<",
+  "title": "🐤 Canary Deployment Explained Like You're 5",
+  "url": "https://dev.to/esreekarreddy/canary-deployment-explained-like-youre-5-484j",
+  "published_at": "2026-04-06T22:39:31Z",
+  "fetched_at": "2026-04-06T23:20:40.934003+00:00",
+  "author": "Sreekar Reddy",
+  "summary": "<p><em>Testing updates on small subset first</em></p>\n\n<p><strong>Day 102 of 149</strong></p>\n\n<p>👉 <strong><a href=\"https://sreekarreddy.com/learn/eli5/canary-deployment\" rel=\"noopener noreferrer\">Full deep-dive with code examples</a></strong></p>\n\n\n\n\n<h2>\n  \n  \n  The Canary in the Coal Mine Analogy\n</h2>\n\n<p>Miners used to bring canaries into mines:</p>\n\n<ul>\n<li>If there was dangerous gas, the canary would react first</li>\n<li>Miners would see the warning and escape</li>\n<li>Small bird saves many lives</li>\n</ul>\n\n<p><strong>Canary Deployment works the same way!</strong></p>\n\n<p>Send a small percentage of traffic to the new version first.</p>\n\n\n\n\n<h2>\n  \n  \n  The Problem It Solves\n</h2>\n\n<p>Deploying new code is risky:</p>\n\n<ul>\n<li>Works in testing, might break in production</li>\n<li>Deploy to all users at once? If it breaks, lots of users can be affected</li>\n<li>Hard to predict all real-world issues</li>\n</ul>\n\n\n\n\n<h2>\n  \n  \n  How It Works\n</h2>\n\n\n\n<div class=\"highlight js-code-h",
+  "full_text": "Testing updates on small subset first\n\nDay 102 of 149\n\n👉 Full deep-dive with code examples\n\n \n \n The Canary in the Coal Mine Analogy\n\nMiners used to bring canaries into mines:\n\nIf there was dangerous gas, the canary would react first\n\nMiners would see the warning and escape\n\nSmall bird saves many lives\n\nCanary Deployment works the same way!\n\nSend a small percentage of traffic to the new version first.\n\n \n \n The Problem It Solves\n\nDeploying new code is risky:\n\nWorks in testing, might break in production\n\nDeploy to all users at once? If it breaks, lots of users can be affected\n\nHard to predict all real-world issues\n\n \n \n How It Works\n\nMost traffic → Current Version\n\nDeploy the canary (new version):\n├── Most traffic → Current Version (stable)\n└── Small slice → New Version (canary)\n\nWatch the canary:\n- Errors increasing? Rollback!\n- All good? Increase gradually toward a full rollout\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe new version is tested with real users, but starts with a small group at first.\n\n \n \n Benefits\n\nReal testing → Actual user traffic on new version\n\nMinimal blast radius → If it breaks, a small slice of users is affected\n\nEasy rollback → Just stop sending to canary\n\nConfidence → Gradually increase as confidence builds\n\n \n \n Monitoring Is Key\n\nWatch for:\n\nError rates\n\nResponse times\n\nUser complaints\n\nResource usage\n\nIf the canary shows problems, pull it back!\n\n \n \n Compared To Others\n\nStrategy\nHow It Works\n\nBlue-Green\nSwitch all at once to new environment\n\nRolling\nUpdate servers one by one\n\nCanary\nSend small % of traffic to test first\n\nCanary is often a low-risk, very controlled approach.\n\n \n \n In One Sentence\n\nCanary Deployment sends a small slice of traffic to the new version first, so you can catch problems before they affect lots of users.\n\n🔗 Enjoying these? Follow for daily ELI5 explanations!\n\nMaking complex tech concepts simple, one day at a time.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "canary",
+      "canary deployment",
+      "deployment",
+      "devops",
+      "eli5",
+      "miners",
+      "new version",
+      "slice",
+      "small",
+      "testing",
+      "traffic",
+      "tutorial",
+      "user",
+      "version",
+      "work"
+    ],
+    [
+      "devops",
+      "eli5",
+      "tutorial"
+    ]
+  ]
+}

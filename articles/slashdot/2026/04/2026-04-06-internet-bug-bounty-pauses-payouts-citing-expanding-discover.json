@@ -1,0 +1,36 @@
+{
+  "id": 8977,
+  "source": "Slashdot",
+  "title": "Internet Bug Bounty Pauses Payouts, Citing 'Expanding Discovery' From AI-Assisted Research",
+  "url": "https://it.slashdot.org/story/26/04/06/0113254/internet-bug-bounty-pauses-payouts-citing-expanding-discovery-from-ai-assisted-research?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-06T01:34:00Z",
+  "fetched_at": "2026-04-06T02:00:22.756695+00:00",
+  "author": "EditorDavid",
+  "summary": "The Internet Bug Bounty program \"has been paused for new submissions,\" they announced last week. \n\nRunning since 2012, the program is funded by \"a number of leading software companies,\" reports InfoWorld, \"and has awarded more than $1.5m to researchers who have reported bugs \"\n\nUp to now, 80% of its payouts have been for discoveries of new flaws, and 20% to support remediation efforts. But as artificial intelligence makes it easier to find bugs, that balance needs to change, HackerOne said in a statement. \"AI-assisted research is expanding vulnerability discovery across the ecosystem, increasing both coverage and speed. The balance between findings and remediation capacity in open source has substantively shifted,\" said HackerOne. \nAmong the first programs to be affected is the Node.js project, a server-side JavaScript platform for web applications known for its extensive ecosystem. While the project team will continue to accept and triage bug reports through HackerOne, without funding",
+  "full_text": "The Internet Bug Bounty program \"has been paused for new submissions,\" they announced last week\n\n. \n\nRunning since 2012, the program is funded by \"a number of leading software companies,\" reports InfoWorld\n\n, \"and has awarded more than $1.5m to researchers who have reported bugs \"\n\nUp to now, 80% of its payouts have been for discoveries of new flaws, and 20% to support remediation efforts. But as artificial intelligence makes it easier to find bugs, that balance needs to change, HackerOne said in a statement. \"AI-assisted research is expanding vulnerability discovery across the ecosystem, increasing both coverage and speed. The balance between findings and remediation capacity in open source has substantively shifted,\" said HackerOne. \n \n\nAmong the first programs to be affected is the Node.js project, a server-side JavaScript platform for web applications known for its extensive ecosystem. While the project team will continue to accept and triage bug reports through HackerOne, without funding from the Internet Bug Bounty program it will no longer pay out rewards, according to an announcement on its website...\n \n\n[J]ust last month, Google also put a halt to AI-generated submissions provided to its Open Source Software Vulnerability Reward Program. \n\nThe Internet Bug Bounty stressed that \"We have a responsibility to the community to ensure this program effectively accomplishes its ambitious dual purpose: discovery and remediation. Accordingly, we are pausing submissions while we consider the structure and incentives needed to further these goals...\" \n\n\"We remain committed to strengthening open source security. Working with project maintainers and researchers, we're actively evaluating solutions to better align incentives with open source ecosystem realities and ensure vulnerability discoveries translate into durable remediation outcomes.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "ai-assisted research",
+      "balance",
+      "bounty",
+      "bug bounty",
+      "discovery",
+      "google",
+      "hackerone",
+      "incentive",
+      "infoworld",
+      "internet",
+      "node.js",
+      "open",
+      "program",
+      "remediation",
+      "security",
+      "source",
+      "vulnerability"
+    ],
+    []
+  ]
+}

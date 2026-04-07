@@ -1,0 +1,33 @@
+{
+  "id": 9244,
+  "source": "DEV Community<",
+  "title": "Polar coordinates based on Collattz numbers and 2^n zones revealing droplet pattern",
+  "url": "https://dev.to/fsha/polar-coordinates-based-on-collattz-numbers-and-2n-zones-revealing-droplet-pattern-4ckd",
+  "published_at": "2026-04-06T22:48:52Z",
+  "fetched_at": "2026-04-06T23:20:33.266462+00:00",
+  "author": "Andrii Yakovenko",
+  "summary": "<p>Hello everyone!</p>\n\n<p>So I have been experimenting with a Collatz graph visualization that maps reverse tree in a particular polar coordinate system.</p>\n\n<p>This mapping forces numbers to fall into strict zones which leads to emergence of quite cool geometric patterns (like droplet spirograph)</p>\n\n<p>Below is a brief explanation of the process.</p>\n\n<p>The radial distance is determined by the \"zones\" to which the number belongs. Zone n is determined by <code>floor(log2(v))</code> where n represents the <code>[2^n, 2^(n+1))</code> range. All zones are mapped as circles separated by a particular \"ringSpacing\"</p>\n\n<p>The angular position is a straightforward linear mapping of a number's position within its particular zone</p>\n\n<ul>\n<li><p><code>2^n</code> is fixed at <code>-π/2</code></p></li>\n<li><p><code>2^(n+1)-1</code> comes close to completing the full circle.</p></li>\n</ul>\n\n<p>The position of the number itself is proportional to its value within the circle: <code>(number - ",
+  "full_text": "Hello everyone!\n\nSo I have been experimenting with a Collatz graph visualization that maps reverse tree in a particular polar coordinate system.\n\nThis mapping forces numbers to fall into strict zones which leads to emergence of quite cool geometric patterns (like droplet spirograph)\n\nBelow is a brief explanation of the process.\n\nThe radial distance is determined by the \"zones\" to which the number belongs. Zone n is determined by floor(log2(v)) where n represents the [2^n, 2^(n+1)) range. All zones are mapped as circles separated by a particular \"ringSpacing\"\n\nThe angular position is a straightforward linear mapping of a number's position within its particular zone\n\nThe position of the number itself is proportional to its value within the circle: (number - 2n) / 2n of a whole circle. What is interesting about such mapping is the automatic emergence of fixed structural axes from certain types of numbers. Values of 2n play the role of a major vertical axis, while the centers of these values 3 * 2^(n-1), and sub-centers 5 * 2^(n-2) and 7 * 2^(n-2) play the role of secondary axes and align themselves exactly with points of 1/2, 1/4, and 3/4 on the circumference.\n\nThe graph itself is generated in a bottom-up manner through an inverse BFS starting from certain seeds in the reverse Collatz tree. Given any particular number m, we can generate its predecessors as follows:\n\nconst inversePredecessors = (\n m: number,\n q: number = 3,\n w: number = 1,\n): { value: number; edgeType: 'div2' | 'triple' }[] => {\n const preds: { value: number; edgeType: 'div2' | 'triple' }[] = [];\n preds.push({ value: 2 * m, edgeType: 'div2' });\n if ((m - w) % q === 0) {\n const k = (m - w) / q;\n if (k > 0 && k % 2 === 1) {\n preds.push({ value: k, edgeType: 'triple' });\n }\n }\n return preds;\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTo make sure no numbers are missed within visual boundaries, a second traversal pass is made. Here any odd number that is not in the graph within particular visual range is being traced forwards via regular Collatz steps until it either merges into a previously visited number or enters a cycle.\n\nI have also tried generating this graph with various rulesets. As expected, the graph for the 5n+1 rule breaks down completely trajectories diverge and disperse into randomness.\n\nFor n+1 it looks dull because symmetrical\n\nBut for rulesets like the classic 3n+1, a particular shape emerges – a droplet. I must say i found this kind of surprising given the natural chaotic unpredictability of each trajectory individually.\n\nCause the growth of the Collatz tree is exponential, this graph requires insane amounts of ram. Even though my rig is quite weak, it has been enough to map up to 2^14..2^15 zone\n\nA little bit later I'll share this demoscene for free\n\nAny feedback, ideas, or critiques are highly welcome!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "bfs",
+      "collattz",
+      "collatz",
+      "datascience",
+      "determine",
+      "droplet",
+      "emergence",
+      "graph",
+      "mapping",
+      "number",
+      "particular",
+      "position",
+      "zone"
+    ],
+    [
+      "datascience"
+    ]
+  ]
+}

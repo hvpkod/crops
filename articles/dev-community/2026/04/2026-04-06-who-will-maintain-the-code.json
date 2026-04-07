@@ -1,0 +1,35 @@
+{
+  "id": 9064,
+  "source": "DEV Community<",
+  "title": "Who will maintain the Code?",
+  "url": "https://dev.to/badr_letitgo_355957588ffd/who-will-maintain-the-code-2fh1",
+  "published_at": "2026-04-06T11:22:15Z",
+  "fetched_at": "2026-04-06T11:40:28.440263+00:00",
+  "author": "Badr Letitgo",
+  "summary": "<p>Nowadays, we have AI tools that can generate code. However, these tools cannot yet match the level of advanced architectural thinking and real-world experience of skilled software engineers. This is especially concerning for junior programmers who have just graduated, as they may rely heavily on these tools to develop and build projects.</p>\n\n<p>As a result, the learning process particularly debugging and developing a deep understanding of how systems work risks becoming less of a priority. This raises concerns about the future. As senior engineers retire, junior developers will take their place, but they may lack the depth of knowledge and experience required to handle complex systems.</p>\n\n<p>Consequently, companies may begin producing software based largely on “vibe coding,” which can lead to increased bugs, security vulnerabilities, and poorly designed systems. Over time, software dependent systems could become harder to maintain, especially if there are not enough highly skille",
+  "full_text": "Nowadays, we have AI tools that can generate code. However, these tools cannot yet match the level of advanced architectural thinking and real-world experience of skilled software engineers. This is especially concerning for junior programmers who have just graduated, as they may rely heavily on these tools to develop and build projects.\n\nAs a result, the learning process particularly debugging and developing a deep understanding of how systems work risks becoming less of a priority. This raises concerns about the future. As senior engineers retire, junior developers will take their place, but they may lack the depth of knowledge and experience required to handle complex systems.\n\nConsequently, companies may begin producing software based largely on “vibe coding,” which can lead to increased bugs, security vulnerabilities, and poorly designed systems. Over time, software dependent systems could become harder to maintain, especially if there are not enough highly skilled engineers who truly understand how to build, manage, and improve them.\n\nMore importantly, the very existence and reliability of systems that rely on code could come into question: who will maintain them, fix critical issues, and ensure their continuous improvement if there are not enough engineers capable of fully understanding and evolving these systems?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "discuss",
+      "engineer",
+      "enough",
+      "especially",
+      "junior",
+      "maintain",
+      "programming",
+      "rely",
+      "skilled",
+      "system",
+      "tool",
+      "understanding",
+      "webdev"
+    ],
+    [
+      "discuss",
+      "webdev"
+    ]
+  ]
+}

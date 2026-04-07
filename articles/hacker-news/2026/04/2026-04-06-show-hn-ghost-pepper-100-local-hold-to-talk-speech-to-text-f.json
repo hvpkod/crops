@@ -1,0 +1,38 @@
+{
+  "id": 9178,
+  "source": "Hacker News",
+  "title": "Show HN: Ghost Pepper – 100% local hold-to-talk speech-to-text for macOS",
+  "url": "https://github.com/matthartman/ghost-pepper",
+  "published_at": "2026-04-06T19:50:16Z",
+  "fetched_at": "2026-04-06T20:00:25.150512+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47666024\">Comments</a>",
+  "full_text": "100% local hold-to-talk speech-to-text for macOS. Hold Control to record, release to transcribe and paste. No cloud APIs, no data leaves your machine.\n\nDownload the latest release — macOS 14.0+, Apple Silicon (M1+)\n\nHold Control to talk — release to transcribe and paste into any text field\n\nRuns entirely on your Mac — models run locally via Apple Silicon, nothing is sent anywhere\n\nSmart cleanup — local LLM removes filler words and handles self-corrections\n\nMenu bar app — lives in your menu bar, no dock icon, launches at login\n\nCustomizable — edit the cleanup prompt, pick your mic, toggle features on/off\n\nGhost Pepper uses two open-source models that download automatically on first launch:\n\nModel\nSize\nWhat it does\n\nSpeech-to-text\nWhisperKit (small.en)\n~466 MB\nTranscribes your speech to text\n\nText cleanup\nQwen 2.5 (1.5B + 3B)\n~3 GB\nRemoves filler words and self-corrections\n\nModels are served by Hugging Face and cached locally after first download.\n\nDownload the app:\n\nDownload GhostPepper.dmg\n\nOpen the DMG, drag Ghost Pepper to Applications\n\nGrant Microphone and Accessibility permissions when prompted\n\nHold Control and speak\n\nBuild from source:\n\nClone the repo\n\nOpen GhostPepper.xcodeproj in Xcode\n\nBuild and run (Cmd+R)\n\nPermission\nWhy\n\nMicrophone\nRecord your voice\n\nAccessibility\nGlobal hotkey and paste via simulated keystrokes\n\nLaunch at login is enabled by default on first run. You can toggle it off in Settings.\n\nNo logging to disk — transcriptions are never written to files. Debug logs are in-memory only and disappear when the app quits.\n\nBuilt with WhisperKit, LLM.swift, Hugging Face, and Sparkle.\n\nMIT\n\nAll models run locally, no private data leaves your computer. And it's spicy to offer something for free that other apps have raised $80M to build.\n\nEnterprise / managed devices\n\nGhost Pepper requires Accessibility permission, which normally needs admin access to grant. On managed devices, IT admins can pre-approve this via an MDM profile (Jamf, Kandji, Mosaic, etc.) using a Privacy Preferences Policy Control (PPPC) payload:\n\nField\nValue\n\nBundle ID\ncom.github.matthartman.ghostpepper\n\nTeam ID\nBBVMGXR9AY\n\nPermission\nAccessibility (com.apple.security.accessibility)",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "accessibility",
+      "apple silicon",
+      "cleanup",
+      "cmd+r",
+      "control",
+      "dmg",
+      "download",
+      "ghost",
+      "ghost pepper",
+      "hold",
+      "hugging face",
+      "llm",
+      "model",
+      "pepper",
+      "permission",
+      "settings",
+      "smart",
+      "transcribe",
+      "whisperkit",
+      "xcode\n\nbuild"
+    ],
+    []
+  ]
+}

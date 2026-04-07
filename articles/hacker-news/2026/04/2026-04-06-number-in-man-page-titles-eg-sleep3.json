@@ -1,0 +1,30 @@
+{
+  "id": 9057,
+  "source": "Hacker News",
+  "title": "Number in man page titles e.g. sleep(3)",
+  "url": "https://lalitm.com/til-number-in-man-page-titles-e-g-sleep-3/",
+  "published_at": "2026-04-06T09:39:17Z",
+  "fetched_at": "2026-04-06T11:00:21.842243+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47658743\">Comments</a>",
+  "full_text": "If you do Linux systems programming, you will have likely pored over man pages, either on the command line or, my personal preference, using the excellent man7.org or linux.die.net.\nI’ve always seen the numbers in sleep(3) and read(2) and idly wondered what they meant, but never actually bothered to look them up.\n\nThat is, until a review comment on a pull request:\n\n// Behaves like man 2 basename\n\nreviewer: nit: it’s not a syscall, so “man 2” is incorrect\n\nSo I looked it up. The answer was in the man(1) page (also accessible via the delightful man man command):\n\nThe table below shows the section numbers of the manual followed by the types of pages they contain. 1 Executable programs or shell commands\n 2 System calls (functions provided by the kernel)\n 3 Library calls (functions within program libraries)\n (... less common section numbers)\n\nSo my colleague was right and the code should have read // behaves like man 3 basename as basename(3) is a libc library call.\n\nAnd there’s more to these numbers than what the man man page describes: various letters can also be attached as suffixes to the numbers. For example, p indicates a POSIX man page like with free(3p) and x indicates X documentation like with ncurses(3x).\n\nIt’s embarrassing to admit I’ve been using man pages for years but only learned this today.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "basename",
+      "behave",
+      "command",
+      "indicate",
+      "library",
+      "number",
+      "page",
+      "pore",
+      "posix",
+      "program",
+      "section",
+      "til"
+    ],
+    []
+  ]
+}

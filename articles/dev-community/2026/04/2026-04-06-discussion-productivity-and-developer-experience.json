@@ -1,0 +1,35 @@
+{
+  "id": 9009,
+  "source": "DEV Community<",
+  "title": "Discussion: Productivity and Developer Experience",
+  "url": "https://dev.to/tacit_71799acf6d056b5155c/discussion-productivity-and-developer-experience-2cgd",
+  "published_at": "2026-04-06T05:28:40Z",
+  "fetched_at": "2026-04-06T05:40:21.454653+00:00",
+  "author": "TACiT",
+  "summary": "<p>Stop Trying to Code on Your Phone—Try 'Directing' Your Local IDE Instead</p>\n\n<p>We’ve all tried it: opening a terminal emulator on a mobile device and struggling with a virtual keyboard to fix a minor bug. The friction is usually higher than the value. However, with the rise of LLMs, we’re seeing a shift in how we interact with our dev environments. </p>\n\n<p>Instead of struggling to type syntax, we can now use tools like Terminal Bridge AI to mirror our local terminal to a mobile web interface. This allows us to use natural language to instruct an AI assistant to run commands, check statuses, or even apply hotfixes while we're away from the desk. It transforms the mobile device from a poor coding tool into a powerful remote control for your local workstation. </p>\n\n<p>What are your thoughts on 'remote-first' development? Is natural language the key to making mobile dev-ops actually viable, or are we always going to be tethered to our laptops?</p>",
+  "full_text": "Stop Trying to Code on Your Phone—Try 'Directing' Your Local IDE Instead\n\nWe’ve all tried it: opening a terminal emulator on a mobile device and struggling with a virtual keyboard to fix a minor bug. The friction is usually higher than the value. However, with the rise of LLMs, we’re seeing a shift in how we interact with our dev environments. \n\nInstead of struggling to type syntax, we can now use tools like Terminal Bridge AI to mirror our local terminal to a mobile web interface. This allows us to use natural language to instruct an AI assistant to run commands, check statuses, or even apply hotfixes while we're away from the desk. It transforms the mobile device from a poor coding tool into a powerful remote control for your local workstation. \n\nWhat are your thoughts on 'remote-first' development? Is natural language the key to making mobile dev-ops actually viable, or are we always going to be tethered to our laptops?",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "device",
+      "discuss",
+      "instead",
+      "language",
+      "local",
+      "mobile",
+      "natural",
+      "productivity",
+      "struggle",
+      "tech",
+      "terminal",
+      "try"
+    ],
+    [
+      "discuss",
+      "mobile",
+      "productivity",
+      "tech"
+    ]
+  ]
+}

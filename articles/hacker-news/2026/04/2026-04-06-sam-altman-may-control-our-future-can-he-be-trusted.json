@@ -1,0 +1,35 @@
+{
+  "id": 9081,
+  "source": "Hacker News",
+  "title": "Sam Altman May Control Our Future – Can He Be Trusted?",
+  "url": "https://www.newyorker.com/magazine/2026/04/13/sam-altman-may-control-our-future-can-he-be-trusted",
+  "published_at": "2026-04-06T10:36:57Z",
+  "fetched_at": "2026-04-06T13:00:36.250144+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47659135\">Comments</a>",
+  "full_text": "Altman continued touting OpenAI’s commitment to safety, especially when potential recruits were within earshot. In late 2022, four computer scientists published a paper motivated in part by concerns about “deceptive alignment,” in which sufficiently advanced models might pretend to behave well during testing and then, once deployed, pursue their own goals. (It’s one of several A.I. scenarios that sound like science fiction—but, under certain experimental conditions, it’s already happening.) Weeks after the paper was published, one of its authors, a Ph.D. student at the University of California, Berkeley, got an e-mail from Altman, who said that he was increasingly worried about the threat of unaligned A.I. He added that he was thinking of committing a billion dollars to the issue, which many A.I. experts considered the most important unsolved problem in the world, potentially by endowing a prize to incentivize researchers around the world to study it. Although the graduate student had “heard vague rumors about Sam being slippery,” he told us, Altman’s show of commitment won him over. He took an academic leave to join OpenAI.\n\nBut, in the course of several meetings in the spring of 2023, Altman seemed to waver. He stopped talking about endowing a prize. Instead, he advocated for establishing an in-house “superalignment team.” An official announcement, referring to the company’s reserves of computing power, pledged that the team would get “20% of the compute we’ve secured to date”—a resource potentially worth more than a billion dollars. The effort was necessary, according to the announcement, because, if alignment remained unsolved, A.G.I. might “lead to the disempowerment of humanity or even human extinction.” Jan Leike, who was appointed to lead the team with Sutskever, told us, “It was a pretty effective retention tool.”\n\nThe twenty-per-cent commitment evaporated, however. Four people who worked on or closely with the team said that the actual resources were between one and two per cent of the company’s compute. Furthermore, a researcher on the team said, “most of the superalignment compute was actually on the oldest cluster with the worst chips.” The researchers believed that superior hardware was being reserved for profit-generating activities. (OpenAI disputes this.) Leike complained to Murati, then the company’s chief technology officer, but she told him to stop pressing the point—the commitment had never been realistic.\n\n“She skippidy-boop-bee-bop-doo-woppity-wopped right out of my life.”\n\nCartoon by Sofia Warren\n\nAround this time, a former employee told us, Sutskever “was getting super safety-pilled.” In the early days of OpenAI, he had considered concerns about catastrophic risk legitimate but remote. Now, as he came to believe that A.G.I. was imminent, his worries grew more acute. There was an all-hands meeting, the former employee continued, “where Ilya gets up and he’s, like, Hey, everyone, there’s going to be a point in the next few years where basically everyone at this company has to switch to working on safety, or else we’re fucked.” But the superalignment team was dissolved the following year, without completing its mission.\n\nBy then, internal messages show, executives and board members had come to believe that Altman’s omissions and deceptions might have ramifications for the safety of OpenAI’s products. In a meeting in December, 2022, Altman assured board members that a variety of features in a forthcoming model, GPT-4, had been approved by a safety panel. Toner, the board member and A.I.-policy expert, requested documentation. She learned that the most controversial features—one that allowed users to “fine-tune” the model for specific tasks, and another that deployed it as a personal assistant—had not been approved. As McCauley, the board member and entrepreneur, left the meeting, an employee pulled her aside and asked if she knew about “the breach” in India. Altman, during many hours of briefing with the board, had neglected to mention that Microsoft had released an early version of ChatGPT in India without completing a required safety review. “It just was kind of completely ignored,” Jacob Hilton, an OpenAI researcher at the time, said.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "a.g.i.",
+      "a.i.",
+      "altman",
+      "board",
+      "commitment",
+      "complete",
+      "consider",
+      "endow",
+      "india",
+      "member",
+      "microsoft",
+      "murati",
+      "openai",
+      "researcher",
+      "superalignment",
+      "sutskever",
+      "team"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 9154,
+  "source": "DEV Community<",
+  "title": "New Rentgen Release v1.20.0 🚀",
+  "url": "https://dev.to/liudasjan/new-rentgen-release-v1200-4he7",
+  "published_at": "2026-04-06T17:23:51Z",
+  "fetched_at": "2026-04-06T17:40:28.947251+00:00",
+  "author": "Liudas",
+  "summary": "<p>Release v1.20.0 🚀 </p>\n\n<p>👉 Project export / import (this is the main one)<br />\nNo accounts. No cloud. No data leaving your machine.<br />\nExport your project → get a file → put it anywhere: Dropbox, GitHub or any shared folder. Your team (5, 100 or 10 000 people) just takes it and uses it. At 0 cost. And No sync back to server. No logins. No vendor lock-in. No data exposure. Just a file. Full control.</p>\n\n<p>👉 New test: invalid token. We take your Authorization and break it.<br />\nExpected: 401<br />\nReality: often not.</p>\n\n<p>👉 Response time. Now visible per request and per test. No extra tools. No guessing. </p>\n\n<p>Paste a request. See what breaks. Automation before automation.</p>\n\n<p>New release Rentgen.io</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fvdap97tpjrzx7rbfop5z.gif\"><img alt=\" \" height=\"9",
+  "full_text": "Release v1.20.0 🚀 \n\n👉 Project export / import (this is the main one)\n\nNo accounts. No cloud. No data leaving your machine.\n\nExport your project → get a file → put it anywhere: Dropbox, GitHub or any shared folder. Your team (5, 100 or 10 000 people) just takes it and uses it. At 0 cost. And No sync back to server. No logins. No vendor lock-in. No data exposure. Just a file. Full control.\n\n👉 New test: invalid token. We take your Authorization and break it.\n\nExpected: 401\n\nReality: often not.\n\n👉 Response time. Now visible per request and per test. No extra tools. No guessing. \n\nPaste a request. See what breaks. Automation before automation.\n\nNew release Rentgen.io",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "api",
+      "automation",
+      "data",
+      "devtool",
+      "dropbox",
+      "export",
+      "github",
+      "invalid",
+      "leave",
+      "project",
+      "release",
+      "rentgen",
+      "testing",
+      "use",
+      "visible"
+    ],
+    [
+      "automation",
+      "devtool",
+      "github"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 8993,
+  "source": "Hacker News",
+  "title": "Show HN: Gemma Gem – AI model embedded in a browser – no API keys, no cloud",
+  "url": "https://github.com/kessler/gemma-gem",
+  "published_at": "2026-04-06T00:14:37Z",
+  "fetched_at": "2026-04-06T02:40:50.826087+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47655367\">Comments</a>",
+  "full_text": "Your personal AI assistant living right inside the browser. Gemma Gem runs Google's Gemma 4 model entirely on-device via WebGPU — no API keys, no cloud, no data leaving your machine. It can read pages, click buttons, fill forms, run JavaScript, and answer questions about any site you visit.\n\nChrome with WebGPU support\n\n~500MB disk for model download (cached after first run)\n\nLoad the extension in chrome://extensions (developer mode) from .output/chrome-mv3-dev/.\n\nNavigate to any page\n\nClick the gem icon (bottom-right corner) to open the chat\n\nWait for model to load (progress shown on icon + chat)\n\nAsk questions about the page or request actions\n\nOffscreen Document Service Worker Content Script\n(Gemma 4 + Agent Loop) <-> (Message Router) <-> (Chat UI + DOM Tools)\n | |\n WebGPU inference Screenshot capture\n Token streaming JS execution\n\nOffscreen document: Hosts the model via @huggingface/transformers + WebGPU. Runs the agent loop.\n\nService worker: Routes messages between content scripts and offscreen document. Handles take_screenshot and run_javascript.\n\nContent script: Injects gem icon + shadow DOM chat overlay. Executes DOM tools (read_page_content, click_element, type_text, scroll_page).\n\nTool\nDescription\nRuns in\n\nread_page_content\nRead text/HTML of the page or a CSS selector\nContent script\n\ntake_screenshot\nCapture visible page as PNG\nService worker\n\nclick_element\nClick an element by CSS selector\nContent script\n\ntype_text\nType into an input by CSS selector\nContent script\n\nscroll_page\nScroll up/down by pixel amount\nContent script\n\nrun_javascript\nExecute JS in the page context with full DOM access\nService worker\n\nClick the gear icon in the chat header:\n\nThinking: Toggle native Gemma 4 chain-of-thought reasoning\n\nMax iterations: Cap on tool call loops per request\n\nClear context: Reset conversation history for the current page\n\nDisable on this site: Disable the extension per-hostname (persisted)\n\npnpm build # Development build (with logging, source maps)\npnpm build:prod # Production build (logging silenced, minified)\n\nWXT — Chrome extension framework (Vite-based)\n\n@huggingface/transformers — Browser ML inference\n\nmarked — Markdown rendering in chat\n\nGemma 4 E2B (onnx-community/gemma-4-E2B-it-ONNX) — q4f16 quantization, 128K context\n\nAll logs are prefixed with [Gemma Gem]. In development builds, info/debug/warn logs are active. Production builds only log errors.\n\nService worker logs: chrome://extensions → Gemma Gem → \"Inspect views: service worker\"\n\nOffscreen document logs: chrome://extensions → Gemma Gem → \"Inspect views: offscreen.html\"\n\nContent script logs: Open DevTools on any page → Console\n\nAll extension pages: chrome://inspect#other lists all inspectable extension contexts (service worker, offscreen document, etc.)\n\nThe offscreen document logs are the most useful — they show model loading, prompt construction, token counts, raw model output, and tool execution.\n\nThe agent/ directory has zero dependencies. It defines interfaces (ModelBackend, ToolExecutor) and can be extracted to a standalone library.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "api",
+      "browser ml",
+      "chat",
+      "content",
+      "css",
+      "devtools",
+      "dom",
+      "extension",
+      "gemma",
+      "google",
+      "icon",
+      "javascript",
+      "model",
+      "offscreen",
+      "page",
+      "png\nservice",
+      "script",
+      "service",
+      "webgpu"
+    ],
+    []
+  ]
+}

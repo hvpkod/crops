@@ -1,0 +1,37 @@
+{
+  "id": 8975,
+  "source": "Hacker News",
+  "title": "Recall – local multimodal semantic search for your files",
+  "url": "https://github.com/aayu22809/Recall",
+  "published_at": "2026-04-06T00:09:14Z",
+  "fetched_at": "2026-04-06T01:20:20.542322+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47655335\">Comments</a>",
+  "full_text": "Recall - The intelligent way to search.\n\nLocal multimodal memory with semantic search.\n\nEmbed images, audio, video, PDFs, and text into a local vector database — then find anything with a natural language query. A text search for \"team dinner\" surfaces the photos, even though the photos have no text metadata.\n\nComes with an animated setup wizard and a Raycast extension for instant visual search.\n\nPowered by Gemini Embedding 2 (768-dim, free tier) and ChromaDB stored entirely on your machine.\n\nYou Gemini Embedding 2 ChromaDB (local)\n | | |\n |-- team-dinner.jpg -------->|-- 768-dim vector ------>|-- stored on disk\n |-- meeting-notes.pdf ------>|-- 768-dim vector ------>|-- stored on disk\n |-- \"team dinner\" (query) -->|-- query vector -------->|-- cosine search\n |<---------------------------|<-- ranked results -------|\n\nCross-modal search works out of the box. No tagging, no renaming, no metadata required.\n\ngit clone https://github.com/hughminhphan/vector-embedded-finder.git\ncd vector-embedded-finder\npip install -e .\npython setup_wizard.py\n\nThat's it. The animated setup wizard handles everything end-to-end:\n\nStep\nWhat happens\n\nSplash\nAnimated rainbow logo\n\nAuto-detect\nFinds your Python binary, repo path, and checks all deps\n\nAPI key\nOpens aistudio.google.com/apikey, validates your key, saves to .env\n\nFolder picker\nCheckbox list of your home folders with live file counts\n\nIndexing\nProgress bar with current filename, auto-retries on rate limits\n\nRaycast card\nPrints pre-filled Python Package Path and Python Binary — just copy-paste\n\nManual key setup: cp .env.example .env and add GEMINI_API_KEY=your_key\n\nfrom vector_embedded_finder import search, ingest_file, ingest_directory, count\n\n# Embed a single file — image, PDF, audio, video, or text\ningest_file(\"~/Photos/team-dinner.jpg\")\n\n# Embed an entire directory (recursive by default)\ningest_directory(\"~/Documents/\", source=\"docs\")\n\n# Search with natural language\nmatches = search(\"team dinner at the rooftop\", n_results=5)\nfor m in matches:\n print(f\"{m['file_name']} {m['similarity']:.0%} match {m['file_path']}\")\n\n# Housekeeping\nprint(f\"{count()} items indexed\")\n\ningest_file returns {\"status\": \"embedded\" | \"skipped\" | \"error\", ...}.\nFiles are SHA-256 deduplicated — re-ingesting the same file is a no-op.\n\nVisual grid search with image thumbnails, right from your launcher.\n\ncd raycast\nnpm install\nnpx ray develop\n\nOpen Raycast and search Memory Search. On first launch, go to Preferences and set:\n\nPreference\nValue\n\nPython Package Path\nAbsolute path to this repo, e.g. /Users/you/vector-embedded-finder\n\nPython Binary\nPath to python3, e.g. /usr/bin/python3\n\nGemini API Key\nYour key (or leave blank if set in .env)\n\nTip: Run python setup_wizard.py first — it prints these values pre-filled for you.\n\nCommand\nWhat it does\n\nMemory Search\nGrid UI with image/video thumbnails, 400ms debounced live search\n\nMemory Open\nHeadless — type a query, instantly opens the best matching file\n\nCategory\nFormats\n\nImage\n.png .jpg .jpeg .webp .gif .bmp .tiff\n\nAudio\n.mp3 .wav .m4a .ogg .flac .aac\n\nVideo\n.mp4 .mov .avi .mkv .webm\n\nDocument\n.pdf\n\nText\n.txt .md .csv .json .yaml .yml .toml .py .js .ts .go .rs .sh and more\n\nVariable\nDefault\nDescription\n\nGEMINI_API_KEY\n(required)\nFree key from aistudio.google.com/apikey\n\nVEF_DATA_DIR\n./data\nWhere ChromaDB persists vectors\n\nvector_embedded_finder/\n config.py — env, API key, supported types, paths\n embedder.py — Gemini Embedding 2 (text, image, audio, video, PDF)\n store.py — ChromaDB layer: cosine distance, SHA-256 dedup, upsert\n search.py — natural language search with similarity scoring\n ingest.py — file detection → embedding → storage pipeline\n utils.py — hashing, MIME detection, timestamp helpers\n\nraycast/\n src/lib/runner.ts — Python bridge: spawnSync + JSON envelope protocol\n src/search-memory.tsx — grid search UI with thumbnails\n src/open-memory.tsx — headless instant file opener\n\nsetup_wizard.py — animated CLI setup: key → folders → index → Raycast card\n\nAll vectors are stored locally in data/chromadb/. The only outbound traffic is embedding API calls to Google — your files never leave your machine.\n\nMIT",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "animate",
+      "api",
+      "checkbox",
+      "chromadb",
+      "cli",
+      "embed",
+      "file",
+      "google",
+      "grid",
+      "memory search",
+      "mit",
+      "path",
+      "pdf",
+      "python",
+      "raycast",
+      "search",
+      "store"
+    ],
+    [
+      "python"
+    ]
+  ]
+}

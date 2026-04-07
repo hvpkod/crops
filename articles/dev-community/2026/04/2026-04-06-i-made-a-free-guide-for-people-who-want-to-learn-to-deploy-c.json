@@ -1,0 +1,45 @@
+{
+  "id": 9063,
+  "source": "DEV Community<",
+  "title": "I made a free guide for people who want to learn to deploy code",
+  "url": "https://dev.to/raikes/i-made-a-free-guide-for-people-who-want-to-learn-to-code-5814",
+  "published_at": "2026-04-06T11:25:06Z",
+  "fetched_at": "2026-04-06T11:40:27.434711+00:00",
+  "author": "Geraint Raikes",
+  "summary": "<p>A friend wanted to learn how to build and deploy an app. They had zero experience so we started from scratch. As these things usually go I started explaining things over messages and quickly realised I was writing a guide.</p>\n\n<h2>\n  \n  \n  What is it?\n</h2>\n\n<p><a href=\"https://firstdeploy.dev\" rel=\"noopener noreferrer\">FirstDeploy</a> is a free, step-by-step guide that goes from \"what is a browser actually doing\" all the way to deploying a full-stack app for complete beginners. One thing I realised quite quickly is that I speak to more and more people who would have never touched code before the 'AI' revolution, but who now want to understand how to get something deployed.</p>\n\n<p>I'm a Unix engineer turned engineering lead. I'm not a teacher. I just wanted to make something that would have helped my friend get going without having to wade through a million Medium articles and outdated YouTube tutorials.</p>\n\n<h2>\n  \n  \n  What it covers\n</h2>\n\n<p>Three paths, each 12 chapters:</p>",
+  "full_text": "A friend wanted to learn how to build and deploy an app. They had zero experience so we started from scratch. As these things usually go I started explaining things over messages and quickly realised I was writing a guide.\n\n \n \n What is it?\n\nFirstDeploy is a free, step-by-step guide that goes from \"what is a browser actually doing\" all the way to deploying a full-stack app for complete beginners. One thing I realised quite quickly is that I speak to more and more people who would have never touched code before the 'AI' revolution, but who now want to understand how to get something deployed.\n\nI'm a Unix engineer turned engineering lead. I'm not a teacher. I just wanted to make something that would have helped my friend get going without having to wade through a million Medium articles and outdated YouTube tutorials.\n\n \n \n What it covers\n\nThree paths, each 12 chapters:\n\nFirst Steps: Set up VS Code, get GitHub Copilot working, learn enough HTML/CSS/JS to be dangerous, build a React app, learn Git, and deploy it.\n\nBuilding Real Apps: Hook up a database with Supabase, add login/signup, handle forms and file uploads, add real-time features. You end up with a basic recipe book app.\n\nGoing Full Stack: Build your own backend with Hono and Drizzle ORM, roll your own auth with Better Auth, put it all in Docker, and deploy it to a real server.\n\nThere's also a bunch of deep dive guides on Git, TypeScript, CSS, accessibility, databases, React patterns, and a few others. Around 152 chapters altogether.\n\n \n \n How is this different from everything else?\n\nMaybe it isn't. There's loads of good stuff out there already but a couple of things I tried to do:\n\nGitHub Copilot is in there from chapter 4. I use Copilot often but can see how it can lead people astray. The guide tries to show you how to use it properly, and also how to spot when it's given you rubbish.\n\nI tried to write it the way I'd explain things to a mate. I was starting with someone who was absolutely fresh to pretty much all the concepts, so I didn't want it to be overwhelming but have enough to get someone started.\n\nThere are also some interactive bits: terminal exercises where you type commands into a fake terminal, note-taking where you can highlight and scribble on the chapters, and progress tracking.\n\n \n \n Stack\n\nIf you're curious:\n\nReact 19 + Vite + Tailwind CSS\n\nBun + Hono + Drizzle ORM\n\nPostgreSQL\n\nBetter Auth\n\nK3s cluster, Docker, ArgoCD\n\nTurborepo monorepo. Nothing exotic.\n\n \n \n It's all free\n\nEvery chapter is readable without signing up. If you make an account you get progress tracking, notes, and the terminal exercises, but the content itself is all there.\n\n \n \n Let me know what you think\n\nI built this on my own so there are definitely things I've got wrong or explained badly. Happy to hear about it.\n\nfirstdeploy.dev\n\nCheers.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "beginners",
+      "better auth",
+      "css",
+      "deploy",
+      "drizzle",
+      "firstdeploy",
+      "guide",
+      "hono",
+      "html/css/js",
+      "learn",
+      "react",
+      "realise",
+      "stack",
+      "start",
+      "supabase",
+      "thing",
+      "try",
+      "tutorial",
+      "typescript",
+      "want",
+      "webdev",
+      "youtube"
+    ],
+    [
+      "beginners",
+      "tutorial",
+      "typescript",
+      "webdev"
+    ]
+  ]
+}

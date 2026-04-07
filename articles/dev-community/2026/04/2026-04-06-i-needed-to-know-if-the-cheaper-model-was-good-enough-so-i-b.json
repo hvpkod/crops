@@ -1,0 +1,39 @@
+{
+  "id": 9014,
+  "source": "DEV Community<",
+  "title": "I needed to know if the cheaper model was good enough. So I built an LLM-as-a-Judge pipeline",
+  "url": "https://dev.to/archminor/i-needed-to-know-if-the-cheaper-model-was-good-enough-so-i-built-an-llm-as-a-judge-pipeline-4ll",
+  "published_at": "2026-04-06T05:21:53Z",
+  "fetched_at": "2026-04-06T05:40:27.996576+00:00",
+  "author": "archminor",
+  "summary": "<p>Benchmarks are useful, but they don't really tell me whether a prompt change or cheaper model is good enough for my own workflow.</p>\n\n<p>I kept running into that, so I ended up building a config-driven eval pipeline: run test cases, check format/schema, use a separate LLM as judge, then generate comparison reports.</p>\n\n<h2>\n  \n  \n  What it does\n</h2>\n\n<p><strong>3-stage pipeline:</strong></p>\n\n<ol>\n<li>\n<strong>Inference</strong> — Run your test cases against candidate models (format and schema validation runs automatically)</li>\n<li>\n<strong>Judge</strong> — A separate LLM scores outputs on 9 metrics (accuracy, faithfulness, completeness, etc.)</li>\n<li>\n<strong>Compare</strong> — Aggregate scores into a comparison report (JSON + Markdown)</li>\n</ol>\n\n<p><strong>Key design choices:</strong></p>\n\n<ul>\n<li>\n<strong>3-layer judge architecture</strong> — Format, content, and expression are evaluated in separate LLM calls with no shared context. This prevents a formatting issue from b",
+  "full_text": "Benchmarks are useful, but they don't really tell me whether a prompt change or cheaper model is good enough for my own workflow.\n\nI kept running into that, so I ended up building a config-driven eval pipeline: run test cases, check format/schema, use a separate LLM as judge, then generate comparison reports.\n\n \n \n What it does\n\n3-stage pipeline:\n\nInference — Run your test cases against candidate models (format and schema validation runs automatically)\n\nJudge — A separate LLM scores outputs on 9 metrics (accuracy, faithfulness, completeness, etc.)\n\nCompare — Aggregate scores into a comparison report (JSON + Markdown)\n\nKey design choices:\n\n3-layer judge architecture — Format, content, and expression are evaluated in separate LLM calls with no shared context. This prevents a formatting issue from biasing content scores.\n\nPairwise + absolute + hybrid modes — Compare two models head-to-head, score them independently, or both.\n\nMajority vote aggregation — Run the judge multiple times and take the majority to reduce noise.\n\nBlinding — Candidate labels are randomized to prevent position bias.\n\nConsistency mode — Set inference_repeats >= 2 and the pipeline automatically switches to measuring output stability instead of quality.\n\nMulti-vendor support:\n\nOpenAI, Azure OpenAI, Gemini (native REST), and any OpenAI-compatible endpoint (LM Studio, vLLM, etc.)\n\nMix and match — e.g., judge with GPT, candidates on local models\n\n \n \n What the output looks like\n\nYou get a comparison-report.json with win rates, per-metric mean scores, confidence intervals, and critical issue counts. Plus a Markdown report for quick reading.\n\nThe rubric is a standalone Markdown file with score anchors (1/3/5), bias guards, and critical issue rules. You can customize evaluation criteria by editing the rubric alone — no code changes needed.\n\n \n \n What it's NOT\n\nNot a benchmark suite — you bring your own test cases\n\nNot a model training tool — it evaluates outputs, not weights\n\nNot an agent framework — it's a batch evaluation pipeline\n\n \n \n Tech stack\n\nPython >= 3.11, Pydantic, Typer CLI. Three commands to run: uv sync, configure .env, uv run llm-judge run-all.\n\nRepo: archminor/llm-as-a-judge\n\nCurious to hear how other people are handling production LLM evals.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "benchmarks",
+      "candidate",
+      "format",
+      "gpt",
+      "issue",
+      "judge",
+      "llm",
+      "majority",
+      "markdown",
+      "model",
+      "opensource",
+      "output",
+      "pipeline",
+      "python",
+      "rubric",
+      "score",
+      "separate"
+    ],
+    [
+      "opensource",
+      "python"
+    ]
+  ]
+}

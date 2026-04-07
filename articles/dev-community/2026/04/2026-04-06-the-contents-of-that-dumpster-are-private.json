@@ -1,0 +1,41 @@
+{
+  "id": 9238,
+  "source": "DEV Community<",
+  "title": "The Contents of That Dumpster Are Private",
+  "url": "https://dev.to/mockhealth/the-contents-of-that-dumpster-are-private-4dok",
+  "published_at": "2026-04-06T23:09:23Z",
+  "fetched_at": "2026-04-06T23:20:21.254229+00:00",
+  "author": "mock health",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Foigjap1s4r08csr4fm29.png\"><img alt=\" \" height=\"693\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Foigjap1s4r08csr4fm29.png\" width=\"800\" /></a></p>\n\n<p>Nikhil Krishnan wrote <a href=\"https://www.outofpocket.health/p/open-source-in-healthcare-is-an-opportunity\" rel=\"noopener noreferrer\">a great piece recently</a> arguing that open source is healthcare's moment. The business models exist (Red Hat, GitLab). AI is lowering the contribution barrier. The ecosystem is ready.</p>\n\n<p>He's right. But there's a punchline missing from the open-standards conversation that anyone who's actually <em>built</em> against healthcare APIs knows intimately:</p>\n\n<p",
+  "full_text": "Nikhil Krishnan wrote a great piece recently arguing that open source is healthcare's moment. The business models exist (Red Hat, GitLab). AI is lowering the contribution barrier. The ecosystem is ready.\n\nHe's right. But there's a punchline missing from the open-standards conversation that anyone who's actually built against healthcare APIs knows intimately:\n\nThe standard exists. Nobody follows it the same way.\n\nFHIR (Fast Healthcare Interoperability Resources) is the anointed standard. ONC mandates it. CMS requires it for payer Patient Access APIs. Every major EHR vendor will tell you they support it. And technically, they do — the way a restaurant \"supports\" vegetarians by offering a side salad.\n\n \n \n Same Patient, Different Reality\n\nFlexpa recently published a fascinating comparison: the same patient's health data pulled through two different API pathways. The results should make anyone building healthcare software nervous:\n\nTEFCA path: 192 FHIR resources, but only 1 condition — \"pain in throat\"\n\nONC g(10) path: 166 resources, 11 conditions including rhinitis — but missed a documented cat dander allergy entirely\n\nSame patient. Same standard. Wildly different clinical picture. If you were building a care coordination app, which version of this patient would you trust?\n\nThis isn't an edge case. It's the norm.\n\n \n \n The Spec Says One Thing. Production Says Another.\n\nThe January 2026 deadline for USCDI v3 and US Core 6.1.0 was supposed to fix this. Certified health IT modules must now support the latest FHIR profiles with richer data elements. On paper, progress.\n\nIn practice:\n\nMajor state Medicaid agencies — Arizona, Colorado, Illinois, Indiana, Massachusetts, New York, Pennsylvania, Texas — remain non-compliant\n\nNo BCBS plan operated by HCSC has successfully had a patient complete authorization and FHIR data retrieval\n\n53 payers list refresh token support in their SMART configurations but don't actually issue refresh tokens\n\nUnitedHealthcare has nearly 100 patients who simply cannot access their own data through the mandated API\n\nThese aren't obscure edge cases. These are the largest payers and state programs in the country.\n\n \n \n The Normalization Tax\n\nEven when the APIs work, the data that comes back requires heavy lifting before it's usable.\n\nZus Health reports that pulling records from clinical networks yields about 200 documents per patient, mapping to over 1,000 raw FHIR resources. Conditions arrive as a grab bag of ICD-9, ICD-10, and SNOMED codes — sometimes all three for the same condition. Without normalization, deduplication, and enrichment, the volume is pure noise.\n\nParticle Health built an entirely proprietary CCDA-to-FHIR converter because open source libraries didn't meet their quality bar.\n\nThis is the dirty secret: an entire category of healthcare infrastructure companies exists primarily to clean up the mess that \"standardized\" data exchange creates. The standard is the floor, not the ceiling — and the floor has holes in it.\n\n \n \n Plan for Trash\n\nFHIR is a good standard. US Core is a good implementation guide. The ONC keeps tightening the spec — USCDI v3, US Core 6.1.0, SMART App Launch 2.0. But tighter specs only help if implementations actually conform. Right now, \"FHIR-compliant\" is a checkbox on a certification form, not a meaningful guarantee that the data you receive will be complete, consistent, or even parseable.\n\nSo here's the engineering takeaway: stop hoping for clean data. Plan for trash.\n\nEvery application that consumes FHIR from external systems needs a validation layer that isn't optional:\n\nProfile validation on ingest. Every resource that crosses your system boundary gets validated against the US Core profile you expect. Not just schema validation — profile-level.\n\nCompleteness checks per data class. USCDI defines 22 data classes. When you pull a patient's record, how many are actually populated? Track and surface that distinction.\n\nAutomated regression testing against real-world variance. Your integration tests shouldn't run against a single pristine FHIR server. They should run against data that looks like what production actually sends — missing fields, mixed code systems, DSTU2 holdovers.\n\nThe companies actually moving the needle in interoperability — Flexpa, Zus, Particle, Onyx — all learned this the hard way. They built proprietary normalization, deduplication, and validation pipelines because the alternative was shipping broken products. The standard isn't bad. Conformance is just unreliable.\n\n \n \n The Dumpster Metaphor, Extended\n\nThe meme says the contents of the dumpster are private. That's the HIPAA joke, and it's funny. But the deeper joke is:\n\nEven if you get permission to open the dumpster, what's inside is still trash.\n\nDon't wait for the spec to get stricter, or for ONC enforcement to get teeth, or for vendors to suddenly care about data quality. Build like you know the dumpster is full of trash — because it is — and validate everything that comes out of it.\n\nWhich means your test data needs to look like what production actually sends — not pristine sandbox patients with perfect coding. If your integration tests pass against clean data and break against the dumpster, your tests are lying to you.\n\nmock.health generates FHIR data with the clinical density and variance you'll see in the real world. Free tier, no sales call →",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actually",
+      "api",
+      "cms",
+      "datum",
+      "dumpster",
+      "ehr",
+      "fhir",
+      "gitlab",
+      "healthcare",
+      "healthtech",
+      "interoperability",
+      "onc",
+      "patient",
+      "patient access",
+      "payer",
+      "red hat",
+      "same patient",
+      "spec",
+      "uscdi",
+      "validation"
+    ],
+    [
+      "healthtech",
+      "interoperability"
+    ]
+  ]
+}

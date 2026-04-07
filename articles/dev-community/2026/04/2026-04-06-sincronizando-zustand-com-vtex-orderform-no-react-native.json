@@ -1,0 +1,43 @@
+{
+  "id": 9158,
+  "source": "DEV Community<",
+  "title": "Sincronizando Zustand com VTEX OrderForm no React Native",
+  "url": "https://dev.to/carlosorioli/sincronizando-zustand-com-vtex-orderform-no-react-native-3ab9",
+  "published_at": "2026-04-06T17:22:34Z",
+  "fetched_at": "2026-04-06T17:40:32.971660+00:00",
+  "author": "Carlos Rogerio Orioli",
+  "summary": "<p>Recentemente, precisei desenvolver uma integração de checkout VTEX dentro de um aplicativo React Native. O desafio era garantir que a experiência de compra fosse fluida, mantendo o estado do carrinho perfeitamente sincronizado entre o ambiente nativo do app e a finalização da compra na WebView.</p>\n\n<p>Para resolver isso, utilizei o Zustand para o gerenciamento de estado global e a API de Checkout da VTEX para manipular o orderFormId.</p>\n\n<h2>\n  \n  \n  A Arquitetura da Solução\n</h2>\n\n<p>A ideia central foi: o App gerencia os produtos e quantidades através de uma store leve Zustand e, antes de abrir o checkout, sincronizamos tudo com a VTEX via API.</p>\n\n<h2>\n  \n  \n  1. Gerenciando o Carrinho com Zustand\n</h2>\n\n<p>A store armazena o orderFormId e persiste os dados para que o carrinho não se perca. Aqui, podemos escolher entre o AsyncStorage (padrão) ou o MMKV (para performance ultra-rápida).<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code",
+  "full_text": "Recentemente, precisei desenvolver uma integração de checkout VTEX dentro de um aplicativo React Native. O desafio era garantir que a experiência de compra fosse fluida, mantendo o estado do carrinho perfeitamente sincronizado entre o ambiente nativo do app e a finalização da compra na WebView.\n\nPara resolver isso, utilizei o Zustand para o gerenciamento de estado global e a API de Checkout da VTEX para manipular o orderFormId.\n\n \n \n A Arquitetura da Solução\n\nA ideia central foi: o App gerencia os produtos e quantidades através de uma store leve Zustand e, antes de abrir o checkout, sincronizamos tudo com a VTEX via API.\n\n \n \n 1. Gerenciando o Carrinho com Zustand\n\nA store armazena o orderFormId e persiste os dados para que o carrinho não se perca. Aqui, podemos escolher entre o AsyncStorage (padrão) ou o MMKV (para performance ultra-rápida).\n\nimport { create } from 'zustand';\nimport { persist, createJSONStorage } from 'zustand/middleware';\nimport AsyncStorage from '@react-native-async-storage/async-storage';\nimport { MMKV } from 'react-native-mmkv';\n\n// Opção com MMKV (Alta Performance)\nconst storage = new MMKV();\nconst mmkvStorage = {\n setItem: (name, value) => storage.set(name, value),\n getItem: (name) => storage.getString(name) ?? null,\n removeItem: (name) => storage.delete(name),\n};\n\nexport const useCartStore = create(\n persist(\n (set) => ({\n orderFormId: null,\n items: [],\n setOrderFormId: (id) => set({ orderFormId: id }),\n addToCart: (item) => set((state) => ({ items: [...state.items, item] })),\n clearCart: () => set({ items: [], orderFormId: null }),\n }),\n {\n name: 'cart-storage',\n // Troque 'mmkvStorage' por 'AsyncStorage' se preferir o padrão\n storage: createJSONStorage(() => mmkvStorage), \n }\n )\n);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPara esse projeto, utilizei o MMKV pela velocidade de leitura/escrita, mas a estrutura funciona perfeitamente com AsyncStorage também.\n\n \n \n 2. Sincronizando com a API da VTEX\n\nAntes de navegar para a tela de checkout, enviamos os itens para o orderForm específico. Isso evita disparar várias chamadas de rede desnecessárias durante a navegação.\n\nconst syncCartWithVtex = async (orderFormId, items) => {\n try {\n await fetch(`https://{ACCOUNT}.vtexcommercestable.com.br/api/checkout/pub/orderForm/${orderFormId}/items`, {\n method: 'POST',\n headers: { 'Content-Type': 'application/json' },\n body: JSON.stringify({\n orderItems: items.map(i => ({ id: i.id, quantity: i.quantity, seller: \"1\" }))\n }),\n });\n } catch (error) {\n console.error(\"Erro na sincronização:\", error);\n }\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDICA: A VTEX às vezes exige que o cabeçalho vtex-id-client-authtoken seja enviado se o usuário já estiver autenticado no app, para que o carrinho não fique como \"anônimo\"\n\n \n \n 3. O Checkout na WebView\n\nA sacada foi é injetar o orderFormId na URL da WebView. Assim, o checkout da VTEX já abre com todos os itens que o usuário escolheu no app.\n\nimport { WebView } from 'react-native-webview';\n\nconst VtexCheckout = () => {\n const { orderFormId } = useCartStore();\n\n // URL que vincula a sessão ao carrinho do App\n const checkoutUrl = `https://www.sualoja.com.br/checkout/?orderFormId=${orderFormId}#/cart`;\n\n return (\n <WebView \n source={{ uri: checkoutUrl }}\n sharedCookiesEnabled={true} //PARA MANTER A SESSÃO \n startInLoadingState={true}\n />\n );\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Lições aprendidas\n\nPerformance: Sincronizar o estado via API antes de abrir a WebView entrega uma experiência muito mais \"nativa\" do que tentar manipular o DOM da página carregada.\n\nPersistência: O uso do Zustand com middleware de persistência é imbatível para lidar com carrinhos em dispositivos móveis.\n\nDesenvolver soluções de e-commerce de alta performance é o que move a gente na Converte . \n\nE você, já teve que lidar com essa ponte entre o nativo e o web no e-commerce? Vamos trocar uma ideia nos comentários!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "arquitetura da solução",
+      "asyncstorage",
+      "carrinho",
+      "checkout, sincronizamos tudo",
+      "const",
+      "estado",
+      "gerenciando o carrinho",
+      "import",
+      "mantendo o",
+      "mmkv",
+      "mobile",
+      "mobilecommerce",
+      "orderformid",
+      "para",
+      "reactnative",
+      "sincronizando zustand",
+      "vtex",
+      "vtex orderform",
+      "webview",
+      "zustand"
+    ],
+    [
+      "mobile",
+      "mobilecommerce",
+      "reactnative"
+    ]
+  ]
+}

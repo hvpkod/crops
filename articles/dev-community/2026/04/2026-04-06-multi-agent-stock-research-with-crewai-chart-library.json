@@ -1,0 +1,42 @@
+{
+  "id": 9156,
+  "source": "DEV Community<",
+  "title": "Multi-Agent Stock Research with CrewAI + Chart Library",
+  "url": "https://dev.to/grahammccain/multi-agent-stock-research-with-crewai-chart-library-4jgi",
+  "published_at": "2026-04-06T17:23:46Z",
+  "fetched_at": "2026-04-06T17:40:30.252952+00:00",
+  "author": "grahammccain",
+  "summary": "<p>When you ask a single AI agent to research a stock, it tries to do everything at once: check the chart pattern, assess the market, evaluate sectors, and synthesize a view. The result is usually shallow.</p>\n\n<p>Multi-agent systems fix this by splitting work across specialists -- exactly how institutional research desks operate. CrewAI lets you build that structure with AI agents and Chart Library's pattern intelligence API.</p>\n\n<h2>\n  \n  \n  The Crew Design: Two Specialist Agents\n</h2>\n\n<p><strong>Pattern Analyst</strong> -- specializes in individual stock chart analysis. Uses Chart Library's intelligence endpoint to find historically similar charts, reads forward return statistics, and runs scenario stress tests. Always cites specific numbers: \"7 of 10 similar patterns went up over 5 days, averaging +2.3%.\"</p>\n\n<p><strong>Regime Analyst</strong> -- specializes in the market-wide environment. Checks SPY/QQQ regime status, sector rotation, and crowding risk. Frames everything as his",
+  "full_text": "When you ask a single AI agent to research a stock, it tries to do everything at once: check the chart pattern, assess the market, evaluate sectors, and synthesize a view. The result is usually shallow.\n\nMulti-agent systems fix this by splitting work across specialists -- exactly how institutional research desks operate. CrewAI lets you build that structure with AI agents and Chart Library's pattern intelligence API.\n\n \n \n The Crew Design: Two Specialist Agents\n\nPattern Analyst -- specializes in individual stock chart analysis. Uses Chart Library's intelligence endpoint to find historically similar charts, reads forward return statistics, and runs scenario stress tests. Always cites specific numbers: \"7 of 10 similar patterns went up over 5 days, averaging +2.3%.\"\n\nRegime Analyst -- specializes in the market-wide environment. Checks SPY/QQQ regime status, sector rotation, and crowding risk. Frames everything as historical analogy: \"similar conditions historically led to...\" rather than predictions.\n\nAgent backstories matter more than you'd expect. A backstory that says \"you never make predictions, you present historical context\" produces very different output than \"you are a bold market forecaster.\"\n\n \n \n Defining the Tools\n\nEach agent gets curated tools from Chart Library's Python SDK:\n\npip install crewai crewai-tools chartlibrary\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPattern Analyst tools:\n\nchart_intelligence -- calls cl.intelligence(symbol, date) for 10 most similar historical patterns + forward returns\n\nscenario_stress_test -- calls cl.scenario(symbol, market_move_pct) for \"what if SPY drops 5%?\"\n\ndaily_top_picks -- calls cl.discover(limit=10) for today's top patterns\n\nRegime Analyst tools:\n\nmarket_regime -- calls cl.regime(compact=True) for SPY, QQQ, and 11 sector ETFs\n\ncrowding_detector -- calls cl.crowding() for systematic risk signals\n\nsector_rotation -- calls cl.sector_rotation(lookback) for momentum rankings\n\n \n \n Building the Tasks\n\nThe order matters: regime assessment first (establishes context), then stock analysis (uses that context), then synthesis (combines both).\n\nTask 1 - Regime Assessment: Check SPY/QQQ, identify leading/lagging sectors, evaluate crowding risk.\n\nTask 2 - Stock Analysis: For each symbol in your watchlist, report match count, quality, forward returns. Receives Task 1's output as context -- so findings can be framed like \"NVDA's bullish pattern aligns with the current risk-on regime.\"\n\nTask 3 - Synthesis: Produces a structured briefing: Market Environment, Stock Highlights, Risk Factors, Bottom Line.\n\n \n \n Running the Crew\n\ncrew = Crew(\n agents=[pattern_analyst, regime_analyst],\n tasks=[regime_task, analysis_task, synthesis_task],\n process=Process.sequential,\n verbose=True\n)\n\nresult = crew.kickoff()\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Example Output\n\nThe Regime Analyst checks SPY: 7 of 10 historically similar regimes gained over 10 days. Tech (XLK) and Industrials (XLI) leading. Moderate crowding in large-cap tech.\n\nThe Pattern Analyst analyzes each symbol:\n\nNVDA: 10 matches, top match 94% similarity, 8/10 positive over 5 days (+3.1% avg)\n\nAAPL: More mixed -- 6/10 positive, +0.8% average\n\nTSLA: Historically volatile, wide outcome range\n\nThe synthesis combines both: bullish regime supports NVDA, AAPL is neutral, TSLA's wide range means sizing matters more than direction.\n\n \n \n Extending the Crew\n\nRisk Manager agent: Run stress tests for -3%, -5%, -10% market moves across the watchlist\n\nPortfolio Optimizer agent: Suggest position sizes based on conviction and correlation\n\nHierarchical process: A Research Director that delegates dynamically instead of fixed sequence\n\nStart with two agents and add complexity only when you hit a real limitation. Multi-agent systems are powerful but harder to debug.\n\nThe complete working example is at github.com/grahammccain/chart-library-mcp in examples/crewai_tutorial.py.\n\nGet your free API key at chartlibrary.io/developers and build your first research crew today. 24M patterns. 10 years. One API call.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "analyst",
+      "api",
+      "building the tasks",
+      "chart",
+      "chart library's",
+      "crew",
+      "crewai",
+      "crowding",
+      "historically",
+      "multi-agent stock research",
+      "nvda",
+      "pattern",
+      "python",
+      "qqq",
+      "regime",
+      "similar",
+      "spy",
+      "stock",
+      "tutorial",
+      "xlk"
+    ],
+    [
+      "python",
+      "tutorial"
+    ]
+  ]
+}

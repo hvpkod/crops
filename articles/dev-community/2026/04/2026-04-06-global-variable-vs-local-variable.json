@@ -1,0 +1,37 @@
+{
+  "id": 9066,
+  "source": "DEV Community<",
+  "title": "Global Variable VS Local Variable",
+  "url": "https://dev.to/divya_divya_b18f82b19353a/global-variable-vs-local-variable-5169",
+  "published_at": "2026-04-06T11:20:42Z",
+  "fetched_at": "2026-04-06T11:40:31.370246+00:00",
+  "author": "Divya Divya",
+  "summary": "<p>In Java, variables are classified based on where they are declared and how they are accessed. The two main types are global (class-level) variables and local variables. Understanding their scope and behavior is essential for writing efficient programs.</p>\n\n<p><strong>What is a Global Variable in Java?</strong></p>\n\n<p>Java does not support true global variables like some other languages. Instead, it uses class-level variables, which behave similarly.<br />\nThese variables are declared inside a class but outside any method.</p>\n\n<p><strong>Types of Class-Level Variables</strong><br />\n<strong>Static Variable →</strong> Shared by all objects<br />\n<strong>Instance Variable →</strong> Separate copy for each object</p>\n\n<p><strong>Example:</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight java\"><code><span class=\"kd\">class</span> <span class=\"nc\">Test</span> <span class=\"o\">{</span>\n    <span class=\"kd\">static</span> <span class=\"kt\">int</span> <span ",
+  "full_text": "In Java, variables are classified based on where they are declared and how they are accessed. The two main types are global (class-level) variables and local variables. Understanding their scope and behavior is essential for writing efficient programs.\n\nWhat is a Global Variable in Java?\n\nJava does not support true global variables like some other languages. Instead, it uses class-level variables, which behave similarly.\n\nThese variables are declared inside a class but outside any method.\n\nTypes of Class-Level Variables\n\nStatic Variable → Shared by all objects\n\nInstance Variable → Separate copy for each object\n\nExample:\n\nclass Test {\n static int x = 10; // class-level (global-like)\n\n public static void main(String[] args) {\n System.out.println(x);\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutPut\n\nWhat is a Local Variable?\n\nA local variable is declared inside a method, constructor, or block and can only be used within that scope.\n\nExample:\n\nclass Test \n{ \npublic static void main(String[] args) \n{ \nint y = 5; // local variable \nSystem.out.println(y); \n} \n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput\n\nKey Characteristics\n\nDeclared inside method / block\n\nAccessible only within that method\n\nMemory created when method starts\n\nDestroyed when method ends\n\nMust be initialized before use",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "beginners",
+      "class",
+      "declare",
+      "fullscreen",
+      "global",
+      "inside",
+      "java",
+      "local",
+      "method",
+      "output\n\nkey characteristics",
+      "programming",
+      "static",
+      "tutorial",
+      "variable",
+      "void"
+    ],
+    [
+      "beginners",
+      "java",
+      "tutorial"
+    ]
+  ]
+}

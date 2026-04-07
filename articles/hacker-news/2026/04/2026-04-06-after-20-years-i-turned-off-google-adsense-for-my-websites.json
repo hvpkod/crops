@@ -1,0 +1,30 @@
+{
+  "id": 9255,
+  "source": "Hacker News",
+  "title": "After 20 years I turned off Google Adsense for my websites",
+  "url": "https://blog.ericgoldman.org/archives/2025/06/after-20-years-i-turned-off-google-adsense-for-my-websites.htm",
+  "published_at": "2026-04-06T23:23:28Z",
+  "fetched_at": "2026-04-07T00:00:32.787812+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47668727\">Comments</a>",
+  "full_text": "Soon after I launched this blog in February 2005, I signed up for Google AdSense. My goal was to make a little money and learn about the industry from the inside. In particular, if I was going to cover the nuances of the online advertising industry, being an AdSense publisher would help me understand the issues first-hand.\n\n2005 was a heady and experimental time for online advertising. I remember that some of my first few clicks paid $20/click! However, I never got rich on AdSense. At my peak, I think I made about $1k/yr. Even so, I did learn a lot about publishers’ perspectives, and I loved gaining insights into how AdSense monetized my blog. I was proud to be part of the AdSense program.\n\n20 years later, almost none of my reasons for participating in AdSense still hold. I make de minimis amounts of money nowadays (about $100/year); I keep triggering their content rules inadvertently due to Masnick’s Impossibility Theorem (see an example on the right); and I’m not deriving many insights any more about the publisher or advertiser ecosystem from my participation.\n\nWorse, I get reader complaints about AdSense’s ad intrusiveness and quality. A couple of years ago, AdSense expanded its ad formats and overran my page. In response, a year or so ago, I reconfigured AdSense so that it was only supposed to show one ad spot–a modest square display ad in the upper right. Apparently AdSense went ham again and now displays an additional banner on the page (on the screen bottom on web browsers, on the screen top on mobile) that I didn’t want. I never saw most of the offending ads because of my adblocker, so I didn’t notice the changes or experience any irritation personally. Still, I shouldn’t have to constantly monitor AdSense’s changes.\n\nPlus, turning off the ads should more clearly classify my blog as “non-commercial” for the various legal tests that impose greater liability on commercial actors. Certainly the $100/year I was making wasn’t compensating me for any extra legal risk or compliance I faced due to those legal doctrines.\n\nAs a result, I have deleted all ericgoldman.org domains from AdSense. If you see any stray AdSense ads appearing on the blog going forward, please let me know and I’ll investigate.\n\nEven though it is obviously time (or well past time) for me to opt-out of AdSense, it’s always a little bittersweet to end a 20-year-long vendor relationship.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "adsense",
+      "display",
+      "google adsense",
+      "insight",
+      "launch",
+      "legal",
+      "little",
+      "masnick’s impossibility theorem",
+      "money",
+      "online",
+      "screen",
+      "turn"
+    ],
+    []
+  ]
+}

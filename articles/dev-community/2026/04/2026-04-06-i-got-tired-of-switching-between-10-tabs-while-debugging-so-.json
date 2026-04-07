@@ -1,0 +1,38 @@
+{
+  "id": 8992,
+  "source": "DEV Community<",
+  "title": "I got tired of switching between 10 tabs while debugging… so I built this",
+  "url": "https://dev.to/jyosh0812/i-got-tired-of-switching-between-10-tabs-while-debugging-so-i-built-this-f9a",
+  "published_at": "2026-04-06T01:48:40Z",
+  "fetched_at": "2026-04-06T02:40:46.260436+00:00",
+  "author": "jyosh",
+  "summary": "<h2>\n  \n  \n  I got tired of switching between 10 tabs while debugging… so I built this\n</h2>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fcnutxbrvdsvof5j8v07l.png\"><img alt=\"https://timedev.ai\" height=\"436\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fcnutxbrvdsvof5j8v07l.png\" width=\"800\" /></a></p>\n\n<p>If you’ve worked with APIs, JSON, or tokens, you’ve probably had this moment:</p>\n\n<p>You start debugging something simple…<br />\nand suddenly you’re juggling tabs like this:</p>\n\n<ul>\n<li>JWT decoder</li>\n<li>JSON formatter</li>\n<li>Base64 encoder/decoder</li>\n<li>regex tester</li>\n<li>timestamp converter</li>\n</ul>\n\n<p>Before you realize it, you’ve got 8–10 tabs open.</p>\n\n<h2>\n  \n  \n ",
+  "full_text": "I got tired of switching between 10 tabs while debugging… so I built this\n\nIf you’ve worked with APIs, JSON, or tokens, you’ve probably had this moment:\n\nYou start debugging something simple…\n\nand suddenly you’re juggling tabs like this:\n\nJWT decoder\n\nJSON formatter\n\nBase64 encoder/decoder\n\nregex tester\n\ntimestamp converter\n\nBefore you realize it, you’ve got 8–10 tabs open.\n\n \n \n It sounds small, but it completely breaks your flow.\n\n \n \n The hidden cost of “just one more tab”\n\nEach tool solves a tiny problem.\n\nBut constantly switching between them adds friction:\n\ncontext switching\n\ninconsistent interfaces\n\nslow or cluttered tools\n\nunnecessary mental overhead\n\nIndividually, it’s fine.\n\nTogether, it’s frustrating.\n\n \n \n What I actually wanted\n\nInstead of jumping between tools, I wanted something that:\n\nbrings all essential developer utilities into one place\n\nis fast and responsive (no lag, no waiting)\n\nhas a clean, distraction-free UI\n\nruns entirely in the browser (no data upload)\n\nSomething that feels like a developer scratchpad, not a collection of random websites.\n\n \n \n So I built one\n\nI started small, just for my own workflow:\n\nJWT decoder\n\nJSON formatter\n\nBase64 tool\n\ntimestamp converter\n\nThen I kept adding what I actually needed day-to-day:\n\nregex tester\n\ncURL → fetch / axios converters\n\nSQL formatter\n\nURL encoder/decoder\n\nhash generator (MD5, SHA)\n\nYAML ↔ JSON converters\n\nand more\n\nOver time, it turned into a full developer utility hub.\n\n👉 I put everything here: https://timedev.ai\n\n— runs fully in your browser (no uploads)\n\n \n \n Design choices I cared about\n\nMost tools online work — but don’t feel great to use.\n\nSo I focused on a few things:\n\n \n \n 1. Speed over everything\n\nEverything should feel instant. No loading, no friction.\n\n \n \n 2. Clean, minimal UI\n\nNo ads, no clutter — just the tool.\n\n \n \n 3. Privacy-first\n\nEverything runs locally in your browser. Nothing is uploaded.\n\n \n \n 4. Consistency\n\nSame experience across all tools, so you don’t have to “relearn” anything.\n\n \n \n What surprised me\n\nA few things I didn’t expect:\n\nHow much time small context switches actually waste\n\nHow inconsistent most dev tools feel\n\nHow much smoother workflows become when everything is in one place\n\n \n \n What I’m working on next\n\nI’m currently exploring:\n\nAI-assisted explanations (e.g., explain JSON, JWT payloads, regex patterns)\n\nexpanding tool coverage further\n\nrefining UX and performance\n\n \n \n Would love your input\n\nCurious to hear from other devs:\n\n👉 What’s the one tool you use every single day?\n\n👉 Or something you wish existed but doesn’t yet?\n\nI’m building this based on real workflows, so ideas matter a lot.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "build",
+      "converter",
+      "developers",
+      "everything",
+      "formatter",
+      "jwt",
+      "programming",
+      "regex",
+      "sha",
+      "something",
+      "sql",
+      "switch",
+      "tab",
+      "tool",
+      "want",
+      "webdev"
+    ],
+    [
+      "developers",
+      "webdev"
+    ]
+  ]
+}

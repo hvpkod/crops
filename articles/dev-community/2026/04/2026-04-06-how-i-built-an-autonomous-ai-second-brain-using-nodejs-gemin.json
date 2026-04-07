@@ -1,0 +1,42 @@
+{
+  "id": 9151,
+  "source": "DEV Community<",
+  "title": "How I built an Autonomous AI Second Brain using Node.js, Gemini, and Notion (as a High Schooler)",
+  "url": "https://dev.to/vansh_chauhan_c368733d871/how-i-built-an-autonomous-ai-second-brain-using-nodejs-gemini-and-notion-as-a-high-schooler-50d8",
+  "published_at": "2026-04-06T17:27:54Z",
+  "fetched_at": "2026-04-06T17:40:24.345313+00:00",
+  "author": "Vansh Chauhan",
+  "summary": "<p><strong>Hey everyone, I'm Vansh 👋</strong></p>\n\n<p>I'm a high school student by day and a web developer by night. I just finished my 11th-grade exams, and during my study prep, I realized a massive problem: my notes and tasks were a complete mess. Between juggling school subjects, coding projects, and random ideas, my information was scattered across five different apps. I was spending more time organizing my study materials than actually studying.</p>\n\n<p>So, instead of studying harder, I decided to code my way out of the problem. I built Axiom OS—an autonomous AI-powered Second Brain that connects Telegram, Google Gemini 2.5 Flash, and Notion.</p>\n\n<p>Here is a breakdown of how I built it and the architecture behind it.</p>\n\n<p><strong>🧠 What is Axiom OS?</strong><br />\nAt its core, Axiom OS is a frictionless capture system.</p>\n\n<p>Instead of opening Notion, navigating to a page, formatting blocks, and typing out notes, I just text my private Telegram bot.</p>\n\n<p>Send a topic (e",
+  "full_text": "Hey everyone, I'm Vansh 👋\n\nI'm a high school student by day and a web developer by night. I just finished my 11th-grade exams, and during my study prep, I realized a massive problem: my notes and tasks were a complete mess. Between juggling school subjects, coding projects, and random ideas, my information was scattered across five different apps. I was spending more time organizing my study materials than actually studying.\n\nSo, instead of studying harder, I decided to code my way out of the problem. I built Axiom OS—an autonomous AI-powered Second Brain that connects Telegram, Google Gemini 2.5 Flash, and Notion.\n\nHere is a breakdown of how I built it and the architecture behind it.\n\n🧠 What is Axiom OS?\n\nAt its core, Axiom OS is a frictionless capture system.\n\nInstead of opening Notion, navigating to a page, formatting blocks, and typing out notes, I just text my private Telegram bot.\n\nSend a topic (e.g., \"Photosynthesis\") -> The bot asks Gemini to research it, formats it into structured JSON, and pushes it to my Notion Vault with tables and summaries.\n\nSend /remind 30m Study Bio -> It logs a task in my Notion Backlog. A background worker tracks the time and pings my Telegram when it's time to study.\n\nSend /read [URL] -> It scrapes the article and drops a clean summary into Notion.\n\n🏗️ The System Architecture\n\nI wanted this system to be fast, secure, and completely independent. Here is the Decoupled Proxy Architecture I used:\n\n1. The Logic Tier (Node.js/Express Proxy)\n\nTo prevent exposing my API keys, I built a Node.js Express server that acts as the central \"Brain.\" It holds the .env variables and proxies all requests between Telegram, Gemini, and Notion.\n\n2. The Intelligence Tier (Google Gemini 2.5 Flash)\n\nI chose Gemini 2.5 Flash because it is incredibly fast and great at following strict output formats. I prompt Gemini to process natural language topics and return the data as strictly formatted JSON objects.\n\n3. The Data Tier (Notion API)\n\nNotion acts as my primary database. Using the Notion SDK, the Express server parses the JSON from Gemini and maps it directly into Notion blocks (Headers, Bulleted Lists, Tables) inside specific databases.\n\n4. The Autonomous Agent Tier\n\nTo handle reminders, I built the \"Axiom Agent.\" It's a persistent background worker (setInterval loop) that polls my Notion task database every minute. If it detects a task with a Not Started status and a matching RemindAt timestamp, it triggers the Telegram Bot API to send me a push notification.\n\n💡 The Result\n\nBuilding Axiom OS completely changed how I manage my time. I no longer organize my workspace manually; the AI does the heavy lifting while I just text a bot on the go. It was an amazing practical exercise in connecting disparate APIs (Telegraf + Google AI + Notion SDK) into one seamless loop.\n\n🚀 Get the Source Code\n\nYou can absolutely use the architecture above to build this yourself! It is a fantastic weekend project.\n\nHowever, if you want to save 10+ hours of debugging API connections and just want the complete, plug-and-play system right now, I've packaged the entire project.\n\nYou can get the .env ready source code, the setup guide, and my premium Notion template here for just ₹149:\n\n👉 Download Axiom OS on Topmate:\n\nhttps://topmate.io/vansh_chauhan22/2035021?utm_source=public_profile&utm_campaign=vansh_chauhan22\n\nFor more info about the Axiom OS:\n\nhttps://github.com/Vanshdeveloper/Axiom-os\n\nIf you build something similar or have questions about the Notion API integration, drop a comment or tag me on Instagram @vansh03030. I'd love to see what you create!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "architecture",
+      "autonomous",
+      "axiom",
+      "axiom os",
+      "brain",
+      "build",
+      "gemini",
+      "google gemini",
+      "javascript",
+      "node.js",
+      "node.js express",
+      "notion",
+      "productivity",
+      "programming",
+      "send",
+      "task",
+      "telegram",
+      "the logic tier",
+      "tier"
+    ],
+    [
+      "architecture",
+      "productivity"
+    ]
+  ]
+}

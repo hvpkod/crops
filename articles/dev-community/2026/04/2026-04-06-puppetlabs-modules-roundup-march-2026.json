@@ -1,0 +1,34 @@
+{
+  "id": 9091,
+  "source": "DEV Community<",
+  "title": "Puppetlabs Modules Roundup – March 2026",
+  "url": "https://dev.to/puppet/puppetlabs-modules-roundup-march-2026-3bde",
+  "published_at": "2026-04-06T14:24:03Z",
+  "fetched_at": "2026-04-06T14:40:32.622180+00:00",
+  "author": "Jason St-Cyr",
+  "summary": "<p>March 2026 brought 4 Puppetlabs module releases in the Puppetlabs Forge catalog. Read along to see what changed this month!</p>\n\n<p>Across the month, the clearest themes were compatibility updates across Puppet Enterprise (PE), supported platforms, and operational hardening and troubleshooting improvements.</p>\n\n<h2>\n  \n  \n  Highlighted Updates\n</h2>\n\n<h3>\n  \n  \n  Compatibility updates across PE and supported platforms\n</h3>\n\n<p>March releases leaned toward version-alignment work, with updates for newer Puppet Enterprise releases, Ubuntu 24.04 benchmark coverage, and dependency ranges that allow newer supporting modules.</p>\n\n<ul>\n<li>Added support for PE 2023.8.9 and 2025.9.0.</li>\n<li>Added CIS Benchmark support for Ubuntu 24.04 Server Levels 1 and 2.</li>\n</ul>\n\n<h3>\n  \n  \n  Operational hardening and troubleshooting improvements\n</h3>\n\n<p>Several releases focused on making \"Day Two\" operations safer and easier to debug through better validation, more useful logging, and targeted ",
+  "full_text": "March 2026 brought 4 Puppetlabs module releases in the Puppetlabs Forge catalog. Read along to see what changed this month!\n\nAcross the month, the clearest themes were compatibility updates across Puppet Enterprise (PE), supported platforms, and operational hardening and troubleshooting improvements.\n\n \n \n Highlighted Updates\n\n \n \n Compatibility updates across PE and supported platforms\n\nMarch releases leaned toward version-alignment work, with updates for newer Puppet Enterprise releases, Ubuntu 24.04 benchmark coverage, and dependency ranges that allow newer supporting modules.\n\nAdded support for PE 2023.8.9 and 2025.9.0.\n\nAdded CIS Benchmark support for Ubuntu 24.04 Server Levels 1 and 2.\n\n \n \n Operational hardening and troubleshooting improvements\n\nSeveral releases focused on making \"Day Two\" operations safer and easier to debug through better validation, more useful logging, and targeted runtime fixes.\n\nAdded installer untar checks and deduplicated hosts in the legacy compiler group.\n\nMoved most SCE-specific logging into the Puppet agent run log for easier debugging.\n\n \n \n What Updates Happened to Puppetlabs Modules in March 2026?\n\nThe following is an alphabetical listing of modules which received updates in March 2026. If a module had multiple versions released, the updates are collected together, numbered with the \"latest\" version available.\n\n \n \n cd4pe 3.4.0\n\n📅 Latest release: 2026-03-04 (🌐 View on the Forge)\n\nThis release focuses on updated puppetlabs-docker and puppetlabs-hocon dependencies to allow usage of newer versions while also addressing updated module with PDK 3.6.1.\n\nUpdated puppetlabs-docker and puppetlabs-hocon dependencies to allow usage of newer versions\n\nUpdated module with PDK 3.6.1\n\n \n \n peadm 3.36.0\n\n📅 Latest release: 2026-03-25 (🌐 View on the Forge)\n\nThis release focuses on adding support for PE 2023.8.9 and 2025.9.0 while also addressing deduplicate hosts in legacy compiler group.\n\n \n \n sce_linux 2.6.0\n\n📅 Latest release: 2026-03-17 (🌐 View on the Forge)\n\nThis release focuses on support for Ubuntu 24.04. You can use Security Compliance Enforcement (SCE) to enforce the Center for Internet Security (CIS) Benchmark for Ubuntu Linux 24.04, v1.0.0, Server Levels 1 and 2 while also addressing support for Puppet module dependencies.\n\n \n \n sqlserver 5.1.1\n\n📅 Latest release: 2026-03-04 (🌐 View on the Forge)\n\nSmall change this month to ensure permission the variable is set.\n\n \n \n Until Next Time!\n\nThat wraps up the March 2026 roundup. If any of the modules overlap with your environment, the linked Forge pages and release notes are worth a closer look.\n\nFeedback on the series is always useful, especially if there are module families or release-note patterns that deserve more attention in future editions.\n\nMore updates coming next month when the April 2026 releases land.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "add",
+      "latest",
+      "march",
+      "module",
+      "new",
+      "pdk",
+      "puppet",
+      "puppet enterprise",
+      "puppetlab",
+      "puppetlabs forge",
+      "release",
+      "sce",
+      "security compliance enforcement",
+      "server levels",
+      "update",
+      "updates happened"
+    ],
+    []
+  ]
+}

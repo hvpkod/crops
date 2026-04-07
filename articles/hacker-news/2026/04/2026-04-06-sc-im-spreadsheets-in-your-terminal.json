@@ -1,0 +1,40 @@
+{
+  "id": 9117,
+  "source": "Hacker News",
+  "title": "sc-im Spreadsheets in Your Terminal",
+  "url": "https://github.com/andmarti1424/sc-im",
+  "published_at": "2026-04-06T16:00:29Z",
+  "fetched_at": "2026-04-06T16:20:24.321265+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47662658\">Comments</a>",
+  "full_text": "New release v0.8.5 - This project needs your help!\nThis is a one person project and have very little sponsoring. I want to still maintain and develop sc-im, but I am the only income in my family and its becoming difficult to work as much as I would want.\nIf you can make a donation (see at the bottom), please do. Your help would be really appreciated!!\nThanks.\n\nSpreadsheet Calculator Improvised, aka sc-im, is an ncurses based, vim-like spreadsheet calculator.\n\nsc-im is based on sc, whose original authors are James Gosling and Mark Weiser, and mods were later added by Chuck Martin.\n\nSome of the features of sc-im\n\nVim movements commands for editing cell content.\n\nUNDO / REDO.\n\n65.536 rows and 702 columns supported. (The number of rows can be expanded to 1.048.576 if wished).\n\nCSV / TAB delimited / XLSX file import and export. ODS import. Markdown export.\n\nKey-mappings.\n\nAutobackup.\n\nDirect color support - specifing the RGB values, screen colors can be customized by user, even at runtime.\n\nColorize cells or give them format such as bold, italic or underline.\n\nWide character support. The following alphabets are supported: English, Spanish, French, Italian, German, Portuguese, Russian, Ukrainian, Greek, Turkish, Czech, Japanese, Chinese.\n\nSort of rows.\n\nFilter of rows.\n\nSubtotals.\n\nCell shifting.\n\nClipboard support.\n\nGNUPlot interaction.\n\nScripting support with LUA. Also with triggers and c dynamic linked modules.\n\nImplement external functions in the language you prefer and use them in SC-IM.\n\nUse SC-IM as a non-interactive calculator, reading its input from an external script.\n\nKey\nPurpose\n\n=\nInsert a numeric value\n\n\\\nInsert a text value\n\ne\nEdit a numeric value\n\nE\nEdit a string value\n\nx\nDelete current cell content\n\n:q\nQuit the app\n\n:h\nSee help\n\n:w filename.sc\nSave current spreadsheet in sc format\n\nj\nMove down\n\nk\nMove up\n\nh\nMove left\n\nl\nMove right\n\ngoab12\ngo to cell AB12\n\nu\nundo last change\n\nC-r\nredo last change undone\n\nyy\nCopy current cell\n\nv\nselect a range using cursor/hjkl keys\n\np\npaste a previously yanked cell or range\n\nir\ninsert row\n\nic\ninsert column\n\ndr\ndelete row\n\ndc\ndelete column\n\nRequirements:\n\nncurses (best if compiled with wide chars support)\n\nbison or yacc\n\ngcc\n\nmake\n\npkg-config and which (for make to do its job)\n\nOptionals:\n\ntmux / xclip / pbpaste (for clipboard copy/paste)\n\ngnuplot (for plots)\n\nlibxlsxreader (for xls support)\n\nxlsxwriter (for xlsx export support)\n\nlibxml-2.0 and libzip (for xlsx/ods import support)\n\nlua (for Lua scripting)\n\nthreads support (in case you want to test this in Minix, just disable autobackup and HAVE_PTHREAD)\n\nOptional: You can install the binary sc-im in your system by typing with a privileged user:\n\nYou can follow the instructions as above, but if you would like Lua scripting\nsupport, you will need to install Lua 5.1, which you can do with,\n\nAnd then follow the instructions as above.\n\nUbuntu with XLSX import & export\n\nSee this wiki page.\n\nPlease check wiki pages\n\nThe scimrc file can be used to configure sc-im. The file should be placed in the ~/.config/sc-im directory.\n\nHere is an example ~/.config/sc-im/scimrc :\n\nset autocalc\nset numeric\nset numeric_decimal=0\nset overlap\nset xlsx_readformulas\n\nOther configuration variables are listed in the help file.\n\nPlease open an issue if you find a bug.\nIf you are now sure if its a bug, please take a look at the discussions and/or ask there.\nIf you have a question please check out current discussions and if you still are in doubt, open a discussion as well.\nIf you want to ask for a feature request, the same, check out current discussions.\nThank you!\n\nsc-im tutorial\n\nvim-scimark - Vim plugin, edit embedded markdown tables with sc-im in vim terminal.\n\nWant to help? You can help us with one or more of the following:\n\ngiving sc-im a star on GitHub\n\ntaking screenshots / creating screencasts showing sc-im\n\nmaking a donation (see below).\n\ntelling if you use it / like it. I really don't have a clue if this app is used by someone.\n\nIf you like sc-im please support its development by making a DONATION with Patreon or PayPal.\nIt would really help a lot.\n\nIf you wish to make a donation, please click the above button or just send money to scim.spreadsheet@gmail.com via PayPal, choosing \"Goods and Services\".\nor with Patreon.\n\nThank you!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "cell",
+      "column",
+      "csv",
+      "current",
+      "cursor",
+      "delete",
+      "github",
+      "help",
+      "insert",
+      "minix",
+      "ncurse",
+      "numeric",
+      "ods",
+      "please",
+      "rgb",
+      "spreadsheet",
+      "tab",
+      "ukrainian",
+      "undo / redo",
+      "xlsx"
+    ],
+    [
+      "github"
+    ]
+  ]
+}

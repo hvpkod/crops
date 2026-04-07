@@ -1,0 +1,35 @@
+{
+  "id": 8988,
+  "source": "DEV Community<",
+  "title": "dcvpg — Data Contract Validator & Pipeline Guardian 🛡️",
+  "url": "https://dev.to/pasindu_dilshan_b459aa2c8/dcvpg-data-contract-validator-pipeline-guardian-3d7",
+  "published_at": "2026-04-06T01:54:42Z",
+  "fetched_at": "2026-04-06T02:40:38.340682+00:00",
+  "author": "Pasindu Dilshan",
+  "summary": "<p>I just open sourced something I wish existed when I started building data pipelines.</p>\n\n<p>Meet dcvpg — Data Contract Validator &amp; Pipeline Guardian 🛡️</p>\n\n<p>The problem: data teams spend hours debugging issues that could have been caught at the gate.<br />\nSchema changed. Freshness SLA missed. Null values slipped through. Nobody noticed until downstream.</p>\n\n<p>dcvpg lets you define data contracts as code and enforces them automatically:</p>\n\n<p>✅ Schema drift detection — catch column drops, type changes before they hit prod<br />\n✅ Quality rule validation — nullability, regex, range checks, custom rules<br />\n✅ Freshness SLA monitoring — alert when your pipeline goes stale<br />\n✅ Pipeline gate integration — block bad data at the source</p>\n\n<p>Built for data engineers who are tired of being the last to know when something breaks.</p>\n\n<p>100% open source. Python. YAML-based contracts. CI/CD friendly.</p>\n\n<p>👉 github.com/pasindudilshan1/dcvpg<br />\n<a href=\"https://pasind",
+  "full_text": "I just open sourced something I wish existed when I started building data pipelines.\n\nMeet dcvpg — Data Contract Validator & Pipeline Guardian 🛡️\n\nThe problem: data teams spend hours debugging issues that could have been caught at the gate.\n\nSchema changed. Freshness SLA missed. Null values slipped through. Nobody noticed until downstream.\n\ndcvpg lets you define data contracts as code and enforces them automatically:\n\n✅ Schema drift detection — catch column drops, type changes before they hit prod\n\n✅ Quality rule validation — nullability, regex, range checks, custom rules\n\n✅ Freshness SLA monitoring — alert when your pipeline goes stale\n\n✅ Pipeline gate integration — block bad data at the source\n\nBuilt for data engineers who are tired of being the last to know when something breaks.\n\n100% open source. Python. YAML-based contracts. CI/CD friendly.\n\n👉 github.com/pasindudilshan1/dcvpg\n\nhttps://pasindudilshan1.github.io/dcvpg/\n\nDrop a ⭐ if this solves a problem you've lived.\n\n \n \n DataEngineering #OpenSource #DataContracts #PipelineQuality #Python #DataQuality",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "contract",
+      "data",
+      "dataengineering",
+      "dcvpg",
+      "freshness",
+      "guardian",
+      "opensource",
+      "pipeline",
+      "rule",
+      "schema",
+      "showdev",
+      "something",
+      "testing",
+      "validator"
+    ],
+    [
+      "opensource",
+      "showdev"
+    ]
+  ]
+}

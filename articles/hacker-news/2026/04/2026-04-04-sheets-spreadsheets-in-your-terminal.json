@@ -1,0 +1,30 @@
+{
+  "id": 8995,
+  "source": "Hacker News",
+  "title": "Sheets Spreadsheets in Your Terminal",
+  "url": "https://github.com/maaslalani/sheets",
+  "published_at": "2026-04-04T06:34:12Z",
+  "fetched_at": "2026-04-06T02:40:53.506255+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47636456\">Comments</a>",
+  "full_text": "Spreadsheets in your terminal.\n\nLaunch the TUI\n\nRead from stdin:\n\n> sheets <<< ID,Name,Age\n1,Alice,24\n2,Bob,32\n3,Charlie,26\n\nRead a specific cell:\n\n> sheets budget.csv B9\n2760\n\nOr, range:\n\n> sheets budget.csv B1:B3\n1200\n950\n810\n\nModify a cell:\n\n> sheets budget.csv B7=10 B8=20\n\nh, j, k, l: Move the active cell\n\ngg, G, 5G, gB9: Jump to the top, bottom, a row number, or a specific cell\n\n0, ^, $: Jump to the first column, first non-empty column, or last non-empty column in the row\n\nH, M, L: Jump to the top, middle, or bottom visible row\n\nctrl+u, ctrl+d: Move half a page up or down\n\nzt, zz, zb,: Align the current row to the top, middle, or bottom of the window\n\n/, ?: Search forward or backward\n\nn, N: Repeat the last search\n\nma, 'a: Set a mark and jump back to it later\n\nctrl+o, ctrl+i: Move backward or forward through the jump list\n\nq, ctrl+c: Quit\n\ni, I, c: Edit the current cell, edit from the start, or clear the cell and edit\n\nESC: Leave insert, visual, or command mode\n\nenter, tab, shift+tab: In insert mode, commit and move down, right, or left\n\nctrl+n, ctrl+p: In insert mode, commit and move down or up\n\no, O: Insert a row below or above and start editing\n\nv, V: Start a visual selection or row selection\n\ny, yy: Copy the current cell, or yank the current row(s)\n\nx, p: Cut the current cell or selection, and paste the current register\n\ndd: Delete the current row\n\nu, ctrl+r, U: Undo and redo\n\n.: Repeat the last change\n\n=: In visual mode, insert a formula after the selected range =|(B1:B8).\n\nPress : to open the command prompt, then use commands such as:\n\n:w to save\n\n:w path.csv to save to a new file\n\n:e path.csv to open another CSV\n\n:q or :wq to quit\n\n:goto B9 or :B9 to jump to a cell\n\nInstall with Go:\n\ngo install github.com/maaslalani/sheets@main\n\nOr download a binary from the releases.\n\nMIT\n\nI'd love to hear your feedback on improving sheets.\n\nFeel free to reach out via:\n\nzzz",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "backward",
+      "cell",
+      "command",
+      "current",
+      "edit",
+      "insert",
+      "jump",
+      "mit",
+      "move",
+      "sheet",
+      "spreadsheet",
+      "stdin"
+    ],
+    []
+  ]
+}

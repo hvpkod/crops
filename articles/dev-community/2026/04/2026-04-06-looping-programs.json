@@ -1,0 +1,35 @@
+{
+  "id": 9093,
+  "source": "DEV Community<",
+  "title": "Looping Programs",
+  "url": "https://dev.to/kesavarthini/looping-programs-5al0",
+  "published_at": "2026-04-06T14:21:18Z",
+  "fetched_at": "2026-04-06T14:40:34.693142+00:00",
+  "author": "Kesavarthini",
+  "summary": "<p><strong>1) Prime Number</strong><br />\n<strong>i)Finding whether the given number is prime or not:</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code><span class=\"kd\">let</span> <span class=\"nx\">num</span> <span class=\"o\">=</span> <span class=\"mi\">7</span><span class=\"p\">;</span>\n<span class=\"kd\">let</span> <span class=\"nx\">isPrime</span> <span class=\"o\">=</span> <span class=\"kc\">true</span><span class=\"p\">;</span>\n\n<span class=\"k\">for </span><span class=\"p\">(</span><span class=\"kd\">let</span> <span class=\"nx\">i</span> <span class=\"o\">=</span> <span class=\"mi\">2</span><span class=\"p\">;</span> <span class=\"nx\">i</span> <span class=\"o\">&lt;</span> <span class=\"nx\">num</span><span class=\"p\">;</span> <span class=\"nx\">i</span><span class=\"o\">++</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n    <span class=\"k\">if </span><span class=\"p\">(</span><span class=\"nx\">num</span> <span class=\"o\">%</span> <span class=\"nx\">i</span> <span ",
+  "full_text": "1) Prime Number\n\ni)Finding whether the given number is prime or not:\n\nlet num = 7;\nlet isPrime = true;\n\nfor (let i = 2; i < num; i++) {\n if (num % i === 0) {\n isPrime = false;\n break;\n }\n}\n\nif (num > 1 && isPrime) {\n console.log(\"Prime\");\n} else {\n console.log(\"Not Prime\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\nPrime\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nii)Printing all the prime numbers within the 2-50:\n\nfor (let num = 2; num <= 50; num++) {\n\n let isPrime = true;\n\n for (let i = 2; i < num; i++) {\n if (num % i === 0) {\n isPrime = false;\n break;\n }\n }\n\n if (isPrime) {\n console.log(num);\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\n2\n3\n5\n7\n11\n13\n17\n19\n23\n29\n31\n37\n41\n43\n47\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n2) Reverse Printing a Number\n\n let num=1234;\n let reverse=0;\n while(num>0){\n let digit=num%10;\n reverse=reverse*10+digit;\n num=Math.floor(num/10);\n }\n document.write(\"Reverse: \"+reverse);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\nReverse: 4321\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n3) Count of Digits\n\n let num=1234;\n let count=0;\n while(num>0){\n let digit=num%10;\n num=Math.floor(num/10);\n count++;\n }\n document.write(\"Count of digits: \"+count);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\nCount of digits: 4\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n4) Sum of Digits\n\nlet num = 123;\nlet sum = 0;\n\nwhile (num > 0) {\n let digit = num % 10;\n sum += digit;\n num = Math.floor(num / 10);\n}\n\nconsole.log(\"Sum:\", sum);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\n6\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n5) Palindrome\n\nlet num = 121;\nlet temp = num;\nlet reverse = 0;\n\nwhile (num > 0) {\n let digit = num % 10;\n reverse = reverse * 10 + digit;\n num = Math.floor(num / 10);\n}\n\nif (temp === reverse) {\n console.log(\"Palindrome\");\n} else {\n console.log(\"Not Palindrome\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\nPalindrome\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n6) Swapping two numbers\n\nlet a = 5;\nlet b = 10;\n\nlet temp = a; // store a\na = b; // assign b to a\nb = temp; // assign temp to b\n\nconsole.log(\"a =\", a);\nconsole.log(\"b =\", b);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\na = 10\nb = 5\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n7) Swapping without third variable\n\nlet a = 5;\nlet b = 10;\n\na = a + b; // 15\nb = a - b; // 5\na = a - b; // 10\n\nconsole.log(\"a =\", a);\nconsole.log(\"b =\", b);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput:\n\na = 10\nb = 5\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "algorithms",
+      "beginners",
+      "digits",
+      "enter",
+      "exit",
+      "fullscreen",
+      "isprime",
+      "javascript",
+      "mode",
+      "palindrome",
+      "prime",
+      "programming",
+      "reverse",
+      "temp"
+    ],
+    [
+      "algorithms",
+      "beginners"
+    ]
+  ]
+}

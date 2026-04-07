@@ -1,0 +1,38 @@
+{
+  "id": 9048,
+  "source": "Hacker News",
+  "title": "Euro-Office – Your sovereign office",
+  "url": "https://github.com/Euro-Office",
+  "published_at": "2026-04-06T08:39:39Z",
+  "fetched_at": "2026-04-06T09:40:27.185744+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47658328\">Comments</a>",
+  "full_text": "Your sovereign office\n\nEuro-Office provides a truly open, transparent, and sovereign solution for collaborative document editing.\n\nEuro-Office is not designed for stand-alone use, but developed to be a web based and integrated in another product that handles documents, for example a file sharing solution, an online wiki, a project management tool and so on.\n\nWith Euro-Office you can view, edit and work with others on spreadsheets, documents, presentations and even PDF files. It has a nice web interface and we are also working on mobile and desktop apps.\n\nWork with DOCX, PPTX, XLSX, PDF, ODT, ODS, ODP, TXT and many other file formats\n\nEdit documents, spreadsheets and presentation files with others in real time\n\nSave the document back to the application you used to open it or download in various file formats\n\nAbout the community\n\nEuro-Office is open source and developed in public by a community of individuals and organizations. We welcome contributions from anyone, including individuals, companies, public organizations and non-profits. We encourage anyone who cares about free and open source, modern office technology to get involved! Our goal is to have as few barriers as possible to contribution.\n\nCurrent contributors and supporters include:\n\nIONOS\n\nNextcloud\n\nEuroStack\n\nXWiki\n\nOpenProject\n\nProton\n\nSoverin\n\nAbilian\n\nBTactic\n\nYou?\n\nEuro-Office liberates the ONLYOFFICE code base\n\nEuro-Office is based on the ONLYOFFICE Open Source, an AGPL codebase. This code base is being extensively reviewed and cleaned up, with the goal of making it easy to build and contribute to.\nWhy did we resort to a fork, rather than collaborate? Of course, forking should be a last resort. Unfortunately, open collaboration with ONLYOFFICE was not possible, for a number of reasons:\n\nContributing is impossible or greatly discouraged. ONLYOFFICE typically does not review or accept pull requests. Build instructions are unreliable, outdated or just plain broken.\n\nThe company regularly makes controversial decisions like closing off features in the mobile apps like mobile editing, and the removal of an administrator panel.\n\nLacking transparency. Commit messages, when visible, often just refer to an issue number in an internal issue tracker. There are quite a number of binary blobs and compiled or obfuscated code blobs. Most internal code comments are Russian which makes is hard to work with.\n\nThe mobile apps are not really open source but just wrappers. Example. The apps have extensive proprietary sections which will need to be re-implemented. Work on this is underway.\n\nONLYOFFICE is a Russian company (despite many attempts to hide this), and nearly all developers reside in Russia. Open Source is a global effort, but current political situation makes collaboration hard and trust difficult to earn. Especially when development is not transparent and open. A lot of users and customers require software that is not potentially influenced or controlled by the Russian government.\n\nWe are in the process of setting up a transparent governance structure with a steering committee. In the mean time, we will follow the open source 'who codes, decides' model.\n\ndecisions are to be made by consensus by all members (based on full agreement and agree-to-disagree)\n\nmembers are the members of the github project\n\nregular contributors get added to the github project based on consensus of the existing members\n\nthese rules can be changed by a majority vote\n\nSee our Code of Conduct here.\n\nGet involved! You can file issues, propose pull requests and more. We are looking forward to make the digital sovereign office space better than ever before!\n\nCheck the DocumentServer repository on how to get started running and contributing to Euro-Office!\n\nWhat is Euro-Office?\n\nAn online office component for real-time collaborative editing of Office documents like DOCX, PPTX, XLSX as well as the ODF file formats ODS, ODT and ODP.\n\nIt can be embedded in digital workplace or online productivity solutions like Proton, XWiki, OpenProject, Nextcloud Hub and others to edit documents.\n\nHow does Euro-Office compare to IONOS Workspace, office.eu, the Proton productivity suite, Nextcloud Hub or XWiki:\n\nEuro-Office is more of an integration component. It merely handles document editing itself. Storage, as well as navigation, permissions and sharing logic has to be offered by a platform it is integrated in, like Proton Docs, Nextcloud Hub or OpenProject.\n\nWho started Euro-Office?\n\nEuro-Office is an initiative of a group of European companies who saw a need for a real open, sovereign online office suite that works well with the proprietary file formats of Microsoft. Initial contributors and supporters include IONOS, Nextcloud, Eurostack, XWiki, OpenProject, Soverin, Abilian, BTactic and others.\n\nWhy was a new office suite needed\n\nWe saw a need for a more modern suite with a great MS compatibility and excellent desktop and mobile applications.\n\nWhy did you not work with libreoffice and collabora online?\n\nWe believe open source is about collaboration and we look for oportunities for integration and collaboration with the LibreOffice community and companies like Collabora. There are already some ideas how to collaborate for example in the document converter.\n\nCan I buy support or a subscription for Euro-Office?\n\nNot at the moment, but in the future some of the contributing companies might offer support subscriptions\n\nIs Euro-Office just for Europeans? Isn't open source without borders?\n\nOpen Source is an international movement, and we are definitely open to contributions by anyone, anywhere! All code will be judged on its merits, not on its origin, and receive equal review. And, of course, anyone is welcome to use Euro-Office in line with the provisions in the AGPLv3 license!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agpl",
+      "euro-office",
+      "file",
+      "format",
+      "member",
+      "nextcloud",
+      "odp",
+      "ods",
+      "odt",
+      "office",
+      "onlyoffice",
+      "open",
+      "other",
+      "pdf",
+      "pptx",
+      "source",
+      "sovereign",
+      "txt",
+      "xlsx",
+      "xwiki"
+    ],
+    []
+  ]
+}

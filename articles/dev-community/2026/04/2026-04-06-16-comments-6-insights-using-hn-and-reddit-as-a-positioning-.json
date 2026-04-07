@@ -1,0 +1,45 @@
+{
+  "id": 9015,
+  "source": "DEV Community<",
+  "title": "16 Comments, 6 Insights: Using HN and Reddit as a Positioning Lab",
+  "url": "https://dev.to/leonting1010/16-comments-6-insights-using-hn-and-reddit-as-a-positioning-lab-46oo",
+  "published_at": "2026-04-06T05:18:09Z",
+  "fetched_at": "2026-04-06T05:40:28.852999+00:00",
+  "author": "Leon",
+  "summary": "<p>I spent an afternoon writing 16 comments across Hacker News and Reddit. Not to promote anything — to <strong>test which pain points actually resonate with developers</strong>.</p>\n\n<p>The result: 6 content principles I now use to decide what to build, what to write about, and how to position my product. Here's the method.</p>\n\n<h2>\n  \n  \n  The Method: Comments as Micro-Experiments\n</h2>\n\n<p>The premise is simple: <strong>a comment is the cheapest possible A/B test.</strong></p>\n\n<p>Writing a blog post takes hours. A landing page rewrite takes days. A comment takes 2 minutes. If it gets upvoted, the angle works. If it's ignored, you saved yourself a blog post nobody would read.</p>\n\n<p>The process:</p>\n\n<ol>\n<li>Find hot posts in your domain (automation, scraping, developer tools, AI)</li>\n<li>Write a comment that tests a specific angle — one pain point, one insight</li>\n<li>Track which angles get traction</li>\n<li>Turn validated angles into blog posts and landing page copy</li>\n</ol",
+  "full_text": "I spent an afternoon writing 16 comments across Hacker News and Reddit. Not to promote anything — to test which pain points actually resonate with developers.\n\nThe result: 6 content principles I now use to decide what to build, what to write about, and how to position my product. Here's the method.\n\n \n \n The Method: Comments as Micro-Experiments\n\nThe premise is simple: a comment is the cheapest possible A/B test.\n\nWriting a blog post takes hours. A landing page rewrite takes days. A comment takes 2 minutes. If it gets upvoted, the angle works. If it's ignored, you saved yourself a blog post nobody would read.\n\nThe process:\n\nFind hot posts in your domain (automation, scraping, developer tools, AI)\n\nWrite a comment that tests a specific angle — one pain point, one insight\n\nTrack which angles get traction\n\nTurn validated angles into blog posts and landing page copy\n\nI posted across 10 subreddits and HN front-page posts spanning AI, infrastructure, open source, and developer tools.\n\n \n \n The 6 Insights\n\n \n \n #1 Silent failure is the universal pain\n\nI commented on Gallery-dl's DMCA move (HN front page) and r/webscraping's \"endgame for scraping\" (104 upvotes). Both times, the angle that resonated was: the hard part isn't writing a scraper — it's knowing when it breaks.\n\n\"Most scrapers fail silently — they return empty arrays for days before anyone notices.\"\n\nPrinciple: Lead with the maintenance problem, not the creation problem. Everyone can build a scraper. Nobody can keep it running.\n\nSolution: Health contracts. Every program defines what \"working\" means: minimum rows, required fields. tap doctor checks all programs in one command. When something breaks, you know in seconds — not weeks.\n\nhealth: { min_rows: 5, non_empty: [\"title\", \"url\"] }\n\n$ tap doctor\nhackernews/hot ✔ ok 30 rows\nreddit/hot ✘ fail 0 rows — selector changed\n ↳ auto-healing...\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n #2 Cost anxiety is real and specific\n\nCaveman hit 727 points — a post about reducing LLM token usage. Nanocode (177 points) was about self-hosting Claude Code to understand the real cost. Developers aren't just curious about AI costs — they're anxious about them.\n\nPrinciple: Use exact numbers. \"$1.05 per run\" and \"300x cheaper\" land. \"More affordable\" doesn't. Developers think in math, not adjectives.\n\nSolution: The compiler model. AI runs once at authoring time (~$0.15), produces a deterministic program, and every subsequent execution is $0. Fifty daily automations: $18,000/year with AI agents vs ~$60/year with compiled programs.\n\n \n \n #3 \"Open-source alternative\" is not a value prop\n\nThe Modo post (\"open-source alternative to Cursor and Windsurf\") had only 2 comments despite being on the front page. My feedback: users don't switch tools for ideology — they switch for workflow improvements.\n\n\"The README should lead with a concrete before/after: 'In Cursor you do X in 5 steps, in Modo you do it in 1.' That's what converts users.\"\n\nPrinciple: Show the delta, not the category. \"I'm like X but open source\" tells users nothing about why they should switch.\n\nSolution: Concrete comparison. Browser Use: $0.50–$2.00/run, 60–95% reliability, 30–120s. Tap: $0/run, 100% deterministic, 1–5s. Same task, measurable difference.\n\n \n \n #4 Local-first is having a moment\n\nThree unrelated posts all trended around the same theme:\n\nGemma 4 on iPhone (496 points) — on-device AI inference\n\nZero-dependency browser IDE (r/opensource) — works offline, no npm\n\nNomad offline media server (r/selfhosted) — works without internet\n\nDevelopers are increasingly allergic to tools that phone home.\n\nPrinciple: \"Runs on your machine, works offline\" is a feature worth highlighting, not an implementation detail to bury.\n\nSolution: Tap programs are plain .tap.js files that execute locally. No API calls at runtime, no data leaving your device, no cloud dependency. They work on a plane, in a cabin, wherever your laptop goes.\n\n \n \n #5 Legal pressure on scraping is accelerating\n\nGallery-dl's DMCA notice trended on both HN and r/programming simultaneously. The pattern: open-source scraping tools face increasing legal pressure.\n\nPrinciple: API-first data access is both technically superior and legally safer. Position accordingly.\n\nSolution: tap.fetch() calls site APIs directly — structured JSON, stable endpoints, no DOM parsing. Only falls back to browser rendering when no API exists. Less breakage, less legal surface area.\n\n \n \n #6 Infrastructure beats features\n\nSwitzerland's 25 Gbit internet (315 points, 249 comments) wasn't about speed — it was about structural fairness. Open fiber access vs. local monopolies.\n\nThe parallel to automation tooling: AI agents at $1/run create a cost barrier. Deterministic programs at $0 are infrastructure.\n\nPrinciple: Frame your tool as infrastructure people own, not a service they rent.\n\nSolution: Every .tap.js is a file you own. Git-versionable, diffable, composable. Cancel your subscription and your programs keep running. No vendor lock-in, no API keys required at runtime.\n\n \n \n The Playbook\n\nIf you're building a developer tool and struggling with positioning:\n\nDon't start with a landing page. Start with 10 comments on relevant posts.\n\nEach comment tests one angle. One pain point, one insight, one framing.\n\nUpvotes = validation. High-scoring posts where your comment resonates = confirmed pain point.\n\nSilence = signal too. If nobody engages with your angle, it's not a pain point.\n\nTurn validated angles into content. Blog post from the best angle. Landing page copy from the specific phrases that worked.\n\nNever link your product in comments. Share expertise. Build credibility. The product link lives on your profile.\n\nComments are conversations. Conversations reveal what people actually care about. That's worth more than any amount of competitor analysis.\n\nThe tool I used to validate these insights: Tap turns AI into a compiler for browser automation. AI writes a program once, then it runs forever at $0. The positioning came from the comments. The product came from the pain.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "angle",
+      "api",
+      "browser",
+      "comment",
+      "cursor",
+      "developer",
+      "dmca",
+      "dom",
+      "hacker news",
+      "landing",
+      "llm",
+      "marketing",
+      "micro-experiments",
+      "nanocode",
+      "nobody",
+      "pain",
+      "post",
+      "product",
+      "program",
+      "reddit",
+      "startup",
+      "tool",
+      "windsurf",
+      "writing"
+    ],
+    [
+      "post",
+      "writing"
+    ]
+  ]
+}

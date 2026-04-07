@@ -1,0 +1,40 @@
+{
+  "id": 9016,
+  "source": "DEV Community<",
+  "title": "รวมมิตร Docker Sandbox: คู่มือรัน AI Agent ให้ปลอดภัยขั้นสุด ตั้งแต่เริ่มต้นจนเป็นโปร",
+  "url": "https://dev.to/ubinix_warun/rwmmitr-docker-sandbox-khuumuueran-ai-agent-aihpldphaykhansud-tangaeterimtncchnepnopr-29cj",
+  "published_at": "2026-04-06T05:17:38Z",
+  "fetched_at": "2026-04-06T05:40:30.676967+00:00",
+  "author": "Warun C. ⚡",
+  "summary": "<p>ยุคนี้ใครๆ ก็ใช้ AI Coding Agent (เช่น Claude Code, Gemini หรือ OpenClaw) มาช่วยเขียนโค้ด ความเก่งของ AI พวกนี้คือมันมี \"YOLO Mode\" (You Only Look Once) ที่สามารถรันคำสั่ง ติดตั้งแพ็กเกจ หรือทดสอบโค้ดได้ด้วยตัวเอง</p>\n\n<p>แต่เดี๋ยวก่อน! การปล่อยให้ AI มารันคำสั่งบนเครื่องหลัก (Host Machine) ของเราโดยตรง ถือเป็นความเสี่ยงมหาศาล เพราะถ้า AI เผลอไปลบไฟล์สำคัญ หรือดาวน์โหลดสคริปต์อันตรายมารัน เครื่องเราอาจจะพังได้เลย</p>\n\n<p>นี่จึงเป็นที่มาของฟีเจอร์สุดล้ำอย่าง Docker Sandbox วันนี้เราจะมารวมมิตรเจาะลึกเทคโนโลยีนี้กัน ตั้งแต่พื้นฐาน ไปจนถึงการปรับแต่งเน็ตเวิร์ก และการสร้างเทมเพลตส่วนตัวครับ!</p>\n\n<p><a href=\"https://medium.com/m/signin?actionUrl=%2F_%2Fapi%2Fsubscriptions%2Fnewsletters%2Fb0e8bfbf2b81&amp;operation=register&amp;redirect=https%3A%2F%2Fmedium.com%2Fubinix-warun&amp;collection=UBINIX+WARUN&amp;collectionId=49c3a90b9f1f&amp;newsletterV3=UBINIX+WARUN&amp;newsletterV3Id=b0e8bfbf2b81\" rel=\"noopener noreferrer\">อ่านฉบับเต็ม...</a></p>\n\n<h2>\n  \n  \n  📦 1. Docker Sandbox และ microV",
+  "full_text": "ยุคนี้ใครๆ ก็ใช้ AI Coding Agent (เช่น Claude Code, Gemini หรือ OpenClaw) มาช่วยเขียนโค้ด ความเก่งของ AI พวกนี้คือมันมี \"YOLO Mode\" (You Only Look Once) ที่สามารถรันคำสั่ง ติดตั้งแพ็กเกจ หรือทดสอบโค้ดได้ด้วยตัวเอง\n\nแต่เดี๋ยวก่อน! การปล่อยให้ AI มารันคำสั่งบนเครื่องหลัก (Host Machine) ของเราโดยตรง ถือเป็นความเสี่ยงมหาศาล เพราะถ้า AI เผลอไปลบไฟล์สำคัญ หรือดาวน์โหลดสคริปต์อันตรายมารัน เครื่องเราอาจจะพังได้เลย\n\nนี่จึงเป็นที่มาของฟีเจอร์สุดล้ำอย่าง Docker Sandbox วันนี้เราจะมารวมมิตรเจาะลึกเทคโนโลยีนี้กัน ตั้งแต่พื้นฐาน ไปจนถึงการปรับแต่งเน็ตเวิร์ก และการสร้างเทมเพลตส่วนตัวครับ!\n\nอ่านฉบับเต็ม...\n\n \n \n 📦 1. Docker Sandbox และ microVM คืออะไร?\n\nDocker Sandbox คือสภาพแวดล้อมแบบแยกส่วน (Isolated Environment) ที่ออกแบบมาเพื่อให้ AI Agent เข้ามาทำงานได้อย่างอิสระ โดยไม่กระทบกับระบบหลักของเครื่องคุณ\n\nในเวอร์ชันหลังๆ (ตั้งแต่ Docker Desktop 4.58+) Docker ได้นำเทคโนโลยี microVM เข้ามาใช้ ซึ่งมันคือ \"VM ฉบับจิ๋ว\" ที่ดึงเอา ความปลอดภัยระดับฮาร์ดแวร์ ของ Virtual Machine ดั้งเดิม มาบวกกับ ความเบาและรวดเร็ว ของ Container\n\nที่สำคัญคือ แต่ละ Sandbox จะมี Private Docker Daemon อยู่ข้างในด้วย! หมายความว่า AI สามารถสั่ง docker build หรือ docker run ซ้อนอยู่ข้างในนั้นได้ โดยที่ไม่เห็นคอนเทนเนอร์อื่นๆ บนเครื่องโฮสต์ของคุณเลย\n\nมาลองๆ Docker Sandbox: รัน AI Agent ให้ปลอดภัยขั้นสุดด้วยเทคโนโลยี microVM\n\n \n \n 🛡️ 2. เจาะลึก Sandbox Networking: คุมกำเนิด AI ไม่ให้ซน\n\nปัญหาต่อมาคือ เราจะมั่นใจได้อย่างไรว่า AI จะไม่แอบส่งข้อมูลโค้ดของเราออกไปข้างนอก? นี่คือจุดที่ Docker Sandbox Network Policies เข้ามามีบทบาท\n\nแตกต่างจาก Network ปกติของ Docker (เช่น Bridge หรือ Host) ที่ทำงานในระดับโครงสร้างเครือข่าย (L3-L4) ระบบ Sandbox Networking ทำงานในระดับแอปพลิเคชัน (L7) โดยใช้ Proxy ควบคุมการเข้าถึงในระดับ Domain Name (เช่น github.com)\n\nคุณสามารถตั้งค่านโยบายได้ 2 โหมดหลักๆ คือ:\n\nAllowlist Mode: อนุญาตทั้งหมด บล็อกแค่บางโดเมน (เหมาะสำหรับ Dev Environment ที่ต้องการความยืดหยุ่น)\n\nDenylist Mode: บล็อกการออกอินเทอร์เน็ตทั้งหมด! แล้วอนุญาต (Allow) แค่โดเมนที่จำเป็น (ปลอดภัยสูงสุด)\n\nตัวอย่างการตั้งค่า Denylist Mode:\n\ndocker sandbox network proxy my-sandbox \\\n --policy deny \\\n --allow-host api.anthropic.com \\\n --allow-host \"*.npmjs.org\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nเจาะลึก Docker Sandbox Networking: ควบคุมความปลอดภัยให้ AI Agents อย่างมือโปร\n\n \n \n 🛠️ 3. Tutorial: รัน AI Agent ในกล่องแบบจับมือทำ\n\nมาลองของจริงกันครับ! เราจะสร้าง Sandbox และใช้ Custom Template เพื่อรัน Open-source AI Agent อย่าง \"OpenClaw\"\n\nสิ่งที่ต้องเตรียม:\n\nDocker Desktop รองรับ Sandbox (เวอร์ชัน 4.58+)\n\nNode.js บนเครื่องโฮสต์\n\nStep 1: สร้าง Dockerfile สำหรับ Custom Template\n\nแทนที่จะติดตั้งใหม่ทุกครั้ง เราจะมัดรวมทุกอย่างไว้ใน Dockerfile\n\n# ใช้ Base Image ของ Docker Sandbox\nFROM docker/sandbox-templates:shell\n\nENV TZ=Asia/Bangkok\nUSER root\n\n# ติดตั้งแพ็กเกจที่จำเป็น\nRUN apt-get update && apt-get install -y curl build-essential\n\n# ติดตั้ง Node.js 22 และ OpenClaw\nRUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \\\n apt-get install -y nodejs\nRUN npm install -g npm@11.11.0\nRUN npm install -g openclaw@latest\n\n# สลับกลับมาใช้ User 'agent' \nUSER agent\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nStep 2: Build และรัน Sandbox\n\nเปิด Terminal โฟลเดอร์เดียวกับ Dockerfile แล้วสั่ง Build:\n\ndocker build -t my-openclaw-template:v1 .\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nจากนั้น รัน Sandbox โดยโยงโฟลเดอร์โปรเจกต์ของเรา (~/my-project) เข้าไป:\n\ndocker sandbox run -t my-openclaw-template:v1 shell ~/my-project\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nStep 3: เปิดใช้งาน OpenClaw และเชื่อมต่อ Dashboard\n\nเมื่อ Sandbox รันแล้ว ให้มุดเข้าไปตั้งค่า:\n\ndocker sandbox exec -it shell-my-claw-dev /bin/bash\nopenclaw onboard\nHOST=0.0.0.0 openclaw gateway\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nทริคพิเศษ: เนื่องจาก Sandbox ปิดกั้นเครือข่ายขาเข้า หากคุณต้องการเข้า Dashboard ของ OpenClaw (พอร์ต 18789) จากเบราว์เซอร์เครื่องหลัก คุณจะต้องใช้สคริปต์ Node.js (socat proxy) เข้ามาช่วยเป็นสะพานเชื่อมพอร์ต (Tunnel) จากเครื่อง Host ทะลุเข้า Sandbox ครับ\n\nจับ AI ลงกล่อง! วิธีรัน OpenClaw บน Docker Sandbox ด้วย Custom Template (ฉบับจับมือทำ)\n\n \n \n 🎯 สรุป\n\nการทำงานร่วมกับ AI Agent มอบประสบการณ์ที่ล้ำหน้าเหมือนมีผู้ช่วยส่วนตัว แต่ความปลอดภัยคือสิ่งที่เราละเลยไม่ได้\n\nDocker Sandbox (microVM) ผสานเข้ากับ Network Policies และความยืดหยุ่นของ Custom Templates ถือเป็น Best Practice ในยุคนี้ ที่ช่วยให้คุณปล่อย AI ทำงานใน \"YOLO Mode\" ได้อย่างสบายใจ ใครที่กำลังสนุกกับการให้ AI ช่วยเขียนโปรแกรม อย่าลืมอัปเดต Docker Desktop และลองใช้ฟีเจอร์นี้ดูนะครับ!\n\nถูกใจกด เป็นกำลังใจให้ทำคอนเทนต์ดีๆ & ติดตามเรื่องที่น่าสนใจผ่านทาง \n\nWarun Chareonsuk & Super AI Agent -- @ubinix-warun\n\nตามลิงค์เข้าไปเลี้ยงกาแฟผมได้ที่ ☕ Buy Me A Coffee",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "agents",
+      "ai",
+      "ai agents อย่างมือโปร",
+      "docker",
+      "dockerfile",
+      "domain name",
+      "exit",
+      "fullscreen",
+      "gemini",
+      "microvm",
+      "mode",
+      "network ปกติของ docker",
+      "openclaw",
+      "sandbox",
+      "template",
+      "ของ container",
+      "แค่โดเมนที่จำเป็น",
+      "แล้วอนุญาต (allow",
+      "โดยไม่กระทบกับระบบหลักของเครื่องคุณ"
+    ],
+    [
+      "agents"
+    ]
+  ]
+}

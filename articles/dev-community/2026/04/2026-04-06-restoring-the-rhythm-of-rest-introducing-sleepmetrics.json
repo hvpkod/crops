@@ -1,0 +1,44 @@
+{
+  "id": 9088,
+  "source": "DEV Community<",
+  "title": "Restoring the Rhythm of Rest: Introducing SleepMetrics",
+  "url": "https://dev.to/lemancaliskan/restoring-the-rhythm-of-rest-introducing-sleepmetrics-16d5",
+  "published_at": "2026-04-06T14:30:35Z",
+  "fetched_at": "2026-04-06T14:40:27.050154+00:00",
+  "author": "Leman Caliskan",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Foq88g3hjcvx2z64wngwt.png\"><img alt=\"SleepMetrics Logo\" height=\"36\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Foq88g3hjcvx2z64wngwt.png\" width=\"300\" /></a></p>\n\n<p>Honestly, I never planned to build something like <code>SleepMetrics</code>. Not at first.</p>\n\n<p>I developed CardioMetrics-Core what is an AI-powered desktop application that analyzes clinical data to evaluate cardiovascular risk levels and provide real-time health insights using machine learning models.</p>\n\n<p>And I enjoyed developing the CardioMetrics project. And I thought, could I create a similar application related to health? And that’s how Sleepmetrics was created.</p>\n\n\n",
+  "full_text": "Honestly, I never planned to build something like SleepMetrics. Not at first.\n\nI developed CardioMetrics-Core what is an AI-powered desktop application that analyzes clinical data to evaluate cardiovascular risk levels and provide real-time health insights using machine learning models.\n\nAnd I enjoyed developing the CardioMetrics project. And I thought, could I create a similar application related to health? And that’s how Sleepmetrics was created.\n\n \n \n ✨ My Approach\n\nI wanted SleepMetrics to be more than just a spreadsheet of numbers. The tool needed to be simple, functional, and professional.\n\nCustomTkinter ended up being a surprisingly good fit once again. I maintained the light/dark modes to ensure the interface felt comfortable to use especially important for an app you might check at night.\n\nReal-time Visualization: I integrated live gauges that react to your data. When you adjust stress levels or physical activity, the app provides immediate visual feedback.\n\nPersonalized Sleep Insights: The app doesn't just show numbers; it provides specific guidance based on sleep duration, activity levels, and stress to help you optimize your rest.\n\n \n \n 🩺 Smart Health Recommendations\n\nBased on the lifestyle and clinical data entered, SleepMetrics generates a dynamic dashboard of personalized suggestions. These aren't generic tips; they are reactive nudges triggered by your specific metrics:\n\n \n \n 🧠 Disorder & Quality Alerts\n\nSleepMetrics transforms your data into three different health statuses based on the machine learning model’s findings:\n\nSleep Apnea Risk Detected 🚨: If the model identifies patterns consistent with Apnea, the app triggers a high-priority alert (Red) recommending a consultation with an ENT specialist.\n\nInsomnia Symptoms Detected ⚠️: When insomnia markers appear, the app provides practical tips, such as cutting out blue light sources 2 hours before bed to help your brain naturally produce melatonin.\n\nHealthy / Asymptomatic ✅: If no risks are detected, the app encourages you to keep up the good work, confirming your data aligns with a healthy sleep profile.\n\n \n \n 🔍 Parameter Specific Health Recommendations\n\nStress Management 🧘: If stress levels exceed 7/10, the app suggests pre-sleep breathing exercises to lower cortisol levels.\n\nSleep Duration ⏰: Logging less than 6 hours triggers a warning about the lack of physical repair and encourages a 7+ hour target.\n\nActivity & Movement 👣: Low step counts (< 5,000) or low activity trigger a reminder that reaching 7,500 steps can shorten the time it takes to fall asleep by 15%.\n\nHeart Rate & BP ❤️: High readings prompt advice to reduce caffeine intake and monitor vitals more closely.\n\nNote: They’re not the a substitute for professional medical advice, diagnosis, or treatment. It just a simple advices and friendly nudges to support your heart health.\n\n \n \n 🛠 The Tech Stack & Model\n\nFor the backend, I used these datasets Sleep Health and Lifestyle and Sleep Cycle and Productivity from Kaggle. \n\nI built a dual-engine system:\n\nQuality Prediction: A RandomForestRegressor (150 estimators) handles the sleep quality score with a 99.08% $R^2$ accuracy.\n\nDiagnosis: A GradientBoostingClassifier predicts potential sleep disorders with 88% accuracy.\n\nThe model provides a signal: \"maybe check this out.\"\n\n \n \n 🌍 Why Two Languages? (EN/TR)\n\nAs I’m Turkish, I developed the app in Turkish first. But health is universal. I restructured the project to have clean v_EN and v_TR folders so language would never be a barrier to access.\n\n \n \n 🖥️ Choose Your Experience: (Web, Desktop, or Code)\n\nPeople have different preferences. Some want instant access, some prefer a standalone desktop app, some just want the code.\n\nSo I made three options:\n\nStreamlit Web App: quick access → SleepMetrics Streamlit App\n\nDesktop App: A pre-built .exe file (no Python environment required). Just download and run.\n\nSource Code: Cleanly structured folders with clear EN/TR separation for the curious.\n\n \n \n 🚀 Explore the Project\n\n \n\n \n \n\n Sleep Health & Lifestyle Analysis Tool: An AI-powered desktop application that analyzes biometric data to predict sleep quality and detect potential sleep disorders using machine learning models.\n \n \n \n\n \n\n🌙 SleepMetrics - Sleep Health & Lifestyle Analysis Tool\n\nSleepMetrics is a modern desktop application designed to analyze sleep quality and predict potential sleep disorders using advanced machine learning algorithms. By processing lifestyle and clinical data through a sleek, high-DPI interface, it provides users with data-driven insights into their sleep health.\n \n\n \n\n📺 Demo\n\n🎨 Visual Experience\n\nThe application features a dedicated toggle for seamless switching between light and dark modes.\n\nFeatures integrated real-time gauges for the live visualization of sleep quality scores.\n\n🔍 Desktop Application (EN/TR)\n\nOptimized for a 980x666 centered window layout, this standalone application delivers a precision-focused, localized experience through a theme-aware CustomTkinter UI designed for both global and local users.\n\nTURKISH UI:\n\nENGLISH UI:\n\n🌐 Web Application (Streamlit):\n\nA responsive and lightweight web version for instant access from any device.\n\n✨ Features\n\n \n \n\nStreamlit Web App: Try it here\n\nDesktop App: Pre-built .exe available in GitHub Releases.\n\n \n \n 🤝 Contributing\n\nIf you have ideas on how to improve the ML model or want to suggest new features for the UI, feel free to open an issue or a Pull Request on GitHub. Let’s build better health tools together!\n\nMedical Disclaimer: This software is for informational purposes only. The results provided do not constitute a formal medical diagnosis. Always consult with a professional healthcare provider before making any medical decisions.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "activity & movement",
+      "ai",
+      "application",
+      "cardiometrics",
+      "cardiometrics-core",
+      "data",
+      "datascience",
+      "desktop",
+      "ent",
+      "health",
+      "healthtech",
+      "kaggle",
+      "learning",
+      "lifestyle",
+      "machinelearning",
+      "provide",
+      "python",
+      "quality",
+      "sleep",
+      "sleepmetrics",
+      "🔍 desktop application"
+    ],
+    [
+      "datascience",
+      "healthtech",
+      "machinelearning",
+      "python"
+    ]
+  ]
+}

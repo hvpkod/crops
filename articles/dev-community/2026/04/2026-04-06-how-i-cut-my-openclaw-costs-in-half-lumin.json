@@ -1,0 +1,37 @@
+{
+  "id": 9243,
+  "source": "DEV Community<",
+  "title": "How I cut my OpenClaw costs in half (Lumin)",
+  "url": "https://dev.to/ryan_cloto_de1067a32e8a7f/how-i-cut-my-openclaw-costs-in-half-lumin-3ga",
+  "published_at": "2026-04-06T22:55:06Z",
+  "fetched_at": "2026-04-06T23:20:32.132321+00:00",
+  "author": "Ryan Cloto",
+  "summary": "<p>I've been spending a lot of time working with agentic workflows, especially OpenClaw-style loops where the model re-uses big chunks of context every turn.<br />\nThat gets expensive very fast.</p>\n\n<p>Most of the cost was coming from repeated context, oversized prompts, and sending the same structure back and forth on every turn. You're often not paying for new reasoning, you're paying for the same prompt, tool context, and loop structure again and again.<br />\nThis led me to build Lumin, a local proxy that sits in front of model calls and reduces cost before the request ever reaches the provider.<br />\nGitHub: <a href=\"https://github.com/ryancloto-dot/Lumin\" rel=\"noopener noreferrer\">https://github.com/ryancloto-dot/Lumin</a></p>\n\n<p>The problem:<br />\nMost agentic loops look like this:</p>\n\n<p>Large system prompts sent every turn<br />\nRepeated workspace and tool context<br />\nLoops re-sending almost identical request structures<br />\nAgents paying full price even when most of the ",
+  "full_text": "I've been spending a lot of time working with agentic workflows, especially OpenClaw-style loops where the model re-uses big chunks of context every turn.\n\nThat gets expensive very fast.\n\nMost of the cost was coming from repeated context, oversized prompts, and sending the same structure back and forth on every turn. You're often not paying for new reasoning, you're paying for the same prompt, tool context, and loop structure again and again.\n\nThis led me to build Lumin, a local proxy that sits in front of model calls and reduces cost before the request ever reaches the provider.\n\nGitHub: https://github.com/ryancloto-dot/Lumin\n\nThe problem:\n\nMost agentic loops look like this:\n\nLarge system prompts sent every turn\n\nRepeated workspace and tool context\n\nLoops re-sending almost identical request structures\n\nAgents paying full price even when most of the prompt hasn't changed\n\nHow Lumin works\n\nLumin sits between your agent and the model provider:\n\nYour agent → Lumin → OpenAI / Anthropic / Google / Ollama / OpenRouter\n\n |\n\n +> compression\n\n +> cache + freshness guards\n\n +> model routing\n\n +> live savings dashboard\n\nIt's self-hosted and exposes an OpenAI-compatible endpoint, so the integration is usually one environment variable.\n\nWhat actually helped\n\nStatic context compression\n\nA lot of agent calls include large prompts that barely change turn to turn. If the task is short but the prompt is enormous, there's usually room to trim repeated or low-value sections safely. This was one of the biggest wins on OpenClaw-style workflows.\n\nRepeated context handling\n\nThis is where the best numbers came from. If an agent keeps resending very similar context across multiple turns, the savings compound significantly compared to one-shot requests. That's why repeated-context loops showed much stronger results than simpler single-turn prompts.\n\nTOON for structured data\n\nI recently added a TOON-based compression layer for structured JSON arrays. Instead of repeating field names on every row, TOON declares them once in a more token-efficient format before sending to the model.\n\nMore on TOON here: https://github.com/toon-format/toon\n\nThis doesn't help every workflow, but it helps a lot when the input contains large uniform structured exports.\n\nFreshness guards\nI added freshness and pivot detection to back off cache reuse when a chain shifts to new data. If the task clearly pivots, Lumin avoids reusing stale compressed or cached context too aggressively. That part still has room to improve, but it mattered enough that I didn't want to optimize cost without it.\n\nResults:\n\nResults depend heavily on workload shape. On the benchmark set:\n\nAverage savings: ~11%\n\nRepeated-context loops: up to 57%\n\nStructured export workflows: up to 57.5%\n\nThe repeated-context number is the most relevant one for OpenClaw and NanoClaw users where the same context files get injected every turn.\n\nHow to integrate:\n\nOption 1: Tell your agent to install it:\n\nInstall Lumin from github.com/ryancloto-dot/Lumin\n\nand configure it for my setup\n\nOption 2: One environment variable:\n\nFor OpenAI-compatible agents:\n\nOPENAI_BASE_URL=http://localhost:8000/v1\n\nFor Anthropic-compatible routing:\n\nANTHROPIC_BASE_URL=http://localhost:8000/anthropic/main\n\nWhat's next:\n\nBetter answer-quality evals\n\nMore freshness and cache invalidation work\n\nCleaner integration with existing agent shells\n\nBroader workload benchmarking that's easier to reproduce publicly\n\nTry it:\n\nhttps://github.com/ryancloto-dot/Lumin\n\nIf you do try it, please give feedback specifically on setup friction, whether the savings dashboard is clear, where it helps the most, and where it gets to aggressive on quality and doesn't work.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai",
+      "automation",
+      "context",
+      "freshness",
+      "github",
+      "loop",
+      "lumin",
+      "nanoclaw",
+      "openai",
+      "openclaw",
+      "pay",
+      "repeat",
+      "saving",
+      "structured",
+      "toon"
+    ],
+    [
+      "automation",
+      "github"
+    ]
+  ]
+}

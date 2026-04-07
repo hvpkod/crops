@@ -1,0 +1,38 @@
+{
+  "id": 9239,
+  "source": "DEV Community<",
+  "title": "How We Reached 92% Coverage with GitAuto",
+  "url": "https://dev.to/gitautoai/how-we-reached-92-coverage-with-gitauto-1ll1",
+  "published_at": "2026-04-06T23:08:47Z",
+  "fetched_at": "2026-04-06T23:20:23.120673+00:00",
+  "author": "Wes Nishio",
+  "summary": "<h1>\n  \n  \n  How We Reached 92% Test Coverage with GitAuto\n</h1>\n\n<p>We decided to dogfood <a href=\"https://gitauto.ai?utm_source=devto&amp;utm_medium=referral\" rel=\"noopener noreferrer\">GitAuto</a> by using it on the GitAuto repository itself. The goal was simple: demonstrate whether we could really achieve high test coverage in a real production codebase. After 3 months, we hit <strong>92% line coverage, 96% function coverage, and 85% branch coverage</strong>.</p>\n\n<p>Here's exactly how we did it and what we learned.</p>\n\n<h2>\n  \n  \n  The Setup: 5 Files Per Day, Every Day\n</h2>\n\n<p>Our approach was straightforward:</p>\n\n<ul>\n<li>\n<strong>Enabled <a href=\"https://gitauto.ai/dashboard/triggers?utm_source=devto&amp;utm_medium=referral\" rel=\"noopener noreferrer\">schedule trigger</a>:</strong> Set GitAuto to run automatically every day</li>\n<li>\n<strong>5 files per day:</strong> Configured to target 5 files each morning</li>\n<li>\n<strong>Weekends included:</strong> Tests ran 7 days a week",
+  "full_text": "How We Reached 92% Test Coverage with GitAuto\n\nWe decided to dogfood GitAuto by using it on the GitAuto repository itself. The goal was simple: demonstrate whether we could really achieve high test coverage in a real production codebase. After 3 months, we hit 92% line coverage, 96% function coverage, and 85% branch coverage.\n\nHere's exactly how we did it and what we learned.\n\n \n \n The Setup: 5 Files Per Day, Every Day\n\nOur approach was straightforward:\n\nEnabled schedule trigger: Set GitAuto to run automatically every day\n\n5 files per day: Configured to target 5 files each morning\n\nWeekends included: Tests ran 7 days a week\n\nRepository size: ~250 files total\n\nThe math was simple: at 5 files per day, we'd need roughly 50 days (about 2 months) to cover the entire codebase. In reality, it took closer to 3 months because we refined our approach along the way, experimented with different file counts, and occasionally restarted files when we improved the system.\n\n \n \n The Daily Routine\n\nEvery morning, GitAuto would create 5 pull requests—one for each targeted file. Our review process evolved over time:\n\nInitially:\n\nCheck if tests were passing\n\nReview the test code in detail\n\nVerify the changes made sense\n\nMerge if everything looked good\n\nIn the end:\n\nMost PRs were green out of the box\n\nQuick verification that only test files changed (or legitimate bug fixes)\n\nNo code review—trusted the passing tests\n\nMerge and move on\n\n \n \n Coverage Growth Over Time\n\nWe didn't start tracking coverage data historically from day one, so our coverage charts only show the latter half of the journey. The growth rate varies because we adjusted the volume based on what we were working on—when we found issues to fix in GitAuto itself, we ran fewer PRs; when things were stable, we ran up to 10 PRs per day.\n\n \n \n How We Actually Develop\n\nHere's important context: we build GitAuto using Claude Code. When we write new features, we do write unit tests for critical parts we especially want to verify. But we don't obsess over coverage or spend significant time writing comprehensive test suites.\n\nThe result? Most features ship with decent but incomplete test coverage. Not 100%, not close. And bugs still happen.\n\nThis is where GitAuto came in. It filled the gaps we left, systematically adding tests to increase coverage on files we'd already moved on from.\n\n \n \n The Results: What 90%+ Coverage Actually Feels Like\n\nNow that we're consistently above 90% coverage with 242 test files, 2,680 test cases running in 3 minutes (67ms per test):\n\nBugs feel rare. We encounter far fewer unexpected issues in production.\n\nMerges feel safe. We have confidence that changes won't break existing functionality.\n\nRegression testing is faster. Automated tests catch issues that used to require manual verification.\n\nDevelopment velocity increased. Less time spent on manual testing and bug fixes means more time building features.\n\n \n \n The One Downside\n\nThere's one real cost we didn't anticipate: GitHub Actions minutes. Initially, the GitAuto repository ran on GitHub's free tier with no issues. But as coverage increased, so did the number of tests running on every PR.\n\nWe eventually hit the free tier limits and had to upgrade. Now we also optimize by skipping test runs when there are no relevant changes (e.g., Python tests don't run when only documentation changes).\n\nIt's a small price to pay for 90%+ coverage, but worth knowing upfront.\n\n \n \n Conclusion\n\nAchieving 92% line coverage, 96% function coverage, and 85% branch coverage wasn't the result of heroic manual effort. It came from:\n\nEnabling scheduled automation\n\nReviewing and merging 5 PRs each morning\n\nTrusting the process over 3 months\n\nIf you're skeptical that high coverage is achievable in real-world codebases, we were too. But the data doesn't lie: consistent, automated test generation works.\n\nWant to try the same approach on your repository? Install GitAuto and enable the schedule trigger. Start with 3-5 files per day and let the coverage compound.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "approach",
+      "cicd",
+      "coverage",
+      "file",
+      "gitauto",
+      "github",
+      "install gitauto",
+      "manual",
+      "merge",
+      "reach",
+      "repository",
+      "test",
+      "testautomation",
+      "testcoverage",
+      "testing"
+    ],
+    [
+      "cicd",
+      "github",
+      "testautomation",
+      "testcoverage"
+    ]
+  ]
+}

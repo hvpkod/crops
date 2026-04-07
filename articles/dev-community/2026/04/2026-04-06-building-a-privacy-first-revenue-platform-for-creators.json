@@ -1,0 +1,45 @@
+{
+  "id": 9039,
+  "source": "DEV Community<",
+  "title": "Building a Privacy-First, revenue platform for creators.",
+  "url": "https://dev.to/nikhil_kumar_d086f4d60774/building-a-privacy-first-revenue-platform-for-creators-60m",
+  "published_at": "2026-04-06T08:19:28Z",
+  "fetched_at": "2026-04-06T08:40:52.656453+00:00",
+  "author": "NIKHIL KUMAR",
+  "summary": "<p>Nowdays,the creator economy is booming, but there is a massive blind spot: calculating true net income. If you are a creator on YouTube, Twitch, or Substack, estimating your earnings usually involves clunky spreadsheets or ad-riddled calculator sites that harvest your financial data. Most calculators only show gross estimates, ignoring platform cuts, taxes, and audience geography.</p>\n\n<p>I wanted to fix this. But more importantly, as a developer, I wanted to build it in the most lightweight, privacy-respecting way possible.</p>\n\n<p>That is how <a href=\"https://crecaly.com/\" rel=\"noopener noreferrer\">Crecaly</a> was born: a revenue calculator for the creator economy that figures out your true take-home pay across 15+ platforms. And I built it entirely as a serverless Progressive Web App (PWA) using pure Vanilla JavaScri``pt, HTML, and CSS.</p>\n\n<p>Here is why I ditched the modern framework hype and went back to basics.</p>\n\n<p>🛑 The Problem with Modern Financial Tools<br />\nWhen bui",
+  "full_text": "Nowdays,the creator economy is booming, but there is a massive blind spot: calculating true net income. If you are a creator on YouTube, Twitch, or Substack, estimating your earnings usually involves clunky spreadsheets or ad-riddled calculator sites that harvest your financial data. Most calculators only show gross estimates, ignoring platform cuts, taxes, and audience geography.\n\nI wanted to fix this. But more importantly, as a developer, I wanted to build it in the most lightweight, privacy-respecting way possible.\n\nThat is how Crecaly was born: a revenue calculator for the creator economy that figures out your true take-home pay across 15+ platforms. And I built it entirely as a serverless Progressive Web App (PWA) using pure Vanilla JavaScri``pt, HTML, and CSS.\n\nHere is why I ditched the modern framework hype and went back to basics.\n\n🛑 The Problem with Modern Financial Tools\n\nWhen building a tool that handles sensitive data—like someone’s income, tax bracket, and financial goals—privacy should be the default, not an opt-in feature.\n\nMost calculator apps send user inputs back to a server to process the logic, often storing that data for analytics or retargeting. I wanted Crecaly to be the \"ultimate boss of privacy.\"\n\nThe constraints I set for myself:\n\nZero backend data collection.\n\nLightning-fast load times.\n\nNo heavy frameworks.\n\n🛠 The Tech Stack: Vanilla JS + PWA\n\nIt is tempting to spin up a React or Vue project for everything, but for a standalone utility tool, shipping a massive JavaScript bundle felt like overkill.\n\nBy sticking to HTML, CSS, and Vanilla JS, I kept the footprint incredibly small.\n\nClient-Side Processing (Zero Backend)\nAll the complex math—factoring in the unique fee structures of 15+ different platforms, calculating estimated taxes, and adjusting for audience geography—happens locally in the user's browser.\n\nBecause there is no database to ping, the UI updates instantly. More importantly, the user's financial projections never leave their device.\n\nThe PWA Advantage\nI structured Crecaly as a Progressive Web App. By utilizing a simple manifest.json and a Service Worker, users can install the tool directly to their home screens (mobile or desktop).\n\nIt feels like a native app.\n\nIt bypasses the gatekeeping and 30% fees of traditional app stores.\n\n🧠 Building \"Chase Mode\" (Reverse-Math Logic)\n\nOne of the most fun features to build was what I call \"Chase Mode\".\n\nUsually, calculators work forward: Input Views -> Output Money.\n\nChase Mode works backward: Input Target Money -> Output Required Views/Subs/Sales.\n\nFrom a logic standpoint, it required building a dynamic reverse-math engine. If a creator wants to net exactly $5,000 this month, the JS logic has to dynamically add back the tax estimates and specific platform fees to tell them exactly how many Twitch subs or YouTube views they need to hit that goal. Doing this instantaneously via DOM manipulation without a virtual DOM was a great exercise in efficient event listener management.\n\n🚀 Takeaways from Going \"Vanilla\"\n\nBuilding Crecaly reminded me that we don't always need an overly engineered stack to ship a great product.\n\nSpeed is a feature: Without a framework, the Lighthouse scores are flawless.\n\nPrivacy builds trust: \"Zero backend\" is a massive selling point when marketing to users tired of data harvesting.\n\nVanilla JS is powerful: Modern JavaScript (ES6+) is so robust that I rarely found myself missing a framework for a utility application like this.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "building",
+      "calculate",
+      "calculator",
+      "creator",
+      "crecaly",
+      "css",
+      "dom",
+      "fee",
+      "financial",
+      "html",
+      "javascript",
+      "lighthouse",
+      "massive",
+      "privacy",
+      "pwa",
+      "react",
+      "serverless",
+      "showdev",
+      "sideprojects",
+      "substack",
+      "vanilla",
+      "want",
+      "youtube"
+    ],
+    [
+      "serverless",
+      "showdev",
+      "sideprojects"
+    ]
+  ]
+}
