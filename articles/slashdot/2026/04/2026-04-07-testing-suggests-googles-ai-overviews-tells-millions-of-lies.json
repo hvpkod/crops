@@ -1,0 +1,35 @@
+{
+  "id": 9517,
+  "source": "Slashdot",
+  "title": "Testing Suggests Google's AI Overviews Tells Millions of Lies Per Hour",
+  "url": "https://tech.slashdot.org/story/26/04/07/1717240/testing-suggests-googles-ai-overviews-tells-millions-of-lies-per-hour?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-07T19:00:00Z",
+  "fetched_at": "2026-04-07T19:20:36.791214+00:00",
+  "author": "BeauHD",
+  "summary": "A New York Times analysis found Google's AI Overviews now answer questions correctly about 90% of the time, which might sound impressive until you realize that roughly 1 in 10 answers is wrong. \"[F]or Google, that means hundreds of thousands of lies going out every minute of the day,\" reports Ars Technica. From the report: The Times conducted this analysis with the help of a startup called Oumi, which itself is deeply involved in developing AI models. The company used AI tools to probe AI Overviews with the SimpleQA evaluation, a common test to rank the factuality of generative models like Gemini. Released by OpenAI in 2024, SimpleQA is essentially a list of more than 4,000 questions with verifiable answers that can be fed into an AI.\n \nOumi began running its test last year when Gemini 2.5 was still the company's best model. At the time, the benchmark showed an 85 percent accuracy rate. When the test was rerun following the Gemini 3 update, AI Overviews answered 91 percent of the quest",
+  "full_text": "A New York Times analysis\n\n found Google's AI Overviews now answer questions correctly about 90% of the time, which might sound impressive until you realize that roughly 1 in 10 answers is wrong\n\n. \"[F]or Google, that means hundreds of thousands of lies going out every minute of the day,\" reports Ars Technica. From the report: The Times conducted this analysis with the help of a startup called Oumi, which itself is deeply involved in developing AI models. The company used AI tools to probe AI Overviews with the SimpleQA evaluation, a common test to rank the factuality of generative models like Gemini. Released by OpenAI in 2024, SimpleQA is essentially a list of more than 4,000 questions with verifiable answers that can be fed into an AI.\n\n \n\nOumi began running its test last year when Gemini 2.5 was still the company's best model. At the time, the benchmark showed an 85 percent accuracy rate. When the test was rerun following the Gemini 3 update, AI Overviews answered 91 percent of the questions correctly. If you extrapolate this miss rate out to all Google searches, AI Overviews is generating tens of millions of incorrect answers per day.\n\n \n\nThe report includes several examples of where AI Overviews went wrong. When asked for the date on which Bob Marley's former home became a museum, AI Overviews cited three pages, two of which didn't discuss the date at all. The final one, Wikipedia, listed two contradictory years, and AI Overviews confidently chose the wrong one. The benchmark also prompts models to produce the date on which Yo Yo Ma was inducted into the classical music hall of fame. While AI Overviews cited the organization's website that listed Ma's induction, it claimed there's no such thing as the Classical Music Hall of Fame. \n\n \"This study has serious holes,\" said Google spokesperson Ned Adriance. \"It doesn't reflect what people are actually searching on Google.\" The search giant likes to use a test called SimpleQA Verified\n\n, which uses a smaller set of questions that have been more thoroughly vetted.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "ai overviews",
+      "analysis",
+      "answer",
+      "call",
+      "cite",
+      "date",
+      "gemini",
+      "google",
+      "lie",
+      "list",
+      "new york times",
+      "overviews",
+      "question",
+      "simpleqa",
+      "times",
+      "wikipedia"
+    ],
+    []
+  ]
+}

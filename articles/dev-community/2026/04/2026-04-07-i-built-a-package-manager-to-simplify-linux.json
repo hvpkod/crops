@@ -1,0 +1,39 @@
+{
+  "id": 9269,
+  "source": "DEV Community<",
+  "title": "I built a package manager to simplify Linux",
+  "url": "https://dev.to/willianthdr/i-built-a-package-manager-to-simplify-linux-6pa",
+  "published_at": "2026-04-07T02:07:51Z",
+  "fetched_at": "2026-04-07T02:20:33.914707+00:00",
+  "author": "Willian Theodoro",
+  "summary": "<p>After switching to Linux, I finally understood why so many people criticize it.</p>\n\n<h2>\n  \n  \n  Context\n</h2>\n\n<p>A few days ago, I formatted my computer and installed Ubuntu because I was tired of Windows. After setting everything up, I started to understand the complaints about Linux.</p>\n\n<p>To install any software, you usually need to type commands like:</p>\n\n<p>sudo apt install package-name<br />\nflatpak install package-id</p>\n\n<p>Then you have to provide the correct package name or ID/URL (in the case of Flatpak). While this might seem simple at first, it can become repetitive and exhausting over time — especially when dealing with maintenance or trying to figure out which package is causing issues in the system.</p>\n\n<p>Since I’ve been learning C#, I decided to turn this problem into a project.</p>\n\n<p>At first, I thought it would be as simple as pressing a button and letting everything happen automatically — but it wasn’t that straightforward. So after studying how Linux t",
+  "full_text": "After switching to Linux, I finally understood why so many people criticize it.\n\n \n \n Context\n\nA few days ago, I formatted my computer and installed Ubuntu because I was tired of Windows. After setting everything up, I started to understand the complaints about Linux.\n\nTo install any software, you usually need to type commands like:\n\nsudo apt install package-name\n\nflatpak install package-id\n\nThen you have to provide the correct package name or ID/URL (in the case of Flatpak). While this might seem simple at first, it can become repetitive and exhausting over time — especially when dealing with maintenance or trying to figure out which package is causing issues in the system.\n\nSince I’ve been learning C#, I decided to turn this problem into a project.\n\nAt first, I thought it would be as simple as pressing a button and letting everything happen automatically — but it wasn’t that straightforward. So after studying how Linux terminal commands work, I started building the application in practice.\n\n \n \n About the software\n\nThe application was built entirely in C# using Avalonia UI.\n\nThe idea is simple: it abstracts the management of .deb and .flatpakref packages, making the process more straightforward and user-friendly.\n\nThe interface is clean and minimal. It provides buttons for common actions such as installing packages, searching for packages, performing maintenance, and removing packages from the system.\n\nThe user just needs to select the desired package and click to install or uninstall.\n\n \n \n Features\n\nSelect a file\n\nInstall packages (.deb or .flatpakref) with error handling\n\nSearch for packages (specific or full system list)\n\nRemove packages by name\n\nRepair packages, including updates and full maintenance operations\n\n \n \n Final thoughts\n\nThe project is already functional, but I still plan to improve it further — especially by adding new features and improving the overall user experience, such as allowing maintenance directly from the package name (which is not implemented yet).\n\nIf you want to check out the project, here’s the repository:\n\nhttps://github.com/Willian-Thdr/Gerenciador_De_Pacotes\n\n \n \n Feedback\n\nWould you use something like this in your daily workflow, or do you prefer using the terminal directly?\n\nWhat would you add or improve in this project?\n\nLet me know in the comments!",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "build",
+      "button",
+      "csharp",
+      "especially",
+      "features\n\nselect",
+      "flatpak",
+      "fullstack",
+      "improve",
+      "install",
+      "linux",
+      "maintenance",
+      "name",
+      "package",
+      "portfolio",
+      "start",
+      "think",
+      "windows"
+    ],
+    [
+      "csharp",
+      "fullstack",
+      "portfolio"
+    ]
+  ]
+}

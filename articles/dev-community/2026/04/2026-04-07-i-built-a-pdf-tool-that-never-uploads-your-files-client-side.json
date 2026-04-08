@@ -1,0 +1,36 @@
+{
+  "id": 9532,
+  "source": "DEV Community<",
+  "title": "I built a PDF tool that never uploads your files (client-side only)",
+  "url": "https://dev.to/huntingdev/i-built-a-pdf-tool-that-never-uploads-your-files-client-side-only-4m7m",
+  "published_at": "2026-04-07T19:41:06Z",
+  "fetched_at": "2026-04-07T20:00:41.736908+00:00",
+  "author": "HuntingDev",
+  "summary": "<p>Most online PDF tools ask you to upload your files which means:</p>\n\n<ul>\n<li>Your documents go to a server</li>\n<li>You don’t know how long they’re stored</li>\n<li>Sensitive data can be exposed</li>\n</ul>\n\n<p>I didn’t like that. So I built a simple alternative:</p>\n\n<p>👉 <a href=\"https://nouploadpdf.org\" rel=\"noopener noreferrer\">https://nouploadpdf.org</a></p>\n\n<h2>\n  \n  \n  💡What’s different?\n</h2>\n\n<p>Everything runs completely in your browser.</p>\n\n<ul>\n<li>No file upload</li>\n<li>No server processing</li>\n<li>No storage\nYour files never leave your device.</li>\n</ul>\n\n<h2>\n  \n  \n  🛠️ How it works (high level)\n</h2>\n\n<p>Instead of sending files to a backend:</p>\n\n<ul>\n<li>Files are processed locally in the browser</li>\n<li>Operations happen in memory</li>\n<li>Output is generated instantly</li>\n</ul>\n\n<p>This makes it faster for small tasks, completely private. People upload resumes, contracts, financial documents etc. to random PDF tools online which is a risky action. This appro",
+  "full_text": "Most online PDF tools ask you to upload your files which means:\n\nYour documents go to a server\n\nYou don’t know how long they’re stored\n\nSensitive data can be exposed\n\nI didn’t like that. So I built a simple alternative:\n\n👉 https://nouploadpdf.org\n\n \n \n 💡What’s different?\n\nEverything runs completely in your browser.\n\nNo file upload\n\nNo server processing\n\nNo storage\nYour files never leave your device.\n\n \n \n 🛠️ How it works (high level)\n\nInstead of sending files to a backend:\n\nFiles are processed locally in the browser\n\nOperations happen in memory\n\nOutput is generated instantly\n\nThis makes it faster for small tasks, completely private. People upload resumes, contracts, financial documents etc. to random PDF tools online which is a risky action. This approach removes that risk entirely.\n\n \n \n ⚖️ Trade-offs\n\nThere are some limitations:\n\nPerformance depends on your device\n\nLarge files can be slower\n\nBrowser memory limits apply\nBut for most everyday use cases, it works well.\n\n \n \n 🙌 Looking for feedback\n\nIf you’re a developer or frequent PDF user, try it- https://nouploadpdf.org. Would love your feedback.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "browser",
+      "build",
+      "completely",
+      "document",
+      "file",
+      "online",
+      "pdf",
+      "product",
+      "send",
+      "showdev",
+      "sideprojects",
+      "tool",
+      "upload",
+      "website"
+    ],
+    [
+      "showdev",
+      "sideprojects",
+      "website"
+    ]
+  ]
+}

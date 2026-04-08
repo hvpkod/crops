@@ -1,0 +1,42 @@
+{
+  "id": 9275,
+  "source": "DEV Community<",
+  "title": "We Scanned 25 OpenClaw Skills for Security Vulnerabilities — Here's What We Found",
+  "url": "https://dev.to/agentgraph/methodology-18ki",
+  "published_at": "2026-04-07T01:47:45Z",
+  "fetched_at": "2026-04-07T02:20:47.611077+00:00",
+  "author": "AgentGraph",
+  "summary": "<p>AI agents are running third-party code on your machine. Last week, <a href=\"https://techcrunch.com/2026/04/04/anthropic-says-claude-code-subscribers-will-need-to-pay-extra-for-openclaw-support/\" rel=\"noopener noreferrer\">Anthropic announced extra charges for OpenClaw support in Claude Code</a>, drawing fresh attention to the ecosystem. We wanted to answer a straightforward question: how safe are the most popular OpenClaw skills?</p>\n\n<p>We used AgentGraph's <a href=\"https://github.com/agentgraph-co/agentgraph\" rel=\"noopener noreferrer\">open-source security scanner</a> to analyze 25 popular OpenClaw skill repositories from GitHub. The scanner inspects source code for:</p>\n\n<ul>\n<li>\n<strong>Hardcoded secrets</strong> (API keys, tokens, passwords in source)</li>\n<li>\n<strong>Unsafe execution</strong> (subprocess calls, eval/exec, shell=True)</li>\n<li>\n<strong>File system access</strong> (reads/writes outside expected boundaries)</li>\n<li>\n<strong>Data exfiltration patterns</strong> (o",
+  "full_text": "AI agents are running third-party code on your machine. Last week, Anthropic announced extra charges for OpenClaw support in Claude Code, drawing fresh attention to the ecosystem. We wanted to answer a straightforward question: how safe are the most popular OpenClaw skills?\n\nWe used AgentGraph's open-source security scanner to analyze 25 popular OpenClaw skill repositories from GitHub. The scanner inspects source code for:\n\nHardcoded secrets (API keys, tokens, passwords in source)\n\nUnsafe execution (subprocess calls, eval/exec, shell=True)\n\nFile system access (reads/writes outside expected boundaries)\n\nData exfiltration patterns (outbound network calls to unexpected destinations)\n\nCode obfuscation (base64-encoded payloads, dynamic imports)\n\nIt also detects positive signals: authentication checks, input validation, rate limiting, and CORS configuration. Each repo receives a trust score from 0 to 100.\n\n \n \n Results Summary\n\nAll 25 repositories scanned successfully. The aggregate numbers:\n\nMetric\nValue\n\nRepos scanned\n25\n\nTotal findings\n1,195\n\nCritical\n25\n\nHigh\n615\n\nMedium\n555\n\nRepos with critical findings\n4 (16%)\n\nAverage trust score\n51.1 / 100\n\nRepos scoring below 20\n9 (36%)\n\nFindings by category: file system access accounted for 707, unsafe execution patterns for 461, data exfiltration patterns for 26, and hardcoded secrets for 1.\n\n \n \n Score Distribution\n\nScore Range\nRepos\nPercentage\n\n0 - 20\n9\n36%\n\n21 - 40\n1\n4%\n\n41 - 60\n0\n0%\n\n61 - 80\n5\n20%\n\n81 - 100\n10\n40%\n\nThe distribution is bimodal. Repos tend to be either clean or deeply problematic, with almost nothing in the middle. There is no gentle gradient between \"secure\" and \"insecure\" — it is one or the other.\n\n \n \n Notable Findings\n\nopenclaw/clawhub (official skill registry)\n\nScore: 0/100. 2 critical, 228 high, 75 medium findings across 200 files. This is the registry that indexes skills for the broader ecosystem.\n\nadversa-ai/secureclaw (OWASP security plugin)\n\nScore: 0/100. 21 critical, 66 high, 177 medium findings. A security-focused plugin that itself has significant findings. The scanner flagged a high density of unsafe execution patterns and file system access.\n\nopenclaw/openclaw (main framework)\n\nScore: 0/100. 1 critical, 14 high, 4 medium findings. The core framework that other skills build on.\n\nFreedomIntelligence/OpenClaw-Medical-Skills (medical AI)\n\nScore: 0/100. 1 critical, 30 high, 12 medium findings. Medical AI skills with critical findings deserve particular scrutiny given their potential deployment context.\n\nNot all skills are problematic. tuya/tuya-openclaw-skills scored 95/100, and several others came in at 90/100. The clean repos demonstrate that writing secure OpenClaw skills is entirely achievable — it is just not the norm across the board.\n\n \n \n What This Means\n\nWhen Claude Code or any AI assistant runs a third-party tool, it executes that tool's code with whatever permissions the host process has. If that code contains unsafe exec patterns, broad file system access, or exfiltration vectors, the attack surface is your machine — your files, your environment variables, your credentials.\n\nThe finding categories tell the story: 461 unsafe execution patterns means eval, exec, subprocess, and shell=True calls scattered across these codebases. 707 file system access findings means code reaching into the filesystem in ways that may not be bounded.\n\nAnthropic's decision to gate OpenClaw behind additional pricing starts to make more sense in this context. The cost is not just computational — it is risk.\n\n \n \n Check Your Own Tools\n\nWe built an MCP server that lets you check any agent or tool directly from Claude Code.\n\nInstall:\n\npip install agentgraph-trust\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAdd to your Claude Code MCP config:\n\n{\n \"mcpServers\": {\n \"agentgraph-trust\": {\n \"command\": \"agentgraph-trust\",\n \"env\": {\n \"AGENTGRAPH_URL\": \"https://agentgraph.co\"\n }\n }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThen ask Claude: \"Check the security of [agent name]\"\n\nIt returns a signed attestation with findings, trust score, and boolean safety checks. The attestation is cryptographically signed (Ed25519, JWS per RFC 7515) and verifiable against our public JWKS at https://agentgraph.co/.well-known/jwks.json.\n\n \n \n Full Data\n\nThe scanner and full results are open source:\n\nThe agent ecosystem needs trust infrastructure. We are building it at agentgraph.co.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agentgraph",
+      "agents",
+      "ai",
+      "api",
+      "code",
+      "cors",
+      "exfiltration",
+      "finding",
+      "full data",
+      "github",
+      "mcp",
+      "openclaw",
+      "opensource",
+      "owasp",
+      "repos",
+      "results summary",
+      "scan",
+      "scanner",
+      "security",
+      "skill",
+      "unsafe"
+    ],
+    [
+      "agents",
+      "opensource"
+    ]
+  ]
+}

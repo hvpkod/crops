@@ -1,0 +1,45 @@
+{
+  "id": 9307,
+  "source": "DEV Community<",
+  "title": "I Built 6 Free Browser-Based Tools — 50+ Utilities, No Signup, No Tracking",
+  "url": "https://dev.to/davron_yuldashev_0a91802f/i-built-6-free-browser-based-tools-50-utilities-no-signup-no-tracking-5bc2",
+  "published_at": "2026-04-07T05:00:06Z",
+  "fetched_at": "2026-04-07T05:20:37.814961+00:00",
+  "author": "Davron Yuldashev",
+  "summary": "<p><em>All tools are free. Processing happens in your browser or on a private server. No accounts, no ads, no tracking.</em></p>\n\n<p>Over the past 6 weeks I built a portfolio of free online utility tools at <strong><a href=\"https://davrapps.dev\" rel=\"noopener noreferrer\">davrapps.dev</a></strong>. Here's what shipped and how it's built.</p>\n\n\n\n\n<h2>\n  \n  \n  The Apps\n</h2>\n\n<h3>\n  \n  \n  🛠️ <a href=\"https://devtools.davrapps.dev\" rel=\"noopener noreferrer\">DevTools</a> — 28 Developer Utilities\n</h3>\n\n<p>Every tool runs <strong>100% client-side</strong> — nothing is sent to any server. Check the Network tab if you don't believe me.</p>\n\n<p><strong>Text &amp; Data</strong></p>\n\n<ul>\n<li>JSON Formatter &amp; Validator</li>\n<li>YAML ↔ JSON Converter</li>\n<li>TOML ↔ JSON Converter</li>\n<li>Diff Checker — compare two texts side-by-side</li>\n<li>Text Statistics — word count, reading time, character frequency</li>\n<li>String Case Converter — camelCase, snake_case, SCREAMING_SNAKE, kebab-case</li>",
+  "full_text": "All tools are free. Processing happens in your browser or on a private server. No accounts, no ads, no tracking.\n\nOver the past 6 weeks I built a portfolio of free online utility tools at davrapps.dev. Here's what shipped and how it's built.\n\n \n \n The Apps\n\n \n \n 🛠️ DevTools — 28 Developer Utilities\n\nEvery tool runs 100% client-side — nothing is sent to any server. Check the Network tab if you don't believe me.\n\nText & Data\n\nJSON Formatter & Validator\n\nYAML ↔ JSON Converter\n\nTOML ↔ JSON Converter\n\nDiff Checker — compare two texts side-by-side\n\nText Statistics — word count, reading time, character frequency\n\nString Case Converter — camelCase, snake_case, SCREAMING_SNAKE, kebab-case\n\nLorem Ipsum Generator\n\nEncoding & Crypto\n\nBase64 Encode/Decode\n\nURL Encoder/Decoder\n\nHTML Entity Encoder/Decoder\n\nHash Generator — MD5, SHA-1, SHA-256, SHA-512 (Web Crypto API)\n\nJWT Decoder — inspect header + payload without a secret\n\nPassword Generator — cryptographically secure\n\nImage to Base64\n\nDev Helpers\n\nRegex Tester — real-time matching with group highlighting\n\nUUID Generator — bulk v4 UUIDs\n\nUnix Timestamp Converter — epoch ↔ human-readable with timezone\n\nNumber Base Converter — binary, octal, decimal, hex\n\nCron Expression Parser — plain English explanations\n\nSQL Formatter\n\nCSS Minifier\n\nMarkdown Preview\n\nColor Converter — HEX ↔ RGB ↔ HSL\n\nCSS Gradient Generator — linear/radial/conic, CSS + Tailwind output\n\nTailwind CSS Color Explorer\n\n👉 devtools.davrapps.dev\n\n \n \n 🖼️ ImgTools — 7 Image Utilities\n\nServer-side processing with Sharp/libvips on a private VPS — files are never stored.\n\nCompress — MozJPEG, up to 80% size reduction\n\nResize — custom dimensions + social media presets\n\nCrop & Rotate\n\nFormat Convert — JPEG, PNG, WebP, AVIF, GIF, TIFF\n\nWatermark — text or image\n\nBackground Removal\n\n👉 imgtools.davrapps.dev\n\n \n \n 📄 PDFKit — 9 PDF Tools\n\nNo file size limits. No watermarks on output. No account needed.\n\nMerge, Split, Compress, Rotate, PDF ↔ Image, Password Protect, Watermark, Add Page Numbers.\n\n👉 pdfkit.davrapps.dev\n\n \n \n 🔲 QRKit — 8 QR Code Tools\n\nGenerate (with logo + custom colors), Scan (file or camera), WiFi QR, vCard QR, Batch Generator, Decode, Color Picker.\n\n👉 qrkit.davrapps.dev\n\n \n \n 📸 Picefy — Screenshot Beautifier\n\nTurn plain screenshots into polished visuals: gradient backgrounds, rounded corners, drop shadow, device frames. Export as PNG.\n\n👉 picefy.davrapps.dev\n\n \n \n 📦 ShipKit — Next.js + Bun SaaS Boilerplate ($49)\n\nFull-stack starter: Next.js 16, Bun, Elysia.js, Better Auth, Polar.sh payments, PostgreSQL + Drizzle ORM, shadcn/ui, i18n, dark mode.\n\n👉 shipkit.davrapps.dev\n\n \n \n Monetization\n\nApp\nFree limit\nPro\n\nDevTools\nUnlimited\n—\n\nImgTools\n5 ops/day\n$3/mo\n\nPDFKit\n5 ops/day\n$5/mo\n\nQRKit\n5 ops/day\nComing soon\n\nPicefy\n5 exports/day\n$5/mo\n\nShipKit\n—\n$49 one-time\n\nPayments via Polar.sh (Stripe under the hood, but with a much better OSS-friendly DX).\n\n \n \n Tech Stack\n\nAll apps share the same foundation:\n\nNext.js 16 (App Router, SSG for all tool pages)\n\nBun runtime + package manager\n\nElysia.js API layer (Bun-native, ~3x faster than Express in benchmarks)\n\nBetter Auth — email/password + OAuth, sessions in PostgreSQL\n\nshadcn/ui + Tailwind CSS — every app has dark/light mode\n\nPostgreSQL + Drizzle ORM\n\ni18n via next-intl (EN/RU/UZ)\n\nDeployed on a Hetzner CAX21 ARM (~$8/mo total for all 6 apps). Each app is a systemd service behind nginx, its own port pair.\n\n \n \n Key Decisions\n\nClient-side by default. For anything that doesn't need a server (formatters, converters, hash generators), everything stays in the browser. Zero upload risk, zero server cost.\n\nSEO-first architecture. Each tool has its own URL, unique meta tags, FAQ with JSON-LD structured data. devtools.davrapps.dev/en/json-formatter and devtools.davrapps.dev/en/uuid-generator each target different search queries rather than competing as a single page.\n\nOne server, many apps. Rather than pay per-app VPS costs, everything runs on one ARM machine. Total infra cost for 6 apps + 14 services: ~$8/mo.\n\n \n \n Current Status\n\n6 apps live, 50+ total tools\n\nMRR: $5 (early days)\n\nBacklinks: 2 merged awesome-list PRs, 7 more open\n\nStarting to appear in Brave/Bing — Google indexation in progress\n\nWhat tools do you wish existed? Drop a comment — I might build it next.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "app",
+      "better",
+      "converter",
+      "css",
+      "css + tailwind",
+      "devtools",
+      "encode/decode",
+      "encoder/decoder",
+      "generator",
+      "imgtool",
+      "javascript",
+      "linear",
+      "network",
+      "payments",
+      "pdfkit",
+      "productivity",
+      "qrkit",
+      "rgb",
+      "sql formatter",
+      "tailwind",
+      "text",
+      "tool",
+      "webdev",
+      "↔ hsl"
+    ],
+    [
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

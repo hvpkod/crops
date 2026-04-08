@@ -1,0 +1,42 @@
+{
+  "id": 9525,
+  "source": "DEV Community<",
+  "title": "StudioMeyer Crew: Turn Claude into a CEO, CFO, or CTO — Zero API Cost",
+  "url": "https://dev.to/studiomeyer/studiomeyer-crew-turn-claude-into-a-ceo-cfo-or-cto-zero-api-cost-3f9j",
+  "published_at": "2026-04-07T19:50:38Z",
+  "fetched_at": "2026-04-07T20:00:28.571842+00:00",
+  "author": "Matthias Meyer",
+  "summary": "<p>Switching between \"act as my CFO\" and \"now think like a CTO\" prompts works -- sort of. But every time you switch, Claude loses the role. The analysis gets shallow. There's no framework, no structure, no memory of what the CEO said when the CFO takes over.</p>\n\n<p>StudioMeyer Crew is an MCP server that gives Claude 8 expert personas with real business frameworks. Activate a CEO, and Claude uses Porter's Five Forces. Switch to CFO, and Claude runs unit economics with your actual numbers. Zero extra API cost -- runs entirely in your Claude subscription.</p>\n\n<h2>\n  \n  \n  What does Crew actually do?\n</h2>\n\n<p>Instead of writing long system prompts yourself, you activate a persona with one command:</p>\n\n<blockquote>\n<p>\"Activate the CEO persona.\"</p>\n</blockquote>\n\n<p>Claude instantly adopts the role -- with domain-specific frameworks, output formats, decision patterns, and constraints. Not a generic \"act like a CEO\" prompt, but a battle-tested system prompt with few-shot examples and an",
+  "full_text": "Switching between \"act as my CFO\" and \"now think like a CTO\" prompts works -- sort of. But every time you switch, Claude loses the role. The analysis gets shallow. There's no framework, no structure, no memory of what the CEO said when the CFO takes over.\n\nStudioMeyer Crew is an MCP server that gives Claude 8 expert personas with real business frameworks. Activate a CEO, and Claude uses Porter's Five Forces. Switch to CFO, and Claude runs unit economics with your actual numbers. Zero extra API cost -- runs entirely in your Claude subscription.\n\n \n \n What does Crew actually do?\n\nInstead of writing long system prompts yourself, you activate a persona with one command:\n\n\"Activate the CEO persona.\"\n\nClaude instantly adopts the role -- with domain-specific frameworks, output formats, decision patterns, and constraints. Not a generic \"act like a CEO\" prompt, but a battle-tested system prompt with few-shot examples and anti-patterns.\n\n \n \n 8 Built-in Personas\n\nPersona\nCategory\nWhat they bring\n\nCEO\nBusiness\nStrategy, vision, Porter's Five Forces, SWOT, delegation frameworks\n\nCFO\nBusiness\nUnit economics, ROI analysis, pricing models, budget planning\n\nCMO\nBusiness\nGrowth strategy, AARRR funnel, content marketing, SEO/GEO\n\nCTO\nTech\nArchitecture review, DORA metrics, tech debt assessment, code review\n\nPM\nBusiness\nRICE/ICE scoring, user stories, PRD generation, JTBD framework\n\nAnalyst\nOps\nMarket research, competitive intelligence, data analysis\n\nSupport\nOps\nCustomer communication, FAQ writing, onboarding guides\n\nCreative\nCreative\nBrand voice, copy, storytelling, design briefs\n\n \n \n 10 Tools\n\nTool\nWhat it does\n\ncrew_activate\nSwitch to a persona (loads frameworks + memory context)\n\ncrew_deactivate\nBack to default Claude\n\ncrew_list\nShow all available personas\n\ncrew_status\nWho am I right now? Duration, token estimate\n\ncrew_feedback\nRate the persona (1-5)\n\ncrew_create\nBuild your own custom persona\n\ncrew_delete\nRemove a custom persona\n\ncrew_workflow_list\nAvailable multi-persona workflows\n\ncrew_workflow_run\nRun a full workflow (e.g. CEO then CFO then CTO)\n\ncrew_guide\nHelp and onboarding\n\n \n \n Getting started: 30 seconds\n\nAdd the server URL in Claude Desktop or Cursor:\n\nhttps://crew.studiomeyer.io/mcp\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOr via Claude Code:\n\nclaude mcp add crew --transport streamable-http https://crew.studiomeyer.io/mcp\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWorks with Claude Desktop, Claude Code, Cursor, VS Code, Windsurf, and Zed.\n\n \n \n What you can actually do with it\n\n \n \n Strategy session in 5 minutes\n\n\"Activate CEO. Review our pricing strategy: we have 4 MCP products ranging from free to $49/month.\"\n\nClaude as CEO runs a structured analysis: market positioning, competitive landscape, pricing psychology, revenue projections. Not a vague opinion -- a framework-driven assessment with clear recommendations.\n\n \n \n Financial sanity check\n\n\"Switch to CFO. Are these unit economics sustainable?\"\n\nThe CFO persona calculates: customer acquisition cost, lifetime value, margin per tier, break-even timeline. With actual numbers, not hypotheticals.\n\n \n \n Multi-persona workflows\n\nThe real power: chaining personas. Three built-in workflows:\n\nWorkflow\nPersonas\nWhat happens\n\nStrategy Review\nCEO, then CFO, then CTO\nCEO defines strategy, CFO validates finances, CTO checks feasibility\n\nContent Pipeline\nCMO, then Analyst, then Creative\nCMO plans content, Analyst fact-checks, Creative polishes\n\nProduct Launch\nAnalyst, PM, CEO, CMO, CTO\nFull launch analysis from research to go-live checklist\n\n\"Run the strategy review workflow for our Q2 plans.\"\n\nEach persona builds on the previous one's output. The CFO doesn't repeat what the CEO said -- they challenge it.\n\n \n \n Memory Bridge\n\nIf you also use StudioMeyer Memory, Crew automatically loads relevant context when activating a persona. The CFO searches for \"revenue, costs, pricing decisions\" in your memory. The CTO loads \"architecture, tech stack, dependencies.\"\n\nNo manual context switching. The persona knows your history.\n\n \n \n What makes this different\n\nFeature\nStudioMeyer Crew\nDollhouseMCP\nRuflo\n\nPersonas\n8 (deep, with frameworks)\n150+ (generic)\n60+ (swarm)\n\nMemory integration\nStudioMeyer Memory\nNone\nOwn DB (AgentDB)\n\nMulti-persona workflows\n3 built-in\nNone\nSwarm topology\n\nCustom personas\nYes (Markdown + YAML)\nNo\nNo\n\nAPI cost\n$0 (Claude subscription)\n$0\nRequires API keys\n\nDomain frameworks\nDORA, Porter, AARRR, RICE\nGeneric prompts\nGeneric prompts\n\nThe key difference: Crew personas aren't just role descriptions. They include decision frameworks, few-shot examples, output format constraints, and anti-patterns. A CFO persona that says \"consider ROI\" is useless. A CFO persona that runs a 5-year DCF model with your inputs is useful.\n\n \n \n Custom personas\n\nDon't need a CFO but need a Legal Advisor? Create your own:\n\n\"Create a persona called Legal Advisor, focused on contract review, GDPR compliance, and risk assessment.\"\n\nCrew saves it as a Markdown file with YAML frontmatter. Your custom personas persist across sessions and work exactly like built-in ones.\n\n \n \n Pricing\n\nFree. All 10 tools, all 8 personas, all 3 workflows. No API keys, no credit system, no hidden costs. Runs in your existing Claude subscription.\n\nWe built Crew because we got tired of writing the same \"act as my CFO\" prompts and getting shallow results every time. Eight personas, tested across hundreds of real business decisions at StudioMeyer. If you want Claude to think like an expert instead of a generalist -- try it.\n\ncrew.studiomeyer.io",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "business",
+      "cfo",
+      "claude",
+      "creative",
+      "crew",
+      "cto",
+      "custom",
+      "dora metrics",
+      "faq",
+      "mcp",
+      "persona",
+      "personas",
+      "porter's five forces",
+      "pricing",
+      "productivity",
+      "prompt",
+      "seo/geo",
+      "studiomeyer",
+      "tech"
+    ],
+    [
+      "productivity",
+      "tech"
+    ]
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": 9573,
+  "source": "DEV Community<",
+  "title": "Zephyr Events – A 2KB TypeScript event emitter that's race-condition safe",
+  "url": "https://dev.to/bogdan_bododumitrescu_/zephyr-events-a-2kb-typescript-event-emitter-thats-race-condition-safe-4ng2",
+  "published_at": "2026-04-07T22:37:14Z",
+  "fetched_at": "2026-04-07T23:00:33.728695+00:00",
+  "author": "Bogdan “Bodo” Dumitrescu",
+  "summary": "<p>I built a tiny event emitter that fixes a bug most people don't know they have: if a handler calls off() on itself during emit, the next handler gets skipped. EventEmitter3, Node's built-in EventEmitter, and mitt all have this problem.</p>\n\n<p>Zephyr Events uses snapshot-based iteration so handlers can subscribe, unsubscribe, or clear listeners mid-emit without side effects. If you don't need that safety, there's a zephyrEventsFast mode that's up to 82% faster.</p>\n\n<p>1.9KB, zero dependencies, tree-shakeable<br />\nFull TypeScript generics with strict handler signatures<br />\nWildcard listeners, shared handler maps, unsubscribe functions<br />\nESM, CommonJS, and UMD builds<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight typescript\"><code><span class=\"k\">import</span> <span class=\"nx\">zephyrEvents</span> <span class=\"k\">from</span> <span class=\"dl\">'</span><span class=\"s1\">zephyr-events</span><span class=\"dl\">'</span><span class=\"p\">;</span>\n\n<span class=\"",
+  "full_text": "I built a tiny event emitter that fixes a bug most people don't know they have: if a handler calls off() on itself during emit, the next handler gets skipped. EventEmitter3, Node's built-in EventEmitter, and mitt all have this problem.\n\nZephyr Events uses snapshot-based iteration so handlers can subscribe, unsubscribe, or clear listeners mid-emit without side effects. If you don't need that safety, there's a zephyrEventsFast mode that's up to 82% faster.\n\n1.9KB, zero dependencies, tree-shakeable\n\nFull TypeScript generics with strict handler signatures\n\nWildcard listeners, shared handler maps, unsubscribe functions\n\nESM, CommonJS, and UMD builds\n\nimport zephyrEvents from 'zephyr-events';\n\ntype Events = {\n 'user:login': { id: number; name: string }\n 'error': Error\n}\n\nconst emitter = zephyrEvents<Events>();\nconst unsub = emitter.on('user:login', (user) => {\n console.log(`Welcome, ${user.name}`);\n});\nemitter.emit('user:login', { id: 1, name: 'Alice' });\nunsub();\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nhttps://www.npmjs.com/package/zephyr-events\n\nWould love feedback, especially on the API design and whether the safe/fast split makes sense as a default.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "api",
+      "emitter",
+      "esm",
+      "event",
+      "eventemitter",
+      "handler",
+      "javascript",
+      "kb typescript",
+      "listener",
+      "mitt",
+      "mode",
+      "node",
+      "performance",
+      "showdev",
+      "typescript",
+      "umd",
+      "use",
+      "zephyr",
+      "zephyr events",
+      "zephyreventsfast"
+    ],
+    [
+      "showdev"
+    ]
+  ]
+}

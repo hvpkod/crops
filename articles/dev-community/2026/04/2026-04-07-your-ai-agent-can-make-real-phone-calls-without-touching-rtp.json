@@ -1,0 +1,46 @@
+{
+  "id": 9266,
+  "source": "DEV Community<",
+  "title": "Your AI Agent Can Make Real Phone Calls — Without Touching RTP or SIP",
+  "url": "https://dev.to/voipbin/your-ai-agent-can-make-real-phone-calls-without-touching-rtp-or-sip-40ai",
+  "published_at": "2026-04-07T02:11:15Z",
+  "fetched_at": "2026-04-07T02:20:26.731236+00:00",
+  "author": "voipbin",
+  "summary": "<p>If you're building AI agents that need to communicate with humans, you've probably hit the same wall: voice is hard.</p>\n\n<p>Not the AI part. The <em>telephony</em> part.</p>\n\n<p>RTP, SIP, DTMF, codecs, NAT traversal — this is a 40-year-old stack that was not designed for agents. Most developers end up either avoiding voice entirely, or spending weeks fighting infrastructure before writing a single line of agent logic.</p>\n\n<p>There's a better path.</p>\n\n<h2>\n  \n  \n  The Core Problem: Agents Shouldn't Handle Audio\n</h2>\n\n<p>A typical DIY voice bot pipeline:</p>\n\n<ol>\n<li>Receive raw RTP audio from the caller</li>\n<li>Run STT to get a transcript</li>\n<li>Send the transcript to your LLM</li>\n<li>Run TTS on the response</li>\n<li>Stream audio back over RTP</li>\n</ol>\n\n<p>Every step has latency, codec issues, and infrastructure concerns. And none of it is your actual product.</p>\n\n<h2>\n  \n  \n  Media Offloading: Let VoIPBin Handle Audio\n</h2>\n\n<p><a href=\"https://voipbin.net\" rel=\"noopene",
+  "full_text": "If you're building AI agents that need to communicate with humans, you've probably hit the same wall: voice is hard.\n\nNot the AI part. The telephony part.\n\nRTP, SIP, DTMF, codecs, NAT traversal — this is a 40-year-old stack that was not designed for agents. Most developers end up either avoiding voice entirely, or spending weeks fighting infrastructure before writing a single line of agent logic.\n\nThere's a better path.\n\n \n \n The Core Problem: Agents Shouldn't Handle Audio\n\nA typical DIY voice bot pipeline:\n\nReceive raw RTP audio from the caller\n\nRun STT to get a transcript\n\nSend the transcript to your LLM\n\nRun TTS on the response\n\nStream audio back over RTP\n\nEvery step has latency, codec issues, and infrastructure concerns. And none of it is your actual product.\n\n \n \n Media Offloading: Let VoIPBin Handle Audio\n\nVoIPBin uses Media Offloading. Your AI agent only ever sees text. VoIPBin handles RTP, STT, and TTS.\n\nCaller → VoIPBin (RTP/STT) → Your Agent (text only) → VoIPBin (TTS/RTP) → Caller\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Getting Started\n\n \n \n 1. Sign Up\n\ncurl -X POST https://api.voipbin.net/v1.0/auth/signup \\\n -H \"Content-Type: application/json\" \\\n -d '{\"username\": \"myagent\", \"password\": \"mypassword\"}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nYou get an accesskey.token immediately — no email verification needed.\n\n \n \n 2. Create a Call Flow\n\ncurl -X POST \"https://api.voipbin.net/v1.0/flows?accesskey=YOUR_KEY\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\n \"name\": \"Support Bot\",\n \"actions\": [\n {\"type\": \"talk\", \"text\": \"Hello! How can I help you today?\"},\n {\"type\": \"transcribe\", \"end_silence_timeout\": 2}\n ]\n }'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 3. Make a Call\n\ncurl -X POST \"https://api.voipbin.net/v1.0/calls?accesskey=YOUR_KEY\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\n \"flow_id\": \"<flow-id>\",\n \"destination\": \"+15551234567\"\n }'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nVoIPBin dials out, handles the audio, and your agent logic runs on transcripts.\n\n \n \n No Phone Number? No Problem\n\nVoIPBin supports Direct Hash SIP URIs — no number provisioning needed:\n\nsip:direct.<12-hex-chars>@sip.voipbin.net\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGreat for internal tools, dev testing, or agent-to-agent communication.\n\n \n \n Use It From Claude Code (MCP)\n\nVoIPBin ships an MCP server. Add to your settings:\n\n{\n \"mcpServers\": {\n \"voipbin\": {\n \"command\": \"uvx\",\n \"args\": [\"voipbin-mcp\"],\n \"env\": { \"VOIPBIN_API_KEY\": \"your-access-key\" }\n }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThen just tell Claude Code: \"make a test call to this number\" — no curl needed.\n\n \n \n What You Skip\n\nNo RTP stack to manage\n\nNo codec negotiation\n\nNo STT/TTS infrastructure to deploy\n\nNo SIP registration\n\nYou keep: your agent logic and LLM calls.\n\n \n \n Links",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "ai",
+      "caller",
+      "curl",
+      "diy",
+      "dtmf",
+      "enter",
+      "exit",
+      "fullscreen",
+      "handle",
+      "infrastructure",
+      "llm",
+      "mcp",
+      "media offloading",
+      "mode",
+      "nat",
+      "stt",
+      "tts",
+      "tutorial",
+      "voip",
+      "voipbin",
+      "webdev"
+    ],
+    [
+      "infrastructure",
+      "llm",
+      "tutorial",
+      "voip",
+      "webdev"
+    ]
+  ]
+}

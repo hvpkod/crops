@@ -1,0 +1,41 @@
+{
+  "id": 9444,
+  "source": "Stripe Blog",
+  "title": "How agents, digital wallets, and trust are rewriting checkout",
+  "url": "https://stripe.com/blog/global-checkout-trends",
+  "published_at": "2026-04-07",
+  "fetched_at": "2026-04-07T16:20:18.863218+00:00",
+  "author": null,
+  "summary": "",
+  "full_text": "Changes in the internet economy are prompting businesses to take a more tailored approach to checkout. On Stripe, 65% of transactions under $50 now happen on mobile, and shoppers are increasingly staying on their phones for higher-value purchases, too. Digital wallets cut average mobile checkout time in half, but wallet preferences vary widely by region and generation, shaping checkout design. Local payment methods are becoming a bigger driver of conversion, and offering the right one—or the right mix—can substantially improve performance. \n\nCheckout is also being redesigned for a new kind of buyer: agents. As customers grow more comfortable with AI-assisted purchases across a range of categories, businesses are rethinking how they manage risk and convert increasingly fragmented demand.\n\nWe analyzed checkout and payment activity from nearly 20,000 B2C businesses on the Stripe network from August 2023 through February 2026, and combined those insights with Stripe-commissioned surveys to understand the latest trends in consumer preferences. \n\nThe resulting report examines how customer purchase behavior is changing, how those shifts are showing up in the checkout flow, and what they mean for businesses. \n\nA few takeaways stand out:\n\n1. Shoppers are increasingly making big-ticket purchases on mobile\n\nMobile already dominates smaller purchases, but the old habit of moving to desktop for bigger purchases is starting to fade. Stripe data shows shoppers are increasingly completing higher-value purchases on mobile, including purchases over $500. While that shift is most pronounced in APAC and EMEA—where mobile is the preferred checkout device—mobile in the US gained share across every purchase size we measured in the last two years. Canada is the outlier: shoppers there tend to switch to desktop in the $100–$249 price range, based on our data.\n\n \n \n\n2. As digital wallets spread globally, wallet preference is generational and regional\n\nDigital wallets now account for about 30% of global point-of-sale volume. In our global survey, 61% of shoppers said they would use a digital wallet. And in traditionally card-led markets like the US and Japan, they’re among the fastest-growing checkout methods. \n\nHere, we’re seeing a generational divide.\n\n \n \n\nThat preference also extends across purchase sizes. In our survey, 50% of shoppers ages 18–29 said they use wallets for purchases under $25, and $33% said they use them for purchases over $250. A driving factor here is speed: Stripe data shows that using a digital wallet cuts average mobile checkout time in half. \n\n \n \n\nBut while wallets are becoming the default checkout layer across markets, the leading wallet still varies by region—from MB WAY in Portugal to MobilePay in Denmark to Alipay in China. Those regional differences shape how businesses design checkout. Supporting wallets is no longer enough on its own; checkout needs to reflect how people actually pay in each market. In some regions, adding Apple Pay, Google Pay, and Link might cover most checkout volume. In others, a different wallet mix might do more to improve conversion.\n\n3. As global demand broadens, checkout expectations become more market-specific \n\nIn a YouGov consumer survey commissioned by Stripe, 45% of respondents said they had made at least one international online purchase in the past year. However, global demand doesn’t automatically translate into conversion. Businesses need to localize checkout—but even localization strategy is market-specific. What customers expect from checkout differs by market. \n\nIn some places, like Indonesia and Vietnam, payment preference is more fragmented. Consumer preferences are distributed across digital wallets, bank transfers, debit-linked apps, and other local payment methods. In these markets, localization means adapting the full checkout experience: payment method mix, currency, and the way options are presented. \n\nIn other markets, preferences are more concentrated. There, conversion depends on centering a single, dominant payment method. \n\n \n \n\nShoppers notice when checkout feels unfamiliar, and missing relevant payment methods—or showing irrelevant ones—can hurt performance. Our experiments on the Stripe network found that showing just one payment method that’s not geographically relevant can reduce conversion rates by up to 15%. \n\nSupporting the leading method can have an outsized effect. For example, Stripe data shows that offering BLIK to customers in Poland increases checkout conversion by 46% on average, while offering Pix in Brazil increases conversion by 31% on average. \n\n \n \n\n4. AI-assisted shopping and agents are starting to change the path to checkout\n\nAI is reshaping checkout from both sides of the transaction. On the front end, shoppers are becoming more receptive to agent-assisted buying. In a survey conducted by Stripe and Visa of more than 3,500 consumers, a majority across markets said they’re open to AI agents helping them make purchasing decisions. \n\n \n \n\nOn the back end, AI is also changing how payment performance is managed. As automated attacks such as card testing become easier to scale, businesses often respond by tightening risk controls, which can inadvertently reject legitimate customers in the process. New payment models help balance that trade-off by evaluating more signals in real time, requesting authentication more selectively, and improving how payments are routed and retried. Stripe’s AI-driven interventions can reduce fraud by 30% without lowering conversion, by decreasing false declines and issuer rejections.\n\n \n \n\nTogether, these shifts are changing checkout from a simple payment step into the point where identity, intent, and authorization are verified. Product discovery and purchasing are increasingly happening inside AI interfaces, including general purpose assistants like Google Gemini and Microsoft Copilot, visual search tools such as OpenAI’s image-based shopping, and business-specific tools such as Stitch Fix Vision and Walmart’s Sparky AI shopping assistant. As a result, checkout now needs to recognize who is buying, confirm that the shopper or agent is authorized to complete the purchase, and make it easy to finish the transaction quickly.\n\nDownload the full report to see the data behind these shifts and what businesses are doing to adapt.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "apac",
+      "canada",
+      "checkout",
+      "customer",
+      "denmark",
+      "digital",
+      "emea",
+      "increasingly",
+      "japan",
+      "mb way",
+      "mobile",
+      "mobilepay",
+      "payment",
+      "payments",
+      "portugal",
+      "preference",
+      "purchase",
+      "shopper",
+      "stripe",
+      "visa",
+      "wallet"
+    ],
+    [
+      "mobile"
+    ]
+  ]
+}

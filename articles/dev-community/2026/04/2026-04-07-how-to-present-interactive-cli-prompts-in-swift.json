@@ -1,0 +1,34 @@
+{
+  "id": 9530,
+  "source": "DEV Community<",
+  "title": "How to present interactive CLI prompts in Swift",
+  "url": "https://dev.to/onmyway133/how-to-present-interactive-cli-prompts-in-swift-5f73",
+  "published_at": "2026-04-07T19:42:43Z",
+  "fetched_at": "2026-04-07T20:00:39.378960+00:00",
+  "author": "Khoa Pham",
+  "summary": "<p>Swift is a great language for building command-line tools. Package managers, code generators, deployment scripts — they're all natural fits. But when it comes to collecting input from the user, the standard library leaves you with <code>print</code> and <code>readLine</code>, and not much else.</p>\n\n<p>The result is usually something like this:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight swift\"><code><span class=\"nf\">print</span><span class=\"p\">(</span><span class=\"s\">\"Enter your project name:\"</span><span class=\"p\">)</span>\n<span class=\"k\">let</span> <span class=\"nv\">name</span> <span class=\"o\">=</span> <span class=\"nf\">readLine</span><span class=\"p\">()</span> <span class=\"p\">??</span> <span class=\"s\">\"\"</span>\n</code></pre>\n\n</div>\n\n\n\n<p>It works, but there's no placeholder to guide the user, no inline validation feedback, no way to present a list of choices, and no graceful handling of Ctrl+C. For anything beyond the simplest script, you end up wri",
+  "full_text": "Swift is a great language for building command-line tools. Package managers, code generators, deployment scripts — they're all natural fits. But when it comes to collecting input from the user, the standard library leaves you with print and readLine, and not much else.\n\nThe result is usually something like this:\n\nprint(\"Enter your project name:\")\nlet name = readLine() ?? \"\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIt works, but there's no placeholder to guide the user, no inline validation feedback, no way to present a list of choices, and no graceful handling of Ctrl+C. For anything beyond the simplest script, you end up writing infrastructure instead of features.\n\nPromptberry fills that gap. It's a Swift library for building interactive CLI prompts — text input, selects, confirmations, spinners, progress bars, and more.\n\nThe most common prompt is text. It supports a placeholder shown when the field is empty, and an optional validate closure that returns an error message if the input is invalid.\n\nlet name = try Promptberry.text(\n \"Project name?\",\n placeholder: \"MyApp\",\n validate: { $0.isEmpty ? \"Name cannot be empty.\" : nil }\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nValidation runs inline — the error appears immediately below the field without clearing what the user typed. For password fields, swap text for password and the input is masked automatically.\n\nlet secret = try Promptberry.password(\"Choose a password:\", mask: \"•\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Selecting from a List\n\nWhen the user needs to pick one option from a fixed set, select renders a navigable list. Arrow keys or j/k to move, Enter to confirm.\n\nlet projectType = try Promptberry.select(\n \"Project type:\",\n options: [\"Executable\", \"Library\", \"Plugin\"]\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf none of the built-in options apply, pass allowOther: true to let the user type a custom value instead.\n\nFor longer lists, autocomplete filters options as the user types, making it much faster to find the right entry.\n\nlet license = try Promptberry.autocomplete(\n \"License:\",\n options: [\"MIT\", \"Apache 2.0\", \"GPL-3.0\", \"BSD-2-Clause\", \"MPL-2.0\"],\n placeholder: \"Type to filter...\"\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhen multiple selections are needed, multiselect lets the user toggle items with Space and confirm with Enter.\n\nlet features = try Promptberry.multiselect(\n \"Include extras:\",\n options: [\"Tests\", \"CI workflow\", \"README\", \"SwiftLint\"],\n initialValues: [\"Tests\", \"README\"]\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Confirmation\n\nBefore performing an irreversible action, always give the user a chance to back out.\n\nlet confirmed = try Promptberry.confirm(\n \"Create \\\"\\(name)\\\"?\",\n active: \"Yes, create it\",\n inactive: \"No, cancel\"\n)\n\nguard confirmed else {\n Promptberry.cancel(\"Nothing created.\")\n exit(0)\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Multi-line Input\n\nFor freeform input that spans multiple lines, multiline keeps the user in an editable buffer. Each Enter adds a new line, and Ctrl+D submits.\n\nlet description = try Promptberry.multiline(\n \"Short description:\",\n placeholder: \"What does this project do?\"\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Async Work with Spinners and Progress\n\nOnce the user has confirmed, the real work begins. For a sequence of async steps, tasks runs each one in order with its own animated spinner.\n\ntry await tasks([\n PromptTask(\"Scaffolding project structure\") { try await scaffold() },\n PromptTask(\"Writing Package.swift\") { try await writeManifest() },\n PromptTask(\"Installing dependencies\") { try await installDeps() },\n])\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf a task throws, its spinner switches to an error indicator and the sequence stops. For operations where you know the total number of steps, a progress bar communicates more than a spinner.\n\nlet p = Promptberry.progress(total: files.count, message: \"Copying files...\")\nfor file in files {\n try await copy(file)\n await p.advance()\n}\nawait p.complete(\"All files copied!\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Handling Cancellation\n\nEvery prompt throws PromptCancelled when the user presses Ctrl+C. Wrap your prompts in a do/catch to handle it without crashing.\n\ndo {\n let name = try Promptberry.text(\"Project name?\")\n // ...\n} catch is PromptCancelled {\n Promptberry.cancel(\"Cancelled.\")\n exit(0)\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Framing the Session\n\nintro and outro add a clear start and end to the interaction, making the tool feel deliberate rather than abrupt.\n\nPromptberry.intro(\"New Swift Project\")\n// prompts...\nPromptberry.outro(\"Happy coding!\")\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "await",
+      "cli",
+      "confirm",
+      "enter",
+      "exit",
+      "files.count",
+      "fullscreen",
+      "input",
+      "mit",
+      "mode",
+      "prompt",
+      "promptberry.intro(\"new swift project",
+      "promptcancelled",
+      "swift",
+      "swift swift",
+      "user"
+    ],
+    []
+  ]
+}

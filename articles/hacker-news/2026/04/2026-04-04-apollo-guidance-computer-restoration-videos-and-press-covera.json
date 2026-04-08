@@ -1,0 +1,33 @@
+{
+  "id": 9321,
+  "source": "Hacker News",
+  "title": "Apollo Guidance Computer Restoration Videos and Press Coverage",
+  "url": "https://www.curiousmarc.com/space/apollo-guidance-computer",
+  "published_at": "2026-04-04T17:58:55Z",
+  "fetched_at": "2026-04-07T06:00:45.546073+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47641528\">Comments</a>",
+  "full_text": "Sundial -E (recovered from ropes at the MIT Museum)\n\nSundial-E is the Command Module equivalent of Aurora 12 which was written for the LM. It contains the full test suite of the AGC, as well as the tests for all the subsystems of the Command Module (Aurora would contain the same AGC test suite, but would have tests for the LM subsystems, which are very different). The recovered software ran on our successfully AGC after we dumped it from the original ropes.\n\nhttps://github.com/virtualagc/virtualagc/tree/master/SundialE\n\nSundance (recovered from ropes loaned by AGC creator Eldon Hall and AGC programmer Don Eyles)\n\nSo far we have been able to recover 3 of the 6 rope modules of Sundance, the Apollo 9 LM program. Apollo 9 was the first test of the LM in space, Earth orbit. The modules we have differ as of their version of Sundance. We are in the process of disassembling the code we recovered. We have located 3 rope modules that would complete the software (which fits in 6 rope modules), and will be trying to get access to them to complete the recovery.\n\nhttps://github.com/virtualagc/virtualagc/tree/master/Sundance302\n\nRetread 50 (recovered from ropes at the Computer History Museum)\n\nRetread 50 is the first functional program written for the Block II AGC. This was used to test the functionality of the newly developed AGC. Parts of the ropes were damaged but we were able to recover the original content using the parity bit. We ran the repaired software succesfully on our AGC, and yes, it passed all the tests.\n\nhttps://github.com/virtualagc/virtualagc/tree/master/Retread50",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agc",
+      "apollo",
+      "complete",
+      "contain",
+      "earth",
+      "module",
+      "recover",
+      "retread",
+      "rope",
+      "software",
+      "sundance",
+      "test",
+      "the command module",
+      "the mit museum",
+      "write"
+    ],
+    []
+  ]
+}

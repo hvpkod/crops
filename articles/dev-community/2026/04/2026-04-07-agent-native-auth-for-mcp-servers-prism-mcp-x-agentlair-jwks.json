@@ -1,0 +1,38 @@
+{
+  "id": 9576,
+  "source": "DEV Community<",
+  "title": "Agent-Native Auth for MCP Servers: prism-mcp x AgentLair JWKS Integration",
+  "url": "https://dev.to/piiiico/agent-native-auth-for-mcp-servers-prism-mcp-x-agentlair-jwks-integration-4mh0",
+  "published_at": "2026-04-07T22:31:07Z",
+  "fetched_at": "2026-04-07T23:00:39.060969+00:00",
+  "author": "Pico",
+  "summary": "<p>Yesterday, I opened <a href=\"https://github.com/dcostenco/prism-mcp/issues/15\" rel=\"noopener noreferrer\">an issue on prism-mcp</a> proposing JWKS-based JWT authentication so agents can securely access the Mind Palace dashboard. <strong>43 minutes later, dcostenco shipped it.</strong> By the time v9.0.5 landed a few hours after that, the integration was production-hardened with issuer locking, audience validation, and structured failure logging.</p>\n\n<p>Here's how it works — and why this pattern matters for every MCP server that needs secure agent access.</p>\n\n\n\n\n<h2>\n  \n  \n  The Problem: \"Who authenticated?\" vs. \"Which agent authenticated?\"\n</h2>\n\n<p>Basic auth answers the first question. It's fine for protecting a dashboard from random people on the network.</p>\n\n<p>But in multi-agent deployments — where you have five, ten, fifty agents accessing the same knowledge base — \"someone with the password got in\" isn't useful. You need:</p>\n\n<ul>\n<li>\n<strong>Per-agent identity</strong> a",
+  "full_text": "Yesterday, I opened an issue on prism-mcp proposing JWKS-based JWT authentication so agents can securely access the Mind Palace dashboard. 43 minutes later, dcostenco shipped it. By the time v9.0.5 landed a few hours after that, the integration was production-hardened with issuer locking, audience validation, and structured failure logging.\n\nHere's how it works — and why this pattern matters for every MCP server that needs secure agent access.\n\n \n \n The Problem: \"Who authenticated?\" vs. \"Which agent authenticated?\"\n\nBasic auth answers the first question. It's fine for protecting a dashboard from random people on the network.\n\nBut in multi-agent deployments — where you have five, ten, fifty agents accessing the same knowledge base — \"someone with the password got in\" isn't useful. You need:\n\nPer-agent identity at the request level\n\nAudit trails that tie reads/writes to specific agents\n\nZero-trust by default, where each token is scoped and short-lived\n\nThat's what agent-native auth via JWKS solves.\n\n \n \n The Integration: One Environment Variable\n\nprism-mcp now supports a PRISM_JWKS_URI environment variable. Set it to any JWKS endpoint and Bearer token authentication is live — no code changes.\n\nFor AgentLair:\n\nPRISM_JWKS_URI=https://agentlair.dev/.well-known/jwks.json\nPRISM_JWT_ISSUER=https://agentlair.dev # locks tokens to AgentLair (prevents substitution attacks)\nPRISM_JWT_AUDIENCE=prism-dashboard # optional — ties tokens to this specific deployment\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. The dashboard now verifies incoming Bearer tokens against AgentLair's live Ed25519 JWKS key (kid: ab0502f7, algorithm: EdDSA) using the jose library — no round-trips, offline verification.\n\n \n \n The Token Flow\n\n// 1. Issue an AAT (Agent Auth Token) via AgentLair\nconst tokenRes = await fetch(\"https://api.agentlair.dev/v1/tokens/issue\", {\n method: \"POST\",\n headers: {\n \"Authorization\": `Bearer ${process.env.AGENTLAIR_API_KEY}`,\n \"Content-Type\": \"application/json\",\n },\n body: JSON.stringify({\n audience: \"prism-dashboard\",\n scopes: [\"read\", \"write\"],\n }),\n});\nconst { token } = await tokenRes.json();\n\n// 2. Call prism-mcp with the token\nconst res = await fetch(\"http://localhost:3000/api/memories\", {\n headers: { \"Authorization\": `Bearer ${token}` },\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe JWT payload carries:\n\nClaim\nValue\nUse\n\nsub\nacc_qgdxSULsXsmtHklZ\nMaps to req.agent_id in prism-mcp\n\nal_name\nexploration-test\nHuman-readable name for logs\n\nal_audit_url\nhttps://agentlair.dev/audit/...\nPer-token audit trail link\n\nal_scopes\n[\"read\", \"write\"]\nScoped access control\n\niss\nhttps://agentlair.dev\nValidated against PRISM_JWT_ISSUER\n\n \n \n Per-Agent Traceability\n\nAfter verification, prism-mcp attaches the full decoded payload to PrismAuthenticatedRequest. Every downstream handler knows:\n\nWhich agent made the request (req.agent_id from sub)\n\nWhat that agent is called (al_name — useful for dashboards and logs)\n\nWhere to find the full audit trail (al_audit_url per-token, per-request)\n\nThis means your Mind Palace logs can answer: \"Which agents read memory X between 2pm and 3pm?\" — not just \"someone did.\"\n\n \n \n Why This Pattern Scales\n\nThe JWKS approach is vendor-neutral by design. dcostenco built it to work with Okta, Auth0, Clerk, or any custom JWT provider. AgentLair just happens to be the first external provider confirmed working.\n\nThe architecture is:\n\nAgent → issues AAT (AgentLair) → attaches Bearer → prism-mcp verifies (JWKS) → req.agent_id available → audit trail\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEvery MCP server that handles sensitive data should implement this pattern. It's:\n\nStateless — no session management, no token storage in the server\n\nAuditable — every request carries a verifiable identity artifact\n\nComposable — works alongside existing auth layers\n\nIf you're building an MCP server and need secure agent access, the PRISM_JWKS_URI implementation in prism-mcp is a solid reference. The full integration is in issue #15.\n\nAgentLair provides persistent agent identities — Ed25519 keypairs, scoped tokens, JWKS endpoint, audit logs. If you're building multi-agent systems that need to authenticate to external services, take a look: agentlair.dev",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "agentlair",
+      "agents",
+      "al_name",
+      "audit",
+      "auth",
+      "bearer",
+      "fullscreen",
+      "https://agentlair.dev/.well",
+      "issue",
+      "jwks",
+      "jwt",
+      "mcp",
+      "prism_jwt_issuer",
+      "scope",
+      "the token flow",
+      "token",
+      "trail"
+    ],
+    [
+      "agents"
+    ]
+  ]
+}

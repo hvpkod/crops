@@ -1,0 +1,45 @@
+{
+  "id": 9265,
+  "source": "DEV Community<",
+  "title": "We're an IT services company. We built a WhatsApp MCP server. Now we're trying to find who actually needs it.",
+  "url": "https://dev.to/jaint/were-an-it-services-company-we-built-a-whatsapp-mcp-server-now-were-trying-to-find-who-actually-25ab",
+  "published_at": "2026-04-07T02:14:38Z",
+  "fetched_at": "2026-04-07T02:20:25.908824+00:00",
+  "author": "Tapan Jain",
+  "summary": "<p>I'll be honest — we didn't start as a product company.</p>\n\n<p>JCS has been doing IT services for 15+ years. <br />\nStaff aug, custom dev, the usual. Good business. <br />\nPredictable. Not particularly exciting.</p>\n\n<p>About 8 months ago we started noticing something. <br />\nEvery client we worked with — agencies, D2C brands, <br />\nconsultants — had the same problem. WhatsApp was <br />\ntheir primary customer channel but their entire <br />\nsetup was manual. No automation. No unified inbox. <br />\nNo API layer that actually worked across providers.</p>\n\n<p>So we built one.</p>\n\n<p>We called it Jina Connect. A WhatsApp MCP server <br />\nthat unifies WATI, Gupshup, Twilio and Meta Direct <br />\ninto a single API. One integration. Switch providers <br />\nwithout touching your backend code.</p>\n\n\n\n\n<p><strong>Where we are now</strong></p>\n\n<p>The product works. We've tested it internally and <br />\nwith a handful of clients.</p>\n\n<p>But we're an IT services company trying to find <br ",
+  "full_text": "I'll be honest — we didn't start as a product company.\n\nJCS has been doing IT services for 15+ years. \n\nStaff aug, custom dev, the usual. Good business. \n\nPredictable. Not particularly exciting.\n\nAbout 8 months ago we started noticing something. \n\nEvery client we worked with — agencies, D2C brands, \n\nconsultants — had the same problem. WhatsApp was \n\ntheir primary customer channel but their entire \n\nsetup was manual. No automation. No unified inbox. \n\nNo API layer that actually worked across providers.\n\nSo we built one.\n\nWe called it Jina Connect. A WhatsApp MCP server \n\nthat unifies WATI, Gupshup, Twilio and Meta Direct \n\ninto a single API. One integration. Switch providers \n\nwithout touching your backend code.\n\nWhere we are now\n\nThe product works. We've tested it internally and \n\nwith a handful of clients.\n\nBut we're an IT services company trying to find \n\nPMF for a SaaS product. That's a different muscle \n\nentirely and we're feeling it.\n\nWhat we think we know:\n\nDigital marketing agencies managing 10+ clients \non WhatsApp are the most obvious fit\n\nD2C brands running Meta ads where leads land \non WA with no follow-up are close second\n\nThe \"unified API\" pitch resonates with developers \nbut less so with agency owners who just want \nit to work\n\nWhat we're unsure about:\n\nWhether to go direct to brands or through agencies\n\nWhether the aggregator angle is the right hook \nor if we should lead with a specific use case\n\nHow to sell this without a sales team\n\nWhy I'm posting this\n\nNot to pitch. Genuinely to think out loud and \n\nhear from people who've navigated this — \n\nespecially the services-to-product transition.\n\nIf you've built something in the WhatsApp / \n\nmessaging API space, or if you're an agency \n\nthat manages WhatsApp for clients, I'd love \n\nto hear what actually matters to you.\n\nHappy to share more as we go.\n\n— Tapan\n\nCo-founder\n\nJCS / Jina Connect",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "actually",
+      "agency",
+      "api",
+      "build",
+      "buildinpublic",
+      "digital",
+      "direct",
+      "gupshup",
+      "jina",
+      "meta",
+      "meta direct",
+      "pmf",
+      "saas",
+      "service",
+      "startup",
+      "tapan\n\nco-",
+      "try",
+      "twilio",
+      "webdev",
+      "whatsapp",
+      "whatsapp mcp",
+      "work"
+    ],
+    [
+      "buildinpublic",
+      "saas",
+      "startup",
+      "webdev"
+    ]
+  ]
+}

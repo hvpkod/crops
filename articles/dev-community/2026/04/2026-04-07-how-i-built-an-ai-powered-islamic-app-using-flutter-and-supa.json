@@ -1,0 +1,40 @@
+{
+  "id": 9273,
+  "source": "DEV Community<",
+  "title": "How I Built an AI-Powered Islamic App Using Flutter and Supabase",
+  "url": "https://dev.to/samim_uddin_36b89fe4b7e58/how-i-built-an-ai-powered-islamic-app-using-flutter-and-supabase-1idg",
+  "published_at": "2026-04-07T01:57:51Z",
+  "fetched_at": "2026-04-07T02:20:44.093924+00:00",
+  "author": "samim uddin",
+  "summary": "<p>This started as a simple idea, not a startup plan.</p>\n\n<p>I wanted an easy way to find nearby mosques and get accurate prayer-related information while I was out.</p>\n\n<p>But the more I looked into existing apps, the more I noticed a problem:<br />\nmost of them either had outdated data or weren’t flexible enough for local mosque updates.</p>\n\n<p>So I decided to build my own solution.</p>\n\n<p>That’s how DeenHub started.</p>\n\n<p>🚧 The problem I was trying to solve</p>\n\n<p>Finding a mosque is easy.</p>\n\n<p>But finding accurate, real-time information about that mosque is not.</p>\n\n<p>Most apps rely on:</p>\n\n<p>Static databases<br />\nPre-calculated prayer times<br />\nData that rarely gets updated</p>\n\n<p>But in reality:</p>\n\n<p>Iqamah times change often<br />\nLocal communities manage their own schedules<br />\nGoogle listings are not always reliable</p>\n\n<p>So I needed something more dynamic.</p>\n\n<p>⚙️ Why I chose Flutter</p>\n\n<p>I chose Flutter because I wanted:</p>\n\n<p>One codebase fo",
+  "full_text": "This started as a simple idea, not a startup plan.\n\nI wanted an easy way to find nearby mosques and get accurate prayer-related information while I was out.\n\nBut the more I looked into existing apps, the more I noticed a problem:\n\nmost of them either had outdated data or weren’t flexible enough for local mosque updates.\n\nSo I decided to build my own solution.\n\nThat’s how DeenHub started.\n\n🚧 The problem I was trying to solve\n\nFinding a mosque is easy.\n\nBut finding accurate, real-time information about that mosque is not.\n\nMost apps rely on:\n\nStatic databases\n\nPre-calculated prayer times\n\nData that rarely gets updated\n\nBut in reality:\n\nIqamah times change often\n\nLocal communities manage their own schedules\n\nGoogle listings are not always reliable\n\nSo I needed something more dynamic.\n\n⚙️ Why I chose Flutter\n\nI chose Flutter because I wanted:\n\nOne codebase for iOS and Android\n\nFast UI development\n\nSmooth performance\n\nEasy integration with backend services\n\nFor a solo project, Flutter made it possible to move quickly without managing two separate apps.\n\nThe UI for DeenHub focuses on simplicity:\n\nOpen app → see nearby mosques instantly\n\nNo clutter\n\nNo unnecessary steps\n\n🗄️ Why I used Supabase\n\nFor the backend, I used Supabase instead of building everything from scratch.\n\nIt gave me:\n\nAuthentication (without extra setup)\n\nReal-time database updates\n\nEasy API access\n\nScalable PostgreSQL database\n\nMost importantly, it allowed me to focus on the product instead of backend infrastructure.\n\nHow I structured it:\n\nI used Supabase to handle:\n\nMosque listings\n\nUser-submitted updates (like prayer times)\n\nLocation-based queries\n\nBasic community verification\n\nSo when someone updates a mosque’s prayer time, it can be reflected quickly for other users.\n\n🧠 Where AI fits in\n\nI didn’t want AI to replace real knowledge or religious guidance.\n\nInstead, I used it in a very limited and careful way:\n\nHelping structure information\n\nProviding quick explanations\n\nGuiding users to verified sources\n\nFor example, if a Qur’an verse is referenced, users can click and go directly to the source to verify it themselves.\n\nThe goal is not “AI knows everything”\n\nThe goal is “AI helps you find and verify faster.”\n\n🕌 The core idea behind DeenHub\n\nInstead of relying only on centralized data, I tried a different approach:\n\n👉 Let the community help maintain accuracy.\n\nUsers can:\n\nUpdate mosque information\n\nShare changes in prayer times\n\nHelp keep data fresh\n\nThis makes the system more alive instead of static.\n\n💡 What I learned building it\n\nA few important lessons:\n\nFlutter is great for fast MVP development\n\nSupabase removes a lot of backend complexity\n\nCommunity data can be more accurate than static APIs\n\nSimplicity matters more than features\n\nTrust is the hardest part of building any app\n\n⚖️ Important note\n\nThis app is not meant to replace scholars or religious guidance.\n\nFor anything serious, users should always consult local imams or knowledgeable community members.\n\nThe app is simply a tool to help with discovery and access to information.\n\n🚀 Final thoughts\n\nBuilding DeenHub taught me that the hardest part of an app is not the code—it’s the trust and accuracy behind the data.\n\nFlutter helped me move fast on the frontend.\n\nSupabase helped me keep the backend simple.\n\nAnd AI helped me add small layers of intelligence where needed.\n\nI’m still improving it based on feedback and real usage.\n\nIf you’ve built something similar or are working on a community-driven app, I’d love to hear how you approached it.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "android",
+      "backend",
+      "building",
+      "dart",
+      "deenhub",
+      "firebase",
+      "flutter",
+      "google",
+      "help",
+      "information",
+      "instead",
+      "mosque",
+      "mvp",
+      "prayer",
+      "productivity",
+      "qur’an",
+      "supabase"
+    ],
+    [
+      "backend",
+      "dart",
+      "productivity"
+    ]
+  ]
+}

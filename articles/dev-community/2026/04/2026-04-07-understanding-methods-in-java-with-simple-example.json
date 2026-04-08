@@ -1,0 +1,37 @@
+{
+  "id": 9300,
+  "source": "DEV Community<",
+  "title": "Understanding Methods in Java with Simple Example",
+  "url": "https://dev.to/harini_magesh_fa40041cf8d/understanding-methods-in-java-with-simple-example-117",
+  "published_at": "2026-04-07T05:09:51Z",
+  "fetched_at": "2026-04-07T05:20:24.941807+00:00",
+  "author": "Harini",
+  "summary": "<p><strong>What is a Method in Java?</strong></p>\n\n<p>A method in Java is a block of code that performs a specific task.<br />\nIt helps you reuse code, improve readability, and organize programs.</p>\n\n<p><strong>Basic Syntax</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight java\"><code><span class=\"n\">returnType</span> <span class=\"nf\">methodName</span><span class=\"o\">(</span><span class=\"n\">parameters</span><span class=\"o\">)</span> <span class=\"o\">{</span>\n    <span class=\"c1\">// method body</span>\n    <span class=\"c1\">// code to execute</span>\n    <span class=\"k\">return</span> <span class=\"n\">value</span><span class=\"o\">;</span> <span class=\"c1\">// optional</span>\n<span class=\"o\">}</span>\n</code></pre>\n\n</div>\n\n\n\n<p><strong>Example Program</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight java\"><code><span class=\"kd\">public</span> <span class=\"kd\">class</span> <span class=\"nc\">Calculator</span><span class=\"o\">{</sp",
+  "full_text": "What is a Method in Java?\n\nA method in Java is a block of code that performs a specific task.\n\nIt helps you reuse code, improve readability, and organize programs.\n\nBasic Syntax\n\nreturnType methodName(parameters) {\n // method body\n // code to execute\n return value; // optional\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nExample Program\n\npublic class Calculator{\n public static void main(String[] args){\n Calculator casio = new Calculator();\n casio.add(10,5);\n casio.sub(10,5);\n casio.multiply(10,5);\n casio.div(10,5);\n }\n void add(int a,int b){\n System.out.println(a+b);\n }\n void sub(int a,int b){\n System.out.println(a-b);\n }\n void multiply(int a,int b){\n System.out.println(a*b);\n }\n void div(int a,int b){\n System.out.println(a/b);\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOutput\n\nFlow of Execution\n\nProgram starts in main()\n\nObject casio is created\n\nMethods are called one by one:\n\nadd() → prints 15\n\nsub() → prints 5\n\nmultiply() → prints 50\n\ndiv() → prints 2\n\nProgram ends\n\nTypes of Methods in Java\n\n1. Predefined Methods\n\nThese are already available in Java libraries.\n\nExample:\n\nSystem.out.println(\"Hello\");\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nHere, println() is a predefined method.\n\n2. User-defined Methods\n\nMethods created by the programmer.\n\nExample:\n\nint add(int a, int b) {\n return a + b;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "beginners",
+      "create",
+      "enter",
+      "example program",
+      "exit",
+      "fullscreen",
+      "java",
+      "method",
+      "methods",
+      "mode",
+      "predefine",
+      "print",
+      "programming",
+      "syntax",
+      "void"
+    ],
+    [
+      "beginners",
+      "methods",
+      "programming"
+    ]
+  ]
+}

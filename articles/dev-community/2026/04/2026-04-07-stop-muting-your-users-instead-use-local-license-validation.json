@@ -1,0 +1,44 @@
+{
+  "id": 9531,
+  "source": "DEV Community<",
+  "title": "stop muting your users. instead, use local license validation.",
+  "url": "https://dev.to/archergate/stop-muting-your-users-with-local-license-validation-1ge9",
+  "published_at": "2026-04-07T19:41:09Z",
+  "fetched_at": "2026-04-07T20:00:40.966081+00:00",
+  "author": "Archergate",
+  "summary": "<p>Before I explain what I built, I have two dev stories.</p>\n\n<p>First: a producer on a flight to Berlin opens his synth plugin mid-track. The developer had auth wired to a v1/validate endpoint. JWT expired. No Wi-Fi. Plugin interprets a 401 as an unlicensed state and mutes. Paying customer, silenced over the Atlantic.</p>\n\n<p>Second: a film composer drives to a remote recording session and realizes his iLok dongle is on his desk at home. Switches to cloud mode. Studio router reboots mid-take. Session dead.</p>\n\n<h3>\n  \n  \n  <strong>Here is how the Archergate SDK handles this differently.</strong>\n</h3>\n\n<p>First validation calls home, binds the key to a machine fingerprint, and writes an HMAC-signed receipt to disk. Every launch after that reads the receipt locally. No network call. After 30 days it checks in once and refreshes. The producer on the plane gets a valid receipt, and the composing session in the studio survives a router reboot.</p>\n\n<p>The SDK is free and Rust for memory",
+  "full_text": "Before I explain what I built, I have two dev stories.\n\nFirst: a producer on a flight to Berlin opens his synth plugin mid-track. The developer had auth wired to a v1/validate endpoint. JWT expired. No Wi-Fi. Plugin interprets a 401 as an unlicensed state and mutes. Paying customer, silenced over the Atlantic.\n\nSecond: a film composer drives to a remote recording session and realizes his iLok dongle is on his desk at home. Switches to cloud mode. Studio router reboots mid-take. Session dead.\n\n \n \n Here is how the Archergate SDK handles this differently.\n\nFirst validation calls home, binds the key to a machine fingerprint, and writes an HMAC-signed receipt to disk. Every launch after that reads the receipt locally. No network call. After 30 days it checks in once and refreshes. The producer on the plane gets a valid receipt, and the composing session in the studio survives a router reboot.\n\nThe SDK is free and Rust for memory safety without a garbage collector. Under 200KB compiled, no runtime, C-compatible FFI. \n\ncargo add archergate-license for Rust\n\nStatic .lib and .a on GitHub releases for JUCE and C++ \n\npip install archergate for Blender addons and Python tools\n\nbindings for Unity, Tauri, Electron, and Unreal are in the same repo.\n\nget copy protection, not hostile users: free sdk",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "archergate",
+      "archergate sdk",
+      "atlantic",
+      "berlin",
+      "blender",
+      "ffi",
+      "free",
+      "gamedev",
+      "github",
+      "hmac",
+      "ilok",
+      "jwt",
+      "mute",
+      "opensource",
+      "plugin",
+      "producer",
+      "receipt",
+      "router",
+      "rust",
+      "sdk",
+      "security",
+      "session",
+      "studio"
+    ],
+    [
+      "gamedev",
+      "opensource"
+    ]
+  ]
+}

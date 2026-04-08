@@ -1,0 +1,30 @@
+{
+  "id": 9379,
+  "source": "Slashdot",
+  "title": "LinkedIn Faces Spying Allegations Over Browser Extension Scanning",
+  "url": "https://yro.slashdot.org/story/26/04/06/2227247/linkedin-faces-spying-allegations-over-browser-extension-scanning?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-07T11:00:00Z",
+  "fetched_at": "2026-04-07T11:20:50.740097+00:00",
+  "author": "BeauHD",
+  "summary": "LinkedIn is facing allegations that it quietly scans users' browsers for installed Chrome extensions. The German group Fairlinked e.V. goes so far as to claim that the site is \"running one of the largest corporate espionage operations in modern history.\"\n \n\"The program runs silently, without any visible indicator to the user,\" the group says. \"It does not ask for consent. It does not disclose what it is doing. It reports the results to LinkedIn's servers. This is not a one-time check. The scan runs on every page load, for every visitor.\" PCMag reports: This browser extension \"fingerprinting\" technique has been spotted before, but it was previously found to probe only 2,000 to 3,000 extensions. Fairlinked alleges that LinkedIn is now scanning for 6,222 extensions that could indicate a user's political opinions or religious views. For example, the extensions LinkedIn will look for include one that flags companies as too \"woke,\" one that can add an \"anti-Zionist\" tag to LinkedIn profiles,",
+  "full_text": "LinkedIn is facing allegations that it quietly scans users' browsers for installed Chrome extensions\n\n. The German group Fairlinked e.V. goes so far as to claim that the site is \"running one of the largest corporate espionage operations in modern history.\"\n \n\n\"The program runs silently, without any visible indicator to the user,\" the group says. \"It does not ask for consent. It does not disclose what it is doing. It reports the results to LinkedIn's servers. This is not a one-time check. The scan runs on every page load, for every visitor.\" PCMag reports: This browser extension \"fingerprinting\" technique has been spotted before, but it was previously found to probe only 2,000 to 3,000 extensions. Fairlinked alleges that LinkedIn is now scanning for 6,222 extensions that could indicate a user's political opinions or religious views. For example, the extensions LinkedIn will look for include one that flags companies as too \"woke,\" one that can add an \"anti-Zionist\" tag to LinkedIn profiles, and two others that can block content forbidden under Islamic teachings.\n\n \n\nIt would also be a cakewalk to tie the collected extension data to specific users, since LinkedIn operates as a vast professional social network that covers people's work history. Fairlinked's concern is that Microsoft and LinkedIn can allegedly use the data to identify which companies use competing products. \"LinkedIn has already sent enforcement threats to users of third-party tools, using data obtained through this covert scanning to identify its targets,\" the group claims. However, LinkedIn claims that Fairlinked mischaracterizes a LinkedIn safeguard designed to prevent web scraping by browser extensions. \"We do not use this data to infer sensitive information about members,\" the company says. \"To protect the privacy of our members, their data, and to ensure site stability, we do look for extensions that scrape data without members' consent or otherwise violate LinkedIn's Terms of Service,\" LinkedIn adds.\n\n \n\n[...] The statement goes on to allege that Fairlinked is from a developer whose account was previously suspended for web scraping. One of the group's board members is listed as \"S.Morell,\" which appears to be Steven Morell, the founder of Teamfluence, a tool that helps businesses monitor LinkedIn activity. [...] Still, the Microsoft-owned site is facing some blowback for not clearly disclosing the browser extension scanning in LinkedIn's privacy policy. Fairlinked is soliciting donations for a legal fund to take on Microsoft and is urging the public to encourage local regulators to intervene.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "browser",
+      "company",
+      "datum",
+      "extension",
+      "face",
+      "fairlinked",
+      "go",
+      "linkedin",
+      "microsoft",
+      "privacy",
+      "scanning",
+      "teamfluence"
+    ],
+    []
+  ]
+}

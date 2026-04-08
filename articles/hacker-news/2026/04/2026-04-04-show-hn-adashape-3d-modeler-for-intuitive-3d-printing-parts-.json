@@ -1,0 +1,29 @@
+{
+  "id": 9355,
+  "source": "Hacker News",
+  "title": "Show HN: AdaShape-3D modeler for intuitive 3D printing parts / Windows 11",
+  "url": "https://adashape.com",
+  "published_at": "2026-04-04T12:33:14Z",
+  "fetched_at": "2026-04-07T10:00:28.159653+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47638498\">Comments</a>",
+  "full_text": "Parametric solver: Recomputes your model from editable steps so changes ripple through the right parts. (change a number, linked parts update)\n \n\nImmutable project history: Append‑only data store—every change is kept, nothing overwritten. (full timeline saved)\n \n\nShape ops: Cut, join, and intersect solids with a kernel designed to avoid messy edges. (industry calls these \"booleans\")\n \n\nFormats: OBJ, 3MF today—more later.\n \n\nOffline and desktop only. You own your models.\n \n\nPlatform: Windows 11 (64‑bit).\n \n\nVersion: Pre‑alpha 0.0.x — public test build.\n \n\nBranches / parallel versions: Keep multiple variations side‑by‑side within the same project database. (parallel models - NOT EXPOSED VIA GUI YET)\n \n\nSupport:\n\n All feedback & error reports via Discord\n\n.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "change",
+      "design",
+      "discord",
+      "editable",
+      "expose",
+      "immutable",
+      "intersect",
+      "link",
+      "parametric",
+      "project",
+      "recompute"
+    ],
+    []
+  ]
+}

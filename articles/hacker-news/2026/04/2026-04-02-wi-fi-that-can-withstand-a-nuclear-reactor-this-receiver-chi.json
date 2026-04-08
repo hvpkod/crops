@@ -1,0 +1,35 @@
+{
+  "id": 9393,
+  "source": "Hacker News",
+  "title": "Wi-Fi That Can Withstand a Nuclear Reactor: This receiver chip can take it",
+  "url": "https://spectrum.ieee.org/robotics-in-nuclear-industry",
+  "published_at": "2026-04-02T17:05:36Z",
+  "fetched_at": "2026-04-07T12:40:27.520131+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47617103\">Comments</a>",
+  "full_text": "Researchers have made a Wi-Fi receiver that’s tough enough to work inside a nuclear reactor. They hope the receiver might be part of a wireless communications system for robotics used to decommission reactors.\n\nYasuto Narukiyo, a graduate student at the Institute of Science Tokyo, presented the wireless receiver at the IEEE International Solid-State Circuits Conference (ISSCC), in San Francisco in February. The receiver endured a total radiation dose of 500 kilograys, orders of magnitude higher than the doses typically tolerated by electronics in outer space.\n\nAfter the 2011 nuclear disaster at the Fukushima Daiichi plant, engineers began using robots to help characterize and clean up the site. Most of these require local area network (LAN) cables that can get tangled, says Narukiyo. His team, which includes his advisor Atsushi Shirane and Masaya Miyahara of Japan’s High Energy Accelerator Research Organization (KEK), is aiming to develop a wireless system for controlling robots in this harsh environment.\n\nEven under less dramatic circumstances, nuclear plants don’t last forever, and they need to be safely dismantled and decontaminated so the sites can be reused, a process called decommissioning. The process is lengthy, and risks exposing people to radiation, which is why engineers hope robots can come to the rescue. \n\nThe need for such robots is only growing. According to a 2024 study, of 204 reactors that have been closed, only 11 plants with a capacity over 100 megawatts have been fully decommissioned, and 200 more reactors will reach the end of their lifetimes in the next 20 years.\n\nWhile electronics for space exploration are typically required to endure radiation doses of 100 to 300 grays over three years, a robot operating in a nuclear reactor needs to endure more than 500 kGy over the course of six months, says Narukiyo—at least 1,000 times the dosage. A robotic arm made by KUKA was able to withstand just 164.55 Gy of damage before failing. For comparison, the lens of the eye absorbs just 60 milligrays during a CT scan of the brain.\n\nTo “harden” the 2.4-gigahertz Wi-Fi receiver against intense levels of radiation, Narukiyo and his team changed its mix of components, minimized the total number of transistors, and tinkered with the geometry of the transistors that were left. \n\nThe transistors, silicon MOSFETs (metal-oxide semiconductor field-effect transistors), contain an oxide layer that’s particularly vulnerable to radiation damage. Blasts of gamma rays can trap positive charges in the oxide, degrading the device’s performance and causing errors. They also changed the design of the transistors themselves. The device’s gate controls the flow of current through the transistor. The smaller it is, the more its performance will be degraded by a dose of radiation. So they made the gates longer and wider.\n\n Researchers tested the Wi-Fi receiver by placing it on top of a radiation source.Yasuto Narukiyo, Sena Kato, et al.\n\nSecondly, they considered the differences in how radiation affects PMOS transistors, in which current is carried primarily by positive charges, and NMOS, where electrons flow. PMOS transistors are more vulnerable to radiation damage because positive charge gets trapped in both the oxide and at the interface between the oxide and the rest of the semiconductor. These add up and shift the transistor towards the off state, says Narukiyo. To compensate, the new receiver design minimizes the use of PMOS, replacing these transistors with other elements such as inductors that don’t have an oxide layer. NMOS transistors are more resilient, says Narukiyo, because positive charges trapped in the oxide are to some extent canceled out by negative charges that get trapped at the interface.\n\nNarukiyo and his team measured the performance of the receiver before exposure to radiation, and again after blasting it with a total dose of 300 kGy and then 500 kGy. Before being irradiated, it showed comparable performance to typical Wi-Fi receivers. After reaching the highest radiation dose, the gain of the receiver had decreased by about 1.5 decibel.\n\nNarukiyo says the receiver is hardened enough, and now he hopes to improve its performance. He’s also working on a transmitter, which would allow for two-way communications. This is more challenging due to the need to produce high levels of current to generate the Wi-Fi signal. He says an earlier version he tried was broken by a 300 kGy dose. The group is exploring using other semiconductors, such as diamond, to toughen the transmitter.\n\nFrom Your Site Articles\n\nRelated Articles Around the Web",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "dose",
+      "fukushima daiichi",
+      "japan",
+      "lan",
+      "narukiyo",
+      "nmos",
+      "n’t",
+      "oxide",
+      "performance",
+      "positive",
+      "radiation",
+      "receiver",
+      "robot",
+      "san francisco",
+      "transistor",
+      "trap",
+      "yasuto narukiyo"
+    ],
+    []
+  ]
+}

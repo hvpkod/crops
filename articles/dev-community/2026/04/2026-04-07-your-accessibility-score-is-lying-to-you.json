@@ -1,0 +1,39 @@
+{
+  "id": 9572,
+  "source": "DEV Community<",
+  "title": "Your accessibility score is lying to you",
+  "url": "https://dev.to/chris_devto/your-accessibility-score-is-lying-to-you-5fh2",
+  "published_at": "2026-04-07T22:38:35Z",
+  "fetched_at": "2026-04-07T23:00:32.267706+00:00",
+  "author": "Chris",
+  "summary": "<p>Automated accessibility testing tools, such as <a href=\"https://www.deque.com/axe/\" rel=\"noopener noreferrer\">axe-core by Deque</a>, <a href=\"https://wave.webaim.org/\" rel=\"noopener noreferrer\">WAVE</a>, <a href=\"https://developer.chrome.com/docs/lighthouse/overview\" rel=\"noopener noreferrer\">Lighthouse</a> are bit like a spellcheck for web accessibility. They are really useful for identifying and resolving many common accessibility issues quickly. </p>\n\n<p>There are a whole range of tools that provide similar services, a way to detect some of the most common accessibility issues across a page.</p>\n\n<h3>\n  \n  \n  The problem with automated accessibility scores\n</h3>\n\n<p>The problem is the way their reporting gives a score of out 100%. It gives the impression to the uneducated that an automated scoring once it reaches 80 or 90% is pretty good.  However, these scores can be deeply misleading.</p>\n\n<p>Automated tests typically detect only 20% to 40% of real accessibility issues. What ab",
+  "full_text": "Automated accessibility testing tools, such as axe-core by Deque, WAVE, Lighthouse are bit like a spellcheck for web accessibility. They are really useful for identifying and resolving many common accessibility issues quickly. \n\nThere are a whole range of tools that provide similar services, a way to detect some of the most common accessibility issues across a page.\n\n \n \n The problem with automated accessibility scores\n\nThe problem is the way their reporting gives a score of out 100%. It gives the impression to the uneducated that an automated scoring once it reaches 80 or 90% is pretty good. However, these scores can be deeply misleading.\n\nAutomated tests typically detect only 20% to 40% of real accessibility issues. What about with AI I hear you scream? I'm sure that will increase but for now let's pause that for this post. Like a spell-checker that flags spelling mistakes but cannot understand meaning or context, it can't tell you if the book makes sense. These tools identify technical errors but miss many barriers that only humans can detect.\n\nDeque’s own marketing materials claim they can detect up to 57% of issues, although at the time of writing I find it hard to review how they're arrived at this. Which websites? How was this tested etc? Are there user testing videos?\n\n \n \n How this scoring misleads those in power\n\nI was sat in a presentation recently, cringing, where a Product Owner and Lead Designer proudly assert their automated score of 70% suggesting their \"almost there\" when they are so far away from the reality... \n\nSuddenly there was another epic piece of work to educate certain stakeholders about this misleading nature of this score.\n\nA site scoring 70% might appear nearly compliant but if we accept the marketing claims of 57% then a “70%” score equates to roughly 39.9% of actual accessibility compliance. This discrepancy leads people to believe that accessibility work is largely complete, when in fact the majority of blockers remain unresolved.\n\nAutomated score (%)\nApprox. % of actual issues detected (57%)\n\n30\n17.1\n\n40\n22.8\n\n50\n28.5\n\n60\n34.2\n\n70\n39.9\n\n80\n45.6\n\n90\n51.3\n\n100\n57\n\n \n \n The wider consequences\n\nWhen teams focus on improving their automated score, accessibility becomes a checkbox exercise rather than a genuine effort to create accessible experiences. Developers start “fixing for the tool” instead of fixing for disabled users. The whole goal is to simply get the tooling to give a green light.\n\nThis has several negative effects:\n\nTeams make superficial somewhat performative, changes to satisfy tooling rather unblock disabled people.\n\nBusinesses suddenly think they are compliant when they are not, giving them a sense of false confidence.\n\nLeadership tend to use these scores to justify reducing investment in accessibility.\n\nMost importantly, disabled users remain unable to complete tasks such as checking out, navigating menus, or using interactive features.\n\n \n \n Why automated tools still matter\n\nDon't get me wrong, automated accessibility tools should not be dismissed, They are excellent for identifying obvious issues and ensuring consistency across large codebases. However, they are only a starting point, not a comprehensive solution. They are not a replacement for testing with real disabled users.\n\nThe things below can't be skipped\n\nManual testing with assistive technologies\n\nUser testing with people with disabilities\n\nWithout these, even a “perfect” automated score is somewhat meaningless.\n\n \n \n Time to get uncomfortable\n\nThe uncomfortable truth is that, in many organisations Accessibility isn’t treated as a commitment to unblocking people, it’s a risk management piece. For some leaders, it’s not about people, it’s about protection. \n\nThey invest in automated tools, chase high Accessibility scores because if they’re ever challenged legally, they can point to those numbers as “evidence” of compliance, hoping no one looks too closely.\n\nSometimes the companies selling these Accessibility testing tools also have a vested interest in keeping those scores high. Their products are compared against other platforms, and a higher “score” looks better in sales demos. They get their subscription fees whether or not disabled people can actually use the product or service.\n\n \n \n Update the metrics\n\nI would love for these tools to update their scoring metrics. \n\nChange their metrics, imagine if axe-core or Lighthouse had a maximum score of 57%. There was no way to get to 100%, that would shift the understanding instantly. \n\nMisunderstanding these scores can give an organisations a dangerous illusion of compliance and may not actually improve the experience for disabled people.\n\n \n \n Further reading\n\nCover image alt\n\n[Two large circular graphics are shown side by side on a light background. The left circle is green with “100%” inside and labelled “Automated accessibility score.” The right circle is orange with “57%” inside and labelled “Actual issues detected.” Below the circles, a caption reads book “Automated testing tools only catch a fraction of real accessibility issues.”]",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "a11y",
+      "accessibility",
+      "approx",
+      "automated",
+      "automation",
+      "deque",
+      "disabled",
+      "frontend",
+      "give",
+      "issue",
+      "lighthouse",
+      "product",
+      "score",
+      "scoring",
+      "testing",
+      "tool",
+      "wave"
+    ],
+    [
+      "a11y",
+      "automation",
+      "frontend"
+    ]
+  ]
+}

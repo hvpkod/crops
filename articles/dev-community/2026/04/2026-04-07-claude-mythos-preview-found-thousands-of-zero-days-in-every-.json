@@ -1,0 +1,42 @@
+{
+  "id": 9566,
+  "source": "DEV Community<",
+  "title": "Claude Mythos Preview found thousands of zero-days in every major OS and browser. Here's what the headlines are missing. published: true",
+  "url": "https://dev.to/studiomeyer/claude-mythos-preview-found-thousands-of-zero-days-in-every-major-os-and-browser-heres-what-the-2g",
+  "published_at": "2026-04-07T22:56:24Z",
+  "fetched_at": "2026-04-07T23:00:18.334380+00:00",
+  "author": "Matthias Meyer",
+  "summary": "<p>Anthropic dropped something big yesterday. Not a new chat model, not a productivity feature. They revealed that an unreleased model called Claude Mythos Preview has been quietly finding thousands of critical security vulnerabilities across every major operating system and every major web browser. Some of these bugs are 27 years old.</p>\n\n<p>They are not releasing the model publicly. Instead, they launched Project Glasswing, a coalition with Apple, Microsoft, Google, AWS, CrowdStrike, NVIDIA, the Linux Foundation, and others. The goal: patch the bugs before attackers build similar AI.</p>\n\n<p>Most of the coverage I have seen reads like a rewritten press release. The actual details buried in the red team report and system card tell a different story. Here is what stood out to me as someone who runs AI agents in production every day.</p>\n\n<h2>\n  \n  \n  The exploit rate is the real headline\n</h2>\n\n<p>Finding bugs is one thing. Every static analysis tool finds bugs. The difference with My",
+  "full_text": "Anthropic dropped something big yesterday. Not a new chat model, not a productivity feature. They revealed that an unreleased model called Claude Mythos Preview has been quietly finding thousands of critical security vulnerabilities across every major operating system and every major web browser. Some of these bugs are 27 years old.\n\nThey are not releasing the model publicly. Instead, they launched Project Glasswing, a coalition with Apple, Microsoft, Google, AWS, CrowdStrike, NVIDIA, the Linux Foundation, and others. The goal: patch the bugs before attackers build similar AI.\n\nMost of the coverage I have seen reads like a rewritten press release. The actual details buried in the red team report and system card tell a different story. Here is what stood out to me as someone who runs AI agents in production every day.\n\n \n \n The exploit rate is the real headline\n\nFinding bugs is one thing. Every static analysis tool finds bugs. The difference with Mythos is that it does not just find vulnerabilities. It builds working exploits for them.\n\nIn testing against Firefox's JavaScript shell, Mythos turned 72.4% of discovered vulnerabilities into successful exploits. It achieved register control in another 11.6% of cases. Previous Claude models could spot bugs but failed almost entirely at exploitation. That gap is gone now.\n\nThis is not a scanner. This is a model that reads code, understands the logic, finds the flaw, and writes a proof of concept that works. Autonomously.\n\n \n \n Less than 1% is patched\n\nAnthropic says thousands of critical zero-days were found. Fewer than 1% have been fully patched so far. The volume is simply too large for the affected organizations to keep up.\n\nThey are publishing cryptographic hashes of vulnerability details today, with plans to reveal specifics after fixes ship. This is standard responsible disclosure, but the scale is unprecedented. We have never had a single tool produce this many verified findings at once.\n\nFor context: Google's Project Zero, one of the best human vulnerability research teams in the world, publishes around 50 to 80 bugs per year. Mythos found thousands in weeks.\n\n \n \n The CyberGym benchmark gap\n\nOn the CyberGym evaluation benchmark, Mythos scored 83.1%. Claude Opus 4.6, the next best model, scored 66.6%. That is not a marginal improvement. That is a generational jump within the same model family.\n\nFor anyone tracking AI capabilities over time, this should raise questions about what the next generation looks like. If the gap between Opus and Mythos is this large, what happens when competitors catch up to where Mythos is today?\n\n \n \n What they are actually giving away\n\nBuried in the announcement is something I think matters more long term than the vulnerability findings themselves.\n\nAnthropic is offering free Claude Max subscriptions to any verifiable open source maintainer. Not Mythos access, but Opus and Sonnet, which are still capable security tools. They committed $100M in usage credits for Project Glasswing partners and donated $4M to open source security organizations through the Linux Foundation and Apache Software Foundation.\n\nIf you maintain critical open source software and you have no security budget, which describes most open source maintainers, you can apply through the Claude for Open Source program.\n\nThis is a smart move. The vast majority of critical infrastructure runs on code maintained by small teams or individual volunteers. Giving them access to frontier AI for code review could prevent more bugs than any single audit.\n\n \n \n The pricing tells you something\n\nWhen Mythos eventually becomes available through the API, it will cost $25 per million input tokens and $125 per million output tokens. That is roughly 5x more expensive than Opus 4.6.\n\nAnthropic is not positioning this as a general purpose model. The pricing alone ensures it will only be used for high value tasks where the cost of missing a bug is measured in millions. Security audits, compliance reviews, infrastructure hardening. Not chat, not content generation.\n\n \n \n The uncomfortable question\n\nAnthropic built this. They chose to handle it responsibly with controlled access and coordinated disclosure. But the capability exists now. It is a matter of time before other labs, or well funded adversaries, reach similar performance.\n\nThe 90 day disclosure window Anthropic set for publishing full vulnerability details is tight. With less than 1% of bugs patched, that creates real pressure on every affected vendor. And the affected vendor list is essentially everyone.\n\nProject Glasswing is a starting point. Anthropic said that explicitly. The real question is whether the defenders can stay ahead when this class of capability becomes widely available.\n\n \n \n What this means for developers\n\nIf you write code that touches the internet, your threat model just changed. Not because of anything you did wrong, but because the cost of finding vulnerabilities in your code just dropped by orders of magnitude.\n\nThe practical takeaways:\n\nAudit your dependencies. If Mythos found 27 year old bugs in OpenBSD, your npm packages are not immune. The bugs that survived decades of human review are exactly the kind AI excels at finding.\n\nWatch for the patches. Over the next 90 days, expect a wave of critical security updates across operating systems, browsers, and open source projects. Apply them quickly.\n\nIf you maintain open source, apply for Claude Max. Free access to Opus for security review is genuinely useful. Take it.\n\nRethink your security testing. Static analysis tools that pattern match against known vulnerability types are not enough anymore. The bar just moved.\n\nThe age of AI finding bugs faster than humans can fix them is not coming. It arrived yesterday.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "anthropic",
+      "apple",
+      "aws",
+      "bug",
+      "claude mythos preview",
+      "critical",
+      "crowdstrike",
+      "devops",
+      "find",
+      "firefox",
+      "google",
+      "microsoft",
+      "mythos",
+      "open",
+      "opensource",
+      "opus",
+      "project glasswing",
+      "security",
+      "source",
+      "the linux foundation",
+      "vulnerability"
+    ],
+    [
+      "opensource"
+    ]
+  ]
+}

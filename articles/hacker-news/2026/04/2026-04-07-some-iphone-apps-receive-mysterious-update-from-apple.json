@@ -1,0 +1,30 @@
+{
+  "id": 9330,
+  "source": "Hacker News",
+  "title": "Some iPhone Apps Receive Mysterious Update 'From Apple'",
+  "url": "https://www.macrumors.com/2026/04/06/iphone-apps-from-apple-update/",
+  "published_at": "2026-04-07T06:45:08Z",
+  "fetched_at": "2026-04-07T08:00:22.421519+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47671527\">Comments</a>",
+  "full_text": "Apple appears to be quietly updating some apps, based on curious new update notes that have appeared on the App Store.\n\nOver the last week, some app updates have included notes that suggest the update is coming from Apple rather than an app developer. \"This update from Apple will improve the functionality of this app. No new features are included,\" reads the description.\n\nSome of the apps that have been updated include Candy Crush Soda Saga, Sentry Mobile, Catan Universe, Bluetti, Mortal Kombat, Duet Display, VLC, and many more.\n\nIt's not clear what functionality Apple is improving with each app update, if any. One developer on Reddit said that Apple inserted the text into an app update that had the same version number and content as a prior update.\n\nThe update text is appearing on apps that have not been updated in some time, as well as apps that received recent updates, so it's not clear what the apps have in common. When analyzing the code of one of the apps that received an Apple update, MacRumors could not find what had changed.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "app",
+      "appear",
+      "apple",
+      "clear",
+      "functionality",
+      "macrumors",
+      "note",
+      "receive",
+      "reddit",
+      "text",
+      "update",
+      "vlc"
+    ],
+    []
+  ]
+}

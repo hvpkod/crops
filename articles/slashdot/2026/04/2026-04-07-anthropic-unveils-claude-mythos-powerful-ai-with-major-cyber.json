@@ -1,0 +1,34 @@
+{
+  "id": 9580,
+  "source": "Slashdot",
+  "title": "Anthropic Unveils 'Claude Mythos', Powerful AI With Major Cyber Implications",
+  "url": "https://it.slashdot.org/story/26/04/07/2115208/anthropic-unveils-claude-mythos-powerful-ai-with-major-cyber-implications?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-07T22:00:00Z",
+  "fetched_at": "2026-04-07T23:20:28.864609+00:00",
+  "author": "BeauHD",
+  "summary": "\"Anthropic has unveiled Claude Mythos, a new AI model capable of discovering critical vulnerabilities at scale,\" writes Slashdot reader wiredmikey. \"It's already powering Project Glasswing, a joint effort with major tech firms to secure critical software. But the same capabilities could also accelerate offensive cyber operations.\" SecurityWeek reports: Mythos is not an incremental improvement but a step change in performance over Anthropic's current range of frontier models: Haiku (smallest), Sonnet (middle ground), and Opus (most powerful). Mythos sits in a fourth tier named Copybara, and Anthropic describes it as superior to any other existing AI frontier model. It incorporates the current trend in the use of AI: the modern use of agentic AI. \"The powerful cyber capabilities of Claude Mythos Preview are a result of its strong agentic coding and reasoning skills... the model has the highest scores of any model yet developed on a variety of software coding tasks,\" notes Anthropic in a ",
+  "full_text": "\"Anthropic has unveiled Claude Mythos, a new AI model capable of discovering critical vulnerabilities at scale\n\n,\" writes Slashdot reader wiredmikey\n\n. \"It's already powering Project Glasswing\n\n, a joint effort with major tech firms to secure critical software. But the same capabilities could also accelerate offensive cyber operations.\" SecurityWeek reports: Mythos is not an incremental improvement but a step change in performance over Anthropic's current range of frontier models: Haiku (smallest), Sonnet (middle ground), and Opus (most powerful). Mythos sits in a fourth tier named Copybara, and Anthropic describes it as superior to any other existing AI frontier model. It incorporates the current trend in the use of AI: the modern use of agentic AI. \"The powerful cyber capabilities of Claude Mythos Preview are a result of its strong agentic coding and reasoning skills... the model has the highest scores of any model yet developed on a variety of software coding tasks,\" notes Anthropic in a blog titled Project Glasswing -- Securing critical software for the AI era.\n\n \n\nIn the last few weeks, Mythos Preview has identified thousands of zero-day vulnerabilities with many classified as critical. Several are ten or 20 years old -- the oldest found so far is a 27-years old bug in OpenBSD. Elsewhere, a 16-years old vulnerability found in video software has survived five million hits from other automated testing tools without ever being discovered. And it autonomously found and chained together several in the Linux kernel allowing an attacker to escalate from ordinary user access to complete control of the machine. [...] Anthropic is concerned that Mythos' capabilities could unleash cyberattacks too fast and too sophisticated for defenders to block. It hopes that Mythos can be used to improve cybersecurity generally before malicious actors can get access to it.\n\n \n\nTo this end, the firm has announced the next stage of this preparation as Project Glasswing, powered by Mythos Preview. Given the rate of AI progress, it will not be long before such capabilities proliferate, potentially beyond actors who are committed to deploying them safely. \"Project Glasswing is a starting point. No one organization can solve these cybersecurity problems alone: frontier AI developers, other software companies, security researchers, open-source maintainers, and governments across the world all have essential roles to play.\" Claude Mythos Preview is described as a general-purpose, unreleased frontier model from Anthropic that has nevertheless completed its training phase. The firm does not plan to make Mythos Preview generally available. The implication is that 'Preview' is a term used solely to describe the current state of Mythos and the market's readiness to receive it, and will be dropped when the firm gets closer to general release.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "anthropic",
+      "capability",
+      "claude",
+      "claude mythos preview",
+      "cyber",
+      "firm",
+      "frontier",
+      "glasswing",
+      "mythos",
+      "mythos preview",
+      "preview",
+      "project glasswing",
+      "security",
+      "securityweek",
+      "vulnerability"
+    ],
+    []
+  ]
+}

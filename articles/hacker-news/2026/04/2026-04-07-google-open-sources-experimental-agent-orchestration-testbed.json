@@ -1,0 +1,32 @@
+{
+  "id": 9468,
+  "source": "Hacker News",
+  "title": "Google open-sources experimental agent orchestration testbed Scion",
+  "url": "https://www.infoq.com/news/2026/04/google-agent-testbed-scion/",
+  "published_at": "2026-04-07T13:39:15Z",
+  "fetched_at": "2026-04-07T16:41:03.129610+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47675213\">Comments</a>",
+  "full_text": "Designed to manage concurrent agents running in containers across local and remote compute, Scion is an experimental orchestration testbed that enables developers to run groups of specialized agents with isolated identities, credentials, and shared workspaces.\n\nGoogle describes Scion as a \"hypervisor for agents\" that enables to integrate multi-agent system components like agent memory, chatrooms, and task management as orthogonal concerns.\n\nScion orchestrates \"deep agents\" (Claude Code, Gemini CLI, Codex, and others) as isolated, concurrent processes. Each agent gets its own container, git worktree, and credentials — so they can work on different parts of your project without stepping on each other. Agents run locally, on remote VMs, or across Kubernetes clusters.\n\nScion enables developers to manage a graph of tasks that evolve dynamically and execute in parallel pursuing distinct goals, such as coding, auditing, and testing. Rather than relying on a fixed set of agents, it support distinct agent lifecycles, with some agents being specialized and long-lived, while others are ephemeral and tied to one single task.\n\nOne basic tenet of Scion is preferring isolation over constraints to make agents operation safe. This means that instead of constraining an agent's behavior by defining rules and embedding them into its context, Scion opts for letting agents do whatever they need to do to complete their tasks while enforcing outside boundaries and guardrails:\n\nScion favors running agents in --yolo mode, while isolating them in containers, git worktrees, and on compute nodes subject to network policy at the infrastructure layer.\n\nScion supports multiple popular agents through adapters called harnesses, which manage lifecycle, authentication, and configuration. Supported agents include Gemini, Claude Code, OpenCode, and Codex, though support for the latter two is currently partial.\n\nDevelopers can use distinct containerization runtimes with Scion, including Docker, Podman, Apple containers, and Kubernetes via named profiles.\n\nTo use Scion developers should familiarize themselves with its unique lexicon, which includes concepts such as grove, corresponding to a project; hub, a central control plane for orchestration; runtime broker, a machine where hubs run, and others.\n\nTo showcase Scion's capabilities, Google has released the codebase for a game, Relics of the Athenaeum, in which groups of agents collaborate to solve computational puzzles. The code demonstrates how distinct agents running on different harnesses work together to impersonate distinct characters, with a game runner in charge of spawning new characters/agents and those agents in turn spawning worker and specialized agents dynamically. Collaboration occurs through a shared workspace for reading and writing data about the challenge and solutions, as well as via direct messages and party-wide broadcasts.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "apple",
+      "developer",
+      "distinct",
+      "enable",
+      "gemini",
+      "google",
+      "kubernetes",
+      "manage",
+      "run",
+      "scion",
+      "spawn",
+      "specialized",
+      "testbe"
+    ],
+    []
+  ]
+}

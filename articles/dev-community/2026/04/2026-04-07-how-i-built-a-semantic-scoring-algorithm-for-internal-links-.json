@@ -1,0 +1,40 @@
+{
+  "id": 9374,
+  "source": "DEV Community<",
+  "title": "How I built a semantic scoring algorithm for internal links across >200 pages",
+  "url": "https://dev.to/serhii_kalyna_730b636889c/how-i-built-a-semantic-scoring-algorithm-for-internal-links-across-200-pages-50n4",
+  "published_at": "2026-04-07T11:01:50Z",
+  "fetched_at": "2026-04-07T11:20:32.809790+00:00",
+  "author": "Serhii Kalyna",
+  "summary": "<p>Last week I wrote about <a href=\"https://dev.to/serhii_kalyna_730b636889c/why-i-added-internal-linking-to-my-image-converter-and-what-changed-in-google-19jn\">why I added internal linking to my image converter</a>. This is the technical follow-up: how I replaced alphabetical ordering with a semantic scoring algorithm.</p>\n\n<h2>\n  \n  \n  The problem with alphabetical ordering\n</h2>\n\n<p>My <code>RelatedConversions</code> component was showing links in alphabetical order. For <code>/heic-to-jpg</code>, it would show <code>avif-to-heic</code>, <code>avif-to-jpg</code>, <code>bmp-to-heic</code> — technically related, but not semantically prioritized.</p>\n\n<p>What I wanted: show conversions that share the most format overlap first, then factor in keyword similarity.</p>\n\n<h2>\n  \n  \n  The scoring model: 70/30\n</h2>\n\n<p>A simple weighted formula:</p>\n\n<ul>\n<li>\n<strong>format overlap</strong> — how many formats the two conversions share (weight: 0.7)</li>\n<li>\n<strong>keyword similarity</stro",
+  "full_text": "Last week I wrote about why I added internal linking to my image converter. This is the technical follow-up: how I replaced alphabetical ordering with a semantic scoring algorithm.\n\n \n \n The problem with alphabetical ordering\n\nMy RelatedConversions component was showing links in alphabetical order. For /heic-to-jpg, it would show avif-to-heic, avif-to-jpg, bmp-to-heic — technically related, but not semantically prioritized.\n\nWhat I wanted: show conversions that share the most format overlap first, then factor in keyword similarity.\n\n \n \n The scoring model: 70/30\n\nA simple weighted formula:\n\nformat overlap — how many formats the two conversions share (weight: 0.7)\n\nkeyword similarity — do the slugs share meaningful terms (weight: 0.3)\n\nfunction scoreRelation(current, candidate) {\n const [fromA, toA] = current.split('-to-');\n const [fromB, toB] = candidate.split('-to-');\n\n const formatsA = new Set([fromA, toA]);\n const formatsB = new Set([fromB, toB]);\n const shared = [...formatsA].filter(f => formatsB.has(f)).length;\n const formatScore = shared / Math.max(formatsA.size, formatsB.size);\n\n const wordsA = new Set(current.split('-'));\n const wordsB = new Set(candidate.split('-'));\n const sharedWords = [...wordsA].filter(w => wordsB.has(w) && w !== 'to').length;\n const keywordScore = sharedWords / Math.max(wordsA.size, wordsB.size);\n\n return (formatScore * 0.7) + (keywordScore * 0.3);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n How it works in practice\n\nFor /heic-to-jpg:\n\njpg-to-heic → score 1.0 (both formats shared)\n\nheic-to-png → score 0.7 (one shared format: heic)\n\nwebp-to-jpg → score 0.7 (one shared format: jpg)\n\navif-to-png → score 0.0 (no shared formats)\n\n \n \n The component\n\nexport default function RelatedConversions({ from, to }) {\n const current = `${from}-to-${to}`;\n\n const ranked = SLUGS\n .filter(slug => slug !== current)\n .map(slug => ({ slug, score: scoreRelation(current, slug) }))\n .sort((a, b) => b.score - a.score)\n .slice(0, 8);\n\n return (\n <section>\n <h2>Related Conversions</h2>\n {ranked.map(({ slug }) => (\n <a key={slug} href={`/${slug}`}>\n {slug.replace('-to-', ' to ').toUpperCase()}\n </a>\n ))}\n </section>\n );\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What's next\n\nPlanning to weight by GSC impression data — pages that already rank should get higher weight in related links. That closes the feedback loop: organic traffic signals inform which related conversions to surface.\n\nBuilding in public at convertifyapp.net.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "alphabetical",
+      "buildinpublic",
+      "const",
+      "conversion",
+      "format",
+      "gsc",
+      "javascript",
+      "keyword similarity",
+      "ordering",
+      "relatedconversions",
+      "score",
+      "scoring",
+      "seo",
+      "share",
+      "sharedword",
+      "slugs",
+      "webdev",
+      "wordsb.has(w) && w"
+    ],
+    [
+      "buildinpublic",
+      "seo",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 9473,
+  "source": "DEV Community<",
+  "title": "🚀 Beyond RAG: Simulating the Future with MiroFish",
+  "url": "https://dev.to/techwithhari/beyond-rag-simulating-the-future-with-mirofish-1dal",
+  "published_at": "2026-04-07T17:15:58Z",
+  "fetched_at": "2026-04-07T17:20:17.651497+00:00",
+  "author": "Haripriya Veluchamy",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fv6ddqtlaihgvsly4jv6f.png\"><img alt=\" \" height=\"365\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fv6ddqtlaihgvsly4jv6f.png\" width=\"800\" /></a></p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr7th9i8ljlisllk66m6w.png\"><img alt=\" \" height=\"365\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr7th9i8ljlisllk66m6w.png\" width=\"800\" /></a></p>\n\n<p>Latel",
+  "full_text": "Lately, most of us have been working with RAG systems retrieving context, grounding responses, improving accuracy.\n\nBut what if instead of just retrieving knowledge, we could simulate outcomes?\n\nI recently came across MiroFish, and decided to test it out.\n\n \n \n 🧪 What I Tried\n\nI cloned the repo, ran it locally, and fed it a simple scenario:\n\n“What happens when an AI assistant is introduced into a company’s daily workflow?”\n\nInstead of a static answer, it generated a multi-agent simulation over time.\n\n \n \n 🧠 What Makes It Different\n\nUnlike traditional systems, MiroFish:\n\nCreates a virtual environment\n\nGenerates multiple agents (employees, managers, etc.)\n\nSimulates interactions over time\n\nProduces a temporal report (day-by-day evolution)\n\nThis means you’re not just asking:\n\n“What will happen?”\n\nYou’re observing:\n\n“How things evolve step by step.”\n\n \n \n 📊 Sample Insights from My Test\n\nFrom a 14-day simulation, I observed:\n\n📈 Initial boost in productivity\n\n⚖️ Diverging employee satisfaction\n\n🔁 Emerging dependency on AI\n\n🧩 Different behaviors across teams\n\nIt felt less like querying an LLM… and more like watching a system evolve.\n\n \n \n 💡 Where This Can Be Useful\n\nThis kind of simulation opens up interesting possibilities:\n\n \n \n 🏢 Organization & Product\n\nAI adoption strategies\n\nRemote work policy changes\n\nFeature rollout impact\n\n \n \n 📦 Business Decisions\n\nPricing experiments\n\nCustomer behavior prediction\n\nGrowth strategy testing\n\n \n \n 🌍 Macro Scenarios\n\nEconomic shifts\n\nSupply chain disruptions\n\nPolicy or geopolitical changes\n\n \n \n 🔄 RAG vs Simulation (My Take)\n\nApproach\nWhat it does\n\nRAG\nRetrieves and explains existing knowledge\n\nSimulation (MiroFish)\nModels and predicts possible futures\n\nBoth are powerful but they solve very different problems.\n\n \n \n ⚡ Final Thoughts\n\nWe’re slowly moving from:\n\n👉 “Answering questions”\n\nto\n\n👉 “Rehearsing decisions”\n\nMiroFish feels like an early step in that direction.\n\nStill experimenting, but this approach definitely opens up a new way of thinking about AI systems.\n\nIf you’ve tried something similar or have ideas for scenarios to test — would love to hear 👇",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "approach",
+      "data",
+      "different",
+      "instead",
+      "llm",
+      "machinelearning",
+      "macro scenarios\n\neconomic",
+      "mirofish",
+      "rag",
+      "retrieve",
+      "scenario",
+      "simulate",
+      "simulation",
+      "test",
+      "try"
+    ],
+    [
+      "llm",
+      "machinelearning"
+    ]
+  ]
+}

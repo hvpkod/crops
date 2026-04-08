@@ -1,0 +1,47 @@
+{
+  "id": 9413,
+  "source": "DEV Community<",
+  "title": "Firebase Hosting: hosting web gratis, rápido y estable para proyectos reales",
+  "url": "https://dev.to/fran_martinez_torres/firebase-hosting-hosting-web-gratis-rapido-y-estable-para-proyectos-reales-57kf",
+  "published_at": "2026-04-07T14:06:25Z",
+  "fetched_at": "2026-04-07T14:20:25.339020+00:00",
+  "author": "Fran Martínez Torres",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Frque03qb6srazbwkwpeu.png\"><img alt=\" \" height=\"533\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Frque03qb6srazbwkwpeu.png\" width=\"800\" /></a><br />\nCuando alguien empieza un proyecto web, una de las primeras decisiones es dónde alojarlo.</p>\n\n<p>Y aquí suele haber dos caminos:</p>\n\n<ul>\n<li>complicarse con servidores desde el principio</li>\n<li>o usar algo simple pero limitado</li>\n</ul>\n\n<p><a href=\"https://console.firebase.google.com/\" rel=\"noopener noreferrer\">Firebase Hosting</a>, en mi experiencia, está justo en medio: es simple, pero suficientemente potente para proyectos reales.</p>\n\n<p>En este artículo explico por qué lo uso tanto y en",
+  "full_text": "Cuando alguien empieza un proyecto web, una de las primeras decisiones es dónde alojarlo.\n\nY aquí suele haber dos caminos:\n\ncomplicarse con servidores desde el principio\n\no usar algo simple pero limitado\n\nFirebase Hosting, en mi experiencia, está justo en medio: es simple, pero suficientemente potente para proyectos reales.\n\nEn este artículo explico por qué lo uso tanto y en qué casos tiene sentido.\n\nHosting gratuito (y suficiente para empezar)\n\nFirebase Hosting tiene un plan gratuito bastante generoso.\n\nA día de hoy, incluye aproximadamente:\n\nhasta 1 GB de almacenamiento\n\ntransferencia mensual gratuita (con límites razonables)\n\nCDN global incluida\n\nPara páginas estáticas — landing pages, portfolios, webs corporativas o MVPs — esto es más que suficiente.\n\nNo necesitas pagar desde el día uno.\n\nDespliegue extremadamente rápido\n\nUno de los mayores problemas al empezar es el despliegue.\n\nCon Firebase:\n\ninstalas la CLI\n\nhaces firebase deploy\n\ny la web está online\n\nSin configurar servidores, sin SSH, sin pipelines complejos.\n\nEsto reduce muchísimo la fricción, sobre todo en proyectos pequeños o personales.\n\nCDN global por defecto\n\nFirebase sirve tu web desde una CDN global.\n\nEsto significa:\n\ncarga rápida en cualquier país\n\nbuena experiencia de usuario\n\nmejor base para SEO técnico\n\nNo tienes que configurar nada adicional.\n\nIdeal para webs estáticas modernas\n\nDownload the Medium app\n\nFirebase Hosting funciona especialmente bien con:\n\nHTML/CSS/JS puro\n\nproyectos generados con frameworks (Next, Astro, etc. en modo estático)\n\nlanding pages\n\npáginas personales\n\ndocumentación\n\nEn mi caso lo uso mucho para:\n\npáginas corporativas ligeras\n\nmicrosites\n\npáginas personales\n\nMVPs rápidos\n\nIntegración con el ecosistema Firebase\n\nSi ya usas Firebase (Auth, Firestore, Functions), todo encaja muy bien.\n\nPuedes:\n\nconectar frontend + backend fácilmente\n\nusar funciones serverless\n\ngestionar autenticación sin montar infraestructura\n\nEsto acelera mucho el desarrollo.\n\nCuándo NO usar Firebase Hosting\n\nNo es la solución para todo.\n\nNo lo usaría como primera opción para:\n\naplicaciones con SSR complejo en backend\n\nsistemas muy personalizados a nivel de servidor\n\narquitecturas que requieren control total de infraestructura\n\nPero para el 80% de webs iniciales o proyectos bien planteados, es más que suficiente.\n\nMi experiencia real\n\nEn Salvatierra.digital utilizo Firebase Hosting de forma habitual para proyectos donde:\n\nbuscamos rapidez de despliegue\n\nno necesitamos complejidad innecesaria\n\nqueremos estabilidad sin mantenimiento\n\nTambién lo uso en proyectos personales y como freelance, especialmente para páginas estáticas.\n\nLa combinación de:\n\nsimplicidad\n\ncoste cero inicial\n\nbuen rendimiento\n\nlo convierte en una de las mejores opciones para empezar (y en muchos casos, para quedarse).\n\nConclusión\n\nNo necesitas montar infraestructura compleja para lanzar un proyecto web.\n\nCon herramientas como Firebase Hosting puedes tener:\n\nuna web online en minutos\n\nrendimiento global\n\ncoste prácticamente cero al inicio\n\nY eso, en muchos casos, es exactamente lo que necesitas.\n\n— -\n\nSi estás construyendo un proyecto digital o necesitas lanzar una web de forma rápida y sólida, puedes ver más en:\n\nhttps://salvatierra.digital",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "beginners",
+      "cli",
+      "cloud",
+      "cuando",
+      "el despliegue",
+      "esto",
+      "estáticas",
+      "firebase",
+      "google",
+      "hosting",
+      "ideal",
+      "mucho",
+      "nada",
+      "para",
+      "pero",
+      "proyecto",
+      "páginas",
+      "qué casos",
+      "rápido",
+      "seo",
+      "sin",
+      "ssh",
+      "usar",
+      "webdev"
+    ],
+    [
+      "beginners",
+      "cloud",
+      "seo",
+      "webdev"
+    ]
+  ]
+}

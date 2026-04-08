@@ -1,0 +1,35 @@
+{
+  "id": 9543,
+  "source": "Hacker News",
+  "title": "Tailslayer: Library for reducing tail latency in RAM reads",
+  "url": "https://github.com/LaurieWired/tailslayer",
+  "published_at": "2026-04-07T19:16:10Z",
+  "fetched_at": "2026-04-07T20:40:32.446601+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47680023\">Comments</a>",
+  "full_text": "Tailslayer is a C++ library that reduces tail latency in RAM reads caused by DRAM refresh stalls.\n\nIt replicates data across multiple, independent DRAM channels with uncorrelated refresh schedules, using (undocumented!) channel scrambling offsets that works on AMD, Intel, and Graviton. Once the request comes in, Tailslayer issues hedged reads across all replicas, allowing the work to be performed on whichever result responds first.\n\nThe library code is available in hedged_reader.cpp and the example using the library can be found in tailslayer_example.cpp. To use it, copy include/tailslayer into your project and #include <tailslayer/hedged_reader.hpp>. The library currently works with two channels (updates to come!), but full N-way usage is available in the benchmark.\n\nYou provide the value type and two functions as template parameters:\n\nSignal function: Add the loop that waits for the external signal. This determines when to read. Return the desired index to read, and the read immediately fires.\n\nFinal work function: This receives the value immediately after it is read. Add the desired value processing code here.\n\n#include <tailslayer/hedged_reader.hpp>\n\n[[gnu::always_inline]] inline std::size_t my_signal() {\n // Wait for your event, then return the index to read\n return index_to_read;\n}\n\ntemplate <typename T>\n[[gnu::always_inline]] inline void my_work(T val) {\n // Use the value\n}\n\nint main() {\n using T = uint8_t;\n tailslayer::pin_to_core(tailslayer::CORE_MAIN);\n\n tailslayer::HedgedReader<T, my_signal, my_work<T>> reader{};\n reader.insert(0x43);\n reader.insert(0x44);\n reader.start_workers();\n}\n\nArguments can be passed to either function via ArgList:\n\ntailslayer::HedgedReader<T, my_signal, my_work<T>,\n tailslayer::ArgList<1, 2>, // args to signal function\n tailslayer::ArgList<2> // args to final work function\n> reader{};\n\nYou can also optionally pass in a different channel offset, channel bit, and number of replicas to the constructor. Note: Each insert copies the element N times where N is the number of replicas. It does the address calculation work on the backend, allowing tailslayer to act as a hedged vector that uses logical indices. Additionally, each replica is pinned to a separate core, and will spin on that core according to the signal function until the read happens.\n\nmake\n./tailslayer_example\n\nBenchmarks and spike timing\n\nThe discovery/ directory contains supporting code used to characterize DRAM refresh behavior:\n\ndiscovery/benchmark/: Channel-hedged read benchmark\n\ndiscovery/trefi_probe.c: Spike timing probe for measuring the refresh cycle\n\ncd discovery/benchmark\nmake\nsudo chrt -f 99 ./hedged_read_cpp --all --channel-bit 8",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "allow",
+      "amd",
+      "arglist",
+      "channel",
+      "desire",
+      "dram",
+      "function",
+      "graviton",
+      "hedge",
+      "intel",
+      "lauriewired",
+      "library",
+      "ram",
+      "refresh",
+      "signal",
+      "tailslayer",
+      "value"
+    ],
+    []
+  ]
+}

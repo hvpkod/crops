@@ -1,0 +1,43 @@
+{
+  "id": 9480,
+  "source": "DEV Community<",
+  "title": "When Your Security Scanner Becomes the Weapon: Lessons from the Trivy Supply Chain Attack",
+  "url": "https://dev.to/toniantunovic/when-your-security-scanner-becomes-the-weapon-lessons-from-the-trivy-supply-chain-attack-3kga",
+  "published_at": "2026-04-07T17:06:07Z",
+  "fetched_at": "2026-04-07T17:20:30.150523+00:00",
+  "author": "Toni Antunovic",
+  "summary": "<p><em>This article was originally published on <a href=\"https://lucidshark.com/blog/trivy-supply-chain-attack-ci-cd-scanner-trust-2026\" rel=\"noopener noreferrer\">LucidShark Blog</a>.</em></p>\n\n\n\n\n<h2>\n  \n  \n  When Your Security Scanner Becomes the Weapon: Lessons from the Trivy Supply Chain Attack\n</h2>\n\n<p>On March 19, 2026, a group called TeamPCP compromised 75 tags of the <code>aquasecurity/trivy-action</code> GitHub Action. The attack involved silently executed attacker-controlled code that appeared to function normally while exfiltrating credentials. The incident lasted five days before detection on March 24.</p>\n\n<blockquote>\n<p><strong>Critical Warning:</strong> If your CI/CD pipeline ran <code>trivy-action</code> or <code>setup-trivy</code> without a pinned commit SHA between March 19 and March 24, 2026, treat all secrets accessible from that pipeline as compromised.</p>\n</blockquote>\n\n<h2>\n  \n  \n  How the Attack Worked\n</h2>\n\n<p>TeamPCP exploited GitHub Actions mutable tag sy",
+  "full_text": "This article was originally published on LucidShark Blog.\n\n \n \n When Your Security Scanner Becomes the Weapon: Lessons from the Trivy Supply Chain Attack\n\nOn March 19, 2026, a group called TeamPCP compromised 75 tags of the aquasecurity/trivy-action GitHub Action. The attack involved silently executed attacker-controlled code that appeared to function normally while exfiltrating credentials. The incident lasted five days before detection on March 24.\n\nCritical Warning: If your CI/CD pipeline ran trivy-action or setup-trivy without a pinned commit SHA between March 19 and March 24, 2026, treat all secrets accessible from that pipeline as compromised.\n\n \n \n How the Attack Worked\n\nTeamPCP exploited GitHub Actions mutable tag system by compromising a maintainer account at Aqua Security through targeted phishing. They force-pushed release tags to point to commits containing WAVESHAPER.V2, a cross-platform remote access tool.\n\nThe attack remained nearly undetectable because:\n\nThe action executed successfully with plausible scan results\n\nThe malicious binary ran the legitimate Trivy scan and forwarded results\n\nThe payload executed in-memory and self-deleted\n\nNo unexpected files remained in the workspace\n\nGitHub Actions logs appeared normal\n\nOnly network egress monitoring could have reliably detected the C2 callback to 142.11.206.73 and sfrclak.com.\n\n \n \n The Three-Layer Trust Model Problem\n\nLayer 1: Mutable References - Tags and versions are pointers, not guarantees. Only full commit SHAs are immutable.\n\nLayer 2: Elevated Trust by Design - Security scanners require broad file system access, making compromised versions catastrophic.\n\nLayer 3: Trust from Reputation - Teams trust based on vendor reputation rather than cryptographically grounded verification.\n\n \n \n Accessible Data at Risk\n\nAny CI/CD job running a compromised action exposes:\n\nGITHUB_TOKEN (automatic, grants repository access)\n\nContainer registry credentials (Docker Hub, GHCR, ECR, GCR, ACR)\n\nCloud provider credentials (AWS, GCP, Azure)\n\nKubernetes service account tokens\n\nAny environment-injected secrets\n\n \n \n Hardening Recommendations\n\n \n \n 1. Pin to Commit SHA\n\nReplace tag references with full commit SHAs:\n\n# Before: mutable tag reference\n- uses: aquasecurity/trivy-action@v0.29.0\n\n# After: pinned to immutable commit SHA\n- uses: aquasecurity/trivy-action@a2901b0d1cf3ff4857f5cdf63e42e26d35cfa5e1\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 2. Verify Binary Signatures\n\nUse cosign to verify binaries before execution with certificate identity and OIDC issuer validation.\n\n \n \n 3. Apply Minimal Permissions\n\nRestrict job permissions to only what is needed; avoid injecting unrelated credentials into security scan jobs.\n\n \n \n 4. Enable Network Egress Monitoring\n\nUse StepSecurity harden-runner to monitor and control outbound connections during CI/CD runs.\n\n \n \n Consider a Local-First Alternative\n\nRunning security tooling locally before code reaches CI reduces credential exposure and limits blast radius to your workstation rather than entire pipeline credential sets.\n\n \n \n Incident Response Steps\n\nIf your pipeline ran trivy-action or setup-trivy between March 19 and March 24, 2026:\n\nRotate GITHUB_TOKEN and all Personal Access Tokens\n\nRotate container registry credentials\n\nRotate cloud provider credentials (AWS, GCP, Azure)\n\nAudit and rotate Kubernetes service accounts\n\nCheck network logs for IOC indicators (connections to 142.11.206.73 or sfrclak.com)\n\n \n \n Hardening Checklist\n\nPin all actions to commit SHA\n\nVerify scanner binary signatures\n\nRestrict job permissions to minimum required\n\nSeparate unrelated secrets from security scan jobs\n\nEnable egress monitoring on CI runners\n\nRotate credentials exposed during the compromise window\n\nConsider local-first pre-commit scanning to reduce CI exposure",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "action",
+      "aqua security",
+      "commit",
+      "compromise",
+      "credential",
+      "devops",
+      "devsecops",
+      "ecr",
+      "egress",
+      "elevated trust",
+      "execute",
+      "gcp",
+      "github",
+      "github actions",
+      "hardening recommendations",
+      "kubernetes",
+      "march",
+      "monitor",
+      "reputation - teams",
+      "rotate",
+      "security",
+      "sha",
+      "trivy"
+    ],
+    [
+      "devsecops"
+    ]
+  ]
+}

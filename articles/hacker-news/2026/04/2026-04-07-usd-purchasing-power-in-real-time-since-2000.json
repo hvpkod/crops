@@ -1,0 +1,29 @@
+{
+  "id": 9581,
+  "source": "Hacker News",
+  "title": "USD Purchasing Power in Real Time Since 2000",
+  "url": "https://onedollar.today/",
+  "published_at": "2026-04-07T21:27:03Z",
+  "fetched_at": "2026-04-07T23:20:31.393425+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47681566\">Comments</a>",
+  "full_text": "The real purchasing power of one US dollar from January 2000, eroding in real time.\n \n\nData: Bureau of Labor Statistics CPI-U, All Items, US City Average, Not Seasonally Adjusted. Series CUUR0000SA0.\n \n\nThe displayed value is interpolated from the two most recent monthly CPI readings, extended to the present moment at the observed rate of change. The real-time tick subdivides that monthly rate into per-second increments.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "display",
+      "erode",
+      "interpolate",
+      "monthly",
+      "observed",
+      "purchasing",
+      "rate",
+      "real",
+      "seasonally",
+      "subdivide",
+      "usd purchasing power"
+    ],
+    []
+  ]
+}

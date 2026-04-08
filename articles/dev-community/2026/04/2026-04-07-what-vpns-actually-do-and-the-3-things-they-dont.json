@@ -1,0 +1,37 @@
+{
+  "id": 9299,
+  "source": "DEV Community<",
+  "title": "What VPNs Actually Do (And the 3 Things They Don't)",
+  "url": "https://dev.to/bitsizecuriosity/what-vpns-actually-do-and-the-3-things-they-dont-5dc9",
+  "published_at": "2026-04-07T05:10:10Z",
+  "fetched_at": "2026-04-07T05:20:24.309360+00:00",
+  "author": "Bitsize Curiosity",
+  "summary": "<p>VPN marketing is some of the most misleading in tech. \"Bank-grade encryption.\" \"Complete anonymity.\" \"Total online freedom.\" These claims are repeated so often that most people believe them and that belief creates a false sense of security.</p>\n\n<p>Let's set the record straight.<br />\nWhat a VPN actually does: it creates an encrypted tunnel between your device and a VPN server, then routes your internet traffic through that server. This means your ISP (internet service provider) can no longer see which sites you're visiting — they only see that you're connected to a VPN. It also means websites you visit see the VPN server's IP address, not yours.</p>\n\n<p>But here's what a VPN does not do. It does not make you anonymous. Every website you log into still knows exactly who you are. It does not protect you from malware, phishing, or bad downloads. It does not hide your activity from the VPN provider itself, you're simply trusting them instead of your ISP. And it absolutely does not prot",
+  "full_text": "VPN marketing is some of the most misleading in tech. \"Bank-grade encryption.\" \"Complete anonymity.\" \"Total online freedom.\" These claims are repeated so often that most people believe them and that belief creates a false sense of security.\n\nLet's set the record straight.\n\nWhat a VPN actually does: it creates an encrypted tunnel between your device and a VPN server, then routes your internet traffic through that server. This means your ISP (internet service provider) can no longer see which sites you're visiting — they only see that you're connected to a VPN. It also means websites you visit see the VPN server's IP address, not yours.\n\nBut here's what a VPN does not do. It does not make you anonymous. Every website you log into still knows exactly who you are. It does not protect you from malware, phishing, or bad downloads. It does not hide your activity from the VPN provider itself, you're simply trusting them instead of your ISP. And it absolutely does not protect your data once it reaches its destination.\n\nThe threat model matters enormously here. A VPN solves specific problems. It doesn't solve most of them.\n\n🎬 I went deep on exactly how VPNs work and where they fail in this video: https://youtu.be/xdZPFPAZdMk\n\nBefore paying for a VPN subscription, make sure you understand what problem you're actually trying to solve.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "actually",
+      "beginners",
+      "exactly",
+      "isp",
+      "know",
+      "matter",
+      "mean",
+      "privacy",
+      "protect",
+      "repeat",
+      "security",
+      "solve",
+      "tutorial",
+      "vpn",
+      "website"
+    ],
+    [
+      "beginners",
+      "tutorial",
+      "website"
+    ]
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": 9544,
+  "source": "Hacker News",
+  "title": "Cells for NetBSD: kernel-enforced, jail-like isolation",
+  "url": "https://netbsd-cells.petermann-digital.de/",
+  "published_at": "2026-04-07T19:54:06Z",
+  "fetched_at": "2026-04-07T20:40:34.100653+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47680532\">Comments</a>",
+  "full_text": "This section demonstrates a minimal, reproducible workflow with the current\ncellmgr command surface.\n\nThe example bootstraps the host, creates a desired cell manifest for a simple\nHTTP service, adds a declarative apply plan, converges runtime state, and\nchecks that the cell is running.\n\n1. Bootstrap Host Integration\n\nInitialize host integration, prepare base layers, and verify that required\nkernel/runtime prerequisites are present.\n\nvhost# cellmgr system bootstrap \n\n2. Create Desired Cell Manifest\n\nCreate the desired-state manifest for one HTTP workload. This writes\nconfiguration into /etc/cellmgr only (--scope desired) and does not yet\nstart the service.\n\nvhost# cellmgr cell create mysite-edge-httpd \\\n --autostart YES \\\n --profile medium \\\n --reserved-ports 8080 \\\n --log-facility local1 \\\n --stdout-level info \\\n --stderr-level err \\\n --log-tag cell-mysite-edge-httpd \\\n --cmd '/usr/libexec/httpd -I 8080 -X -f -s /var/www/mysite-edge-httpd' \\\n --healthcheck 'test -f /var/www/mysite-edge-httpd/index.html' \\\n --scope desired\nCreated manifest /etc/cellmgr/mysite-edge-httpd.cell\n\n3. Add Declarative Apply Plan\n\nDefine a small apply plan that creates the initial web content inside the cell.\nPlans are declarative, versionable, and executed by cellmgr apply during\nreconciliation.\n\nvhost# vi /etc/cellmgr/mysite-edge-httpd.apply\n\nPlan content:\n\nFILE_BEGIN /var/www/mysite-edge-httpd/index.html\n<html>\n Hello NetBSD\n</html>\nFILE_END\n\n4. Converge Desired to Runtime\n\nRun reconciliation to render runtime state from manifests, execute the apply\nplan, start supervised service processes, and run the configured healthcheck.\n\nvhost# cellmgr apply\napply: dry-run=NO reapply=NO restart-changed=NO verbose=NO\ncell mysite-edge-httpd\n CREATE render runtime cell state\n APPLY run /etc/cellmgr/mysite-edge-httpd.apply\n START supervised service after apply\n HEALTHCHECK test -f /var/www/mysite-edge-httpd/index.html\n RESULT changed\n\nsummary: cells=1 changed=1 failed=0 dry-run=NO\n\n5. Verify Runtime State\n\nInspect the live cell view and confirm that the instance is running with an\nassigned CID and increasing age.\n\nvhost# cellmgr cell list -o name,running,cid,age\nNAME RUNNING CID AGE\nmysite-edge-httpd YES 1 31s\n\n6. Open the Service\n\nConfirm the HTTP endpoint from your client or browser:\n\nhttp://vhost.local:8080/\n\n7. Export Prometheus-Compatible Metrics\n\ncellctl stats -P -h emits Prometheus text format with a minimal HTTP header.\nThis can be wired into inetd for a very lightweight metrics endpoint without\nadditional exporter software.\n\nvhost# cellctl stats -P -h\nHTTP/1.1 200 OK\nContent-Type: text/plain\n\n# TYPE cell_cpu_ticks_1s gauge\n# TYPE cell_cpu_ticks_10s_avg gauge\n# TYPE cell_processes_current gauge\n# TYPE cell_references_current gauge\n# TYPE cell_memory_vmsize_bytes gauge\n# TYPE cell_age_seconds gauge\ncell_cpu_ticks_1s{cid=\"2\",name=\"mysite-edge-httpd\",root=\"/var/cellmgr/cells/mysite-edge-httpd/root\"} 0\ncell_cpu_ticks_10s_avg{cid=\"2\",name=\"mysite-edge-httpd\",root=\"/var/cellmgr/cells/mysite-edge-httpd/root\"} 0\ncell_processes_current{cid=\"2\",name=\"mysite-edge-httpd\",root=\"/var/cellmgr/cells/mysite-edge-httpd/root\"} 1\ncell_references_current{cid=\"2\",name=\"mysite-edge-httpd\",root=\"/var/cellmgr/cells/mysite-edge-httpd/root\"} 1\ncell_memory_vmsize_bytes{cid=\"2\",name=\"mysite-edge-httpd\",root=\"/var/cellmgr/cells/mysite-edge-httpd/root\"} 137601024\ncell_age_seconds{cid=\"2\",name=\"mysite-edge-httpd\",root=\"/var/cellmgr/cells/mysite-edge-httpd/root\"} 596\n\nNext Steps\n\nFor deeper operational guides and reference material, continue in the\ndocumentation.\n\nThe docs are still being built out, but they already include polished end-to-end\nrecipes, including a\nMantisBT 3-tier setup (three cells, multiple volumes)\nand a\nLuanti gameserver example.",
+  "tags": [
+    [
+      "--cmd",
+      "2026",
+      "500-words",
+      "apply",
+      "cell",
+      "cellmgr",
+      "cid",
+      "content-type",
+      "create",
+      "desire",
+      "export prometheus-compatible metrics",
+      "gauge",
+      "http",
+      "isolation with user",
+      "manifest",
+      "operations",
+      "runtime",
+      "type",
+      "verify runtime state"
+    ],
+    []
+  ]
+}

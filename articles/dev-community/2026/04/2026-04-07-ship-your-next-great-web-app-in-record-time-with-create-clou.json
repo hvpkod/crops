@@ -1,0 +1,41 @@
+{
+  "id": 9523,
+  "source": "DEV Community<",
+  "title": "Ship Your Next Great Web App in Record Time with create-cloudinary-react",
+  "url": "https://dev.to/cloudinary/ship-your-next-great-web-app-in-record-time-with-create-cloudinary-react-2coa",
+  "published_at": "2026-04-07T19:53:07Z",
+  "fetched_at": "2026-04-07T20:00:26.168867+00:00",
+  "author": "Eric Portis",
+  "summary": "<p>Over the past year or two, we've been having a lot of conversations about the future of Cloudinary's <a href=\"https://www.cloudinary.dev\" rel=\"noopener noreferrer\">Libraries</a> and <a href=\"https://cloudinary.com/documentation/cloudinary_sdks\" rel=\"noopener noreferrer\">SDKs</a>. The conversations have been wide-ranging: the future of front-end frameworks, coding, and AI. It's all been a bit dizzying, and hard to wrap our heads around.</p>\n\n<p>Late last year, my colleague Raya Straus brought us back down to earth with some good old-fashioned user research. By engaging users in conversations about their current day-to-day experiences, Raya got us to stop worrying about the future, and start thinking about ways we could make developers more successful with Cloudinary <em>right now.</em></p>\n\n<p>We released the first fruit of Raya's research last month: <a href=\"https://github.com/cloudinary-devs/create-cloudinary-react\" rel=\"noopener noreferrer\">Cloudinary's React Starter Kit</a>. If ",
+  "full_text": "Over the past year or two, we've been having a lot of conversations about the future of Cloudinary's Libraries and SDKs. The conversations have been wide-ranging: the future of front-end frameworks, coding, and AI. It's all been a bit dizzying, and hard to wrap our heads around.\n\nLate last year, my colleague Raya Straus brought us back down to earth with some good old-fashioned user research. By engaging users in conversations about their current day-to-day experiences, Raya got us to stop worrying about the future, and start thinking about ways we could make developers more successful with Cloudinary right now.\n\nWe released the first fruit of Raya's research last month: Cloudinary's React Starter Kit. If you're building a green-field, media-focused React app, and you're using LLM-powered development tools, we think npx create-cloudinary-react is the best way to get started.\n\nBefore we get into what it is, let's talk about how and why we built it.\n\n \n \n What We Learned From React SDK User Research\n\nWe limited our research scope to two of our most popular SDKs: React and Next.js. We looked at every piece of user feedback for those two SDKs that we could find: support tickets, GitHub issues, chat transcripts, survey responses, and even a number of individual conversations held over email and Zoom, after we reached out to top SDK users.\n\nOnce we'd collected and digested it all, three things stuck out:\n\nMany developers struggle to get started. The least fun part of any development project is setting up a working development environment; a handful of common config problems are tripping up many developers before they can take their first steps with Cloudinary.\n\nOnce set up, features that solve common use cases were straightforward and people were quickly successful. Cloudinary and our SDKs do a great job of solving common use cases with a minimum of fuss. Great!\n\nBut once use cases get more advanced, developers start to struggle again. Cloudinary is a mature product, and can do all sorts of things, but advanced features are more complicated to use. Niche functionality often has fiddlier syntax, less clear error messages, and trickier-to-find documentation. So even though the features are there, developers run into walls when trying to use them.\n\n \n \n How the React Starter Kit Works\n\nSo, the question we ended up with, was: How can we help developers who are just getting started with Cloudinary, and folks with complex use cases?\n\nWe think we can address both with one new tool: npx create-cloudinary-react.\n\nType that into a terminal near you and you'll be led through a wizard, which will ask you a few questions about your environment. Then, it will spin up a working React project for you, using Vite as a build tool, and handle all of the configuration that people who are just starting to use Cloudinary with React so often get stuck on. The resulting project starts with a simple, one-page website that accepts and displays user-generated image uploads.\n\nIn addition to doing basic configuration, the wizard also installs Cloudinary's LLM-specific tools, and puts a bunch of rules and troubleshooting guidance to help LLMs with Cloudinary's APIs wherever your particular LLM-powered coding environment looks for context.\n\nWe derived these rules from our user research, by feeding all of the feedback we received about using Cloudinary's React SDK into an LLM and asking it to write rules to address that feedback. From there, we refined, added, and subtracted rules based on our experiences of using and helping other folks use Cloudinary.\n\nThose rules, in addition to our other LLM-specific tools, significantly improve LLMs' results when prompted with complex tasks. To show off those capabilities, the initial built project offers a handful of example prompts which you can copy, paste into your agent, and hit the ground running.\n\nWith create-cloudinary-react, we believe we've built something that helps everyone get started, and also helps folks who have gone beyond common use cases use all of the nooks and crannies of Cloudinary's extensive feature set. \n\n \n \n See the React Starter Kit in Action\n\nHere's create-cloudinary-react in action:\n\n VIDEO\n\n \n \n How the React Starter Kit performed at Hack Canada 2026\n\nAfter a few rounds of internal development and testing, we soft-launched the React Starter Kit a few weeks ago -- just before we participated as a sponsor in this year's Hack Canada. \n\nA hackathon is a perfect environment for this kind of tool, and the results blew us away. Participants leveraged the Starter Kit to produce some truly incredible projects, and cited create-cloudinary-react as part of their success.\n\n VIDEO\n\n VIDEO\n\n VIDEO\n\nThat was all the validation we needed to add a React Starter Kit walk through to our documentation and announce it in this very blog post.\n\nSo, go! Try it out! And tell us what you think in the comments.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "build",
+      "cloudinary",
+      "cloudinary's libraries",
+      "common",
+      "conversation",
+      "developer",
+      "development",
+      "folk",
+      "github",
+      "hack canada",
+      "llm",
+      "next.js",
+      "react",
+      "react sdk",
+      "react starter kit",
+      "rule",
+      "sdk",
+      "starter",
+      "webdev"
+    ],
+    [
+      "llm",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": 9351,
+  "source": "Hacker News",
+  "title": "Second Revision of 6502 Laptop",
+  "url": "https://codeberg.org/TechPaula/LT6502b",
+  "published_at": "2026-04-03T13:06:27Z",
+  "fetched_at": "2026-04-07T08:40:34.436885+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47626242\">Comments</a>",
+  "full_text": "LT6502b\n\nSecond, slimmer, revision of my LT6502 6502 laptop.\nThis is very much a work in progress.\n\nSpecs\n\n65C02 running at 14MHz (hopefully)\n\n46KByte of user RAM\n\nEhBASIC 22p2\n\neWOZMON\n\nCompact Flash for storage\n\nBuilt in battery (7400mAh currently)\n\nUSB-PD Rechargable\n\n10.1\" Screen\n\nnanoSwinSID for sound (as well as beeps)\n\nFeatures improved on since previous version;\n\nBetter placement of keys\n\nUse an FFC for the display\n\nSimpler case\n\nBattery level indicator (CAPS Lock will flash when getting low)\n\nUSB charge and data on single USB-C connector\n\nSingle PCB for keyboard and logic/processor\n\nImages\n\n2026-04-06 - Graphics Test\n\n2026-04-05 - Text on screen\n\n2026-03-07 - Render of case design in progress\n\n2026-03-21 - Picture of PCB mid assembly\n\nUpdates\n\n2026-04-06 - Graphics now working\n\n2026-04-05 - Text working, eventually scrolling working too\n\n2026-03-26 - Migrated away from github to codeberg\n\n2026-03-21 - PCB assembly underway (power tests passed)\n\n2026-03-07 - Case coming together, currently 31mm in height, vs the 70mm of the previous version)\n\n2026-03-01 - PCB sent for manufacture\n\nIn progress\n\nBoard assembly\n\nGlue Logic\n\nTo do\n\nKeyboard/Modem code (needs a change due to using the chip directly and I need to add in serial port driver for Modem)\n\nTesting, lots of testing.\n\nFinish the case design and print it.\n\nMemory Map\n\nThe memory map is copied from the previous LT6502, with removal of expansion port and addition of Modem and SID\n\nHigh Level\n\nStart\nEnd\nSize (Dec)\nSize (Hex)\nWhat is it\nNotes\n\n0x0000\n0xBEAF\n48816\n0xBEB0\nRAM\nThis includes Zeropage and other bits BASIC may need (more below)\n\n0xBF00\n0xBFFF\n512\n0x200\nperipherals\nThis is where the peripherals are mapped (see below)\n\n0xC000\n0xFFFF\n12288\n0x3000\nROM\nholding EhBASIC, eWoz monitor, bootstrap and vectors\n\nROM breakdown\n\nStart\nEnd\nSize (Dec)\nSize (Hex)\nWhat is it\nNotes\n\n0xC000\n0xFAFF\n15104\n0x3B0\nEhBASIC\nEhBASIC 2.22p5\n\n0xF000\n0xF2FF\n768\n0x300\neWozMon\nEnhanced Wozmon\n\n0xF300\n0xFFF9\n3322\n0xCFA\nBootstrap\nstartup messages and also input/output/load/save functions\n\n0xFFFA\n0xFFFF\n6\n0x0A\n6502 Vectors\n\nRAM breakdown\n\nStart\nEnd\nSize (Dec)\nSize (Hex)\nWhat is it\nNotes\n\n0x0000\n0x02FF\n768\n0x300\nRAM\nThis includes Zeropage and other bits BASIC may need\n\n0x0300\n0x07FF\n1280\n0x500\nRAM\nThis is going to be for the compact flash reading/writing\n\n0x0800\n0xBDFF\n46592\n0xB6B0\nROM\nBASIC RAM available\n\nperipherals\n\nAddress\nsubAddr range\nRW\nWhat is it\nNotes\n\n0xBF00\n00-1F\nRW\nnanoSwinSID\n\n0xBF20\n0-1\nRW\nModem\n\n0xBF30\n30-9F\nRW\nUnused Currently\n\n0xBFAO\n0-0\nW\nBeeper\njust write 0xFF and 0x00 to turn on/off the speaker\n\n0xBFBO\n0-7\nRW\nCompact Flash\n\n0xBFCO\n0-F\nRW\n65C22\non board VIA\n\n0xBFDO\n0-F\n0-1\nDisplay\n\n0xBFEO\n0-F\nRW\nAtmega644p\ninternal keyboard\n\n0xBFF0\n0-1\nRW\nConsole\nFTDI USB console port",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "assembly",
+      "case",
+      "compact",
+      "ehbasic",
+      "ewozmon",
+      "ffc",
+      "flash",
+      "github",
+      "keyboard/modem",
+      "modem",
+      "note",
+      "pcb",
+      "peripheral",
+      "previous",
+      "ram",
+      "sid",
+      "size",
+      "techpaula",
+      "usb",
+      "zeropage"
+    ],
+    []
+  ]
+}

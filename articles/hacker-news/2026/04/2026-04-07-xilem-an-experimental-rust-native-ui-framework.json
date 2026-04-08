@@ -1,0 +1,35 @@
+{
+  "id": 9602,
+  "source": "Hacker News",
+  "title": "Xilem – An experimental Rust native UI framework",
+  "url": "https://github.com/linebender/xilem",
+  "published_at": "2026-04-07T23:36:15Z",
+  "fetched_at": "2026-04-08T00:40:23.103350+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47682719\">Comments</a>",
+  "full_text": "Xilem and Masonry provide an experimental high-level architecture for writing GUI apps in Rust.\n\nMasonry is a foundational crate for building natively compiled GUIs in Rust.\nIt provides a retained widget tree and runs event handling and update passes on it.\n\nXilem a high-level reactive framework inspired by React, SwiftUI and Elm.\nIt lets users create a lightweight view tree, and changes the rendered app based on changes to the tree.\nIt has a web backend and a Masonry backend.\n\nmasonry/ and xilem/ are the respective entry points of these projects for new users.\nSee ARCHITECTURE.md for details about the repository structure.\n\nXilem and Masonry are built on top of:\n\nwinit for window creation.\n\nVello and wgpu for 2D graphics.\n\nParley and Fontique for the text stack.\n\nAccessKit for plugging into accessibility APIs.\n\nNote for new users: If you're not sure what to use between Xilem and Masonry, you probably want Xilem. In general, if you're trying to make an app with minimum hassle, you probably want Xilem. Xilem is a UI framework, whereas Masonry is a toolkit for building UI frameworks (including Xilem).\n\nFrom https://github.com/StefanSalewski/xilem-chess/\n\nThe calc_masonry example.\n\nThe to_do_mvc example.\n\nAfter cloning this repository, you can try running the examples, such as the to_do_mvc example shown above:\n\ncargo run --example to_do_mvc\n\nTo add Xilem as a dependency to your project, run\n\nYou need to have installed pkg-config, clang, and the development packages of wayland, libxkbcommon, libxcb, and vulkan-loader.\nMost distributions have pkg-config installed by default.\n\nTo install the remaining packages on Fedora, run:\n\nsudo dnf install clang wayland-devel libxkbcommon-x11-devel libxcb-devel vulkan-loader-devel\n\nTo install the remaining packages on Debian or Ubuntu, run:\n\nsudo apt-get install clang libwayland-dev libxkbcommon-x11-dev libvulkan-dev\n\nThere's a Nix flake in docs/ which may be used for developing on NixOS:\n\n[!INFO]\n\nThis flake is provided as a starting point, and we do not routinely validate its correctness.\nWe do not require contributors to ensure that this accurately reflects the build requirements, as we expect most contributors (and indeed many maintainers) will not be using NixOS.\nIf it is out of date, please let us know by opening an issue or PR.\n\n# For all crates within this repo\nnix develop ./docs\n# For a specific crate\nnix develop ./docs#xilem\nnix develop ./docs#masonry\nnix develop ./docs#xilem_web\n\nThe Xilem repository includes a lot of projects and examples, most of them pulling a lot of dependencies.\n\nIf you contribute to Xilem on Linux or macOS, we recommend using split-debuginfo in your .cargo/config.toml file to reduce the size of the target/ folder:\n\n[profile.dev]\n# One debuginfo file per dependency, to reduce file size of tests/examples.\n# Note that this value is not supported on Windows.\n# See https://doc.rust-lang.org/cargo/reference/profiles.html#split-debuginfo\nsplit-debuginfo=\"unpacked\"\n\nMinimum supported Rust Version (MSRV)\n\nThis version of Xilem has been verified to compile with Rust 1.92 and later.\n\nFuture versions of Xilem might increase the Rust version requirement.\nIt will not be treated as a breaking change and as such can even happen with small patch releases.\n\nCommunity\n\nDiscussion of Xilem development happens in the Linebender Zulip, specifically the #xilem channel.\nAll public content can be read without logging in.\n\nContributions are welcome by pull request.\nThe Rust code of conduct applies.\n\nUnless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache 2.0 license, shall be licensed as noted in the License section, without any additional terms or conditions.\n\nLicensed under the Apache License, Version 2.0 (LICENSE or http://www.apache.org/licenses/LICENSE-2.0)\n\nSome files used for examples are under different licenses:\n\nThe font file (RobotoFlex-Subset.ttf) in xilem/resources/fonts/roboto_flex/ is licensed solely as documented in that folder (and is not licensed under the Apache License, Version 2.0).\n\nThe data file (status.csv) in xilem/resources/data/http_cats_status/ is licensed solely as documented in that folder (and is not licensed under the Apache License, Version 2.0).\n\nThe data file (emoji.csv) in xilem/resources/data/emoji_names/ is licensed solely as documented in that folder (and is not licensed under the Apache License, Version 2.0).",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "apache",
+      "crate",
+      "document",
+      "elm",
+      "file",
+      "fontique",
+      "license",
+      "linebender/xilem",
+      "masonry",
+      "parley",
+      "react",
+      "rust",
+      "solely",
+      "vello",
+      "version",
+      "xilem",
+      "xilem/"
+    ],
+    []
+  ]
+}

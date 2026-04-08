@@ -1,0 +1,35 @@
+{
+  "id": 9386,
+  "source": "Hacker News",
+  "title": "LLM may be standardizing human expression – and subtly influencing how we think",
+  "url": "https://dornsife.usc.edu/news/stories/ai-may-be-making-us-think-and-write-more-alike/",
+  "published_at": "2026-04-07T11:29:02Z",
+  "fetched_at": "2026-04-07T12:00:29.254267+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47673541\">Comments</a>",
+  "full_text": "Artificial intelligence chatbots are standardizing how people speak, write and think. If this homogenization continues unchecked, it risks reducing humanity’s collective wisdom and ability to adapt, argue USC computer scientists and psychologists in an opinion paper published March 11 in the Cell Press journal Trends in Cognitive Sciences.\n\nThe researchers — led by Morteza Dehghani, professor of psychology and computer science at the USC Dornsife College of Letters, Arts and Sciences — say that AI developers should incorporate more real-world diversity into large language model (LLM) training sets, not only to help preserve human cognitive diversity, but also to improve chatbots’ reasoning abilities.\n\n“Individuals differ in how they write, reason and view the world,” says study first author Zhivar Sourati, a PhD student at the USC Viterbi School of Engineering. “When these differences are mediated by the same LLMs, their distinct linguistic style, perspective, and reasoning strategies become homogenized, producing standardized expressions and thoughts across users.”\n\nLarge language models dampen individuality\n\nWithin groups and societies, cognitive diversity bolsters creativity and problem-solving, say the researchers. However, cognitive diversity is shrinking worldwide as billions of people are using the same handful of AI chatbots for an increasing number of tasks, they add. When people use chatbots to help them polish their writing, for example, the writing ends up losing its stylistic individuality, and people feel less creative ownership over what they produce.\n\n“The concern is not just that LLMs shape how people write or speak, but that they subtly redefine what counts as credible speech, correct perspective, or even good reasoning,” says Sourati, a member of Dehghani’s Morality and Language Lab.\n\nThe team points to multiple studies showing that LLM outputs are less varied than human-generated writing and that LLM outputs tend to reflect the language, values and reasoning styles of Western, educated, industrialized, rich and democratic societies.\n\n“Because LLMs are trained to capture and reproduce statistical regularities in their training data, which often overrepresent dominant languages and ideologies, their outputs often mirror a narrow and skewed slice of human experience,” says Sourati.\n\nThough studies show that individuals often generate more ideas with more details when they use LLMs, groups of people produce fewer and less creative ideas when they use LLMs than when they simply combine their collective powers, note the researchers.\n\n“Even if people are not the firsthand users of LLMs, LLMs are still going to affect them indirectly,” says Sourati. “If a lot of people around me are thinking and speaking in a certain way, and I do things differently, I would feel a pressure to align with them because it would seem like a more credible or socially acceptable way of expressing my ideas.”\n\nLLMs can reduce the variety of reasoning styles\n\nBeyond language, studies have shown that after interacting with biased LLMs, people’s opinions become more like the LLM that they used.\n\nLLMs also favor linear modes of reasoning such as “chain-of-thought reasoning,” which requires models to show step-by-step reasoning. This emphasis reduces the use of intuitive or abstract reasoning styles, which are sometimes more efficient than linear reasoning, the researchers say.\n\nThey also note that LLMs can alter people’s expectations, which can subtly change the direction of a person’s work.\n\n“Rather than actively steering generation, users often defer to model-suggested continuations, selecting options that seem ‘good enough’ instead of crafting their own, which gradually shifts agency from the user to the model,” says Sourati.\n\nThe researchers say that AI developers should intentionally incorporate diversity in language, perspectives and reasoning into their models. They emphasize that this diversity should be grounded in the diversity that exists within humans globally, rather than introducing random variation.\n\n“If LLMs had more diverse ways of approaching ideas and problems, they would better support the collective intelligence and problem-solving capabilities of our societies,” said Sourati. “We need to diversify the AI models themselves while also adjusting how we interact with them, especially given their widespread use across tasks and contexts, to protect the cognitive diversity and ideation potential of future generations.”\n\nAbout the study\n\nUSC Viterbi PhD student Alireza Ziabari also contributed to the research, which was supported by funding from the Air Force Office of Scientific Research.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "artificial",
+      "cognitive",
+      "collective",
+      "dehghani’s morality",
+      "diversity",
+      "language",
+      "llm",
+      "reasoning",
+      "researcher",
+      "study",
+      "usc",
+      "viterbi",
+      "writing"
+    ],
+    [
+      "artificial",
+      "llm"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 9537,
+  "source": "Hacker News",
+  "title": "Boneyard: Generate pixel-perfect skeleton screens from your real DOM",
+  "url": "https://github.com/0xGF/boneyard",
+  "published_at": "2026-04-03T15:49:08Z",
+  "fetched_at": "2026-04-07T20:00:54.054024+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47628163\">Comments</a>",
+  "full_text": "Pixel-perfect skeleton loading screens, extracted from your real UI. No manual measurement, no hand-tuned placeholders.\n\nWorks with React, Svelte 5, and React Native.\n\nimport { Skeleton } from 'boneyard-js/react'\n\nfunction BlogPage() {\n const { data, isLoading } = useFetch('/api/post')\n return (\n <Skeleton name=\"blog-card\" loading={isLoading}>\n {data && <BlogCard data={data} />}\n </Skeleton>\n )\n}\n\n// Add once in your app entry\nimport './bones/registry'\n\n<script>\n import Skeleton from 'boneyard-js/svelte'\n import '../bones/registry'\n let loading = true\n</script>\n\n<Skeleton name=\"card\" {loading}>\n <Card />\n</Skeleton>\n\nimport { Skeleton } from 'boneyard-js/native'\n\n<Skeleton name=\"profile-card\" loading={isLoading}>\n <ProfileCard />\n</Skeleton>\n\nnpx boneyard-js build --native --out ./bones\n# Open your app on device — bones capture automatically\n\n// Add once in your app entry, then reload\nimport './bones/registry'\n\nNo browser needed. The --native flag scans the actual native layout on your device via the React fiber tree.\n\nWeb (React / Svelte): The CLI opens a headless browser, visits your app, finds every <Skeleton name=\"...\">, and snapshots their layout at multiple breakpoints.\n\nReact Native: The <Skeleton> component auto-scans in dev mode when the CLI is running. It walks the fiber tree, measures views via UIManager, and sends bone data to the CLI. Zero overhead in production.\n\nBoth output the same .bones.json format — cross-platform compatible.\n\nnpx boneyard-js build # auto-detect dev server\nnpx boneyard-js build http://localhost:3000 # explicit URL\nnpx boneyard-js build --native --out ./bones # React Native\nnpx boneyard-js build --breakpoints 390,820,1440 # custom breakpoints\nnpx boneyard-js build --force # skip incremental cache\n\nProp\nType\nDefault\nDescription\n\nloading\nboolean\n—\nShow skeleton or real content\n\nname\nstring\n—\nUnique name (generates name.bones.json)\n\ncolor\nstring\nrgba(0,0,0,0.08)\nBone fill color\n\ndarkColor\nstring\nrgba(255,255,255,0.06)\nBone color in dark mode\n\nanimate\n'pulse' | 'shimmer' | 'solid'\n'pulse'\nAnimation style\n\nfixture\nReactNode / Snippet\n—\nMock content for CLI capture (dev only)\n\ninitialBones\nResponsiveBones\n—\nPass bones directly (overrides registry)\n\nfallback\nReactNode / Snippet\n—\nShown when loading but no bones available\n\n{\n \"breakpoints\": [375, 768, 1280],\n \"out\": \"./src/bones\",\n \"wait\": 800,\n \"color\": \"#e5e5e5\",\n \"animate\": \"pulse\"\n}\n\nSave as boneyard.config.json. Per-component props override config values.\n\nImport\nUse\n\nboneyard-js\nsnapshotBones, renderBones, computeLayout\n\nboneyard-js/react\nReact <Skeleton>\n\nboneyard-js/native\nReact Native <Skeleton>\n\nboneyard-js/svelte\nSvelte <Skeleton>\n\nMIT",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "bone",
+      "build",
+      "cli",
+      "import",
+      "load",
+      "mit",
+      "native",
+      "react",
+      "reactnode",
+      "reactnode / snippet",
+      "skeleton",
+      "string",
+      "svelte",
+      "uimanager"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 9263,
+  "source": "Hacker News",
+  "title": "Solod – A Subset of Go That Translates to C",
+  "url": "https://github.com/solod-dev/solod",
+  "published_at": "2026-04-07T00:48:01Z",
+  "fetched_at": "2026-04-07T02:00:48.000508+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47669337\">Comments</a>",
+  "full_text": "Solod: Go can be a better C\n\nSolod (So) is a strict subset of Go that translates to regular C — with zero runtime, manual memory management, and source-level interop.\n\nHighlights:\n\nGo in, C out. You write regular Go code and get readable C11 as output.\n\nZero runtime. No garbage collection, no reference counting, no hidden allocations.\n\nEverything is stack-allocated by default. Heap is opt-in through the standard library.\n\nNative C interop. Call C from So and So from C — no CGO, no overhead.\n\nGo tooling works out of the box — syntax highlighting, LSP, linting and \"go test\".\n\nSo supports structs, methods, interfaces, slices, multiple returns, and defer. To keep things simple, there are no channels, goroutines, closures, or generics.\n\nSo is for systems programming in C, but with Go's syntax, type safety, and tooling.\n\nExample •\nInstallation and usage •\nLanguage tour •\nStdlib •\nPlayground •\nSo by example •\nTesting •\nBenchmarks •\nCompatibility •\nDesign principles •\nFAQ •\nRoadmap •\nContributing\n\nThis Go code in a file main.go:\n\npackage main\n\ntype Person struct {\n Name string\n Age int\n Nums [3]int\n}\n\nfunc (p *Person) Sleep() int {\n p.Age += 1\n return p.Age\n}\n\nfunc main() {\n p := Person{Name: \"Alice\", Age: 30}\n p.Sleep()\n println(p.Name, \"is now\", p.Age, \"years old.\")\n\n p.Nums[0] = 42\n println(\"1st lucky number is\", p.Nums[0])\n}\n\nTranslates to a header file main.h:\n\n#pragma once\n#include \"so/builtin/builtin.h\"\n\ntypedef struct main_Person {\n so_String Name;\n so_int Age;\n so_int Nums[3];\n} main_Person;\n\nso_int main_Person_Sleep(void* self);\n\nPlus an implementation file main.c:\n\n#include \"main.h\"\n\nso_int main_Person_Sleep(void* self) {\n main_Person* p = (main_Person*)self;\n p->Age += 1;\n return p->Age;\n}\n\nint main(void) {\n main_Person p = (main_Person){.Name = so_str(\"Alice\"), .Age = 30};\n main_Person_Sleep(&p);\n so_println(\"%.*s %s %\" PRId64 \" %s\", p.Name.len, p.Name.ptr, \"is now\", p.Age, \"years old.\");\n p.Nums[0] = 42;\n so_println(\"%s %\" PRId64, \"1st lucky number is\", p.Nums[0]);\n}\n\nCheck out more examples in So by example and learn about the supported language features in the language tour.\n\nInstall the So command line tool:\n\ngo install solod.dev/cmd/so@latest\n\nCreate a new Go project and add the Solod dependency to use the So standard library:\n\ngo mod init example\ngo get solod.dev@latest\n\nWrite regular Go code, but use So packages instead of the standard Go packages:\n\npackage main\n\nimport \"solod.dev/so/math\"\n\nfunc main() {\n ans := math.Sqrt(1764)\n println(\"Hello, world! The answer is\", int(ans))\n}\n\nTranspile to C:\n\nso translate -o generated .\n\nThe translated C code will be saved in the generated directory.\n\nYou can also transpile to C and compile the code to a binary in one step. This uses the C compiler set by the CC environment variable:\n\nOr you can transpile, compile, and run without saving the binary:\n\nAll commands work with Go modules, not individual files (so run ., not so run main.go).\n\nKeep in mind that So is new, so it's still a bit rough around the edges.\n\nTo learn about So's features and limitations, check out the brief overview of the language.\n\nSo provides a growing set of high-level packages similar to Go's stdlib, as well as low-level packages that wrap the libc API.\n\nTry So online without installing anything. You can run the code or view the translated C output.\n\nIf you like learning by doing, try a hands-on introduction to So with annotated example programs.\n\nSo doesn't have its own testing framework. Since So code is valid Go code, you can just use go test like you normally would. Plus, your tests can use all Go features because they're never transpiled.\n\nThe transpilation logic is covered by the So compiler's own tests.\n\nSo truly shines when it comes to C interop, but it's also quite fast on regular Go code — typically on par with or faster than Go.\n\nSo generates C11 code that relies on several GCC/Clang extensions:\n\nBinary literals (0b1010) in generated code.\n\nStatement expressions (({...})) in macros.\n\n__attribute__((constructor)) for package-level initialization.\n\n__auto_type for local type inference in generated code.\n\n__typeof__ for type inference in generic macros.\n\nalloca for make() and other dynamic stack allocations.\n\nYou can use GCC, Clang, or zig cc to compile the transpiled C code. MSVC is not supported.\n\nSupported operating systems: Linux, macOS, and Windows (core language only).\n\nSo is highly opinionated. Simplicity is key. Heap allocations are explicit. Strictly Go syntax.\n\nFrequently asked questions\n\nI have heard these several times, so it's worth answering.\n\n✅ Transpiler with basic Go features.\n\n✅ Low-level stdlib (libc wrappers). Done for now; I will add more if needed.\n\n⏳ Core stdlib packages: fmt, io, strings, time, ...\n\n⏳ Maps.\n\n⬜ Hardened transpiler.\n\n⬜ Real-world examples.\n\n⬜ More stdlib packages: crypto, http, json, ...\n\n⬜ Full Windows support.\n\nBug fixes are welcome. For anything other than bug fixes, please open an issue first to discuss your proposed changes. To prevent feature bloat, it's important to discuss any new features before adding them.\n\nAI-assisted submissions are fine on one condition: you, the human, have read all the code and fully understand what it does. Code reviewed only by another AI will not suffice.\n\nMake sure to add or update tests as needed.\n\nGo stdlib code by the Go Authors.\n\nTranspiler and So stdlib code by Anton Zhiyanov.\n\nReleased under the BSD 3-Clause License.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "bsd",
+      "c\n\nsolod",
+      "clang",
+      "code",
+      "example",
+      "feature",
+      "func",
+      "gcc",
+      "generate",
+      "lsp",
+      "main_person",
+      "package",
+      "regular",
+      "solod",
+      "stdlib",
+      "translate",
+      "transpile",
+      "windows"
+    ],
+    []
+  ]
+}

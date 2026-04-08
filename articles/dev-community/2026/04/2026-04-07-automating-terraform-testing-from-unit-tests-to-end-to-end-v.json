@@ -1,0 +1,36 @@
+{
+  "id": 9370,
+  "source": "DEV Community<",
+  "title": "Automating Terraform Testing: From Unit Tests to End-to-End Validation",
+  "url": "https://dev.to/stephanie_makori_845bb2c0/automating-terraform-testing-from-unit-tests-to-end-to-end-validation-51mk",
+  "published_at": "2026-04-07T11:03:15Z",
+  "fetched_at": "2026-04-07T11:20:25.173523+00:00",
+  "author": "Stephanie Makori",
+  "summary": "<p>Infrastructure as code (IaC) is powerful, but deploying untested changes can be risky. On Day 18 of my 30-Day Terraform Challenge, I focused on automating testing for Terraform code, covering unit tests, integration tests, and end-to-end tests, all tied together in a CI/CD pipeline.</p>\n\n\n\n\n<h2>\n  \n  \n  Unit Tests\n</h2>\n\n<p>Unit tests are fast, cheap, and safe because they test your module plan only—no real resources are created. Each unit test ensures your resources are configured correctly, such as validating cluster names, instance types, and open ports. These tests catch configuration errors and bad variables before anything reaches production.</p>\n\n<p>Unit tests run on pull requests, giving developers <strong>fast feedback</strong> and confidence that changes won’t break the module.</p>\n\n\n\n\n<h2>\n  \n  \n  Integration Tests\n</h2>\n\n<p>Integration tests deploy real infrastructure, assert behavior, then destroy everything. They check how modules interact with actual cloud resources, ",
+  "full_text": "Infrastructure as code (IaC) is powerful, but deploying untested changes can be risky. On Day 18 of my 30-Day Terraform Challenge, I focused on automating testing for Terraform code, covering unit tests, integration tests, and end-to-end tests, all tied together in a CI/CD pipeline.\n\n \n \n Unit Tests\n\nUnit tests are fast, cheap, and safe because they test your module plan only—no real resources are created. Each unit test ensures your resources are configured correctly, such as validating cluster names, instance types, and open ports. These tests catch configuration errors and bad variables before anything reaches production.\n\nUnit tests run on pull requests, giving developers fast feedback and confidence that changes won’t break the module.\n\n \n \n Integration Tests\n\nIntegration tests deploy real infrastructure, assert behavior, then destroy everything. They check how modules interact with actual cloud resources, like verifying that the application load balancer responds correctly and that EC2 instances are running as expected.\n\nIntegration tests run only on pushes to the main branch, because they are slower and use real AWS resources. Using defer destroy ensures all resources are cleaned up after the test, preventing cost leaks.\n\n \n \n End-to-End Tests\n\nEnd-to-end (E2E) tests validate the entire stack—from networking and databases to applications. They ensure that the full system works as a whole. E2E tests are slow and costlier, so they are run less frequently.\n\n \n \n CI/CD Test Strategy\n\nUnit tests run on pull requests (fast, free)\n\nIntegration tests run only on push to main (slower, real AWS)\n\n \n \n Lessons Learned\n\nTest Type\nTool\nDeploys Real Infra\nTime\nCost\nWhat It Catches\n\nUnit\nterraform test\nNo\nSeconds\nFree\nConfig errors, bad variables\n\nIntegration\nTerratest\nYes\nMinutes\nLow\nResource behavior\n\nEnd-to-End\nTerratest\nYes\n15–30 min\nMedium\nFull system issues\n\nIntegration vs End-to-End: Integration tests focus on a module in isolation, while E2E tests validate the full stack.\n\nUnit tests on PRs → fast feedback\n\nE2E tests less frequent → expensive & slower\n\n \n \n Challenges & Fixes\n\nMissing required variables → added dummy values for unit tests\n\nGo module errors → used go mod tidy\n\nTerraform syntax mistakes → corrected .tftest.hcl content\n\nApplication Load Balancer slow startup → added retry logic\n\nAWS credentials setup → properly configured GitHub secrets\n\n \n \n Apply Screenshot\n\n \n \n Conclusion\n\nAutomated testing with Terraform ensures infrastructure deploys reliably and safely. Combining unit, integration, and E2E tests gives full confidence while minimizing cost and risk. With CI/CD, every commit is validated, enabling rapid and safe iteration.\n\n \n \n Additional Resources\n\nTerraform Test Documentation\n\nTerratest Documentation\n\nGitHub Actions Terraform Setup\n\nGo Testing Package\n\nAWS Documentation",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "automation",
+      "challenges & fixes",
+      "devops",
+      "ensure",
+      "iac",
+      "integration",
+      "integration tests\n\nintegration",
+      "real",
+      "resources",
+      "slow",
+      "terraform",
+      "terraform challenge",
+      "terratest",
+      "test",
+      "testing",
+      "unit"
+    ],
+    [
+      "automation"
+    ]
+  ]
+}

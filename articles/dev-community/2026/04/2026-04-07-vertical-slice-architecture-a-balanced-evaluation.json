@@ -1,0 +1,45 @@
+{
+  "id": 9337,
+  "source": "DEV Community<",
+  "title": "Vertical Slice Architecture: A Balanced Evaluation",
+  "url": "https://dev.to/arthus15/vertical-slice-architecture-a-balanced-evaluation-1i3f",
+  "published_at": "2026-04-07T08:17:50Z",
+  "fetched_at": "2026-04-07T08:20:24.481129+00:00",
+  "author": "Jairo Blanco",
+  "summary": "<h1>\n  \n  \n  Introduction\n</h1>\n\n<p>Vertical Slice Architecture (VSA) is a feature-oriented architectural style that structures applications around use cases rather than technical layers. It is particularly popular in modern .NET development, often combined with tools like MediatR and minimal APIs.</p>\n\n<p>This article provides an objective assessment of VSA, outlining both its strengths and its trade-offs so you can make an informed architectural decision.</p>\n\n\n\n\n<h2>\n  \n  \n  What is Vertical Slice Architecture?\n</h2>\n\n<p>Vertical Slice Architecture organizes code by feature (or \"slice\"), where each slice contains everything required to fulfill a specific use case:</p>\n\n<ul>\n<li>Endpoint or controller</li>\n<li>Business logic</li>\n<li>Validation</li>\n<li>Data access</li>\n</ul>\n\n<p>Example structure:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>/Features\n  /Orders\n    CreateOrder.cs\n    GetOrder.cs\n    UpdateOrder.cs\n</code></pre>\n\n</div>",
+  "full_text": "Introduction\n\nVertical Slice Architecture (VSA) is a feature-oriented architectural style that structures applications around use cases rather than technical layers. It is particularly popular in modern .NET development, often combined with tools like MediatR and minimal APIs.\n\nThis article provides an objective assessment of VSA, outlining both its strengths and its trade-offs so you can make an informed architectural decision.\n\n \n \n What is Vertical Slice Architecture?\n\nVertical Slice Architecture organizes code by feature (or \"slice\"), where each slice contains everything required to fulfill a specific use case:\n\nEndpoint or controller\n\nBusiness logic\n\nValidation\n\nData access\n\nExample structure:\n\n/Features\n /Orders\n CreateOrder.cs\n GetOrder.cs\n UpdateOrder.cs\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEach slice is intended to be independent and self-contained.\n\n \n \n Advantages of Vertical Slice Architecture\n\n \n \n 1. Feature-Centric Organization\n\nCode is grouped by business capability rather than technical concern. This aligns well with how product teams think about functionality.\n\nBenefit: Easier mapping between requirements and implementation.\n\n \n \n 2. Reduced Layer Coupling\n\nTraditional layered architectures (Controller → Service → Repository) introduce indirection. VSA reduces or eliminates these layers.\n\nExample using a minimal API in .NET 10:\n\napp.MapPost(\"/orders\", async (CreateOrderRequest request, AppDbContext db) =>\n{\n var order = new Order\n {\n CustomerId = request.CustomerId,\n Total = request.Items.Sum(i => i.Price)\n };\n\n db.Orders.Add(order);\n await db.SaveChangesAsync();\n\n return Results.Created($\"/orders/{order.Id}\", order);\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBenefit: Less boilerplate and fewer abstractions.\n\n \n \n 3. Improved Feature Isolation\n\nEach slice can evolve independently, making it easier to modify or remove features.\n\nBenefit: Lower risk when changing isolated functionality.\n\n \n \n 4. Faster Development for Small Systems\n\nFor small to medium-sized applications, VSA enables rapid development due to its simplicity.\n\nBenefit: High velocity in early stages of a project.\n\n \n \n Disadvantages of Vertical Slice Architecture\n\n \n \n 1. Risk of Code Duplication\n\nBecause slices are self-contained, shared logic is often duplicated instead of abstracted.\n\n// CreateOrder slice\npublic static class CreateOrderValidator\n{\n public static bool Validate(Order order) => order.Total > 0;\n}\n\n// UpdateOrder slice\npublic static class UpdateOrderValidator\n{\n public static bool Validate(Order order) => order.Total > 0;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nImpact:\n\nIncreased maintenance cost\n\nPotential inconsistencies\n\n \n \n 2. Weak Domain Modeling\n\nBusiness logic often lives in handlers or endpoints rather than domain entities.\n\npublic class Order\n{\n public decimal Total { get; set; }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nLogic may instead appear in multiple slices:\n\nif (order.Total <= 0)\n{\n return Results.BadRequest(\"Invalid order total\");\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nImpact:\n\nAnemic domain model\n\nPoor encapsulation\n\n \n \n 3. Harder Cross-Cutting Concerns\n\nHandling concerns like logging, validation, or transactions consistently can be more difficult without shared layers.\n\nImpact:\n\nRepetition or reliance on middleware/pipelines\n\nIncreased architectural complexity over time\n\n \n \n 4. Discoverability Challenges\n\nLogic related to a single domain concept may be scattered across multiple slices.\n\nImpact:\n\nHarder onboarding for new developers\n\nIncreased cognitive load\n\n \n \n 5. Refactoring Complexity at Scale\n\nAs the system grows, duplicated logic and distributed rules make refactoring more expensive.\n\nImpact:\n\nHigher risk of regressions\n\nSlower evolution of core business rules\n\n \n \n When Vertical Slice Architecture Works Well\n\nVSA is a good fit when:\n\nThe application is small to medium in size\n\nBusiness rules are relatively simple\n\nRapid development is a priority\n\nTeams prefer minimal abstraction\n\n \n \n When to Be Cautious\n\nConsider alternatives when:\n\nThe domain is complex or evolving\n\nStrong domain modeling is required\n\nThere are many shared business rules\n\nLong-term maintainability is critical\n\n \n \n Practical Middle Ground\n\nMany teams adopt a hybrid approach:\n\nUse vertical slices for application flow\n\nExtract shared domain logic into domain models\n\nCentralize cross-cutting concerns via middleware or pipelines\n\nExample:\n\npublic class Order\n{\n public decimal Total { get; private set; }\n\n public void AddItem(decimal price)\n {\n if (price <= 0)\n throw new ArgumentException(\"Price must be positive\");\n\n Total += price;\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis preserves domain integrity while maintaining feature-based organization.\n\n \n \n Conclusion\n\nVertical Slice Architecture is neither inherently good nor bad—it is a trade-off.\n\nIt excels in simplicity, feature alignment, and rapid development, but can introduce duplication, weaker domain models, and scaling challenges if not carefully managed.\n\nThe key is to evaluate your system's complexity, team structure, and long-term goals before adopting it as a default architectural pattern.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "architectural",
+      "architecture",
+      "backend",
+      "business",
+      "discoverability challenges\n\nlogic",
+      "domain",
+      "dotnet",
+      "feature-centric organization\n\ncode",
+      "fullscreen",
+      "improved feature isolation",
+      "logic",
+      "mode",
+      "practical middle ground",
+      "public",
+      "refactoring complexity",
+      "slice",
+      "slower",
+      "softwareengineering",
+      "validate(order",
+      "vertical",
+      "vsa"
+    ],
+    [
+      "architecture",
+      "backend",
+      "dotnet",
+      "softwareengineering"
+    ]
+  ]
+}

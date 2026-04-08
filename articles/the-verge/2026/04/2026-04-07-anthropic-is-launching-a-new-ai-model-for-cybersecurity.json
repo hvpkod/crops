@@ -1,0 +1,43 @@
+{
+  "id": 9492,
+  "source": "The Verge",
+  "title": "Anthropic is launching a new AI model for cybersecurity",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/908114/anthropic-project-glasswing-cybersecurity",
+  "published_at": "2026-04-07T18:00:00Z",
+  "fetched_at": "2026-04-07T18:00:24.744145+00:00",
+  "author": "Hayden Field",
+  "summary": "<figure>\n\n<img alt=\"Photo collage showing mouse cursors circling like sharks in a tablet screen.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/04/STK461_INTERNET_CHILD_SAFETY_Stock_B_CVirginia.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Anthropic is debuting a new AI model as part of a cybersecurity partnership with Nvidia, Google, Amazon Web Services, Apple, Microsoft, and other companies. Project Glasswing, as it's called, is billed as a way for large companies, and potentially even the government, to flag vulnerabilities in their systems with virtually no human intervention.</p>\n<p class=\"has-text-align-none\">Anthropic is offering its launch partners access to Claude Mythos Preview, a new general-purpose model that it's not currently planning to publicly release due to security concerns. Newton Cheng, the cyber lead for Anthropic's frontier red team, told <em>The Verge</em> that ",
+  "full_text": "Anthropic is debuting a new AI model as part of a cybersecurity partnership with Nvidia, Google, Amazon Web Services, Apple, Microsoft, and other companies. Project Glasswing, as it’s called, is billed as a way for large companies, and potentially even the government, to flag vulnerabilities in their systems with virtually no human intervention.\n\nAnthropic is offering its launch partners access to Claude Mythos Preview, a new general-purpose model that it’s not currently planning to publicly release due to security concerns. Newton Cheng, the cyber lead for Anthropic’s frontier red team, told The Verge that the model will ideally give cyber defenders a “head start” against adversaries. The partners will use the model to analyze their system to spot high-stakes vulnerabilities and help patch them up. Access is restricted to keep those same adversaries from using it to find weak points and conduct attacks.\n\nThough Claude Mythos Preview wasn’t specifically trained for cybersecurity purposes, Anthropic said in a release that the model’s “strong agentic coding and reasoning skills” are behind its cybersecurity advances. In an interview with The Verge, Newton Cheng, the cyber lead for Anthropic’s frontier red team, declined to share specific details of the model’s cybersecurity successes, but Anthropic’s blog post said that in recent weeks, Mythos Preview has flagged “thousands of high-severity vulnerabilities, including some in every major operating system and web browser.” Anthropic’s blog post doesn’t mention keeping humans in the loop for the model’s cybersecurity sweeps; in fact, it highlights that the model identified vulnerabilities “and develop[ed] many related exploits — entirely autonomously, without any human steering.”\n\nClaude Mythos Preview’s existence was first reported last month in a data leak, which Anthropic attributes to human error. Dianne Penn, a head of product management at Anthropic, told The Verge in an interview that the company is “taking steps in terms of solidifying our processes … That was not related to software vulnerabilities in any way.”\n\nMythos Preview will be privately available to the company’s Glasswing partners, which also include JPMorgan Chase, Broadcom, Cisco, CrowdStrike, the Linux Foundation, and Palo Alto Networks, plus about 40 other organizations that maintain or build software infrastructure. For now, Anthropic will help subsidize the cost of using it. The company says it will commit up to $100 million in usage credits, plus $4 million in direct donations to the Linux Foundation and the Apache Software Foundation, said Cheng. In the long term, as Anthropic and other AI companies face pressure to turn a profit, the program could evolve into a paid service that provides a new revenue stream — if it works well enough for companies to keep using it.\n\nDespite its highly public recent clash with the Trump administration, Anthropic also said in the release that it has been in “ongoing discussions with US government officials about Claude Mythos Preview and its offensive and defensive cyber capabilities.” When The Verge asked what that meant, Penn confirmed that the company had “briefed senior officials in the US government about Mythos and what it can do,” and that the company is still “committed to working closely with all different levels of government.” Cheng said that though Anthropic is “engaged with” the government, he declined to speak to exactly who the company had briefed.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "amazon web services",
+      "anthropic",
+      "apple",
+      "broadcom",
+      "claude mythos preview",
+      "company",
+      "cyber",
+      "cybersecurity",
+      "decline",
+      "google",
+      "jpmorgan chase",
+      "microsoft",
+      "model",
+      "mythos",
+      "mythos preview",
+      "news",
+      "nvidia",
+      "preview",
+      "project glasswing",
+      "verge",
+      "vulnerability"
+    ],
+    [
+      "cybersecurity",
+      "news"
+    ]
+  ]
+}

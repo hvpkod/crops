@@ -1,0 +1,42 @@
+{
+  "id": 9417,
+  "source": "DEV Community<",
+  "title": "AI Product Content Generator — input your product name, features, and target audience, and get a complete Amazon listing ready to copy-paste.",
+  "url": "https://dev.to/he_devin_220330/ai-product-content-generator-input-your-product-name-features-and-target-audience-and-get-a-4e2i",
+  "published_at": "2026-04-07T14:03:05Z",
+  "fetched_at": "2026-04-07T14:20:31.388858+00:00",
+  "author": "he devin",
+  "summary": "<div class=\"crayons-card c-embed text-styles text-styles--secondary\">\n    <div class=\"c-embed__content\">\n      <div class=\"c-embed__body flex items-center justify-between\">\n        <a class=\"c-link fw-bold flex items-center\" href=\"https://ai-product-content-generator.online\" rel=\"noopener noreferrer\">\n          <span class=\"mr-2\">ai-product-content-generator.online</span>\n          \n\n        </a>\n      </div>\n    </div>\n</div>\n\n\n<h1>\n  \n  \n  I Built an AI Product Content Generator for Amazon Listings — Here's What I Learned\n</h1>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fimages.unsplash.com%2Fphoto-1556742049-0cfed4f6a45d%3Fw%3D1200%26h%3D400%26fit%3Dcrop\"><img alt=\"Hero illustration\" height=\"400\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fimages.unsplash.com%2Fphoto-1556742049-0cfed4f6a45",
+  "full_text": "I Built an AI Product Content Generator for Amazon Listings — Here's What I Learned\n\n \n \n The Problem\n\nWriting product listings for Amazon is tedious. For every new product, you need a catchy title, compelling bullet points, and a description that actually converts — all while keeping it consistent with your brand voice.\n\nI found myself doing the same repetitive work: research the keywords, think of angles, write the copy, revise, repeat. So I built a tool to automate it.\n\n \n \n What I Built\n\nAI Product Content Generator — input your product name, features, and target audience, and get a complete Amazon listing ready to copy-paste.\n\n🔗 Live demo: https://ai-product-content-generator.online\n\n🐙 GitHub: https://github.com/davehe123/AI-Product-Content-Generator\n\n \n \n Features\n\nTitle Generation — keyword-optimized product titles based on your input\n\nBullet Points — 5 structured bullet points highlighting key features and benefits\n\nProduct Description — engaging long-form description with call-to-action\n\n4 Languages — English, Chinese, Japanese, Korean\n\nMultiple Tones — persuasive, descriptive, fun, or professional\n\nExport to PDF — one-click download for your records\n\nCredit System — free tier with 3 generations, paid plans for heavier use\n\n \n \n Tech Stack\n\nThis project was a good exercise in modern web infrastructure:\n\nFrontend: Next.js 15.5.2 with Tailwind CSS, deployed on Cloudflare Pages\n\nBackend: Cloudflare Workers (serverless, edge-deployed)\n\nAI: DeepSeek API for content generation\n\nAuth: Google OAuth 2.0\n\nDatabase: Cloudflare D1 (SQLite at the edge)\n\nPayments: PayPal subscriptions + one-time credits\n\n \n \n The Architecture Pain Point\n\nI originally tried to use Next.js API routes for the backend, but hit a wall — Next.js 15's API routes don't play well with Cloudflare Pages Edge Functions. Every API call returned 500.\n\nThe fix: move all backend logic to a separate Cloudflare Worker, and have the frontend call it directly via fetch(). It's actually cleaner architecturally — the frontend is a pure static site, the API is a standalone service.\n\nFrontend (Next.js, static) → Cloudflare Worker (API) → DeepSeek API\n ↓ ↓\n Cloudflare Pages Cloudflare D1\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n What I Learned\n\n \n \n 1. Static Export is Liberating\n\nBuilding a \"frontend only\" Next.js app with output: 'export' forces you to keep your architecture clean. No server-side logic creeping into pages, no API routes mixed with UI code.\n\n \n \n 2. Edge Databases Change Your Mental Model\n\nCloudflare D1 is SQLite distributed globally. Queries are fast because they run close to the user, but you have to think carefully about write patterns and latency. For a read-heavy product listing tool, it's a great fit.\n\n \n \n 3. OAuth on Edge Requires Care\n\nGoogle OAuth with a callback to a Cloudflare Worker URL works fine, but I ran into a few gotchas:\n\nResponse.redirect() returns an immutable Response — you can't set cookies after creating it\n\nBase64 URL-safe encoding/decoding is different from standard base64\n\nSessions need to be stored in D1, not in-memory (Workers are stateless)\n\n \n \n 4. Keep API Keys in Workers, Not Frontend\n\nThe frontend is public — anyone can read your JavaScript. All API calls that need secrets go through the Worker, which holds the keys server-side.\n\n \n \n The Output Quality\n\nHonest assessment: for straightforward products, the AI-generated copy is solid. For products with unusual specifications or niche terminology, you still need to edit. But that's true of any AI writing tool — the key is getting 80% of the work done so you can focus on refinement.\n\n \n \n What's Next\n\nShopify integration\n\nMore platform templates (Etsy, eBay)\n\nBatch generation for multiple SKUs\n\nSEO keyword suggestions\n\n \n \n Try It Out\n\nThe free tier doesn't require a credit card — just sign in with Google and you get 3 generations to play with.\n\n👉 https://ai-product-content-generator.online\n\nBuilt with Next.js, Cloudflare Workers, and DeepSeek. Questions or feedback welcome.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "amazon",
+      "api",
+      "build",
+      "bullet",
+      "cloudflare",
+      "cloudflare pages",
+      "cloudflare pages\n\nbackend:",
+      "cloudflare worker",
+      "cloudflare workers",
+      "content",
+      "credit system",
+      "css",
+      "description",
+      "frontend",
+      "generation",
+      "list",
+      "oauth",
+      "payments",
+      "pdf",
+      "product",
+      "tech stack"
+    ],
+    [
+      "frontend"
+    ]
+  ]
+}

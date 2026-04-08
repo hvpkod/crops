@@ -1,0 +1,39 @@
+{
+  "id": 9534,
+  "source": "Hacker News",
+  "title": "Why IPv6 is the only way forward",
+  "url": "https://ankshilp.in/posts/for-the-love-of-internet/",
+  "published_at": "2026-04-07T19:22:58Z",
+  "fetched_at": "2026-04-07T20:00:46.263953+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47680124\">Comments</a>",
+  "full_text": "Two decades ago, when Indian ISPs had adequate IPv4 addresses, they were allocating free public IPs. I remember how exciting it was to host my own website from home and be able to access it from anywhere. Gaming was seamless with public IP. Peer to peer apps just worked. But as Internet users grew ISPs decided to deploy NAT. No more public IPs, no more free hosting. And it’s been like that for two decades now.\n\nTake a look at table below. It shows countries, their population and % IPv4 address allocation. I have ommitted most countries which have adequate IP addresses except United States which has excess of IPs. You can view the full table here.\n\n \n \n #\n Location\n IP addresses\n %\n Population\n \n \n \n \n 1\n United States\n 1,611,297,420\n 43.71\n 343,477,335\n \n \n 2\n China\n 343,125,576\n 9.31\n 1,422,584,933\n \n \n 3\n Japan\n 189,145,768\n 5.13\n 124,370,947\n \n \n 4\n United Kingdom\n 134,054,832\n 3.64\n 68,682,962\n \n \n 5\n Germany\n 124,185,676\n 3.37\n 84,548,231\n \n \n 6\n South Korea\n 112,495,296\n 3.05\n 51,748,739\n \n \n 7\n Brazil\n 87,096,200\n 2.36\n 211,140,729\n \n \n 8\n France\n 82,053,600\n 2.23\n 66,438,822\n \n \n 9\n Canada\n 67,921,556\n 1.84\n 39,299,105\n \n \n 10\n Italy\n 54,020,088\n 1.47\n 59,499,453\n \n \n 11\n Netherlands\n 48,112,552\n 1.31\n 18,092,524\n \n \n 12\n Australia\n 46,444,728\n 1.26\n 26,451,124\n \n \n 13\n Russia\n 44,859,860\n 1.22\n 145,440,500\n \n \n 14\n India\n 41,624,148\n 1.13\n 1,438,069,596\n \n \n 15\n Taiwan\n 35,715,484\n 0.97\n 23,317,145\n \n \n\nDo you see the issue? The country with largest population, India, is allocated merely 1.13% of total IPv4 addresses. China, the second largest country by population, has somewhat better allocation than India but still nothing as compared to United States. Both India and China has to deploy layers upon layers of NAT to deal with these limited IPv4 addresses. It’s mind boggling to me that we are letting IPv4 continue in it’s current state even after knowing this sad reality.\n\nSometimes, I wonder, if India should just switch off IPv4. I mean we have done something far more crazier than this. We changed the currency notes over a course of few months. A transition from IPv4 to IPv6 seems far more easier especially since we already have 77% of people on IPv6. A drastic move like this seems to be the only way the west would take concrete steps to move on to IPv6.\n\nThere are countless threads online on forums like Hacker News, Reddit where people who never really got comfortable with idea of IPv6 and are still discussing whether it’s the right choice going forward. Some of them keep using NAT out of convenience and believe that’s what makes their networks secure. Others believe IETF should have adopted IPv4 to include more addresses. I don’t know if that’s possible but I do know that the people who designed IPv6 were experts in their domain. Maybe we should trust them and move on.\n\nBesides, it’s been 3 decades, the world has been preparing for IPv6 to be the backbone of the Internet. Most devices now have support for IPv6. Any discussions questioning IPv6 now are absurd. IPv6 is the only way forward and the sooner we do it the better it is for everyone.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "address",
+      "adequate",
+      "australia",
+      "china",
+      "decade",
+      "hacker news",
+      "india",
+      "ips",
+      "japan",
+      "large",
+      "move",
+      "nat",
+      "peer",
+      "public",
+      "russia",
+      "south korea",
+      "united",
+      "united states",
+      "well"
+    ],
+    [
+      "russia"
+    ]
+  ]
+}

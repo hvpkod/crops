@@ -1,0 +1,40 @@
+{
+  "id": 9338,
+  "source": "DEV Community<",
+  "title": "Python was too slow for 10M rows—So I built a C-Bridge (and found the hidden data loss)",
+  "url": "https://dev.to/nareshcn2/python-was-too-slow-for-10m-rows-so-i-built-a-c-bridge-and-found-the-hidden-data-loss-5b86",
+  "published_at": "2026-04-07T08:17:40Z",
+  "fetched_at": "2026-04-07T08:20:26.205703+00:00",
+  "author": "NARESH-CN2",
+  "summary": "<h1>\n  \n  \n  The Challenge: The 1-Second Wall\n</h1>\n\n<p>In high-volume data engineering, \"fast enough\" is a moving target. I was working on a log ingestion problem: 700MB of server logs, roughly 10 million rows. </p>\n\n<p>Standard Python line-by-line iteration (<code>for line in f:</code>) was hitting a consistent wall of <strong>1.01 seconds</strong>. For a real-time security auditing pipeline, this latency was unacceptable. </p>\n\n<p>But speed wasn't the only problem. I discovered something worse: <strong>Data Loss.</strong></p>\n\n<h2>\n  \n  \n  The Silent Killer: Boundary Splits\n</h2>\n\n<p>Most standard parsers read files in chunks (like 8KB). If your target status code (e.g., <code>\" 500 \"</code>) is physically split between two chunks in memory—say, <code>\" 5\"</code> at the end of Chunk A and <code>\"00 \"</code> at the start of Chunk B—the parser misses it entirely. </p>\n\n<p>In my dataset, standard parsing missed <strong>180 critical errors.</strong></p>\n\n<h2>\n  \n  \n  The Solution: Axiom",
+  "full_text": "The Challenge: The 1-Second Wall\n\nIn high-volume data engineering, \"fast enough\" is a moving target. I was working on a log ingestion problem: 700MB of server logs, roughly 10 million rows. \n\nStandard Python line-by-line iteration (for line in f:) was hitting a consistent wall of 1.01 seconds. For a real-time security auditing pipeline, this latency was unacceptable. \n\nBut speed wasn't the only problem. I discovered something worse: Data Loss.\n\n \n \n The Silent Killer: Boundary Splits\n\nMost standard parsers read files in chunks (like 8KB). If your target status code (e.g., \" 500 \") is physically split between two chunks in memory—say, \" 5\" at the end of Chunk A and \"00 \" at the start of Chunk B—the parser misses it entirely. \n\nIn my dataset, standard parsing missed 180 critical errors.\n\n \n \n The Solution: Axiom-IO (The C-Python Hybrid)\n\nI decided to bypass the Python interpreter's I/O overhead by building a hybrid engine.\n\n \n \n 1. The Raw C Core\n\nUsing C's fread, I pull raw bytes directly into an 8,192-byte buffer. This is hardware-aligned and minimizes system calls.\n\n \n \n 2. Boundary Overlap Logic\n\nTo solve the data loss issue, I implemented a \"Slide-and-Prepend\" logic. The last few bytes of every buffer read are saved and prepended to the next read. This ensures that no status code is ever sliced in half.\n\n \n \n 3. The Python Bridge\n\nI used ctypes to create a shared library (.so). This allows Python to handle the high-level orchestration while the heavy lifting happens in memory-safe C.\n\n \n \n The Benchmarks (700MB / 10M Rows)\n\nEngine\nExecution Time\nData Integrity (Errors Found)\n\nStandard Python\n1.01s\n1,425,016\n\nAxiom-IO (Hybrid)\n0.20s\n1,425,196\n\nThe result? A 5x speedup and 180 \"Ghost\" errors caught.\n\n \n \n Conclusion\n\nSometimes, the best way to use Python is to know when to step outside of it. By aligning our software with how hardware actually reads memory, we didn't just gain speed—we gained truth.\n\nSource Code & Benchmarks: https://github.com/naresh-cn2/Axiom-IO-Engine",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "axiom-io",
+      "boundary",
+      "byte",
+      "c-bridge",
+      "chunk",
+      "code",
+      "conclusion\n\nsometimes",
+      "cpp",
+      "data",
+      "data loss",
+      "dataengineering",
+      "performance",
+      "python",
+      "splits",
+      "standard",
+      "status",
+      "the c-python hybrid",
+      "the python bridge",
+      "wall"
+    ],
+    [
+      "cpp",
+      "dataengineering"
+    ]
+  ]
+}

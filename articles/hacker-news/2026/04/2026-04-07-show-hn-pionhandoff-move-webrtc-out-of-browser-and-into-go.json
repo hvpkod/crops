@@ -1,0 +1,34 @@
+{
+  "id": 9391,
+  "source": "Hacker News",
+  "title": "Show HN: Pion/handoff – Move WebRTC out of browser and into Go",
+  "url": "https://github.com/pion/handoff",
+  "published_at": "2026-04-07T12:01:51Z",
+  "fetched_at": "2026-04-07T12:40:24.895979+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47673880\">Comments</a>",
+  "full_text": "Create WebRTC session in the browser—run it somewhere else\n\n \n \n \n\nWebRTC is the real-time communication technology used for real-time media streaming. Used for things like Google Meet, Discord and Zoom on the web.\nWith Handoff you create your WebRTC session in the browser, but then move it to a process you control. This lets you do a few interesting things.\n\nRecord - Join the Zoom call via handoff and save media as it passes through.\n\nSend - Use FFmpeg or send an external source. Not limited by browser quality/capture code.\n\nReverse Engineer - Capture ICE/DTLS and decrypted RTP/RTCP/SCTP traffic\n\n \n\n \n\n sequenceDiagram\n participant Handoff\n participant Browser\n participant Website\n\n Browser->>Website: Authenticate and use the site normally\n Website->>Browser: WebRTC Signaling\n Note over Browser: WebRTC API is mocked\n Browser->>Handoff: Forward Signaling\n Handoff->>Website: Establish WebRTC session\n\n \n \n \n \n \n \n \n Loading\n\n \n\nSee examples directory. examples/datachannel shows a normal page with an\noptional override, examples/media-save saves VP8 video on the backend while\nstill showing it in the browser, examples/media-send forwards VP8 RTP from\nthe backend into the browser, and examples/greasemonkey generates a\nuserscript that overrides RTCPeerConnection automatically.\n\nTypically you will install the greasemonkey script and then run one of the examples.\n\nBelow is an example of sending a users webcam to a WebRTC service, but replacing outgoing video with a ffmpeg testsrc.\nHandoff sits between the users so it can replace with any arbitrary video.\n\nCommunity\n\nPion has an active community on the Discord.\n\nFollow the Pion Bluesky or Pion Twitter for project updates and important WebRTC news.\n\nWe are always looking to support your projects. Please reach out if you have something to build!\nIf you need commercial support or don't want to use public methods you can contact us at team@pion.ly\n\nCheck out the contributing wiki to join the group of amazing people making this project possible\n\nMIT License - see LICENSE for full text",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "backend",
+      "community\n\npion",
+      "discord",
+      "else",
+      "handoff",
+      "participant",
+      "pion",
+      "record - join",
+      "session",
+      "signaling",
+      "somewhere",
+      "the pion bluesky",
+      "webrtc",
+      "zoom"
+    ],
+    [
+      "backend"
+    ]
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 9334,
+  "source": "DEV Community<",
+  "title": "I Built an AI That Turns 1 App Screenshot Into 10 Store Ready Marketing Formats in 30 Seconds",
+  "url": "https://dev.to/rafa_bikowski_ad3c72870/i-built-an-ai-that-turns-1-app-screenshot-into-10-store-ready-marketing-formats-in-30-seconds-4o7k",
+  "published_at": "2026-04-07T08:18:54Z",
+  "fetched_at": "2026-04-07T08:20:18.315198+00:00",
+  "author": "Rafał Żbikowski",
+  "summary": "<p>Every indie developer knows the pain. You've spent weeks building your app, and now you need App Store screenshots, Google Play graphics, Instagram banners, Product Hunt assets...</p>\n\n<p>So you open Figma. Download templates. Adjust sizes. Write headlines. Pick colors. Export. Repeat for every format.</p>\n\n<p><strong>4 hours later, you're still not done.</strong></p>\n\n<p>I got tired of this cycle, so I built MockupGen AI a tool that does all of it in 30 seconds.</p>\n\n<h2>\n  \n  \n  What It Does\n</h2>\n\n<p>You upload 1-8 screenshots from your app. The AI:</p>\n\n<ol>\n<li>\n<strong>Analyzes your UI</strong> using Claude's vision capabilities</li>\n<li>\n<strong>Extracts your brand colors</strong> automatically from the screenshot</li>\n<li>\n<strong>Writes marketing headlines</strong> tailored to your app</li>\n<li>\n<strong>Generates 10 format-specific layouts</strong> — each with proper dimensions</li>\n<li>\n<strong>Delivers everything as a ZIP</strong> — ready to upload</li>\n</ol>\n\n<p>The whol",
+  "full_text": "Every indie developer knows the pain. You've spent weeks building your app, and now you need App Store screenshots, Google Play graphics, Instagram banners, Product Hunt assets...\n\nSo you open Figma. Download templates. Adjust sizes. Write headlines. Pick colors. Export. Repeat for every format.\n\n4 hours later, you're still not done.\n\nI got tired of this cycle, so I built MockupGen AI a tool that does all of it in 30 seconds.\n\n \n \n What It Does\n\nYou upload 1-8 screenshots from your app. The AI:\n\nAnalyzes your UI using Claude's vision capabilities\n\nExtracts your brand colors automatically from the screenshot\n\nWrites marketing headlines tailored to your app\n\nGenerates 10 format-specific layouts — each with proper dimensions\n\nDelivers everything as a ZIP — ready to upload\n\nThe whole process takes about 30-60 seconds.\n\n \n \n The Formats\n\nFrom a single upload, you get:\n\nApp Store iPhone 6.9\" (1320×2868)\n\nApp Store iPhone 6.7\" (1290×2796)\n\nGoogle Play feature graphic\n\nInstagram Story & Post\n\nTwitter/X header\n\nProduct Hunt banner\n\nWebsite hero section\n\n...and more (10 formats total)\n\n \n \n The Tech Stack\n\nFor the developers here, this is what's under the hood:\n\nFrontend: Next.js 14 (App Router)\n\nAI Engine: Anthropic Claude API (vision + text generation)\n\nGraphics: Canvas 2D API (server-side rendering, no Figma/Puppeteer)\n\nAuth: Kinde\n\nDatabase: Supabase\n\nPayments: Stripe (subscriptions with webhooks)\n\nFile Storage: Cloudflare R2\n\nHosting: Vercel\n\nAnalytics: PostHog\n\n \n \n Why Canvas 2D Instead of Puppeteer?\n\nThis was a deliberate choice. Puppeteer spins up headless browsers — it's slow, memory-hungry, and expensive at scale. Canvas 2D runs server-side, generates pixel-perfect graphics in milliseconds, and costs almost nothing to operate.\n\nThe tradeoff is that layout logic is more manual. Every text wrap, every gradient, every device frame is hand-coded. But the result is consistent, fast, and reliable.\n\n \n \n How Claude Vision Works Here\n\nThe AI doesn't just \"look\" at your screenshot. It:\n\nIdentifies the app's purpose and target audience\n\nExtracts dominant and accent colors (hex values)\n\nSuggests marketing angles based on visible UI elements\n\nGenerates headlines that match the app's tone\n\nAll of this happens in a single API call, keeping latency low.\n\n \n \n The Build Journey\n\nI'm a solo developer with a background in cybersecurity (20 years in corporate IT). MockupGen AI started as a tool I built for my own apps — I have several iOS/macOS apps on the App Store, and I was spending way too much time on marketing graphics.\n\nThe first version was rough. Just App Store formats with hardcoded layouts. But once I added Claude's vision API for color extraction and headline generation, the quality jumped dramatically.\n\nThe biggest challenge was getting Canvas 2D to produce graphics that look designed, not generated. Tiny details matter: proper text kerning, gradient angles that feel natural, device frames with realistic shadows. It took hundreds of iterations.\n\n \n \n Numbers So Far\n\nGeneration time: ~30 seconds for all 10 formats\n\nFormats per generation: 10 (22+ individual graphics)\n\nDesign skills required: 0\n\n \n \n Try It\n\nThe first generation is free, no credit card required:\n\nmockupgenai.com\n\nI'd love feedback from the dev.to community. What formats would you add? What would make this more useful for your workflow?",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "appdev",
+      "build",
+      "canvas",
+      "claude",
+      "figma",
+      "figma/puppeteer",
+      "format",
+      "google",
+      "graphic",
+      "headline",
+      "instagram",
+      "marketing",
+      "mockupgen",
+      "mockupgen ai",
+      "payments",
+      "screenshot",
+      "showdev",
+      "store",
+      "the build journey",
+      "vision",
+      "webdev"
+    ],
+    [
+      "appdev",
+      "instagram",
+      "showdev",
+      "webdev"
+    ]
+  ]
+}

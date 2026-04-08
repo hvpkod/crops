@@ -1,0 +1,45 @@
+{
+  "id": 9575,
+  "source": "DEV Community<",
+  "title": "The First Real Counterattack",
+  "url": "https://dev.to/cristiansarmiento/the-first-real-counterattack-40ob",
+  "published_at": "2026-04-07T22:31:39Z",
+  "fetched_at": "2026-04-07T23:00:37.307160+00:00",
+  "author": "Cristian Sarmiento",
+  "summary": "<p><em>How Project Glasswing flips the AI security equation — and why it matters for every engineer alive</em></p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F3dqdg9d4eydz1znlc3rt.jpeg\"><img alt=\" \" height=\"1422\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F3dqdg9d4eydz1znlc3rt.jpeg\" width=\"800\" /></a></p>\n\n\n\n\n<p>A 27-year-old bug was sitting in OpenBSD.</p>\n\n<p>Not theoretical. Not a minor edge case. A high-severity zero-day, invisible to every security audit, every static analyzer, every fuzzer that had ever touched that codebase. For 27 years, it waited.</p>\n\n<p>Claude Mythos found it in a matter of hours.</p>\n\n<p>That single fact is all you need to understand why Anthropic just lau",
+  "full_text": "How Project Glasswing flips the AI security equation — and why it matters for every engineer alive\n\nA 27-year-old bug was sitting in OpenBSD.\n\nNot theoretical. Not a minor edge case. A high-severity zero-day, invisible to every security audit, every static analyzer, every fuzzer that had ever touched that codebase. For 27 years, it waited.\n\nClaude Mythos found it in a matter of hours.\n\nThat single fact is all you need to understand why Anthropic just launched Project Glasswing — and why I think it's one of the most important things that happened in tech this year.\n\n \n \n The problem nobody wanted to say out loud\n\nFor the last two years, the cybersecurity industry has been tiptoeing around an uncomfortable truth: AI is already better than almost any human at finding and exploiting vulnerabilities.\n\nNot eventually. Now.\n\nThe window between vulnerability discovery and exploitation has collapsed. What used to take a skilled attacker months — reconnaissance, fuzzing, exploit development, chaining bugs — can now happen in minutes with the right model. CrowdStrike's CTO said it plainly at the Glasswing launch: \"capabilities have crossed a threshold that fundamentally changes the urgency required to protect critical infrastructure.\"\n\nWe've known this was coming. We didn't have a plan.\n\nThe default response from the industry was to quietly not talk about it, keep building, and hope defenders would keep pace. They weren't keeping pace. Cyber attack costs are running around $500 billion a year globally, and that number was accelerating before frontier AI models entered the picture.\n\nProject Glasswing is the first serious response.\n\n \n \n What Mythos Preview actually is\n\nClaude Mythos Preview is not a product. Anthropic has no plans to release it publicly — and the reason they give is direct: its cybersecurity capabilities make it too dangerous for general availability.\n\nThat's a sentence worth sitting with.\n\nAnthropic built a model so capable at finding and understanding software vulnerabilities that they made a deliberate decision to keep it out of reach. Not because of regulatory pressure. Not because of PR. Because they ran the numbers and the asymmetry between attack and defense was too severe.\n\nThe benchmark tells the story: Mythos Preview scores 83.1% on CyberGym vulnerability reproduction tests. Claude Opus 4.6 — already one of the best models available — scores 66.6%. That's not an incremental improvement. That's a different category of capability.\n\nIn practice, it means:\n\nA 27-year-old OpenBSD vulnerability that survived decades of audits\n\nA 16-year-old FFmpeg bug that automated fuzzers hit 5 million times without catching\n\nAutonomous exploit chains in the Linux kernel enabling privilege escalation\n\nZero-days across every major OS and every major browser\n\nFive million automated hits. Zero catches. Mythos found it anyway.\n\nThis is the moment where deterministic security tooling hits its ceiling. Fuzzers, static analyzers, and symbolic execution work within the space of known patterns. Mythos reasons about code the way a senior security researcher does — contextually, creatively, following the logic of what could go wrong rather than what has gone wrong before.\n\n \n \n The coalition: voluntary, industry-led, fast\n\nHere's what I find most interesting about the structure of Glasswing: it's not a government program.\n\nAmazon, Apple, Google, Microsoft, Nvidia, Cisco, CrowdStrike, JPMorgan, the Linux Foundation — 12 launch partners and 40+ additional organizations. No mandate. No regulatory requirement. No bureaucratic committee that spent 18 months drafting a framework.\n\nJust a coalition of companies that looked at the threat landscape and decided that waiting for regulators to catch up was a losing strategy.\n\nThat's how it should work. Industry moving faster than policy, with enough transparency to be accountable. Within 90 days, Anthropic will publish a full report: vulnerabilities found, patches shipped, security improvements achieved. Public. Open. Reproducible.\n\nThe $100 million in model credits and $4 million in direct donations to open-source security organizations (OpenSSF, Apache Software Foundation) are real money going to the infrastructure that holds the internet together. The Linux kernel, FFmpeg, OpenBSD — these aren't niche tools. They run banks, hospitals, power grids.\n\n \n \n Why this matters to every engineer reading this\n\nI've spent years building software. Automated tests, CI/CD pipelines, security scans baked into the deploy process. I thought that was enough.\n\nIt's not enough anymore.\n\nThe attack surface of modern software is too large, too interconnected, and too old. We have code that's been running in production since before most of our current team members learned to code. Nobody fully understands it. Nobody has audited all of it. And now an attacker with a capable AI model can map that entire surface faster than your team can read the output.\n\nProject Glasswing doesn't solve this alone. But it's the first time the defenders have access to the same class of capability as the attackers.\n\nThat matters. For years the asymmetry ran the other way — attackers needed to find one hole, defenders needed to protect everything. AI didn't change that asymmetry. It accelerated it. Until now.\n\nWhat Glasswing establishes is a new precedent: frontier AI applied defensively, at scale, to real production software, with public accountability. If it works — and the early results suggest it does — it becomes the new baseline expectation for how serious organizations manage security.\n\nIn two years, \"did you run this through an AI vulnerability analysis?\" will be as standard as \"did you write tests?\"\n\n \n \n The techno-optimist case\n\nI'm not naive about dual-use. The same model that found that 27-year-old OpenBSD bug could, in the wrong hands, have weaponized it. Anthropic knows this. That's exactly why Mythos Preview is restricted.\n\nBut I'm also not willing to accept the pessimist framing that says AI in security is inherently destabilizing. That framing ignores something important: the bad actors don't wait for permission. They're already using every available model to find vulnerabilities. The question isn't whether AI changes the security equation — it already has. The question is whether the people building critical software will have access to equivalent tools.\n\nGlasswing says: yes, they will.\n\nThat's the techno-optimist case. Not that technology solves everything automatically. But that when the people who understand the stakes make deliberate, coordinated decisions, technology can tip the balance toward the people trying to protect rather than the people trying to destroy.\n\nThe good guys finally have an AI that's faster than the attackers.\n\nThat's worth paying attention to.\n\nFollow me on X: @crisesarmiento\n\nSources:",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "ai",
+      "amazon",
+      "anthropic",
+      "apple",
+      "attack",
+      "claude",
+      "crowdstrike",
+      "cto",
+      "cybergym",
+      "defender",
+      "ffmpeg",
+      "glasswing",
+      "google",
+      "microsoft",
+      "model",
+      "mythos",
+      "mythos preview",
+      "openbsd",
+      "preview",
+      "programming",
+      "project glasswing",
+      "security",
+      "vulnerability",
+      "webdev"
+    ],
+    [
+      "programming",
+      "webdev"
+    ]
+  ]
+}

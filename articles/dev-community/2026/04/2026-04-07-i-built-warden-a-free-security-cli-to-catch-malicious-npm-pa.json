@@ -1,0 +1,34 @@
+{
+  "id": 9522,
+  "source": "DEV Community<",
+  "title": "I built Warden - a free security CLI to catch malicious npm packages",
+  "url": "https://dev.to/clopez_programmer_3fcbf30/i-built-warden-a-free-security-cli-to-catch-malicious-npm-packages-3h8p",
+  "published_at": "2026-04-07T19:54:39Z",
+  "fetched_at": "2026-04-07T20:00:25.478290+00:00",
+  "author": "clopez programmer",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F0ech5hegqkz9zxf8in6v.png\"><img alt=\" \" height=\"112\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F0ech5hegqkz9zxf8in6v.png\" width=\"411\" /></a></p>\n\n<p>Hey! I just released Warden v2.0, a CLI tool that scans your Node.js dependencies for malicious packages,<br /><br />\n  typosquatting, and supply chain attacks.                                                                              </p>\n\n<p>I got tired of not knowing if my dependencies were safe. npm audit shows CVEs, but what about packages hiding malware<br />\n  with obfuscated code or stealing your AWS credentials? So I built this.</p>\n\n<p>What it does:</p>\n\n<ul>\n<li>Scans node_modules f",
+  "full_text": "Hey! I just released Warden v2.0, a CLI tool that scans your Node.js dependencies for malicious packages,\n\n typosquatting, and supply chain attacks. \n\nI got tired of not knowing if my dependencies were safe. npm audit shows CVEs, but what about packages hiding malware\n\n with obfuscated code or stealing your AWS credentials? So I built this.\n\nWhat it does:\n\nScans node_modules for dangerous patterns (obfuscation, credential theft, system execution, etc.)\n\nRuns npm/pnpm/yarn audits with readable output\n\nMonitors your network in real-time to see what your node processes are doing\n\nChecks for license compliance\n\nEnforces security policies across your team\n\nAll 100% local - no data leaves your machine.\n\nTry it:\n\n npm install -g warden-cli\n\n warden scan .\n\n warden monitor\n\n warden doctor\n\nFeedback and contributions welcome!\n\nhttps://github.com/camilolb/warden/",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "audit",
+      "build",
+      "cli",
+      "dependency",
+      "malicious",
+      "node",
+      "node.js",
+      "package",
+      "release",
+      "scan",
+      "security",
+      "show",
+      "showdev",
+      "warden"
+    ],
+    [
+      "showdev"
+    ]
+  ]
+}

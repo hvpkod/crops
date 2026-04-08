@@ -1,0 +1,32 @@
+{
+  "id": 9433,
+  "source": "Hacker News",
+  "title": "Claude Code is locking people out for hours",
+  "url": "https://github.com/anthropics/claude-code/issues/44257",
+  "published_at": "2026-04-07T15:04:23Z",
+  "fetched_at": "2026-04-07T15:20:26.778966+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47676521\">Comments</a>",
+  "full_text": "Preflight Checklist\n\nWhat's Wrong?\n\nClaude Code cannot log in on Windows and always fails with this error:\n\nOAuth error: timeout of 15000ms exceeded\n\nI have tried logging in multiple times with my Google account, but the login fails every time with the same OAuth timeout error. This completely blocks me from using Claude Code.\n\nWhat Should Happen?\n\nClaude Code should complete the Google login flow successfully and sign me into the app without timing out.\n\nError Messages/Logs\n\nOAuth error: timeout of 15000ms exceeded\n\nSteps to Reproduce\n\nOpen Claude Code on Windows\n\nStart login using Google\n\nComplete the sign-in flow in the browser\n\nReturn to Claude Code\n\nClaude Code shows: OAuth error: timeout of 15000ms exceeded\n\nRetry login multiple times\n\nThe same error happens every time\n\nClaude Model\n\nNot sure / Multiple models\n\nIs this a regression?\n\nI don't know\n\nLast Working Version\n\n2.1.92\n\nClaude Code Version\n\n2.1.92\n\nPlatform\n\nAnthropic API\n\nOperating System\n\nWindows\n\nTerminal/Shell\n\nWSL (Windows Subsystem for Linux)\n\nAdditional Information\n\nNo response",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "claude",
+      "code",
+      "exceed",
+      "fail",
+      "github",
+      "google",
+      "google\n\ncomplete",
+      "login",
+      "multiple",
+      "oauth",
+      "timeout",
+      "windows",
+      "windows\n\nstart",
+      "windows subsystem"
+    ],
+    []
+  ]
+}

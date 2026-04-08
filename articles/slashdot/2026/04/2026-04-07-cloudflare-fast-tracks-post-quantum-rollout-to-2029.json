@@ -1,0 +1,31 @@
+{
+  "id": 9491,
+  "source": "Slashdot",
+  "title": "Cloudflare Fast-Tracks Post-Quantum Rollout To 2029",
+  "url": "https://tech.slashdot.org/story/26/04/07/1648211/cloudflare-fast-tracks-post-quantum-rollout-to-2029?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-07T17:00:00Z",
+  "fetched_at": "2026-04-07T18:00:23.490356+00:00",
+  "author": "BeauHD",
+  "summary": "Cloudflare is accelerating its post-quantum security plans and now aims to make its entire platform fully post-quantum secure by 2029. \"The updated timeline follows new developments in quantum computing research that suggest current cryptographic standards could be broken sooner than previously expected,\" reports SiliconANGLE. From the report: The decision by Cloudflare to move its post-quantum security roadmap forward comes after Google LLC and research from Oratomic demonstrated significant advances in algorithms and hardware capable of breaking widely used encryption methods such as RSA-2048 and elliptic curve cryptography. [...] The company said progress across three key areas -- quantum hardware, error correction and quantum algorithms -- is advancing in parallel and compounding overall capability. Improvements in areas such as neutral atom architectures and more efficient error correction are reducing the resources required to break encryption, while algorithmic advances are lowe",
+  "full_text": "Cloudflare is accelerating\n\n its post-quantum security plans and now aims to make its entire platform fully post-quantum secure by 2029\n\n. \"The updated timeline follows new developments in quantum computing research that suggest current cryptographic standards could be broken sooner than previously expected,\" reports SiliconANGLE. From the report: The decision by Cloudflare to move its post-quantum security roadmap forward comes after Google LLC and research from Oratomic demonstrated significant advances in algorithms and hardware capable of breaking widely used encryption methods such as RSA-2048 and elliptic curve cryptography. [...] The company said progress across three key areas -- quantum hardware, error correction and quantum algorithms -- is advancing in parallel and compounding overall capability. Improvements in areas such as neutral atom architectures and more efficient error correction are reducing the resources required to break encryption, while algorithmic advances are lowering computational complexity. [...]\n\n \n\nCloudflare has already deployed post-quantum encryption across a large portion of its network and reports that more than half of human traffic it processes now uses post-quantum key agreement. The company plans to expand support for post-quantum authentication in 2026, followed by broader deployment across its network and products through 2028. By 2029, Cloudflare said, it expects all of its services to be fully post-quantum secure, with those services being available by default across its platform, without requiring customer action or additional cost as part of the company's commitment to security upgrades. \n\n Google said it plans\n\n to accelerate its post-quantum encryption migration target to 2029.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "advance",
+      "algorithm",
+      "cloudflare",
+      "correction",
+      "encryption",
+      "fully",
+      "google",
+      "google llc",
+      "plan",
+      "quantum",
+      "report",
+      "security",
+      "siliconangle"
+    ],
+    []
+  ]
+}

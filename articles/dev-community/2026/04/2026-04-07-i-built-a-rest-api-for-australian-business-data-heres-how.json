@@ -1,0 +1,44 @@
+{
+  "id": 9411,
+  "source": "DEV Community<",
+  "title": "I built a REST API for Australian business data - here's how",
+  "url": "https://dev.to/sachhm/i-built-a-rest-api-for-australian-business-data-heres-how-b94",
+  "published_at": "2026-04-07T14:07:23Z",
+  "fetched_at": "2026-04-07T14:20:21.139465+00:00",
+  "author": "Sachh Moka",
+  "summary": "<p>If you've ever tried to programmatically look up an Australian Business Number, you've probably met the ABR's SOAP/XML web service. If you've tried to get ASIC company details or ACNC charity records, you've discovered they don't have an API at all — just weekly CSV dumps.</p>\n\n<p>I built OzRegAPI to solve this. It's a REST/JSON API that wraps all three government data sources into one interface. Here's how I built it, what decisions I made, and what I learned shipping my first paid API product.</p>\n\n<h2>\n  \n  \n  The problem\n</h2>\n\n<p>Australia has three separate business registries:</p>\n\n<ul>\n<li>\n<strong>ABR</strong> (Australian Business Register) — ABN lookups, entity details, GST status. Has an API, but it's SOAP/XML with a WSDL you need to parse.</li>\n<li>\n<strong>ASIC</strong> (Australian Securities and Investments Commission) — Company registrations, types, directors. No API. They publish a ~400MB CSV file weekly.</li>\n<li>\n<strong>ACNC</strong> (Australian Charities and Not-",
+  "full_text": "If you've ever tried to programmatically look up an Australian Business Number, you've probably met the ABR's SOAP/XML web service. If you've tried to get ASIC company details or ACNC charity records, you've discovered they don't have an API at all — just weekly CSV dumps.\n\nI built OzRegAPI to solve this. It's a REST/JSON API that wraps all three government data sources into one interface. Here's how I built it, what decisions I made, and what I learned shipping my first paid API product.\n\n \n \n The problem\n\nAustralia has three separate business registries:\n\nABR (Australian Business Register) — ABN lookups, entity details, GST status. Has an API, but it's SOAP/XML with a WSDL you need to parse.\n\nASIC (Australian Securities and Investments Commission) — Company registrations, types, directors. No API. They publish a ~400MB CSV file weekly.\n\nACNC (Australian Charities and Not-for-profits Commission) — Charity records. Also no API. Also a weekly CSV.\n\nIf you're building accounting software, a customer onboarding flow, or any compliance tool in Australia, you probably need data from at least two of these. That means writing a SOAP client for ABR, a CSV ingestion pipeline for ASIC and ACNC, some kind of cross-referencing layer, and your own caching.\n\nI figured other developers had the same problem.\n\n \n \n The stack\n\nI kept it deliberately simple:\n\nPython + FastAPI — fast to build, auto-generates OpenAPI specs, async support\n\nSQLite — ASIC (3.9M companies) and ACNC (64K charities) loaded from CSV into a single DB file, baked into the Docker image\n\nzeep — Python SOAP client for talking to ABR\n\nGoogle Cloud Run — scale to zero, pay nothing when idle\n\nRapidAPI — handles billing, API keys, rate limiting, and marketplace distribution\n\nNo Redis, no Postgres, no Kubernetes. The whole thing runs as a single container.\n\n \n \n What it does\n\n16 endpoints across three tiers:\n\nFree (200 requests/day):\n\nABN lookup — pass an ABN, get entity name, status, type, GST\n\nACN lookup — ASIC company details\n\nName search — find businesses by name\n\nABN validation — checksum + active status check\n\nPro ($9.99/month):\n\n/business/{identifier} — the main endpoint. Pass an ABN or ACN, get a combined response from all three registries. Entity details, GST registration dates, ASIC company classification, ACNC charity data, name history, all in one call.\n\nBatch lookup — up to 100 ABNs in one request\n\nUltra ($29.99/month):\n\nFilter by postcode, ABN status, GST registration, charity type\n\nMonitor new registrations by month\n\nTrack record changes since a date\n\n \n \n Decisions I'd make again\n\nSQLite over Postgres. The ASIC and ACNC data is read-only and refreshed weekly. SQLite handles 3.9M rows fine, queries take <10ms, and baking the DB into the Docker image means zero infrastructure. No managed database, no connection pooling, no credentials to manage.\n\nScale-to-zero on Cloud Run. Early-stage APIs get very little traffic. Paying for an always-on server while waiting for your first subscriber is waste. Cloud Run costs literally $0 when nobody's calling.\n\nRapidAPI for distribution. Yes, they take 25%. But they handle billing, API key management, rate limiting, usage analytics, and put you in front of 200K+ developers. Building all of that yourself takes longer than building the API.\n\nThree pricing tiers. Free tier is the sales funnel — developers test before they buy. Pro is the actual product — enriched data and batch operations. Ultra is for power users who need bulk filtering and monitoring. The free tier converts to paid when someone moves from \"evaluating\" to \"integrating into production.\"\n\n \n \n Decisions I'm still thinking about\n\nBaking the database into the Docker image means every data refresh requires a full rebuild and redeploy. At weekly refresh cadence this is fine. If I ever need daily refreshes, I'll move the DB to a Cloud Storage mount.\n\nNo server-side rate limiting. RapidAPI handles per-user rate limits. I added a concurrency semaphore on ABR calls (max 5 concurrent) to protect the government API quota, but there's no per-IP limiting on the backend itself. If I add a direct billing channel later, I'll need to add this.\n\n \n \n What I learned\n\nThe government data is messier than you'd expect. The ASIC CSV is tab-delimited (not comma), uses different column names than you'd guess, and has multiple rows per company (current name + historical names). The ABR SOAP responses nest entity names inside a _value_1 array and use different field structures for companies vs sole traders. I spent more time parsing quirky government data than writing API endpoints.\n\nStress testing found real bugs. I ran 175 edge case tests (SQL injection, XSS, unicode, boundary values) and caught that sole trader ABNs returned empty names — the ABR stores individual names in legalName fields instead of mainName. Would have been a bad look if a customer found that.\n\nSecurity auditing was worth it. I ran three parallel audits (security, code quality, spec compliance) before deploying. Found 25 issues including a timing-attack-vulnerable API key comparison, a Docker container running as root, and filter endpoints that weren't caching responses. All fixed before launch.\n\nThe listing copy matters less than you think. I rewrote the RapidAPI description three times trying to make it \"sell.\" What actually matters is that the endpoints work, the responses are fast, and the documentation is accurate. Developers evaluate APIs by testing them, not reading marketing copy.\n\n \n \n The numbers\n\n16 endpoints across 3 tiers\n\n149 unit tests + 175 edge case tests + 24 integration tests against live ABR\n\nLoad tested to 50 concurrent users with zero failures\n\np95 latency: <10ms cached, ~500-2000ms uncached (ABR SOAP overhead)\n\nInfrastructure cost: $0 at current traffic (Cloud Run free tier)\n\nTime to build: about a week of focused work\n\n \n \n Try it\n\nOzRegAPI is live on RapidAPI with a free tier: https://rapidapi.com/sachhm/api/ozregapi\n\nQuick test:\n\ncurl -H \"X-RapidAPI-Key: YOUR_KEY\" \\\n -H \"X-RapidAPI-Host: ozregapi.p.rapidapi.com\" \\\n \"https://ozregapi.p.rapidapi.com/abn/49004028077\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat returns BHP's full business record as clean JSON.\n\nIf you're building something with Australian business data and have feedback on what endpoints or features would be useful, I'd genuinely like to hear it.\n\nBuilt with Python, FastAPI, and too many hours reading SOAP documentation.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "abn",
+      "abr",
+      "acnc",
+      "api",
+      "asic",
+      "australia",
+      "australian business register",
+      "build",
+      "charity",
+      "cloud",
+      "csv",
+      "datum",
+      "endpoint",
+      "fastapi",
+      "kubernetes",
+      "name",
+      "postgres",
+      "python",
+      "rapidapi",
+      "sideprojects",
+      "soap",
+      "soap/xml"
+    ],
+    [
+      "cloud",
+      "fastapi",
+      "sideprojects"
+    ]
+  ]
+}

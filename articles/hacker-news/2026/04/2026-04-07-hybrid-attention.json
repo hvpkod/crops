@@ -1,0 +1,37 @@
+{
+  "id": 9406,
+  "source": "Hacker News",
+  "title": "Hybrid Attention",
+  "url": "https://news.ycombinator.com/item?id=47674749",
+  "published_at": "2026-04-07T13:06:28Z",
+  "fetched_at": "2026-04-07T14:00:35.898833+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47674749\">Comments</a>",
+  "full_text": "TLDR: Forked pytorch and triton internals . Changed attention so its linear first layer , middle quadratic layer, last linear layer\nInference got much faster with a low perplexity hit in tests .\n\nFull attention O(n²): 17.96s / 5.6 tok/s\n\nHybridAttention O(n·W + n·D): 0.35s / 286.6 tok/s\n\nI have been building a small Rust focused language model from scratch in PyTorch. This is not a finetune. It is byte level, trained from random initialization on a Rust heavy corpus assembled here: https://codeberg.org/JohannaJuntos/Sisyphus\n\nModel and training setup\n\nThe model has 25.6M parameters with a 512 context length. It uses a byte level vocabulary of 256, with 8 layers, 8 heads, and 512 dimensional embeddings. Positional embeddings are learned and the embedding and LM head weights are tied.\n\nTraining ran for 30k steps on a 173.5M byte Rust corpus using a single RTX 4060 Ti 8GB.\n\nFinal metrics were a train loss of 0.5834, validation loss of 0.8217, and perplexity of 2.15. The best validation loss occurred around step 18.5k, which suggests some late overfitting or plateau.\n\nArchitecture\n\nThe model is a GPT style decoder, but replaces standard full attention with a HybridAttention block in each layer. This combines local windowed causal attention with a GRU like recurrent state path, along with a learned gate that mixes the two.\n\nThe local path handles short range syntax, while the recurrent path carries compressed long range state. The gate bias is initialized to favor local attention early in training.\n\nInference uses Triton kernels and custom torch.library ops.\n\nCorpus\n\nThe biggest gain came from corpus expansion.\n\nThe run started with about 31MB from Rust official sources and major projects such as rustc, cargo, rust analyzer, tokio, serde, ripgrep, clap, and axum. The corpus was expanded to 173.5M bytes by cloning the top 500 crates, with 461 successful clones.\n\nThis expansion had more impact than any architectural change.\n\nInference performance\n\nFull attention runs at about 5.6 tokens per second, while HybridAttention with KV cache reaches 286.6 tokens per second. This is about a 51x speedup with no visible quality loss.\n\nThe KV cache uses a hot window of 64 tokens in VRAM, while older tokens are compressed to 8 bit magnitude and angle and can be selectively promoted back to full precision. This changes the effective complexity from quadratic to near linear for this setup.\n\nQuality\n\nSurface Rust syntax looks decent, and imports and function signatures are often plausible. Semantics are still weak, and repetition and recursive patterns are common. It looks like Rust, but does not reason well yet.\n\nWhat seems interesting\n\nThis project combines byte level Rust only pretraining from scratch, a hybrid local attention and recurrent architecture, large scale corpus expansion across the Rust ecosystem, and a practical KV cache paging strategy that delivers large speedups on consumer GPUs.\n\nNext steps\n\nI plan to run ablations comparing hybrid attention against local only and recurrent only variants, evaluate checkpoints around 18.5k versus the final model, and add syntax level validation such as parsing and compiling generated code. I also want to explore scaling context length from 256 up to 2048 and test whether switching from byte level to BPE becomes worthwhile now that the corpus is larger.\n\nQuestions\n\nFor small code models, which evaluations have been most useful beyond perplexity?\n\nHas anyone seen hybrid local plus recurrent attention work well for code generation?\n\nGiven this setup, would you prioritize more tokens, longer context, or clean ablations first?",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "attention",
+      "bpe",
+      "byte",
+      "corpus",
+      "gpt",
+      "hybrid",
+      "hybridattention",
+      "inference",
+      "level",
+      "local",
+      "pytorch",
+      "recurrent",
+      "rust",
+      "tokio",
+      "triton",
+      "use",
+      "vram"
+    ],
+    [
+      "inference"
+    ]
+  ]
+}
