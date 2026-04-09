@@ -1,0 +1,41 @@
+{
+  "id": 9725,
+  "source": "DEV Community<",
+  "title": "I Built an AI Tool to Fix Outlook Email Compatibility Issues (Here's How)",
+  "url": "https://dev.to/zqf2013111/i-built-an-ai-tool-to-fix-outlook-email-compatibility-issues-heres-how-1ck1",
+  "published_at": "2026-04-08T13:49:34Z",
+  "fetched_at": "2026-04-08T14:00:17.381321+00:00",
+  "author": "Fei Zhang",
+  "summary": "<p>If you've ever tried to create HTML emails, you know the pain. What looks perfect in Gmail falls apart in Outlook 2016. Flexbox? Grid? CSS variables? Forget about it. We're still coding like it's 1999.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>Last month, I spent <strong>2 hours</strong> debugging a simple promotional email. ChatGPT gave me clean, modern HTML. It looked great in Chrome, fine in Gmail, and completely broken in Outlook.</p>\n\n<p>The issues?</p>\n\n<ul>\n<li>Divs don't render consistently</li>\n<li>Flexbox is a no-go</li>\n<li>CSS variables aren't supported</li>\n<li>Outlook has its own special \"features\"</li>\n</ul>\n\n<p>I needed table-based layouts, inline CSS, and conditional comments. Writing that by hand feels like time travel to the </p>\n\n<h2>\n  \n  \n  The Secret Sauce: Prompt Engineering\n</h2>\n\n<p>The magic isn't in the model—it's in the constraints:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>You are an expert email HTML dev",
+  "full_text": "If you've ever tried to create HTML emails, you know the pain. What looks perfect in Gmail falls apart in Outlook 2016. Flexbox? Grid? CSS variables? Forget about it. We're still coding like it's 1999.\n\n \n \n The Problem\n\nLast month, I spent 2 hours debugging a simple promotional email. ChatGPT gave me clean, modern HTML. It looked great in Chrome, fine in Gmail, and completely broken in Outlook.\n\nThe issues?\n\nDivs don't render consistently\n\nFlexbox is a no-go\n\nCSS variables aren't supported\n\nOutlook has its own special \"features\"\n\nI needed table-based layouts, inline CSS, and conditional comments. Writing that by hand feels like time travel to the \n\n \n \n The Secret Sauce: Prompt Engineering\n\nThe magic isn't in the model—it's in the constraints:\n\nYou are an expert email HTML developer.\n\nCRITICAL RULES:\n1. Use <table> layout only. NO <div> for structure.\n2. All CSS must be inline (style=\"...\"). NO <style> tags.\n3. NO Flexbox, Grid, or CSS variables.\n4. Images must have width/height and alt attributes.\n5. Buttons must be table-based for Outlook compatibility.\n6. Max-width: 600px for desktop consistency.\n7. Include Outlook conditional comments where needed.\n\nOUTPUT: Complete HTML email code only. No explanations.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Real Results\n\nBefore:\n\n2 hours manual coding\n\n30 minutes testing in Litmus\n\nStill finding Outlook bugs\n\nAfter:\n\n30 seconds to generate\n\n5 minutes to customize\n\nWorks in all major clients\n\n \n \n Try It Yourself\n\n🚀 Live Demo\n\nCurrent features:\n\n5 email types (Welcome, Promotional, Newsletter, Transactional, Event)\n\nNatural language input\n\nLive preview\n\nOne-click HTML copy\n\nIt's free — I'm validating whether this solves a real problem.\n\n \n \n What's Next?\n\nIf people find this useful, I'm planning:\n\nCustom brand colors/logos\n\nExport to Mailchimp/HubSpot\n\nLitmus/Email on Acid integration\n\nTemplate library\n\n \n \n The Bigger Picture\n\nEmail HTML is a perfect example of AI doing what humans hate. Nobody wants to write table-based layouts in 2025. But millions of emails are sent every day, and they need to work everywhere.\n\nAI won't replace email developers. But it can handle the boilerplate, letting humans focus on strategy and design.\n\nWhat do you think? Would you use something like this? What features would make it actually valuable for your workflow?\n\nDrop a comment — I'm building this in public and need real feedback.\n\n*P.S. If you're an email developer, I'd love your brutal honesty. Does this help, or am I solving the wrong problem?*GeoCities era.\n\n \n \n The Solution\n\nSo I built an AI tool that generates email-client-compatible HTML from plain English descriptions.\n\nExample input:\n\nA welcome email with a header image, personalized greeting, \n3 feature bullets, and a primary CTA button in brand blue\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhat it generates:\n\nTable-based layout (yes, really)\n\nInline CSS only\n\nOutlook conditional comments\n\nMobile-responsive structure\n\nImage fallbacks\n\n \n \n The Tech Stack\n\nAI Model: OpenAI GPT-4o-mini\n\nCost: ~$0.003 per email (basically free)\n\nSpeed: ~3 seconds generation time\n\nQuality: Excellent for structured HTML\n\nWhy GPT-4o-mini?\n\nCost-effective for high-volume use\n\nGreat at following strict formatting rules\n\nFast enough for real-time use\n\nFrontend: Next.js 14 + Tailwind CSS + shadcn/ui\n\nDeployment: Vercel (free tier)\n\nCode: GitHub Repository",
+  "tags": [
+    [
+      "(welcome, promotional, newsletter,",
+      "1000-words",
+      "2026",
+      "ai",
+      "build",
+      "chrome",
+      "cod",
+      "comment",
+      "conditional",
+      "css",
+      "email",
+      "html",
+      "include outlook",
+      "inline",
+      "layout",
+      "mailchimp/hubspot\n\nlitmus/email",
+      "mode",
+      "outlook",
+      "p.s.",
+      "the problem",
+      "the solution\n\nso",
+      "webdev"
+    ],
+    [
+      "ai",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": 9680,
+  "source": "Hacker News",
+  "title": "Show HN: We built a camera only robot vacuum for less than 300$ (Well almost)",
+  "url": "https://indraneelpatil.github.io/blog/2026/robot-vacuum/",
+  "published_at": "2026-04-06T05:08:20Z",
+  "fetched_at": "2026-04-08T09:20:26.233854+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47657204\">Comments</a>",
+  "full_text": "Team: Bruce Kim, Indraneel Patil \n\nBruce and I moved in together and were discussing buying a robot vacuum, but then decided to build one instead! Some design principles: \nBuy as many off the shelf parts as possible \nKeep the budget less than 500$ \nIt should have a minimum battery life to be able to navigate around the house and vacuum the floor, so that we only have to charge it once a week \n\nHardware \n\nSoftware \n\nSince we dont have any compute on the robot to do inference we decided to stream image frames from the robot to a laptop and then run inference on the robot and return result back to the robot for navigation. We teleoperated the robot around the house to collect tuples of image frame and a discrete navigation action. Our discrete navigation action set was: \n\nCOMMANDS = {\n keyboard.Key.up: \"FORWARD\\n\",\n keyboard.Key.down : \"REVERSE\\n\",\n keyboard.Key.left: \"TURN_CCW\\n\",\n keyboard.Key.right: \"TURN_CW\\n\",\n keyboard.Key.space: \"STOP\\n\"\n}\n\n \n\nThen we trained a simple CNN with behavior cloning to learn from these expert trajectories. \n\nObservations: \nLots of false positive reversing, like for these there was no need to reverse so maybe it doesnt have a good perception of depth? -> It doesnt need a good perception of depth it only needs to worry about the ground plane in front of it \nIn the kitchen seems to just keep oscillating between forward and reverse -> This could be lack of good data \nShould have created a validation / training split \nIt kept getting STOP for this, where clearly there is space ahead for it to move into \nKept getting FORWARD for this, when clearly an obstacle can be seen \nDont think it is trained super well \nThere is some motion blur but most images are really nice \nSTOP action can get the robot stuck in front of an obstacle, is that really needed? Can we remove STOP? This paper only use the STOP action when robot has reached the goal \nI feel like what its learnt is quite random but it has learnt to back up when very close to an obstacle or its about to hit something which is really nice \nWhat it hasnt learnt is how to determine there is free space in front of you \nAlso doesnt know how to navigate out of tough spots \nThere is a signal in the image for it to learn forward and reverse but there is no signal in the image for it to learn clock wise and counter clockwise \n\nTraining Experiments: \n\nCalculating Validation Loss \n\nWe split the data into training and validation sets and then we found that the network has a very low validation loss. \n\nSo there could be two explanations: \nNetwork is overfitting training data \nThere is not enough signal in the data to learn \n\nWe can test the first explanation through data augmentation or pre training the network on a large dataset and see if that improves validation loss. \n\nData Augmentation \n\n augmentations = {\n \"grayscale\": T.Grayscale(num_output_channels=3),\n \"gaussianblur\": T.GaussianBlur(kernel_size = (3,5), sigma = (2,9)),\n \"noise:\": addnoise,\n \"colourjitter\": T.ColorJitter(brightness=0.5, contrast=0.5, saturation=0.5, hue=0.1),\n \"original\": lambda x: x,\n }\n\n \n\nI wrote a script to apply these augmentations on the original dataset of 600 image-action tuples to get a data of size of about 30000. \n\nValidation loss is still high and does not follow the training loss curve. \n\nPre-training network on ImageNet \n\nI followed this tutorial to pre train the network on image net. \n\nValidation loss still does not converge which means that the network is not overffitting, the dataset just does not have enough signal to learn. \n\nFuture work \nAdd history of image frames, instead of a single frame \nCollect more and better data: Our robot teleoperation wasnt always consistent and had some randomness in it. \nGo through the data, eliminate noisy data and so on. \n\nSummary \n\nThis was a lot of fun! we built a very capable robot. Since we were working on the project only part time, on evenings and weekends it took us about 3 months to build the robot and another month to write the software. We were able to achieve the budget requirement and then robot costs about 300$ only. \n\nSome limitations: \nThe vacuum isnt super strong and I wish we had spent more time just designing the vacuum, the inlet and its power specs (Cant believe this is the second time I made this mistake) \nWe had to use two separate batteries, one to power the vacuum and the other to power the rest of the system because the vacuum motor power on causes a voltage drop in the circuit \nNo autonomous charging \nRobot isnt completely autonomous and gets stuck in places so needs baby sitting while it is cleaning.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "augmentation",
+      "cnn",
+      "datum",
+      "doesnt",
+      "image",
+      "imagenet",
+      "learn",
+      "network",
+      "robot",
+      "robovac",
+      "training",
+      "turn_ccw\\n",
+      "turn_cw\\n",
+      "vacuum",
+      "validation"
+    ],
+    []
+  ]
+}

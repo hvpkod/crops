@@ -1,0 +1,45 @@
+{
+  "id": 9885,
+  "source": "DEV Community<",
+  "title": "I Spent Four Weeks Reading 200+ Sources on Context Engineering. Here's What I Built.",
+  "url": "https://dev.to/johnnichev/i-spent-four-weeks-reading-200-sources-on-context-engineering-heres-what-i-built-2fem",
+  "published_at": "2026-04-08T22:13:17Z",
+  "fetched_at": "2026-04-08T22:40:50.470797+00:00",
+  "author": "John Nichev",
+  "summary": "<p>A launch post for <a href=\"https://skills.nichevlabs.com\" rel=\"noopener noreferrer\">nv:context</a>, a Claude Code skill that sets up context engineering for any repository in three minutes.</p>\n\n<h2>\n  \n  \n  The wall I kept hitting\n</h2>\n\n<p>I build production Python services with AI coding agents. Claude Code, Cursor, Copilot, the whole rotation. And no matter how carefully I wrote my <a href=\"http://CLAUDE.md\" rel=\"noopener noreferrer\">CLAUDE.md</a> files, I kept hitting the same wall: the agent would forget rules mid-session, run the wrong test command, or touch files it shouldn't.</p>\n\n<p>I did what most people do. I wrote longer <a href=\"http://CLAUDE.md\" rel=\"noopener noreferrer\">CLAUDE.md</a> files. Added more \"don't do X\" instructions. Tried <code>/init</code>. Nothing clicked.</p>\n\n<p>Eventually I sat down to figure out why. Four weeks later, I had read 200+ sources on what the research calls <strong>context engineering</strong>. The picture was clearer than I expected, and",
+  "full_text": "A launch post for nv:context, a Claude Code skill that sets up context engineering for any repository in three minutes.\n\n \n \n The wall I kept hitting\n\nI build production Python services with AI coding agents. Claude Code, Cursor, Copilot, the whole rotation. And no matter how carefully I wrote my CLAUDE.md files, I kept hitting the same wall: the agent would forget rules mid-session, run the wrong test command, or touch files it shouldn't.\n\nI did what most people do. I wrote longer CLAUDE.md files. Added more \"don't do X\" instructions. Tried /init. Nothing clicked.\n\nEventually I sat down to figure out why. Four weeks later, I had read 200+ sources on what the research calls context engineering. The picture was clearer than I expected, and uglier. Here's the punchline:\n\nBad context doesn't just not help. It actively hurts.\n\nETH Zurich found that auto-generated agent config files reduce success by 3% and increase costs 20%+\n\nMETR ran a controlled study on experienced developers and found they were 19% slower with AI tools when context was poorly managed, despite feeling 24% faster\n\nFlowHunt / LongMemEval showed that a focused 300-token context outperforms an unfocused 113K-token context on the same task\n\nDex Horthy has shown that using 40% of the context window outperforms using 90%\n\nAnthropic and Manus production data: below 60% context utilization is safe. At 70%, precision drops. At 85%, hallucinations begin.\n\nThe thing that shifted my thinking was Philipp Schmid's line:\n\n\"Most agent failures are not model failures. They are context failures.\"\n\n \n \n The 8 laws that came out of it\n\nLess is more. Every line in your context competes with the actual task for attention.\n\nLandmines, not maps. Document what agents can't discover by reading the code.\n\nCommands beat prose. One snippet showing npm run test -- --coverage --maxWorkers=2 beats three paragraphs.\n\nContext is finite. Frontier LLMs follow roughly 150 to 200 instructions consistently.\n\nProgressive disclosure. Layer it: root CLAUDE.md, subdirectory CLAUDE.md, skills, MCP tools.\n\nHooks for determinism. If a rule MUST be followed 100% of the time, use a hook.\n\nNegative instructions backfire. \"Don't use moment.js\" makes models more likely to use moment.js. Say \"MUST use date-fns\" instead.\n\nCompact proactively. Don't wait for Claude to compact at 95%. Update HANDOFF.md, run /clear, start fresh.\n\n \n \n The hierarchy of leverage\n\nPriority Layer Compliance Cost to set up\n───────────────────────────────────────────────────\n 1 Verification 100% Medium\n 2 CLAUDE.md / AGENTS.md 90-95% Low\n 3 Hooks 100% Low\n 4 Skills ~79% Medium\n 5 Subagent patterns Variable Medium\n 6 Session management Manual Low\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nMost people optimize from the bottom up. The best engineers start at the top.\n\n \n \n What nv:context does\n\nInterviews you about your tools, pain points, landmines, and workflow preferences\n\nScans your codebase with parallel subagents to find non-obvious patterns\n\nScores your setup on all six leverage layers (0-10 per layer, 0-60 overall)\n\nGenerates tailored configs for only the tools you actually use\n\nSets up hooks for deterministic enforcement\n\nCreates session management infrastructure\n\nInstalls compounding engineering (optional GitHub Action)\n\n \n \n Production proof\n\n \n \n selectools (Python SDK, 4,612 tests)\n\nStarting state: L3 maturity, 49/60 leverage score, 440-line CLAUDE.md.\n\nAfter: L5-L6, 58/60. CLAUDE.md went from 440 lines to 67 (-85%). Token budget dropped 53%.\n\n \n \n nichevlabs (multi-product SaaS)\n\nStarting state: L4 maturity, 17/60 leverage score.\n\nThe smoking gun: a 805-line SESSION.md that got loaded on every session start. 17,000 tokens. On every conversation. nv:context's token budget report made it impossible to ignore.\n\nAfter: L6, 49/60 (up 32 points). SESSION.md went from 805 lines to 59 (-93%). Saved 15,800 tokens per session. A parallel bug-hunt subagent surfaced 81 real bugs while it was analyzing the codebase.\n\n \n \n sheriff (Python + TypeScript)\n\nAlready-strong setup. L4 maturity, 36/60 leverage score going in.\n\nAfter: L5, 42/60 (+6 points). Smaller delta than the others. Incremental polish, not a rewrite.\n\nThe through-line across all three: the skill is not a template generator. Same methodology, radically different outputs.\n\n \n \n What it works with\n\nThe generated AGENTS.md is read by 25+ AI coding tools including Claude Code, Cursor, GitHub Copilot, Aider, Codeium, Continue, Windsurf, Zed, Gemini CLI, Cline. Tool-specific files only get generated for the tools you actually use.\n\n \n \n Install\n\nnpx skills add johnnichev/nv-context -g -y\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThen open any project and run /nv-context. Three-minute interview, thirty seconds of parallel analysis, done.\n\n \n \n The research library\n\nFull research library: https://skills.nichevlabs.com/research\n\nFull synthesis (10 laws, 4 operations, 7-component context stack): https://skills.nichevlabs.com/synthesis\n\nPrimary sources include Anthropic engineering blog, Google DeepMind research, OpenAI Agents docs, ETH Zurich agent config paper, METR controlled developer study, JetBrains NeurIPS 2025 paper, Manus production data, GitHub's analysis of 2,500 public AGENTS.md files, Boris Cherny, and Dex Horthy.\n\n \n \n Honest caveats\n\nThree production repos is a small sample.\n\n60% token overhead on first run. First-run benchmark: 100% pass rate vs 45.8% baseline.\n\nResearch coverage is Python and JavaScript heavy. Rust, Go, Kotlin, and Elixir are thinner.\n\nThe skill is opinionated.\n\n \n \n If you build AI coding agents for a living\n\nContext engineering is the discipline that separates AI tools that work in demos from AI tools that work in production. If you have been writing longer CLAUDE.md files and things keep not quite working, try nv:context on your repo.\n\nTwo things launch alongside nv:context today. First, selectools, the Python agent framework I built that taught me I needed a methodology. Second, the landing page you just read about this methodology was built entirely with nv:design.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "agentskills",
+      "ai",
+      "claude",
+      "claude.md",
+      "cod",
+      "context",
+      "context engineering",
+      "copilot",
+      "cursor",
+      "engineering",
+      "frontier",
+      "github copilot",
+      "leverage",
+      "llm",
+      "mcp",
+      "parallel",
+      "production",
+      "python sdk",
+      "skill",
+      "subagent",
+      "token",
+      "tool"
+    ],
+    [
+      "agentskills",
+      "ai",
+      "engineering"
+    ]
+  ]
+}

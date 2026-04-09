@@ -1,0 +1,29 @@
+{
+  "id": 9821,
+  "source": "Hacker News",
+  "title": "Show HN: Orange Juice – Small UX improvements that make HN much easier to read",
+  "url": "http://oj-hn.com/",
+  "published_at": "2026-04-08T18:08:52Z",
+  "fetched_at": "2026-04-08T19:00:18.493253+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47694036\">Comments</a>",
+  "full_text": "Follow users from anywhere on HN and open a dedicated feed of their\n recent comments and submissions. Reorder users by dragging, collapse\n sections you do not want open by default, and refresh one person at\n a time without reloading everything else.\n \n \n\n \n\n Small follow buttons appear next to usernames across Hacker\n News.\n \n \n\n The /following page keeps the normal HN look\n instead of inventing a separate UI.\n \n \n\n Recent fetched activity is cached locally to keep the page fast,\n with per-user refresh controls when you want a fresh pull.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "fetched",
+      "follow",
+      "hacker",
+      "hacker\n news",
+      "keep",
+      "open",
+      "page",
+      "recent",
+      "refresh",
+      "reload",
+      "reorder"
+    ],
+    []
+  ]
+}

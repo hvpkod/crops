@@ -1,0 +1,41 @@
+{
+  "id": 9727,
+  "source": "DEV Community<",
+  "title": "Per-customer cost attribution without a proxy",
+  "url": "https://dev.to/amedinat/per-customer-cost-attribution-without-a-proxy-3dpj",
+  "published_at": "2026-04-08T13:44:49Z",
+  "fetched_at": "2026-04-08T14:00:21.745523+00:00",
+  "author": "John Medina",
+  "summary": "<p>Most AI cost tracking solutions force you to route all your LLM traffic through their proxy. Tbh, that's an architectural nightmare waiting to happen. You're adding latency, introducing a single point of failure, and giving some third-party service the keys to your entire prompt stream.</p>\n\n<p>If their proxy goes down, your app goes down. If their proxy gets slow, your users think your app is slow. And let's not even talk about the compliance headache of sending sensitive customer data through an intermediary just to track API costs. </p>\n\n<p>You don't need a proxy to figure out which customer is burning your OpenAI budget. You just need proper attribution at the request level, handled asynchronously.</p>\n\n<h3>\n  \n  \n  The Problem with LLM Billing\n</h3>\n\n<p>When you look at your billing dashboard on OpenAI or Anthropic, you just see total tokens used and a massive dollar amount at the end of the month. You don't see that <code>user_123</code> ran a massive batch extraction job that",
+  "full_text": "Most AI cost tracking solutions force you to route all your LLM traffic through their proxy. Tbh, that's an architectural nightmare waiting to happen. You're adding latency, introducing a single point of failure, and giving some third-party service the keys to your entire prompt stream.\n\nIf their proxy goes down, your app goes down. If their proxy gets slow, your users think your app is slow. And let's not even talk about the compliance headache of sending sensitive customer data through an intermediary just to track API costs. \n\nYou don't need a proxy to figure out which customer is burning your OpenAI budget. You just need proper attribution at the request level, handled asynchronously.\n\n \n \n The Problem with LLM Billing\n\nWhen you look at your billing dashboard on OpenAI or Anthropic, you just see total tokens used and a massive dollar amount at the end of the month. You don't see that user_123 ran a massive batch extraction job that cost you $40 in API calls, while your other 100 users cost $2 combined.\n\nMulti-tenant SaaS apps need unit economics. If you charge a flat $20/mo subscription but a power user is burning $50/mo in Claude 3.5 API costs, you are actively losing money. But to fix it, you need to know exactly who is spending what.\n\n \n \n Why Proxies Are a Bad Idea for This\n\nA lot of dev tools in the AI space right now tell you to just swap your base URL from api.openai.com to proxy.theirservice.com. \n\nHere is what happens when you do that:\n\nEvery request adds 50-200ms of network overhead.\n\nIf the proxy goes down, your production app fails to serve requests.\n\nYou are sending raw PII and proprietary data to a vendor just to count tokens.\n\nIt's massive overkill. Cost tracking should be out-of-band. It should never be in the critical path of your application's request/response cycle.\n\n \n \n The Async Logging Approach\n\nThe correct way to handle this is logging costs asynchronously after the request completes. Your app talks directly to the provider (OpenAI, DeepSeek, OpenRouter, Anthropic), gets the token usage from the response, and fires a background job to log it against the customer ID in your own database.\n\nHere is the flow:\n\nUser triggers an action.\n\nYour backend calls the LLM provider directly using their official SDK.\n\nProvider responds with the completion and usage stats (prompt_tokens, completion_tokens).\n\nYour backend returns the response to the user immediately.\n\nYour backend fires a non-blocking async event (e.g., using Inngest, BullMQ, or standard background workers) with the user ID, model used, and token count.\n\nThis gives you zero added latency. Zero third-party risk. Your app stays fast and reliable even if your cost-tracking database goes down.\n\n \n \n Implementing the Calculation\n\nCalculating the cost is straightforward but tedious. You need to maintain a pricing table for every model you support. \n\nFor example, if the payload from OpenAI says:\n\n{ \"prompt_tokens\": 1500, \"completion_tokens\": 400 }\n\nThe background worker calculates the cost based on current model pricing and writes it to your database.\n\nThis gives you zero added latency. Zero third-party risk. Your app stays fast and reliable even if your cost-tracking database goes down.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "add",
+      "ai",
+      "api",
+      "backend",
+      "claude",
+      "cost",
+      "go",
+      "inngest",
+      "llm",
+      "massive",
+      "openai",
+      "openrouter",
+      "pii",
+      "proxy",
+      "sdk",
+      "send",
+      "stay",
+      "user",
+      "webdev",
+      "zero"
+    ],
+    [
+      "ai",
+      "webdev"
+    ]
+  ]
+}

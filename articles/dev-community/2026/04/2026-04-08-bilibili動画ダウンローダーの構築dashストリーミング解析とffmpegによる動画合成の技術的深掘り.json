@@ -1,0 +1,44 @@
+{
+  "id": 9660,
+  "source": "DEV Community<",
+  "title": "Bilibili動画ダウンローダーの構築：DASHストリーミング解析とFFmpegによる動画合成の技術的深掘り",
+  "url": "https://dev.to/yqqwe/bilibilidong-hua-daunrodanogou-zhu-dashsutorimingujie-xi-toffmpegniyorudong-hua-he-cheng-noji-shu-de-shen-jue-ri-4bcp",
+  "published_at": "2026-04-08T07:51:14Z",
+  "fetched_at": "2026-04-08T08:00:19.286235+00:00",
+  "author": "yqqwe",
+  "summary": "<p>はじめに<br />\nモダンなWeb開発において、ストリーミングメディアの解析は非常に興味深いテーマです。特に中国最大の動画共有プラットフォームである Bilibili（ビリビリ動画） は、YouTubeとは異なる独自の技術スタックとエコシステムを持っており、開発者にとって挑戦しがいのある課題を提供しています。<br />\n私は先日、<a href=\"https://twittervideodownloaderx.com/bilibili_downloader_ja\" rel=\"noopener noreferrer\">Bilibiliの動画を高品質で保存</a>するためのツール「Bilibili動画ダウンロード」をリリースしました。この記事では、このツールを開発する過程で直面した技術的課題——特にDASHプロトコルの解析、BV/AV IDの変換ロジック、そして<strong>サーバーサイドでの動画合成（Muxing）</strong>について詳しく解説します。</p>\n\n<h2>\n  \n  \n  1. Bilibili独自のIDシステム：AVからBVへの変遷\n</h2>\n\n<p>Bilibiliには、動画を一意に特定するための2つのIDシステムが存在します。<br />\nAV番号とBV番号<br />\nかつて、動画は av（Audio Video）で始まる整数値で管理されていました。しかし、2020年以降、データのクロール（巡回）を防ぎ、セキュリティを強化するために、Base58エンコードに基づいた BV 番号へと移行しました。<br />\n技術的な変換アルゴリズム<br />\n開発者として、ツールには両方のフォーマットをサポートさせる必要があります。BV番号は単なる文字列ではなく、特定のアルゴリズムによって数値に変換可能です。これには、排他的論理和（XOR）や特定のシフト演算、そして独自のキャラクターテーブル（fZodR9...）が用いられています。この変換をサーバーサイドで実装することで、ユーザーがどのURLを入力しても正確に動画を特定できるようになりました。</p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%",
+  "full_text": "はじめに\n\nモダンなWeb開発において、ストリーミングメディアの解析は非常に興味深いテーマです。特に中国最大の動画共有プラットフォームである Bilibili（ビリビリ動画） は、YouTubeとは異なる独自の技術スタックとエコシステムを持っており、開発者にとって挑戦しがいのある課題を提供しています。\n\n私は先日、Bilibiliの動画を高品質で保存するためのツール「Bilibili動画ダウンロード」をリリースしました。この記事では、このツールを開発する過程で直面した技術的課題——特にDASHプロトコルの解析、BV/AV IDの変換ロジック、そしてサーバーサイドでの動画合成（Muxing）について詳しく解説します。\n\n \n \n 1. Bilibili独自のIDシステム：AVからBVへの変遷\n\nBilibiliには、動画を一意に特定するための2つのIDシステムが存在します。\n\nAV番号とBV番号\n\nかつて、動画は av（Audio Video）で始まる整数値で管理されていました。しかし、2020年以降、データのクロール（巡回）を防ぎ、セキュリティを強化するために、Base58エンコードに基づいた BV 番号へと移行しました。\n\n技術的な変換アルゴリズム\n\n開発者として、ツールには両方のフォーマットをサポートさせる必要があります。BV番号は単なる文字列ではなく、特定のアルゴリズムによって数値に変換可能です。これには、排他的論理和（XOR）や特定のシフト演算、そして独自のキャラクターテーブル（fZodR9...）が用いられています。この変換をサーバーサイドで実装することで、ユーザーがどのURLを入力しても正確に動画を特定できるようになりました。\n\n \n \n 2. DASHプロトコルの深い理解と課題\n\nBilibiliの動画配信の核心は DASH (Dynamic Adaptive Streaming over HTTP) です。これが、単なる動画ファイルのURLをスクレイピングする以上の難易度を生んでいます。\n\n動画と音声の分離（Video/Audio Separation）\n\nDASHプロトコルにおいて、Bilibiliは動画ストリーム（M4S形式）と音声ストリーム（M4S形式）を完全に別々のURLで配信しています。\n\n• 利点: ユーザーの回線速度に合わせて、音声はそのままに動画の解像度（1080Pや4Kなど）だけを動的に変更できる。\n\n• 課題: ダウンローダーとしては、2つの異なるストリームを同時に取得し、最終的に1つのファイルに結合する必要があります。\n\nAPIの交渉（API Negotiation）\n\n高品質な動画（4Kや60fps）を取得するには、適切なAPIエンドポイントに対して、認証トークンやクッキー、そして厳格な Referer ヘッダーを送信しなければなりません。\n\n \n \n 3. 高効率なバックエンド・アーキテクチャ\n\ntwittervideodownloaderx.com/bilibili_downloader_ja のバックエンドは、高負荷に耐えるよう Python/Django と非同期処理を用いて設計されています。\n\n非同期I/Oによる並列処理\n\n動画の解析とダウンロードはI/Oバウンドなタスクです。httpx と asyncio を利用することで、以下のプロセスを並列化しています。\n\n 動画のメタデータ（タイトル、カバー画像）の取得\n\n 動画ストリームのURL解析\n\n 音声ストリームのURL解析\nサーバーサイドでのFFmpegによる多重化（Muxing）\nユーザーに1つのMP4ファイルを提供するために、バックエンドで動画と音声を合成します。ここで重要なのは、再エンコードを避けることです。\nBash\nffmpeg -i video.m4s -i audio.m4s -c copy -map 0✌️0 -map 1🅰️0 output.mp4\n-c copy フラグを使用することで、CPU負荷を最小限に抑えつつ、画質を一切劣化させずに合成を完了させることができます。\n\n \n \n 4. セキュリティとアンチスクレイピングへの対策\n\nBilibiliのCDNは非常に強力です。403 Forbidden エラーを回避するために、以下の技術的対策を講じています。\n\n• Refererスプーフィング: リクエストヘッダーに必ず https://www.bilibili.com/ を含める必要があります。\n\n• 動的プロキシ: 大量のリクエストによるIP制限を避けるため、分散されたプロキシレイヤーを介してメタデータを取得しています。\n\n• レート制限の管理: サーバーサイドでキューを管理し、プラットフォーム側に過度な負荷をかけないよう配慮しています。\n\nUI/UXの最適化：エンジニアリングの視点\nツールは使いやすくなければなりません。\n• マルチデバイス対応: レスポンシブデザインを採用し、PCでもスマートフォンでも快適に動作します。\n• 高速なレスポンス: フロントエンドはピュアなJavaScriptとモダンなCSS（Grid/Flexbox）で構築されており、読み込み速度を極限まで高めています。\n• 多言語対応: 今回リリースした 日本語版 を含め、グローバルなユーザーが自国語で利用できるようローカライズを行っています。\n\n \n \n 結論\n\nBilibili動画ダウンローダーの開発は、Webリバースエンジニアリング、ストリーミングプロトコルの最適化、そして効率的なサーバー管理を学ぶ絶好の機会でした。\n\nもし、高品質で安定したBilibili動画の保存ツールをお探しであれば、ぜひ私のプロジェクトを試してみてください： 👉 Bilibili動画ダウンロード - 高画質・高速ツール\n\n技術スタックの概要:\n\n• Backend: Python 3.x / Django\n\n• Processing: FFmpeg (Stream Copy Mode)\n\n• Networking: Httpx / Asyncio\n\n• Infrastructure: Nginx / Docker\n\nこのプロジェクトの技術的な詳細や、DASHプロトコルの実装について質問があれば、ぜひコメント欄で教えてください！\n\n \n \n WebDev #Python #Bilibili #Programming #TechBlog #動画処理",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "asyncio",
+      "av番号とbv番号",
+      "bilibili",
+      "bilibiliの動画配信の核心は",
+      "copy",
+      "dashプロトコルの深い理解と課題",
+      "dashプロトコルの深い理解と課題\n\nbilibiliの動画配信の核心は",
+      "ffmpeg",
+      "learning",
+      "nginx / docker",
+      "programming",
+      "python/django",
+      "referer",
+      "streaming",
+      "ui/uxの最適化：エンジニアリングの視点\nツールは使いやすくなければなりません",
+      "webdev",
+      "はじめに",
+      "セキュリティとアンチスクレイピングへの対策",
+      "動画のメタデータ（タイトル、カバー画像）の取得",
+      "技術的な変換アルゴリズム"
+    ],
+    [
+      "bilibili",
+      "learning",
+      "programming",
+      "streaming",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": 9777,
+  "source": "DEV Community<",
+  "title": "Why Your AI Coding Agent Needs a Digital Straitjacket",
+  "url": "https://dev.to/haabe/why-your-ai-coding-agent-needs-a-digital-straitjacket-5beb",
+  "published_at": "2026-04-08T16:27:07Z",
+  "fetched_at": "2026-04-08T16:40:27.342602+00:00",
+  "author": "Håvard Bartnes",
+  "summary": "<p><strong>We are giving AI coding agents way too much freedom. What they actually need is a digital straitjacket.</strong></p>\n\n<p>My north star in software development has always been simple: create actual value. Make things that make people's lives easier—or as Jonathan Smart perfectly puts it: <em>Better Value Sooner Safer Happier (BVSSH).</em></p>\n\n<p>But for 20 years, I’ve watched the industry actively fight this. I started in the waterfall factory floors of the dot-com bubble. Later, as a Scrum PO and agency owner, I fought fake agile and HiPPOs (Highest Paid Person's Opinion). When consulting in critical national infrastructure, I had to drag teams kicking and screaming into modern DevOps. </p>\n\n<p>The core issue is always human: we know the right practices, but when deadlines loom, we drop the theories and take shortcuts.</p>\n\n<p>For a long time, I dreamed of building a SaaS platform—a UI to force teams to actually follow product frameworks. But as generative AI evolved, I rea",
+  "full_text": "We are giving AI coding agents way too much freedom. What they actually need is a digital straitjacket.\n\nMy north star in software development has always been simple: create actual value. Make things that make people's lives easier—or as Jonathan Smart perfectly puts it: Better Value Sooner Safer Happier (BVSSH).\n\nBut for 20 years, I’ve watched the industry actively fight this. I started in the waterfall factory floors of the dot-com bubble. Later, as a Scrum PO and agency owner, I fought fake agile and HiPPOs (Highest Paid Person's Opinion). When consulting in critical national infrastructure, I had to drag teams kicking and screaming into modern DevOps. \n\nThe core issue is always human: we know the right practices, but when deadlines loom, we drop the theories and take shortcuts.\n\nFor a long time, I dreamed of building a SaaS platform—a UI to force teams to actually follow product frameworks. But as generative AI evolved, I realized that building AI middleware was a dead end. The real power lies directly in the agents. So, I shelved the idea.\n\n \n \n The Problem: AI Makes the Same Mistakes, Just 100x Faster\n\nWhile building my DAW project, N-trax, I moved from the bloated bureaucracy of AWS Kiro to the reckless speed of Claude Code. I finally figured out how to mechanically harness an agent’s delivery phase. \n\nThat was the spark. It was time to resurrect my old dream, not as a SaaS, but as an open-source boilerplate. \n\nI built Mycelium—a harnessing system for Claude Code that forces the agent to do proper product development from discovery to delivery.\n\nTo test the process (and honestly, because I just really wanted these products), I used Mycelium to guide Claude through building a multiplayer WebSockets game (play it here) and a native macOS app. \n\nThe early versions were a massive wake-up call.\n\nThe AI aced the product discovery. It mapped Opportunity Solution Trees perfectly. But then it shipped the macOS app with zero tests and completely ignored accessibility (WCAG). \n\nWhy? Because my rules were just \"friendly advice.\" The AI acted exactly like a stressed human product team: it invested heavily in discovery, then took the path of least resistance during delivery.\n\n \n \n The Solution: Mechanical Enforcement\n\nUnlike humans, AI doesn't have feelings. It doesn't get annoyed by rigid, theory-driven bureaucracy.\n\nThis led to Mycelium v0.5.0. It is, quite literally, a digital straitjacket designed to guarantee BVSSH. It encodes 20+ frameworks into a mechanical, three-tier enforcement architecture:\n\n🚫 BLOCKED: Physically stops fatal errors (e.g., exiting with code 2 if it tries to write secrets to disk).\n\n🚧 GATED: The agent cannot mark delivery as \"done\" until automated tests exist, accessibility is checked, and the OWASP threat model is updated. \n\n💡 ADVISORY: Nudges for clean code (DRY, KISS) and cognitive bias awareness.\n\nAdd to that a brutal corrections loop: The agent cannot write a single line of code without first reading its own previous mistakes. \n\n \n \n The Theory Stack Under the Hood\n\nFor those curious about how the gates are structured, Mycelium encodes frameworks from:\n\nTeresa Torres (Continuous Discovery)\n\nMarty Cagan (Empowered Teams)\n\nNicole Forsgren & Gene Kim (DORA / Accelerate)\n\nLou Downe (Good Services)\n\nMatthew Skelton & Manuel Pais (Team Topologies)\n\nItamar Gilad (GIST)\n\n...along with OWASP, WCAG 2.1 AA, and cognitive bias mitigations by Richard Shotton and Daniel Kahneman.\n\n \n \n I Need Your Help Stress-Testing This\n\nThe era of \"vibecoding\" needs to end. We need to force discipline into the loop.\n\nMycelium is a hypothesis. Testing it on my own projects isn't enough to prove it scales. If you are tired of AI writing incredibly fast code for the wrong problems, check out the repo:\n\n🔗 haabe/mycelium on GitHub\n\nRun it on your next project, see how the agent reacts to the straitjacket, and please open an issue or a PR when it breaks. \n\nWhere do you draw the line between giving an AI agent freedom and putting it in a straitjacket? Let me know in the comments!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai",
+      "build",
+      "claude",
+      "cod",
+      "code",
+      "daw",
+      "devops",
+      "dora / accelerate",
+      "dry",
+      "force",
+      "give",
+      "kiss",
+      "mycelium",
+      "opensource",
+      "opportunity solution trees",
+      "owasp",
+      "product",
+      "productivity",
+      "softwareengineering",
+      "straitjacket",
+      "wcag",
+      "websockets"
+    ],
+    [
+      "ai",
+      "devops",
+      "opensource",
+      "productivity",
+      "softwareengineering"
+    ]
+  ]
+}

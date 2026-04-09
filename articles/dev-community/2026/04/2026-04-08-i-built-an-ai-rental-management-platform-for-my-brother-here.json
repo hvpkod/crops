@@ -1,0 +1,41 @@
+{
+  "id": 9884,
+  "source": "DEV Community<",
+  "title": "I Built an AI Rental Management Platform for My Brother. Here's What Actually Happened.",
+  "url": "https://dev.to/arielf/i-built-an-ai-rental-management-platform-for-my-brother-heres-what-actually-happened-4385",
+  "published_at": "2026-04-08T22:21:04Z",
+  "fetched_at": "2026-04-08T22:40:49.279141+00:00",
+  "author": "Ariel Frischer",
+  "summary": "<p>My brother manages rental properties on the side while working full-time as a real estate agent. I watched him spend 8-10 hours per week repeating the same ten screening questions over the phone -- income, pets, move-in date, credit, rental history -- between showings, after dinner, every single day. Nothing recorded anywhere.</p>\n\n<p>71 percent of landlords rank tenant screening among their top three burdens. 45 percent of renters expect a reply within hours. Miss that window and the prospect moves on.</p>\n\n<p>I didn't set out to build a product. I set out to solve my brother's problem.</p>\n\n<h2>\n  \n  \n  Three Weeks of Real Data\n</h2>\n\n<div class=\"table-wrapper-paragraph\"><table>\n<thead>\n<tr>\n<th>Metric</th>\n<th>Result</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Prospect sessions</td>\n<td>126</td>\n</tr>\n<tr>\n<td>Contacts captured</td>\n<td>71</td>\n</tr>\n<tr>\n<td>Completed pre-screenings</td>\n<td>55</td>\n</tr>\n<tr>\n<td>Response time</td>\n<td>Hours → under 30 seconds</td>\n</tr>\n<tr>\n<td>Time",
+  "full_text": "My brother manages rental properties on the side while working full-time as a real estate agent. I watched him spend 8-10 hours per week repeating the same ten screening questions over the phone -- income, pets, move-in date, credit, rental history -- between showings, after dinner, every single day. Nothing recorded anywhere.\n\n71 percent of landlords rank tenant screening among their top three burdens. 45 percent of renters expect a reply within hours. Miss that window and the prospect moves on.\n\nI didn't set out to build a product. I set out to solve my brother's problem.\n\n \n \n Three Weeks of Real Data\n\nMetric\nResult\n\nProspect sessions\n126\n\nContacts captured\n71\n\nCompleted pre-screenings\n55\n\nResponse time\nHours → under 30 seconds\n\nTime saved\n8-10 hrs/week\n\n126 conversations my brother didn't have to initiate, manage, or follow up on. 71 contacts captured automatically as a byproduct of the conversation. 55 pre-qualified prospects with structured, comparable data.\n\nThe pre-screening flow is still in beta and has been improved since these early numbers.\n\n \n \n How It Works\n\nA prospect reaches out -- text, email, wherever. You send them your pre-screening link, or they find you on your public agent page where all your listings live in one place. Instead of waiting for a callback, they're talking to voice AI in seconds -- in their preferred language.\n\nThe AI walks them through screening conversationally -- not a robotic form. You get a clean email summary with every answer organized, contact info captured, and the full transcript saved to your dashboard. All while you were showing another property, driving, or sleeping.\n\n \n \n What Rentalot Does\n\nVoice AI pre-screening -- handles calls in four languages, transcribes everything in real time\n\nAI management chat -- draft emails, look up contacts, check showings, manage properties from a web chat interface\n\nCLI + MCP tools -- plug Claude, Gemini, Codex, or any AI agent directly into your rental data\n\nAutomated email follow-ups -- references the actual conversation, not generic templates\n\nGoogle Calendar + Cal.com integration -- AI schedules showings directly from your availability\n\nPublic agent page -- one link shows all your listings, prospects self-select and submit\n\nOrganized records -- every contact, every answer, every interaction saved and searchable\n\nAlready have listings on Zillow or Apartments.com? Export your properties and bulk-import them into Rentalot using an AI agent with our open-source rentalot skill -- no manual data entry.\n\n \n \n The Point\n\nLeasing is repetitive. Same questions, same follow-ups, same scheduling back-and-forth -- day after day. Most leasing agents didn't get into real estate to spend their evenings on phone tag and data entry.\n\nAI doesn't replace the human side of leasing. It removes the grind so you can get back to the parts you actually enjoy -- working with people, closing deals, building something.\n\n \n \n Looking for Early Users\n\nRentalot is in alpha -- free trial, no credit card. I'm looking for my first 20 customers to iterate with. If you give me real feedback that shapes the product, I'll personally help with any technical issues and build the features you need.\n\nIf you manage rentals on the side and your evenings look like my brother's used to -- buried in screening calls, losing track of prospects, watching leads go cold overnight -- that's exactly the problem this was built to solve.\n\nrentalot.ai",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "apartments.com",
+      "capture",
+      "cli",
+      "contact",
+      "payments",
+      "productivity",
+      "programming",
+      "property",
+      "prospect",
+      "real",
+      "rental",
+      "rentalot",
+      "save",
+      "screen",
+      "show",
+      "the point\n\nleasing",
+      "webdev"
+    ],
+    [
+      "ai",
+      "productivity",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

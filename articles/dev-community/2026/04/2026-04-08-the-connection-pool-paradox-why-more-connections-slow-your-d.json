@@ -1,0 +1,37 @@
+{
+  "id": 9734,
+  "source": "DEV Community<",
+  "title": "The connection pool paradox: why more connections slow your database down",
+  "url": "https://dev.to/tony_hp/the-connection-pool-paradox-why-more-connections-slow-your-database-down-2kjg",
+  "published_at": "2026-04-08T13:39:06Z",
+  "fetched_at": "2026-04-08T14:00:35.359354+00:00",
+  "author": "Tony",
+  "summary": "<p>When you hit connection timeouts under high load, the instinct is to bump max_connections to 100 or 200. Don't do it, it'll crash your server faster — CPU hits 100%, IOPS maxes out, everything freezes.</p>\n\n<p><strong>Here's why</strong></p>\n\n<p>Think of a grocery store with 4 checkout lanes (= 4 CPU cores). If customers queue up properly, throughput is great. But if 200 people rush all 4 lanes at once, cashiers spend more time context-switching between customers than actually checking anyone out. Nobody finishes faster.</p>\n\n<p>Two things kill you at the OS level:</p>\n\n<p><strong>Context switching</strong> — a CPU core physically handles one thread at a time. With 200 open connections on a 4-core machine, the OS constantly saves and restores connection state (registers, cache) to keep everyone \"running.\" At extreme counts, up to 80% of CPU time goes to switching — not actual work.</p>\n\n<p><strong>Disk contention</strong> — databases love sequential reads. Hundreds of concurrent con",
+  "full_text": "When you hit connection timeouts under high load, the instinct is to bump max_connections to 100 or 200. Don't do it, it'll crash your server faster — CPU hits 100%, IOPS maxes out, everything freezes.\n\nHere's why\n\nThink of a grocery store with 4 checkout lanes (= 4 CPU cores). If customers queue up properly, throughput is great. But if 200 people rush all 4 lanes at once, cashiers spend more time context-switching between customers than actually checking anyone out. Nobody finishes faster.\n\nTwo things kill you at the OS level:\n\nContext switching — a CPU core physically handles one thread at a time. With 200 open connections on a 4-core machine, the OS constantly saves and restores connection state (registers, cache) to keep everyone \"running.\" At extreme counts, up to 80% of CPU time goes to switching — not actual work.\n\nDisk contention — databases love sequential reads. Hundreds of concurrent connections destroy that pattern, turning it into random I/O even on SSDs. Your disk queue backs up, buffer cache stops being effective.\n\nThe right number is smaller than you think\n\nmax_connections = (cores × 2) + effective_spindle_count\n\nFor an 8-core server with SSD: 8 × 2 + 1 = 17\n\nModern stacks handle this differently\n\nIn microservices and serverless, you put a smart proxy (PgBouncer, RDS Proxy) on the database side. It maintains a small pool of real DB connections and multiplexes thousands of app connections onto them. Your app-side pool then only exists to reuse TCP connections — the heavy lifting moves to the proxy.\n\nTo sum up: connection pools aren't more better. They're about matching concurrency to what your hardware can actually parallelize.\n\nCurious how others handle this in production:\n\nDo you cap connections aggressively, or rely on proxies like PgBouncer / RDS Proxy?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "architecture",
+      "backend",
+      "connection",
+      "cpu",
+      "customer",
+      "database",
+      "disk",
+      "handle",
+      "iops",
+      "lane",
+      "performance",
+      "pool",
+      "queue",
+      "small",
+      "ssd",
+      "switch",
+      "tcp"
+    ],
+    [
+      "architecture"
+    ]
+  ]
+}

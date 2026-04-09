@@ -1,0 +1,46 @@
+{
+  "id": 9611,
+  "source": "DEV Community<",
+  "title": "The 10 VAST Errors That Silently Kill Your CTV Ad Revenue",
+  "url": "https://dev.to/aleksuix/the-10-vast-errors-that-silently-kill-your-ctv-ad-revenue-25i8",
+  "published_at": "2026-04-08T01:35:58Z",
+  "fetched_at": "2026-04-08T02:00:28.789099+00:00",
+  "author": "Aleksander Sekowski",
+  "summary": "<p><a href=\"https://medium.com/@aleksander-sekowski/the-10-vast-errors-that-silently-kill-your-ctv-ad-revenue\" rel=\"noopener noreferrer\">Originally published on Medium.</a></p>\n\n<p>Samsung TV Plus just crossed 100 million monthly active users. Netflix ended 2024 with 277.6 million subscribers worldwide, 70 million on its ad-supported tier. Amazon Prime Video had 230 million users. Roku reported 89.8 million active accounts in Q4 2024. The ad spend flowing through all of it: $33 billion in the US alone in 2024 runs on VAST XML.</p>\n\n<p>Every impression, every pixel, every billing event depends on a tag being parsed correctly by players, ad servers, and measurement vendors that were built by different teams to different tolerances. Penthera found that 40% of VOD ads fail. Google Ad Manager flags any gap larger than 25% between impressions served and impressions counted as a sign of systemic VAST errors. Most of these failures trace back to a handful of tag-level mistakes that are trivial",
+  "full_text": "Originally published on Medium.\n\nSamsung TV Plus just crossed 100 million monthly active users. Netflix ended 2024 with 277.6 million subscribers worldwide, 70 million on its ad-supported tier. Amazon Prime Video had 230 million users. Roku reported 89.8 million active accounts in Q4 2024. The ad spend flowing through all of it: $33 billion in the US alone in 2024 runs on VAST XML.\n\nEvery impression, every pixel, every billing event depends on a tag being parsed correctly by players, ad servers, and measurement vendors that were built by different teams to different tolerances. Penthera found that 40% of VOD ads fail. Google Ad Manager flags any gap larger than 25% between impressions served and impressions counted as a sign of systemic VAST errors. Most of these failures trace back to a handful of tag-level mistakes that are trivially detectable before the ad ever reaches a player.\n\nI built an open-source tool that catches all errors mentioned below: vastlint. 108 rules across VAST 2.0 through 4.3. Free, no account, runs in CI in about 100 microseconds per tag.\n\n \n \n\n \n\nvastlint\n\nA VAST XML validator. Checks ad tags against the IAB Tech Lab VAST specification so you don't have to read it. Over $30 billion in annual CTV and video ad spend flows through VAST XML, and malformed tags are one of the most common causes of lost impressions, broken tracking, and revenue discrepancies between platforms. There is no widely adopted open-source tool that validates VAST XML against the full IAB specification across all published versions.\n\nValidates VAST documents against:\n\nIAB Tech Lab VAST 2.0, 3.0, 4.0, 4.1, 4.2, and 4.3 -- structural rules derived from the published XSD schemas and spec prose\n\nW3C XML 1.0 well-formedness (malformed documents are rejected before any spec rule runs)\n\nRFC 3986 URI syntax (all URL fields)\n\nIANA Media Types (MediaFile and resource MIME types)\n\nISO 4217 currency codes (Pricing elements)\n\nAd-ID registry format (UniversalAdId)\n\n108 rules across required fields, schema validation, structural correctness…\n \n \n\nHere are the ten I see most often.\n\nMissing attributes\n\ndelivery, type, width, height — all four are required. Leave one out and the player guesses. CTV devices don't guess well. A tag that plays fine in Chrome fails on Roku because the device won't infer the delivery method from context. The XML is valid. The spec is violated. The blank slot is yours.\n\nHTTP media URLs on HTTPS inventory\n\nA pointing at http:// gets blocked by mixed-content policies on any HTTPS page or app. The ad doesn't play, the impression doesn't fire, fill rate drops. The tag is valid XML. It's technically spec-compliant. It just won't work on most real inventory. This one is invisible to any validator that only checks structure.\n\nBad format\n\nThe spec requires HH:MM:SS or HH:MM:SS.mmm. Tags show up with 00:30, 30s, plain 30, or empty. Strict players reject the creative outright. Loose players guess wrong and fire progress events — firstQuartile, midpoint, complete — at the wrong times. Your reporting looks fine but the measurement is off.\n\nNo element\n\nNo URL means the ad plays but nobody gets paid. The DSP doesn't know it rendered, the SSP can't bill. Both sides pull discrepancy reports and argue. On wrapper chains it's worse. A missing impression at any level means that link in the transaction goes unrecorded. The outer wrapper fires, the inner wrapper doesn't, the numbers never reconcile.\n\nWrapper without \n\nA with no redirect URL is a dead end. The slot goes unfilled, no error fires, the demand partner reports zero delivery. Usually happens when a template renders a wrapper variant but the URL variable is null or empty. At scale, that's thousands of lost impressions per minute with nothing in the logs pointing at the cause.\n\n missing or malformed\n\nRequired on every since VAST 4.0. Needs an idRegistry attribute and a non-empty value. Without it, frequency capping and competitive separation break. The ad server can't tell two creatives apart, so it can't enforce exclusion rules between competing brands or cap a user who's already seen the ad five times. The ads still serve. The contracts you're supposed to be honoring don't.\n\nVPAID apiFramework on VAST 4.1+ tags\n\nVPAID was deprecated in VAST 4.1. Google, Amazon, and most major SSPs block VPAID execution entirely. Tags declaring apiFramework=\"VPAID\" pass XML validation. They may even pass some linting tools that only check structure. They get filtered before reaching a screen. Fill rate craters and the root cause is a single attribute value that no one thought to check.\n\nTracking event typos\n\nThe spec defines a fixed set: creativeView, start, firstQuartile, midpoint, thirdQuartile, complete, and so on. Misspell one — Midpoint, mid_point, MidPoint — and no player fires it. The pixel silently never calls. VAST 4.0 also removed fullscreen and exitFullscreen. Tags copied from 3.0 templates still carry those events. They worked. They don't anymore.\n\nMalformed XML\n\nUnescaped &, unclosed elements, bad UTF-8. Common when tags are assembled by string concatenation instead of an XML library. Many ad servers have lenient parsers that silently fix this. CTV devices don't. You debug a blank slot for an afternoon and the problem is & instead of & in a click URL buried three wrappers deep.\n\nVersion declaration doesn't match content\n\nThe tag says but contains and , which are 4.x elements. The player applies 2.0 parsing rules and skips what it doesn't recognize. Happens constantly when templates are copied between projects without updating the version attribute. Everything looks fine in dev. In production the player is running a different code path than you think.\n\nEvery one of these is detectable before the tag reaches a player. None of them require a live ad server, a real device, or a debugging session.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "adtech",
+      "ai",
+      "amazon prime video",
+      "ctv",
+      "dsp",
+      "https",
+      "iab",
+      "impression",
+      "malformed",
+      "netflix",
+      "node",
+      "penthera",
+      "player",
+      "publish",
+      "rule",
+      "rust",
+      "spec",
+      "tag",
+      "vast",
+      "vod",
+      "vpaid",
+      "wrapper",
+      "xml",
+      "xsd"
+    ],
+    [
+      "adtech",
+      "ai",
+      "rust"
+    ]
+  ]
+}

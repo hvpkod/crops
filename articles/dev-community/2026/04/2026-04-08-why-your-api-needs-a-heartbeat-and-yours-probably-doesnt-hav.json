@@ -1,0 +1,31 @@
+{
+  "id": 9782,
+  "source": "DEV Community<",
+  "title": "Why Your API Needs a Heartbeat (And Yours Probably Doesn't Have One)",
+  "url": "https://dev.to/daviddaadams_55/why-your-api-needs-a-heartbeat-and-yours-probably-doesnt-have-one-42nb",
+  "published_at": "2026-04-08T16:22:05Z",
+  "fetched_at": "2026-04-08T16:40:34.648901+00:00",
+  "author": "David W. Adams",
+  "summary": "<p>Your API returns 200 OK. Great. But is it actually <em>working</em>?</p>\n\n<p>I learned this the hard way. Last month, our payment webhook was \"up\" — returning 200s all day — but silently failing to process transactions. Three hours. Forty-seven failed payments. One very angry email from our biggest customer.</p>\n\n<p>Our monitoring said everything was fine.</p>\n\n<h2>\n  \n  \n  The 200 OK Lie\n</h2>\n\n<p>Most uptime monitoring checks one thing: does the server respond?</p>\n\n<p>That's it. A simple HTTP request to your <code>/health</code> endpoint, a check for status code 200, and you're \"healthy.\"</p>\n\n<p>But here's the problem. Your server can return 200 OK while:</p>\n\n<ul>\n<li>Your database connection pool is exhausted</li>\n<li>Your message queue is backed up 10,000 messages</li>\n<li>Your authentication service is timing out</li>\n<li>Your critical background jobs haven't run in 6 hours</li>\n</ul>\n\n<p>Real API monitoring checks things that actually matter:</p>\n\n<ul>\n<li>Does the response",
+  "full_text": "Your API returns 200 OK. Great. But is it actually working?\n\nI learned this the hard way. Last month, our payment webhook was \"up\" — returning 200s all day — but silently failing to process transactions. Three hours. Forty-seven failed payments. One very angry email from our biggest customer.\n\nOur monitoring said everything was fine.\n\n \n \n The 200 OK Lie\n\nMost uptime monitoring checks one thing: does the server respond?\n\nThat's it. A simple HTTP request to your /health endpoint, a check for status code 200, and you're \"healthy.\"\n\nBut here's the problem. Your server can return 200 OK while:\n\nYour database connection pool is exhausted\n\nYour message queue is backed up 10,000 messages\n\nYour authentication service is timing out\n\nYour critical background jobs haven't run in 6 hours\n\nReal API monitoring checks things that actually matter:\n\nDoes the response match the expected schema?\n\nIs latency under your SLA threshold?\n\nAre auth tokens actually validating?\n\nDid the database write actually happen?\n\n \n \n What a Real Health Check Looks Like\n\nHere is what I should have built from day one:\n\nGET /health\nExpected: {\n \"status\": \"ok\",\n \"db\": \"connected\",\n \"queue\": \"processing\",\n \"last_job_run\": \"2024-04-05T12:03:00Z\"\n}\nMax latency: 200ms\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf any of those fields are missing, malformed, or slow, you want to know now. Not when customers start complaining on Twitter. Not when your payment processor threatens to shut you down.\n\n \n \n The Three-Layer Monitoring Stack\n\nAfter our incident, we rebuilt our monitoring from scratch. Here is the stack that actually works:\n\nLayer 1: Synthetic checks. These hit your endpoints every minute from multiple locations. They validate response structure. They measure against your baseline. They tell you if your API is behaving, not just responding.\n\nLayer 2: Heartbeat monitoring. Your app sends a ping to a monitoring service every few minutes. If the pings stop, something is critically wrong. This catches failures that synthetic checks miss — database locks, background job crashes, internal service outages.\n\nLayer 3: Real user monitoring. Track actual API calls in production. Alert on error rate spikes. Catch edge cases that no synthetic test could predict. This is your safety net.\n\n \n \n Why Most Teams Skip This\n\nBecause it is annoying to build.\n\nYou need:\n\nA health endpoint that actually checks dependencies\n\nA cron job or scheduled function to run synthetic tests\n\nAn alerting pipeline that does not spam you with false positives\n\nA dashboard you will actually look at\n\nDocumentation so the next engineer understands why it exists\n\nBy the time you are done, you have spent 3 days building something that is not a feature. It is not moving metrics. It is just \"reliability work\" that your CEO does not understand and your users will never thank you for.\n\nUntil it saves you from a 3-hour outage.\n\n \n \n The Build vs Buy Decision\n\nYou can build this yourself. Here is the math:\n\nLambda function: $0 per month (plus 4 hours of your time)\n\nAlerting pipeline: $0 per month (plus ongoing maintenance)\n\nDashboard: $0 per month (plus updates every time someone asks a new question)\n\nOn-call rotation when alerts break: priceless (literally)\n\nOr you use OwlPulse.\n\n$9 per month. Monitoring in 90 seconds. Sleep better tonight.\n\nI spent 3 days building our first monitoring stack. It had bugs. It had gaps. It woke me up at 3 AM with false alarms.\n\nOwlPulse took 90 seconds to set up. It has not missed an issue. It has not cried wolf.\n\nThe math is not even close.\n\n \n \n One Thing to Do Today\n\nGo look at your /health endpoint. Seriously. Right now.\n\nDoes it just return {\"status\": \"ok\"}?\n\nOr does it actually check the things your API needs to function?\n\nIf it is the first one, you are flying blind. Fix it. Or use something that fixes it for you.\n\nSet up API heartbeat monitoring in 90 seconds: owlpulse.org",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "actually",
+      "alerting",
+      "api",
+      "check",
+      "day",
+      "heartbeat",
+      "layer",
+      "monitoring",
+      "owlpulse",
+      "payments",
+      "ping",
+      "spend",
+      "synthetic"
+    ],
+    []
+  ]
+}

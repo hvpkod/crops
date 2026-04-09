@@ -1,0 +1,42 @@
+{
+  "id": 9649,
+  "source": "DEV Community<",
+  "title": "North Korea-Linked Hackers Use GitHub as C2 Infrastructure to Attack South Korea",
+  "url": "https://dev.to/excalibra/north-korea-linked-hackers-use-github-as-c2-infrastructure-to-attack-south-korea-47aa",
+  "published_at": "2026-04-08T04:10:35Z",
+  "fetched_at": "2026-04-08T05:00:36.013077+00:00",
+  "author": "Excalibra",
+  "summary": "<h3>\n  \n  \n  Executive Summary\n</h3>\n\n<p>FortiGuard Labs has identified a sophisticated multi-stage attack campaign attributed to the North Korea-linked threat actor <strong>Kimsuky</strong>. The group is abusing <strong>GitHub</strong> as a living-off-the-land Command and Control (C2) infrastructure to target South Korean organizations.  </p>\n\n<p>The attack chain starts with obfuscated Windows Shortcut (<strong>LNK</strong>) files delivered via phishing emails. These LNK files deploy decoy PDF documents while silently executing PowerShell scripts in the background. The scripts perform anti-analysis checks, establish persistence through scheduled tasks, and exfiltrate collected data to GitHub repositories using hardcoded access tokens. Additional modules and commands are also retrieved from the same GitHub repositories.</p>\n\n<p>This campaign highlights the increasing trend of state-sponsored actors abusing legitimate cloud platforms and native Windows tools (LOLBins) to lower detection",
+  "full_text": "Executive Summary\n\nFortiGuard Labs has identified a sophisticated multi-stage attack campaign attributed to the North Korea-linked threat actor Kimsuky. The group is abusing GitHub as a living-off-the-land Command and Control (C2) infrastructure to target South Korean organizations. \n\nThe attack chain starts with obfuscated Windows Shortcut (LNK) files delivered via phishing emails. These LNK files deploy decoy PDF documents while silently executing PowerShell scripts in the background. The scripts perform anti-analysis checks, establish persistence through scheduled tasks, and exfiltrate collected data to GitHub repositories using hardcoded access tokens. Additional modules and commands are also retrieved from the same GitHub repositories.\n\nThis campaign highlights the increasing trend of state-sponsored actors abusing legitimate cloud platforms and native Windows tools (LOLBins) to lower detection rates and maintain long-term access.\n\n \n \n Attack Chain Breakdown\n\nInitial Access\n\nPhishing emails deliver obfuscated LNK files. When opened, victims see a legitimate-looking PDF document while a malicious PowerShell script runs silently in the background.\n\nAnti-Analysis & Evasion\n\nThe PowerShell script scans for virtual machines, debuggers, and forensic tools. If any are detected, the script immediately terminates. \n\nPersistence\n\nIf the environment is clean, the script extracts a Visual Basic Script (VBScript) and creates a scheduled task that runs the PowerShell payload every 30 minutes in a hidden window. This ensures execution after system reboots.\n\nData Collection & Exfiltration\n\nThe script gathers host information, saves results to a log file, and exfiltrates the data to GitHub repositories under attacker-controlled accounts, including:\n\nmotoralis\n\nGod0808RAMA\n\nPigresy80\n\nentire73\n\npandora0009\n\nbrandonleeodd93-blip\n\nC2 via GitHub\n\nThe same GitHub repositories are used to store additional modules and commands, allowing operators to maintain persistent control over compromised systems while blending into trusted platforms.\n\n \n \n Connection to Previous Campaigns\n\nFortinet notes that earlier iterations of this activity delivered the Xeno RAT malware family. Similar GitHub-based C2 usage for distributing Xeno RAT and its variant MoonPeak was previously reported by ENKI and Trellix, both attributing the activity to Kimsuky.\n\nThis disclosure coincides with AhnLab’s report on a similar LNK-based infection chain by Kimsuky that ultimately deploys a Python-based backdoor. In that variant, the LNK executes PowerShell which creates a hidden folder C:\\windirr, drops decoy documents, and uses Dropbox as an interim C2 before downloading ZIP fragments from quickcon[.]store to deploy an XML Scheduled Task and the final Python implant.\n\nThe Python backdoor supports downloading additional payloads and executing commands such as running shell scripts, listing directories, uploading/downloading/deleting files, and executing BAT, VBScript, or EXE files.\n\n \n \n Related TTP Evolution\n\nThese findings also align with observations from ScarCruft (another DPRK-linked group), which has shifted from traditional LNK → BAT → shellcode chains to HWP OLE-based droppers for delivering RokRAT — a remote access trojan exclusively used by North Korean hacking groups.\n\n \n \n Researcher Comments\n\nSecurity researcher Cara Lin from Fortinet stated: \n\n“Threat actors are moving away from complex custom malware and instead leveraging native Windows tools for deployment, evasion, and persistence. By minimizing the use of PE files and heavily relying on LOLBins, attackers can target a broad audience with significantly lower detection rates.”\n\n \n \n Recommendations\n\nStrengthen email security gateways with advanced LNK and PowerShell inspection\n\nMonitor abnormal access to GitHub, Dropbox, and other cloud repositories from endpoints\n\nImplement strict application whitelisting and behavioral monitoring for scheduled tasks\n\nEnable enhanced logging for PowerShell execution (Script Block Logging, Module Logging)\n\nRegularly hunt for suspicious GitHub accounts and repositories with high-frequency commits from compromised environments\n\nThis campaign once again demonstrates how nation-state actors continue to innovate by abusing trusted platforms and living-off-the-land techniques to evade traditional security controls.\n\nAnalysis based on reporting from FortiGuard Labs, AhnLab, and open-source intelligence as of April 2026.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "abuse",
+      "actor",
+      "c2",
+      "campaign",
+      "command and control",
+      "cybersecurity",
+      "execute",
+      "github",
+      "kimsuky",
+      "lnk",
+      "north korea",
+      "pdf",
+      "powershell",
+      "repository",
+      "scheduled",
+      "script",
+      "security",
+      "trellix",
+      "vbscript",
+      "windows shortcut (lnk"
+    ],
+    [
+      "c2",
+      "cybersecurity",
+      "north korea"
+    ]
+  ]
+}

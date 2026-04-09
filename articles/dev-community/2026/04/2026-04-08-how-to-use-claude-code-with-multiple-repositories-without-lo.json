@@ -1,0 +1,47 @@
+{
+  "id": 9610,
+  "source": "DEV Community<",
+  "title": "How to use Claude Code with multiple repositories without losing context",
+  "url": "https://dev.to/subprime2010/how-to-use-claude-code-with-multiple-repositories-without-losing-context-4c77",
+  "published_at": "2026-04-08T01:38:50Z",
+  "fetched_at": "2026-04-08T02:00:26.648920+00:00",
+  "author": "brian austin",
+  "summary": "<h1>\n  \n  \n  How to use Claude Code with multiple repositories without losing context\n</h1>\n\n<p>If you work across multiple repos — a frontend, a backend, a shared library — you already know the pain: Claude Code loses track of which project you're in, forgets the conventions from the other repo, and you spend half your session re-explaining things it already knew.</p>\n\n<p>Here's how to fix it.</p>\n\n<h2>\n  \n  \n  The core problem: Claude Code has one context window\n</h2>\n\n<p>Claude Code doesn't have persistent memory across sessions or across repositories. When you open a new project, it starts fresh. When you switch from your API repo to your frontend repo mid-session, context from the first repo doesn't automatically transfer.</p>\n\n<p>This becomes a real problem when:</p>\n\n<ul>\n<li>Your API and frontend share types but live in different repos</li>\n<li>You need to make coordinated changes across both repos simultaneously</li>\n<li>Your backend conventions differ from your frontend conve",
+  "full_text": "How to use Claude Code with multiple repositories without losing context\n\nIf you work across multiple repos — a frontend, a backend, a shared library — you already know the pain: Claude Code loses track of which project you're in, forgets the conventions from the other repo, and you spend half your session re-explaining things it already knew.\n\nHere's how to fix it.\n\n \n \n The core problem: Claude Code has one context window\n\nClaude Code doesn't have persistent memory across sessions or across repositories. When you open a new project, it starts fresh. When you switch from your API repo to your frontend repo mid-session, context from the first repo doesn't automatically transfer.\n\nThis becomes a real problem when:\n\nYour API and frontend share types but live in different repos\n\nYou need to make coordinated changes across both repos simultaneously\n\nYour backend conventions differ from your frontend conventions\n\nYou're doing a migration that touches multiple codebases\n\n \n \n Solution 1: The shared CLAUDE.md strategy\n\nCreate a root-level CLAUDE.md in each repo that cross-references the other:\n\n# API Repo - CLAUDE.md\n\n## This project\nREST API using Node.js + Express + PostgreSQL\nAuth: JWT tokens, 15min access / 7day refresh\n\n## Paired with: frontend repo at ../frontend\nFrontend expects:\n- All API responses: { data: ..., error: null } or { data: null, error: \"message\" }\n- Date format: ISO 8601 strings (not timestamps)\n- Auth header: Bearer {accessToken}\n\n## Shared types\nSee ../shared-types/index.ts for TypeScript interfaces\nAny API change that affects response shape MUST update shared-types first\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAnd in the frontend:\n\n# Frontend Repo - CLAUDE.md\n\n## This project\nNext.js 14 + TypeScript + Tailwind\n\n## Paired with: API repo at ../api\nAPI base URL: http://localhost:3001\nAll fetch calls use: src/lib/api.ts (do not call fetch directly)\nError handling: check error field on response, never .catch() alone\n\n## When making API changes\n1. Check ../api/CLAUDE.md for response format\n2. Update src/types/ to match any schema changes\n3. Update src/lib/api.ts if adding new endpoints\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow when Claude Code reads your CLAUDE.md, it immediately understands the cross-repo relationship.\n\n \n \n Solution 2: The context handoff file\n\nWhen you're actively working across repos, create a temporary CONTEXT.md at your workspace root:\n\nworkspace/\n CONTEXT.md ← Claude reads this first\n api/\n frontend/\n shared-types/\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n# Active work context - 2026-04-08\n\n## Current task\nAdding user avatar upload feature\n- API changes: POST /api/users/avatar, returns { avatarUrl: string }\n- Frontend changes: ProfilePage.tsx needs upload button + preview\n- Database: Added avatar_url column to users table (migration already run)\n\n## Status\n- [x] Database migration done\n- [x] API endpoint done (api/src/routes/users.js)\n- [ ] Frontend upload component (next: frontend/src/components/AvatarUpload.tsx)\n- [ ] Wire up to ProfilePage\n\n## Constraints remembered\n- Max file size: 5MB (enforced in API, also validate in frontend)\n- Accepted types: image/jpeg, image/png, image/webp only\n- CDN URL pattern: https://cdn.example.com/avatars/{userId}.{ext}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nStart each Claude Code session with: \"Read CONTEXT.md first, then let's continue.\"\n\n \n \n Solution 3: Run parallel instances with clear boundaries\n\nFor large cross-repo tasks, run two Claude Code instances simultaneously:\n\n# Terminal 1 - API work\ncd /workspace/api\nclaude\n\n# Terminal 2 - Frontend work \ncd /workspace/frontend\nclaude\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGive each instance a single responsibility:\n\nAPI instance: \"You own the backend changes. Output the exact response shape when you're done.\"\n\nFrontend instance: \"The API will return X shape. You own the frontend. Don't modify API files.\"\n\nThen consolidate by feeding the output from one into the other.\n\n \n \n Solution 4: The contract file pattern\n\nFor ongoing multi-repo projects, create an explicit API contract file that both repos reference:\n\n// shared-types/contract.ts\n// SOURCE OF TRUTH - both repos import from here\n\nexport interface ApiResponse<T> {\n data: T | null;\n error: string | null;\n timestamp: string; // ISO 8601\n}\n\nexport interface User {\n id: string;\n email: string;\n avatarUrl: string | null;\n createdAt: string;\n}\n\nexport interface AuthTokens {\n accessToken: string; // expires: 15 minutes\n refreshToken: string; // expires: 7 days\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBoth CLAUDE.md files reference this contract:\n\n## Shared contract\nSee ../shared-types/contract.ts — this is the source of truth.\nNever duplicate type definitions. Import from shared-types.\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhen Claude Code reads your CLAUDE.md and then checks shared-types/contract.ts, it understands the full system without you explaining anything.\n\n \n \n The rate limit problem\n\nThe real challenge with multi-repo work: you burn through context FAST.\n\nExplaining two repos, their conventions, their shared types, the active task — that's a lot of tokens before you write a single line of code. When you're working across 3+ repos, you can hit rate limits mid-task.\n\nThe ANTHROPIC_BASE_URL environment variable lets you point Claude Code at a different API endpoint:\n\nexport ANTHROPIC_BASE_URL=https://simplylouie.com/api/proxy\nclaude\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSimplyLouie runs at ✌️$2/month (vs $200 for Claude Max) and is specifically built for developers who run long, context-heavy sessions. The proxy handles the rate limit ceiling so your multi-repo sessions don't get cut off mid-task.\n\n \n \n Practical workflow that works\n\nBefore starting: Write CONTEXT.md with current task, status, constraints\n\nEach session: claude → \"Read CONTEXT.md and CLAUDE.md first\"\n\nWhen switching repos: Update CONTEXT.md with what you just completed\n\nFor coordinated changes: Run parallel instances with clear boundaries\n\nFor shared types: Keep a contract file that both CLAUDEs reference\n\nThe extra 2 minutes writing CONTEXT.md saves 20 minutes of re-explaining. And with a stable API endpoint that doesn't rate-limit mid-session, you can actually finish cross-repo tasks in one sitting.\n\nWorking across multiple repos? What's your current strategy for keeping Claude Code on track?",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "apiresponse",
+      "bearer",
+      "claude",
+      "claude code",
+      "claudecode",
+      "code",
+      "context",
+      "enter",
+      "exit",
+      "frontend",
+      "fullscreen",
+      "jwt",
+      "mode",
+      "practical",
+      "productivity",
+      "profilepage",
+      "repo",
+      "share",
+      "simplylouie",
+      "typescript",
+      "webdev"
+    ],
+    [
+      "ai",
+      "claudecode",
+      "frontend",
+      "productivity",
+      "webdev"
+    ]
+  ]
+}

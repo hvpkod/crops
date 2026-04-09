@@ -1,0 +1,38 @@
+{
+  "id": 9671,
+  "source": "DEV Community<",
+  "title": "How I built a viral gaming SaaS with my 14yo son (and survived a massive traffic spike on AWS without going bankrupt)",
+  "url": "https://dev.to/brawlvalue/how-i-built-a-viral-gaming-saas-with-my-14yo-son-and-survived-a-massive-traffic-spike-on-aws-31pa",
+  "published_at": "2026-04-08T07:21:15Z",
+  "fetched_at": "2026-04-08T08:00:46.689194+00:00",
+  "author": "Francesco Costantino",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fkrg61zf19x4tzj993mg3.jpg\"><img alt=\" \" height=\"800\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fkrg61zf19x4tzj993mg3.jpg\" width=\"800\" /></a><br />\nIt started on a random Saturday afternoon with a simple question from my 14-year-old son: <em>\"Dad, how much is my Brawl Stars account actually worth?\"</em></p>\n\n<p>We searched online. Nothing but shady websites asking for passwords or outdated forums. So, as a Dev with 20 years of experience, I said: <em>\"Let's build it ourselves.\"</em></p>\n\n<p>48 hours later, <strong><a href=\"https://brawlvalue.com\" rel=\"noopener noreferrer\">BrawlValue.com</a></strong> was born. </p>\n\n<p>What started as a simple ",
+  "full_text": "It started on a random Saturday afternoon with a simple question from my 14-year-old son: \"Dad, how much is my Brawl Stars account actually worth?\"\n\nWe searched online. Nothing but shady websites asking for passwords or outdated forums. So, as a Dev with 20 years of experience, I said: \"Let's build it ourselves.\"\n\n48 hours later, BrawlValue.com was born. \n\nWhat started as a simple API calculator accidentally turned into a massive, hyper-local gamified platform. The Gen-Z kids didn't just want to know their account value; they wanted to flex it. We introduced School and City Leaderboards. \n\nThe result? The \"Dark Social\" (WhatsApp school groups) exploded. In just a few days, we mapped over 1,500 schools, acquired 5,000+ verified users via Discord OAuth2, and handled massive traffic spikes driven by top gaming influencers.\n\nHere is how I architected the system to survive the hype without paying thousands of dollars to Jeff Bezos.\n\n \n \n 1. The Nginx \"Russian Roulette\" Hack (Bypassing Rate Limits)\n\nThe official game API has strict rate limits per IP. When a famous YouTuber dropped a video about our site, we expected thousands of concurrent requests to fetch the same Player Tags. A standard setup would have resulted in 429 Too Many Requests and a crashed site.\n\nThe Solution: I generated 3 different API keys for my single AWS EC2 IP. Then, I used the native Nginx split_clients module to balance the load evenly across the keys based on the $request_id.\n\nsplit_clients \"${request_id}\" $brawl_token {\n 33.3% \"TOKEN_1\";\n 33.3% \"TOKEN_2\";\n * \"TOKEN_3\";\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCombined with proxy_cache_lock on; (to prevent the Thundering Herd problem), this single Nginx trick absorbed the entire traffic spike. Zero Node.js overhead.\n\n \n \n 2. Offloading Compute to PostgreSQL (Supabase)\n\nI initially ran a c6i.xlarge EC2 instance, but calculating dynamic ranks for 5,000 users across 1,500 schools in Node.js was a memory-leak nightmare waiting to happen.\n\nI shifted the entire load to Supabase (PostgreSQL). Instead of sorting arrays in JS, I wrote a materialized View using Window Functions:\n\nRANK() OVER (PARTITION BY season_id, school_id ORDER BY flex_score DESC) as school_rank\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNode.js simply fetches a pre-calculated JSON. CPU usage on my AWS instance dropped to 0.08%. I literally downgraded the server to a t3.small during the peak and saved my wallet.\n\n \n \n 3. AI-Powered Zero-Click Moderation (Qwen3-VL)\n\nTo enter the Leaderboard, users must prove they own the account. Manual verification for 5,000 kids? Impossible.\n\nI built a custom Discord Bot using discord.js. Users simply drop a screenshot of their game profile in a specific channel. The bot instantly opens a private thread, sends the image to Alibaba Cloud's Qwen3-VL (an ultra-fast Multimodal LLM), extracts the Player Tag via OCR, verifies it against the DB, and auto-assigns the \"Verified\" role. 100% automated KYC for teenagers.\n\n \n \n 4. The \"Ego-Trap\" Monetization (Webhook Magic)\n\nHow to monetize kids who don't have credit cards? You sell social status.\n\nWe created a \"VIP Brawler\" role. Users pay €3 via Ko-Fi. \n\nKo-Fi triggers a Webhook ➔ My Node.js server parses the payload ➔ Updates Supabase (is_vip: true) ➔ The Next.js frontend instantly turns their generated \"Share Card\" into a glowing Gold/Neon design. \n\nZero manual work. Pure passive income driven by gaming vanity.\n\n \n \n 🚀 Today, we are launching on Product Hunt!\n\nWe transitioned from a weekend toy to an enterprise-grade Data-Scouting architecture. We are now officially launching Season 1 and trying to make some noise on Product Hunt.\n\nIf you love bootstrapped projects, dirty but highly effective Nginx hacks, and indie-hacking survival stories, I would love your honest feedback and support on our launch page today! 👇\n\n🔗 https://www.producthunt.com/products/brawl-value\n\nLet me know in the comments if you have any questions about the stack, Supabase RLS, or how to handle Gen-Z traffic spikes!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "aws",
+      "brawlvalue.com",
+      "build",
+      "drop",
+      "key",
+      "launch",
+      "nginx",
+      "node.js",
+      "payments",
+      "school",
+      "season_id",
+      "start",
+      "supabase",
+      "supabase (postgresql",
+      "thundering herd",
+      "traffic",
+      "user",
+      "whatsapp",
+      "youtuber"
+    ],
+    []
+  ]
+}

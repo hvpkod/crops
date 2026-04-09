@@ -1,0 +1,36 @@
+{
+  "id": 9684,
+  "source": "The Verge",
+  "title": "Why Microsoft’s war on Windows’ Control Panel is taking so long",
+  "url": "https://www.theverge.com/news/908624/microsoft-windows-control-panel-removal-explanation",
+  "published_at": "2026-04-08T09:23:58Z",
+  "fetched_at": "2026-04-08T10:00:33.756499+00:00",
+  "author": "Tom Warren",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/controlpanel.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tThe Control Panel still exists in Windows 11. | Screenshot by Tom Warren / The Verge\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Microsoft first started trying to get rid of the Control Panel in 2012, with the launch of <a href=\"https://www.theverge.com/2012/10/23/3537710/windows-8-review\">Windows 8</a>. More than a decade later, it's still working on migrating all the old Control Panel items into the modern Settings app in Windows 11. While there have been hints that the Control Panel might finally go away, the reality is a lot more complicated for Microsoft.</p>\n<p class=\"has-text-align-none\">\"We're doing it carefully because there are a lot of different network and printer devices &amp; drivers we need to make sure we don't break in the process,\" <a href=\"https://x.com/marchr/status/2041138177818128",
+  "full_text": "Microsoft first started trying to get rid of the Control Panel in 2012, with the launch of Windows 8. More than a decade later, it’s still working on migrating all the old Control Panel items into the modern Settings app in Windows 11. While there have been hints that the Control Panel might finally go away, the reality is a lot more complicated for Microsoft.\n\n“We’re doing it carefully because there are a lot of different network and printer devices & drivers we need to make sure we don’t break in the process,” explains March Rogers, partner director of design at Microsoft. I could be wrong, but I think this is the first full explanation we’ve had from Microsoft about why it’s taken so long to get rid of the Control Panel.\n\nIt looked like Microsoft was about to finally cut the Control Panel in 2024, after years of Microsoft pushing aside the Control Panel in its latest Windows 11 updates. But a support note hinting at the imminent removal of the Control Panel was quickly updated to confirm Microsoft was still in the process of migrating the Control Panel to the Settings app.\n\nLast year Microsoft also migrated clock settings, keyboard character repeat delay, mouse cursor blink rate, and formatting for time, number, and currency into the Settings app. There are also plenty of other mouse settings in the main Settings app that let you avoid the Control Panel these days.\n\nI can’t remember the last time I used the Control Panel thanks to Microsoft’s recent mouse and keyboard improvements to the main Settings app, but a lot of Windows users used to prefer the legacy interface simply because you don’t have to dig into multiple levels to find different controls.\n\nMicrosoft is “focusing on design craft in Windows at the moment,” according to Rogers. The Settings interface is being “redesigned for clarity” this month, alongside other improvements to Windows 11 that are part of a broader effort to fix the OS.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "control",
+      "control panel",
+      "finally",
+      "improvement",
+      "keyboard",
+      "microsoft",
+      "migrate",
+      "mouse",
+      "news",
+      "panel",
+      "settings",
+      "tech",
+      "the control panel",
+      "windows",
+      "windows’ control panel"
+    ],
+    [
+      "news",
+      "tech"
+    ]
+  ]
+}

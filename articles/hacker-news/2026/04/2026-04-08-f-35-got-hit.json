@@ -1,0 +1,37 @@
+{
+  "id": 9746,
+  "source": "Hacker News",
+  "title": "F-35 Got Hit",
+  "url": "https://www.shatterbelt.co/articles/f35-got-hit",
+  "published_at": "2026-04-08T15:13:29Z",
+  "fetched_at": "2026-04-08T15:40:20.018819+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47691363\">Comments</a>",
+  "full_text": "On March 19, an Iranian surface-to-air missile struck an F-35 during operations over or near Iran. The aircraft made an emergency landing. The pilot was reported stable. CENTCOM described it as an \"emergency landing\" and stated an \"investigation is underway.\" Iran's IRGC claimed the kill.\n\nThe weapon, reported as the \"Majid,\" is a designation with no documented history in Western open-source databases prior to the war. What is documented, from multiple defense outlets including Defence Security Asia and 19FortyFive, is the key characteristic: the missile uses passive infrared guidance. It tracks heat, not radar.\n\nThis distinction is the entire story.\n\nThe F-35's $100 million worth of stealth technology (the shaping, the radar-absorbent materials, the edge alignment) is designed to reduce its radar cross-section. It scatters or absorbs radar waves. Against radars operating in X-band (8-12 GHz) or S-band, the F-35 is extraordinarily difficult to track. This is what \"stealth\" means in operational terms: near-invisibility to radar-based air defense systems.\n\nInfrared is a completely different part of the electromagnetic spectrum. The F-35A's Pratt & Whitney F135 engine produces approximately 43,000 pounds of thrust in afterburner. Even in military power at 28,000 pounds, the exhaust plume temperature exceeds 600-700°C. The aircraft's airframe generates aerodynamic heating at high speed. Against a cold sky background, the thermal signature is detectable by any sensor looking in the right wavelength.\n\nA passive IR system emits no energy. There is nothing for the F-35's AN/ASQ-239 electronic warfare suite to detect or jam. The aircraft's Distributed Aperture System (AN/AAQ-37) can detect the missile's rocket motor plume, but by then the engagement is kinetic. The missile is already in flight. Flares, the standard IR countermeasure, are less effective against imaging IR seekers that can distinguish an aircraft shape from point-source decoys.\n\nThe F-35 does not carry a Directed Infrared Countermeasure (DIRCM) system. Large aircraft like C-17s and C-130s carry the AN/AAQ-24 LAIRCM for exactly this threat. Fighter-sized DIRCM has been studied but not fielded on the F-35 as of this war.\n\nThe fundamental asymmetry is architectural: stealth aircraft were designed during the Cold War to defeat Soviet integrated air defense systems that relied on radar. The entire design assumption is radar as the primary threat. A pure passive-IR engagement chain (IR search-and-track sensor cueing an IR-guided missile) bypasses the stealth advantage entirely.\n\nThe precedent is the 1999 F-117 shootdown over Serbia, the only prior stealth combat loss. Colonel Zoltan Dani's crew used creative radar tactics (low-frequency VHF, predictable flight paths, bomb bay doors increasing RCS) to defeat a radar-stealth design with radar. That proved stealth could be circumvented with cleverness.\n\nAn IR kill proves something different: stealth can be defeated by an entirely different sensor domain. You can't fix this with better RAM or better shaping. The heat comes from the engine. You can reduce it with signature management, but you can't eliminate it while the engine runs. If the Majid or similar passive-IR SAMs proliferate (and the technology is far simpler than sophisticated radar-guided systems) every F-35 operator needs a new answer to an old question: how do you hide from heat?\n\nOver a dozen countries operate or have ordered F-35s. The US, UK, Italy, Netherlands, Norway, Denmark, Australia, Japan, South Korea, Israel, Belgium, Poland, Finland, Switzerland, Czech Republic, Singapore, Germany, Canada. Over 1,000 delivered. Total orders exceed 3,500 aircraft. At $80-100 million each.\n\nIran's passive-IR approach (cheaper, simpler, undetectable by the target until impact) may be the most consequential tactical development of the war, alongside the mine warfare that closed Hormuz with $1,500 weapons. Not because one F-35 was hit. Because the concept works. And concepts, unlike aircraft, are cheap to replicate. Russia is already the biggest winner of every dollar spent on this war.\n\nFAQ\n\nWas the F-35 destroyed or recovered?\n\nReports indicate an emergency landing, not a crash. The pilot was stable. Whether the aircraft is repairable or written off has not been disclosed. CENTCOM's characterization as an \"emergency landing\" suggests controlled recovery rather than total loss. Iran's claims of a full shootdown are consistent with their pattern of overclaiming throughout the war.\n\nWhy doesn't the F-35 have IR countermeasures?\n\nThe F-35 has the DAS (Distributed Aperture System) which detects missile launches via their rocket motor IR signature, providing warning. It carries flares. But it lacks a DIRCM, a directed energy system that can blind or confuse an incoming IR seeker. DIRCM exists on larger aircraft but hasn't been miniaturized for fighter integration at the F-35's flight envelope. This was a known gap. The gap just got demonstrated in combat.\n\nDoes this make the F-35 obsolete?\n\nNo. The F-35 remains extremely effective against radar-based threats, which constitute the majority of modern IADS. What this demonstrates is that stealth is not invisibility. It's a reduction of one type of signature. Future air operations against adversaries with passive IR capability will require different tactics: higher altitude (reducing ground-level IR detection), nighttime operations (lower background contrast), standoff weapons that keep the aircraft outside SAM range, and eventually DIRCM integration. The F-35 adapts. But the adaptation costs money and takes time, and the threat proliferates faster than the countermeasure. The same asymmetry driving the interceptor crisis.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "aircraft",
+      "centcom",
+      "defence security asia",
+      "detect",
+      "dircm",
+      "distributed aperture system",
+      "infrared",
+      "iran",
+      "irgc",
+      "missile",
+      "passive",
+      "pratt & whitney",
+      "radar",
+      "ram",
+      "report",
+      "sensor",
+      "serbia",
+      "stealth",
+      "vhf"
+    ],
+    []
+  ]
+}

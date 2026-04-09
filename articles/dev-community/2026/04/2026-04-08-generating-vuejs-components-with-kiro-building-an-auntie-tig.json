@@ -1,0 +1,44 @@
+{
+  "id": 9699,
+  "source": "DEV Community<",
+  "title": "Generating Vue.js Components with Kiro — Building an \"Auntie Tigress\" Tracker 🐯",
+  "url": "https://dev.to/onceupon/generating-vuejs-components-with-kiro-building-an-auntie-tigress-tracker-2gf2",
+  "published_at": "2026-04-08T10:46:00Z",
+  "fetched_at": "2026-04-08T11:00:34.524949+00:00",
+  "author": "Bonnie I-Man Ng",
+  "summary": "<p>I wanted to see how well <a href=\"https://kiro.dev\" rel=\"noopener noreferrer\">Kiro</a> understands Vue 3 idioms, so I built a fun app in a single session: an <strong>Auntie Tigress Tracker</strong> inspired by the classic Taiwanese folk tale 虎姑婆 — a tiger spirit from the mountains who sneaks into homes at night to snatch children who won't fall asleep.</p>\n\n<p>The app shows a watercolor map tracking a creature creeping toward your home in real-time. Too scary? Swap the tiger for a puppy 🐶 or a ghost 👻. It uses your browser's geolocation (or defaults to Taipei).</p>\n\n<p>🔗 <strong><a href=\"https://auntietigress.partofem.com\" rel=\"noopener noreferrer\">Live demo</a></strong> | <strong><a href=\"https://github.com/onceupon/vue-auntie-tigress\" rel=\"noopener noreferrer\">Source code</a></strong></p>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com",
+  "full_text": "I wanted to see how well Kiro understands Vue 3 idioms, so I built a fun app in a single session: an Auntie Tigress Tracker inspired by the classic Taiwanese folk tale 虎姑婆 — a tiger spirit from the mountains who sneaks into homes at night to snatch children who won't fall asleep.\n\nThe app shows a watercolor map tracking a creature creeping toward your home in real-time. Too scary? Swap the tiger for a puppy 🐶 or a ghost 👻. It uses your browser's geolocation (or defaults to Taipei).\n\n🔗 Live demo | Source code\n\n \n \n What I Prompted\n\nI gave Kiro one high-level prompt describing the app — Vue 3 Composition API, <script setup>, Leaflet map, composables for geolocation and creature tracking, an icon picker with defineProps/defineEmits — then refined individual pieces. Here's what stood out.\n\n \n \n Composables — ref vs reactive\n\nKiro correctly chose ref() for the geolocation position (we replace the whole object on each update) and reactive() for the creature state (we mutate individual properties like lat, lng, icon). This is a subtle distinction that trips up even experienced Vue devs.\n\n// useGeolocation.js — ref for replaceable state\nconst position = ref({ lat: 25.033, lng: 121.565 })\n\nwatchId = navigator.geolocation.watchPosition(\n (pos) => {\n position.value = { lat: pos.coords.latitude, lng: pos.coords.longitude }\n },\n (err) => { error.value = err.message },\n { enableHighAccuracy: true, timeout: 10000 }\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n// useCreatureTracker.js — reactive for mutable state\nconst creature = reactive({ lat: 0, lng: 0, icon: '🐯', name: 'Auntie Tigress' })\n\nwatch(homePosition, (home) => {\n radius = 0.008 + Math.random() * 0.004\n updatePosition(home)\n}, { immediate: true })\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIt also used watchPosition over getCurrentPosition for mobile reliability (especially iOS), and cleaned up properly with clearWatch in onUnmounted. The creature tracker uses watch with { immediate: true } to initialize position as soon as geolocation resolves.\n\n \n \n Props + Emits — The Classic Vue Pattern\n\nThe icon picker passes data down via defineProps, communicates up via defineEmits:\n\n<script setup>\nconst props = defineProps({\n options: { type: Array, required: true },\n selected: { type: String, required: true },\n})\nconst emit = defineEmits(['select'])\n</script>\n\n<template>\n <button\n v-for=\"opt in options\"\n :key=\"opt.id\"\n :class=\"{ active: selected === opt.icon }\"\n @click=\"emit('select', opt.id)\"\n >\n {{ opt.icon }} {{ opt.name }}\n </button>\n</template>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nType-validated props, a clean emit contract, :class binding for reactive styling, v-for with :key — all idiomatic.\n\n \n \n Computed Chains — Reactive All the Way Down\n\nThe map component chains computed properties — distance → label → danger level — all automatically reactive:\n\nconst distanceMeters = computed(() => {\n // haversine formula\n return Math.round(2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)))\n})\n\nconst distanceLabel = computed(() =>\n distanceMeters.value > 1000\n ? (distanceMeters.value / 1000).toFixed(1) + ' km'\n : distanceMeters.value + ' m'\n)\n\nconst dangerLevel = computed(() => {\n const d = distanceMeters.value\n if (d < 300) return { text: 'GO TO SLEEP NOW! 😱', color: '#ff4444' }\n if (d < 600) return { text: 'Getting close… 😰', color: '#ff8844' }\n if (d < 1000) return { text: 'Nearby… stay alert 😟', color: '#ffaa44' }\n return { text: 'Safe… for now 😌', color: '#88cc66' }\n})\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhen the creature moves (every 1.5s), every computed updates automatically. No manual subscriptions, no dependency arrays.\n\n \n \n Bridging Vue Reactivity with Leaflet\n\nLeaflet is imperative — you call setLatLng(), setIcon() directly. Kiro used watch with { deep: true } to bridge Vue's reactivity into Leaflet's world, and fitBounds to ensure both markers are visible on first load:\n\nwatch(() => props.creature, (c) => {\n creatureMarker?.setLatLng([c.lat, c.lng])\n creatureMarker?.setIcon(emojiIcon(c.icon, 38))\n creatureMarker?.setTooltipContent(c.name)\n}, { deep: true })\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Verdict\n\nKiro nailed the Vue 3 patterns: ref vs reactive, composables with lifecycle hooks, defineProps/defineEmits, computed chains, and watch with { deep: true } for imperative library integration. It felt like pair-programming with someone who actually writes Vue.\n\nTry it yourself — one prompt, one session, one fun app. 🌙\n\nBuilt with Kiro and Vue 3. No children were eaten in the making of this app. 🐯",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bridging vue reactivity",
+      "computed",
+      "computed chains",
+      "const",
+      "creature",
+      "defineemits(['select",
+      "fullscreen",
+      "generating vue.js components",
+      "geolocation",
+      "javascript",
+      "kiro",
+      "kiro - building",
+      "leaflet",
+      "leaflet\n\nleaflet",
+      "mode",
+      "onunmounted",
+      "props + emits",
+      "reactive",
+      "ref",
+      "taipei",
+      "true",
+      "vue",
+      "webdev"
+    ],
+    [
+      "vue",
+      "webdev"
+    ]
+  ]
+}

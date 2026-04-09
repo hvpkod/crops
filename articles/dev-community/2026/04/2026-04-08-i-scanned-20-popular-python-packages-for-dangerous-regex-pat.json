@@ -1,0 +1,45 @@
+{
+  "id": 9609,
+  "source": "DEV Community<",
+  "title": "I scanned 20 popular Python packages for dangerous regex patterns. Here is what I found.",
+  "url": "https://dev.to/harshithreddy01/i-scanned-20-popular-python-packages-for-dangerous-regex-patterns-here-is-what-i-found-dg6",
+  "published_at": "2026-04-08T01:43:13Z",
+  "fetched_at": "2026-04-08T02:00:24.540757+00:00",
+  "author": "Harshith Reddy Nalla",
+  "summary": "<p>At 13:42 UTC on July 2, 2019, an engineer working for Cloudflare made changes to the regular ruleset that was being used by their Web Application Firewall. In under three minutes, there was an 80% drop in the amount of traffic globally. The load on all HTTP serving CPUs in their network hit 100%. It was caused by one regular expression intended to detect XSS attacks, which contained the regular expression pattern <code>.*(?:.*=.*)</code>. This pattern included two quantifiers using <code>.*</code> on the same character class.</p>\n\n<p>That was the result of a production ReDoS.</p>\n\n<p>I was interested to know how frequent such patterns are in Python libraries that we use everyday.</p>\n\n<h2>\n  \n  \n  What is actually happening\n</h2>\n\n<p>The way regular expressions work is that they try to find all the ways to match a pattern against a string. This works just fine in general since the matcher would either get a match, or rule out some ways very soon. The trouble arises when you design a",
+  "full_text": "At 13:42 UTC on July 2, 2019, an engineer working for Cloudflare made changes to the regular ruleset that was being used by their Web Application Firewall. In under three minutes, there was an 80% drop in the amount of traffic globally. The load on all HTTP serving CPUs in their network hit 100%. It was caused by one regular expression intended to detect XSS attacks, which contained the regular expression pattern .*(?:.*=.*). This pattern included two quantifiers using .* on the same character class.\n\nThat was the result of a production ReDoS.\n\nI was interested to know how frequent such patterns are in Python libraries that we use everyday.\n\n \n \n What is actually happening\n\nThe way regular expressions work is that they try to find all the ways to match a pattern against a string. This works just fine in general since the matcher would either get a match, or rule out some ways very soon. The trouble arises when you design a pattern that could allow input characters to be consumed by different parts of your pattern in various ways. In the case of a failure, the matcher has to try all possibilities.\n\nIt’s not linear growth though. This is actual data from our test harness running against the regular expression (a+)+ when used on a non-matching string:\n\nn=10 -> 0.001s\nn=20 -> 0.884s (884x slower than n=10)\nn=30 -> hours\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhen the input doubles in size, it takes exponentially longer — 884 times slower at n=20 versus n=10. At n=30, the trend hasn’t slowed, but it has stopped. If there was an endpoint using this pattern on the user input, it would be a denial of service waiting to happen.\n\n \n \n How redos-analyzer works\n\nHowever, almost all of the existing checkers perform tests on patterns via feeding them malicious inputs and timing how long it takes. While this may work just fine, such an approach requires malicious inputs to be created specifically for the pattern in question, and this task may sometimes prove challenging.\n\nInstead, our solution uses the fact that when Python parses the regex code to compile it, it first creates its abstract syntax tree by invoking the sre_parse internal module. The resulting abstract syntax tree consists of (opcode, value) tuples representing the pattern in a structured form. If an abstract syntax tree features a MAX_REPEAT node containing a SUBPATTERN that itself contains a MAX_REPEAT, the nested quantification is detected independently of any input.\n\nThis allows us to statically analyze the abstract syntax tree and detect four categories of potentially dangerous patterns: nested quantifications, nulls within quantifications, overlapping alternatives, and one more category of our own that was unexpected.\n\n \n \n What we found across 20 packages\n\nThe source code distribution was analyzed for 20 of the most popular Python libraries: requests, flask, django, fastapi, sqlalchemy, pydantic, pytest, numpy, pandas, pillow, scrapy, celery, boto3, httpx, aiohttp, click, rich, typer, black, and mypy. The parser traverses all files ending with .py, extracts all calls to re.compile and re.search, and executes the analysis pipeline for each of them.\n\n90 initial warnings were reported. After excluding test code, third-party libraries, and build tools, 23 warnings remained in runtime code.\n\nOf the findings that were identified, the aiohttp one was probably the most interesting to explore further. The tool detected _WS_EXT_RE as being potentially dangerous as it is an example of problematic regex usage. Specifically, it is used within the parser for the WebSocket extension header where the code uses headers.get(), which makes it process header values in general. When measured with adversarial inputs, it takes about 0.8ms at its worst under CPython 3.12, making it well below any realistic time threshold. While the maintainer acknowledged that it might be inefficient, there was no security hole involved. However, what could be established from the audit engagement was that a previous audit found _COOKIE_PATTERN (in PR #11900) to be problematic, indicating that aiohttp recognized this type of flaw in the past.\n\nAnother interesting result was that in pytest, in the file expression.py line 113, the pattern has (:?\\w|:|...). In all likelihood, the intended regex was (?:...) - a non-capturing group. However, what is written there is a capturing group that matches a colon optionally. The reason why the LIKELY_TYPO detector spotted this is because (:? is a valid syntax although practically never used intentionally.\n\n \n \n The automatic fix\n\nEach structure is accompanied by a corrected version of its pattern based on atomic groups, which are included in the re library of Python starting from version 3.11.\n\nAtomic groups (?>...) represent a kind of one-way door: once the pattern engine enters it, no other way out than to fail there is possible, even if it becomes clear further on that the subsequent pattern cannot be found. The reason for this is that there is no combinatorial explosion with atomic groups since no backtracking is allowed in them.\n\nBEFORE (a+)+ dangerous\nAFTER (?>a+)+ safe\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIn an experiment using the Colab environment where n=22, the fixed pattern ran in 0.000111 seconds while the original took 0.306 seconds. The tool is also able to perform a semantic equivalency check to make sure the new code matches the old one.\n\n \n \n How to use it\n\npip install redos-analyzer\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIt will also work on Google Colab using !pip install redos-analyzer. The fundamental API is simply two methods: the first one, called analyze(), provides a warning message in form of list of warnings about pattern usage, while the second method, suggest_fix(), suggests fixes to the problematic regex based on the given pattern and warning message.\n\nSource code for the package can be found at https://github.com/HarshithReddy01/redos-analyzer and Zenodo citation at https://doi.org/10.5281/zenodo.19462441. A reproducible notebook with all timing experiments from this post is at https://github.com/HarshithReddy01/Algorithms-Practice/blob/master/Redosprojectlegit.ipynb.\n\nFurther steps include extending the analysis by scanning through files looking for such situations, when pattern is defined somewhere in the codebase and then used in some other file (like aiohttp library case). In its current implementation with 8-line window around every call site, our tool is able to detect simple situations like this one but fails to recognize cross-module dataflow.\n\nIf you detect any problematic pattern usage in your codebase, please create an issue at GitHub.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "abstract",
+      "aiohttp",
+      "cloudflare",
+      "colab",
+      "cookie_pattern",
+      "dangerous",
+      "detect",
+      "httpx",
+      "likely_typo",
+      "matcher",
+      "opensource",
+      "pattern",
+      "python",
+      "redos.",
+      "regex",
+      "regular",
+      "security",
+      "subpattern",
+      "syntax",
+      "utc",
+      "warning",
+      "webdev",
+      "websocket",
+      "xss"
+    ],
+    [
+      "opensource",
+      "webdev"
+    ]
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": 9784,
+  "source": "DEV Community<",
+  "title": "Tu app de vibe coding funciona. Eso es exactamente el problema.",
+  "url": "https://dev.to/bezael/tu-app-de-vibe-coding-funciona-eso-es-exactamente-el-problema-4k88",
+  "published_at": "2026-04-08T16:20:17Z",
+  "fetched_at": "2026-04-08T16:40:37.968397+00:00",
+  "author": "Bezael Pérez",
+  "summary": "<p>Tu app funciona.</p>\n\n<p>La abriste en el navegador. Hiciste clic en los botones. Todo responde.</p>\n\n<p>Hiciste el deploy. Nadie se quejó.</p>\n\n<p>Y ahí está el problema.</p>\n\n<p>Porque \"funciona\" no significa lo mismo que \"está bien\". Y cuando le delegas el código a una IA sin revisarlo, la diferencia entre los dos puede ser un endpoint sin autenticación, un token JWT que no expira nunca, o una contraseña guardada en texto plano en tu base de datos.</p>\n\n<p>No porque la IA sea mala. Sino porque la IA optimiza para \"hacer que funcione el prompt\". No para \"hacer que sea seguro en producción\".</p>\n\n\n\n\n<h2>\n  \n  \n  Lo que la IA no te dice cuando genera tu código\n</h2>\n\n<p>La IA generó tu endpoint. Lo probaste con Postman. Devolvió 200.</p>\n\n<p>Pero no te dijo que cualquier usuario autenticado puede acceder a los datos de cualquier otro usuario simplemente cambiando el ID en la URL.</p>\n\n<p>La IA configuró tu autenticación con JWT. Los tokens se generan. Los usuarios entran.</p>\n\n<p>Pe",
+  "full_text": "Tu app funciona.\n\nLa abriste en el navegador. Hiciste clic en los botones. Todo responde.\n\nHiciste el deploy. Nadie se quejó.\n\nY ahí está el problema.\n\nPorque \"funciona\" no significa lo mismo que \"está bien\". Y cuando le delegas el código a una IA sin revisarlo, la diferencia entre los dos puede ser un endpoint sin autenticación, un token JWT que no expira nunca, o una contraseña guardada en texto plano en tu base de datos.\n\nNo porque la IA sea mala. Sino porque la IA optimiza para \"hacer que funcione el prompt\". No para \"hacer que sea seguro en producción\".\n\n \n \n Lo que la IA no te dice cuando genera tu código\n\nLa IA generó tu endpoint. Lo probaste con Postman. Devolvió 200.\n\nPero no te dijo que cualquier usuario autenticado puede acceder a los datos de cualquier otro usuario simplemente cambiando el ID en la URL.\n\nLa IA configuró tu autenticación con JWT. Los tokens se generan. Los usuarios entran.\n\nPero no te dijo que esos tokens no tienen fecha de expiración. Que si uno se filtra, es válido para siempre.\n\nLa IA puso CORS para que el frontend pudiera llamar al backend.\n\nPero no te dijo que lo configuró con origin: '*'. Que eso significa que cualquier dominio del mundo puede hacer peticiones a tu API.\n\nEsto no es teoría. Es lo que aparece cuando auditas una app de vibe coding. Una tras otra.\n\n \n \n /vibe-audit — 30 segundos para saber en qué lío estás\n\nConstruí AI Workflow Kit porque me cansé de revisar código generado por IA de manera manual y encontrar los mismos 20 problemas cada vez.\n\nLa instalación:\n\nnpx ai-workflow-kit\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nY luego, en cualquier proyecto:\n\n/vibe-audit\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEso es todo. La skill escanea el proyecto completo, lee los archivos más críticos, y genera un reporte con severidad, evidencia concreta y el fix sugerido.\n\nNo te dice \"hay un problema de seguridad\". Te dice exactamente dónde está, qué línea, qué puede pasar si no lo arreglas, y cómo arreglarlo.\n\n \n \n Los problemas que encuentra. Siempre.\n\nDespués de auditar decenas de apps generadas con IA, hay 20 patrones que aparecen una y otra vez. Estos son los más comunes:\n\nLos críticos — los que pueden costarte el proyecto:\n\nSecretos hardcodeados. La IA pone API keys, contraseñas y URLs de base de datos directamente en el código porque \"funciona más rápido en el prompt\". Aparece en casi el 100% de los proyectos generados sin revisión.\n\n// Lo que encuentras\nOPENAI_API_KEY = \"sk-...\"\npassword: \"admin123\"\nconst SECRET = \"abc123\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSin validación de inputs. Los endpoints confían ciegamente en req.body. Cualquier usuario puede mandarte lo que quiera. Incluyendo role: \"admin\".\n\nconst { email, role } = req.body\nawait db.users.update({ role }) // el usuario se da a sí mismo rol de admin\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIDOR — acceso a recursos de otros usuarios. El endpoint GET /api/orders/:id no verifica que ese pedido sea tuyo. Cambia el número en la URL. Accedes a los datos de cualquier otro usuario.\n\nContraseñas sin hashear. No siempre. Pero ocurre, especialmente cuando el prompt fue vago o rápido.\n\nJWT sin expiración. jwt.sign(payload, secret) sin expiresIn. Token válido para siempre. Si se filtra — en logs, en localStorage, en cualquier sitio — el atacante tiene acceso permanente.\n\nStack traces expuestos al cliente. res.json({ error: err.stack }) en el manejador de errores. En producción esto le da al atacante rutas internas, versiones de librerías y lógica de la aplicación.\n\nLos importantes — los que te explotan en producción:\n\nQueries sin paginación. db.findMany() sin límite. En desarrollo con 10 registros, perfecto. En producción con 50.000, la base de datos se cae.\n\nAPIs de terceros sin rate limiting. La IA conecta tu app a OpenAI, Stripe, o cualquier API externa y llama directamente sin control. Un bot puede hacer miles de llamadas y arruinarte la factura o hacer que el proveedor banee tu cuenta.\n\nSin estados de loading o error en el frontend. La IA genera el happy path perfecto. Si la API tarda o falla, la app se queda en blanco o explota en silencio.\n\nconsole.logs de desarrollo en producción. La IA logea todo para depurar. Esos logs exponen datos internos y contaminan los logs de producción.\n\nEl reporte que genera /vibe-audit tiene este formato:\n\n# Vibe Audit — nombre-del-proyecto\nAuditado: fecha\n\n## Resumen\n- 🔴 Críticos: N (bloquear producción o son riesgos de seguridad)\n- 🟡 Importantes: N (afectan estabilidad o mantenibilidad)\n- 🔵 Mejoras: N (deuda técnica, calidad)\n\n## 🔴 Críticos\n\n### Contraseñas sin hashear\n**Dónde:** `src/auth/register.ts` línea 23\n**Evidencia:**\n[código problemático]\n**Riesgo:** Si la base de datos se compromete, todas las contraseñas quedan expuestas en texto plano\n**Fix sugerido:**\n[código corregido]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNo generalidades. Código concreto. Línea exacta. Fix aplicable.\n\n \n \n El resto del kit\n\n/vibe-audit es la razón de ser del kit. Pero no está solo.\n\nUna vez que tu app está auditada y los problemas críticos resueltos, el workflow se mantiene limpio con el resto de las herramientas:\n\nSkills:\n\n/commit — lee el diff real y genera un commit semántico. Sin copy-paste, sin \"fix stuff\"\n\n/pr — PR con descripción, plan de tests y checklist de revisión\n\n/review @archivo — revisa bugs, seguridad y rendimiento con criterios de ingeniería real\n\n/plan [tarea] — fuerza planificación antes de ejecutar. Para tareas complejas, un plan aprobado vale más que código rápido\n\n/debug [problema] — diagnóstico con hipótesis antes de proponer fixes\n\nAgentes especializados:\n\n/frontend — componentes siguiendo el sistema de diseño del proyecto\n\n/api — endpoints con validación, auth y manejo de errores\n\n/test — tests por comportamiento, no por implementación\n\n/refactor — mejora el código sin cambiar el comportamiento\n\n/docs — JSDoc, README, ADR según el contexto\n\nHooks automáticos — sin activación, corren solos:\n\nBloquea comandos destructivos antes de que se ejecuten\n\nEscanea archivos staged buscando API keys antes de cada commit\n\nFormatea con Prettier o Biome después de cada edición\n\nCorre ESLint y devuelve los errores a Claude para que los corrija\n\nNotificación de escritorio cuando Claude termina (Mac/Linux/Windows)\n\nFunciona con Claude Code, Cursor y GitHub Copilot.\n\n \n \n La diferencia entre vibe coding y vibe coding bien hecho\n\nEl vibe coding no va a desaparecer. Ni debería.\n\nLa velocidad es real. La productividad es real. Poder construir en horas lo que antes tardaba días es real.\n\nEl problema no es la velocidad. El problema es confundir \"rápido\" con \"hecho\".\n\nTu app necesita los dos. Velocidad para llegar al mercado. Y un /vibe-audit para saber qué hay dentro antes de que alguien más lo descubra por ti.\n\nUna línea:\n\nnpx ai-workflow-kit\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGitHub: https://github.com/bezael/ai-workflow-kit",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "ante",
+      "api",
+      "claudecode",
+      "contraseñas",
+      "cualquier",
+      "código",
+      "datos",
+      "el id",
+      "el navegador",
+      "el proyecto",
+      "funciona",
+      "genera",
+      "hiciste",
+      "ia",
+      "jwt",
+      "la ia",
+      "los mismos",
+      "para",
+      "porque",
+      "puede",
+      "severidad",
+      "usuario",
+      "vibecoding",
+      "visa",
+      "webdev"
+    ],
+    [
+      "claudecode",
+      "ia",
+      "vibecoding",
+      "webdev"
+    ]
+  ]
+}

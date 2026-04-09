@@ -1,0 +1,44 @@
+{
+  "id": 9697,
+  "source": "DEV Community<",
+  "title": "Is that MCP request actually from your AI agent",
+  "url": "https://dev.to/willamhou/is-that-mcp-request-actually-from-your-ai-agent-3m28",
+  "published_at": "2026-04-08T10:46:39Z",
+  "fetched_at": "2026-04-08T11:00:31.803218+00:00",
+  "author": "willamhou",
+  "summary": "<h1>\n  \n  \n  Is that MCP request actually from your AI agent?\n</h1>\n\n<p>Last week we open-sourced Signet — cryptographic signing for every AI agent tool call.</p>\n\n<p>Someone asked a good question: <strong>the agent signs, but does the server verify?</strong></p>\n\n<p>Fair point. v0.1 was one-sided. The agent signed every request, but the server didn't check. Like mailing a signed contract that nobody verifies on the other end. Better than nothing, but the trust chain is broken.</p>\n\n<p>This week we closed the loop.</p>\n\n<h2>\n  \n  \n  From one-sided to bilateral\n</h2>\n\n\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>v0.1  Agent signs (one-sided)\n      → proves the agent sent the request\n\nv0.2  Compound receipt (request + response bound)\n      → proves the request and response are paired\n\nv0.3  Server verification\n      → server can verify \"this request was signed by a specific agent\"\n\nv0.4  Bilateral co-signing\n      → agent signs the request, server si",
+  "full_text": "Is that MCP request actually from your AI agent?\n\nLast week we open-sourced Signet — cryptographic signing for every AI agent tool call.\n\nSomeone asked a good question: the agent signs, but does the server verify?\n\nFair point. v0.1 was one-sided. The agent signed every request, but the server didn't check. Like mailing a signed contract that nobody verifies on the other end. Better than nothing, but the trust chain is broken.\n\nThis week we closed the loop.\n\n \n \n From one-sided to bilateral\n\nv0.1 Agent signs (one-sided)\n → proves the agent sent the request\n\nv0.2 Compound receipt (request + response bound)\n → proves the request and response are paired\n\nv0.3 Server verification\n → server can verify \"this request was signed by a specific agent\"\n\nv0.4 Bilateral co-signing\n → agent signs the request, server signs the response, both hold proof\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Server verification: 3 lines\n\nAdd this to your MCP server handler:\n\nimport { verifyRequest } from \"@signet-auth/mcp-server\";\n\nserver.setRequestHandler(CallToolRequestSchema, async (request) => {\n const v = verifyRequest(request, {\n trustedKeys: [\"ed25519:...\"],\n maxAge: 300,\n });\n if (!v.ok) return { content: [{ type: \"text\", text: v.error }], isError: true };\n\n // verified — proceed\n console.log(`Request from: ${v.signerName}`);\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOne function. Six checks: signature validity, trusted key list, freshness window (anti-replay), target binding (anti-cross-server), tool name match, params match. ~50μs.\n\n \n \n Bilateral co-signing: 3 more lines\n\nAfter verifying and processing the request, the server signs the response:\n\nimport { signResponse } from \"@signet-auth/mcp-server\";\n\nconst bilateral = signResponse(request, response, {\n serverKey: process.env.SIGNET_SERVER_KEY,\n serverName: \"my-server\",\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis produces a BilateralReceipt:\n\n{\n \"v\": 3,\n \"agent_receipt\": {\n \"v\": 1,\n \"action\": { \"tool\": \"create_issue\", \"params_hash\": \"sha256:...\" },\n \"signer\": { \"pubkey\": \"ed25519:...\", \"name\": \"deploy-bot\" },\n \"sig\": \"ed25519:...\"\n },\n \"response\": { \"content_hash\": \"sha256:...\" },\n \"server\": { \"pubkey\": \"ed25519:...\", \"name\": \"github-mcp\" },\n \"ts_response\": \"...\",\n \"sig\": \"ed25519:...\"\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nTwo signatures, two keys, one record. The agent says \"I sent this request.\" The server says \"I received this request and returned this response.\" Both parties hold proof. Neither can deny it.\n\n \n \n Why bilateral matters\n\nOne-sided signing proves \"what the agent did.\" Bilateral signing proves \"what happened between the agent and the server.\"\n\nThe difference:\n\nScenario: an agent places a purchase order, but the amount is wrong.\n\nOne-sided: the agent says \"I sent price=100.\" But the server might have received price=10000. You can't prove what happened in between.\n\nBilateral: the agent's signature binds the params_hash. The server's signature binds the response content_hash. Any tampering in between breaks one of the signatures. Both parties signed the same facts — when something goes wrong, the signatures tell you who's right.\n\n \n \n Python support\n\nfrom signet_auth import SigningAgent\n\nagent = SigningAgent.create(\"my-agent\", owner=\"willamhou\")\nreceipt = agent.sign(\"create_issue\", params={\"title\": \"fix bug\"})\n\n# Verify a bilateral receipt\nfrom signet_auth import verify_bilateral\nresult = verify_bilateral(bilateral_receipt_json, agent_pubkey, server_pubkey)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Where this fits in the MCP ecosystem\n\nIn the MCP spec discussion (SEP-1763), five independent projects were identified as layers of an enforcement stack:\n\nLayer\nProject\nWhat it does\n\nTransport integrity\nSignet\nAgent signs request, server verifies + co-signs\n\nPolicy enforcement\nAPS\nAuthorization checks, policy engine\n\nExternal anchoring\nArkForge\nReceipt anchoring to transparency logs\n\nSpend control\nAgentPay\nBudget caps\n\nOutput verification\nveroq\nResponse content validation\n\nSignet went from a one-sided signing tool to the transport layer of a bilateral trust protocol. Each layer does its own thing. Together they form a complete agent security stack.\n\n \n \n Try it\n\nClaude Code (on the official Anthropic plugin marketplace):\n\n/plugin install signet@claude-plugins-official\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEvery tool call is signed and audited. Zero config.\n\nMCP server (on the MCP Registry, Glama indexed):\n\nnpm install @signet-auth/mcp-server\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAgent side:\n\n# TypeScript\nnpm install @signet-auth/core @signet-auth/mcp\n\n# Python (LangGraph, LlamaIndex, Pydantic AI, Google ADK, OpenAI Agents, Semantic Kernel, smolagents)\npip install signet-auth\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGitHub: github.com/Prismer-AI/signet\n\n@willamhou",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "agentpay\nbudget",
+      "ai",
+      "bilateral",
+      "enter",
+      "exit",
+      "fair",
+      "fullscreen",
+      "glama",
+      "langgraph",
+      "llamaindex",
+      "mcp",
+      "mode",
+      "openai agents",
+      "prove",
+      "pydantic ai",
+      "receipt",
+      "rust",
+      "security",
+      "server",
+      "sign",
+      "signingagent",
+      "the mcp registry"
+    ],
+    [
+      "ai",
+      "rust"
+    ]
+  ]
+}

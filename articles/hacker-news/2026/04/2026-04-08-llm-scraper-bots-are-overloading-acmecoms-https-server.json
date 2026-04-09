@@ -1,0 +1,30 @@
+{
+  "id": 9637,
+  "source": "Hacker News",
+  "title": "LLM scraper bots are overloading acme.com's HTTPS server",
+  "url": "http://acme.com/updates/archive/229.html",
+  "published_at": "2026-04-08T03:02:56Z",
+  "fetched_at": "2026-04-08T04:00:42.654044+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47684506\">Comments</a>",
+  "full_text": "ACME Updates\n \n\n07Apr2026 https outage\n\n \n\nStarting on February 25th and lasting a little over a month, acme.com\nsuffered intermittent network outages.\nThe symptoms were very high ping times and packet drops.\nThe outages would last a few hours and then go away for a while.\n\nThe problems started right after my internet provider, Sonic, did\nsome scheduled maintenance and switched me to a new network.\nI worked with Sonic support to try and figure out if their\nnetwork change, or my own config changes for the new network, could\nhave caused the problems.\nI did find some things I did wrong, but fixing them didn't\nfix the outages.\n\nA few days ago I was up at 1am, filled with anxiety at yet\nanother outage, and decided to take a harder look at the traffic\nI was getting.\nI noticed some interesting things:\n\n \n Nearly all the incoming packets were web requests. \n \n Nearly all of them were for non-existent pages. \n \n Nearly all of them were on port 443 / https, not port 80 / http. \n \n Nearly all of them proudly announced in the user-agent that they were LLM scraper bots. \n\nI run two web servers on ACME, one for http that is very fast, and\nanother for https which is kind of slow.\nMaybe the slow https server was falling behind?\nI decided to test this: I closed port 443.\n\nThe problems went away immediately, and have not returned.\n\nWhat I think was going on: before Sonic's February 25th maintenance,\nmy https server was probably barely keeping up.\nSome change during the maintenance - maybe they increased the\navailable bandwidth? - tipped things over into the web server\nfalling behind, some of the time.\nMaybe when two different bots were pounding on it simultaneously.\nWhen the server fell far enough behind, the congestion spread to natd,\nthe Network Address Translation daemon.\nWhen natd also got saturated, bam, packets started getting delayed and dropped.\n\nNow closing https service is obviously just a temporary fix,\nbecause I do want to provide https, but it's actually not that bad.\nMy legit web traffic is 90% http / 10% https, so I'm losing at most\n10% of my traffic.\nBut yeah, I'll be doing a better fix some time soon.\n\nAlso, this is a bigger problem than just me.\nThe LLM companies are not picking on me in particular, they are\npounding every site on the net.\nI know of two other hobbyist-level sites which are also having\nproblems due to this.\nSomeone really ought to do something about it.\n\n \n\n \n\n Back to ACME Updates.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "acme",
+      "decide",
+      "fall",
+      "https",
+      "llm",
+      "nearly",
+      "outage",
+      "packet",
+      "pound",
+      "problem",
+      "sonic",
+      "start"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": 9616,
+  "source": "DEV Community<",
+  "title": "I Built a Personal Second Brain with Markdown Files and Claude Code — Here's How",
+  "url": "https://dev.to/shirisha_uppoju_b20d30705/i-built-a-personal-second-brain-with-markdown-files-and-claude-code-heres-how-2m14",
+  "published_at": "2026-04-08T01:17:23Z",
+  "fetched_at": "2026-04-08T02:00:39.168970+00:00",
+  "author": "Shirisha Uppoju",
+  "summary": "<h2>\n  \n  \n  The Inspiration\n</h2>\n\n<p>I saw <a href=\"https://x.com/karpathy\" rel=\"noopener noreferrer\">Andrej Karpathy's viral post</a> about using LLMs to build personal knowledge bases — no vector database, no chunking pipeline. Just markdown files, Obsidian, and Claude Code.</p>\n\n<p>The core idea blew my mind:</p>\n\n<ol>\n<li>Create a folder with <code>raw/</code> and <code>wiki/</code> subfolders</li>\n<li>Drop in source documents, articles, transcripts</li>\n<li>Tell the LLM to ingest the raw files and build wiki pages with relationships, tags, and backlinks</li>\n</ol>\n\n<p>I immediately thought: <strong>I need to build this, but better.</strong></p>\n\n\n\n\n<h2>\n  \n  \n  What I Built\n</h2>\n\n<p>I took Karpathy's concept and extended it into a full-featured <strong>Personal Second Brain</strong> with several improvements:</p>\n\n<h3>\n  \n  \n  The Original Concept (Credit: Andrej Karpathy)\n</h3>\n\n<ul>\n<li>Markdown-based wiki with <code>raw/</code> → <code>wiki/</code> pipeline</li>\n<li>LLM read",
+  "full_text": "The Inspiration\n\nI saw Andrej Karpathy's viral post about using LLMs to build personal knowledge bases — no vector database, no chunking pipeline. Just markdown files, Obsidian, and Claude Code.\n\nThe core idea blew my mind:\n\nCreate a folder with raw/ and wiki/ subfolders\n\nDrop in source documents, articles, transcripts\n\nTell the LLM to ingest the raw files and build wiki pages with relationships, tags, and backlinks\n\nI immediately thought: I need to build this, but better.\n\n \n \n What I Built\n\nI took Karpathy's concept and extended it into a full-featured Personal Second Brain with several improvements:\n\n \n \n The Original Concept (Credit: Andrej Karpathy)\n\nMarkdown-based wiki with raw/ → wiki/ pipeline\n\nLLM reads source material and generates structured wiki pages\n\nPages link to each other via [[backlinks]]\n\nGraph view in Obsidian shows connections\n\n \n \n My Improvements\n\n1. Multi-Format Ingestion\n\nThe original handles text/markdown. I added support for:\n\nPDF files → converted via Marker to markdown before processing\n\nYouTube transcripts → auto-fetched and ingested\n\nWeb articles → fetched and cleaned automatically\n\nAny text-based format\n\n2. Smart Duplicate Detection\n\nBefore creating a new wiki page, the system checks if a similar topic already exists. If so, it merges the new information instead of creating duplicates.\n\n3. Auto-Generated Index\n\nA master _Index.md file is automatically maintained with:\n\nCategorized links to all wiki pages\n\nQuick-reference descriptions\n\nLast-updated timestamps\n\n4. Relationship Mapping\n\nEvery wiki page includes:\n\nrelated_topics in frontmatter\n\nInline [[backlinks]] to connected concepts\n\nTags for cross-cutting themes\n\n5. Source Tracking\n\nEach wiki page tracks which raw file(s) it was generated from, so you can always trace back to the original source.\n\n \n \n Project Structure\n\nknowledge-base/\n├── raw/ # Drop files here\n│ ├── articles/\n│ ├── transcripts/\n│ ├── notes/\n│ └── pdfs/\n├── wiki/ # Auto-generated wiki pages\n│ ├── _Index.md # Master index\n│ ├── concept-name.md # Individual pages\n│ └── ...\n├── .claude/\n│ └── commands/\n│ └── ingest.md # The ingestion prompt\n└── CLAUDE.md # Project instructions\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n How the Ingestion Works\n\nThe magic is in the ingestion prompt. When you run it, Claude Code:\n\nScans raw/ for new/modified files\n\nReads each file and extracts key concepts, entities, and relationships\n\nChecks existing wiki pages for overlap\n\nCreates or updates wiki pages with proper frontmatter, backlinks, and tags\n\nUpdates the master index\n\nHere's what a generated wiki page looks like:\n\n---\ntitle: Transformer Architecture\ntags: [deep-learning, nlp, attention]\nsource: raw/articles/attention-is-all-you-need.md\nrelated_topics: [[Self-Attention]], [[BERT]], [[GPT]]\ncreated: 2026-04-07\n---\n\n# Transformer Architecture\n\nThe transformer is a neural network architecture that relies \nentirely on self-attention mechanisms...\n\n## Key Concepts\n- **Self-Attention** — see [[Self-Attention]]\n- **Multi-Head Attention** — parallel attention layers\n- **Positional Encoding** — since transformers have no recurrence\n\n## Related\n- [[BERT]] — encoder-only transformer\n- [[GPT]] — decoder-only transformer\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The Results\n\nAfter ingesting ~50 files:\n\n44 interconnected wiki pages generated automatically\n\nGraph view in Obsidian shows meaningful clusters\n\nToken savings: ~90% reduction vs. feeding raw files to an LLM\n\nRetrieval: follows index → links instead of similarity search, so relationships are meaningful, not just \"these chunks seem similar\"\n\n \n \n Try It Yourself\n\n \n \n Prerequisites\n\n \n \n Quick Start\n\nmkdir -p ~/knowledge-base/{raw,wiki}\ncd ~/knowledge-base\n\n# Drop your files into raw/\ncp ~/Documents/interesting-article.md raw/\n\n# Start Claude Code and ingest\nclaude\n# Then type: \"Ingest all files in raw/ and create wiki pages in wiki/\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Key Takeaway\n\nYou don't need a vector database, embeddings pipeline, or RAG infrastructure to give AI persistent, organized memory. A folder of markdown files gets you surprisingly far.\n\nThe real insight from Karpathy's approach: let the LLM do what it's good at — reading, understanding, and organizing — while you use simple, human-readable files as the storage layer.\n\n \n \n Credits\n\nFull credit to Andrej Karpathy for the original concept and inspiration. His viral post about LLM-powered knowledge bases sparked this project. I've simply extended the idea with multi-format support, duplicate detection, and automated indexing.\n\nHave questions or built something similar? Drop a comment below!",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "andrej",
+      "architecture",
+      "build",
+      "claudecode",
+      "concept",
+      "file",
+      "generate",
+      "gpt",
+      "ingestion",
+      "karpathy",
+      "knowledgebase",
+      "llm",
+      "markdown files and",
+      "marker",
+      "multi-format ingestion",
+      "page",
+      "pdf",
+      "personal second brain",
+      "productivity",
+      "project structure",
+      "token",
+      "transformer",
+      "wiki"
+    ],
+    [
+      "ai",
+      "architecture",
+      "claudecode",
+      "knowledgebase",
+      "productivity"
+    ]
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": 9868,
+  "source": "Hacker News",
+  "title": "What does ⍋⍋ even mean? (2023)",
+  "url": "https://blog.wilsonb.com/posts/2023-08-04-what-does-grade-grade-even-mean.html",
+  "published_at": "2026-04-05T06:25:30Z",
+  "fetched_at": "2026-04-08T21:40:17.500509+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47646646\">Comments</a>",
+  "full_text": "What Does ⍋⍋ Even Mean?\n\n \n\n Posted on August 4, 2023\n \n\nA while back I was casually perusing the articles on Jo̊t Dọt Ti̽mes and\nfell in love with almost everything that Paul Mansour writes up. In his Grade\nDown of Grade Up, he shares a quote that just feels like a challenge:\n\nSo the conclusion is that if we are only dealing in permutations ⍒⍋ is\nworthless since it’s simply a slower ⌽, and if we are not dealing in\npermutations even Adám doesn’t know what ⍒⍋ does so it is probably equally\nworthless.\n\nMansour’s answer is a really nice special application, but it turns out that\nthere’s actually a satisfying general answer! We will consider general arrays,\nbut in the back of our mind let’s keep a concrete example in mind, something\nlike this:\n ⊢Y←⎕UCS 97+?10⍴26\n lnpwbkmcxt\n ↑Y (⍋Y)\n l n p w b k m c x t\n 4 7 5 0 6 1 2 9 3 8\n\nDefining a couple terms up front will make our life much easier:\n\nAn item of an array is a sub-array along its first axis. In particular, for\na vector, the items correspond with the elements of the array, and for a\nmatrix the items are the rows; and\n\nThe rank of an item \\(y \\in Y\\) is the index of \\(y\\) when you sort \\(Y\\)\nascendingly. Specifically, this is TAO order. So if \\(y\\) has rank \\(i\\),\nthen that just means that \\(y\\) is the \\(i^{\\rm th}\\) smallest element of \\(Y\\).\n\nApplying these to the definition of Grade Up, we can say that the \\(i^{\\rm\nth}\\) element of ⍋Y simply indexes whichever item of \\(Y\\) has rank \\(i\\). With a\nlittle squinting, we also see that this is equivalent to the reference\ndefinition:\n\nR is an integer vector being the permutation of ⍳1↑⍴Y that places the\nsub-arrays along the first axis in ascending order.\n\nLet us add a little bit of notation. When the \\(i^{\\rm th}\\) item of \\(Y\\) has rank\n\\(j\\), we write \\(<i, j>\\). Notice then that for ⍋Y the condition \\(<j, i>\\)\nholds—in other words, ⍋ just swaps \\(i\\) and \\(j\\), meaning that ⍋⍋Y leaves\n\\(<i, j>\\) unchanged! When \\(Y\\) is a permutation vector, this makes ⍋⍋ the\nidentity, but in general we can think of it as the function Rank, since it\nproduces a vector of the item ranks.\n\nBetter yet, since ⍒ is equal to ⌽⍋, we can say that \\(<N-j, i>\\) holds for\nits result, where N=¯1+≢Y (in ⎕IO←0), and if we think of \\(i, j\\) as living\nin \\(\\mathbb{Z}_N\\), this becomes even nicer: \\(<-j, i>\\). Indeed,\n ↑Y (⍋⍋Y)\n l n p w b k m c x t\n 3 5 6 8 0 2 4 1 9 7\n\nEffectively, the negative sign in our \\(<\\cdot, \\cdot>\\) symbol just means that\nthe corresponding field starts counting from the back of the array, which we\ncan think of as the function ReverseRank. Armed with this little bit of\nalgebra, we can now fully characterize the fourfold combinations of ⍋ and\n⍒:\n\nInput\n\nOutput\nInterpretation\n\n\\(<i, j>\\)\n⍋⍋\n\\(<i, j>\\)\nAscending Rank\n\n\\(<i, j>\\)\n⍋⍒\n\\(<i, -j>\\)\nAscending ReverseRank\n\n\\(<i, j>\\)\n⍒⍋\n\\(<-i, j>\\)\nDescending Rank\n\n\\(<i, j>\\)\n⍒⍒\n\\(<-i, -j>\\)\nDescending ReverseRank\n\nNot bad! So the leading Grade chooses ascending or descending and the trailing\nGrade chooses Rank or ReverseRank. Applying to our example,\n ↑Y (⍋⍋Y) (⍋⍒Y) (⍒⍋Y) (⍒⍒Y)\n l n p w b k m c x t\n 3 5 6 8 0 2 4 1 9 7\n 6 4 3 1 9 7 5 8 0 2\n 7 9 1 4 2 0 8 6 5 3\n 2 0 8 5 7 9 1 3 4 6\n\nAs a sanity check, note that Rank + ReverseRank should be constant. Indeed,\nfor each item \\(y \\in Y\\), the number of items less than \\(y\\) plus the number of\nitems greater than \\(y\\) should equal the total number of items in \\(Y\\), minus 1\nfor \\(y\\) itself:\n (⍋∘⍋+⍋∘⍒)Y\n 9 9 9 9 9 9 9 9 9 9\n (⍒∘⍋+⍒∘⍒)Y\n 9 9 9 9 9 9 9 9 9 9\n\nActually, there is a bit of nuance when items of \\(Y\\) are equal. Rank + ReverseRank will not be constant because both ⍋ and ⍒ rank equal items the\nsame way, no directionality involved. This property makes having both\nprimitives useful, otherwise (⍋≡⌽∘⍒)Y would always hold. This property is\nexactly what Paul Mansour exploits in his article above with the AverageRank\nfunction.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "\\(i",
+      "\\(y\\",
+      "ascend",
+      "averagerank",
+      "descend",
+      "equal",
+      "general",
+      "grade",
+      "grade up",
+      "item",
+      "mansour",
+      "permutation",
+      "rank",
+      "rank + reverserank",
+      "reverserank",
+      "tao",
+      "ucs"
+    ],
+    []
+  ]
+}

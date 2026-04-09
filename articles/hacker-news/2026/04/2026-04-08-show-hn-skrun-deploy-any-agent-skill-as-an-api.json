@@ -1,0 +1,38 @@
+{
+  "id": 9846,
+  "source": "Hacker News",
+  "title": "Show HN: Skrun – Deploy any agent skill as an API",
+  "url": "https://github.com/skrun-dev/skrun",
+  "published_at": "2026-04-08T12:34:38Z",
+  "fetched_at": "2026-04-08T20:20:21.973065+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47689319\">Comments</a>",
+  "full_text": "Turn any Agent Skill (SKILL.md) into a callable API via POST /run. Multi-model, stateful, open source.\n\nnpm install -g @skrun-dev/cli\n\n# Import an existing skill → deploy → call\nskrun init --from-skill ./my-skill\nskrun deploy\n\ncurl -X POST localhost:4000/api/agents/dev/my-skill/run \\\n -H \"Authorization: Bearer <token>\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\"input\": {\"query\": \"analyze this\"}}'\n\nskrun init my-agent\ncd my-agent\n# Creates SKILL.md (instructions) + agent.yaml (config)\n\nskrun init --from-skill ./path-to-skill\n# Reads SKILL.md, asks 2-3 questions, generates agent.yaml\n\nskrun dev\n# ✓ Server running at http://localhost:3000\n# POST /run ready — watching for changes...\n\nskrun test\n# ✓ basic-test (output.score >= 0)\n# 1 passed, 0 failed\n\nskrun deploy\n# ✓ Validated → Built → Pushed\n# 🚀 POST http://localhost:4000/api/agents/you/my-agent/run\n\nv0.1 ships with a local runtime. Cloud deploy is on the roadmap — the architecture is ready (RuntimeAdapter interface).\n\nAgent Skills — SKILL.md standard, compatible with Claude Code, Copilot, Codex\n\nagent.yaml — Runtime config: model, inputs/outputs, permissions, state, tests\n\nPOST /run — Every agent is an API. Typed inputs, structured outputs.\n\nMulti-model — Anthropic, OpenAI, Google, Mistral, Groq with automatic fallback\n\nStateful — Agents remember across runs via key-value state\n\nTool calling — Two approaches: CLI tools (scripts/ — write your own, bundled with the agent) and MCP servers (npx — standard ecosystem, same as Claude Desktop)\n\nAll examples use Google Gemini Flash by default. Change the model section in agent.yaml to use any supported provider.\n\n# 1. Start the registry\ncp .env.example .env # add your GOOGLE_API_KEY\npnpm dev:registry # keep this terminal open\n\n# 2. In another terminal\nskrun login --token dev-token\ncd examples/code-review\nskrun build && skrun push\n\n# 3. Call the agent\ncurl -X POST http://localhost:4000/api/agents/dev/code-review/run \\\n -H \"Authorization: Bearer dev-token\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\"input\": {\"code\": \"function add(a,b) { return a + b; }\"}}'\n\nWindows (PowerShell): use curl.exe instead of curl, and use @input.json for the body.\n\nCommand\nDescription\n\nskrun init [dir]\nCreate a new agent\n\nskrun init --from-skill <path>\nImport existing skill\n\nskrun dev\nLocal server with POST /run\n\nskrun test\nRun agent tests\n\nskrun build\nPackage .agent bundle\n\nskrun deploy\nBuild + push + live URL\n\nskrun push / pull\nRegistry upload/download\n\nskrun login / logout\nAuthentication\n\nskrun logs <agent>\nExecution logs\n\nFull CLI reference →\n\ngit clone https://github.com/skrun-dev/skrun.git\ncd skrun\npnpm install && pnpm build && pnpm test\n\nSee CONTRIBUTING.md for conventions and setup.\n\nMIT",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "agent.yaml",
+      "api",
+      "cli",
+      "deploy",
+      "exist",
+      "google",
+      "groq",
+      "init",
+      "mcp",
+      "mistral",
+      "mit",
+      "pnpm",
+      "powershell",
+      "push",
+      "registry",
+      "skill",
+      "skrun",
+      "skrun build &&",
+      "test"
+    ],
+    []
+  ]
+}

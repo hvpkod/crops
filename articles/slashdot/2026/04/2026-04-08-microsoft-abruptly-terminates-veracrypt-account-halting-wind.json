@@ -1,0 +1,35 @@
+{
+  "id": 9798,
+  "source": "Slashdot",
+  "title": "Microsoft Abruptly Terminates VeraCrypt Account, Halting Windows Updates",
+  "url": "https://tech.slashdot.org/story/26/04/08/1715213/microsoft-abruptly-terminates-veracrypt-account-halting-windows-updates?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-08T17:00:00Z",
+  "fetched_at": "2026-04-08T18:00:23.764768+00:00",
+  "author": "BeauHD",
+  "summary": "Microsoft has apparently terminated the account VeraCrypt uses to sign its Windows drivers and bootloader, leaving the encryption project unable to publish Windows updates and throwing future releases into doubt. VeraCrypt's developer says Microsoft gave no clear explanation or warning for the move. \"I didn't receive any emails from Microsoft nor any prior warnings,\" Mounir Idrassi, VeraCrypt's developer, told 404 Media. From the report: VeraCrypt is an open-source tool for encrypting data at rest. Users can create encrypted partitions on their drives, or make individual encrypted volumes to store their files in. Like its predecessor TrueCrypt, which VeraCrypt is based on, it also lets users create a second, innocuous looking volume if they are compelled to hand over their credentials. Last week, Idrassi took to the SourceForge forums to explain why he had been absent for a few months. The most serious challenge, he wrote, \"is that Microsoft terminated the account I have used for years",
+  "full_text": "Microsoft has apparently terminated the account VeraCrypt uses to sign its Windows drivers and bootloader\n\n, leaving the encryption project unable to publish Windows updates and throwing future releases into doubt. VeraCrypt's developer says Microsoft gave no clear explanation or warning for the move. \"I didn't receive any emails from Microsoft nor any prior warnings,\" Mounir Idrassi, VeraCrypt's developer, told 404 Media. From the report: VeraCrypt is an open-source tool for encrypting data at rest. Users can create encrypted partitions on their drives, or make individual encrypted volumes to store their files in. Like its predecessor TrueCrypt, which VeraCrypt is based on, it also lets users create a second, innocuous looking volume if they are compelled to hand over their credentials. Last week, Idrassi took to the SourceForge forums to explain why he had been absent for a few months. The most serious challenge, he wrote, \"is that Microsoft terminated the account I have used for years to sign Windows drivers and the bootloader.\"\n\n \n\n\"Regarding VeraCrypt, I cannot publish Windows updates. Linux and macOS updates can still be done but Windows is the platform used by the majority of users and so the inability to deliver Windows releases is a major blow to the project,\" he continued. \"Currently I'm out of options.\" Idrassi told 404 Media the termination happened in mid-January. \"I was surprised to discover that I could no longer use my account,\" he said.\n\n \n\nOn the forum and in the email to 404 Media, Idrassi shared what he said was the only message he received connected to the account shutdown. \"Based on the information you have provided to date, we have determined that your organization does not currently meet the requirements to pass verification. There are no appeals available, we have closed your application,\" it reads. Idrassi told 404 Media the message is concerning his company IDRIX. \"As you can read in their message, they say that the organization (IDRIX) doesn't meet their requirements, but I don't see which requirement IDRIX suddenly stopped meeting,\" he said. Idrassi said he has tried contacting Microsoft support, but he received automated responses that he believes contained AI-generated text.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "account",
+      "driver",
+      "encrypt",
+      "encryption",
+      "forum",
+      "idrassi",
+      "media",
+      "microsoft",
+      "microsoft abruptly",
+      "receive",
+      "terminate",
+      "terminates veracrypt account",
+      "truecrypt",
+      "veracrypt",
+      "windows"
+    ],
+    [
+      "encryption"
+    ]
+  ]
+}

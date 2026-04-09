@@ -1,0 +1,34 @@
+{
+  "id": 9827,
+  "source": "DEV Community<",
+  "title": "I Kept Opening Claude Code and Wishing It Had a Real UI. So I Made One.",
+  "url": "https://dev.to/monkmodeapp/i-kept-opening-claude-code-and-wishing-it-had-a-real-ui-so-i-made-one-3k88",
+  "published_at": "2026-04-08T19:35:25Z",
+  "fetched_at": "2026-04-08T19:40:18.673681+00:00",
+  "author": "Monk Mode Team",
+  "summary": "<p>I kept opening Claude Code and wishing it had a real UI. So I made one.</p>\n\n<p>Look, I love Claude Code. Its the best coding agent out there right now and I dont think its particularly close. But every time I fire it up in the terminal, theres this moment where I think... why does this still feel like 2003?</p>\n\n<p>I used Codex for a bit when it came out. The UI was great. Dashboard feel, clean task management, you could actually see what was happening. But under the hood it was running GPT and honestly the results just werent there for me. I kept going back to Claude Code because the output was better, but I missed that interface every single time.</p>\n\n<p>So a few weeks ago I sat down and thought, what if I just built the UI I wanted on top of Claude Code?</p>\n\n<p>Thats <a href=\"https://www.claudx.org\" rel=\"noopener noreferrer\">Claudx</a>.</p>\n\n<h2>\n  \n  \n  What it actually is\n</h2>\n\n<p>Claudx is Claude Code with a Codex style interface layered on top. Thats it. No magic, no prop",
+  "full_text": "I kept opening Claude Code and wishing it had a real UI. So I made one.\n\nLook, I love Claude Code. Its the best coding agent out there right now and I dont think its particularly close. But every time I fire it up in the terminal, theres this moment where I think... why does this still feel like 2003?\n\nI used Codex for a bit when it came out. The UI was great. Dashboard feel, clean task management, you could actually see what was happening. But under the hood it was running GPT and honestly the results just werent there for me. I kept going back to Claude Code because the output was better, but I missed that interface every single time.\n\nSo a few weeks ago I sat down and thought, what if I just built the UI I wanted on top of Claude Code?\n\nThats Claudx.\n\n \n \n What it actually is\n\nClaudx is Claude Code with a Codex style interface layered on top. Thats it. No magic, no proprietary model, no weird abstractions. You get the full power of Claude Code, the same agent, the same context window, the same tool use. But instead of staring at a terminal, you get a proper visual workspace.\n\nYou can see your tasks laid out. You can watch the agent work through problems in real time with a UI that actually makes sense. File changes are visible. Context is manageable. Its the experience I wanted from day one.\n\n \n \n Why I couldnt just keep using the terminal\n\nHeres the thing about terminal based tools. Theyre fine when youre doing one thing. But when youre juggling three features, a bug fix, and trying to remember what you asked the agent to do twenty minutes ago, it falls apart fast.\n\nI found myself constantly scrolling back through terminal history trying to figure out where I was. Copying outputs into notes apps. Losing track of which files changed. It was like using a powerful engine with no dashboard, no speedometer, no fuel gauge. You know its working but you cant see anything.\n\nThe Codex UI solved this. Clean panels, task history, visible file diffs. But Codex ran on GPT and for my workflow Claude was just producing better code. I wanted both things at once.\n\n \n \n Building it\n\nI wont pretend this was some massive engineering effort. The core insight was simple: Claude Code already exposes everything you need. The agent outputs, the file modifications, the reasoning steps. It was all there, just trapped in a terminal stream.\n\nSo I built a proper frontend that captures all of that and presents it the way a developer actually wants to see it. Task cards. File change summaries. A clean conversation view that doesnt feel like youre reading raw stdout.\n\nThe demo video on claudx.org shows the full flow if you want to see it in action.\n\n \n \n What people are actually using it for\n\nSince launching Ive been watching how people use it and its interesting. Some folks use it exactly like I do, as their daily coding companion with a better UI. But others are using it for things I didnt expect.\n\nOne person told me they use it to onboard junior devs. They give them Claudx, point it at a codebase, and let the junior ask questions through the interface. The visual layout makes it way easier for someone new to follow what the agent is doing and why.\n\nAnother person uses it purely for code review. They feed in PRs and use the task view to walk through the agents analysis. Said it cut their review time in half.\n\n \n \n The price thing\n\nIts $9. One time. Not monthly, not annual, not \"free tier with aggressive upselling.\" Nine dollars and you have it.\n\nI priced it this way because I hate subscription fatigue and I figured other devs do too. If you use it once and hate it, youre out less than a lunch. If you use it every day like I do, its the best nine bucks youll spend this year.\n\n \n \n What I learned\n\nBuilding Claudx taught me something I think a lot of builders miss. The model isnt the product. The experience around the model is the product. Claude Code is incredible technology. But technology without good UX is just potential energy. It needs a surface that makes it accessible, visible, usable.\n\nThats all Claudx is. The right surface for an incredible tool.\n\nIf youve been using Claude Code in the terminal and wishing it felt more like a proper app, give it a look. If youve been curious about Claude Code but the terminal intimidated you, this might be your way in.\n\nEither way, Im going to keep building on it because honestly I cant go back to the raw terminal now. Once you see your AI coding agent in a real UI, everything else feels broken.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "claude",
+      "claudecode",
+      "claudx",
+      "cod",
+      "code",
+      "codex",
+      "gpt",
+      "keep",
+      "terminal",
+      "want",
+      "wish",
+      "youre"
+    ],
+    [
+      "ai",
+      "claudecode"
+    ]
+  ]
+}

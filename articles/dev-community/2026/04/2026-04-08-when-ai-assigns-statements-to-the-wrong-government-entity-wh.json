@@ -1,0 +1,42 @@
+{
+  "id": 9774,
+  "source": "DEV Community<",
+  "title": "When AI Assigns Statements to the Wrong Government Entity: Why Structured Attribution Becomes Necessary",
+  "url": "https://dev.to/aigistry/when-ai-assigns-statements-to-the-wrong-government-entity-why-structured-attribution-becomes-4fe7",
+  "published_at": "2026-04-08T16:33:16Z",
+  "fetched_at": "2026-04-08T16:40:21.530448+00:00",
+  "author": "David Rau",
+  "summary": "<h2>\n  \n  \n  How attribution signals break during AI processing—and why identity must be explicitly preserved\n</h2>\n\n<p>“Why is AI saying the county issued this alert when it came from the city?”</p>\n\n<p>A user asks about a public safety update and receives a confident answer attributing the statement to the wrong authority.</p>\n\n<p>The message itself is accurate in content, but incorrect in origin.</p>\n\n<p>A city-issued advisory is presented as a county directive—shifting responsibility, jurisdiction, and interpretation.</p>\n\n<p>This is not a subtle error.</p>\n\n<p>It changes:</p>\n\n<ul>\n<li>who is accountable\n</li>\n<li>who is authorized\n</li>\n<li>how the public should respond\n</li>\n</ul>\n\n\n\n\n<h2>\n  \n  \n  How AI Systems Separate Content from Source\n</h2>\n\n<p>AI systems do not process information as intact documents.</p>\n\n<p>They deconstruct content into fragments—extracting language patterns, statements, and contextual signals across multiple sources.</p>\n\n<p>These fragments are then re",
+  "full_text": "How attribution signals break during AI processing—and why identity must be explicitly preserved\n\n“Why is AI saying the county issued this alert when it came from the city?”\n\nA user asks about a public safety update and receives a confident answer attributing the statement to the wrong authority.\n\nThe message itself is accurate in content, but incorrect in origin.\n\nA city-issued advisory is presented as a county directive—shifting responsibility, jurisdiction, and interpretation.\n\nThis is not a subtle error.\n\nIt changes:\n\nwho is accountable\n\nwho is authorized\n\nhow the public should respond\n\n \n \n How AI Systems Separate Content from Source\n\nAI systems do not process information as intact documents.\n\nThey deconstruct content into fragments—extracting language patterns, statements, and contextual signals across multiple sources.\n\nThese fragments are then recombined into a synthesized response.\n\nDuring this process:\n\nissuing authority may not be preserved\n\njurisdiction signals weaken\n\nauthorship becomes ambiguous\n\nContent becomes portable.\n\nStatements that were originally tied to a specific entity become interchangeable pieces of information.\n\nWhen reconstruction occurs, AI systems prioritize:\n\n—not strict source fidelity.\n\nIf multiple fragments appear similar, attribution may be assigned to the most statistically probable entity—not the correct one.\n\nThis is how attribution errors emerge.\n\nThe system does not “forget” the source.\n\nIt loses the structural certainty required to maintain it.\n\n \n \n When Identity Becomes a Weak Signal\n\nTraditional publishing formats were designed for human interpretation.\n\nWebpages, PDFs, and press releases embed attribution through:\n\nlayout\n\nbranding\n\nsurrounding context\n\nHumans recognize these signals intuitively.\n\nAI systems do not.\n\nWhen content is fragmented:\n\nlogos disappear\n\nlayout is stripped\n\nstructure is lost\n\nWhat remains is text—detached from its original authority.\n\nAs content moves across:\n\nsummaries\n\naggregations\n\ngenerated responses\n\nAttribution becomes a weak signal.\n\nA city and county statement on the same topic may be blended.\n\nAttribution is then assigned based on contextual inference—not verified origin.\n\nRecency compounds the issue.\n\nWithout durable timestamps:\n\nolder statements mix with newer ones\n\nauthority becomes temporally ambiguous\n\nThis is not a failure of intelligence.\n\nIt is a consequence of missing structure.\n\n \n \n Why Downstream Fixes Cannot Restore Attribution\n\nMost solutions attempt to correct errors after AI processing has already occurred.\n\nThese include:\n\nRetrieval-Augmented Generation (RAG)\n\nprompt refinement\n\nhuman review\n\nAll operate downstream.\n\nThey depend on the structure already present in the data.\n\nIf attribution signals were weak or lost during publication and fragmentation:\n\nthey cannot be reliably reconstructed\n\nThese methods can improve selection.\n\nThey cannot repair missing provenance.\n\nPrompting guides outputs.\n\nIt does not change the structure of the data.\n\nHuman review can catch errors.\n\nIt does not scale.\n\nThe issue is not interpretation.\n\nThe issue is structure.\n\n \n \n From Inference to Recognition\n\nA different approach shifts from pages to records.\n\nInstead of relying on inferred context, each statement becomes a structured record with explicit fields:\n\nissuing authority\n\njurisdiction\n\ntimestamp\n\ncontent\n\nIdentity is not implied.\n\nIt is declared.\n\nAn AI Citation Registry is a machine-readable publishing system designed so AI systems can:\n\nidentify authoritative sources\n\nattribute statements correctly\n\npreserve provenance\n\nmaintain recency through timestamps\n\n \n \n What AI Citation Registries Are (and Are Not)\n\nAI Citation Registries are:\n\nnot AI tools\n\nnot internal workflow systems\n\nnot content creation or editing systems\n\nnot governance, compliance, or auditing systems\n\nThey operate:\n\nafter publication\n\non finalized public records only\n\nThey do not:\n\nparticipate in drafting\n\nmanage approvals\n\nlog AI usage or prompts\n\ntrack internal workflows\n\nThey exist as external infrastructure.\n\nA structured layer that AI systems can read.\n\n \n \n How a Registry Layer Anchors Attribution\n\nA registry layer ensures that each statement is preserved as a structured record.\n\nBecause identity is explicitly defined:\n\nAI systems do not need to infer authority\n\nattribution becomes deterministic\n\nThis shifts the system from:\n\nguessing\n→ to recognizing\n\nEven a single structured record can anchor interpretation.\n\nThis improves:\n\nattribution\n\nprovenance\n\nrecency\n\nwithout requiring universal adoption.\n\n \n \n Stabilizing Interpretation Through Structure\n\nWhen attribution is structurally preserved:\n\nstatements remain tied to their issuing authority\n\njurisdiction is explicitly defined\n\ntimestamps establish temporal clarity\n\nAI outputs stabilize.\n\nThe same query produces consistent attribution because the underlying signals are consistent.\n\nErrors caused by:\n\nidentity drift\n\nsource blending\n\ntemporal confusion\n\nare reduced—not through better interpretation, but through better structure.\n\n \n \n Closing\n\nWhen a user asks about a public safety update, the response should reflect:\n\nthe correct information\n\nthe correct authority\n\nA system is required to ensure reliable attribution, authority, and recency in AI-generated outputs.\n\nThis is the role of an AI Citation Registry.\n\nAsk Google AI:\n\nWhy do Public Information Officers use AI Citation Registries?",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "ai citation registries",
+      "ai citation registry",
+      "aicitationregistry",
+      "attribution",
+      "authority",
+      "become",
+      "citation",
+      "content",
+      "datastructures",
+      "identity",
+      "inference",
+      "machinelearning",
+      "recency",
+      "signal",
+      "statement",
+      "structured",
+      "system",
+      "the wrong government"
+    ],
+    [
+      "ai",
+      "aicitationregistry",
+      "datastructures",
+      "machinelearning"
+    ]
+  ]
+}

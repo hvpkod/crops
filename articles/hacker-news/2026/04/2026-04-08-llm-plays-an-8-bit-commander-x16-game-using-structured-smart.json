@@ -1,0 +1,38 @@
+{
+  "id": 9740,
+  "source": "Hacker News",
+  "title": "LLM plays an 8-bit Commander X16 game using structured \"smart senses\"",
+  "url": "https://pvp-ai.russell-harper.com",
+  "published_at": "2026-04-08T12:56:58Z",
+  "fetched_at": "2026-04-08T14:20:26.237022+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47689550\">Comments</a>",
+  "full_text": "PvP-AI\n \n\n \n\nCreating the Game\n \n\nPvP-AI is a recreation of an 8-bit game I wrote back in 1990. The only traces left of the original are a few drawings and handwritten notes. Back then, writing for an 8-bit platform, it took every bit of memory and CPU to eke out 4 frames/s with the simplest of animations and backgrounds. Alas, by the time I finished it, the 1990 recession had begun, affecting many industries, including personal computers, so nothing came of it.\n \n\nA few years ago, a YouTube channel by David Murray The8BitGuy caught my eye, in particular his Commander X16 retro-computer. Looking over the specifications, I realized it might be able to handle a newer incarnation of PvP-AI.\n \n\nAs it turns out, the emulator was able to handle it very nicely, running at almost 8.6 frames/s, with more detail and better AI! Here’s a video of it in action. The actual hardware, though… it turns out there’s a line drawing issue in the VERA module such that certain kinds of lines aren’t rendered correctly, meaning it has to fall back on a slower method. The end result is only 4 frames/s on hardware.\n \n\nIf you want to try it out, you can download the files from my Google Drive. I recommend using the x16-emulator, specifically R49, to run it. More details are in my GitHub EXPLORE repository under CX16 v2 – AI Demo (a.k.a. PvP-AI).\n \n\nOf note are some peculiarities in gameplay, differentiating it from your typical “shoot-’em-up” 8-bit game:\n \n \nthe arena layout changes based on the highest level reached by any player\n \nmissiles have limited intelligence and can navigate around and above walls\n \nif a player brings another player’s health to zero, both players advance in level\n \nonly at the final level (level 6) does losing all health eliminate a player from the game\n \nscores are reduced when players have their health brought to zero\n \nscores are increased when players bring another player’s health to zero or eliminate another player\n \nthe winner is always the last remaining player, regardless of score\n \nsecond place goes to the eliminated player with the highest score\n \n \n\nIt turns out this game lends itself very well to “alternate strategies” one might encounter when integrating with AI — which leads us to…\n \n \n\n \n\nIntegrating with AI\n \n\nInspired by other attempts to have LLMs interact with 8-bit systems, most notably ChatGPT vs Atari 2600 Video Chess, I wanted to explore what it takes for an LLM to interact successfully with a simple game.\n \n\nUnlike approaches that require the LLM to interpret visual or audio output directly, my method uses what I call “smart senses”. These are structured, text-based representations of the game world that abstract away heavy perception tasks. This lets the LLM spend less time deciphering raw data and more time doing what it excels at: reasoning about state and planning actions.\n \n\nTo that end, these were the accommodations to make the game compatible with the LLM:\n \n \nturn-based play: the live game runs too fast for the LLM; converting to turn-based gives the LLM the time it needs\n \npersistent notes: the LLM is instructed to maintain in-play and after-game notes so that it can carry strategies forward across games\n \nsmart sensory input, equivalent to what the 8-bit AI uses:\n \n \ntouch: awareness of contact with missiles, walls, and arena boundaries\n \nEMF detection: awareness of other players’ positions and states\n \n \n \n \n\nLike other researchers, I’m using the ChatGPT API (model gpt-4o) as the LLM because it offers strong reasoning, stable structured outputs, and affordable per-call pricing. I’m also most familiar with PHP, so I’m using it as the interface layer that connects the LLM to the game. The last missing piece was enabling two-way communication between PHP and the emulator:\n \n ┌───────┐ ┌───────────┐ ┌───┐ ┌───────────┐ ┌────────────┐ ┌──────┐\n │“Cloud”│ <─> │ChatGPT API│ <─> │PHP│ ××× │ ??? │ ××× │x16-emulator│ <─> │PvP-AI│\n └───────┘ └───────────┘ └───┘ └───────────┘ └────────────┘ └──────┘\n \n \n\nAfter some investigation into the existing capabilities of the emulator, I was able to piggyback a new feature, currently a pull request under review, and that completed the “chain”:\n \n ┌───────┐ ┌───────────┐ ┌───┐ ┌───────────┐ ┌────────────┐ ┌──────┐\n │“Cloud”│ <─> │ChatGPT API│ <─> │PHP│ <─> │VIA2-socket│ <─> │x16-emulator│ <─> │PvP-AI│\n └───────┘ └───────────┘ └───┘ └───────────┘ └────────────┘ └──────┘\n \n \n\nAfter enabling on-demand screen captures and removing sound and other non-essentials, I had a working platform to research with. And one final allowance for budgeting reasons: instead of making an API call every frame, I chose to make one every alternate frame.\n \n\nAs part of my investigations, I’ve recorded a series of three sequential games “ChatGPT vs PvP-AI” with persistent notes from game to game. They provide a very interesting arc from experimentation to a winning strategy by the LLM.\n \n \n\nFurther details about the LLM interface and technical setup are in my GitHub EXPLORE repository under CX16 v3 – LLM vs PvP-AI.\n \n\nGiven the encouraging results, for future research, I’m looking into even more advanced “smart senses” like vision, hearing, and balance.\n \n\n© 2026 Russell Harper",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "able",
+      "ai demo (a.k.a",
+      "api",
+      "cpu",
+      "detail",
+      "explore",
+      "game",
+      "health",
+      "integrate",
+      "level",
+      "llm",
+      "look",
+      "php",
+      "player",
+      "pvp-ai",
+      "pvp-ai pvp-ai",
+      "score",
+      "vera",
+      "youtube",
+      "┌───────────"
+    ],
+    []
+  ]
+}

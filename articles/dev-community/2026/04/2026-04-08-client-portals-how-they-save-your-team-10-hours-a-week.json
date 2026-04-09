@@ -1,0 +1,39 @@
+{
+  "id": 9700,
+  "source": "DEV Community<",
+  "title": "Client Portals: How They Save Your Team 10+ Hours a Week",
+  "url": "https://dev.to/jms_dev_lab/client-portals-how-they-save-your-team-10-hours-a-week-5he7",
+  "published_at": "2026-04-08T10:45:09Z",
+  "fetched_at": "2026-04-08T11:00:36.096929+00:00",
+  "author": "John Moore",
+  "summary": "<p>If your team spends a chunk of every day answering the same client questions — \"What's the status of my order?\" \"Can you send me that document?\" \"When will it be ready?\" — you have a portal problem, not a staffing problem.</p>\n\n<p>A client portal is a secure, branded space where your customers can log in and help themselves. Check order status. Download invoices. Submit requests. View project updates. All without picking up the phone or sending an email.</p>\n\n<h2>\n  \n  \n  The Problem With Email-Based Client Communication\n</h2>\n\n<p>Email feels free, but it's one of the most expensive communication channels you have. Every \"quick question\" from a client takes:</p>\n\n<ul>\n<li>Time to read and understand the request</li>\n<li>Time to look up the answer in your system</li>\n<li>Time to compose a reply</li>\n<li>Time to deal with the follow-up when the client doesn't understand your answer</li>\n</ul>\n\n<p>Multiply that by 20 clients and you've got someone on your team spending half their day a",
+  "full_text": "If your team spends a chunk of every day answering the same client questions — \"What's the status of my order?\" \"Can you send me that document?\" \"When will it be ready?\" — you have a portal problem, not a staffing problem.\n\nA client portal is a secure, branded space where your customers can log in and help themselves. Check order status. Download invoices. Submit requests. View project updates. All without picking up the phone or sending an email.\n\n \n \n The Problem With Email-Based Client Communication\n\nEmail feels free, but it's one of the most expensive communication channels you have. Every \"quick question\" from a client takes:\n\nTime to read and understand the request\n\nTime to look up the answer in your system\n\nTime to compose a reply\n\nTime to deal with the follow-up when the client doesn't understand your answer\n\nMultiply that by 20 clients and you've got someone on your team spending half their day as a human API between your systems and your customers.\n\n \n \n What a Client Portal Actually Does\n\nA good client portal eliminates the middleman. Instead of your team fetching information and passing it along, clients get it directly. Common features include:\n\nOrder/project status tracking — clients see exactly where things stand without asking\n\nDocument sharing — invoices, reports, certificates, quotes — all in one place\n\nRequest submission — structured forms instead of messy email threads\n\nMessaging — threaded conversations attached to specific orders or projects\n\nAppointment booking — clients pick available slots without back-and-forth\n\nThe key insight: a portal doesn't just save your team time. It makes your clients happier. They get instant answers instead of waiting for someone to reply.\n\n \n \n The 10-Hour Calculation\n\nHere's how the hours add up for a typical service business with 30-50 active clients:\n\nTask\nWithout Portal\nWith Portal\n\nStatus update requests\n5 hrs/week\n0 hrs\n\nDocument requests\n2 hrs/week\n0 hrs\n\nScheduling back-and-forth\n2 hrs/week\n0 hrs\n\nData entry from email requests\n3 hrs/week\n1 hr\n\nTotal\n12 hrs/week\n1 hr/week\n\nThat's 11 hours back. At even a modest hourly rate, the portal pays for itself in the first month.\n\n \n \n Build vs Buy\n\nFor basic needs, tools like Copilot, SuiteDash, or Clinked might work. But they come with limitations:\n\nYour branding takes a back seat to theirs\n\nYou can't customise the workflow to match how you actually operate\n\nIntegration with your existing systems requires workarounds\n\nYou pay per user, which gets expensive as you grow\n\nA custom-built portal costs more upfront but fits your business exactly. It connects to your existing database, follows your workflow, and looks like your brand.\n\n \n \n Who Needs a Client Portal?\n\nAny business where clients regularly need information that lives in your systems:\n\nProfessional services (accountants, solicitors, consultants) — document sharing, project updates\n\nJewellers and craftspeople — repair status, commission tracking, valuation certificates\n\nAgencies — project dashboards, approval workflows, reporting\n\nTradespeople — job tracking, quotes, scheduling\n\nProperty management — maintenance requests, documents, payments\n\n \n \n Getting Started\n\nYou don't need to build everything at once. Start with the single biggest time-waster:\n\nIdentify your most common client request — the thing you answer 10 times a week\n\nBuild a portal that answers just that one question — status tracking, document access, whatever it is\n\nMeasure the time saved — you'll have your business case for expanding it",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "answer",
+      "api",
+      "business",
+      "client",
+      "clinked",
+      "copilot",
+      "document",
+      "instead",
+      "payments",
+      "portal",
+      "productivity",
+      "project",
+      "request",
+      "saas",
+      "status",
+      "team",
+      "webdev"
+    ],
+    [
+      "productivity",
+      "saas",
+      "webdev"
+    ]
+  ]
+}

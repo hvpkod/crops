@@ -1,0 +1,44 @@
+{
+  "id": 9836,
+  "source": "DEV Community<",
+  "title": "How to Enrich Transaction Data with One API Call (and Why Your App Needs It)",
+  "url": "https://dev.to/santiago_garcia_74ccf8b85/how-to-enrich-transaction-data-with-one-api-call-and-why-your-app-needs-it-12en",
+  "published_at": "2026-04-08T19:17:02Z",
+  "fetched_at": "2026-04-08T19:40:36.894660+00:00",
+  "author": "Santiago Garcia",
+  "summary": "<p>If you've ever built a fintech app, a personal finance dashboard, or any product that deals with bank transactions, you know the pain: raw transaction strings like <code>NFLX*NETFLIX.COM</code>, <code>AMZN MKTP US</code>, or <code>SQ *BLUE BOTTLE</code> are completely useless to end users.</p>\n\n<p>Decoding those strings manually — matching them to real merchant names, categories, logos, and contact info — is a rabbit hole that costs weeks of engineering time and never quite works well enough.</p>\n\n<p>That's where <strong>transaction data enrichment</strong> APIs come in. And in this post, I'll walk you through how to integrate one in literally three steps.</p>\n\n<h2>\n  \n  \n  Why Enrich Transaction Data?\n</h2>\n\n<p>Before we get into the code, let's think about what enriched data unlocks:</p>\n\n<ul>\n<li>\n<strong>Better UX</strong>: Show \"Netflix\" with a logo instead of \"NFLX*NETFLIX.COM 866-579-7172 CA\"</li>\n<li>\n<strong>Smarter categorization</strong>: Automatically tag spending as \"St",
+  "full_text": "If you've ever built a fintech app, a personal finance dashboard, or any product that deals with bank transactions, you know the pain: raw transaction strings like NFLX*NETFLIX.COM, AMZN MKTP US, or SQ *BLUE BOTTLE are completely useless to end users.\n\nDecoding those strings manually — matching them to real merchant names, categories, logos, and contact info — is a rabbit hole that costs weeks of engineering time and never quite works well enough.\n\nThat's where transaction data enrichment APIs come in. And in this post, I'll walk you through how to integrate one in literally three steps.\n\n \n \n Why Enrich Transaction Data?\n\nBefore we get into the code, let's think about what enriched data unlocks:\n\nBetter UX: Show \"Netflix\" with a logo instead of \"NFLX*NETFLIX.COM 866-579-7172 CA\"\n\nSmarter categorization: Automatically tag spending as \"Streaming\", \"Food & Drink\", \"Travel\", etc.\n\nSubscription detection: Know which charges are recurring without building your own ML model\n\nContact info on demand: Let users reach out to merchants directly from your app\n\nCarbon footprint insights: Some APIs even return CO2 impact data per merchant category\n\nAll of this becomes possible when you stop treating transaction data as a raw string and start treating it as structured, enrichable information.\n\n \n \n The API Approach\n\nEasy Enrichment is a transaction data intelligence platform that takes a raw bank transaction description and returns 20+ structured fields in a single API call. Let's see how it works.\n\n \n \n Step 1: Get Your API Key\n\nSign up at easyenrichment.com — it's free to start, no credit card required. You'll get an API key instantly from the dashboard.\n\n \n \n Step 2: Make Your First Request\n\ncurl -X POST https://api.easyenrichment.com/enrich \\\n -H \"Authorization: Bearer enrich_YOUR_KEY\" \\\n -H \"Content-Type: application/json\" \\\n -d '{\"merchantName\": \"AMZN MKTP US\"}'\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Step 3: Use the Response\n\nThe response comes back with everything you need:\n\n{\n \"merchant_name\": \"Amazon\",\n \"category\": \"shopping\",\n \"subcategory\": \"marketplace\",\n \"logo_url\": \"https://img.logo.dev/amazon.com\",\n \"domain\": \"amazon.com\",\n \"mcc_code\": \"5999\",\n \"is_subscription\": false,\n \"is_online_only\": true,\n \"confidence\": 0.97,\n \"contact_phone\": \"+1 888-280-4331\",\n \"contact_email\": \"cs-reply@amazon.com\", \"country\": \"US\"\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat's it. One API call. 20+ fields. No complex setup, no training your own model, no maintaining merchant databases.\n\n \n \n JavaScript Integration Example\n\nHere's how you'd integrate this in a Node.js backend:\n\nasync function enrichTransaction(rawDescription) {\n const response = await fetch('https://api.easyenrichment.com/enrich', {\n method: 'POST',\n headers: {\n 'Authorization': `Bearer ${process.env.ENRICHMENT_API_KEY}`,\n 'Content-Type': 'application/json',\n },\n body: JSON.stringify({ merchantName: rawDescription }),\n });\n\n if (!response.ok) {\n throw new Error(`Enrichment failed: ${response.status}`);\n }\n\n return response.json();\n}\n\n// Usage\nconst txData = await enrichTransaction('NFLX*NETFLIX.COM');\nconsole.log(txData.merchant_name); // \"Netflix\"\nconsole.log(txData.category); // \"streaming\"\nconsole.log(txData.logo_url); // \"https://img.logo.dev/netflix.com\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The 5 Endpoints You Get\n\nEasy Enrichment isn't just for bank transactions. The API covers five data types:\n\nPOST /enrich — Bank transaction codes → merchant data (1¢/req)\n\nPOST /enrich/company — Company name → industry, size, HQ, social profiles (2¢/req)\n\nPOST /enrich/domain — Website URL → company info, tech stack, contacts (1¢/req)\n\nPOST /enrich/social — Person name → LinkedIn, Twitter, Instagram, YouTube (1¢/req)\n\nPOST /enrich/person — Person name → job title, company, location (2¢/req)\n\nFor most fintech use cases, /enrich is your primary endpoint. But if you're building something like a CRM or a B2B tool, the company and person endpoints are incredibly useful too.\n\n \n \n Pricing: Pay Per Request, No Subscriptions\n\nOne thing I appreciate about this model: no monthly minimums, no commitments. You top up your balance (starting from $10) and pay per request. For most apps at early stages, you're looking at pennies per day.\n\nCompared to building and maintaining your own merchant recognition system — which could easily be a 3-6 month engineering project — this is a no-brainer.\n\n \n \n When to Use Data Enrichment\n\nHere are some concrete use cases where this API shines:\n\nPersonal finance apps: Categorize and display transactions with merchant logos\n\nExpense management tools: Auto-classify business expenses by MCC code\n\nBanking apps: Give users clear merchant names and contact info when they dispute charges\n\nAccounting software: Link transactions to company profiles and invoice data\n\nSubscription trackers: Identify recurring charges automatically using is_subscription\n\n \n \n Wrapping Up\n\nTransaction data enrichment is one of those things that seems like a small UX improvement but actually unlocks a huge amount of product functionality. Instead of showing users cryptic bank codes, you can show them real merchant names, logos, categories, and contact info.\n\nIf you're building in the fintech space and want to skip the months of work required to build this yourself, give Easy Enrichment a try — the free tier is generous and the API is straightforward to integrate.\n\nHave questions or built something cool with transaction enrichment? Drop a comment below!\n\nDisclaimer: I'm sharing this tool because I found it useful for a project. Always evaluate APIs based on your own use case and requirements.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "amazon",
+      "api",
+      "bank",
+      "bearer enrich_your_key",
+      "build",
+      "console.log(txdata.category",
+      "contact",
+      "content-type'",
+      "datum",
+      "enrich transaction data",
+      "enrichment",
+      "fintech",
+      "info",
+      "javascript",
+      "linkedin",
+      "merchant",
+      "name",
+      "nflx*netflix.com",
+      "node.js",
+      "payments",
+      "response.json",
+      "transaction",
+      "webdev"
+    ],
+    [
+      "fintech",
+      "webdev"
+    ]
+  ]
+}

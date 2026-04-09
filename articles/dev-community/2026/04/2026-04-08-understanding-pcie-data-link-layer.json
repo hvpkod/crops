@@ -1,0 +1,43 @@
+{
+  "id": 9731,
+  "source": "DEV Community<",
+  "title": "Understanding PCIe Data Link Layer",
+  "url": "https://dev.to/ripan030/understanding-pcie-data-link-layer-9jp",
+  "published_at": "2026-04-08T13:41:55Z",
+  "fetched_at": "2026-04-08T14:00:29.312750+00:00",
+  "author": "Ripan Deuri",
+  "summary": "<h2>\n  \n  \n  1. Introduction\n</h2>\n\n<p>PCI Express (PCIe) uses a layered architecture to separate concerns like transaction creation, reliability, and physical transmission. The <strong>Data Link Layer (DLL)</strong> ensures reliable communication between directly connected devices.</p>\n\n<p>The <strong>Transaction Layer</strong> generates packets (TLPs), and the <strong>Physical Layer</strong> transmits bits. The <strong>Data Link Layer</strong> sits between them, guaranteeing that TLPs are delivered correctly, in order, and without corruption over a single PCIe link.</p>\n\n<h2>\n  \n  \n  2. PCIe Layers\n</h2>\n\n<ul>\n<li>\n<strong>Transaction Layer (TL):</strong> Creates Transaction Layer Packets (TLPs)</li>\n<li>\n<strong>Data Link Layer (DLL):</strong> Ensures reliable delivery of TLPs</li>\n<li>\n<strong>Physical Layer (PHY):</strong> Handles signaling and bit transmission</li>\n</ul>\n\n<h2>\n  \n  \n  3. Data Link Layer (DLL)\n</h2>\n\n<h3>\n  \n  \n  3.1 What Data Link Layer Does\n</h3>\n\n<p>Responsibil",
+  "full_text": "1. Introduction\n\nPCI Express (PCIe) uses a layered architecture to separate concerns like transaction creation, reliability, and physical transmission. The Data Link Layer (DLL) ensures reliable communication between directly connected devices.\n\nThe Transaction Layer generates packets (TLPs), and the Physical Layer transmits bits. The Data Link Layer sits between them, guaranteeing that TLPs are delivered correctly, in order, and without corruption over a single PCIe link.\n\n \n \n 2. PCIe Layers\n\nTransaction Layer (TL): Creates Transaction Layer Packets (TLPs)\n\nData Link Layer (DLL): Ensures reliable delivery of TLPs\n\nPhysical Layer (PHY): Handles signaling and bit transmission\n\n \n \n 3. Data Link Layer (DLL)\n\n \n \n 3.1 What Data Link Layer Does\n\nResponsibilities of DLL are:\n\nReliable delivery: Sequence numbers + ACK/NAK + Replay buffer\n\nError detection: LCRC (Link CRC) on every TLP\n\nFlow control: Credit based system to prevent buffer overflow\n\nDLL operates on two types of packets:\n\nTLPs (Transmission Layer Packets) - actual data from the Transmission Layer\n\nDLLPs (Data Link Layer Packets) - control packets used by the DLL itself (ACK, NAK, flow control updates)\n\n \n \n 3.2 Sequence Numbers\n\nEach outgoing TLP is assigned a sequence number and LCRC by the Data Link Layer.\n\n+--------------------------------------+\n| Seq# | TLP Payload | LCRC |\n| 12-bit | | 32-bit |\n+--------------------------------------+\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDLL Tx steps:\n\nAssign next sequence number\n\nPrepend seq#\n\nCompute LCRC over [Seq# | TLP]\n\nAppend LCRC\n\nSave copy in Replay buffer\n\nSend [Seq# | TLP | LCRC] to Physical Layer\n\nDLL Rx steps:\n\nReceive [Seq# | TLP | LCRC] from Physical Layer\n\nRecompute LCRC - does it match?\n\nYES: continue\n\nNO: send NAK DLLP, discard TLP\n\nCheck Seq# - is it the expected one?\n\nYES: continue\n\nNO: send NAK DLLP, discard TLP\n\nStrip Seq# and LCRC\n\nPass TLP up to Transaction Layer\n\nSend ACK DLLP back to the transmitter\n\n \n \n 3.3 ACK/NAK Protocol\n\nReplay Buffer\n\nThe transmitter keeps a Replay Buffer - a copy of every TLP that has been sent but not yet acknowledged.\n\nReplay Buffer:\n+--------------------------------+\n| Seq = 40 | Seq = 41 | Seq = 42 |\n+--------------------------------+\n ^\n |\n Once ACK(40) is received, Seq = 40 is removed\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nACK\n\nWhen the receiver successfully receives a TLP, it sends back an ACK DLLP with the sequence number of the last successfully received TLP.\n\nACK is cumulative. An ACK (Seq = 41) means TLPs are received TLPs upto and including Seq = 41.\n\nNAK\n\nWhen the receiver detected a corrupted TLP (bad LCRC or an out of order sequence number), it sends a NACK DLLP.\n\nUpon receiving a NACK, the transmitter replays all unACK'd TLPs from the replay buffer, starting from the NAK'd sequence number.\n\nA Complete ACK/NAK Example\n\nRC DLL EP DLL\n | |\n |-- TLP (Seq=41) ---------------------->| OK\n |-- TLP (Seq=42) ---------------------->| OK\n |-- TLP (Seq=43) ---------------------->| CRC Error!\n | |\n |<-- ACK (Seq=42)-----------------------| ACKs Seq=41 and Seq=42 cumulatively\n |<-- NAK (Seq=43)-----------------------| NAK Seq=43, requests retransmit\n | |\n | [Transmitter replays from Seq = 43] |\n |-- TLP (Seq=43)----------------------->| OK\n |-- TLP (Seq=44)----------------------->| OK\n | |\n |<-- ACK (Seq=44)-----------------------| ACKs Seq=43 and Seq=44 cumulatively\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf the transmitter does not receive an ACK within a timeout period, it assumes the TLP was lost and replays all unACK'd TLPs. This handles the case where the ACK itself was lost.\n\n \n \n 3.4 Flow Control\n\nPCIe uses a credit-based flow control system:\n\nThe receiver advertises how many credits it has (how much buffer space is available)\n\nThe transmitter can only send a TLP if it has enough credits to cover that TLP\n\nAfter the receiver processes a TLP and frees buffer space, it sends a Flow Control Update DLLP to return credits to the transmitter\n\nCredit Units\n\nCredit Type\nSpace\n\nHeader Credit\n1 credit = space for 1 TLP header\n\nData Credit\n1 credit = space for 4 DWORDs of TLP Data\n\nPCIe tracks credits separately for different types of traffic to prevent deadlock.\n\nCredit Pool\nUsed For\nCompletion Expected?\n\nPosed (P)\nMemory Write, Messages\nNo\n\nNon-Posed (NP)\nMemory Read\nConfig Read/Write\n\nCompletion (Cpl)\nCompletions (responses to NP requests\nNo\n\nFlow Control Initialization\n\nBefore any TLPs can be sent, the two sides must initialize flow control. This happens right after the Physical Layer declares the link up:\n\nBoth sides send InitFC1 DLLPs advertising their initial credits\n\nBoth sides send InitFC2 DLLPs confirming they received the other side's credits\n\nFlow Control is initialized - TLPs can flow now\n\n \n \n 3.5 DLLPs - Data Link Layer Packets\n\nDLLPs are small control packets used exclusively by the Data Link Layer. They are never seen by the Transaction Layer - they are created and consumed entirely within the DLL.\n\nDLLP Format\n\n+---------------------------------------------+\n|Type (1 byte)|Payload (3 bytes)|CRC (2 bytes)|\n+---------------------------------------------+\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDLLPs are much smaller than TLPs. They are sent in the gaps between TLPs.\n\nDLLP Types\n\nType\nPurpose\nWhen Sent\n\nACK\nAck received TLPs up to a given Seq#\nAfter successfully receiving a TLP\n\nNAK\nRequest retransmission from a given Seq#\nAfter detecting a bad TLP\n\nInitFC1\nFlow control initialization (phase 1)\nDuring link initialization\n\nInitFC2\nFlow control initialization (phase 2)\nDuring link initialization\n\nUpdateFC\nReturn flow control credits to transmitter\nAfter processing a TLP and freeing buffer space",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ack",
+      "architecture",
+      "computerscience",
+      "control",
+      "credit",
+      "dll",
+      "dllp",
+      "flow",
+      "layer",
+      "lcrc",
+      "link",
+      "nak",
+      "networking",
+      "physical layer",
+      "replay",
+      "sequence numbers",
+      "the transmission layer",
+      "tlp",
+      "tlp payload",
+      "transmission layer packets",
+      "transmitter"
+    ],
+    [
+      "architecture",
+      "computerscience",
+      "networking"
+    ]
+  ]
+}

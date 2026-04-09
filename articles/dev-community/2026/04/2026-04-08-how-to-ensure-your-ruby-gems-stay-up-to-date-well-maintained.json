@@ -1,0 +1,37 @@
+{
+  "id": 9696,
+  "source": "DEV Community<",
+  "title": "How to Ensure Your Ruby Gems Stay Up-to-Date, Well-Maintained, and Secure",
+  "url": "https://dev.to/spaquet/how-to-ensure-your-ruby-gems-stay-up-to-date-well-maintained-and-secure-415c",
+  "published_at": "2026-04-08T10:52:17Z",
+  "fetched_at": "2026-04-08T11:00:30.566987+00:00",
+  "author": "Stephane Paquet",
+  "summary": "<p>The answer is simple: use <a href=\"https://github.com/spaquet/gemtracker\" rel=\"noopener noreferrer\">gemtracker</a> the missing TUI and now CLI tool to keep your gems in check.</p>\n\n<p>Since <strong>v1.0.5</strong>, GemTracker has evolved into an even sharper tool for keeping your dependencies healthy.</p>\n\n<p>The new release focuses on three core benefits every Ruby developer cares about: <strong>visibility into gem maintenance</strong>, <strong>smarter security insights</strong>, and <strong>frictionless integration into your workflow</strong>.</p>\n\n<h3>\n  \n  \n  What’s new in v1.1.4\n</h3>\n\n<ul>\n<li><p><strong>Live Gem Health Indicators</strong><br /><br />\nInstantly see which of your gems are 🟢 healthy, 🟡 at risk, or 🔴 critical — right in the main list. Full health details (last release, stars, issues, maintainers). No more guessing if a dependency is abandoned.</p></li>\n<li><p><strong>Claude Code Skill (<code>/gem-check</code>)</strong><br /><br />\nGet AI-powered analysis directly",
+  "full_text": "The answer is simple: use gemtracker the missing TUI and now CLI tool to keep your gems in check.\n\nSince v1.0.5, GemTracker has evolved into an even sharper tool for keeping your dependencies healthy.\n\nThe new release focuses on three core benefits every Ruby developer cares about: visibility into gem maintenance, smarter security insights, and frictionless integration into your workflow.\n\n \n \n What’s new in v1.1.4\n\nLive Gem Health Indicators\n\nInstantly see which of your gems are 🟢 healthy, 🟡 at risk, or 🔴 critical — right in the main list. Full health details (last release, stars, issues, maintainers). No more guessing if a dependency is abandoned.\n\nClaude Code Skill (/gem-check)\n\nGet AI-powered analysis directly in Claude Code: prioritized vulnerability detection, smart upgrade recommendations, and practical migration advice — all security-first.\n\nCI/CD-Ready Reports\n\nOne-command exports (text, CSV, JSON) with full vulnerability and outdated-gem data. Perfect for pipelines, compliance checks, or automated audits.\n\nBroader Project Support\n\nNow understands gems.locked, gems.rb, and .gemspec files (including runtime vs dev dependencies and version constraints). Works even when you don’t have a classic Gemfile.lock.\n\nPolished Everyday Experience\n\nFilter view is now a clean centered modal that keeps your gem list visible. Layout is rock-solid across every screen, and official releases include built-in error tracking for better reliability.\n\nGemTracker remains the zero-config terminal app that gives you complete visibility into your Ruby project: outdated gems, security risks, dependency trees, project metadata, and now real-time maintenance health — all in a beautiful, keyboard-driven interface.\n\nIf you want to make sure the gems in your app are up-to-date, well maintained, and do not present any security risk, give v1.1.4 a try.\n\nLinks \n\nFeedback, stars, or issues are always welcome — they directly help shape the next improvements.\n\nHappy bundling! 💎",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "cli",
+      "coding",
+      "csv",
+      "dependency",
+      "directly",
+      "gem",
+      "gemtracker",
+      "health",
+      "rails",
+      "ruby",
+      "security",
+      "tooling",
+      "tui",
+      "visibility",
+      "vulnerability"
+    ],
+    [
+      "coding",
+      "rails",
+      "tooling"
+    ]
+  ]
+}

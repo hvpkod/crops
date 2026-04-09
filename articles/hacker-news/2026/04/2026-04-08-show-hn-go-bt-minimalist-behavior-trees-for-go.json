@@ -1,0 +1,38 @@
+{
+  "id": 9742,
+  "source": "Hacker News",
+  "title": "Show HN: Go-Bt: Minimalist Behavior Trees for Go",
+  "url": "https://github.com/rvitorper/go-bt",
+  "published_at": "2026-04-08T14:33:30Z",
+  "fetched_at": "2026-04-08T15:00:22.891991+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47690797\">Comments</a>",
+  "full_text": "go-bt: Minimalist Behavior Trees for Go\n\ngo-bt is a Behavior Tree library for Go.\n\nDesigned for background workers, game AI, mundane task automation, and asynchronous logic.\n\nInstead of time.Sleep or infinite while loops, go-bt uses a cooperative multitasking model. Nodes return state instantly, yielding control back to the supervisor.\n\nStateless Nodes: Nodes (Sequence, Selector, etc.) do not hold runtime state. All temporal memory and execution states live entirely within the generic BTContext[T].\n\nThe Magic Numbers: Every node's Run method returns exactly one of three integers:\n\n1 (Success): The task is done and successful.\n\n0 (Running): The task needs more time (e.g., waiting on I/O, or sleeping). It yields the thread.\n\n-1 (Failure): The task failed.\n\nFirst-Class Context: BTContext[T] directly embeds Go's standard context.Context, ensuring your trees natively respect global cancellation tokens and timeouts.\n\nTime-Travel Testing: The engine uses an injected clock directly on the context, allowing you to instantly test a 5-minute Timeout or Sleep node in your unit tests without actually waiting.\n\ngo-bt provides a minimalist set of core nodes that can be combined to create any logical control flow:\n\nComposites: Selector (Stateless Priority / Fallback), Sequence (Stateless AND gate), MemSequence (Stateful chronological execution)\n\nDecorators: Inverter (NOT gate), Optional (Swallows failures), Timeout, Retry, Repeat\n\nLeaves: Condition (Instant memory read), Action (Execution), Sleep (Non-blocking wait)\n\n1. Define your Blackboard\n\nYour blackboard is the custom state your tree will read and manipulate. Because the library uses Go Generics, it can be any struct.\n\ntype WorkerState struct {\n IsConnected bool\n PendingTasks int\n}\n\nYou can use the go-bt nodes to assemble your logic. This example asserts that the worker is connected before attempting to process tasks:\n\npackage main\n\nimport (\n \"time\"\n \"context\"\n \"go-bt/core\"\n \"go-bt/composite\"\n \"go-bt/leaf\"\n)\n\nfunc BuildWorkerTree(cancel context.CancelFunc) core.Command[WorkerState] {\n return composite.NewSelector(\n composite.NewSequence(\n composite.NewSelector(\n leaf.NewCondition(func(blackboard *WorkerState) bool {\n // Assert connected\n // Here you'd check whether the connection is valid, etc.\n return blackboard.IsConnected\n }),\n leaf.NewAction(func(ctx *core.BTContext[WorkerState]) int {\n // Make a network connection\n // Here you'd actually connect to a database\n ctx.Blackboard.IsConnected = true\n return 1\n }),\n ),\n leaf.NewAction(func(ctx *core.BTContext[WorkerState]) int {\n // Process Tasks if connected\n if ctx.Blackboard.PendingTasks <= 0 {\n cancel()\n return 1\n }\n ctx.Blackboard.PendingTasks--\n return 1\n }),\n ),\n )\n}\n\n3. Start the Supervisor Daemon\n\ngo-bt provides a concurrent, panic-safe Supervisor to drive your tree. It spins up in the background and continuously ticks the logic without blocking your main application thread.\n\nfunc main() {\n state := &WorkerState{IsConnected: false, PendingTasks: 2}\n \n // Initialize the context with a global cancellation token\n ctx, cancel := context.WithCancel(context.Background())\n btCtx := core.NewBTContext(ctx, state)\n tree := BuildWorkerTree(cancel)\n \n // Create a Supervisor that ticks every 100ms\n supervisor := core.NewSupervisor(tree, 100*time.Millisecond, func(err any) {\n println(\"Tree panicked, safely recovered:\", err)\n })\n \n // Start the daemon in the background\n wg := supervisor.Start(btCtx)\n \n // Wait for the global context to be cancelled\n wg.Wait()\n}\n\nYou can check examples in the example directory.\n\nTesting & Clock Injection\n\nTesting temporal logic (like Sleep or Timeout) in CI/CD pipelines usually results in slow, flaky tests. go-bt solves this by exposing the Now function directly on the BTContext.\n\nIn your tests, simply replace the standard clock with a mock closure. This allows you to artificially advance time by hours or days in a single microsecond, instantly triggering your Timeout or Sleep node's success/failure states to assert structural correctness.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "assert",
+      "behavior tree",
+      "cancelfunc",
+      "connect",
+      "memsequence",
+      "minimalist",
+      "newselector",
+      "newsequence",
+      "node",
+      "optional",
+      "return",
+      "sleep",
+      "state",
+      "success",
+      "supervisor",
+      "task",
+      "time-travel testing",
+      "timeout, retry",
+      "use",
+      "workerstate"
+    ],
+    []
+  ]
+}

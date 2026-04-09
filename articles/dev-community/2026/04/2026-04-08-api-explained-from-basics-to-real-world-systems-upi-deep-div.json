@@ -1,0 +1,44 @@
+{
+  "id": 9670,
+  "source": "DEV Community<",
+  "title": "API Explained: From Basics to Real-World Systems (UPI Deep Dive)",
+  "url": "https://dev.to/sreekanth_kuruba_91721e5d/api-explained-from-basics-to-real-world-systems-upi-deep-dive-8gn",
+  "published_at": "2026-04-08T07:21:54Z",
+  "fetched_at": "2026-04-08T08:00:45.174728+00:00",
+  "author": "Sreekanth Kuruba",
+  "summary": "<p>When you send ₹100 using PhonePe or Google Pay, it feels instant.<br /><br />\nBut behind that single tap, multiple systems communicate in real time across different banks.  </p>\n\n<p>👉 This seamless communication is powered by <strong>APIs</strong>.</p>\n\n<p><strong>🧠 What is an API?</strong><br /><br />\nAn <strong>Application Programming Interface (API)</strong> is a set of rules that allows one software system to request another system to perform an action and return a result.  </p>\n\n<p>In simple terms:<br /><br />\n<strong>Request → Process → Response</strong></p>\n\n<p><strong>🍽️ Simple Analogy</strong><br /><br />\nThink of a restaurant:  </p>\n\n<ul>\n<li>You → Client\n</li>\n<li>Waiter → API\n</li>\n<li>Kitchen → Backend\n</li>\n</ul>\n\n<p>You don’t enter the kitchen yourself<br /><br />\nYou just place an order, the waiter handles everything, and you get your food </p>\n\n<p>APIs work exactly the same way between different systems.</p>\n\n<p><strong>🔍 Types of APIs (Quick Overview)</strong>  </p",
+  "full_text": "When you send ₹100 using PhonePe or Google Pay, it feels instant.\n\nBut behind that single tap, multiple systems communicate in real time across different banks. \n\n👉 This seamless communication is powered by APIs.\n\n🧠 What is an API?\n\nAn Application Programming Interface (API) is a set of rules that allows one software system to request another system to perform an action and return a result. \n\nIn simple terms:\n\nRequest → Process → Response\n\n🍽️ Simple Analogy\n\nThink of a restaurant: \n\nYou → Client\n\nWaiter → API\n\nKitchen → Backend\n\nYou don’t enter the kitchen yourself\n\nYou just place an order, the waiter handles everything, and you get your food \n\nAPIs work exactly the same way between different systems.\n\n🔍 Types of APIs (Quick Overview) \n\nREST APIs — Most common (uses HTTP methods: GET, POST, PUT, DELETE)\n\nGraphQL — Client decides exactly what data it needs\n\ngRPC / SOAP — Used in high-performance or enterprise systems\n\nIn this blog, we’ll mainly focus on REST APIs, as they power most modern applications including UPI.\n\n⚙️ Basic API Example\n\nHere’s a very simple API call:\n\nGET /users/1\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nResponse:\n\n{\n \"name\": \"Sreekanth\",\n \"role\": \"DevOps Engineer\"\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe client requests data → the server processes it → and sends back the response.\n\n📲 Real-World Example: UPI Payment Flow\n\nLet’s see what actually happens when you send ₹100:\n\nApp → Payer Bank → NPCI → Payee Bank → Response\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nStep-by-step:\n\nApp collects amount + UPI PIN (encrypted)\n\nApp sends a secure API request to your bank\n\nYour bank validates:\n\nUPI PIN\n\nAccount balance\n\nDaily limits\n\nRequest is forwarded to NPCI (National Payments Corporation of India)\n\nNPCI routes the request to the payee’s bank\n\nPayee’s bank credits the amount\n\nSuccess response flows back to both apps\n\n👉 Total time: Usually under 2–3 seconds ⚡\n\nHere’s the high-level UPI transaction flow:\n\nAnother clean view of the UPI flow:\n\nAnd a simplified version showing Payer PSP → NPCI → Payee PSP:\n\n🔔 When Things Are Not Instant (Webhooks)\n\nSometimes the bank takes longer.\n\nInstead of waiting:\n\nTransaction marked Pending ⏳\n\nBank/NPCI sends a Webhook callback 🔔 once completed\n\n👉 Think of it as:\n\n“Don’t call us, we’ll call you.”\n\nThis makes systems asynchronous and scalable.\n\n⚙️ Sample UPI API Request\n\nPOST /v1/payments/upi HTTP/1.1\nHost: api.phonepe.com\nAuthorization: Bearer <access_token>\nContent-Type: application/json\n\n{\n \"amount\": 10000, // in paise (₹100)\n \"payeeVpa\": \"friend@oksbi\",\n \"remarks\": \"Lunch money\",\n \"txnId\": \"txn-12345\" // used for idempotency\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nResponse:\n\n{\n \"status\": \"SUCCESS\",\n \"transactionId\": \"UPI987654321\",\n \"responseCode\": \"00\"\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n🧩 API Request/Response Lifecycle (End-to-End Flow)\n\nEvery API call follows a clear lifecycle. Here’s what happens from the moment the request is sent until the response is received:\n\n🔧 What Happens Inside the Backend\n\nWhen an API receives a request, it goes through several important layers:\n\nAPI Gateway – Handles rate limiting & routing\n\nAuthentication – JWT, OAuth2, or API keys\n\nInput Validation – Checks request format and data\n\nBusiness Logic – Balance check, fraud detection, rules\n\nDatabase Operations – Secure debit/credit (ACID transaction)\n\nExternal API Calls – To NPCI or other banks\n\nLogging & Monitoring – For debugging and observability\n\nResponse – Sent back to the client\n\n👉 To prevent duplicate payments, systems use idempotency keys (txnId).\n\n🏦 Why ACID Matters in Payments\n\nBanking systems rely on ACID properties:\n\nAtomicity: Either full transaction happens or none\n\nConsistency: Total money remains correct\n\nIsolation: Millions can transact simultaneously safely\n\nDurability: Once success is returned, it’s permanent\n\n👉 This ensures no “money lost” scenarios.\n\n🔄 Microservices Architecture\n\nModern apps like PhonePe are not built as one single block. They are divided into independent microservices:\n\nUser Service\n\nPayment Service\n\nNotification Service\n\nFraud Detection Service\n\nThese services talk to each other using internal APIs or message queues.\n\nThis makes systems scalable and fault-tolerant\n\n⚡ Scaling APIs for Millions of Transactions\n\nApps like PhonePe and Google Pay handle crores of transactions every day using:\n\nLoad balancing\n\nHorizontal scaling (Kubernetes)\n\nCaching (Redis)\n\nMessage queues (Kafka)\n\nRate limiting\n\nCircuit breakers\n\n🎯 Final Takeaway\n\nAPIs are not just a technical concept — they are the invisible engine behind everything: \n\nSending money 💰\n\nLogging in 🔐\n\nFetching data 📊\n\nOnce you understand APIs,\n\nyou start seeing the architecture behind every app you use.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "bank",
+      "bank/npci",
+      "content-type",
+      "devops",
+      "fullscreen",
+      "microservices",
+      "mode",
+      "npci",
+      "payee",
+      "payments",
+      "phonepe",
+      "put",
+      "real-world example:",
+      "request",
+      "response",
+      "success",
+      "system",
+      "systemdesign",
+      "transaction",
+      "upi",
+      "webhook callback 🔔"
+    ],
+    [
+      "devops",
+      "microservices",
+      "systemdesign"
+    ]
+  ]
+}

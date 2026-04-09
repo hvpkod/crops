@@ -1,0 +1,38 @@
+{
+  "id": 9617,
+  "source": "DEV Community<",
+  "title": "[Rust Guide] 4.3. Ownership and Functions",
+  "url": "https://dev.to/someb1oody/rust-guide-43-ownership-and-functions-27i7",
+  "published_at": "2026-04-08T01:16:56Z",
+  "fetched_at": "2026-04-08T02:00:40.801067+00:00",
+  "author": "SomeB1oody",
+  "summary": "<h2>\n  \n  \n  4.3.0 Before the Main Text\n</h2>\n\n<p>After learning Rust’s general programming concepts, you reach the most important part of all of Rust—<strong>ownership</strong>. It is quite different from other languages, and many beginners find it difficult to learn. This chapter aims to help beginners fully master this feature.</p>\n\n<p>This chapter has three subsections:</p>\n\n<ul>\n<li>Ownership: Stack Memory vs. Heap Memory</li>\n<li>Ownership Rules, Memory, and Allocation</li>\n<li><strong>Ownership and Functions (this article)</strong></li>\n</ul>\n\n<p><strong>If you find this helpful, please like, bookmark, and follow. To keep learning along, follow this series.</strong></p>\n\n<h2>\n  \n  \n  4.3.1 Passing Values to Functions\n</h2>\n\n<p>In terms of semantics, <strong>passing a value to a function is similar to assigning a value to a variable</strong>, so to put it in one sentence: <strong>function parameter passing works the same way as assignment</strong></p>\n\n<p>Next, let’s explain it i",
+  "full_text": "4.3.0 Before the Main Text\n\nAfter learning Rust’s general programming concepts, you reach the most important part of all of Rust—ownership. It is quite different from other languages, and many beginners find it difficult to learn. This chapter aims to help beginners fully master this feature.\n\nThis chapter has three subsections:\n\nOwnership: Stack Memory vs. Heap Memory\n\nOwnership Rules, Memory, and Allocation\n\nOwnership and Functions (this article)\n\nIf you find this helpful, please like, bookmark, and follow. To keep learning along, follow this series.\n\n \n \n 4.3.1 Passing Values to Functions\n\nIn terms of semantics, passing a value to a function is similar to assigning a value to a variable, so to put it in one sentence: function parameter passing works the same way as assignment\n\nNext, let’s explain it in detail: passing a value to a function will cause either a move or a copy.\n\nFor data types that implement the Copy trait, a copy occurs, so the original variable is not affected and can continue to be used.\n\nFor data types that do not implement the Copy trait, a move occurs, so the original variable is invalidated and cannot be used.\n\nA detailed introduction to the Copy trait, moves, and copies was given in the previous article, 4.2. Ownership Rules, Memory, and Allocation, so it will not be repeated here.\n\nfn main() {\n let machine = String::from(\"6657\");\n wjq(machine);\n\n let x = 6657;\n wjq_copy(x);\n println!(\"x is: {}\", x);\n}\n\nfn wjq(some_string: String) {\n println!(\"{}\", some_string);\n}\n\nfn wjq_copy(some_number: i32) {\n println!(\"{}\", some_number);\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nFor the variable machine:\n\nString is a complex data type, allocated on the heap, and it does not implement the Copy trait.\n\nWhen machine is passed to the wjq function, a move occurs, meaning ownership is transferred from the variable machine to the function parameter some_string.\n\nAt this point, ownership of machine has been transferred. The function wjq can use it normally, but the original variable machine is no longer available. If you try to use machine afterward, the compiler will report an error.\n\nFor the variable x:\n\ni32 is a basic data type with a fixed size, allocated on the stack, and it implements the Copy trait.\n\nWhen x is passed to the wjq_copy function, a copy occurs, meaning the value of x is copied and passed to the function parameter some_number.\n\nBecause this is just a value copy, the original variable x is unaffected and can still be used after the function call.\n\nFor the variable some_string:\n\nIts scope starts when it is declared on line 10 and ends when the } on line 12 is reached.\n\nWhen it leaves scope, Rust automatically calls the drop function to free the memory occupied by some_string.\n\nFor the variable some_number:\n\nIts scope starts when it is declared on line 14 and ends when the } on line 16 is reached.\n\nNothing special happens when it leaves scope, because types that implement the Copy trait do not call Drop when they go out of scope.\n\n \n \n 4.3.2 Return Values and Scope\n\nOwnership is also transferred during the process of returning a value from a function.\n\nfn main() {\n let s1 = give_ownership();\n let s2 = String::from(\"6657\");\n let s3 = takes_and_gives_back(s2);\n}\n\nfn give_ownership() -> String {\n let some_string = String::from(\"machine\");\n some_string\n}\n\nfn takes_and_gives_back(a_string: String) -> String {\n a_string\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe ownership of a variable always follows the same pattern:\n\nAssigning a value to another variable causes a move. Only types that implement the Copy trait, such as basic types like i32 and f64, are copied during assignment.\n\nWhen a variable containing heap data leaves scope, its value is cleaned up by the drop function, unless ownership of the data has been moved to another variable.\n\n \n \n 4.3.3 Letting a Function Use a Value Without Taking Ownership\n\nSometimes the intent of the code is for a function to use a variable, but you do not want to lose the right to use the data as a result. In that case, you can write it like this:\n\nfn main() {\n let s1 = String::from(\"Hello\");\n let (s2, len) = calculate_length(s1);\n println!(\"The length of '{}' is {}\", s2, len);\n}\n\nfn calculate_length(s: String) -> (String, usize) {\n let length = s.len();\n (s, length)\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIn this example, s1 has to give ownership to s, but when this function returns, it also returns s intact and hands ownership of the data to s2. In this way, ownership of the data is given back to a variable in the main function, allowing the data under s1 to be used again in main (even though the variable name has changed).\n\nThis approach is too troublesome and too clumsy. Rust provides a feature for this scenario called reference, which lets a function use a value without taking ownership of it. This feature will be explained in the next article.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "copy",
+      "datum",
+      "function",
+      "implement",
+      "learning",
+      "machine",
+      "ownership",
+      "ownership rules",
+      "pass",
+      "programming",
+      "return values",
+      "rust",
+      "scope\n\nownership",
+      "type",
+      "value",
+      "variable"
+    ],
+    [
+      "learning",
+      "programming",
+      "rust"
+    ]
+  ]
+}

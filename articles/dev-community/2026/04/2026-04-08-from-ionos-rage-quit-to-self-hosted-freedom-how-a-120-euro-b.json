@@ -1,0 +1,45 @@
+{
+  "id": 9889,
+  "source": "DEV Community<",
+  "title": "From IONOS Rage-Quit to Self-Hosted Freedom: How a 120 Euro Bill Improved ForgeCMS",
+  "url": "https://dev.to/artanidos/from-ionos-rage-quit-to-self-hosted-freedom-how-a-120-euro-bill-improved-forgecms-4kb8",
+  "published_at": "2026-04-08T22:02:37Z",
+  "fetched_at": "2026-04-08T22:40:59.717908+00:00",
+  "author": "Art",
+  "summary": "<h2>\n  \n  \n  The bill that started it all\n</h2>\n\n<p>IONOS sent me a 120 Euro invoice. Two domains at 42 Euro each - way more than I originally paid for them. Plus some positions I was sure I had cancelled months ago. I paid what I could. They locked every server on my account. No warning. No partial restore. Everything gone overnight.</p>\n\n<p>I cancelled all contracts the next day. They pulled the servers immediately - even though the contracts had months left to run. No grace period. Clean cut.</p>\n\n<p>The support offered me a backup for 70,- EUR...<br /><br />\nFU was my answer ;-)</p>\n\n<p>When a provider holds your infrastructure hostage over a billing dispute, you don't negotiate. You migrate.</p>\n\n\n<h2>\n  \n  \n  Green field\n</h2>\n\n<p>I had been planning to self-host on my own 1 Euro VPS using ForgeCMS anyway. The plan was just... not today. IONOS made the decision for me.</p>\n\n<p>This forced exactly the feature I had been postponing: <strong>multi-site hosting from a single ForgeCMS",
+  "full_text": "The bill that started it all\n\nIONOS sent me a 120 Euro invoice. Two domains at 42 Euro each - way more than I originally paid for them. Plus some positions I was sure I had cancelled months ago. I paid what I could. They locked every server on my account. No warning. No partial restore. Everything gone overnight.\n\nI cancelled all contracts the next day. They pulled the servers immediately - even though the contracts had months left to run. No grace period. Clean cut.\n\nThe support offered me a backup for 70,- EUR...\n\nFU was my answer ;-)\n\nWhen a provider holds your infrastructure hostage over a billing dispute, you don't negotiate. You migrate.\n\n \n \n Green field\n\nI had been planning to self-host on my own 1 Euro VPS using ForgeCMS anyway. The plan was just... not today. IONOS made the decision for me.\n\nThis forced exactly the feature I had been postponing: multi-site hosting from a single ForgeCMS binary.\n\n \n \n What we built\n\n \n \n One Go binary, multiple domains\n\nForgeCMS is a single Go executable. It receives incoming HTTP requests and routes them to the correct site based on the domain. No virtual machines, no containers, no orchestration layer.\n\nCurrently hosting two sites from one process:\n\ncrowdware.info\n\natesti.crowdware.info\n\nCaddy sits in front as the TLS reverse proxy. That is the entire stack.\n\nBrowser -> Caddy (TLS) -> ForgeCMS binary -> Codeberg (page content)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nOne of the VPS instances also runs our own Postfix mail server. No Google, no Microsoft, no third-party email provider. Full stack independence for 2 Euro per month.\n\n \n \n Content lives in Git, not in a database\n\nAll page content - written in SML and Markdown - lives in a Codeberg repository. ForgeCMS fetches files from the repo at request time and caches them locally. No build step, no static site generation, no database.\n\nThe app.sml config for each domain looks like this:\n\nApp {\n name: \"Atesti para Dana\"\n base_url: \"https://atesti.crowdware.info\"\n lang: \"de\"\n\n Site {\n host: \"codeberg.org\"\n user: \"CrowdWare\"\n repo: \"sites\"\n branch: \"main\"\n path: \"atesti\"\n }\n\n Languages {\n default: \"de\"\n supported: \"de en es ca eo\"\n }\n\n Menu {\n Item { label: \"Home\" href: \"/\" }\n Item { label: \"Impressum\" href: \"/impressum\" }\n }\n\n Routing {\n Route { path: \"/\" page: \"index.sml\" }\n Route { path: \"/impressum\" page: \"impressum.sml\" }\n Route { path: \"/404\" page: \"404.sml\" }\n }\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nEach domain gets its own folder under config/ in the repo. ForgeCMS reads all of them on startup.\n\n \n \n Staging via a second 1 Euro VPS\n\nThe staging workflow is dead simple: a second 1 Euro server running the identical setup. Deploy the new version there, test it, then flip the DNS A record. ForgeCMS and Caddy do not need to know anything about staging - it is purely a DNS switch.\n\n# Deploy to staging\n./deploy.sh 5.6.7.8\n\n# Verify via /etc/hosts override locally:\n# 5.6.7.8 atesti.crowdware.info\n\n# Go live: update DNS A record to 5.6.7.8\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe deploy script is fully idempotent - run it again and it installs Caddy, uploads the binary, syncs configs, and starts the systemd service. First deploy or tenth deploy, same command.\n\n \n \n New UI components\n\nWhile we were in there, we added Bootstrap-based components that had been on the list:\n\nImage sliders for visual content sections\n\nProject cards for listing work and initiatives\n\nBoth are driven from Markdown content in the repo - no hardcoded HTML in the binary.\n\n \n \n i18n built in\n\nThe atesti site serves five languages: German (default), English, Spanish, Catalan, Esperanto. ForgeCMS tries the language-specific file first and falls back to the default.\n\natesti/\n index.sml - default (de)\n main.md\n en/\n main.md\n es/\n main.md\n ca/\n main.md\n eo/\n main.md\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The architecture in one line\n\nAll content is Markdown and SML in a Codeberg repo. One Go binary serves everything. Caddy handles TLS. Total infrastructure cost: 2 Euro per month.\n\n \n \n What comes next: load balancer for 1 Euro more\n\nThe IP-swap staging approach works but a load balancer in front would make zero-downtime deploys cleaner and faster.\n\nThe plan: the second VPS currently runs Postfix for mail tied to the our domains. That Postfix server becomes the load balancer. Total infrastructure cost at that point: 3 Euro per month.\n\n \n \n Reference implementation\n\nThe full repository structure - configs, deploy script, content layout, and README - is public:\n\ncodeberg.org/CrowdWare/sites\n\nIf you want to run your own ForgeCMS installation, that repo is the reference. The deploy script handles everything from a bare VPS to a running multi-site setup in one command.\n\nForgeCMS itself: codeberg.org/CrowdWare/ForgeCMS\n\nPart of the CrowdWare open source ecosystem. Built with Go.\n\nP.S. - The two 1 Euro VPS servers running all of this? Also IONOS. Setup fee for the second one was 10 Euro, then 1 Euro per month. The old hosting contract was 11 Euro per month alone. ROI: month one.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "build",
+      "caddy",
+      "cms",
+      "codeberg",
+      "content",
+      "deploy",
+      "dns",
+      "euro",
+      "forgecms",
+      "fullscreen",
+      "git",
+      "go",
+      "ionos rage-quit",
+      "markdown",
+      "microsoft",
+      "mode",
+      "opensource",
+      "postfix",
+      "selfhosted",
+      "sml",
+      "staging",
+      "tls",
+      "vps"
+    ],
+    [
+      "cms",
+      "opensource",
+      "selfhosted"
+    ]
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 9818,
+  "source": "Hacker News",
+  "title": "Claude Managed Agents",
+  "url": "https://claude.com/blog/claude-managed-agents",
+  "published_at": "2026-04-08T17:04:40Z",
+  "fetched_at": "2026-04-08T18:20:47.544248+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47693047\">Comments</a>",
+  "full_text": "Today, we're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.\n\nUntil now, building agents meant spending development cycles on secure infrastructure, state management, permissioning, and reworking your agent loops for every model upgrade. Managed Agents pairs an agent harness tuned for performance with production infrastructure to go from prototype to launch in days rather than months.\n\nWhether you're building single-task runners or complex multi-agent pipelines, you can focus on the user experience, not the operational overhead.\n\nManaged Agents is available today in public beta on the Claude Platform.\n\nBuild and deploy agents 10x faster\n\nShipping a production agent requires sandboxed code execution, checkpointing, credential management, scoped permissions, and end-to-end tracing. That's months of infrastructure work before you ship anything users see.\n\nManaged Agents handles the complexity. You define your agent's tasks, tools, and guardrails and we run it on our infrastructure. A built-in orchestration harness decides when to call tools, how to manage context, and how to recover from errors.\n\nVIDEO\n\nManaged Agents includes:\nProduction-grade agents with secure sandboxing, authentication, and tool execution handled for you.\nLong-running sessions that operate autonomously for hours, with progress and outputs that persist even through disconnections.\nMulti-agent coordination so agents can spin up and direct other agents to parallelize complex work (available in research preview, request access here).\n\nTrusted governance giving agents access to real systems with scoped permissions, identity management, and execution tracing built in.\n\nClaude Managed Agents architecture\n\nDesigned to make the most of Claude\n\nClaude models are built for agentic work. Managed Agents is purpose-built for Claude, enabling you to get better agent outcomes with less effort. \n\nWith Managed Agents, you define outcomes and success criteria, and Claude self-evaluates and iterates until it gets there (available in research preview, request access here). It also supports traditional prompt-and-response workflows when you want tighter control. \n\nIn internal testing around structured file generation, Managed Agents improved outcome task success by up to 10 points over a standard prompting loop, with the largest gains on the hardest problems.\n\nSession tracing, integration analytics, and troubleshooting guidance are built directly into the Claude Console, so you can inspect every tool call, decision, and failure mode.\n\nWhat teams are building\n\nTeams are already shipping 10x faster with Managed Agents across a range of production use cases. Coding agents that read a codebase, plan a fix, and open a PR. Productivity agents that join a project, pick up tasks, and deliver work alongside the rest of the team. Finance and legal agents that process documents and extract what matters. In each case, shipping in days meant providing value to users faster.\n\nVIDEO\nNotion lets teams delegate work to Claude directly inside their workspace (available now in private alpha inside Notion Custom Agents). Engineers use it to ship code, while knowledge workers use it to produce websites and presentations. Dozens of tasks can run in parallel while the whole team collaborates on the output.\nRakuten shipped enterprise agents across product, sales, marketing, finance, and HR that plug into Slack and Teams, letting employees assign tasks and get back deliverables like spreadsheets, slides, and apps. Each specialist agent was deployed within a week.\nAsana built AI Teammates, collaborative AI agents that work alongside humans inside Asana projects, taking on tasks and drafting deliverables. The team used Managed Agents to add advanced features dramatically faster than they would have been able to otherwise.\nVibecode helps their customers go from prompt to deployed app using Managed Agents as the default integration, powering a new generation of AI-native apps. Users can now spin up that same infrastructure at least 10x quicker than before.‍\nSentry paired Seer, their debugging agent, with a Claude-powered agent that writes the patch and opens the PR, so developers go from a flagged bug to a reviewable fix in one flow. The integration shipped in weeks instead of months on Managed Agents.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agents",
+      "ai teammates",
+      "asana",
+      "build",
+      "claude",
+      "claude\n\nclaude",
+      "claude managed agents",
+      "fast",
+      "managed",
+      "managed agents",
+      "notion custom agents",
+      "outcome",
+      "production",
+      "ship",
+      "slack",
+      "teams"
+    ],
+    [
+      "agents"
+    ]
+  ]
+}

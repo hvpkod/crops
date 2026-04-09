@@ -1,0 +1,38 @@
+{
+  "id": 9638,
+  "source": "Slashdot",
+  "title": "Russian Government Hackers Broke Into Thousands of Home Routers To Steal Passwords",
+  "url": "https://it.slashdot.org/story/26/04/07/2326240/russian-government-hackers-broke-into-thousands-of-home-routers-to-steal-passwords?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-08T03:30:00Z",
+  "fetched_at": "2026-04-08T04:40:21.273000+00:00",
+  "author": "BeauHD",
+  "summary": "An anonymous reader quotes a report from TechCrunch: A group of Russian government hackers have hijacked thousands of home and small business routers around the world as part of an ongoing campaign aimed at redirecting victim's internet traffic to steal their passwords and access tokens, security researchers and government authorities warned on Tuesday. [...] The hacking group targeted unpatched routers made by MikroTik and TP-Link using previously disclosed vulnerabilities according to the U.K. government's cybersecurity unit NCSC and Lumen's research arm Black Lotus Labs, which released new details of the campaign Tuesday.\n \nAccording to the researchers, the hackers were able to spy on large numbers of people over the course of several years by compromising their routers, many of which run outdated software, leaving them vulnerable to remote attacks without their owners' knowledge. The NCSC said that these operations are \"likely opportunistic in nature, with the actor casting a wide ",
+  "full_text": "An anonymous reader quotes a report from TechCrunch: A group of Russian government hackers have hijacked thousands of home and small business routers around the world as part of an ongoing campaign aimed at redirecting victim's internet traffic to steal their passwords and access tokens, security researchers and government authorities warned on Tuesday. [...] The hacking group targeted unpatched routers made by MikroTik and TP-Link using previously disclosed vulnerabilities according to the U.K. government's cybersecurity unit NCSC and Lumen's research arm Black Lotus Labs, which released new details of the campaign Tuesday.\n\n \n\nAccording to the researchers, the hackers were able to spy on large numbers of people over the course of several years by compromising their routers, many of which run outdated software, leaving them vulnerable to remote attacks without their owners' knowledge. The NCSC said that these operations are \"likely opportunistic in nature, with the actor casting a wide net to reach many potential victims, before narrowing in on targets of intelligence interest as the attack develops.\" Per the researchers and government advisories, the Russian hackers hacked routers to modify the device's settings so that the victim's internet requests are surreptitiously passed to infrastructure run by the hackers. This allows the hackers to redirect victims to spoof websites under their control, then steal passwords and tokens that let the hackers log in to that victim's online accounts without needing their two-factor authentication codes.\n\n \n\nBlack Lotus Labs said that Fancy Bear compromised at least 18,000 victims in around 120 countries, including government departments, law enforcement agencies, and email providers across North Africa, Central America, and Southeast Asia. Microsoft, which also released details of the campaign on Tuesday, said in a blog post that its researchers identified over 200 organizations and 5,000 consumer devices affected by these hacking operations, including at least three government organizations in Africa.\n\n The Justice Department said\n\n Tuesday it neutralized compromised routers in the U.S. under court authorization. As the DOJ put it, the FBI \"developed a series of commands to send to compromised routers\" to collect evidence, reset settings, and prevent hackers from breaking back in.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "africa",
+      "black lotus labs",
+      "campaign",
+      "central america",
+      "compromise",
+      "government",
+      "hack",
+      "hacker",
+      "microsoft",
+      "mikrotik",
+      "ncsc",
+      "north africa",
+      "password",
+      "researcher",
+      "router",
+      "security",
+      "southeast asia",
+      "steal",
+      "techcrunch",
+      "u.k."
+    ],
+    []
+  ]
+}

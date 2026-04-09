@@ -1,0 +1,45 @@
+{
+  "id": 9732,
+  "source": "DEV Community<",
+  "title": "I built \"sysview\" — a beautiful terminal system monitor for developers",
+  "url": "https://dev.to/12britz/i-built-sysview-a-beautiful-terminal-system-monitor-for-developers-3h08",
+  "published_at": "2026-04-08T13:41:23Z",
+  "fetched_at": "2026-04-08T14:00:30.942098+00:00",
+  "author": "britz",
+  "summary": "<p>Every developer has been there: you're deep in a debugging session, your laptop fan is screaming, and you need to know <em>right now</em> — which process is eating your CPU, what port is blocking your server, how much RAM is left.</p>\n\n<p>You open five different tools or start copy-pasting <code>lsof</code> and <code>ps aux | grep</code> incantations from memory.</p>\n\n<p>There had to be a better way.</p>\n\n<p>So I built <strong>sysview</strong> — a TypeScript-based CLI that gives you a color-coded, opinionated view of your entire system in one command. No dashboards to set up, no agents to install, no config files.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>npm <span class=\"nb\">install</span> <span class=\"nt\">-g</span> @12britz/sysview\n</code></pre>\n\n</div>\n\n\n\n\n\n\n<h2>\n  \n  \n  💡 Why I built this\n</h2>\n\n<p>My day job involves performance testing at scale — running load tests, monitoring resource exhaustion, diagnosing bottlenecks on Linux s",
+  "full_text": "Every developer has been there: you're deep in a debugging session, your laptop fan is screaming, and you need to know right now — which process is eating your CPU, what port is blocking your server, how much RAM is left.\n\nYou open five different tools or start copy-pasting lsof and ps aux | grep incantations from memory.\n\nThere had to be a better way.\n\nSo I built sysview — a TypeScript-based CLI that gives you a color-coded, opinionated view of your entire system in one command. No dashboards to set up, no agents to install, no config files.\n\nnpm install -g @12britz/sysview\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 💡 Why I built this\n\nMy day job involves performance testing at scale — running load tests, monitoring resource exhaustion, diagnosing bottlenecks on Linux servers and dev machines alike.\n\nTools like htop are great but don't give you quick CLI-composable output. lsof -i -n -P works but the output is a wall of text. df -h, free -m, ps aux — you're constantly context-switching between commands.\n\nI wanted something that felt like a developer's version of a system monitor:\n\nOpinionated defaults\n\nClear color coding (green = good, yellow = watch out, red = fix this)\n\nProgress bars for quick visual scanning\n\nA watch mode for continuous monitoring\n\nGit context, because I'm almost always inside a repo\n\n \n \n ✨ What sysview does\n\nCommand\nWhat you get\n\nsysview ports\nListening ports — process name, PID, address\n\nsysview memory\nRAM usage with visual progress bar\n\nsysview cpu\nModel, speed, load, per-core breakdown\n\nsysview disk\nAll mounted volumes with usage %\n\nsysview network\nActive network connections\n\nsysview ps\nProcesses sorted by CPU or memory\n\nsysview top\nInteractive real-time process monitor\n\nsysview git\nStatus, branches, log, remotes, diff, contributors\n\n`sysview kill <pid\\\nport>`\n\nsysview watch\nReal-time dashboard with configurable refresh\n\nsysview dashboard\nFull system overview in one screen\n\n \n \n 🚀 Quick tour\n\n \n \n Ports — no more lsof archaeology\n\n❯ sysview ports\n\n┌──────────────────────────────────────────────────┐\n│ sysview - ports │\n└──────────────────────────────────────────────────┘\n\n┌──────────┬────────────────────┬──────────┬────────────────────┬──────────┐\n│ PORT │ PROCESS │ PID │ ADDRESS │ STATUS │\n├──────────┼────────────────────┼──────────┼────────────────────┼──────────┤\n│ :3000 │ node │ 42872 │ 127.0.0.1 │ ● LISTEN │\n│ :5432 │ postgres │ 99101 │ 127.0.0.1 │ ● LISTEN │\n│ :6379 │ redis-server │ 87321 │ 0.0.0.0 │ ● LISTEN │\n└──────────┴────────────────────┴──────────┴────────────────────┴──────────┘\n\n4 ports listening\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Memory — at a glance\n\n❯ sysview memory\n\n┌────────────────────┬───────────────┬───────────────┬───────────────┬──────────┐\n│ TYPE │ USED │ TOTAL │ FREE │ USAGE │\n├────────────────────┼───────────────┼───────────────┼───────────────┼──────────┤\n│ Physical Memory │ 16.4 GB │ 64 GB │ 47.6 GB │ 25.6% │\n└────────────────────┴───────────────┴───────────────┴───────────────┴──────────┘\n\n██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 25.6%\n55.8 GB available\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n CPU — model, load, per-core\n\n❯ sysview cpu\n\n┌──────────────────────────────┬────────────────────┐\n│ METRIC │ VALUE │\n├──────────────────────────────┼────────────────────┤\n│ Model │ Apple M1 Max │\n│ Cores │ 10 │\n│ Speed │ 2.4 GHz │\n│ Current Load │ 11.6% │\n│ Running Processes │ 587 │\n└──────────────────────────────┴────────────────────┘\n\nLoad: █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 11.6%\n\nPer-Core Usage:\n┌──────────┬──────────────────────────────────────────────────┐\n│ CORE 0 │ ███████████████░░░░░░░░░░░░░░░░░░░░░░░░ 38.7% │\n│ CORE 1 │ ███████████████░░░░░░░░░░░░░░░░░░░░░░░░ 38.0% │\n│ CORE 2 │ ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 13.9% │\n│ CORE 3 │ ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 9.3% │\n└──────────┴──────────────────────────────────────────────────┘\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Git — your repo at a glance\n\n❯ sysview git --all\n\nBranch: main\nStatus: Clean working tree\nAhead: 0 Behind: 0\n\nRecent Commits:\n│ a4f92c1 feat: add dashboard watch mode 2h ago\n│ b3e81d2 fix: process tree edge case on linux 5h ago\n│ c7d90a3 chore: update README with examples 1d ago\n\nContributors:\n│ 12britz ██████████████████ 24 commits\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n💡 Performance tip: I run sysview watch --start -i 500 during local load tests to watch CPU and memory trends in real time alongside my k6 output. The 500ms refresh is smooth with negligible overhead.\n\n \n \n 🔧 Tech stack\n\nThe whole thing is TypeScript with a clean src/ structure, compiled and published to npm.\n\nsysteminformation — cross-platform OS metrics (abstracts macOS vs Linux beautifully)\n\ncli-table3 — the colorful bordered tables\n\nchalk — terminal color output\n\nRaw TTY writes for flicker-free top and watch modes\n\nWorks on macOS and Linux, Node.js ≥ 16.\n\n \n \n 🤔 What's next\n\nA few things I'm thinking about:\n\n--json flag on every command — so you can pipe sysview output into scripts or CI pipelines\n\nThreshold alerts in watch mode — flash a warning when CPU crosses 80% instead of passively showing it\n\nProcess search — sysview ps node to fuzzy-filter by name instantly\n\n \n \n ⭐ Try it out\n\n# Install globally\nnpm install -g @12britz/sysview\n\n# Full system overview\nsysview dashboard\n\n# See what's listening\nsysview ports\n\n# Watch everything in real time\nsysview watch --start\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf you spend any time in the terminal — especially if you do performance work, backend dev, or just get annoyed running five commands to understand your own machine — give it a shot. It's one global install, zero config.\n\nDrop a star if it's useful — it's MIT licensed, fork it and make it your own.\n\nFeedback and PRs welcome.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "cli",
+      "core",
+      "cpu",
+      "dashboard",
+      "fullscreen",
+      "memory",
+      "mode",
+      "opensource",
+      "performance",
+      "pid",
+      "port",
+      "ports",
+      "process",
+      "ps\nprocesses",
+      "ram",
+      "sre",
+      "status",
+      "sysview",
+      "tech",
+      "terminal",
+      "typescript",
+      "watch",
+      "┌──────────────────────────────────────────────────┐"
+    ],
+    [
+      "opensource",
+      "sre",
+      "tech"
+    ]
+  ]
+}

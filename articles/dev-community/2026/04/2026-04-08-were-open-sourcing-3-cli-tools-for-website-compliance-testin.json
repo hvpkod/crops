@@ -1,0 +1,44 @@
+{
+  "id": 9829,
+  "source": "DEV Community<",
+  "title": "We're open-sourcing 3 CLI tools for website compliance testing",
+  "url": "https://dev.to/steven_kop/were-open-sourcing-3-cli-tools-for-website-compliance-testing-1n61",
+  "published_at": "2026-04-08T19:33:44Z",
+  "fetched_at": "2026-04-08T19:40:21.466126+00:00",
+  "author": "Steven Kop",
+  "summary": "<p>We built a scanner for European websites. Along the way we extracted three internal tools that work great standalone. All MIT licensed, all CI-friendly.</p>\n\n<h2>\n  \n  \n  1. Cookie Consent Validator\n</h2>\n\n<p>Clicks \"Reject All\" on your cookie banner and checks if tracking actually stops.<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight shell\"><code>npx @trustyourwebsite/cookie-consent-validator https://your-site.com\n</code></pre>\n\n</div>\n\n\n\n<p>Detects the CMP (Cookiebot, OneTrust, Complianz, CookieYes, Iubenda, generic), records cookies and network requests before and after rejection, flags violations.</p>\n\n<p>Most cookie banners are decorative. The Dutch DPA fined Kruidvat (€600K) and Coolblue (€40K) for banners that didn't actually work. This tool catches that.</p>\n\n<p><strong>GitHub:</strong> <a href=\"https://github.com/trustyourwebsite/cookie-consent-validator\" rel=\"noopener noreferrer\">trustyourwebsite/cookie-consent-validator</a></p>\n\n<h2>\n  \n  \n  2",
+  "full_text": "We built a scanner for European websites. Along the way we extracted three internal tools that work great standalone. All MIT licensed, all CI-friendly.\n\n \n \n 1. Cookie Consent Validator\n\nClicks \"Reject All\" on your cookie banner and checks if tracking actually stops.\n\nnpx @trustyourwebsite/cookie-consent-validator https://your-site.com\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDetects the CMP (Cookiebot, OneTrust, Complianz, CookieYes, Iubenda, generic), records cookies and network requests before and after rejection, flags violations.\n\nMost cookie banners are decorative. The Dutch DPA fined Kruidvat (€600K) and Coolblue (€40K) for banners that didn't actually work. This tool catches that.\n\nGitHub: trustyourwebsite/cookie-consent-validator\n\n \n \n 2. Security Headers Checker\n\nGrades your security headers A+ to F with specific remediation advice.\n\nnpx @trustyourwebsite/security-headers https://your-site.com\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nChecks HSTS, CSP (full directive parsing, flags unsafe-inline/unsafe-eval), X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy, COOP/CORP/COEP. Also flags Server/X-Powered-By version disclosure.\n\nZero runtime dependencies. CI mode: --ci --min-grade B exits with code 1 if the grade drops.\n\nGitHub: trustyourwebsite/security-headers\n\n \n \n 3. DNS Email Authentication Auditor\n\nValidates your SPF, DKIM, and DMARC setup.\n\nnpx @trustyourwebsite/dns-auth-check your-domain.com\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe killer feature: recursive SPF lookup counting. Your SPF record might look fine, but every include: triggers a DNS lookup. Google Workspace + Mailchimp + a transactional sender can silently exceed the 10-lookup limit (RFC 7208), breaking SPF without any visible error.\n\nAlso auto-discovers DKIM selectors (probes 12+ common ones) so you don't need to know yours. Checks DMARC policy, BIMI, MTA-STS.\n\nZero runtime dependencies. Uses node:dns/promises.\n\nGitHub: trustyourwebsite/dns-auth-check\n\nAll three: MIT license, TypeScript, JSON + table output, works on Node 18+. PRs welcome.\n\nIf you want all of these checks (plus accessibility, image copyright, dark patterns, legal pages) in a single scan: trustyourwebsite.nl",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "@trustyourwebsite/cookie-consent",
+      "banner",
+      "check",
+      "cli",
+      "cmp",
+      "complianz",
+      "cookie",
+      "cookieyes",
+      "coolblue",
+      "csp",
+      "dmarc",
+      "exit",
+      "flag",
+      "fullscreen",
+      "header",
+      "iubenda",
+      "mit",
+      "mode",
+      "onetrust",
+      "opensource",
+      "privacy",
+      "security",
+      "webdev"
+    ],
+    [
+      "opensource",
+      "webdev"
+    ]
+  ]
+}

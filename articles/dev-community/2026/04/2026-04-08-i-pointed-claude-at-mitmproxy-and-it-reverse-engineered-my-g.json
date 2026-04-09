@@ -1,0 +1,40 @@
+{
+  "id": 9608,
+  "source": "DEV Community<",
+  "title": "I pointed Claude at mitmproxy and it reverse-engineered my gym app's API",
+  "url": "https://dev.to/dtterastar/i-pointed-claude-at-mitmproxy-and-it-reverse-engineered-my-gym-apps-api-1a4h",
+  "published_at": "2026-04-08T01:43:36Z",
+  "fetched_at": "2026-04-08T02:00:23.381816+00:00",
+  "author": "Darrell",
+  "summary": "<p>I track my workouts in Liftoff, a gym tracking app. The app is great for logging sets and reps, but I wanted Claude to help me analyze my training — suggest programming changes, spot plateaus, flag imbalances. The problem: there's no export button. My data was locked inside the app.</p>\n\n<p>So I asked Claude to figure it out.</p>\n\n<h2>\n  \n  \n  Claude runs mitmproxy\n</h2>\n\n<p>I told Claude I wanted to intercept my Liftoff app's traffic. It walked me through every step — installing mitmproxy, configuring my iPhone's proxy settings, installing the CA certificate for HTTPS decryption. All I did was follow instructions and tap through screens on my phone.</p>\n\n<p>Then Claude ran mitmdump, told me to open Liftoff and scroll through my workouts, and read the captured traffic itself.</p>\n\n<h2>\n  \n  \n  Claude reverse-engineers the API\n</h2>\n\n<p>From the mitmdump output, Claude figured out that Liftoff uses tRPC — a TypeScript RPC framework that batches requests into a specific envelope forma",
+  "full_text": "I track my workouts in Liftoff, a gym tracking app. The app is great for logging sets and reps, but I wanted Claude to help me analyze my training — suggest programming changes, spot plateaus, flag imbalances. The problem: there's no export button. My data was locked inside the app.\n\nSo I asked Claude to figure it out.\n\n \n \n Claude runs mitmproxy\n\nI told Claude I wanted to intercept my Liftoff app's traffic. It walked me through every step — installing mitmproxy, configuring my iPhone's proxy settings, installing the CA certificate for HTTPS decryption. All I did was follow instructions and tap through screens on my phone.\n\nThen Claude ran mitmdump, told me to open Liftoff and scroll through my workouts, and read the captured traffic itself.\n\n \n \n Claude reverse-engineers the API\n\nFrom the mitmdump output, Claude figured out that Liftoff uses tRPC — a TypeScript RPC framework that batches requests into a specific envelope format. The API lives at a versioned subdomain (v2-12-2.api.getgymbros.com) and expects an iOS user-agent string.\n\nClaude mapped out the entire API:\n\nAuthentication flow — a user.signIn endpoint that returns access and refresh tokens, with a user.refreshToken endpoint for renewal\n\nThe workout endpoint — post.getMyPosts returns every workout you've ever logged\n\nExercise type codes — WR for weight/reps, AB for assisted bodyweight, BR for bodyweight plus resistance, DD for distance/duration\n\nSet data structure — each set has a type (warmup vs working), and two inputs whose meaning changes based on exercise type\n\nI didn't read a single packet. Claude did all of it.\n\n \n \n Claude builds the CLI\n\nOnce Claude understood the API, it wrote a Go CLI using Cobra. It handled auth token storage, automatic token refresh, and the tRPC request format.\n\nThe tool grew from there:\n\nworkouts list — export workouts in fitdown or JSON, filter by date or exercise\n\nworkouts stats — per-exercise volume summaries with monthly ASCII bar charts\n\nbodyweights stats — trend analysis with plateau detection\n\nI set up goreleaser for multi-platform builds and a Homebrew tap for easy installation:\n\nbrew tap DTTerastar/tap\nbrew install liftoff-export\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n The full circle\n\nHere's the part I like most: the whole reason I built this was to pipe my workout data back to Claude.\n\nNow I can run liftoff-export workouts list --since 6m --json and hand Claude six months of structured training data. It can see my actual sets, reps, and weights across every exercise. From there it helps me with programming — what to change, where I'm stalling, what's working.\n\nClaude reverse-engineered the API, built the tool to extract my data, and now uses that data to coach my training. The AI closed its own loop.\n\n \n \n Links",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "api",
+      "claude",
+      "cli",
+      "datum",
+      "endpoint",
+      "exercise",
+      "fitness",
+      "go",
+      "https",
+      "iphone",
+      "liftoff",
+      "programming",
+      "trpc",
+      "typescript",
+      "use",
+      "want",
+      "workout"
+    ],
+    [
+      "ai",
+      "fitness",
+      "programming"
+    ]
+  ]
+}

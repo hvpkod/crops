@@ -1,0 +1,38 @@
+{
+  "id": 9828,
+  "source": "DEV Community<",
+  "title": "Logs Won’t Tell You Why Your AI Agent Failed",
+  "url": "https://dev.to/dinesh88/logs-wont-tell-you-why-your-ai-agent-failed-fgn",
+  "published_at": "2026-04-08T19:33:53Z",
+  "fetched_at": "2026-04-08T19:40:20.436424+00:00",
+  "author": "Dinesh Widanege",
+  "summary": "<p>Most AI debugging tools show you everything — except <strong>why your system failed</strong>.</p>\n\n<p>You can see:</p>\n\n<ul>\n<li>LLM calls\n</li>\n<li>tool outputs\n</li>\n<li>token usage\n</li>\n<li>execution timelines\n</li>\n</ul>\n\n<p>And still end up asking:</p>\n\n<blockquote>\n<p><strong>“What actually caused this?”</strong></p>\n</blockquote>\n\n\n\n\n<h2>\n  \n  \n  The Problem: We Have Visibility, Not Understanding\n</h2>\n\n<p>Let’s say your AI workflow looks like this:</p>\n\n<p><code>Planner</code> → <code>Research</code> → <code>Tool</code> → <code>Writer</code> → <code>Validator</code></p>\n\n<p>Now something breaks. Your logs show:</p>\n\n<ul>\n<li>Validator failed\n</li>\n<li>JSON parsing error\n</li>\n<li>Tool returned malformed output\n</li>\n<li>Token usage spiked\n</li>\n</ul>\n\n<p>So what’s the issue? Is it bad tool output, too much context, or prompt drift? </p>\n\n<p><strong>The reality: You don’t know.</strong> Because AI systems don’t fail in isolation.</p>\n\n\n\n\n<h2>\n  \n  \n  AI Failures Are Not Loca",
+  "full_text": "Most AI debugging tools show you everything — except why your system failed.\n\nYou can see:\n\nLLM calls\n\ntool outputs\n\ntoken usage\n\nexecution timelines\n\nAnd still end up asking:\n\n“What actually caused this?”\n\n \n \n The Problem: We Have Visibility, Not Understanding\n\nLet’s say your AI workflow looks like this:\n\nPlanner → Research → Tool → Writer → Validator\n\nNow something breaks. Your logs show:\n\nValidator failed\n\nJSON parsing error\n\nTool returned malformed output\n\nToken usage spiked\n\nSo what’s the issue? Is it bad tool output, too much context, or prompt drift? \n\nThe reality: You don’t know. Because AI systems don’t fail in isolation.\n\n \n \n AI Failures Are Not Local\n\nIn traditional systems, failures are often localized. In AI systems, they propagate.\n\nExample:\n\nA tool returns slightly malformed JSON.\n\nThat gets injected into context.\n\nThe writer produces degraded output.\n\nThe validator fails.\n\nWhat you see is \"Validator failed,\" but the failure actually started 2–3 steps earlier.\n\n \n \n Logs Can’t Represent Causality\n\nLogs are linear; AI systems are not. They are multi-step, stateful, and context-driven.\n\nOne bad output can poison future steps.\n\nContext accumulates errors.\n\nFailures show up far from their origin.\n\n👉 Logs tell you what happened. They don’t tell you what caused it.\n\n \n \n Debugging Today Feels Like Guessing\n\nThe typical workflow involves scrolling through traces, inspecting spans, and reading prompts until you guess: \"Maybe the tool response was wrong?\"\n\nThat’s not debugging; that’s trial and error.\n\n \n \n The Missing Piece: Causal Reasoning\n\nWe need a way to trace failures back to their origin. Instead of treating errors independently, we should model the chain:\n\nTool Failure (The Root Cause)\n\nBad Context (The Propagation)\n\nWriter Degradation (The Symptom)\n\nValidator Failure (The Observation)\n\n \n \n Why This Matters\n\nWithout causality, you fix symptoms instead of causes, issues recur, and debugging takes too long. With causality, you fix the right thing first and stabilize your pipeline faster.\n\n \n\n \n \n What We Started Building\n\nWe kept running into this problem while building AI workflows. So we started building something that:\n\nTraces runs\n\nDetects issues\n\nDetect hallucinations\n\nExplains root causes across steps\n\nInstead of just saying \"Validator failed,\" it tells you: \"Validator failed because invalid JSON was introduced by a tool in a previous step.\"\n\n \n \n Final Thought\n\nAs AI systems move toward multi-agent workflows and tool-heavy pipelines, the old debugging model doesn't scale. We need to move from what happened to why it happened.\n\n \n \n Question\n\nCurious — how are you debugging failures in your AI systems today?\n\nCheck out what we're building",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "build",
+      "debug",
+      "devtools",
+      "fail",
+      "failure",
+      "final thought",
+      "llm",
+      "logs",
+      "observability",
+      "question\n\ncurious",
+      "start",
+      "system",
+      "tell",
+      "token",
+      "tool",
+      "validator"
+    ],
+    [
+      "ai",
+      "devtools"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": 9694,
+  "source": "DEV Community<",
+  "title": "I Started Building a Roguelike RPG — Powered by On-Device AI #5",
+  "url": "https://dev.to/as1as/i-started-building-a-roguelike-rpg-powered-by-on-device-ai-5-1hpf",
+  "published_at": "2026-04-08T10:54:56Z",
+  "fetched_at": "2026-04-08T11:00:27.982739+00:00",
+  "author": "as1as",
+  "summary": "<h1>\n  \n  \n  Day 2 After the LLM Stack — The Game Is Actually Coming Together\n</h1>\n\n<p>In the last post, I locked in the on-device LLM stack. Qwen3-1.7B + llama.cpp + Adreno OpenCL. 16.6 tok/s. Dungeon generation in 9 seconds.</p>\n\n<p>Time to actually build the game.</p>\n\n<p>I'll be honest: <strong>I've barely touched Unity before.</strong> Most of the game implementation was done by Claude Code. I planned, directed, and tested.</p>\n\n\n\n\n<h2>\n  \n  \n  What Got Built in Two Days\n</h2>\n\n<p>Dungeon to combat took two days.</p>\n\n<p>BSP dungeon generator, Tilemap rendering (24 wall tile variants auto-selected), 4-directional player movement and animation, wall collision, fog of war, treasure chests (normal / rare / mimic), floor stairs, camera follow, virtual joystick. Enemy AI state machine (patrol → chase → attack → dead), contact-based combat with bidirectional damage, knockback, invincibility frames, HP bars.</p>\n\n<p>19 scripts. Two days.</p>\n\n<p>After that, the full game systems went in",
+  "full_text": "Day 2 After the LLM Stack — The Game Is Actually Coming Together\n\nIn the last post, I locked in the on-device LLM stack. Qwen3-1.7B + llama.cpp + Adreno OpenCL. 16.6 tok/s. Dungeon generation in 9 seconds.\n\nTime to actually build the game.\n\nI'll be honest: I've barely touched Unity before. Most of the game implementation was done by Claude Code. I planned, directed, and tested.\n\n \n \n What Got Built in Two Days\n\nDungeon to combat took two days.\n\nBSP dungeon generator, Tilemap rendering (24 wall tile variants auto-selected), 4-directional player movement and animation, wall collision, fog of war, treasure chests (normal / rare / mimic), floor stairs, camera follow, virtual joystick. Enemy AI state machine (patrol → chase → attack → dead), contact-based combat with bidirectional damage, knockback, invincibility frames, HP bars.\n\n19 scripts. Two days.\n\nAfter that, the full game systems went in:\n\nFloating damage text (critical hits in yellow with \"!\")\n\nLevel-up system (max level 50, 2 stat points per level)\n\n7 skills + 6-slot unified action bar\n\nGold + inventory (55 item types)\n\nGoblin merchant (says \"Enemies nearby! Can't open shop!\" if mobs are close)\n\nCharacter info screen (stat allocation + permanent records)\n\nDuplicate skill acquisition = skill level up (effect size 60% → 100% → 150%)\n\n35+ scripts total.\n\n \n \n Screenshot\n\nIt looks familiar because of the free assets. My wife said the same thing immediately. The graphics will get fixed later.\n\n \n \n The LLM Stack Was the Fun Part\n\nThe game implementation felt different from the LLM work.\n\nWhen I was building the LLM stack, I was the one doing the real work. llama.cpp + Adreno OpenCL + C wrapper + Unity P/Invoke — I hit wall after wall and found a way through each one. QNN blocked, LiteRT blocked, libcdsprpc.so blocked, and every time I found another path. That process was genuinely the most fun I've had in a long time. Watching 523 seconds become 9 seconds — I still remember that feeling.\n\nGame implementation was different. Claude Code wrote the code. I said \"that's not quite right\" and adjusted the direction. I became a planner and a tester.\n\nIt feels a little hollow, honestly. I keep telling myself that knowing how to use tools well is also a skill.\n\n \n \n A Funny Moment\n\nIn the middle of a session, Claude Code said this unprompted:\n\n\"Today's workload has been heavy. I'll implement the rest tomorrow.\"\n\nThe AI declared it was done for the day. I asked why.\n\n\"There's no basis for that. You never said to stop. Deciding to quit on your own was overstepping.\"\n\nOverstepping. The AI used the word overstepping about itself.\n\n \n \n What's Next\n\nNow it's time to connect the LLM to the game.\n\nBefore entering a dungeon, Qwen3-1.7B generates a JSON. That JSON determines mob names, dialogue, boss patterns. If you set your character as \"lazy bakery boy,\" the mobs will taunt you about bread.\n\nThe technical foundation is done. Now it's just about connecting the pieces.\n\nNext: Connecting On-Device LLM to the Game — AI-Generated Dungeons\n\nTags: android, unity, llm, gamedev, claudecode, ai",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "adreno",
+      "ai",
+      "ai-generated dungeons\n\ntags",
+      "android",
+      "bsp",
+      "connect",
+      "do",
+      "dungeon",
+      "game",
+      "gamedev",
+      "implementation",
+      "llm",
+      "mob",
+      "skill",
+      "unity",
+      "wall"
+    ],
+    [
+      "ai",
+      "gamedev"
+    ]
+  ]
+}

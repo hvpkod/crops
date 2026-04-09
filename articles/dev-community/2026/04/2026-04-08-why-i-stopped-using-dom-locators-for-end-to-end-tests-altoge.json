@@ -1,0 +1,46 @@
+{
+  "id": 9692,
+  "source": "DEV Community<",
+  "title": "Why I stopped using DOM locators for End-to-End tests altogether—and replaced them with computer vision",
+  "url": "https://dev.to/angelina_kos/why-i-stopped-using-dom-locators-for-end-to-end-tests-altogether-and-replaced-them-with-computer-399",
+  "published_at": "2026-04-08T10:58:14Z",
+  "fetched_at": "2026-04-08T11:00:22.507634+00:00",
+  "author": "Angelina Kosheleva",
+  "summary": "<p>If you’ve ever written End-to-End (E2E) tests using Selenium, Cypress, or Playwright, you know the ultimate pain: flakiness. </p>\n\n<p>You write a perfect test. It runs green. Two weeks later, a frontend developer changes a wrapper div, renames a CSS class, or adds a promotional pop-up. Suddenly, your CI/CD pipeline is red, and your test fails with the dreaded ElementNotInteractableException.</p>\n\n<p>I’ve spent years in QA automation, and I realized we are testing UIs fundamentally wrong. Humans don't look at the DOM to click a button. We look at the screen. So, why do our automated tests rely on hidden HTML structures?</p>\n\n<p>I decided to fix this and built <a href=\"https://ai-qasystems.com/\" rel=\"noopener noreferrer\">AIQA Systems</a> - an automation approach that ditches DOM locators completely in favor of Computer Vision (CV) and Large Language Models (LLMs). </p>\n\n<p>Here is how it works, what it costs, and why I believe this is the future of QA.</p>\n\n<h3>\n  \n  \n  ❌ The Problem ",
+  "full_text": "If you’ve ever written End-to-End (E2E) tests using Selenium, Cypress, or Playwright, you know the ultimate pain: flakiness. \n\nYou write a perfect test. It runs green. Two weeks later, a frontend developer changes a wrapper div, renames a CSS class, or adds a promotional pop-up. Suddenly, your CI/CD pipeline is red, and your test fails with the dreaded ElementNotInteractableException.\n\nI’ve spent years in QA automation, and I realized we are testing UIs fundamentally wrong. Humans don't look at the DOM to click a button. We look at the screen. So, why do our automated tests rely on hidden HTML structures?\n\nI decided to fix this and built AIQA Systems - an automation approach that ditches DOM locators completely in favor of Computer Vision (CV) and Large Language Models (LLMs). \n\nHere is how it works, what it costs, and why I believe this is the future of QA.\n\n \n \n ❌ The Problem with the DOM-based Approach\n\nStandard automation relies on finding elements via IDs, XPaths, or CSS selectors.\n\n// The old way: Fragile and high-maintenance\ncy.get('[data-testid=\"submit-btn\"]').click();\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis approach is inherently fragile:\n\nRedesigns break tests: Even if the button still says \"Submit\" and looks identical, a structural DOM change breaks the test.\n\nMaintenance nightmare: QA engineers spend a huge chunk of their time updating locators instead of covering new features.\n\nHigh barrier to entry: Manual QA engineers need to learn framework-specific code to contribute.\n\n \n \n 🧠 The Solution: Testing Like a Human (LLM + Computer Vision)\n\nInstead of searching for div.class > span, I created a system that literally \"looks\" at the screen. \n\nThe concept is simple: \n\nYou write the test in Plain English.\n\nThe AI agent takes a screenshot of the current state of the app\n\nIt uses computer vision to index elements on the screen\n\nAI agent performs the action (click, type, scroll)\n\nAt the end, the LLM analyzes the execution results and decides whether to proceed to the next step or terminate the test immediately\n\n \n \n The AIQA way: Plain English text of test case like:\n\nOpen the homepage\n\nClick on \"Login\"\n\nType \"test@example.com\" into the Email field\n\nVerify that the \"Welcome back\" text is visible\n\nBecause the agent uses vision, it has Absolute UI Resilience. If the \"Login\" button is moved from the left side of the header to the right, or if its color changes, the test still passes. The AI finds it just like a human user would!\n\n \n \n 🛠 Under the Hood: Handling Complexities\n\nBuilding this wasn't just about plugging in an API. Here are a few major challenges I solved to make it enterprise-ready:\n\nEliminating AI Hallucinations via Voting Method: Instead of relying on one execution, the system runs the entire test suite through multiple independent AI models (e.g., GPT-4o and Claude 3.7) simultaneously. I only accept the final verdict - Pass or Fail - if the results are consistent across different models. This eliminates \"flaky\" AI behavior and ensures that if a test fails, it's because of a real bug, not a model's hiccup.\n\nDynamic Content & Pop-ups: Traditional tests fail instantly if an unexpected newsletter pop-up appears. While the AI agent is prompted to recognize blockers. If a pop-up overlays the target button, the agent will find the \"X\" (close button), close the pop-up, and resume the test automatically.\n\nAuto-Analysis of Failures: When a test actually fails (a real bug), digging through logs is painful. I implemented an LLM-based analyzer. Instead of a stack trace, you get a human-readable report: \"Test failed on Step 4 because the checkout button was disabled due to an out-of-stock item.\"\n\n \n \n 💰 Wait, isn't using AI for every step super expensive?\n\nThis is the most common question I get from CTOs. Running LLM vision requests for every test step sounds like it would cost a fortune. \n\nHere is my secret sauce: Adaptive Task Complexity Routing. \n\nNot every test step requires the heavy reasoning (and high cost) of GPT-5.2 or Gemini 3 Flash. This system dynamically evaluates the complexity of the current UI state and the requested action. \n\nIf it's a straightforward task (like typing into a clearly visible, standard input field), the request is routed to a fast, dirt-cheap model (like GPT-4.1-mini). \n\nThe expensive flagship models are only triggered for complex visual or logical challenges.\n\nBecause of this adaptive routing, it's actually incredibly cheap. On my recent projects, running massive E2E suites consumed around 1M tokens, and the cost per full run ranged from just $0.5 per 22 tests. Compare that to the hourly rate of a QA Automation Engineer spending a few days fixing broken XPaths!\n\n \n \n 🚀 The Result: Scalable, Transparent, and Secure\n\nThe goal was to empower manual QA teams to write 100% E2E automated coverage without a single line of code. But in an enterprise environment, \"smart\" isn't enough-it has to be secure.\n\n \n \n 🔒 Enterprise-Grade Privacy & CI/CD Integration\n\nOne of the core pillars of this system is Data Privacy. \n\nThe entire testing process is integrated directly into the company’s internal CI/CD pipeline (GitLab, GitHub Actions, Jenkins). \n\n \n \n 📊 Full Visibility via AI Analytics\n\nTo manage this at scale, I built a custom AI Test Analytics Dashboard. It acts as a command center, providing full transparency into every run performed within the secure environment:\n\n AI Failure Analysis: Instead of cryptic logs, the dashboard uses an LLM to analyze failures and explain them in plain English.\n\n Cost & ROI Tracking: Real-time monitoring of token usage and cost ($) per run, proving the efficiency of our adaptive model routing.\n\n Stability & Speed Metrics: We track Pass Rate trends and execution durations to ensure the pipeline stays lean and reliable.\n\nAs shown in the dashboard above, I was successfully managing hundreds of complex tests with minimal maintenance overhead. What used to require a full team of SDETs can now be handled by a single engineer.\n\nI am currently open to new opportunities and would love to bring this AI-driven approach to a forward-thinking engineering team. If your company is struggling with test maintenance, let’s connect!\n\n \n \n Over to you!\n\nDo you think DOM-based testing will be dead in the next 5 years? Have you experimented with Vision models for UI testing? Let's discuss in the comments!",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "absolute ui resilience",
+      "adaptive",
+      "ai",
+      "aiqa systems",
+      "api",
+      "approach",
+      "approach\n\nstandard",
+      "automation",
+      "computer vision",
+      "css",
+      "dom",
+      "fail",
+      "html",
+      "instead",
+      "llm",
+      "locator",
+      "showdev",
+      "step",
+      "test",
+      "testing",
+      "use",
+      "vision",
+      "💰 wait"
+    ],
+    [
+      "ai",
+      "automation",
+      "showdev",
+      "testing"
+    ]
+  ]
+}

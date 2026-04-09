@@ -1,0 +1,36 @@
+{
+  "id": 9657,
+  "source": "Slashdot",
+  "title": "Planet Labs Tests AI-Powered Object Detection On Satellite",
+  "url": "https://tech.slashdot.org/story/26/04/08/0145220/planet-labs-tests-ai-powered-object-detection-on-satellite?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-08T07:00:00Z",
+  "fetched_at": "2026-04-08T07:20:20.959795+00:00",
+  "author": "BeauHD",
+  "summary": "BrianFagioli writes: Artificial intelligence has now run directly on a satellite in orbit. A spacecraft about 500km above Earth captured an image of an airport and then immediately ran an onboard AI model to detect airplanes in the photo. Instead of acting like a simple camera in space that sends raw data back to Earth for later analysis, the satellite performed the computation itself while still in orbit.\n \nThe system used an NVIDIA Jetson Orin module to run the object detection model moments after the image was taken. Traditionally, Earth observation satellites capture images and transmit large datasets to ground stations where computers process them hours later. Running AI directly on the satellite could reduce that delay dramatically, allowing spacecraft to analyze events like disasters, infrastructure changes, or aircraft activity almost immediately. \"This success is a glimpse into the future of what we call Planetary Intelligence at scale,\" said Kiruthika Devaraj, VP of Avionics ",
+  "full_text": "BrianFagioli\n\n writes: Artificial intelligence has now run directly on a satellite in orbit. A spacecraft about 500km above Earth captured an image of an airport and then immediately ran an onboard AI model to detect airplanes in the photo. Instead of acting like a simple camera in space that sends raw data back to Earth for later analysis, the satellite performed the computation itself while still in orbit.\n\n \n\nThe system used an NVIDIA Jetson Orin module to run the object detection model moments after the image was taken. Traditionally, Earth observation satellites capture images and transmit large datasets to ground stations where computers process them hours later. Running AI directly on the satellite could reduce that delay dramatically, allowing spacecraft to analyze events like disasters, infrastructure changes, or aircraft activity almost immediately.\n\n \"This success is a glimpse into the future of what we call Planetary Intelligence at scale,\" said\n\n Kiruthika Devaraj, VP of Avionics & Spacecraft Technology. \"By running AI at the edge on the NVIDIA Jetson platform, we can help reduce the time between 'seeing' a change on Earth and a customer 'acting' on it, while simultaneously minimizing downlink latency and cost. This shift toward integrated AI at the edge is a technological leap that can help differentiate solutions like Planet's Global Monitoring Service (GMS), providing valuable insights for our customers and enabling rapid response times when it matters most.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "communications",
+      "detection",
+      "directly",
+      "earth",
+      "edge",
+      "global monitoring service",
+      "gms",
+      "image",
+      "jetson",
+      "nvidia jetson orin",
+      "reduce",
+      "run",
+      "satellite",
+      "spacecraft"
+    ],
+    [
+      "ai",
+      "communications"
+    ]
+  ]
+}

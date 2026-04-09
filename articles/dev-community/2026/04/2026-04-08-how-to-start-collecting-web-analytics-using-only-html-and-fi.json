@@ -1,0 +1,38 @@
+{
+  "id": 9612,
+  "source": "DEV Community<",
+  "title": "How to start collecting web analytics using only HTML and Filasys.",
+  "url": "https://dev.to/filasys/how-to-start-collecting-web-analytics-using-only-html-and-filasys-1lje",
+  "published_at": "2026-04-08T01:31:17Z",
+  "fetched_at": "2026-04-08T02:00:30.701731+00:00",
+  "author": "Arthur Geneau",
+  "summary": "<p>Web analytics is a critical component in building any successful website.</p>\n\n<p>Whether for SEO purposes or improving user experience, websites need to collect data in order to see how it performs, what works well, and what can be improved.</p>\n\n<p>In this tutorial, we will see how we can start collecting enterprise-level web analytics in a website using only one <strong>(and we mean 1)</strong> line of html in a website.</p>\n\n<h1>\n  \n  \n  Before we begin\n</h1>\n\n<p>The website used in this tutorial is a mock online shop used solely for the purpose of this tutorial. Its source code code can be found <a href=\"https://github.com/Filasys/web-sdk-starter\" rel=\"noopener noreferrer\">here</a>.</p>\n\n<p><a href=\"https://filasys.com\" rel=\"noopener noreferrer\">Filasys</a> is a data-analytics platform build for creating custom analytics.</p>\n\n<p>Cookieless tracking will be used for this example. This means that sessions will be tracked without the use of cookies. Filasys uses a special techniq",
+  "full_text": "Web analytics is a critical component in building any successful website.\n\nWhether for SEO purposes or improving user experience, websites need to collect data in order to see how it performs, what works well, and what can be improved.\n\nIn this tutorial, we will see how we can start collecting enterprise-level web analytics in a website using only one (and we mean 1) line of html in a website.\n\n \n \n Before we begin\n\nThe website used in this tutorial is a mock online shop used solely for the purpose of this tutorial. Its source code code can be found here.\n\nFilasys is a data-analytics platform build for creating custom analytics.\n\nCookieless tracking will be used for this example. This means that sessions will be tracked without the use of cookies. Filasys uses a special technique to generate anonymized session ids when doing cookieless tracking.\n\nFor this tutorial, we will need:\n\n \n \n Setting up the project\n\nIn order to save time, we have a pre-made project set up on github.\n\nWe start by cloning the project by running the following command in the command line:\n\ngit clone https://github.com/Filasys/web-sdk-starter.git\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAlternatively, we can also visit the github page and download the project as a zip file:\n\nThe contents of the project should be as follow:\n\n- index.css\n- index.html\n- index.js\n- lemons.jpg\n- logo-icon.png\n- oranges.jpg\n- readme.md\n- strawberries.jpg\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe index.html file contains the html code for the website, index.css the styling and index.js is here to make the website reactive (not necessary for collecting data).\n\nThe various images are here to make the website more interesting than just showing text.\n\nWe can ensure that the project works by opening index.html from a file explorer into a browser. The following page should be on display:\n\n \n \n Collecting data\n\nIn order to collect the data, we first need to create a project on Filasys to store it.\n\nOn the filasys console, we go to the \"Projects\" tab, a create a new project. In order to match the Web SDK, we need to make sure to select the Web Analytics preset before the project creation.\n\nThen, in the project overview, we select \"Web SDK\" under Integration, make sure that \"Auto Start\" in selected, and copy the line of html under it.\n\nWe can then paste the line of HTML into the head of our document in index.html.\n\nAnd we are done! Now opening the page will start collection session and performance information about the page.\n\nIf we open the page, visit the \"Events\" tab of the project, select \"Session Events\" and go to \"Logs\", you will start seeing some events (It may take a minute or 2 for the events to appear):\n\nAdditionally, if we go to the \"Dashboards\" tab, and visit the \"Performance Analytics\" or \"Session Analytics\" dashboard, we can start observing some charts:\n\n \n \n Going the extra mile\n\nThe Web SDK can also track interactions with the website, alongside some details for the interaction.\n\nTo that effect, we can add two different attributes to buttons in our website: data-filaction and data-filadetails.\n\ndata-filaction is used to describe the kind of interaction we are tracking. We will choose to track click interactions.\n\ndata-filadetails is optional and needs to be set together with data-filaction. The value for this attribute can be anything and will be recorded as the interaction details.\n\nGoing back to the HTML, we can modify the buttons as follows:\n\n<button type=\"button\" class=\"add-to-cart\" id=\"add-strawberries\" data-filaction=\"click\" data-filadetails=\"add-strawberries\">Add To Cart</button>\n<!-- ... -->\n<button type=\"button\" class=\"add-to-cart\" id=\"add-oranges\" data-filaction=\"click\" data-filadetails=\"add-oranges\">Add To Cart</button>\n<!-- ... -->\n<button type=\"button\" class=\"add-to-cart\" id=\"add-lemons\" data-filaction=\"click\" data-filadetails=\"add-lemons\">Add To Cart</button>\n<!-- ... -->\n<button type=\"button\" class=\"checkout\" data-filaction=\"click\" data-filadetails=\"checkout\">Checkout</button>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow interacting with the buttons on the web page will send some interaction events matching the configuration of the buttons.\n\n \n \n Conclusion\n\nIn this tutorial, we've shown how to set up web analytics using only HTML. Now performance events and session events are automatically collected, as well as interactions with the website.\n\nIf you want to learn more about the Web SDK and the events being collected, you can check out our documentation",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "analytic",
+      "analytics",
+      "collect",
+      "cookieless",
+      "event",
+      "filasys",
+      "html",
+      "index.html",
+      "interaction",
+      "order",
+      "productivity",
+      "project",
+      "seo",
+      "start",
+      "the web sdk",
+      "website"
+    ],
+    [
+      "analytics",
+      "productivity",
+      "seo"
+    ]
+  ]
+}
