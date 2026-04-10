@@ -1,0 +1,47 @@
+{
+  "id": 10052,
+  "source": "DEV Community<",
+  "title": "Why I debug my RAG pipeline stage by stage, not end to end",
+  "url": "https://dev.to/coldoven/why-i-debug-my-rag-pipeline-stage-by-stage-not-end-to-end-1faf",
+  "published_at": "2026-04-09T13:24:29Z",
+  "fetched_at": "2026-04-09T13:40:37.811320+00:00",
+  "author": "Kaltofen",
+  "summary": "<h2>\n  \n  \n  The problem with end-to-end RAG eval\n</h2>\n\n<p>I had a working document retrieval pipeline. Fixed-size chunking, TF-IDF embeddings, FAISS index. Recall@10 was 0.82 on SciFact. Good enough.</p>\n\n<p>Then I made one change: I swapped fixed-size chunking for sentence-based chunking. Recall dropped to 0.68.</p>\n\n<p>My first instinct was to roll back. But I wanted to understand <em>why</em>. End-to-end eval only told me \"retrieval is worse.\" It couldn't tell me which stage was responsible.</p>\n\n<h2>\n  \n  \n  The debugging approach\n</h2>\n\n<p>I restructured the pipeline so each stage can be evaluated independently. The pipeline is expressed as a string feature chain:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight python\"><code><span class=\"kn\">from</span> <span class=\"n\">mloda.user</span> <span class=\"kn\">import</span> <span class=\"n\">mlodaAPI</span><span class=\"p\">,</span> <span class=\"n\">PluginCollector</span>\n\n<span class=\"c1\"># The full pipeline: ea",
+  "full_text": "The problem with end-to-end RAG eval\n\nI had a working document retrieval pipeline. Fixed-size chunking, TF-IDF embeddings, FAISS index. Recall@10 was 0.82 on SciFact. Good enough.\n\nThen I made one change: I swapped fixed-size chunking for sentence-based chunking. Recall dropped to 0.68.\n\nMy first instinct was to roll back. But I wanted to understand why. End-to-end eval only told me \"retrieval is worse.\" It couldn't tell me which stage was responsible.\n\n \n \n The debugging approach\n\nI restructured the pipeline so each stage can be evaluated independently. The pipeline is expressed as a string feature chain:\n\nfrom mloda.user import mlodaAPI, PluginCollector\n\n# The full pipeline: each __ is a stage boundary\nresults = mlodaAPI.run_all(\n features=[\"docs__pii_redacted__chunked__deduped__embedded\"],\n ...\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nStop at chunking? \"docs__pii_redacted__chunked\". \n\nSkip dedup? \"docs__pii_redacted__chunked__embedded\". \n\nAdd evaluation? \"docs__pii_redacted__chunked__deduped__embedded__evaluation\".\n\nEach stage is a self-contained plugin. Here's what debugging looked like:\n\nStep 1: Inspect chunking output directly. Sentence chunks averaged 45 tokens vs. 512 for fixed-size. Looked reasonable. Not the problem.\n\nStep 2: Check dedup. Shorter chunks meant more near-duplicates. Exact hash dedup only catches identical chunks, so near-duplicates passed through.\n\nStep 3: Swap dedup method.\n\nfrom rag_integration.feature_groups.rag_pipeline import NgramDeduplicator\n\nproviders = {\n ...,\n NgramDeduplicator, # was ExactHashDeduplicator\n}\n\nresults = mlodaAPI.run_all(\n features=[\"docs__pii_redacted__chunked__deduped__embedded__evaluation\"],\n compute_frameworks={PythonDictFramework},\n plugin_collector=PluginCollector.enabled_feature_groups(providers),\n)\n# Recall went back to 0.81\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe root cause was never the chunker. The chunker's output exposed a weakness in the downstream dedup stage.\n\n \n \n Why this matters\n\nRAG pipelines are a chain of dependent stages. Changing one stage can break a different stage for reasons that are invisible in end-to-end metrics.\n\nStage-by-stage eval turns debugging from \"something is wrong somewhere\" into \"this specific stage degrades here.\"\n\n \n \n What the pipeline supports\n\nThe pipeline makes every stage swappable:\n\nStage\nOptions\n\nPII redaction\nregex, presidio, custom patterns\n\nChunking\nfixed-size, sentence, paragraph, semantic\n\nDeduplication\nexact hash, normalized, n-gram\n\nEmbedding\nTF-IDF, sentence-transformers, hash\n\nVector index\nFAISS flat, IVF, HNSW\n\nBuilt-in eval metrics: Recall@K, Precision, NDCG, MAP against BEIR benchmarks.\n\nThere's also an image pipeline with the same structure: PII redaction (blur/pixelate/fill), perceptual hash dedup, and CLIP embeddings.\n\n \n \n Try it\n\nNot everything presented here is working yet, but most of it is. We are figuring out if this is interesting or rather not worth reading/talking about.\n\nOpen source under Apache 2.0: https://github.com/mloda-ai/rag_integration\n\nIf you've hit the \"swap one component, break something else\" problem in your own pipelines, I'd be curious to hear how you approached debugging it.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "beir",
+      "chunking",
+      "debug",
+      "dedup",
+      "eval",
+      "fais",
+      "hash",
+      "hnsw",
+      "ivf",
+      "look",
+      "map",
+      "mloda.user",
+      "ndcg",
+      "ngramdeduplicator",
+      "nlp",
+      "pipeline",
+      "precision",
+      "python",
+      "rag",
+      "rag_integration.feature_groups.rag_pipeline",
+      "redaction",
+      "scifact",
+      "stage",
+      "testing"
+    ],
+    [
+      "nlp",
+      "python",
+      "rag",
+      "testing"
+    ]
+  ]
+}

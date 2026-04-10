@@ -1,0 +1,42 @@
+{
+  "id": 10086,
+  "source": "DEV Community<",
+  "title": "How I Made Claude Code 10x More Reliable With a Plugin Methodology",
+  "url": "https://dev.to/dmitry_hihol_c9a59c1522e8/how-i-made-claude-code-10x-more-reliable-with-a-plugin-methodology-617",
+  "published_at": "2026-04-09T16:32:51Z",
+  "fetched_at": "2026-04-09T16:40:26.258478+00:00",
+  "author": "Dmitry Hihol",
+  "summary": "<p>Claude Code is powerful. But without structure, it's chaos.</p>\n\n<p>It skips tests. Commits untested code. Doesn't document anything. Loses context between sessions. Generates architecture on the fly with no plan.</p>\n\n<p>I spent months building a plugin that fixes all of this.</p>\n\n<h2>\n  \n  \n  The Problem\n</h2>\n\n<p>Every Claude Code session starts the same way:</p>\n\n<ol>\n<li>You describe what you want</li>\n<li>Claude writes code</li>\n<li>You realize there are no tests</li>\n<li>You ask for tests — Claude writes them, but breaks something else</li>\n<li>You debug for 30 minutes</li>\n<li>Next day you open a new session and Claude has zero memory of what happened</li>\n</ol>\n\n<p>This is the \"vibe coding\" trap. It feels fast, but you spend more time fixing than building.</p>\n\n<h2>\n  \n  \n  The Solution: A Methodology, Not Just Prompts\n</h2>\n\n<p>I built <strong>idea-to-deploy</strong> — a Claude Code plugin with 17 skills and 5 sub-agents that enforce a professional development pipeline.</",
+  "full_text": "Claude Code is powerful. But without structure, it's chaos.\n\nIt skips tests. Commits untested code. Doesn't document anything. Loses context between sessions. Generates architecture on the fly with no plan.\n\nI spent months building a plugin that fixes all of this.\n\n \n \n The Problem\n\nEvery Claude Code session starts the same way:\n\nYou describe what you want\n\nClaude writes code\n\nYou realize there are no tests\n\nYou ask for tests — Claude writes them, but breaks something else\n\nYou debug for 30 minutes\n\nNext day you open a new session and Claude has zero memory of what happened\n\nThis is the \"vibe coding\" trap. It feels fast, but you spend more time fixing than building.\n\n \n \n The Solution: A Methodology, Not Just Prompts\n\nI built idea-to-deploy — a Claude Code plugin with 17 skills and 5 sub-agents that enforce a professional development pipeline.\n\nThe key insight: treat AI like a junior developer. You wouldn't let a junior push code without tests, reviews, or documentation. Why let AI do it?\n\n \n \n How It Works\n\n \n \n Full Project Creation\n\n/kickstart\n\n▎ \"I want a SaaS habit tracker with a Telegram bot\" \n\nThis single command generates: \n\nStrategic plan & PRD\n\nArchitecture document (database schema, API endpoints, auth flow)\n\nImplementation plan with phases\n\nWorking code with tests\n\nDeployment configuration\n\nCLAUDE_CODE_GUIDE.md — step-by-step prompts for future sessions\n\n \n \n Daily Workflow\n\n| Skill | What it does |\n\n |-------------|-------------------------------------------------------|\n\n | /debug | Paste an error → systematic root cause analysis → fix |\n\n | /test | Auto-generate unit + integration tests for new code |\n\n | /refactor | Improve code quality while preserving behavior |\n\n | /perf | Find performance bottlenecks and optimize |\n\n | /review | Automated code review before every commit |\n\n | /doc | Generate documentation matching project style | \n\n \n \n Session Persistence\n\nThis was the game-changer for me. \n\n/session-save \n\nSaves 9 fields to project memory: \n\nDate, project, branch\n\nWhat was done (specific summary)\n\nKey decisions with reasoning\n\nChanged files\n\nBlockers & open questions\n\nNext steps (actionable)\n\nNon-obvious context (verbal agreements, constraints not in code)\n\nNext session, Claude picks up exactly where you left off. No more \"what \n\nwas I working on?\" \n\n \n \n The Architecture\n\nBehind the scenes, 5 specialized sub-agents handle complex tasks: \n\nArchitect — designs systems, evaluates tradeoffs\n\nCode Reviewer — catches bugs, checks consistency across files\n\nTest Generator — writes comprehensive test suites\n\nPerf Analyzer — profiles algorithms, queries, memory, I/O\n\nDoc Writer — generates README, API docs, inline comments\n\nEach agent has defined effort and maxTurns parameters so it doesn't \n\nwaste tokens on simple tasks but goes deep on complex ones. \n\n \n \n Before & After\n\nBefore (typical Claude Code session):\n\n40 min coding → untested, undocumented, no architecture\n\nNext day: \"What was I doing?\" → starts from scratch\n\nBug found in production → ad-hoc debugging\n\nAfter (with idea-to-deploy): \n\n10 min /kickstart → full project with architecture, tests, docs\n\nNext day: /session-save context loaded → continues seamlessly\n\nBug found → /debug → root cause in 2 minutes → fix applied\n\n \n \n Installation\n\nbash \nclaude plugin add idea-to-deploy\n\nThat's it. All 17 skills are available immediately.\n\nTech Stack Agnostic \n\nThe plugin works with any stack. I personally use it with: \n - Python/FastAPI + Vue/TypeScript \n - PostgreSQL + Redis \n - Telegram bots via aiogram\n\nBut it's been tested with React, Next.js, Go, Rust, and others. \n\nOpen Source \n\nMIT licensed. Contributions welcome.\n\nGitHub: https://github.com/HiH-DimaN/idea-to-deploy \n\n--- \nWhat's your biggest pain point with Claude Code? I'd love to hear what \nskills you'd add to a methodology like this.\n\n---\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "/doc",
+      "1000-words",
+      "2026",
+      "ai",
+      "api",
+      "architecture",
+      "claude",
+      "code",
+      "daily workflow",
+      "generate",
+      "maxturns",
+      "methodology",
+      "mit",
+      "next.js",
+      "opensource",
+      "plugin",
+      "productivity",
+      "project",
+      "react",
+      "session",
+      "showdev",
+      "skill",
+      "test"
+    ],
+    [
+      "opensource",
+      "showdev"
+    ]
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": 9975,
+  "source": "Hacker News",
+  "title": "Process Manager for Autonomous AI Agents",
+  "url": "https://botctl.dev/",
+  "published_at": "2026-04-09T06:00:55Z",
+  "fetched_at": "2026-04-09T07:20:25.186687+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47699814\">Comments</a>",
+  "full_text": "[run #12] 2026-02-12 11:42:03\n \n\n<bash> curl -s api.weather.gov/alerts\n \n\n✓ Fetched 3 active alerts\n \n\n<write> workspace/alerts.json\n \n\nNo severe storms detected.\n \n\nSleeping for 300s...",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "active",
+      "alert",
+      "autonomous",
+      "curl",
+      "fetched",
+      "manager",
+      "process",
+      "severe",
+      "sleep",
+      "storm"
+    ],
+    []
+  ]
+}

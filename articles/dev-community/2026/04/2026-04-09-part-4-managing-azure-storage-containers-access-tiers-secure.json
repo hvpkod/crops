@@ -1,0 +1,41 @@
+{
+  "id": 10142,
+  "source": "DEV Community<",
+  "title": "Part 4 : 📦 Managing Azure Storage - Containers, Access Tiers & Secure Access Control",
+  "url": "https://dev.to/faynessa/managing-azure-storage-containers-access-tiers-secure-access-control-g71",
+  "published_at": "2026-04-09T19:34:33Z",
+  "fetched_at": "2026-04-09T19:40:17.687393+00:00",
+  "author": "Faith Aneke Ada",
+  "summary": "<h2>\n  \n  \n  Overview\n</h2>\n\n<p>With the virtual network and VM fully configured,the next responsibility shifted to storage management.</p>\n\n<p>This part of the project focused on three critical things:</p>\n\n<h4>\n  \n  \n  •Storing data efficiently\n</h4>\n\n<h4>\n  \n  \n  •Optimizing storage cost\n</h4>\n\n<h4>\n  \n  \n  •Controlling and revoking access securely\n</h4>\n\n<p>Here’s how I handled it 👇</p>\n\n<h3>\n  \n  \n  Procedure 1: 📦 Creating a Storage Container &amp; Uploading a Blob\n</h3>\n\n<p>Inside the existing storage account (guided-project-rg), I:<br />\n•Navigated to Data storage → Containers<br />\n<a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fgz5ca5f76hdulwo01cap.jpeg\"><img alt=\"new container \" height=\"405\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fd",
+  "full_text": "Overview\n\nWith the virtual network and VM fully configured,the next responsibility shifted to storage management.\n\nThis part of the project focused on three critical things:\n\n \n \n •Storing data efficiently\n\n \n \n •Optimizing storage cost\n\n \n \n •Controlling and revoking access securely\n\nHere’s how I handled it 👇\n\n \n \n Procedure 1: 📦 Creating a Storage Container & Uploading a Blob\n\nInside the existing storage account (guided-project-rg), I:\n\n•Navigated to Data storage → Containers\n\n•Created a new container called storage-container\n\n•Uploaded a test image file\n\nOnce uploaded, Azure automatically assigned it the Hot access tier which is ideal for frequently accessed data.\n\nBut since this was just a test file, keeping it in Hot storage wasn’t cost-efficient.\n\n \n \n Procedure 2:❄️ Changing the Access Tier (Cost Optimization)\n\nTo optimize cost:\n\n•I selected the uploaded blob\n\n•Clicked Change tier\n\n•Switched it from Hot → Cold\n\n•Saved the configuration\n\nThis reinforced an important cloud concept (storage tiers directly impacting cost),where not all data needs premium, high-frequency access.\n\n \n \n Procedure 3: 📁 Creating a File Share\n\nBeyond blob storage, I also needed to configure Azure Files for shared access scenarios.Inside the same storage account:\n\n•I navigated to File shares\n\n•Created a new share called file-share\n\n•Enabled backup (for this lab)\n\n•Uploaded a file into the share\n\nNow the environment supported both:\n\n•Blob storage (object-based)\n\n•File shares (SMB-style shared storage)\n\nWhich are two different storage solutions and two different use cases.\n\n \n \n Procedure 4: 🔐 Generating a Shared Access Signature (SAS Token)\n\nNext came secure access control, where instead of giving full account access,i generated a Shared Access Signature (SAS) for the uploaded blob.\n\n \n \n The Configuration included are :\n\n•Signing method: Account key\n\n•Signing key: Key 1\n\n•Permissions: Read only\n\n•Protocol: HTTPS only\n\n•Custom expiration time\n\nOnce generated, i copied the Blob SAS URL into a new browser tab and it successfully displayed the image.\n\nThat link allowed temporary limited access.\n\nThis is powerful because:\n\n•No need to share account keys\n\n•Access is time-bound\n\n•Permissions are granular\n\n \n \n Procedure 5: 🔁 Rotating Access Keys (Revoking Access)\n\nGranting access is only half the story,revoking access is just as important.Since the SAS token was signed using Key 1,i invalidated it by:\n\n•Navigating to Security + networking → Access keys\n\n•Selecting Rotate key for Key 1\n\n•Confirming the regeneration\n\nAfter the key rotation, I refreshed the SAS URL tab.\n\n \n \n ☑️ Result\n\nAuthentication failed,access successfully revoked and this demonstrated a critical Azure security concept.\n\nRotating storage account keys immediately invalidates all SAS tokens generated with that key.\n\n \n \n 📊 Final Outcome\n\nBy the end of this exercise, i had:\n\n•Created and configured blob storage\n\n•Optimized cost using access tiers\n\n•Deployed Azure File Shares\n\n•Generated secure, time-limited access\n\n•Revoked access by rotating keys\n\n \n \n 🔑 Conclusion\n\nThis part of the guided project strengthened my understanding of:\n\n•Storage architecture\n\n•Access governance\n\n•Cost management\n\n•Real-world administrative control\n\nWhere cloud storage isn’t just about uploading files.It’s about managing lifecycle, security, and access responsibly.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "access",
+      "account",
+      "azure",
+      "azure file shares",
+      "beginners",
+      "blob",
+      "career",
+      "devops",
+      "file",
+      "hot",
+      "key",
+      "procedure",
+      "programming",
+      "rotate",
+      "sas",
+      "shared",
+      "storage",
+      "tier"
+    ],
+    [
+      "beginners",
+      "career",
+      "devops",
+      "programming"
+    ]
+  ]
+}

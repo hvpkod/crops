@@ -1,0 +1,45 @@
+{
+  "id": 10150,
+  "source": "DEV Community<",
+  "title": "Fixing yt-dlp in Docker: n-challenge EJS scripts, Deno 2.x, and the player_client=ios cookie trap",
+  "url": "https://dev.to/nareshipme/fixing-yt-dlp-in-docker-n-challenge-ejs-scripts-deno-2x-and-the-playerclientios-cookie-trap-54d6",
+  "published_at": "2026-04-09T19:08:29Z",
+  "fetched_at": "2026-04-09T19:40:29.869373+00:00",
+  "author": "nareshipme",
+  "summary": "<p>If you run a video processing worker that downloads YouTube content with yt-dlp, you've probably hit the n-challenge wall: downloads stall or fail with a <code>Sign in to confirm you're not a bot</code> error, or the n-parameter isn't being decoded correctly, leaving you with throttled or broken streams. After a few rounds of debugging our Railway-hosted worker, here's everything we fixed and why.</p>\n\n<h2>\n  \n  \n  Background: what is the n-challenge?\n</h2>\n\n<p>YouTube applies a per-request throttling parameter called <code>n</code> to video URLs. yt-dlp has to solve a JavaScript challenge (embedded in the YouTube player) to decode this parameter into a valid token. If the challenge isn't solved, requests are throttled to ~50 KB/s or rejected outright.</p>\n\n<p>The solver is written in JavaScript, and yt-dlp ships with multiple backends for running it: a pure-Python fallback, and native JS runtimes (Node.js, Deno, PhantomJS). The JS path is dramatically faster and more reliable — but",
+  "full_text": "If you run a video processing worker that downloads YouTube content with yt-dlp, you've probably hit the n-challenge wall: downloads stall or fail with a Sign in to confirm you're not a bot error, or the n-parameter isn't being decoded correctly, leaving you with throttled or broken streams. After a few rounds of debugging our Railway-hosted worker, here's everything we fixed and why.\n\n \n \n Background: what is the n-challenge?\n\nYouTube applies a per-request throttling parameter called n to video URLs. yt-dlp has to solve a JavaScript challenge (embedded in the YouTube player) to decode this parameter into a valid token. If the challenge isn't solved, requests are throttled to ~50 KB/s or rejected outright.\n\nThe solver is written in JavaScript, and yt-dlp ships with multiple backends for running it: a pure-Python fallback, and native JS runtimes (Node.js, Deno, PhantomJS). The JS path is dramatically faster and more reliable — but only if the runtime is actually available and the yt-dlp installation includes the EJS scripts that invoke it.\n\nWe had three separate bugs causing failures. Here's each one.\n\n \n \n Bug 1: Installing yt-dlp as a curl binary skips the EJS scripts\n\nThe most common Docker pattern for yt-dlp is to grab the standalone binary from GitHub releases:\n\nRUN curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp \\\n -o /usr/local/bin/yt-dlp \\\n && chmod a+rx /usr/local/bin/yt-dlp\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis works for basic downloads, but the standalone binary bundles only a subset of yt-dlp's assets. The EJS (Embedded JavaScript) scripts that yt-dlp uses to run the n-challenge solver in an external JS runtime are not included in the single-file binary. They live in the yt_dlp/ package directory and are only present when you install via pip.\n\nThe fix is to install with pip using the [default] extra, which pulls in all optional dependencies including the JS solver scripts:\n\nRUN pip3 install --break-system-packages \"yt-dlp[default]\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe --break-system-packages flag is required on Debian/Ubuntu images that use externally-managed Python environments (PEP 668). Without it, pip refuses to install into the system Python on newer base images. This flag is safe here because we're in a container — there's no system package manager conflict to worry about.\n\nWhy [default] and not just yt-dlp? The [default] extra includes:\n\nbrotli — for brotli-compressed responses\n\ncertifi — updated CA bundle\n\nmutagen — audio metadata writing\n\npycryptodomex — AES decryption for some streams\n\nwebsockets — live stream support\n\nNone of these are strictly required for n-challenge solving, but they prevent silent fallbacks to slower code paths.\n\n \n \n Bug 2: No JS runtime available for the n-challenge solver\n\nOnce the EJS scripts are present, yt-dlp needs a JS runtime to execute them. Our base image (node:20-slim) has Node.js, but we wanted a second option that's more isolated and doesn't require the full Node module resolution chain.\n\nWe added Deno 2.x as the JS runtime:\n\nRUN curl -fsSL https://deno.land/install.sh \\\n | DENO_INSTALL=/usr/local sh \\\n && deno --version\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nSetting DENO_INSTALL=/usr/local puts the deno binary at /usr/local/bin/deno, which is already on PATH. No .deno/bin in PATH needed.\n\nyt-dlp auto-detects available JS runtimes at runtime in this priority order: deno, node, phantomjs. With Deno present, it takes priority. Deno's V8 sandbox also means the n-challenge JS executes with no filesystem or network access by default — a minor but real security improvement over running arbitrary YouTube JS in Node.\n\nThe full updated system deps block:\n\nRUN apt-get update && apt-get install -y \\\n ffmpeg python3 python3-pip curl ca-certificates unzip \\\n --no-install-recommends \\\n && rm -rf /var/lib/apt/lists/* \\\n && pip3 install --break-system-packages \"yt-dlp[default]\" \\\n && yt-dlp --version \\\n && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr/local sh \\\n && deno --version\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNote unzip is required by the Deno installer.\n\n \n \n Bug 3: player_client=ios silently drops cookies\n\nThis one was subtle. Our yt-dlp invocation was passing --extractor-args youtube:player_client=ios to use the iOS player client, which historically bypassed some bot detection. But it has a critical flaw: the iOS client ignores cookies.\n\nYouTube's iOS API endpoint doesn't use browser cookie authentication — it uses OAuth tokens. When you pass --cookies with a Netscape-format cookies file (the kind you export from a browser), the iOS client simply ignores it. For age-restricted videos, private videos, or accounts that have verified status, this means your cookies are silently dropped and you get a public-access response (or a rejection).\n\nThe fix is to switch to clients that actually honor cookies:\n\n// Before\n\"--extractor-args\",\n\"youtube:player_client=ios\",\n\n// After\n\"--extractor-args\",\n\"youtube:player_client=web,mweb,android\",\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe web client is the standard browser client — fully compatible with cookie authentication. mweb is the mobile web client, useful as a fallback. android is the Android app client, which is good for bypassing some rate limits while still respecting cookies.\n\nyt-dlp tries them in order and uses the first one that succeeds. In practice, web handles the vast majority of cases, and mweb/android serve as automatic fallbacks without any extra code.\n\n \n \n Keeping yt-dlp current without rebuilding\n\nYouTube frequently updates the player JS, which changes the n-challenge algorithm. A yt-dlp binary that was current two weeks ago may fail today. We handle this by self-updating on every container start:\n\nCMD [\"sh\", \"-c\", \"yt-dlp -U && node --max-old-space-size=200 dist/server.js\"]\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nyt-dlp -U checks for a newer pip release and upgrades in place if one exists. This adds ~2-3 seconds to cold start but means you never need to rebuild the image just to fix a YouTube extractor bug.\n\n \n \n Summary of changes\n\nWhat\nBefore\nAfter\n\nyt-dlp install\n\ncurl binary from GitHub\npip install yt-dlp[default]\n\nJS runtime\nNone (Python fallback)\nDeno 2.x + Node.js\n\nplayer_client\nios\nweb,mweb,android\n\nCookie support\nSilently broken\nWorking\n\nEJS scripts\nMissing\nIncluded via pip package\n\nIf you're running yt-dlp in Docker and seeing mysterious throttling, bot-detection failures, or cookies that seem to be ignored, this combination of fixes is likely what you need. The pip install + Deno runtime is especially easy to overlook when the standalone binary appears to work fine for public videos.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "aes",
+      "binary",
+      "cookie",
+      "curl",
+      "debian/ubuntu",
+      "deno",
+      "docker",
+      "ejs",
+      "fullscreen",
+      "github",
+      "install",
+      "javascript",
+      "kb/s",
+      "mode",
+      "node.js",
+      "python",
+      "railway",
+      "run",
+      "runtime",
+      "solver",
+      "use",
+      "webdev",
+      "youtube"
+    ],
+    [
+      "docker",
+      "python",
+      "webdev"
+    ]
+  ]
+}

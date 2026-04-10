@@ -1,0 +1,46 @@
+{
+  "id": 10002,
+  "source": "DEV Community<",
+  "title": "Build a Motion-Triggered SMS Alert System with XIAO ESP32 S3 - No GSM Required",
+  "url": "https://dev.to/david_thomas/build-a-motion-triggered-sms-alert-system-with-xiao-esp32-s3-no-gsm-required-4586",
+  "published_at": "2026-04-09T10:30:10Z",
+  "fetched_at": "2026-04-09T10:40:28.055027+00:00",
+  "author": "David Thomas",
+  "summary": "<p>Imagine your basement door opens while you're away - within seconds, your phone buzzes with an SMS alert. That's exactly what this project <a href=\"https://circuitdigest.com/microcontroller-projects/send-sms-alert-using-seeed-studio-xiao-esp32\" rel=\"noopener noreferrer\">Send SMS Alert using Seeed Studio XIAO ESP32</a> delivers, using the Seeed Studio XIAO ESP32 S3, an HC-SR04 ultrasonic sensor, and a free cloud SMS API from <a href=\"https://www.circuitdigest.cloud/\" rel=\"noopener noreferrer\">Circuit Digest Cloud</a>.</p>\n\n<p>What makes this approach simple is the absence of GSM hardware. Traditional SMS projects needed SIM cards and bulky GSM shields. Here, the ESP32's built-in Wi-Fi does all the heavy lifting - it sends an HTTP POST request to a cloud server, which handles SMS delivery to any mobile number worldwide.</p>\n\n\n\n\n<h2>\n  \n  \n  How It Actually Works\n</h2>\n\n<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-do",
+  "full_text": "Imagine your basement door opens while you're away - within seconds, your phone buzzes with an SMS alert. That's exactly what this project Send SMS Alert using Seeed Studio XIAO ESP32 delivers, using the Seeed Studio XIAO ESP32 S3, an HC-SR04 ultrasonic sensor, and a free cloud SMS API from Circuit Digest Cloud.\n\nWhat makes this approach simple is the absence of GSM hardware. Traditional SMS projects needed SIM cards and bulky GSM shields. Here, the ESP32's built-in Wi-Fi does all the heavy lifting - it sends an HTTP POST request to a cloud server, which handles SMS delivery to any mobile number worldwide.\n\n \n \n How It Actually Works\n\nThe flow is straightforward but satisfying once you see it running live:\n\nPower on → Connect Wi-Fi → Object detected <100 cm → HTTP POST to API → SMS delivered\n\nThe ultrasonic sensor fires a trigger pulse every 500ms and measures the echo return time. When something crosses the 100 cm threshold, the ESP32 hits the Circuit Digest Cloud API with a JSON payload — your phone number, a template ID, and two custom message variables. The cloud handles formatting and delivery.\n\nSmart flag logic: an alertSent boolean prevents SMS spam. The system sends one alert per intrusion event and resets only after the object moves away. Simple, but critical for real deployments.\n\n \n \n The Core of the Code\n\nThe distance function is clean and classic — a 10µs trigger pulse, a timed echo, and basic physics:\n\nfloat readDistance() {\n digitalWrite(TRIG_PIN, LOW);\n delayMicroseconds(2);\n digitalWrite(TRIG_PIN, HIGH);\n delayMicroseconds(10);\n digitalWrite(TRIG_PIN, LOW);\n duration = pulseIn(ECHO_PIN, HIGH);\n return duration * 0.034 / 2; // cm\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe SMS call wraps a WiFiClient connecting to the Circuit Digest endpoint on port 80, sending standard HTTP/1.1 headers with your API key as the Authorization value. The JSON payload is minimal — mobile number, and two string variables that slot into your pre-defined message template.\n\n \n \n Why the XIAO ESP32 S3 Specifically?\n\nIt's the size of a postage stamp with a full Xtensa LX7 dual-core processor, 8MB flash, and integrated Wi-Fi + Bluetooth. For a motion alert node you want to tuck inside a wall socket or behind a door frame, that form factor matters. It programs through Arduino IDE like any other ESP32, so there's no learning curve if you've built with ESP32 before.\n\nThe HC-SR04 only needs four connections: 5V, GND, and two GPIOs (pin 5 for trigger, pin 3 for echo). Total build time is under 15 minutes.\n\n \n \n Real-World Use Cases\n\nUse Case\nDescription\n\nHome security\nEntry points, windows, secure storage - instant alerts on intrusion detection.\n\nTank level monitoring\nSwap the trigger axis - alert when water level drops below a threshold.\n\nIndustrial safety zones\nRestricted area alerts - notify safety personnel when someone enters.\n\nAgricultural protection\nRemote field monitoring - alerts when animals or intruders cross perimeters.\n\nThe sensor is also swappable. Replace the HC-SR04 with a DHT11 for temperature-triggered alerts, a PIR module for passive motion sensing, or a reed switch for magnetic door detection - the SMS infrastructure stays identical.\n\nWe have collection of IoT related project -> IoT Projects check these out for more project ideas.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "alert",
+      "api",
+      "arduino",
+      "beginners",
+      "circuit",
+      "circuit digest cloud",
+      "cloud",
+      "digest",
+      "door",
+      "esp32",
+      "gsm",
+      "iot",
+      "json",
+      "project",
+      "seeed",
+      "send sms alert",
+      "sim",
+      "smart",
+      "sms",
+      "the circuit digest",
+      "trigger",
+      "ultrasonic",
+      "wificlient",
+      "xiao"
+    ],
+    [
+      "arduino",
+      "beginners",
+      "esp32"
+    ]
+  ]
+}

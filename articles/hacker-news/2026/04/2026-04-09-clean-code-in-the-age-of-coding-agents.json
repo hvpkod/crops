@@ -1,0 +1,29 @@
+{
+  "id": 10078,
+  "source": "Hacker News",
+  "title": "Clean code in the age of coding agents",
+  "url": "https://www.yanist.com/clean-code-in-the-age-of-coding-agents/",
+  "published_at": "2026-04-09T14:33:08Z",
+  "fetched_at": "2026-04-09T15:20:42.925148+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47704285\">Comments</a>",
+  "full_text": "Clean code in the age of coding agents.\n\nTL;DR: Keeping code clean helps both humans and agents.\n\nI was thinking the other day how coding agents despite being very different from human developers, still share some similarities - their productivity is affected by the state of the codebase.\n\nRobert Martin in Clean Architecture talks about code as having two properties: value (it works, it's fast, etc.) and structure (how code is organised).\n\nWhile value is obvious for all the stakeholders, the structure is somewhat less clear.\n\nPoor structure means it's harder to introduce new features, and bugs are going to multiply. Eventually it costs your company momentum and money. It's just not immediate. It's a long-term thing.\n\nWhat makes clean code?\n\nIt has several characteristics (but also note how all of those are affected by each other).\n\nReadability: any other developer can easily understand what's going on.\n\nSimplicity: it gets the job done as simply as possible (but not simpler).\n\nModularity: sensible code splitting into modules whatever those might be (classes, functions, files, directories, or micro-services).\n\nTestability: writing tests is easy and fun.\n\nNaturally, code is easy to change if it has these characteristics.\n\nClean code and LLMs\n\nBut hey, these days we don't need to care about the structure anymore, right? We have LLMs to do the work for us. We don't even need to read the code anymore - we can focus on testing the outcomes. We don't read the compiled binary code after all, do we?\n\nWell, no.\n\nCoding agents are limited by context (excuse me, dear future reader, I'm writing this from April 2026). Longer contexts mean degraded performance, the tokens will multiply - and so will the cost.\n\nContext is basically how many things a machine can keep in its operational memory - it's not so different from the very human cognitive load.\n\nAs with humans, poorly organized code means agents need to read, \"understand\", and make changes to more files than necessary - polluting their context and costing you tokens.\n\nIf your code is properly organized, implementing a feature might require a model to read just a couple of small files, and make changes, instead of having to read dozens going around in circles.\n\nJust like you and me.\n\nSo what are some practical steps?\n\nI don't really have a silver bullet, but here are some things from my experience.\n\nWhen you give a task to your agent, make sure you also explain how the code should be organized. Not only value, but also structure.\n\nLLMs are pretty good at picking up the style in your repo. So keeping it clean and organized already helps.\n\nReview the outcomes. I don't think we can skip this step for now. In my opinion, an agent does not care about the structure, unless you specifically ask it to. But even in this case you have to review the changes.\n\n#article #programming #llms #public",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agent",
+      "clean",
+      "clean architecture",
+      "cod",
+      "code",
+      "context",
+      "keep",
+      "llm",
+      "organize",
+      "structure",
+      "write"
+    ],
+    []
+  ]
+}

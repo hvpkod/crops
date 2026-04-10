@@ -1,0 +1,37 @@
+{
+  "id": 10025,
+  "source": "The Verge",
+  "title": "Google makes it easy to deepfake yourself",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/909104/youtube-shorts-make-ai-avatar",
+  "published_at": "2026-04-09T10:53:49Z",
+  "fetched_at": "2026-04-09T11:20:36.210481+00:00",
+  "author": "Robert Hart",
+  "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/acastro_STK092_03.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">YouTube Shorts is <a href=\"https://support.google.com/youtube/answer/16985237#zippy=%2Cwill-videos-generated-using-an-avatar-contain-ai-disclosures%2Chow-do-i-submit-feedback-about-avatars-on-youtube%2Chow-is-my-data-collected-used%2Climit-or-remove-remixes-of-videos-using-your-avatar%2Cretake-or-delete-your-avatar-from-the-youtube-create-app%2Cretake-or-delete-your-avatar-from-the-youtube-app\">rolling out</a> a new AI-powered feature giving creators an easy way to realistically clone themselves on camera. The launch, <a href=\"https://www.theverge.com/news/864610/youtube-shorts-ai-likenesses-neal-mohan-2026\">hinted at earlier this year</a>, reflects the platform's fraught relationship with AI-generated content, adding more generative features while stru",
+  "full_text": "YouTube Shorts is rolling out a new AI-powered feature giving creators an easy way to realistically clone themselves on camera. The launch, hinted at earlier this year, reflects the platform’s fraught relationship with AI-generated content, adding more generative features while struggling to contain AI slop, deepfake scams, and impersonations.\n\nYouTube says the new tool will let users create a digital version of themselves, called an avatar, that can be inserted into existing Shorts videos or used to generate entirely new ones. The company said avatars will “look and sound like you,” framing them as a safer and more secure way to use AI to create new content.\n\nCreating an avatar is a bit more involved than simply pressing a button, but it sounds fairly straightforward. In a blog post outlining the process, YouTube said users must first record a “live selfie” capturing their face and voice while following a series of prompts. For the best results, the company recommends good lighting, a quiet area, a background free of other people or images of faces, and holding the phone at eye level.\n\nOnce avatars are made, users can select “make a video with my avatar” while creating a video to generate a clip from prompts, which can be up to eight seconds long, according to 9to5google. Users can also add their avatar to “eligible Shorts” in their feed, though YouTube did not specify what makes a Short eligible.\n\nThe AI avatar feature comes with fairly tight restrictions. They can only be used in the creator’s own original videos, who also control whether their Shorts can be remixed. The creator can delete their avatar or videos where it appears at any time, YouTube says. Avatars that aren’t used to create new content for three years will be automatically deleted.\n\nAll avatar videos will also be clearly flagged as AI-generated, YouTube says. This includes visible watermarking and digital labels like SynthID and C2PA, the latter a broadly supported but questionably useful authentication marker used to identify AI-generated content.\n\nNot everyone will be able to use the feature immediately. YouTube says the tool “will be rolling out gradually,” though it did not give a timeline or indication of where it will be available first. Creators must also be at least 18 and own an existing YouTube channel, the company says.\n\nThe avatar feature adds to YouTube’s expanding suite of AI tools for creators, including AI-generated video clips on Shorts, AI auto-dubbing, and a channel analytics chatbot. Many of them are powered by Google’s Gemini AI models, which already allow users to transform photos into video, make music, and create realistic images from scratch.\n\nIts arrival comes as one of Google’s main AI rivals, OpenAI, pulls back from video generation. The startup said it was sunsetting its Sora video tool last month after a year of struggling to get the wannabe social platform off the ground. It was costly and faced a parade of copyright challenges, deepfake controversies, and slop that made it an unattractive bet for investors ahead of an anticipated IPO this year.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "avatar",
+      "create",
+      "creator",
+      "deepfake",
+      "feature",
+      "google",
+      "google’s gemini ai",
+      "ipo",
+      "news",
+      "openai",
+      "short",
+      "tech",
+      "user",
+      "video",
+      "youtube"
+    ],
+    [
+      "news",
+      "video"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": 10006,
+  "source": "DEV Community<",
+  "title": "I built a free alternative to remove.bg (and sites like it) with free API access(It's also batch, and has file converting as well).",
+  "url": "https://dev.to/radunerd/i-built-a-free-alternative-to-removebg-and-sites-like-it-with-free-api-accessits-also-batch-2o68",
+  "published_at": "2026-04-09T10:14:12Z",
+  "fetched_at": "2026-04-09T10:40:34.052707+00:00",
+  "author": "Radunerd",
+  "summary": "<p>Hello! I'm a video editor, and I struggled a lot with dozens of sites marketing themselves as free background removal and then having watermarks or downscailing the image a lot. So I built my own one to fix my issue, and decided to make it public for others who might face the same issue as me. It's not the best, but not the worst either. It has 10 operations/2hrs (There's also 2 paid plans, that are monthly and pretty cheap, 5$ and 10$ respectively, that increase usage by 10x and unlimited). The API is free for everyone (Same quota as your plan). It's bulk/batch up to 5 images or 5 files to convert (Convert and bg remove quota are different). The background removal also has a retry feature (Uses alpha-matting for better results), an edit feature where you can draw which places to remove or restore if the removal is not to your liking. And an download all button. I'd really appreciate any feedback, as it's the first time I've built something like this. And I'm really transparent abou",
+  "full_text": "Hello! I'm a video editor, and I struggled a lot with dozens of sites marketing themselves as free background removal and then having watermarks or downscailing the image a lot. So I built my own one to fix my issue, and decided to make it public for others who might face the same issue as me. It's not the best, but not the worst either. It has 10 operations/2hrs (There's also 2 paid plans, that are monthly and pretty cheap, 5$ and 10$ respectively, that increase usage by 10x and unlimited). The API is free for everyone (Same quota as your plan). It's bulk/batch up to 5 images or 5 files to convert (Convert and bg remove quota are different). The background removal also has a retry feature (Uses alpha-matting for better results), an edit feature where you can draw which places to remove or restore if the removal is not to your liking. And an download all button. I'd really appreciate any feedback, as it's the first time I've built something like this. And I'm really transparent about AI usage, I used AI a lot. The link to it is: https://rnbulktools.top/",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ai",
+      "api",
+      "background",
+      "build",
+      "convert",
+      "free",
+      "image",
+      "quota",
+      "really",
+      "removal",
+      "remove",
+      "saas",
+      "showdev",
+      "site"
+    ],
+    [
+      "showdev"
+    ]
+  ]
+}

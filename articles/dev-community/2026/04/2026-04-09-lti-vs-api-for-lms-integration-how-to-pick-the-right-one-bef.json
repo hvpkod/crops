@@ -1,0 +1,43 @@
+{
+  "id": 10004,
+  "source": "DEV Community<",
+  "title": "LTI vs API for LMS Integration: How to Pick the Right One Before You Build",
+  "url": "https://dev.to/bhavesh_pawar_8205920953a/lti-vs-api-for-lms-integration-how-to-pick-the-right-one-before-you-build-3hoo",
+  "published_at": "2026-04-09T10:23:46Z",
+  "fetched_at": "2026-04-09T10:40:30.962641+00:00",
+  "author": "Bhavesh Pawar",
+  "summary": "<p>Most edtech teams pick LTI because it sounds like the obvious choice. It's a standard, it works across LMS platforms, and everyone supports it. They start building. Three months in, they hit something LTI simply cannot do — and now they're either redesigning the product or bolting on a custom API integration they didn't plan for.</p>\n\n<p>The decision between LTI and a direct API integration isn't about which one is better. It's about what your product actually needs to do. Get this wrong at the start and you'll pay for it later.</p>\n\n\n\n\n<h2>\n  \n  \n  What LTI is good at\n</h2>\n\n<p>LTI handles the launch. A user clicks a link inside their LMS, the LMS packages up their identity and course context, and your tool receives it. The user lands in your product already authenticated, already in the right context, without a separate login.</p>\n\n<p>On top of that, LTI Advantage adds three services that cover most standard edtech needs:</p>\n\n<ul>\n<li>Grade passback to the LMS gradebook (Assignme",
+  "full_text": "Most edtech teams pick LTI because it sounds like the obvious choice. It's a standard, it works across LMS platforms, and everyone supports it. They start building. Three months in, they hit something LTI simply cannot do — and now they're either redesigning the product or bolting on a custom API integration they didn't plan for.\n\nThe decision between LTI and a direct API integration isn't about which one is better. It's about what your product actually needs to do. Get this wrong at the start and you'll pay for it later.\n\n \n \n What LTI is good at\n\nLTI handles the launch. A user clicks a link inside their LMS, the LMS packages up their identity and course context, and your tool receives it. The user lands in your product already authenticated, already in the right context, without a separate login.\n\nOn top of that, LTI Advantage adds three services that cover most standard edtech needs:\n\nGrade passback to the LMS gradebook (Assignment and Grade Services)\n\nPulling the roster of who's in a course (Names and Role Provisioning)\n\nLetting instructors select specific content from your tool and place it in their course (Deep Linking)\n\nIf your product needs to launch from inside an LMS, authenticate users, and send grades back — LTI handles all of that cleanly, and it works across Canvas, Moodle, Blackboard, and Brightspace without rebuilding the integration for each one.\n\n \n \n Where LTI hits a wall\n\nLTI was designed for launching tools and passing grades. It was not designed for complex workflows, file handling, or deep data access.\n\nHere's where teams get caught:\n\nFile submissions and complex passback — LTI's grade passback supports scores. It does not support file submissions, multi-part responses, or rich content. If your core workflow involves students submitting files, peer reviews, or anything beyond a numerical score, LTI cannot carry that data back to the LMS.\n\nCross-course data access — an LTI launch gives your tool visibility into the course it was launched from. It cannot see other courses the same teacher runs, historical data across terms, or institution-wide data. If your product needs any of that, LTI won't give it to you.\n\nRoster access before launch — with basic LTI, you only know a user exists once they've clicked the link. If you need to pre-populate your system with a full class roster before anyone launches, you need Names and Role Provisioning Services (part of LTI Advantage) — or a direct API integration.\n\nPlatforms that don't support LTI — Google Classroom and Microsoft Teams, two of the most widely used learning platforms, do not support the LTI standard. If your target customers are K12 schools on Google Classroom or corporate teams on Microsoft Teams, LTI is not an option. You need their proprietary APIs.\n\n \n \n When a direct API integration is the right call\n\nA direct API integration — connecting to Canvas's API, Moodle's REST API, or Microsoft Graph — gives you far more control. You can read and write data across courses, manage enrollments programmatically, create assignments, and access historical records. The tradeoff: you build and maintain a separate integration for each LMS you support.\n\nUse API when:\n\nYour product needs data beyond what a single course launch provides\n\nYou're targeting Google Classroom or Microsoft Teams\n\nYour workflow involves file handling, complex submissions, or rich content\n\nYou need to provision users or content before anyone launches your tool\n\n \n \n The decision in practice\n\nI've seen teams design their entire product around LTI as the core data layer — only to discover mid-build that their key workflow requires something LTI doesn't support. File submissions, cross-course data, pre-launch provisioning — these aren't edge cases. They're common product requirements that fall outside what LTI was designed to do.\n\nBefore you commit to either path, map out your full data flow. Not just the launch. What data does your product need, when does it need it, and where does it need to go back? Answer those three questions and the right integration method becomes obvious.\n\nIf your product needs to: launch from an LMS, authenticate users, send grades back, support deep linking — build LTI.\n\nIf your product needs to: handle files, access cross-course data, pre-provision users, or support Google Classroom or Microsoft Teams — build a direct API integration, or combine both.\n\nMany mature edtech products end up with both. LTI for the launch and grade passback, API for everything else. That's not overengineering — it's using each tool for what it was actually designed to do.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "canvas",
+      "course",
+      "datum",
+      "design",
+      "direct",
+      "edtech",
+      "google classroom",
+      "grade",
+      "grade services",
+      "integration",
+      "launch",
+      "lms",
+      "lti",
+      "lti advantage",
+      "moodle",
+      "names",
+      "need",
+      "product",
+      "role provisioning services",
+      "support",
+      "tutorial"
+    ],
+    [
+      "edtech",
+      "tutorial"
+    ]
+  ]
+}

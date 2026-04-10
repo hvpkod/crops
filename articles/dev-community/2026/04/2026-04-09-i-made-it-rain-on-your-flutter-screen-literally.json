@@ -1,0 +1,46 @@
+{
+  "id": 10054,
+  "source": "DEV Community<",
+  "title": "I Made It Rain on Your Flutter Screen (Literally)",
+  "url": "https://dev.to/azeemhassanch/i-made-it-rain-on-your-flutter-screen-literally-1f4i",
+  "published_at": "2026-04-09T13:23:22Z",
+  "fetched_at": "2026-04-09T13:40:40.809516+00:00",
+  "author": "Azeem Hassan",
+  "summary": "<p>It was raining. I had nothing specific to work on. I had this idea for a rain-on-glass effect — drops with reflections, physics, wind — and thought: <em>this doesn't exist for Flutter.</em></p>\n\n<p>Six nights later, it does.</p>\n\n<p><a href=\"https://pub.dev/packages/rainy_day\" rel=\"noopener noreferrer\">rainy_day</a> is a Flutter package that renders a hyper-realistic rain-on-glass effect over any background image you give it. Falling drops. Reflections inside every drop. Collisions. Wind gusts. Accelerometer-driven parallax. One widget, one line.</p>\n\n<p>This is the story of how I built it and what actually made it hard.</p>\n\n\n\n\n<h2>\n  \n  \n  What it looks like\n</h2>\n\n<p>Drop this into your widget tree:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight dart\"><code><span class=\"n\">RainWidget</span><span class=\"p\">(</span>\n  <span class=\"nl\">backgroundAsset:</span> <span class=\"s\">'assets/images/background.jpg'</span><span class=\"p\">,</span>\n  <span class=\"nl\"",
+  "full_text": "It was raining. I had nothing specific to work on. I had this idea for a rain-on-glass effect — drops with reflections, physics, wind — and thought: this doesn't exist for Flutter.\n\nSix nights later, it does.\n\nrainy_day is a Flutter package that renders a hyper-realistic rain-on-glass effect over any background image you give it. Falling drops. Reflections inside every drop. Collisions. Wind gusts. Accelerometer-driven parallax. One widget, one line.\n\nThis is the story of how I built it and what actually made it hard.\n\n \n \n What it looks like\n\nDrop this into your widget tree:\n\nRainWidget(\n backgroundAsset: 'assets/images/background.jpg',\n blur: 10,\n fps: 60,\n enableCollisions: true,\n gravityThreshold: 3,\n windIntensity: 1.5,\n rainPresets: [\n RainPreset(3, 3, 0.88),\n RainPreset(5, 5, 0.90),\n RainPreset(6, 2, 1.00),\n ],\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAnd your screen becomes this:\n\nThat's the whole API surface. Everything has sensible defaults. You don't need to manage a ticker, handle images, or touch a single canvas method.\n\nBut building that API took several nights of genuinely frustrating debugging. Here's what actually tripped me up.\n\n \n \n Challenge 1: Reflections\n\nThis was the thing I underestimated the most.\n\nReal drops on glass act like convex lenses — they refract what's behind them. So each drop in the scene shows a tiny, slightly distorted version of the background. Not the blurred version. The sharp version, at scale.\n\nFlutter's Canvas doesn't have a CSS-style background-clip shortcut. You can't just say \"fill this path with a section of this image.\" You have to do it manually.\n\nWhat I ended up doing:\n\nAt startup, scale down a copy of the original background image by a factor (default 5×). This is the \"reflection image.\"\n\nAt paint time, for every single drop, calculate where in the reflection image this drop's position maps to.\n\nClip the canvas to the drop's Bézier path.\n\nDraw the mapped portion of the reflection image inside that clip region.\n\nUnclip, move to the next drop.\n\nThe math to get the reflection coordinate mapping right was where I spent most of my time. Parallax offset bleeds into it. Image scaling bleeds into it. Get either one slightly wrong and every drop reflection looks like it's sampling from the wrong part of the scene.\n\n \n \n Challenge 2: Drop Shapes\n\nI assumed drops were circles. They're not.\n\nA bead sitting still is roughly circular. But a drop that's moving fast is a teardrop — elongated in the direction of travel, compressed at the sides. And a drop mid-collision briefly shifts sideways and deforms before stabilizing.\n\nThree different Bézier path shapes depending on state:\n\nif (r < 3) {\n // tiny static bead — plain oval\n path.addOval(Rect.fromCircle(center: Offset(x, y), radius: r));\n\n} else if (colliding != null || (ySpeed ?? 0) > 2) {\n // fast or colliding — stretched teardrop\n final c = 1 + 0.1 * (ySpeed ?? 0);\n path.moveTo(x - r / c, y);\n path.cubicTo(x - r, y - 2 * r, x + r, y - 2 * r, x + r / c, y);\n path.cubicTo(x + r, y + c * r, x - r, y + c * r, x - r / c, y);\n path.close();\n\n} else {\n // slow-moving — softer teardrop with asymmetric arcs\n final rr = 0.9 * r;\n path.moveTo(x - rr * 0.85, y);\n path.cubicTo(x - rr * 0.5, y - rr * 1.6, x + rr * 0.5, y - rr * 1.6, x + rr * 0.85, y);\n path.cubicTo(x + rr, y + rr * 1.1, x - rr, y + rr * 1.1, x - rr * 0.85, y);\n path.close();\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThese paths are recomputed every frame for every visible drop. When you're running 600+ drops at 60fps, that adds up.\n\n \n \n Challenge 3: Performance\n\nMy first version just called setState on a timer. Rebuilds the entire widget tree 60 times per second. With hundreds of drops and canvas operations per frame.\n\nIt was, generously: not great.\n\nThe fix was a CustomPainter that listens to a ValueNotifier directly:\n\nclass GlassPainter extends CustomPainter {\n GlassPainter({required Listenable repaint}) : super(repaint: repaint);\n\n @override\n bool shouldRepaint(GlassPainter _) => false; // never rebuild the painter\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nshouldRepaint returns false — always. The painter structure doesn't change; only the data does. Flutter skips the full widget rebuild and just calls paint() directly on the canvas each tick.\n\nBeyond that:\n\nSpatial collision grid: drops only check cells adjacent to them, not every other drop (O(n) instead of O(n²))\n\nBackground blur via ImageFilter: applied at draw time on the canvas, not pre-blurred into a new image in memory\n\nReflection image pre-rendered once: not recomputed per frame\n\nAfter all of this: smooth 60fps on a mid-range Android device.\n\n \n \n Bonus: Wind That Feels Real\n\nOnce physics was solid, I wanted wind. Not a constant sideways push — actual gusts.\n\nThe implementation sums three sine waves at different frequencies and phases:\n\ndouble _windForce(double t) {\n return options.windIntensity *\n (0.6 * math.sin(t * 0.0008) +\n 0.3 * math.sin(t * 0.0021 + 1.2) +\n 0.1 * math.sin(t * 0.0053 + 2.7));\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe result isn't random and isn't mechanical — it builds, peaks, recedes, and comes back differently each time. Exactly like actual gusts. Watching drops slowly drift sideways and then fall back down is probably my favorite thing in the whole package.\n\n \n \n Getting Started\n\n# pubspec.yaml\ndependencies:\n rainy_day: ^1.0.1\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nDon't forget to declare your image asset:\n\nflutter:\n assets:\n - assets/images/background.jpg\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThen:\n\nimport 'package:rainy_day/rainy_day.dart';\n\n// Minimal usage\nRainWidget(backgroundAsset: 'assets/images/background.jpg')\n\n// Stormy\nRainWidget(\n backgroundAsset: 'assets/images/background.jpg',\n windIntensity: 3.0,\n gravityAngleVariance: 0.04,\n onControllerReady: (ctrl) {\n ctrl.speedMultiplier = 2.0;\n ctrl.spawnMultiplier = 4;\n },\n)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWorks on Android and iOS. MIT licensed.\n\n \n \n Links\n\nIf you find it useful, a ⭐ on GitHub or a 👍 on pub.dev goes a long way for discoverability. And if you build something with it — please share it, I genuinely want to see what you make.\n\nIt started as a rainy-night rabbit hole. Ended up being one of the most satisfying things I've shipped this year.",
+  "tags": [
+    [
+      "1500-words",
+      "2026",
+      "api",
+      "background",
+      "canvas",
+      "css",
+      "dart",
+      "drop",
+      "enter",
+      "exit",
+      "flutter",
+      "fullscreen",
+      "glasspainter",
+      "image",
+      "mode",
+      "opensource",
+      "rainwidget",
+      "reflection",
+      "setstate",
+      "showdev",
+      "sideway",
+      "teardrop",
+      "unclip",
+      "valuenotifier",
+      "yspeed"
+    ],
+    [
+      "dart",
+      "flutter",
+      "opensource",
+      "showdev"
+    ]
+  ]
+}

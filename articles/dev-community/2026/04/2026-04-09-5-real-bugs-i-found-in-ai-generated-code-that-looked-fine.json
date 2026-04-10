@@ -1,0 +1,37 @@
+{
+  "id": 10092,
+  "source": "DEV Community<",
+  "title": "5 Real Bugs I Found in AI-Generated Code (That Looked Fine)",
+  "url": "https://dev.to/prakharb/5-real-bugs-i-found-in-ai-generated-code-that-looked-fine-1bfg",
+  "published_at": "2026-04-09T16:22:17Z",
+  "fetched_at": "2026-04-09T16:40:37.101826+00:00",
+  "author": "Prakhar",
+  "summary": "<h1>\n  \n  \n  5 Real Bugs I Found in AI-Generated Code (That Looked Fine)\n</h1>\n\n<h2>\n  \n  \n  AI makes building easy. It also makes it easy to ship broken systems.\n</h2>\n\n\n\n\n<p>I built a working app in few hours.</p>\n\n<p>No planning. No architecture. No real thinking.</p>\n\n<p>Just prompts.</p>\n\n<p>It worked.</p>\n\n<p>Or at least… it looked like it worked.</p>\n\n<p>That’s the part that worries me.</p>\n\n<p>Because “working” is doing a lot of heavy lifting here.</p>\n\n\n\n\n<h2>\n  \n  \n  1. The \"Everything Is Admin\" Bug\n</h2>\n\n<p>AI wrote this:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code><span class=\"k\">if </span><span class=\"p\">(</span><span class=\"nx\">user</span><span class=\"p\">.</span><span class=\"nx\">role</span> <span class=\"o\">=</span> <span class=\"dl\">\"</span><span class=\"s2\">admin</span><span class=\"dl\">\"</span><span class=\"p\">)</span> <span class=\"p\">{</span>\n  <span class=\"nf\">allowAccess</span><span class=\"p\">();</span>\n<span class=\"p\">}",
+  "full_text": "5 Real Bugs I Found in AI-Generated Code (That Looked Fine)\n\n \n \n AI makes building easy. It also makes it easy to ship broken systems.\n\nI built a working app in few hours.\n\nNo planning. No architecture. No real thinking.\n\nJust prompts.\n\nIt worked.\n\nOr at least… it looked like it worked.\n\nThat’s the part that worries me.\n\nBecause “working” is doing a lot of heavy lifting here.\n\n \n \n 1. The \"Everything Is Admin\" Bug\n\nAI wrote this:\n\nif (user.role = \"admin\") {\n allowAccess();\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAt a glance, nothing feels off.\n\nBut that’s assignment, not comparison.\n\nWhich means every user becomes admin.\n\nNo crash. No error. No warning.\n\nJust a silent failure sitting in your code.\n\nThis is exactly the kind of bug that slips into production.\n\n \n \n 2. The API That Never Existed\n\nAI assumed this:\n\nconst user = await getUser();\nconsole.log(user.name);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nLooks reasonable.\n\nBut the real response was:\n\n{ data: { user: { name: \"John\" } } }\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIt worked during testing because the mock matched the assumption.\n\nIt broke instantly with real data.\n\nAnd the worst part?\n\nNobody thought to question it.\n\n \n \n 3. The “Works on My Machine” Performance Killer\n\nconst users = await db.getAllUsers();\nconst active = users.filter(u => u.active);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis works perfectly.\n\nUntil it doesn’t.\n\nWith 50 users, it’s fast.\n\nWith 200,000 users, it’s a problem.\n\nNow you’re dealing with slow APIs, memory spikes, and random timeouts.\n\nAI gave you something that was technically correct.\n\nIt just wasn’t built for reality.\n\n \n \n 4. The SQL Injection Gift\n\napp.get(\"/user\", async (req, res) => {\n const query = `SELECT * FROM users WHERE id = ${req.query.id}`;\n const result = await db.query(query);\n res.send(result);\n});\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis is where things get serious.\n\nNo sanitization. No validation.\n\nNow someone sends:\n\n?id=1 OR 1=1\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAnd suddenly, your entire database is exposed.\n\nNo alarms. No obvious signs.\n\nJust data… gone.\n\n \n \n 5. The XSS Time Bomb\n\nres.send(`<div>${userInput}</div>`);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nLooks harmless.\n\nBut nothing is escaped.\n\nNow a user sends:\n\n<script>alert(\"hacked\")</script>\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nAnd your app happily runs it.\n\nBecause you trusted the input.\n\n \n \n What’s Actually Happening\n\nAI isn’t dumb.\n\nIt’s just confidently incomplete.\n\nMost of the time, the code it generates looks correct.\n\nIt runs. It passes basic checks. It feels right.\n\nAnd that’s exactly why people trust it.\n\nBut the missing 10% — the edge cases, the assumptions, the things you didn’t verify — that’s where things break.\n\nAnd they don’t break immediately.\n\nThey break later. Under load. With real users.\n\n \n \n The Real Skill Shift\n\nA few years ago, writing code was the hard part.\n\nYou had to think through everything. Debug carefully. Read documentation.\n\nThat effort forced understanding.\n\nNow, you can generate working code in minutes.\n\nWhich means you can also skip understanding in minutes.\n\nThat’s the shift.\n\nAnd most people haven’t adjusted to it yet.\n\nThe engineers who do well now aren’t just fast.\n\nThey’re careful.\n\nThey question things.\n\nThey look at working code and ask, “what’s wrong with this?”\n\n \n \n What Actually Works (Simple Rule)\n\nBefore using AI, take a minute.\n\nWrite what you’re building.\n\nNot in your head. Actually write it down.\n\nWhat problem are you solving?\n\nWho is it for?\n\nWhat does success look like?\n\nThen use AI.\n\nAnd after it gives you code, assume something is wrong.\n\nCheck everything:\n\ninputs\n\noutputs\n\nedge cases\n\nperformance\n\nsecurity\n\nBecause something usually is.\n\n \n \n When AI Coding Still Works\n\nIt’s not all bad.\n\nAI is great for:\n\nquick prototypes\n\nside projects\n\nlearning new tools\n\nexploring ideas\n\nBut for anything real — anything that touches users, data, or scale — you need more than “it works.”\n\nYou need understanding.\n\n \n \n The Bottom Line\n\nAI didn’t remove thinking.\n\nIt removed the cost of building.\n\nWhich means you can now build bad things faster.\n\nOr good things faster.\n\nThat choice is still yours.\n\n \n \n Final Thought\n\nBefore your next prompt, pause.\n\nWhat are you actually building?\n\nWhy does it matter?\n\nBecause the code will come easily.\n\nUnderstanding won’t.\n\nWe write about real-world AI and engineering problems (no fluff) at https://www.nandann.com.\n\nMost of this comes from things that looked fine… until they weren’t.\n\nFollow if you’re building with AI — this is just the start.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "beginners",
+      "code",
+      "const",
+      "enter",
+      "exit",
+      "fullscreen",
+      "look",
+      "mode",
+      "n’t",
+      "real",
+      "thing",
+      "vibecoding",
+      "webdev",
+      "work"
+    ],
+    [
+      "beginners",
+      "vibecoding",
+      "webdev"
+    ]
+  ]
+}

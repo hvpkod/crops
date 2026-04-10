@@ -1,0 +1,42 @@
+{
+  "id": 10143,
+  "source": "DEV Community<",
+  "title": "Unix Timestamps Explained: What Every Developer Should Know",
+  "url": "https://dev.to/sven_schuchardt_0aa51663a/unix-timestamps-explained-what-every-developer-should-know-890",
+  "published_at": "2026-04-09T19:30:59Z",
+  "fetched_at": "2026-04-09T19:40:19.061029+00:00",
+  "author": "Sven Schuchardt",
+  "summary": "<p>You're tailing a log file and you see this:<br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>[1712700000] ERROR: connection timeout\n</code></pre>\n\n</div>\n\n\n\n<p>What is <code>1712700000</code>? Is it a bug? A timestamp? A version number? If you've ever stared at a number like that and felt unsure, this article is for you.</p>\n\n<p>By the end you'll know exactly what Unix timestamps are, why every serious API uses them, and how to convert them instantly without memorising any formula.</p>\n\n\n\n\n<h2>\n  \n  \n  What Is a Unix Timestamp?\n</h2>\n\n<p>A Unix timestamp (also called an epoch timestamp) is simply the number of <strong>seconds that have elapsed since January 1, 1970, 00:00:00 UTC</strong> — a moment arbitrarily chosen as the starting point of computer time, known as the Unix epoch.</p>\n\n<p>That's it. No timezones, no daylight saving adjustments, no locale quirks. Just a single integer that means the same thing on every machine on the planet",
+  "full_text": "You're tailing a log file and you see this:\n\n[1712700000] ERROR: connection timeout\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhat is 1712700000? Is it a bug? A timestamp? A version number? If you've ever stared at a number like that and felt unsure, this article is for you.\n\nBy the end you'll know exactly what Unix timestamps are, why every serious API uses them, and how to convert them instantly without memorising any formula.\n\n \n \n What Is a Unix Timestamp?\n\nA Unix timestamp (also called an epoch timestamp) is simply the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC — a moment arbitrarily chosen as the starting point of computer time, known as the Unix epoch.\n\nThat's it. No timezones, no daylight saving adjustments, no locale quirks. Just a single integer that means the same thing on every machine on the planet.\n\n1712700000 translates to April 9, 2024, 20:00:00 UTC.\n\n \n \n Why 1970?\n\nThe Unix operating system was developed in the early 1970s. The designers needed a fixed reference point that was recent enough to keep numbers small but old enough to cover any historical dates they cared about. January 1, 1970 was a clean, round choice that stuck — and 50+ years later the entire industry still uses it.\n\n \n \n Seconds vs Milliseconds — the most common gotcha\n\nTwo variants exist and they will burn you if you mix them up:\n\nFormat\nExample\nUsed by\n\nSeconds (Unix time)\n1712700000\nMost Unix APIs, databases, server logs\n\nMilliseconds\n1712700000000\nJavaScript's Date.now(), Java, many web APIs\n\nA 13-digit number is almost always milliseconds. A 10-digit number is almost always seconds. When in doubt, check the API docs.\n\n \n \n The 2038 problem (a quick aside)\n\n32-bit systems store Unix timestamps as a signed integer, which maxes out on January 19, 2038. Most modern systems use 64-bit integers (which won't overflow until the year 292 billion), but if you're working with embedded systems or legacy C code, it's worth knowing.\n\n \n \n Converting Epoch to a Human-Readable Date in JavaScript\n\nNo library needed. JavaScript's built-in Date handles it in one line:\n\n// If your timestamp is in seconds, multiply by 1000 first\nconst ts = 1712700000;\nconst date = new Date(ts * 1000);\n\nconsole.log(date.toISOString());\n// → \"2024-04-09T20:00:00.000Z\"\n\nconsole.log(date.toLocaleString('en-US', { timeZone: 'America/New_York' }));\n// → \"4/9/2024, 4:00:00 PM\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nGoing the other way — current time as epoch — is even simpler:\n\nconst nowInSeconds = Math.floor(Date.now() / 1000);\nconsole.log(nowInSeconds); // → 1712700000 (approximately)\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n A debug helper worth bookmarking\n\nWhen you're debugging logs, paste this into your browser console:\n\nconst fromEpoch = (ts) => {\n // Handle both seconds and milliseconds automatically\n const ms = ts > 1e12 ? ts : ts * 1000;\n return new Date(ms).toISOString();\n};\n\nfromEpoch(1712700000); // → \"2024-04-09T20:00:00.000Z\"\nfromEpoch(1712700000000); // → \"2024-04-09T20:00:00.000Z\"\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Try It Without Writing Any Code\n\nIf you just need a quick conversion — during debugging, code review, or reading API docs — paste any timestamp into our free epoch converter tool. It handles both seconds and milliseconds, supports timezone selection, and works entirely in your browser. No data is ever sent to a server.\n\n \n \n Why APIs Use Unix Time (and Not ISO Strings)\n\nYou'll notice that Stripe, GitHub, Slack, and virtually every major API returns timestamps as integers, not formatted date strings. There are good reasons:\n\nNo timezone ambiguity — 1712700000 is the same moment everywhere; \"2024-04-09 20:00:00\" is meaningless without a timezone\n\nEasy arithmetic — want to check if something happened in the last 24 hours? now - ts < 86400. Try doing that with ISO strings.\n\nCompact — 10 digits vs 24 characters for ISO 8601\n\nNo parsing edge cases — no locale formats, no AM/PM, no separator variations\n\nThe tradeoff is readability — which is exactly why tools and debug helpers exist.\n\n \n \n Key Takeaways\n\nA Unix timestamp is seconds since January 1, 1970 UTC\n\n10 digits = seconds, 13 digits = milliseconds — multiply by 1000 before passing to new Date()\n\nAPIs use Unix time because it's unambiguous, compact, and arithmetically convenient\n\nConvert any timestamp instantly with our epoch converter tool\n\n \n \n Further Reading",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "a human-readable date",
+      "america",
+      "api",
+      "beginners",
+      "convert",
+      "date",
+      "epoch",
+      "fullscreen",
+      "iso",
+      "javascript",
+      "key takeaways",
+      "millisecond",
+      "mode",
+      "programming",
+      "second",
+      "slack",
+      "timestamp",
+      "unix",
+      "utc",
+      "webdev"
+    ],
+    [
+      "beginners",
+      "programming",
+      "webdev"
+    ]
+  ]
+}

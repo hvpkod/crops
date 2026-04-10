@@ -1,0 +1,37 @@
+{
+  "id": 10124,
+  "source": "The Verge",
+  "title": "Google&#8217;s Gemini AI can answer your questions with 3D models and simulations",
+  "url": "https://www.theverge.com/tech/909391/google-gemini-ai-3d-models-simulations",
+  "published_at": "2026-04-09T17:57:58Z",
+  "fetched_at": "2026-04-09T18:00:22.471624+00:00",
+  "author": "Emma Roth",
+  "summary": "<figure>\n\n<img alt=\"Vector illustration of the Google Gemini logo\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/STK255_Google_Gemini_D.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Google's latest upgrade for Gemini will allow the chatbot to generate interactive 3D models and simulations in response to your questions. <a href=\"https://blog.google/innovation-and-ai/products/gemini-app/3d-models-charts/\">With the new feature</a>, you may see options to rotate the AI-generated model, manually adjust sliders on it, or input different values to change the simulation in real-time.</p>\n<p class=\"has-text-align-none\">When trying out the feature for myself, I asked Gemini to make a simulation of the Moon orbiting the Earth, and it created a 3D model with a few different ways to interact with it. Along with a slider to adjust the speed of the Moon's orbit, there's also a toggle to hide the l",
+  "full_text": "Google’s latest upgrade for Gemini will allow the chatbot to generate interactive 3D models and simulations in response to your questions. With the new feature, you may see options to rotate the AI-generated model, manually adjust sliders on it, or input different values to change the simulation in real-time.\n\nWhen trying out the feature for myself, I asked Gemini to make a simulation of the Moon orbiting the Earth, and it created a 3D model with a few different ways to interact with it. Along with a slider to adjust the speed of the Moon’s orbit, there’s also a toggle to hide the line representing its orbital path and a button to pause the simulation. You can also zoom in on and rotate the 3D model.\n\nThis update comes just weeks after Anthropic gave Claude the ability to automatically respond with charts, diagrams, and other interactive visuals, while OpenAI added a feature to ChatGPT that allows it to generate visualizations of math and science concepts. Previously, Gemini could only generate interactive images in response to prompts.\n\nAll Gemini app users can access this feature by selecting the “Pro” model in the prompt bar. From there, ask Gemini something like, “show me a double pendulum,” or “help me visualize the Doppler effect,” and then select the “Show me the visualization” button beneath Gemini’s response.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "adjust",
+      "ai",
+      "button",
+      "earth",
+      "feature",
+      "gemini",
+      "generate",
+      "google",
+      "google’s gemini ai",
+      "interactive",
+      "model",
+      "news",
+      "openai",
+      "response",
+      "rotate",
+      "simulation",
+      "tech"
+    ],
+    [
+      "news"
+    ]
+  ]
+}

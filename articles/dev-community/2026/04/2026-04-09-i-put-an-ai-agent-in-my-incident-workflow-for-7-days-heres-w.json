@@ -1,0 +1,44 @@
+{
+  "id": 9924,
+  "source": "DEV Community<",
+  "title": "I Put an AI Agent in My Incident Workflow for 7 Days. Here’s What Actually Broke.",
+  "url": "https://dev.to/ravi_teja_8b63d9205dc7a13/i-put-an-ai-agent-in-my-incident-workflow-for-7-days-heres-what-actually-broke-4jlc",
+  "published_at": "2026-04-09T00:50:17Z",
+  "fetched_at": "2026-04-09T01:40:56.307969+00:00",
+  "author": "Ravi Teja Reddy Mandala",
+  "summary": "<p>Everyone says AI agents will reduce on-call fatigue.</p>\n\n<p>So I tried adding one into a real production incident workflow not to replace engineers, but to assist with triage, summarization, and next-step recommendations.</p>\n\n<p>It helped in some places.<br />\nIt failed in others.<br />\nAnd the biggest lesson had less to do with the model and more to do with system design.</p>\n\n\n\n\n<h2>\n  \n  \n  The Setup\n</h2>\n\n<p>I integrated an AI agent into a typical incident response flow:</p>\n\n<ul>\n<li>Incoming alerts from monitoring systems</li>\n<li>Initial triage and classification</li>\n<li>Root cause hypothesis</li>\n<li>Suggested remediation steps</li>\n</ul>\n\n<p>The agent was allowed to:</p>\n\n<ul>\n<li>Summarize alerts</li>\n<li>Group duplicate incidents</li>\n<li>Suggest possible causes</li>\n<li>Draft remediation steps</li>\n</ul>\n\n<p>The agent was NOT allowed to:</p>\n\n<ul>\n<li>Execute production changes</li>\n<li>Restart services</li>\n<li>Modify configs</li>\n<li>Trigger escalations automatical",
+  "full_text": "Everyone says AI agents will reduce on-call fatigue.\n\nSo I tried adding one into a real production incident workflow not to replace engineers, but to assist with triage, summarization, and next-step recommendations.\n\nIt helped in some places.\n\nIt failed in others.\n\nAnd the biggest lesson had less to do with the model and more to do with system design.\n\n \n \n The Setup\n\nI integrated an AI agent into a typical incident response flow:\n\nIncoming alerts from monitoring systems\n\nInitial triage and classification\n\nRoot cause hypothesis\n\nSuggested remediation steps\n\nThe agent was allowed to:\n\nSummarize alerts\n\nGroup duplicate incidents\n\nSuggest possible causes\n\nDraft remediation steps\n\nThe agent was NOT allowed to:\n\nExecute production changes\n\nRestart services\n\nModify configs\n\nTrigger escalations automatically\n\nThis was intentional. I wanted to see where it adds value without risking production.\n\n \n \n What Worked Surprisingly Well\n\n \n \n 1. Alert Summarization\n\nThe agent reduced noisy alerts into clean summaries.\n\nInstead of reading through logs, I got:\n\n“High latency observed in service X after deployment Y. Likely related to dependency Z.”\n\nThis alone saved time during high-pressure incidents.\n\n \n \n 2. Duplicate Incident Grouping\n\nIt grouped alerts that were actually the same issue.\n\nThis reduced alert fatigue and helped focus on the real root cause faster.\n\n \n \n 3. Drafting Next Steps\n\nIt suggested reasonable first actions:\n\nCheck recent deployments\n\nValidate dependency health\n\nInspect error spikes\n\nNot perfect, but a solid starting point.\n\n \n \n What Broke Almost Immediately\n\n \n \n 1. Wrong Prioritization\n\nThe agent sometimes treated low-impact issues as critical.\n\nSeverity is not just data. It is context.\n\nAnd context is hard.\n\n \n \n 2. False Confidence\n\nThe responses sounded very confident even when wrong.\n\nThis is dangerous in production systems.\n\nConfidence ≠ correctness.\n\n \n \n 3. Noisy Recommendations\n\nSome suggestions were technically valid but operationally useless.\n\nExample:\n\nIn production, that is not always acceptable without deeper checks.\n\n \n \n 4. Escalation Confusion\n\nIt struggled to decide when to involve humans.\n\nToo early → noise\n\nToo late → risk \n\nThat balance is harder than it looks.\n\n \n \n The Real Problem: System Design\n\nAfter a week, it became clear:\n\nThe AI agent was not the main problem.\n\nThe real issues were:\n\nWeak incident workflows\n\nPoor escalation design\n\nLack of structured context\n\nNo clear guardrails\n\nIf your system is messy, the AI will reflect that mess faster.\n\n \n \n The Architecture That Works Better\n\nHere is what I would recommend instead:\n\nAlert comes in\n\nAI summarizes + groups signals\n\nAI suggests possible causes\n\nHuman validates context\n\nAI drafts remediation options\n\nHuman approves final action\n\nAI as a co-pilot, not an autopilot.\n\n \n \n Key Takeaways\n\nAI is great at summarization and pattern detection\n\nIt struggles with context and real-world constraints\n\nConfidence can be misleading\n\nSystem design matters more than model capability\n\nMost teams trying AI in incident response are not failing because of the model.\n\nThey are failing because their workflow is not designed for AI.\n\n \n \n Final Thought\n\nAI can absolutely improve incident response.\n\nBut if your escalation paths, permissions, and observability are weak,\n\nthe agent will not fix your system.\n\nIt will expose it.\n\n \n \n Question for You\n\nWould you allow an AI agent in your on-call workflow?\n\nRecommendation only\n\nLimited action with approval\n\nFull automation\n\nCurious to hear how others are approaching this.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "agent",
+      "ai",
+      "alert",
+      "cause",
+      "cloudcomputing",
+      "confidence",
+      "context",
+      "devops",
+      "duplicate incident",
+      "escalation",
+      "final thought\n\nai",
+      "incident",
+      "key takeaways",
+      "modify",
+      "my incident workflow",
+      "real",
+      "remediation",
+      "restart",
+      "sre",
+      "system",
+      "the setup",
+      "validate",
+      "wrong prioritization"
+    ],
+    [
+      "cloudcomputing",
+      "devops"
+    ]
+  ]
+}

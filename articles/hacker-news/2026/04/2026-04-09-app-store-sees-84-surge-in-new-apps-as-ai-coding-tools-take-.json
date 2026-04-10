@@ -1,0 +1,39 @@
+{
+  "id": 9962,
+  "source": "Hacker News",
+  "title": "App Store sees 84% surge in new apps as AI coding tools take off",
+  "url": "https://9to5mac.com/2026/04/06/app-store-sees-84-surge-in-new-apps-as-ai-coding-tools-take-off/",
+  "published_at": "2026-04-09T03:51:41Z",
+  "fetched_at": "2026-04-09T04:41:06.203202+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47699086\">Comments</a>",
+  "full_text": "Thanks to the new possibilities afforded by AI coding tools, the App Store is seeing a resurgence in new app submissions, even as Apple continues to take issue with some of the ways these apps are built and behave. Here are the details.\n\nAmid app submission surge, Apple turns to AI to scale App Store review\n\nThe Information reports that while new app submissions to the App Store fell 46% between 2016 and 2024, “the number of new apps that showed up in the App Store globally suddenly exploded” last year, “growing 30% to nearly 600,000 compared to 2024.”\n\nThe report, based on Sensor Tower data, suggests that the main contributors to the surge in new apps are vibe coding tools such as Anthropic’s Claude Code and OpenAI’s Codex.\n\nThe Information notes that while “it’s difficult to determine how many of these new apps developers created using AI, it’s likely most rely on AI tools given how quickly they have been adopted”:\n\nThe AI coding tools have made it possible for nonprogrammers to produce workable apps using written prompts, while allowing people who already have programming skills to produce far more code than they can manually.\n\n“We’ve seen an explosive growth of new apps over the past year,” said Abraham Yousef, senior insights analyst at Sensor Tower. “It aligns with a broader release of agentic coding tools that remove prior difficulties of creating apps.”\n\nWhen reached for comment, Apple told The Information that this wave reflects the relevance of the App Store.\n\nInterestingly, Apple has also been pushing back against certain iOS-based vibe coding apps that, according to the company, break App Review Guidelines and the Developer Program License.\n\nIn recent weeks, Apple has either pulled or blocked updates to apps such as Anything and Replit, pushing developers to change how their tools generate and execute code.\n\nIn short, some of these apps generate interpreted code that can change their own primary purpose, something Apple does not allow.\n\nBack to the report, The Information also notes that the surge in new apps might be putting extra strain on Apple’s App Review teams, a notion the company disputes:\n\nPotentially as a result of the huge increase in apps Apple’s review team has to now scrutinize, app developers have also complained about the rise in review times. Last month, Elon Musk posted on his social media site, X: “iOS App Review delays are getting ridiculous.”\n\nAn Apple spokesperson denied that review times are getting longer. Apple said the app review team processes 90% of submissions within 48 hours. And over the last 12 weeks, the team has processed more than 200,000 app submissions a week, with an average review time of 1.5 days. The spokesperson also said that while a human has to review every app submission, the company is increasingly using AI tools to assist in the process.\n\n9to5Mac’s take\n\nOver the past few months, it has been interesting to see more people get interested in developing their own apps.\n\nDespite the grumpy reactions of commentators who will push back against anything AI-related, vibe coding tools do offer real value and open up new possibilities, particularly for people interested in building small projects, whether as a hobby or something they think others might find useful.\n\nOf course, these tools are still far from being capable of supporting someone looking to build and run an entirely new business. Still, from what I’ve seen (and I’ve been following this market very closely), that expectation also doesn’t reflect how most people are actually using vibe coding tools today.\n\nApple, for its part, recently updated Xcode to support coding models and agents. Alas, that approach still leans toward more technical users, while tools like Anything abstract the coding process even further, a direction that clearly resonates with a growing segment of users.\n\nWith WWDC26 just around the corner and as vibe coding continues to gain traction, it will be interesting to see whether Apple updates its App Store rules to reflect these new development patterns, particularly for apps that rely on AI-generated, interpreted code to power user-driven creativity.\n\nIn the end, that’s what Apple has always said the App Store is all about.\n\nWorth checking out on Amazon\n\n \n \n\nFTC: We use income earning auto affiliate links. More.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "amazon",
+      "anything",
+      "app",
+      "app review",
+      "app review guidelines",
+      "apple",
+      "apple’s app review",
+      "coding",
+      "developer",
+      "ftc",
+      "information",
+      "review",
+      "sensor tower",
+      "store",
+      "submission",
+      "surge",
+      "tool",
+      "vibe",
+      "xcode"
+    ],
+    [
+      "review"
+    ]
+  ]
+}

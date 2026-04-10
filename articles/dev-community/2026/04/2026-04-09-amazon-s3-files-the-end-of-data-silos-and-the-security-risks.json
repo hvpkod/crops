@@ -1,0 +1,41 @@
+{
+  "id": 10207,
+  "source": "DEV Community<",
+  "title": "Amazon S3 Files: The End of Data Silos (And the Security Risks to Watch)",
+  "url": "https://dev.to/sunbirdlabs/amazon-s3-files-the-end-of-data-silos-and-the-security-risks-to-watch-4l39",
+  "published_at": "2026-04-09T22:19:30Z",
+  "fetched_at": "2026-04-09T22:40:37.359193+00:00",
+  "author": "Sunbird Analytics",
+  "summary": "<p><a class=\"article-body-image-wrapper\" href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F77561m6tctuf6gsee4s8.png\"><img alt=\" \" height=\"450\" src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F77561m6tctuf6gsee4s8.png\" width=\"800\" /></a></p>\n\n<p><strong>1. What is Amazon S3 Files?</strong><br />\nFor years, a fundamental division has existed in cloud storage: you either used object storage (like Amazon S3) for massive scale and low costs, or block/file storage (like EFS or EBS) for applications that require a standard file system. Syncing data between the two was a tedious process requiring custom pipelines.</p>\n\n<p>AWS has erased that boundary with the introduction of Amazon S3 Files. S3 Files is a shared file system feature that connect",
+  "full_text": "1. What is Amazon S3 Files?\n\nFor years, a fundamental division has existed in cloud storage: you either used object storage (like Amazon S3) for massive scale and low costs, or block/file storage (like EFS or EBS) for applications that require a standard file system. Syncing data between the two was a tedious process requiring custom pipelines.\n\nAWS has erased that boundary with the introduction of Amazon S3 Files. S3 Files is a shared file system feature that connects any AWS compute resource directly with your data in Amazon S3. It provides fast, direct access to your S3 buckets as files with complete NFS file system semantics, bringing the simplicity of a file system to the limitless scale of S3.\n\n2. Game-Changing Benefits for Cloud Workloads\n\nBy effectively turning your S3 bucket into a traditional file system, you instantly eliminate duplicate storage. Data engineers, ML models, and containerized applications can read and write to the same central S3 bucket in real time.\n\nNo Code Changes Required: Standard Python libraries, shell scripts, and native ML frameworks can interact with S3 directly, oblivious to the fact that it's object storage on the backend.\n\nMassive Scalability: S3 Files supports up to 25,000 compute resources (EC2, EKS, ECS, Lambda, Fargate) accessing the same dataset simultaneously.\n\nCost Optimization: By avoiding data replication between object stores and file systems, AWS claims S3 Files can deliver up to 90% lower costs. Intelligent caching ensures only active working sets are loaded onto high-performance layers.\n\nUncovering the New Security Risks\nWhile the operational advantages are massive, S3 Files introduces complex new attack vectors. Exposing object storage through a network file system interface means your network security boundary is now inextricably tied to your data security boundary.\n\nOver-Permissive Network Access: S3 Files requires mount targets inside your VPC. If your security groups are misconfigured, unauthorized resources—or bad actors who have breached an EC2 instance—could silently mount your S3 bucket and access or exfiltrate your entire dataset using standard OS commands.\n\nIdentity and Access Management (IAM) Gaps: Organizations typically lock down S3 using bucket policies. However, S3 Files uses a combination of IAM policies, file system policies, and Access Points. Misaligning these layers can result in \"shadow access\" where users bypass intended bucket restrictions via the file system mount.\n\nRansomware Threats: Because S3 Files allows standard file writes and overwrites, a compromised container with write access to an S3 file system could potentially encrypt or delete files at a massive scale, behaving exactly like a traditional on-premise ransomware attack.\n\n4. Securing S3 Files with Sunbird Insyte\n\nAdopting Amazon S3 Files means your compliance and security audits must evolve immediately. The days of simply checking S3 Bucket Policies are over; you now have to audit VPC endpoints, NFS security groups, and S3 File system access points in tandem.\n\nThis is where Sunbird Insyte steps in. Insyte continuously monitors your AWS infrastructure and automatically flags risky configurations related to S3 Files. Our platform checks for:\n\nExposed mount targets with overly broad security group rules.\n\nMisconfigurations between IAM policies and file system access points.\n\nMissing encryption settings for data in transit and at rest.\n\nInstead of manually querying your environment to see who has mounted what, Insyte gives you a single pane of glass to verify that your new S3 file systems align with strict compliance frameworks like ISO 27001 and SOC 2.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "access",
+      "access points",
+      "amazon",
+      "architecture",
+      "aws",
+      "bucket",
+      "datum",
+      "ebs",
+      "ecs",
+      "efs",
+      "file",
+      "iam",
+      "insyte",
+      "lambda, fargate",
+      "news",
+      "nfs",
+      "object",
+      "security",
+      "standard",
+      "system",
+      "vpc"
+    ],
+    [
+      "news"
+    ]
+  ]
+}

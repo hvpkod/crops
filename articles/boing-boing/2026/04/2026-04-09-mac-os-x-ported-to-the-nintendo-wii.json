@@ -1,0 +1,31 @@
+{
+  "id": 10193,
+  "source": "Boing Boing",
+  "title": "Mac OS X ported to the Nintendo Wii",
+  "url": "https://boingboing.net/2026/04/09/mac-os-x-ported-to-the-nintendo-wii.html",
+  "published_at": "2026-04-09T21:02:32Z",
+  "fetched_at": "2026-04-09T22:20:21.887721+00:00",
+  "author": "Rob Beschizza",
+  "summary": "<a href=\"https://boingboing.net/2026/04/09/mac-os-x-ported-to-the-nintendo-wii.html\" rel=\"nofollow\" title=\"Mac OS X ported to the Nintendo Wii\"><img alt=\"Screenshot: Brian Keller\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"644\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/Screenshot-Brian-Keller.jpg?fit=1080%2C644&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1080\" /></a><p>The Macintosh's operating system <a href=\"https://bryankeller.github.io/2026/04/08/porting-mac-os-x-nintendo-wii.html\">has been ported to the Nintendo Wii</a>, defying those <a href=\"https://www.reddit.com/r/wii/comments/mm8i8w/comment/gts4glp/\">who said it could not be done</a>. Granted, it's the original release of Mac OS X, itself older than the 2006 console, but the hardware constraints (Only 88MB of RAM!) &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/09/mac-os-x-ported-to-the-nintendo-wii.html\">Read the rest </a></p>\n",
+  "full_text": "The Macintosh's operating system has been ported to the Nintendo Wii, defying those who said it could not be done. Granted, it's the original release of Mac OS X, itself older than the 2006 console, but the hardware constraints (Only 88MB of RAM!) make it an astonishing feat all the same: \"There's something deeply satisfying about accomplishing something that, at the start, you weren't even sure was possible,\" writes Brian Keller. [via Kottke]\n\nIt's quite the adventure:\n\nAt this point, the kernel was getting stuck while running some code to set up video and I/O memory. XNU from this era makes assumptions about where video and I/O memory can be, and reconfigures Block Address Translations (BATs) in a way that doesn't play nicely with the Wii's memory layout (MEM1 starting at 0x00000000, MEM2 starting at 0x10000000). To work around these limitations, it was time to modify the kernel's source code and boot a modified kernel binary.\n\nLooking at all the translucent glass in that 25-year-old UI; the more things change, the more they stay the same. \n\nIt's a banner day for unlikely ports: also spotted in the wild was Super Mario Bros. for the Sega Master System. \n\nAs part of the SMSPower 2026 coding competition, the Master System developer, LackofTrack, has produced an impressive \"proof of concept\" showcase of what it could potentially look like running on the Master System, if it did, through some miracle, ever end up making the jump over to the Sega System.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "games",
+      "mac os x",
+      "macos",
+      "nintendo",
+      "port",
+      "post",
+      "retrocomputing"
+    ],
+    [
+      "games",
+      "mac os x",
+      "macos",
+      "post",
+      "retrocomputing"
+    ]
+  ]
+}

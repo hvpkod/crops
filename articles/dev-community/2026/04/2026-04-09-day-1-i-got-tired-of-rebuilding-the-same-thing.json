@@ -1,0 +1,35 @@
+{
+  "id": 10056,
+  "source": "DEV Community<",
+  "title": "Day 1: I Got Tired of Rebuilding the Same Thing",
+  "url": "https://dev.to/gracesoftdev/day-1-i-got-tired-of-rebuilding-the-same-thing-140n",
+  "published_at": "2026-04-09T13:21:37Z",
+  "fetched_at": "2026-04-09T13:40:44.357774+00:00",
+  "author": "GraceSoft",
+  "summary": "<p>I didn’t start out trying to build a framework.</p>\n\n<p>I was just trying to fix my app.</p>\n\n\n\n\n<p>While working on my second project, I kept running into the same issues:</p>\n\n<ul>\n<li>Rewriting setup logic</li>\n<li>Rebuilding authentication</li>\n<li>Reconfiguring environments</li>\n<li>Reconnecting integrations</li>\n</ul>\n\n<p>Then I went back to my first project to fix bugs and improve it so I could actually use it.</p>\n\n<p>And that’s when it hit me:</p>\n\n<blockquote>\n<p>Why do these two projects feel almost identical under the hood?</p>\n</blockquote>\n\n\n\n\n<p>Even though they serve different purposes, I was rebuilding:</p>\n\n<ul>\n<li>Auth</li>\n<li>Webhooks</li>\n<li>Config systems</li>\n<li>UI foundations</li>\n<li>Database patterns</li>\n</ul>\n\n<p>Again. And again.</p>\n\n\n\n\n<h2>\n  \n  \n  💥 The Breaking Point\n</h2>\n\n<p>At some point, it stopped feeling like progress.</p>\n\n<p>It felt like:</p>\n\n<blockquote>\n<p>“Why am I solving the same problem twice?”</p>\n</blockquote>\n\n\n\n\n<h2>\n  \n  \n  💡 ",
+  "full_text": "I didn’t start out trying to build a framework.\n\nI was just trying to fix my app.\n\nWhile working on my second project, I kept running into the same issues:\n\nRewriting setup logic\n\nRebuilding authentication\n\nReconfiguring environments\n\nReconnecting integrations\n\nThen I went back to my first project to fix bugs and improve it so I could actually use it.\n\nAnd that’s when it hit me:\n\nWhy do these two projects feel almost identical under the hood?\n\nEven though they serve different purposes, I was rebuilding:\n\nAuth\n\nWebhooks\n\nConfig systems\n\nUI foundations\n\nDatabase patterns\n\nAgain. And again.\n\n \n \n 💥 The Breaking Point\n\nAt some point, it stopped feeling like progress.\n\nIt felt like:\n\n“Why am I solving the same problem twice?”\n\n \n \n 💡 The Shift\n\nInstead of asking:\n\n“What does this project need?”\n\nI started asking:\n\n“What do all my projects need?”\n\n \n \n 🚧 What Comes Next\n\nThat question led me to something bigger:\n\n👉 A shared foundation\n\n👉 A reusable system\n\n👉 A core\n\nI’m calling it:\n\nGraceSoft Core\n\nNo code yet.\n\nJust thinking.\n\nBut this might be the most important part.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "architecture",
+      "buildinpublic",
+      "core",
+      "foundation",
+      "keep",
+      "laravel",
+      "project",
+      "rebuild",
+      "reconfigure",
+      "reconnecte",
+      "rewrite",
+      "stop",
+      "try",
+      "webdev"
+    ],
+    [
+      "buildinpublic",
+      "webdev"
+    ]
+  ]
+}

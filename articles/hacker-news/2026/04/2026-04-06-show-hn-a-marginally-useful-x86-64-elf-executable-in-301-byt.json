@@ -1,0 +1,29 @@
+{
+  "id": 9943,
+  "source": "Hacker News",
+  "title": "Show HN: A (marginally) useful x86-64 ELF executable in 301 bytes",
+  "url": "https://github.com/meribold/btry",
+  "published_at": "2026-04-06T20:14:16Z",
+  "fetched_at": "2026-04-09T03:20:36.695853+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47666398\">Comments</a>",
+  "full_text": "A battery status program for x86-64 Linux laptops in the form of a 298-byte ELF\nexecutable.\n\n$ btry\n30.6 Wh / 31.1 Wh (98%)\n\nSometimes there are no energy_now and energy_full files, but charge_* files instead\n(at least on my ThinkPad X220). If this is the case, btry prints ampere hours instead\nof watt hours.\n\n$ btry\n2.2 Ah / 2.8 Ah (78%)\n\nbase64 -d <<< 'AAAAgAD//////////wA/kdbV/T4SKqi4gu7TNukZJeNdhjgGWjLCw6YYwm3tgKjiZLitH\nTPynRup8/TcSWlb7S75z0Swm5ipLfTcVY6E8/U348s4Og9wn9AgwNCgnr0A0kXHg5O3HvOy7A/FMZVjVqjQy\ntrAuDJun4UWBOpPsREPuvRIkQw3x2/i9swEaWPcjw1UpaonANEY/kXoLt4PoHvTlNulQGdNRNiv8ceHxpgOo\nFPX7wLmbeMEUlwLal8kpRg74q84kP7Uic+iE8z7kFHjzyK0W1LsQLUosF8B8F+55Iw5QWtgbJ9HzPm2cUofz\ntBnp3vx7ERXQ+mz1jF6sqi63Op7TLjN9PbTebxoRYOfTfp88AA=' | xz -d > btry && chmod +x btry\n\nAnything that's not x86-64 and Linux is definitely not supported.\n\nI don't know how standard/portable the /sys/class/power_supply/BAT0 path used actually\nis.\n\nIf neither an energy_full nor a charge_full file exists in\n/sys/class/power_supply/BAT0, an infinite loop results.\n\nExtra batteries (like in the ThinkPad T480) are ignored.\n\nNo.\n\nWhen my ThinkPad X220 is plugged in at the time I wake it from suspend mode, I get the\ncharge_now file. When it is not plugged in I get the energy_now file. At least I\nthink that's how it works.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ampere",
+      "battery",
+      "btry",
+      "elf",
+      "instead",
+      "laptop",
+      "least",
+      "linux",
+      "plug",
+      "program",
+      "thinkpad"
+    ],
+    []
+  ]
+}

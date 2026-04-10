@@ -1,0 +1,43 @@
+{
+  "id": 10010,
+  "source": "DEV Community<",
+  "title": "What is BPMN? A Beginner's Guide to Process Modeling",
+  "url": "https://dev.to/crismoteam/what-is-bpmn-a-beginners-guide-to-process-modeling-1gpb",
+  "published_at": "2026-04-09T10:12:38Z",
+  "fetched_at": "2026-04-09T10:40:38.227407+00:00",
+  "author": "Crismo Team",
+  "summary": "<p>BPMN (Business Process Model and Notation) is the international standard for drawing business processes. If you have ever seen a diagram with boxes, diamonds, and arrows showing how work flows through an organization — that is probably BPMN.</p>\n\n<h2>\n  \n  \n  BPMN in one sentence\n</h2>\n\n<p>BPMN is a visual language for describing how work gets done. It gives you a precise set of symbols that everyone — business analysts, developers, managers — interprets the same way.</p>\n\n<h2>\n  \n  \n  The five building blocks\n</h2>\n\n<p>Every BPMN diagram uses just five types of elements:</p>\n\n<ol>\n<li>\n<strong>Events</strong> (circles) — things that happen. A start event triggers the process, an end event finishes it.</li>\n<li>\n<strong>Activities</strong> (rounded rectangles) — work that gets done. Tasks, sub-processes, call activities.</li>\n<li>\n<strong>Gateways</strong> (diamonds) — decision points. Exclusive (X) means one path, parallel (+) means all paths.</li>\n<li>\n<strong>Flows</strong> (arro",
+  "full_text": "BPMN (Business Process Model and Notation) is the international standard for drawing business processes. If you have ever seen a diagram with boxes, diamonds, and arrows showing how work flows through an organization — that is probably BPMN.\n\n \n \n BPMN in one sentence\n\nBPMN is a visual language for describing how work gets done. It gives you a precise set of symbols that everyone — business analysts, developers, managers — interprets the same way.\n\n \n \n The five building blocks\n\nEvery BPMN diagram uses just five types of elements:\n\nEvents (circles) — things that happen. A start event triggers the process, an end event finishes it.\n\nActivities (rounded rectangles) — work that gets done. Tasks, sub-processes, call activities.\n\nGateways (diamonds) — decision points. Exclusive (X) means one path, parallel (+) means all paths.\n\nFlows (arrows) — connect everything. Sequence flows show order, message flows show communication.\n\nPools & Lanes — who does what. Pools represent organizations, lanes represent roles within them.\n\n \n \n Why not just use a flowchart?\n\nFlowcharts are informal. A diamond in one person's flowchart might mean something different in another's. BPMN standardizes this — an exclusive gateway (X) always means exactly one path, a parallel gateway (+) always means all paths.\n\nBPMN also handles things flowcharts cannot: parallel work, role boundaries, message exchange between organizations, error handling, and timeouts.\n\n \n \n Who uses BPMN?\n\nBusiness analysts document processes\n\nProcess consultants use it as a common language across industries\n\nDevelopers implement processes in workflow engines like Camunda\n\nCompliance teams document regulated processes for auditors\n\nOrganizations going through digital transformation map before automating\n\n \n \n A brief history\n\nBPMN was created in 2004 by the BPMI, adopted by the Object Management Group (OMG) in 2006, and reached version 2.0 in 2011. BPMN 2.0 is an ISO standard (ISO/IEC 19510:2013) and is what everyone means when they say \"BPMN\" today.\n\n \n \n The four diagram types\n\nProcess diagrams — the most common. Internal workflow of a single organization.\n\nCollaboration diagrams — multiple organizations interacting via message flows.\n\nChoreography diagrams — message exchange focus. Rarely used.\n\nConversation diagrams — high-level overview. Also rarely used.\n\n \n \n When NOT to use BPMN\n\nSimple checklists with no decisions\n\nBrainstorming sessions (use sticky notes first)\n\nOne-time meeting explanations\n\nSoftware architecture (use UML or C4)\n\nThe rule of thumb: if the process involves decisions, multiple roles, or exceptions — BPMN is the right tool.\n\n \n \n Start learning\n\nThe fastest way is to model real processes. We built free exercises for exactly this — real companies, real problems, BPMN solutions.\n\nRead the full interactive guide with BPMN diagrams you can explore: What is BPMN?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "bpmi",
+      "bpmn",
+      "businessprocess",
+      "camunda\n\ncompliance",
+      "diagram",
+      "flow",
+      "flowchart",
+      "gateway",
+      "iso",
+      "mean",
+      "message",
+      "omg",
+      "parallel",
+      "pools & lanes",
+      "process",
+      "processmodeling",
+      "software",
+      "tutorial",
+      "uml",
+      "use"
+    ],
+    [
+      "businessprocess",
+      "processmodeling",
+      "software",
+      "tutorial"
+    ]
+  ]
+}

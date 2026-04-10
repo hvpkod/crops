@@ -1,0 +1,42 @@
+{
+  "id": 9955,
+  "source": "DEV Community<",
+  "title": "Building a 100% Client-Side PDF Editor: Why I Chose Astro and WebAssembly",
+  "url": "https://dev.to/atomlit/building-a-100-client-side-pdf-editor-why-i-chose-astro-and-webassembly-29kb",
+  "published_at": "2026-04-09T04:06:49Z",
+  "fetched_at": "2026-04-09T04:40:45.576299+00:00",
+  "author": "Atomlit Labs",
+  "summary": "<p><strong>The Privacy Problem with Online PDF Tools</strong></p>\n\n<p>We’ve all been there: you need to merge two PDFs or edit a quick detail, so you Google \"PDF editor.\" You find a dozen sites, upload your sensitive document (maybe an invoice or a contract), and hope for the best.</p>\n\n<p>As a developer, this always felt like a massive privacy hole. Why should my data live on someone else's server just to perform a simple merge operation?</p>\n\n<p>That’s why I decided to build <strong>DumPDF</strong>—a tool that does everything strictly in the browser. No uploads, no servers, just your files and your CPU.</p>\n\n<p><strong>The Architecture: Why Astro + TypeScript?</strong></p>\n\n<p>When building a tool that needs to be fast and SEO-friendly, I chose Astro.</p>\n\n<p>Astro's \"islands\" architecture is perfect here. Since the PDF manipulation happens entirely on the client side, I didn't need a heavy backend. I used Astro to ship zero-JavaScript by default for the landing pages, only loading t",
+  "full_text": "The Privacy Problem with Online PDF Tools\n\nWe’ve all been there: you need to merge two PDFs or edit a quick detail, so you Google \"PDF editor.\" You find a dozen sites, upload your sensitive document (maybe an invoice or a contract), and hope for the best.\n\nAs a developer, this always felt like a massive privacy hole. Why should my data live on someone else's server just to perform a simple merge operation?\n\nThat’s why I decided to build DumPDF—a tool that does everything strictly in the browser. No uploads, no servers, just your files and your CPU.\n\nThe Architecture: Why Astro + TypeScript?\n\nWhen building a tool that needs to be fast and SEO-friendly, I chose Astro.\n\nAstro's \"islands\" architecture is perfect here. Since the PDF manipulation happens entirely on the client side, I didn't need a heavy backend. I used Astro to ship zero-JavaScript by default for the landing pages, only loading the heavy libraries (like pdf-lib and tesseract.js) when the user actually starts an \"action.\"\n\nKey dependencies in the stack:\n\npdf-lib: To handle the heavy lifting of merging, splitting, and modifying PDF bytes.\n\nTesseract.js: For OCR (Optical Character Recognition) so I can make images searchable without sending them to a cloud AI.\n\nTailwind CSS: For a utility-first, responsive UI.\n\nThe Technical Challenge: Handling Bytes in the Browser\n\nThe trickiest part of keeping everything offline is managing memory. Handling large PDF files in a browser tab can easily crash the main thread.\n\nHere is a simplified look at how I handle a PDF merge using pdf-lib:\n\nTypeScript\n\nimport { PDFDocument } from 'pdf-lib';\n\nasync function mergePDFs(files: FileList) {\n const mergedPdf = await PDFDocument.create();\n\n for (const file of Array.from(files)) {\n const bytes = await file.arrayBuffer();\n const pdf = await PDFDocument.load(bytes);\n const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());\n copiedPages.forEach((page) => mergedPdf.addPage(page));\n }\n\n const mergedPdfBytes = await mergedPdf.save();\n // We trigger a local download here using file-saver\n return mergedPdfBytes;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhy \"Offline-First\" Matters in 2026\n\nBuilding this taught me that we often over-complicate web apps with expensive cloud infrastructure. For most PDF manipulations, modern browser engines are more than capable of handling the work.\n\nBenefits of this approach:\n\nSpeed: No upload/download latency.\n\nCost: Static hosting on Cloudflare is essentially free.\n\nTrust: Users can literally turn off their internet and the tool still works.\n\nWhat’s Next?\n\nDumPDF is currently live. It's been a journey in exploring how much we can push the boundaries of \"Client-Side Only\" applications.\n\nI’d love to hear from the community: Have you experimented with moving traditionally \"server-side\" tasks to the client? What libraries are you using to handle large file manipulations?",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "astro",
+      "await",
+      "choose",
+      "cloud",
+      "cloudflare",
+      "const",
+      "cpu",
+      "css",
+      "dumpdf",
+      "filelist",
+      "google",
+      "handle",
+      "heavy",
+      "library",
+      "merge",
+      "ocr",
+      "pdf",
+      "privacy",
+      "showdev",
+      "typescript",
+      "webdev"
+    ],
+    [
+      "showdev",
+      "webdev"
+    ]
+  ]
+}

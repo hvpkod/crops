@@ -1,0 +1,33 @@
+{
+  "id": 9978,
+  "source": "DEV Community<",
+  "title": "Understanding Constructor Functions in JavaScript",
+  "url": "https://dev.to/harini_magesh_fa40041cf8d/understanding-constructor-functions-in-javascript-2ogf",
+  "published_at": "2026-04-09T07:28:38Z",
+  "fetched_at": "2026-04-09T07:40:23.648073+00:00",
+  "author": "Harini",
+  "summary": "<p>In JavaScript, a constructor function is used to create multiple objects with similar properties and methods. Instead of creating objects manually again and again, we use a constructor to generate them easily.</p>\n\n<p><strong>What is an Object?</strong></p>\n\n<p>An object stores data in key–value pairs.</p>\n\n<p><strong>Example:</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code><span class=\"kd\">let</span> <span class=\"nx\">person</span> <span class=\"o\">=</span> <span class=\"p\">{</span>\n  <span class=\"na\">name</span><span class=\"p\">:</span> <span class=\"dl\">\"</span><span class=\"s2\">Harini</span><span class=\"dl\">\"</span><span class=\"p\">,</span>\n  <span class=\"na\">age</span><span class=\"p\">:</span> <span class=\"mi\">22</span>\n<span class=\"p\">};</span>\n</code></pre>\n\n</div>\n\n\n\n<p>Here:</p>\n\n<ul>\n<li>name and age are keys</li>\n<li>\"Harini\" and 23 are values\nIf we want to create many similar objects, writing this structure repeatedly is not",
+  "full_text": "In JavaScript, a constructor function is used to create multiple objects with similar properties and methods. Instead of creating objects manually again and again, we use a constructor to generate them easily.\n\nWhat is an Object?\n\nAn object stores data in key–value pairs.\n\nExample:\n\nlet person = {\n name: \"Harini\",\n age: 22\n};\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nHere:\n\nname and age are keys\n\n\"Harini\" and 23 are values\nIf we want to create many similar objects, writing this structure repeatedly is not efficient. That’s why we use constructor functions.\n\nWhat is a Constructor Function?\n\nA constructor function is a normal function used to create objects.\n\nBy convention, constructor function names should start with a capital letter.\n\nExample:\n\nfunction User() {\n this.name = \"Harini\";\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nHere:\n\nthis refers to the newly created object.\n\nthis.name assigns a property to that object.\n\nCreating an Object Using new\n\nTo create an object from a constructor, we use the new keyword.\n\nlet user1 = new User();\nconsole.log(user1);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWhat happens when we use new?\n\nWhen we write new User():\n\nA new empty object is created.\n\nthis refers to that new object.\n\nProperties are added to the object.\n\nThe object is returned automatically.\n\nWe do not need to manually write return this.\n\nCreating Multiple Objects\n\nEach time we use new, a new object is created.\n\nlet user1 = new User();\nlet user2 = new User();\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBoth user1 and user2 are separate objects.\n\nConstructor with Arguments\n\nConstructor functions can also accept parameters.\n\nExample:\n\nfunction User(name) {\n this.name = name;\n}\n\nlet user1 = new User(\"Harini\");\nconsole.log(user1);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nNow the value is passed dynamically instead of being hardcoded.\n\nThis makes the constructor more flexible.\n\nAdding Properties and Methods\n\nWe can add both properties and methods inside a constructor.\n\nExample:\n\nfunction User(name, age) {\n this.name = name;\n this.age = age;\n this.getAge = function() {\n return this.age;\n };\n}\n\nlet user1 = new User(\"Harini\", 22);\nconsole.log(user1.getAge());\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nHere:\n\nname and age are properties.\n\ngetAge() is a method.\n\nMethods are called using parentheses.\n\nImportant Points to Remember\n\nConstructor function names should start with a capital letter.\n\nAlways use the new keyword to create objects.\n\nthis refers to the newly created object.\n\nEach new call creates a separate object.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "basic",
+      "beginners",
+      "constructor",
+      "create",
+      "exit",
+      "fullscreen",
+      "function",
+      "javascript",
+      "mode",
+      "object",
+      "property",
+      "refer"
+    ],
+    [
+      "basic",
+      "beginners"
+    ]
+  ]
+}

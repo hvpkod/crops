@@ -1,0 +1,29 @@
+{
+  "id": 10232,
+  "source": "Hacker News",
+  "title": "BunnyCDN has been silently losing our production files for 15 months",
+  "url": "https://old.reddit.com/r/webdev/comments/1sglytg/bunnycdn_has_been_silently_losing_our_production/",
+  "published_at": "2026-04-09T22:04:09Z",
+  "fetched_at": "2026-04-09T23:21:01.299768+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47710845\">Comments</a>",
+  "full_text": "On Jan 13th, 2025, we noticed strange 404 errors in our backend logs, originating from Bunny Storage. We investigated and found that files which were uploaded successfully to Bunny via their API simply vanished, with no deletion from our side, and no recorded write operation of any kind in Bunny's own logs.\n\nBunny's own support confirmed it the next day (January 14th, 2025) saying: files were found in the replication region but not in the main region.\n\nTimeline\n\nJan 13, 2025 - Ticket opened after dozens of missing files.\n\nJan 13 - Support asks if the files were \"deleted then re-uploaded.\" We explain they were never deleted by us and there are no logs showing deletions on Bunny's end either.\n\nJan 14 - Support escalated to their Storage team. They confirm the files were found in some replication regions but not in the main region, which is odd. Engineering will \"try to recover files.\"\n\nJan 15 - More 404s.\n\nJan 17 - 200+ instances in 7 days. Four different agents have touched the ticket. None have a resolution.\n\nJan 19 - We ask to speak with someone directly. Refused. All communication must go through the ticket system.\n\nFeb 2-6 - Still not fixed. Every response: \"forwarded to the team, no update yet.\"\n\nApr 8, 2025 - Months of silence. We bump the ticket with new missing files. Storage team is \"still looking into the longstanding issue.\"\n\nApr 24 - More files gone. \"Escalated with the development team, no update at this time.\"\n\nApr 29 - Another lost file. \"Chasing with the team.\"\n\nMar 24, 2026 - Nearly a year of silence. Bunny reaches out unprompted: \"Our Storage team have not come to a conclusion. There were recent deployment changes to improve resilience.\" They ask if we have more recent examples.\n\nMar 26, 2026 - We report a file uploaded that morning is already gone. \"I've updated our Storage team and we'll follow up.\"\n\nThe loss rate isn't enormous in percentage terms, but it's consistent and ongoing. Yes, we should've migrated away sooner, we never had the capacity to do so and hoped Bunny would just get their shit together.\n\nBunny acknowledged this issue over a year ago. The files are recorded as sent to storage, are briefly available, and vanish into thin air hours later, with no recorded deletion or any other write operation on these files.\n\nThe infuriating part is there's nobody to speak with, we just get the same answers from Support with zero escalation options. Do not use Bunny Storage for anything you actually care about.\n\nHappy to answer questions.\n\n--\n\n*Note: an earlier version of this post included files lost today (Apr 9th) but those were ruled unrelated to this issue. The files from March 26th, 2026, are still unaccounted for.\n\n*2nd edit: added a screenshot of Bunny confirming the bug. I realize you can't really trust any sort of image-based proof nowadays, but I'm happy to accommodate any reasonable request for verification of the details in this post.\n\n*3rd edit: here's another screenshot of Bunny ack'ing the 15 month-old bug today",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "bunny",
+      "deletion",
+      "file",
+      "find",
+      "missing",
+      "record",
+      "storage",
+      "support",
+      "ticket",
+      "upload"
+    ],
+    []
+  ]
+}

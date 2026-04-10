@@ -1,0 +1,39 @@
+{
+  "id": 9982,
+  "source": "DEV Community<",
+  "title": "Anthropic Just Did Something Unprecedented: They Hid Their Best Security Model",
+  "url": "https://dev.to/o96a/anthropic-just-did-something-unprecedented-they-hid-their-best-security-model-3ma5",
+  "published_at": "2026-04-09T07:22:33Z",
+  "fetched_at": "2026-04-09T07:40:30.925361+00:00",
+  "author": "Aamer Mihaysi",
+  "summary": "<p>Today Anthropic announced Claude Mythos — a model so good at finding security vulnerabilities that they decided not to release it.</p>\n\n<p>Instead, they launched Project Glasswing: a restricted program that gives access only to vetted security researchers and major tech companies. The model has already found vulnerabilities in <strong>every major operating system and web browser</strong>, including a 27-year-old bug in OpenBSD.</p>\n\n<p>This is not a marketing stunt.</p>\n\n<h2>\n  \n  \n  What Makes Mythos Different\n</h2>\n\n<p>Claude Opus 4.6 had a near-0% success rate at autonomous exploit development. Mythos Preview developed working exploits <strong>181 times</strong> out of hundreds of attempts on the same test cases.</p>\n\n<p>Nicholas Carlini from Anthropic said he found more bugs in the last couple weeks than in his entire career combined. Thats not hyperbole — the OpenBSD vulnerability they discovered has been in the codebase for 27 years.</p>\n\n<p>The model can:</p>\n\n<ul>\n<li>Chain ",
+  "full_text": "Today Anthropic announced Claude Mythos — a model so good at finding security vulnerabilities that they decided not to release it.\n\nInstead, they launched Project Glasswing: a restricted program that gives access only to vetted security researchers and major tech companies. The model has already found vulnerabilities in every major operating system and web browser, including a 27-year-old bug in OpenBSD.\n\nThis is not a marketing stunt.\n\n \n \n What Makes Mythos Different\n\nClaude Opus 4.6 had a near-0% success rate at autonomous exploit development. Mythos Preview developed working exploits 181 times out of hundreds of attempts on the same test cases.\n\nNicholas Carlini from Anthropic said he found more bugs in the last couple weeks than in his entire career combined. Thats not hyperbole — the OpenBSD vulnerability they discovered has been in the codebase for 27 years.\n\nThe model can:\n\nChain 4-5 vulnerabilities together into sophisticated exploit chains\n\nWrite JIT heap sprays that escape browser AND OS sandboxes\n\nFind privilege escalation paths that humans missed for decades\n\n \n \n Why This Matters for Developers\n\nThis is a genuine inflection point. Security professionals are already drowning in AI-generated vulnerability reports:\n\nMonths ago, we were getting AI slop. Something happened a month ago, and the world switched. Now we have real reports. — Greg Kroah-Hartman, Linux kernel\n\nIm spending hours per day on this now. Its intense. — Daniel Stenberg, curl\n\nThe codebases running the internets infrastructure — Linux, OpenBSD, browsers, servers — are being systematically audited by machines that dont get tired. The 27-year-old OpenBSD bug wasnt obscure — it was in TCP packet handling. Anyone could have found it. No one did. Until now.\n\n \n \n The Trade-off\n\nAnthropic is putting $100M in compute credits and $4M in direct donations behind Project Glasswing. Partners include AWS, Apple, Microsoft, Google, and the Linux Foundation.\n\nBut the model wont be generally available. If youre not a vetted partner, you wont get access.\n\nIs that the right call?\n\nI think so. The security community has been warning about this for months. The gap between AI can find bugs and AI can chain exploits autonomously just closed. Anthropic is giving infrastructure maintainers time to harden their systems before the capability proliferates.\n\nBecause it will proliferate. Other labs will reach this threshold. The question isnt whether bad actors eventually get this — its whether critical systems get patched first.\n\n \n \n What Comes Next\n\nTwo things are happening simultaneously:\n\nFrontier models are becoming genuinely dangerous — not in a sci-fi way, but in the boring sense that they can autonomously find and exploit vulnerabilities in production systems.\n\nResponsible disclosure is scaling — instead of one researcher finding one bug, were seeing systematic auditing of entire codebases that have been running the internet for decades.\n\nThe maintainers of OpenBSD, Linux, curl, Firefox — theyre all getting AI-generated reports now. Some are slop. Many are real.\n\nProject Glasswing is Anthropic acknowledging that releasing a model this capable, without guardrails, would be reckless. Its also them saying they expect safeguards to catch up — eventually.\n\nThe model is called Mythos. The name fits. Its powerful, elusive, and only a few will get to use it.\n\nBut the bugs its finding? Those are very real.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "ai",
+      "anthropic",
+      "apple",
+      "aws",
+      "bug",
+      "codebase",
+      "exploit",
+      "frontier",
+      "google",
+      "linux",
+      "llm",
+      "maintainer",
+      "microsoft",
+      "model",
+      "mythos",
+      "project glasswing",
+      "security",
+      "tcp",
+      "the linux foundation",
+      "vetted",
+      "vulnerability"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": 10055,
+  "source": "DEV Community<",
+  "title": "Saving yourself from npm",
+  "url": "https://dev.to/chinmaymoghe/saving-yourself-from-npm-4hle",
+  "published_at": "2026-04-09T13:22:06Z",
+  "fetched_at": "2026-04-09T13:40:42.887817+00:00",
+  "author": "Chinmay",
+  "summary": "<h2>\n  \n  \n  Context\n</h2>\n\n<p>Hackers are hijacking npm packages at an alarming rate. We can't stop maintainer accounts from being compromised, but we can stop being easy targets. In today's ecosystem, the burden of proof has shifted: security is now the responsibility of the person hitting <code>npm install</code>.</p>\n\n<h2>\n  \n  \n  It's probably fine → Prove it's safe\n</h2>\n\n<p>Most devs treat weekly or monthly download counts as a sign of reliability — evidence that a package is well-maintained and solves a real problem. That's reasonable, up to a point. But once a hacker hijacks a maintainer's account and tampers with the package or adds a <code>postinstall</code> script, that download count doesn't reset.<br />\nAll a hijacker needs is a single line in <code>package.json</code> to exfiltrate your <code>~/.ssh</code> keys or <code>.env</code> file — in a 2-second install.</p>\n\n<p>What allows this to happen over and over?</p>\n\n<ul>\n<li>\n<strong>Insecure defaults</strong> — the tooli",
+  "full_text": "Context\n\nHackers are hijacking npm packages at an alarming rate. We can't stop maintainer accounts from being compromised, but we can stop being easy targets. In today's ecosystem, the burden of proof has shifted: security is now the responsibility of the person hitting npm install.\n\n \n \n It's probably fine → Prove it's safe\n\nMost devs treat weekly or monthly download counts as a sign of reliability — evidence that a package is well-maintained and solves a real problem. That's reasonable, up to a point. But once a hacker hijacks a maintainer's account and tampers with the package or adds a postinstall script, that download count doesn't reset.\n\nAll a hijacker needs is a single line in package.json to exfiltrate your ~/.ssh keys or .env file — in a 2-second install.\n\nWhat allows this to happen over and over?\n\nInsecure defaults — the tooling runs arbitrary code on install without asking\n\nBlind trust — there's no decent way to verify you're getting exactly what you asked for, nothing more\n\nSecuring yourself comes down to two things: tightening insecure defaults to a sane configuration, and having a better way to verify what you're actually installing.\n\n \n \n Zero trust\n\nUsing a runtime with secure defaults is the nuclear option — the most thorough way to address both problems at once. The two runtimes worth knowing here are Deno and Bun.\n\nDeno is the gold standard for security. Its \"secure by default\" approach grants no permissions to packages unless explicitly allowed. There's no concept of postinstall scripts at install time — the first time any package code executes is when you explicitly run your application. Deno also has built-in Subresource Integrity (SRI): it checks the checksum of every remote module, and if a hacker tampers with even a single character, there's a hash mismatch and Deno refuses to run it.\n\nDeno also pushes the use of JSR (the JavaScript Registry) alongside npm. JSR uses OpenID Connect (OIDC), so maintainers don't have to store long-lived secret tokens that could be stolen — directly addressing the blind trust problem at the publishing layer.\n\nThe one caveat: Deno has first-class ESM support but limited CommonJS support, which could be a problem for legacy codebases.\n\n \n \n Middle ground\n\nIf Deno is too steep a migration, Bun is a reasonable alternative. It supports CommonJS modules and npm packages, but unlike npm, it does not execute lifecycle scripts like postinstall by default. Packages that legitimately need them must be explicitly listed:\n\n{\n \"name\": \"my-app\",\n \"version\": \"1.0.0\",\n \"trustedDependencies\": [\"my-trusted-package\"]\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nIf switching runtimes isn't on the table, there's still one more option — switching package managers. It's a much smaller ask.\n\n \n \n pnpm\n\npnpm v10 made a deliberate shift to \"secure by default.\" It no longer runs preinstall or postinstall scripts implicitly, eliminating the same class of attacks Bun protects against — just without changing your runtime.\n\nIt also introduced a trustPolicy setting that, when set to no-downgrade, refuses to install a package version whose trust level is weaker than previous releases. \n\nConcretely: if a package was previously published via OIDC and a new version suddenly isn't, pnpm flags it. That's a direct answer to the blind trust problem.\n\n \n \n Yarn\n\nYarn's main security contribution is checksum verification baked into yarn.lock — every package gets a SHA-512 hash, so if anything is tampered with between the registry and your machine, the install fails. It's a narrower guarantee than pnpm offers today, but still a meaningful improvement over npm's defaults.\n\n \n \n Last resort — harden your .npmrc\n\nIf you can't change your runtime or package manager, at minimum fix your npm config. The defaults are not safe.\n\n# Kills the primary attack vector — no postinstall/preinstall scripts\nignore-scripts=true\n\n# Git-based deps can ship their own .npmrc to re-enable scripts — this closes that escape hatch\nallow-git=none\n\n# Hijacked packages are usually caught within days — this gives the community time to respond\nmin-release-age=3\n\n# Ensures package-lock.json is never silently bypassed or auto-updated\nsave-exact=true\npackage-lock=true\n\n# Catches known CVEs — won't stop novel supply chain attacks, but worth having\naudit=true\naudit-level=high\n\n# Enforce HTTPS only\n# registry=https://registry.npmjs.org/\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Final thoughts\n\nA TL;DR of everything above:\n\nUse secure runtimes — Deno is the best option, Bun is a solid middle ground\n\nUse a better package manager — pnpm v10 gives you Bun-level script safety without changing your runtime\n\nHarden your npm config — if nothing else, ignore-scripts=true alone would have blocked most of the high-profile attacks from the past two years\n\nThe common thread across all of these is the same: stop trusting the install process by default. The attacks keep working because the tooling keeps cooperating.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bun",
+      "context\n\nhackers",
+      "default",
+      "deno",
+      "deno and bun",
+      "esm",
+      "explicitly",
+      "install",
+      "javascript",
+      "jsr",
+      "node",
+      "npm",
+      "openid connect",
+      "package",
+      "pnpm",
+      "postinstall",
+      "runtime",
+      "script",
+      "security",
+      "subresource integrity (sri",
+      "the javascript registry",
+      "trust",
+      "yarn\n\nyarn's"
+    ],
+    []
+  ]
+}

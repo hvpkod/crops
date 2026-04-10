@@ -1,0 +1,26 @@
+{
+  "id": 10228,
+  "source": "Slashdot",
+  "title": "Mozilla Accuses Microsoft of Sabotaging Firefox With Windows and Copilot Tactics",
+  "url": "https://tech.slashdot.org/story/26/04/09/2043257/mozilla-accuses-microsoft-of-sabotaging-firefox-with-windows-and-copilot-tactics?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-09T22:00:00Z",
+  "fetched_at": "2026-04-09T23:20:50.553303+00:00",
+  "author": "BeauHD",
+  "summary": "BrianFagioli writes: Mozilla is accusing Microsoft of stacking the deck against Firefox, arguing that design choices in Windows steer users toward Edge even when they explicitly choose another browser. According to Mozilla, parts of Windows still open links in Edge regardless of the default browser setting, including results from the taskbar search and links launched from apps like Outlook and Teams. Mozilla says this means Firefox often never even gets the opportunity to handle those links, which quietly shifts user activity back into Microsoft's ecosystem.\n \nThe company also points to Microsoft's aggressive rollout of Copilot as another example of platform power being used to push Microsoft services. Copilot appeared pinned to the taskbar, arrived automatically on many systems with Microsoft 365, and even received a dedicated keyboard key on some laptops. Mozilla argues that when the maker of the dominant desktop operating system promotes its own browser and AI tools at the system le",
+  "full_text": null,
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "accuses",
+      "copilot",
+      "firefox",
+      "microsoft",
+      "mozilla",
+      "sabotaging",
+      "tactics",
+      "windows"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": 9916,
+  "source": "DEV Community<",
+  "title": "74% of Startups Fail From Premature Scaling. Your Tech Stack Might Be the Problem.",
+  "url": "https://dev.to/alexmayhew-dev/74-of-startups-fail-from-premature-scaling-your-tech-stack-might-be-the-problem-9i2",
+  "published_at": "2026-04-09T01:26:28Z",
+  "fetched_at": "2026-04-09T01:40:34.905040+00:00",
+  "author": "Alex Mayhew",
+  "summary": "<p>In 2011, Startup Genome partnered with Berkeley and Stanford to study 3,200 startups. They wanted to know why most fail.</p>\n\n<p>The answer wasn't bad ideas. It wasn't lack of funding. It wasn't competition.</p>\n\n<p><strong>74% of startups that failed did so because of premature scaling.</strong> Adding complexity... infrastructure, features, team size, process... before finding product-market fit. The same study found that failed startups wrote 3.4x more code before product-market fit than successful ones.</p>\n\n<p>Let that sit for a second. The teams that survived wrote less code and used simpler architectures. The ones that failed were busy building platforms.</p>\n\n<h2>\n  \n  \n  The Conference Talk Problem\n</h2>\n\n<p>Every conference talk, every trending repo, every \"modern stack\" blog post pushes you toward complexity. GraphQL. Microservices. Event-driven architecture. Server components nested inside client components wrapped in suspense boundaries.</p>\n\n<p>Most of it is engineerin",
+  "full_text": "In 2011, Startup Genome partnered with Berkeley and Stanford to study 3,200 startups. They wanted to know why most fail.\n\nThe answer wasn't bad ideas. It wasn't lack of funding. It wasn't competition.\n\n74% of startups that failed did so because of premature scaling. Adding complexity... infrastructure, features, team size, process... before finding product-market fit. The same study found that failed startups wrote 3.4x more code before product-market fit than successful ones.\n\nLet that sit for a second. The teams that survived wrote less code and used simpler architectures. The ones that failed were busy building platforms.\n\n \n \n The Conference Talk Problem\n\nEvery conference talk, every trending repo, every \"modern stack\" blog post pushes you toward complexity. GraphQL. Microservices. Event-driven architecture. Server components nested inside client components wrapped in suspense boundaries.\n\nMost of it is engineering for problems you don't have yet.\n\nDan McKinley... former principal engineer at Etsy... wrote about this in 2015, and the framework has only aged better. Every engineering team gets roughly three \"innovation tokens.\" Chances to use new, unproven technology. Spend them on your product differentiator... not on your web framework, your database, or your deployment pipeline.\n\nIf your product's innovation is a novel AI feature, that's where the token goes. Your REST API doesn't need one.\n\n \n \n Companies That Started Boring\n\nThese aren't hypotheticals.\n\nShopify runs a Rails modular monolith. In 2024, it handled 173 billion requests on Black Friday weekend. Not microservices. Not a custom framework. Rails. They've refined the architecture over 18 years, but the foundation never changed.\n\nGitHub ran a Rails monolith for 12 years. They didn't start extracting services until they had 1,000 engineers in 2020. One thousand engineers and they were still on a monolith. When they finally extracted services, they did it selectively... not because the monolith couldn't scale, but because the team couldn't coordinate within it anymore.\n\nThat's the actual scaling problem: people, not servers.\n\nStack Overflow ran on 9 on-premise servers for over a decade... a .NET monolith with SQL Server serving billions of page views. They were transparent about this because it contradicted everything the industry said about scaling. In 2025, they migrated to the cloud when their data center contract ended... but the architecture that got them there was deliberately boring for 15+ years.\n\nWhatsApp handled 450 million active users with 32 engineers when Facebook acquired them for $19 billion. The entire engineering team was smaller than most Series A startups.\n\n \n \n The Boring Stack Formula\n\nIf you're a solo developer or a small team building a SaaS product... here's what \"boring\" looks like in practice:\n\nOne server, two apps. A backend API and a frontend client. Not a service mesh. Not a message queue. Two processes talking over HTTP on the same machine.\n\nA relational database. Your data is almost certainly relational. Users have organizations. Organizations have subscriptions. Subscriptions have invoices. PostgreSQL has handled this reliably for 25+ years. It supports JSON columns for the 5% of your data that's actually document-shaped.\n\nAuth you didn't build yourself. Authentication is a solved problem. It's also one of the most dangerous things to roll your own. Session management, token rotation, OAuth flows, MFA, password hashing... every one of these has security implications that take years to get right. Use Clerk, or Auth0, or Supabase Auth. Your job is to build your product.\n\nNot microservices. You don't have the team for microservices. Microservices are an organizational scaling pattern, not a technical one. They let large teams (50+ engineers) deploy independently. If your team fits in a room, microservices add network calls, deployment complexity, and distributed debugging without giving you anything in return.\n\nREST, not GraphQL. GraphQL is a fine technology for large organizations with multiple frontend clients consuming the same API. If you have one frontend... REST endpoints with clear request/response contracts are simpler to build, simpler to debug, and simpler to cache. You can always add GraphQL later if you actually need it.\n\n \n \n When You'll Outgrow This\n\nYou will. That's fine.\n\nA single server running FastAPI and PostgreSQL handles 10,000+ concurrent users without straining. The bottleneck, when it comes, will be database queries... not the framework, not the architecture.\n\nAdd indexes. Add caching. Optimize the queries showing up in your slow query log. These are straightforward problems with straightforward solutions.\n\nIf you reach the point where a single server isn't enough... that's a good problem. It means your product works. People are using it. And by then, you'll have revenue, data, and context to make informed architecture decisions instead of guesses.\n\n \n \n The 2026 Bonus\n\nHere's something the Startup Genome study couldn't have predicted in 2011.\n\nWell-documented, widely-used frameworks produce measurably better results with AI coding tools. Cursor, Copilot, and Claude Code all perform better with FastAPI than with a framework that shipped six months ago. The training data is deeper. The patterns are more consistent. The suggestions are more accurate.\n\nBoring tech isn't just safer. In 2026, it's faster to build with.\n\n \n \n Now Go Build Something\n\nYour idea is the interesting part. Your users, your market, your product... that's where the interesting decisions live.\n\nThe database schema, the API framework, the deployment pipeline... those should be solved problems so you can focus on the unsolved ones.\n\nI built The Unsexy Stack around this philosophy. FastAPI + Next.js 15 + PostgreSQL. Two apps, one server, 111 tests, 17 PDF guides. The foundation that gets out of your way so you can build the thing that matters.\n\nBut you don't need my boilerplate to apply this thinking. Pick the boring option. Write less code. Ship sooner. Your architecture doesn't need to be interesting. Your product does.\n\nI'm Alex Mayhew, a solo developer on Cape Cod. I write about engineering decisions that prioritize shipping over impressing. Find me on LinkedIn and GitHub.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "architecture",
+      "beginners",
+      "berkeley",
+      "boring",
+      "engineering",
+      "etsy",
+      "fail",
+      "fastapi",
+      "handle",
+      "monolith",
+      "rails",
+      "shopify",
+      "sql server",
+      "stack overflow",
+      "stanford",
+      "startup",
+      "startup genome",
+      "startups fail",
+      "team",
+      "webdev",
+      "whatsapp",
+      "write"
+    ],
+    [
+      "beginners",
+      "rails",
+      "startup",
+      "webdev"
+    ]
+  ]
+}

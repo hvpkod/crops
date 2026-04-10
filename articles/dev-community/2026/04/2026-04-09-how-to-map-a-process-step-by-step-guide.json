@@ -1,0 +1,38 @@
+{
+  "id": 10007,
+  "source": "DEV Community<",
+  "title": "How to Map a Process: Step-by-Step Guide",
+  "url": "https://dev.to/crismoteam/how-to-map-a-process-step-by-step-guide-4g9h",
+  "published_at": "2026-04-09T10:13:46Z",
+  "fetched_at": "2026-04-09T10:40:34.645413+00:00",
+  "author": "Crismo Team",
+  "summary": "<p>Pick any process in your organization and turn it into a clear, shareable diagram in one sitting. Here is how.</p>\n\n<h2>\n  \n  \n  Step 1: Pick one process and define its boundaries\n</h2>\n\n<p>The most common mistake is trying to map everything at once. Define:</p>\n\n<ol>\n<li>\n<strong>Trigger</strong> — what kicks off the process?</li>\n<li>\n<strong>Outcome</strong> — what does \"done\" look like?</li>\n<li>\n<strong>Roles</strong> — who is involved?</li>\n</ol>\n\n<p><strong>Good scope:</strong> \"How we onboard a new employee, from offer acceptance to first day setup.\"<br />\n<strong>Too broad:</strong> \"How HR works.\"</p>\n\n<h2>\n  \n  \n  Step 2: Talk to the people who do the work\n</h2>\n\n<p>Do not map from memory or policy documents. Ask the people on the ground:</p>\n\n<ul>\n<li>\"Walk me through what happens when [trigger]. What do you do first?\"</li>\n<li>\"Then what? Who gets it next?\"</li>\n<li>\"What can go wrong at this step?\"</li>\n<li>\"Is there anything you do that is not in the official procedur",
+  "full_text": "Pick any process in your organization and turn it into a clear, shareable diagram in one sitting. Here is how.\n\n \n \n Step 1: Pick one process and define its boundaries\n\nThe most common mistake is trying to map everything at once. Define:\n\nTrigger — what kicks off the process?\n\nOutcome — what does \"done\" look like?\n\nRoles — who is involved?\n\nGood scope: \"How we onboard a new employee, from offer acceptance to first day setup.\"\n\nToo broad: \"How HR works.\"\n\n \n \n Step 2: Talk to the people who do the work\n\nDo not map from memory or policy documents. Ask the people on the ground:\n\n\"Walk me through what happens when [trigger]. What do you do first?\"\n\n\"Then what? Who gets it next?\"\n\n\"What can go wrong at this step?\"\n\n\"Is there anything you do that is not in the official procedure?\"\n\nThat last question is the most important. The gap between official and real is where the insights live.\n\n \n \n Step 3: Draw the happy path\n\nThe ideal scenario — everything goes right:\n\nOffer accepted → Send welcome email → Prepare contract → Sign contract → Set up laptop → Set up accounts → Assign buddy → Orientation → Done\n\nDo not worry about exceptions yet.\n\n \n \n Step 4: Add decisions, parallel work, and roles\n\nDecisions — where does the process branch?\n\nParallel work — IT sets up the laptop while the manager assigns a buddy\n\nRoles — put tasks in the right lane\n\nHandoffs — where work moves between people\n\nIf you are using BPMN, parallel gateways (+) show concurrent work, exclusive gateways (X) show decisions, and lanes show responsibilities.\n\n \n \n Step 5: Validate with everyone involved\n\nShow the map to every person who touches the process:\n\n\"Does this match what actually happens?\"\n\n\"Am I missing any steps?\"\n\n\"Where does this break down most often?\"\n\nThis almost always reveals surprises.\n\n \n \n Step 6: Look for improvements\n\nWith a validated map, patterns become visible:\n\nBottlenecks — everything waits on one person\n\nRedundancies — same data entered in two systems\n\nUnnecessary handoffs — work bouncing between people\n\nMissing error handling — what happens when things go wrong?\n\nAutomation opportunities — manual steps a system could handle\n\n \n \n Practical tips\n\nKeep it on one page — if it doesn't fit, you're too detailed\n\nUse verb-noun labels — \"Review application\", not \"Application\"\n\nMap current state first — as-is before to-be\n\nDate your maps — processes change, undated maps can't be trusted\n\nRead the full guide with interactive BPMN diagrams: How to Map a Process",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "assign",
+      "bpmn",
+      "buddy",
+      "everything",
+      "handoff",
+      "miss",
+      "parallel",
+      "prepare",
+      "process",
+      "processmodeling",
+      "productivity",
+      "roles",
+      "send",
+      "show",
+      "step",
+      "tutorial",
+      "unnecessary"
+    ],
+    [
+      "processmodeling",
+      "tutorial"
+    ]
+  ]
+}

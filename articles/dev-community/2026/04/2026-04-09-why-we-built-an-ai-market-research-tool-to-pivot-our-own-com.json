@@ -1,0 +1,40 @@
+{
+  "id": 9952,
+  "source": "DEV Community<",
+  "title": "Why We Built an AI Market Research Tool to Pivot Our Own Company",
+  "url": "https://dev.to/elonr/why-we-built-an-ai-market-research-tool-to-pivot-our-own-company-o7h",
+  "published_at": "2026-04-09T04:13:44Z",
+  "fetched_at": "2026-04-09T04:40:41.192169+00:00",
+  "author": "Elon Richardson",
+  "summary": "<h2>\n  \n  \n  The Feature Factory Trap\n</h2>\n\n<p>About six months ago, Acrutus was stuck. Like many technical founders, we had fallen deep into the \"Feature Factory\" trap. We were building complex AI features into an existing application, assuming the sheer force of our technical architecture would attract paying users. </p>\n\n<p>It didn't. </p>\n\n<p>We were solving technical challenges that were fun to code, but mapping no real market value to business operations. </p>\n\n<p>We needed a pivot, but we didn't want to rely on gut instinct or scanning random HackerNews threads to find it. We are engineers; we needed an objective, mathematical approach to finding real market pain.</p>\n\n<h2>\n  \n  \n  The FWPN Database\n</h2>\n\n<p>\"Find What People Need.\" That was the objective. </p>\n\n<p>We began quietly building an internal, highly specialized market research platform. We hooked up Apify scrapers to deep-crawl specific subreddits (r/sweatystartup, r/SaaS, r/Entrepreneur). We built ingestion pipelin",
+  "full_text": "The Feature Factory Trap\n\nAbout six months ago, Acrutus was stuck. Like many technical founders, we had fallen deep into the \"Feature Factory\" trap. We were building complex AI features into an existing application, assuming the sheer force of our technical architecture would attract paying users. \n\nIt didn't. \n\nWe were solving technical challenges that were fun to code, but mapping no real market value to business operations. \n\nWe needed a pivot, but we didn't want to rely on gut instinct or scanning random HackerNews threads to find it. We are engineers; we needed an objective, mathematical approach to finding real market pain.\n\n \n \n The FWPN Database\n\n\"Find What People Need.\" That was the objective. \n\nWe began quietly building an internal, highly specialized market research platform. We hooked up Apify scrapers to deep-crawl specific subreddits (r/sweatystartup, r/SaaS, r/Entrepreneur). We built ingestion pipelines mapping to an AI engine that didn't just summarize posts, but aggressively scored them based on intent to pay, urgency, and founder pain.\n\nWithin a few weeks, we had amassed an internal database of 1,841 startup ideas. This wasn't a list of \"AI prompt generator\" ideas; this was raw data scraped from business owners complaining about broken invoicing software, unscalable ad tracking, and workflow bottlenecks.\n\n \n \n What the Data Told Us\n\nA strange, fascinating trend began emerging across the top quartile of our scored data pipeline. People were desperately trying to build internal tools and basic workflow applications, but were failing at the starting line. \n\nThey weren't failing because their business logic was flawed. They were failing because setting up a high-quality frontend infrastructure, writing the boilerplate authentication UIs, and structuring clean data dashboards was taking them 3 weeks instead of 3 days.\n\nThe market didn't need another generic App UI library with 7,000 components requiring a Webpack PhD to install. It required beautifully designed, pre-fabricated, robust starting points. \n\n \n \n The Birth of Acrutus Templates\n\nWe stopped building our previous AI wrapper. Instead, we realized that our core competency—building ultra-premium, conversion-optimized interfaces—was exactly what the market was requesting in the FWPN database. \n\nWe decoupled the frontend aesthetics from the backend framework wars, and the Acrutus Template platform was formed. We wanted to build the perfect admin panels, the sharpest SaaS landing pages, and the cleanest financial dashboards, delivering them in pure, unadulterated HTML/CSS so any founding engineer could deploy it instantly.\n\nWe built an AI platform to launch AI startups, and ironically, the data told us to build picks and shovels for the gold rush instead. \n\nIf you're stuck in a technical rut, step back. Find what people need. And if you need to build what they need quickly? Our templates are waiting.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "acrutus",
+      "apify",
+      "begin",
+      "build",
+      "datum",
+      "fail",
+      "fwpn",
+      "html/css",
+      "market",
+      "need",
+      "programming",
+      "saas",
+      "startup",
+      "technical",
+      "template",
+      "the \"feature factory",
+      "the fwpn database",
+      "webdev"
+    ],
+    [
+      "programming",
+      "startup",
+      "webdev"
+    ]
+  ]
+}

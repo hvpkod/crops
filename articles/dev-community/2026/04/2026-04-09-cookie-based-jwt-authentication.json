@@ -1,0 +1,43 @@
+{
+  "id": 10146,
+  "source": "DEV Community<",
+  "title": "🍪 Cookie-Based JWT Authentication",
+  "url": "https://dev.to/pial_shek_09ce71ae3fbe3c1/cookie-based-jwt-authentication-2477",
+  "published_at": "2026-04-09T19:17:39Z",
+  "fetched_at": "2026-04-09T19:40:25.846757+00:00",
+  "author": "pial shek",
+  "summary": "<p>A few weeks ago, I was staring at a project thinking —</p>\n\n<p>“Where is the safest place for a frontend to store these tokens?” 🤔</p>\n\n<p>Every tutorial said the same thing: localStorage.<br />\nBut something felt… off. ⚠️</p>\n\n<p>So I started digging deeper 🔍<br />\nAnd realized — if any malicious script runs on the page, localStorage is wide open.<br />\nOne XSS attack… and your tokens are gone. 💀</p>\n\n<p>That’s when I asked myself:<br />\n👉 What if the frontend never touches the tokens at all?</p>\n\n<p>💡 That’s when I discovered Cookie-Based JWT Authentication</p>\n\n<p>The idea is simple but powerful:<br />\nInstead of sending JWT tokens in the response body…<br />\n👉 store them inside httpOnly cookies</p>\n\n<p>Now the browser handles everything automatically:<br />\n🍪 Stores the token<br />\n📤 Sends it with every request<br />\n🙈 Keeps it hidden from JavaScript</p>\n\n<p>⚙️ Here’s what I built:</p>\n\n<p>→ User logs in → server generates access + refresh tokens 🔐<br />\n→ Tokens go into httpOnl",
+  "full_text": "A few weeks ago, I was staring at a project thinking —\n\n“Where is the safest place for a frontend to store these tokens?” 🤔\n\nEvery tutorial said the same thing: localStorage.\n\nBut something felt… off. ⚠️\n\nSo I started digging deeper 🔍\n\nAnd realized — if any malicious script runs on the page, localStorage is wide open.\n\nOne XSS attack… and your tokens are gone. 💀\n\nThat’s when I asked myself:\n\n👉 What if the frontend never touches the tokens at all?\n\n💡 That’s when I discovered Cookie-Based JWT Authentication\n\nThe idea is simple but powerful:\n\nInstead of sending JWT tokens in the response body…\n\n👉 store them inside httpOnly cookies\n\nNow the browser handles everything automatically:\n\n🍪 Stores the token\n\n📤 Sends it with every request\n\n🙈 Keeps it hidden from JavaScript\n\n⚙️ Here’s what I built:\n\n→ User logs in → server generates access + refresh tokens 🔐\n\n→ Tokens go into httpOnly cookies (not the response body) 🍪\n\n→ Every request automatically includes the token 🚀\n\n→ Custom auth class reads from cookies instead of headers 🧠\n\n→ Server validates JWT → no DB hit, fully stateless ⚡\n\n💥 The moment it clicked for me:\n\nSession auth → server remembers you 🗂️ (stateful)\n\nJWT auth → server trusts a signed token ✍️ (stateless)\n\nCookie-based JWT → stateless + browser-level security 🔐✨\n\n🤝 And here’s the part I didn’t expect…\n\nIt made life way easier for frontend developers.\n\nBefore:\n\n😵 Store tokens manually\n\n😵 Attach headers everywhere\n\n😵 Handle refresh logic\n\nAfter:\n\n😎 Just call APIs\n\nThat’s it. No token management. No extra logic.\n\nThe browser does the heavy lifting. 💪\n\nBut let’s be real — no system is perfect ⚖️\n\n⚠️ CSRF is back → need proper protection (sameSite / CSRF tokens)\n\n🌍 Cross-domain setups can get tricky\n\n📱 Mobile apps prefer headers over cookies\n\n⏳ Still can't instantly invalidate a stateless token without a blacklist.\n\n🚀 Despite all that…\n\nThis approach felt like a big upgrade in how I design authentication systems.\n\n✔️ Secure by default\n\n✔️ Stateless and scalable\n\n✔️ Clean for frontend devs\n\nAnd most importantly…\n\nIt helped me truly understand what’s happening under the hood 🧠",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "authentication",
+      "cooky",
+      "csrf",
+      "custom",
+      "frontend",
+      "header",
+      "httponly",
+      "javascript",
+      "jwt",
+      "keeps",
+      "security",
+      "sends",
+      "server",
+      "stateless",
+      "store",
+      "token",
+      "tokens",
+      "tutorial",
+      "webdev",
+      "xss",
+      "📱 mobile"
+    ],
+    [
+      "authentication",
+      "tutorial",
+      "webdev"
+    ]
+  ]
+}

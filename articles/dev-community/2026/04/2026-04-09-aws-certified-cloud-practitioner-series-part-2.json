@@ -1,0 +1,45 @@
+{
+  "id": 10003,
+  "source": "DEV Community<",
+  "title": "AWS Certified Cloud Practitioner Series – Part 2",
+  "url": "https://dev.to/swayam_248/aws-certified-cloud-practitioner-series-part-2-44ob",
+  "published_at": "2026-04-09T10:24:45Z",
+  "fetched_at": "2026-04-09T10:40:29.171908+00:00",
+  "author": "Swayam Patnaik",
+  "summary": "<p><strong>Security, Storage, Scaling, and High Availability in AWS</strong></p>\n\n<p>In this article, I continue my AWS Certified Cloud Practitioner learning series by covering core AWS compute, storage, networking security, scalability, and availability concepts. These topics are extremely important from both exam and real‑world DevOps perspectives.</p>\n\n<p><strong>Security Groups</strong><br />\nSecurity Groups act as virtual firewalls that control inbound and outbound traffic for EC2 instances.</p>\n\n<p><strong>Inbound Rules</strong><br />\nAllowing HTTP (TCP 80) from anywhere (0.0.0.0/0) enables users to view an EC2 instance in a web browser.<br />\nIf a Security Group is misconfigured, a timeout error typically occurs when trying to access the instance.</p>\n\n<p><strong>Outbound Rules</strong><br />\nBy default, outbound rules allow IPv4 – All Traffic.<br />\nThis configuration gives the EC2 instance full outbound connectivity to anywhere.</p>\n\n<p><a class=\"article-body-image-wrapper\" hr",
+  "full_text": "Security, Storage, Scaling, and High Availability in AWS\n\nIn this article, I continue my AWS Certified Cloud Practitioner learning series by covering core AWS compute, storage, networking security, scalability, and availability concepts. These topics are extremely important from both exam and real‑world DevOps perspectives.\n\nSecurity Groups\n\nSecurity Groups act as virtual firewalls that control inbound and outbound traffic for EC2 instances.\n\nInbound Rules\n\nAllowing HTTP (TCP 80) from anywhere (0.0.0.0/0) enables users to view an EC2 instance in a web browser.\n\nIf a Security Group is misconfigured, a timeout error typically occurs when trying to access the instance.\n\nOutbound Rules\n\nBy default, outbound rules allow IPv4 – All Traffic.\n\nThis configuration gives the EC2 instance full outbound connectivity to anywhere.\n\nSSH Access\n\nPort 22 (SSH) from anywhere is required to connect to the instance using any of the four AWS-supported connection methods after clicking Connect.\n\nAmazon EBS (Elastic Block Store)\n\nEBS volumes are network drives attached to EC2 instances. The data stored on them persists even after the instance is terminated.\n\n(Think of an EBS volume like a pen drive.)\n\nRoot Volume\n\nDelete on Termination is enabled by default.\n\nThis can be checked under the instance’s storage settings.\n\nAdditional EBS Volumes\n\nDelete on Termination is disabled by default (important for the exam).\n\nAn EBS volume can be attached to only one instance at a time, but a single instance can have multiple EBS volumes attached.\n\nAvailability Zone Scope\n\nEBS volumes are AZ‑specific and can only be attached to EC2 instances in the same AZ.\n\nSnapshots\n\nA snapshot is a backup of an EBS volume.\n\nSnapshots are used to move EBS volumes across AZs.\n\nDetaching the volume before taking a snapshot is not required, but it is recommended.\n\nSnapshots are stored at the region level, allowing movement across AZs.\n\nSnapshots can also be copied across regions for disaster recovery.\n\nSnapshot Archive\n\nSnapshots can be moved to an archive tier, which is 75% cheaper.\n\nRestoring archived snapshots takes 24–72 hours.\n\nRecycle Bin for EBS Snapshots\n\nAllows recovery of accidentally deleted snapshots.\n\nSetup path:\n\nRecycle Bin → Create Retention Rule → Resource Type (EBS Snapshots) → Rule Lock Settings (Unlock)\n\nRetention period: 1 day to 1 year\n\nFast Snapshot Restore\n\nForces full initialization of a snapshot.\n\nRemoves latency during first use.\n\nExample: Moving a Volume Across AZs\n\nSnapshots can also be copied to other regions for disaster recovery.\n\nEC2 Instance Store \n\nUsed when high‑performance hardware disk is required.\n\nDelivers better I/O performance than EBS.\n\nEphemeral storage – data is lost when the instance is stopped.\n\nCommon use cases:\n\nBuffers\n\nCaches\n\nTemporary content\n\nScratch data\n\nHigh risk of data loss.\n\nBackup and replication are the user’s responsibility.\n\nAMI (Amazon Machine Image)\n\nAMIs are customized images of EC2 instances.\n\nPurpose of AMIs:\n\nInclude OS, software, configurations, monitoring, and licenses.\n\nNew instances can be launched without repeated configuration.\n\nHelps to add your own software licenses (exam point).\n\nFaster boot and configuration time.\n\nAMI Characteristics\n\nTypes:\n\nPublic AMIs (AWS-provided).\n\nOwn AMIs (created and maintained by us).\n\nAWS Marketplace AMIs (third‑party, may be paid).\n\nAMI Creation Flow\n\nStart and customize instance\n\nStop instance (for data integrity)\n\nCreate AMI (EBS snapshots created automatically)\n\nLaunch new instances from the AMI\n\nEC2 Image Builder\n\nAutomatically builds, tests, and distributes AMIs.\n\nAutomates image management.\n\nUsed for VM or container image creation.\n\nRuns on a schedule.\n\nFree service.\n\nFlow:\n\nEC2 Image Builder → Builder EC2 Instance → New AMI → Test EC2 Instance → AMI distributed (multiple regions).\n\nAmazon EFS (Elastic File System)\n\nFully managed network file system.\n\nCan be mounted on hundreds of EC2 instances.\n\nWorks with Linux EC2 instances across multiple AZs.\n\nHigh availability and scalability.\n\nExpensive, pay‑per‑use, no capacity planning.\n\nEBS vs EFS\n\nEBS supports snapshots.\n\nEFS provides a shared file system across AZs.\n\nEFS‑IA\n\nCost‑optimized storage class.\n\nStores files that are infrequently accessed.\n\nShared Responsibility Model – EC2 Storage\n\nAWS Responsibilities:\n\nInfrastructure\n\nData replication for EBS and EFS\n\nReplacing faulty hardware\n\nZero‑day issues\n\nUser Responsibilities:\n\nBackup and snapshot configuration\n\nData encryption\n\nData stored on drives\n\nUnderstanding risks of EC2 Instance Store\n\nAWS FSx (File Systems)\n\nFully managed high‑performance file systems when EFS or S3 are not suitable.\n\nFSx for Windows File Server\n\nNative Microsoft Windows file system\n\nSupports SMB and NTFS\n\nHighly reliable and scalable\n\nAccessible from AWS and on‑premises\n\nFSx for Lustre\n\nHigh Performance Computing (HPC) Linux file system\n\nUsed for ML, analytics, video processing, financial modeling\n\nScales to hundreds of GB/s\n\nMillions of IOPS with sub‑millisecond latency\n\nScalability Concepts\n\nVertical Scalability\n\nIncrease instance size (e.g., t2.micro → t2.small)\n\nCommon for non‑distributed systems like databases\n\nHardware limits apply\n\nHorizontal Scalability\n\nIncrease number of instances\n\nUsed in distributed systems\n\nCommon for web and modern applications\n\nImplemented using EC2\n\nHigh Availability\n\nApplication running in at least two AZs.\n\nHelps survive data loss\n\nTightly coupled with horizontal scaling\n\nKey Definitions\n\nScalability: Ability to handle increased load.\n\nElasticity: Automatic scaling once system is scalable.\n\nAgility: Speed of resource provisioning.\n\nLoad Balancers\n\nLoad Balancers distribute incoming traffic across multiple servers.\n\nBenefits\n\nDistributes traffic evenly.\n\nSingle DNS entry for applications.\n\nHealth checks on instances.\n\nSSL termination.\n\nManaged by AWS (ELB).\n\nLoad Balancers do not perform backend autoscaling — Auto Scaling Groups are required.\n\n \n \n ## Types of Load Balancers\n\nApplication Load Balancer:\n\nHTTP/HTTPS, gRPC, Layer 7, static DNS\n\nNetwork Load Balancer:\n\nTCP/UDP/TLS, high performance, static IP, Layer 4\n\nGateway Load Balancer:\n\nGENEVE protocol, traffic inspection/firewalls, Layer 3\n\nClassic Load Balancer:\n\nLayer 4 and 7 (retired in 2023)",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "a security group",
+      "amazon machine image",
+      "ami",
+      "ami characteristics",
+      "availability",
+      "aws",
+      "balancers",
+      "certification",
+      "cloudpractitioner",
+      "data",
+      "devops",
+      "ebs",
+      "efs",
+      "high",
+      "instance",
+      "load",
+      "outbound",
+      "snapshot",
+      "snapshot archive\n\nsnapshots",
+      "ssh",
+      "ssh access\n\nport",
+      "volume"
+    ],
+    [
+      "certification",
+      "cloudpractitioner",
+      "data",
+      "devops"
+    ]
+  ]
+}

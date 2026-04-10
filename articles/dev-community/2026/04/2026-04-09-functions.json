@@ -1,0 +1,37 @@
+{
+  "id": 9977,
+  "source": "DEV Community<",
+  "title": "Functions",
+  "url": "https://dev.to/nanthini_ammu_ac02ad32802/functions-d8o",
+  "published_at": "2026-04-09T07:28:43Z",
+  "fetched_at": "2026-04-09T07:40:22.374450+00:00",
+  "author": "Nanthini Ammu",
+  "summary": "<h3>\n  \n  \n  Function :\n</h3>\n\n<ul>\n<li>Reusable blocks of code designed to perform specific tasks</li>\n<li>Function run when it is called.</li>\n</ul>\n\n<p><strong>Example :</strong><br />\n</p>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight javascript\"><code>\n<span class=\"kd\">function</span> <span class=\"nf\">greet</span><span class=\"p\">()</span> <span class=\"p\">{</span>\n  <span class=\"nx\">console</span><span class=\"p\">.</span><span class=\"nf\">log</span><span class=\"p\">(</span><span class=\"dl\">\"</span><span class=\"s2\">Hello!</span><span class=\"dl\">\"</span><span class=\"p\">);</span>\n<span class=\"p\">}</span>\n\n<span class=\"nf\">greet</span><span class=\"p\">();</span> \n\n<span class=\"nl\">Output</span> <span class=\"p\">:</span> <span class=\"nx\">Hello</span><span class=\"o\">!</span>\n\n</code></pre>\n\n</div>\n\n\n\n<h3>\n  \n  \n  Functions with Parameters :\n</h3>\n\n<ul>\n<li>Parameters allow to pass values to a function.</li>\n<li>Parameters are listed inside the parentheses in the function de",
+  "full_text": "Function :\n\nReusable blocks of code designed to perform specific tasks\n\nFunction run when it is called.\n\nExample :\n\nfunction greet() {\n console.log(\"Hello!\");\n}\n\ngreet(); \n\nOutput : Hello!\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Functions with Parameters :\n\nParameters allow to pass values to a function.\n\nParameters are listed inside the parentheses in the function definition.\n\nParameter : Variable in function definition\n\nArgument : Actual value passed to function\n\nfunction add(a,b) { // 'a,b' is Parameter\n console.log(a+b);\n}\n\nadd(5,6); // \"5,6\" is Argument\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nfunction greet(name) {\n console.log(\"Hello \" + name);\n}\n\ngreet(\"Varun\");\n\nOutput : Hello Varun\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Return Values :\n\nA function can return a value back to the code that called it.\n\nWhen a function reaches a return statement, the function stops executing.The value after the return keyword is sent back to the caller.\n\nfunction add(a, b) {\n return a + b;\n}\n\nlet result = add(5, 3);\nconsole.log(result); \n\nOutpu : 8\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Function Types\n\nFunction Declaration.\n\nFunction Expression.\n\nArrow function.\n\n \n \n Function Declaration :\n\nThe traditional way to define a named function. It is hoisted, meaning it can be called before its definition in the code.\n\nlet result = add(5, 3);\nconsole.log(result); \n\nfunction add(a, b) {\n return a + b;\n}\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Function Expression :\n\nIt is a function stored in a variable.\n\nAfter a function expression has been stored in a variable, the variable can be used as a function.\n\nIt is a function without a name. It ends with a semicolon.\n\nThis is not hoisted.As function expressions can not be called before they are defined.\n\nconst multiply = function(a, b) {\n return a * b;\n};\nconsole.log(multiply(4, 3));\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Arrow Function :\n\nIt allows a simple syntax for function expressions.\n\nCan create it without function, return keywords and curly brackets.\n\nIt can be used when the function body contains only one statement.\n\nParentheses are required for zero or multiple parameters.\n\nIt is not hoisted.\n\nconst multiply = (a,b)=> a*b;\nconsole.log(multiply(1,2));\n\n//Can also do this\n\nconst operator = (a,b) => {\n console.log(a+b); \n console.log(a*b);\n console.log(a/b);\n console.log(a%b)\n};\noperator(1,2);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "beginners",
+      "call",
+      "console.log(a%b",
+      "enter",
+      "exit",
+      "expression",
+      "fullscreen",
+      "function",
+      "javascript",
+      "mode",
+      "parameter",
+      "programming",
+      "return",
+      "tutorial",
+      "value"
+    ],
+    [
+      "beginners",
+      "programming",
+      "tutorial"
+    ]
+  ]
+}

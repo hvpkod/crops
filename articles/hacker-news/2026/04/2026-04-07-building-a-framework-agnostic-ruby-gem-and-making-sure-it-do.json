@@ -1,0 +1,36 @@
+{
+  "id": 10067,
+  "source": "Hacker News",
+  "title": "Building a framework-agnostic Ruby gem (and making sure it doesn't break)",
+  "url": "https://newsletter.masilotti.com/p/on-building-a-framework-agnostic",
+  "published_at": "2026-04-07T19:18:29Z",
+  "fetched_at": "2026-04-09T14:40:30.898477+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47680061\">Comments</a>",
+  "full_text": "Ruby Native needs to work with ERB, React, and Vue. That’s three frameworks, three sets of conventions, and three ways developers expect an API to feel. And every new feature needs to ship across all of them without breaking the others.\n\nThis week I added a native navbar, and it was the first real test of whether this approach scales. Here’s what I’ve learned about keeping an API clean across frameworks, and how I’m catching regressions.\n\nWhen I started Ruby Native, it was ERB-only. The tab bar, push notifications, and forms all used the same pattern: render a hidden HTML element with data-native-* attributes. The native app detects these “signal elements” via a MutationObserver and translates them into real native UI.\n\nFor example, the native navbar is just this:\n\nHidden divs, that’s it! The native app doesn’t know what generated them. It just reads the DOM.\n\nThis turned out to be the most important decision in the entire project. Because when it came time to support React and Vue, I didn’t have to change anything on the native side. I just needed new ways to produce the same HTML.\n\nERB developers expect blocks and builders. React developers expect components and props. If you force one framework’s patterns onto another, the API feels wrong even if it works.\n\nHere’s the same navbar in ERB:\n\nAnd in React:\n\nDifferent syntax. Same output. The ERB version uses Ruby’s block pattern with a builder that yields menu items. The React version uses component composition with props. Both feel right in their own context.\n\nThe React components themselves are intentionally thin. Here’s NativeButton:\n\nNo state or effects, just a function that turns props into data attributes. The less framework-specific logic lives in these components, the less can go wrong.\n\nI’m a Rails and ERB developer. I don’t reach for React or Vue on my own projects. When I built the Inertia support, I leaned heavily on early Ruby Native adopters who use Inertia every day. They told me when something felt off, when a prop name was confusing, or when a pattern didn’t match how they structure their apps.\n\nThis is something I think library authors underestimate. You can read the docs and follow the conventions, but there’s a feel to a framework that only comes from daily use. Having people who live in that framework test your API is the difference between “technically works” and “feels right.”\n\nSupporting multiple frameworks creates a real regression problem. A change to the JavaScript bridge could break React but not ERB. A new signal element might work in Hotwire but lead to a race condition in Inertia. And I don’t want to manually check every combination on every change.\n\nSo I set up XCUITest tests for each of the three demo apps: Beervana (Hotwire/ERB), Coffee (React/Inertia), and Habits (Vue/Inertia). Each test suite boots the real Rails server and exercises the actual native UI.\n\nThe tests don’t assert on HTML or JavaScript. They assert on what the user sees:\n\nDoes the tab bar appear after sign-in?\n\nDoes the navbar title update when I switch tabs?\n\nDoes the menu button open with the right items?\n\nHere’s what the Coffee (React) test looks like for the navbar menu:\n\nAnd the equivalent Beervana (Hotwire) test for tab navigation:\n\nBoth tests are framework-agnostic. They have no idea what’s rendering the HTML. They just verify the native UI works. If I break something in the JavaScript bridge, these tests catch it regardless of which framework exposed the problem.\n\nI haven’t tried it yet, but someone recently asked if Ruby Native works outside of Rails. With Sinatra, for example. And the honest answer is: it should. The signal elements are just HTML. The native app reads the DOM. There’s nothing Rails-specific about the data attributes themselves.\n\nThe Ruby gem’s helpers are Rails-specific, sure. But the React and Vue components aren’t. And you could render the raw HTML from any templating language.\n\nThat question made me realize the early decision to build on data attributes rather than framework hooks is paying off in ways I didn’t plan for. It’s one more framework to think about. But the fact that it’s even plausible tells me the abstraction is at the right layer.\n\nIf you’re using Inertia with Rails and want to try Ruby Native, I’d love your feedback. The people who use these frameworks daily are the ones who make the API better.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "api",
+      "coffee (react/inertia",
+      "component",
+      "developer",
+      "dom",
+      "erb",
+      "framework",
+      "hotwire",
+      "html",
+      "inertia",
+      "javascript",
+      "mutationobserver",
+      "native",
+      "navbar",
+      "react",
+      "ruby",
+      "test",
+      "way"
+    ],
+    []
+  ]
+}

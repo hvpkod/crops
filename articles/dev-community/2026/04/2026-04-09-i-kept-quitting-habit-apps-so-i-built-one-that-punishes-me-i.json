@@ -1,0 +1,33 @@
+{
+  "id": 10048,
+  "source": "DEV Community<",
+  "title": "I Kept Quitting Habit Apps — So I Built One That Punishes Me If I Do.",
+  "url": "https://dev.to/vishal_narayan_75221d21cc/i-kept-quitting-habit-apps-so-i-built-one-that-punishes-me-if-i-do-35am",
+  "published_at": "2026-04-09T13:27:39Z",
+  "fetched_at": "2026-04-09T13:40:29.379794+00:00",
+  "author": "Vishal Narayan",
+  "summary": "<p>Most habit apps failed me.</p>\n\n<p>Not because they were bad… but because I was inconsistent.</p>\n\n<p>I’d start strong, track everything perfectly for a few days, then miss one day — and that was enough to spiral into quitting entirely.</p>\n\n<p>No real consequences. No accountability. Just another broken streak.</p>\n\n<p>So I decided to experiment with a different idea:</p>\n\n<p>What if failing had a cost?</p>\n\n<p>💡 The Core Idea</p>\n\n<p>Instead of just tracking habits, I built something that adds commitment.</p>\n\n<p>The app is called Covenant.</p>\n\n<p>Here’s how it works:</p>\n\n<p>You stake credits before starting a habit<br />\nYou complete your task (gym, coding, reading, etc.)<br />\nYou submit proof (AI-verified photo or synced health/app data)<br />\nIf you succeed → you get your credits back<br />\nIf you fail → they’re burned</p>\n\n<p>No second chances. No “I’ll make it up tomorrow”.</p>\n\n<p>🧠 Why This Approach?</p>\n\n<p>Most habit systems rely on motivation.</p>\n\n<p>But motivation i",
+  "full_text": "Most habit apps failed me.\n\nNot because they were bad… but because I was inconsistent.\n\nI’d start strong, track everything perfectly for a few days, then miss one day — and that was enough to spiral into quitting entirely.\n\nNo real consequences. No accountability. Just another broken streak.\n\nSo I decided to experiment with a different idea:\n\nWhat if failing had a cost?\n\n💡 The Core Idea\n\nInstead of just tracking habits, I built something that adds commitment.\n\nThe app is called Covenant.\n\nHere’s how it works:\n\nYou stake credits before starting a habit\n\nYou complete your task (gym, coding, reading, etc.)\n\nYou submit proof (AI-verified photo or synced health/app data)\n\nIf you succeed → you get your credits back\n\nIf you fail → they’re burned\n\nNo second chances. No “I’ll make it up tomorrow”.\n\n🧠 Why This Approach?\n\nMost habit systems rely on motivation.\n\nBut motivation is unreliable.\n\nI wanted to explore three things instead:\n\nSkin in the Game\n\nWhen there’s something at risk, your behavior changes. Even a small stake creates pressure to follow through.\n\nAccountability\n\nDoing things alone is easy to abandon. Adding squad-based visibility makes inconsistency visible.\n\nFriction Against Cheating\n\nMost apps trust self-reporting. I didn’t.\n\nSo I added:\n\nAI-based photo verification\n\nHealth data syncing\n\nApp usage tracking\n\nThe goal was to reduce “fake progress” without making the experience painful.\n\n⚙️ How I Built It\n\nFrontend: React Native (Expo)\n\nBackend: Supabase (Auth, Postgres, Realtime)\n\nAI Verification: Groq (Llama Vision) + Gemini\n\nStyling: NativeWind\n\nOne of the hardest parts wasn’t building features — it was balancing strictness vs usability.\n\nToo strict → people quit\n\nToo loose → system becomes meaningless\n\n⚠️ Challenges I Ran Into\n\nDesigning a system that feels fair even when users fail\n\nPreventing obvious ways to game verification\n\nAvoiding “gambling” mechanics while still having stakes\n\nKeeping onboarding simple despite a complex idea\n\n🚀 What I Learned\n\nPeople don’t need better reminders — they need better systems\n\nSocial pressure is underrated in habit building\n\nAdding consequences changes behavior more than adding rewards\n\n📱 If You Want to Try It\n\nhttps://play.google.com/store/apps/details?id=com.keepcovenant.app\n\n🤔 Open Questions\n\nI’m still figuring a lot of this out:\n\nDoes this build long-term discipline or just short-term compliance?\n\nIs losing your stake motivating… or discouraging?\n\nHow much verification is too much?\n\nWould love to hear your thoughts — especially if you’ve tried building or using habit systems before.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "add",
+      "app",
+      "build",
+      "devchallenge",
+      "groq",
+      "habit",
+      "llama vision",
+      "quit",
+      "stake",
+      "supabase (auth, postgres",
+      "system",
+      "verification",
+      "well"
+    ],
+    [
+      "devchallenge"
+    ]
+  ]
+}

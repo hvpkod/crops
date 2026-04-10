@@ -1,0 +1,42 @@
+{
+  "id": 10036,
+  "source": "The Verge",
+  "title": "Waymo is offering to help cities fix their potholes",
+  "url": "https://www.theverge.com/transportation/908886/waymo-potholes-cities-data-waze-robotaxi",
+  "published_at": "2026-04-09T13:00:00Z",
+  "fetched_at": "2026-04-09T13:20:21.567984+00:00",
+  "author": "Andrew J. Hawkins",
+  "summary": "<figure>\n\n<img alt=\"Waymo taxis with a purple and orange filter.\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/08/STKS518_WAYMO_TAXI_D.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">In recent months, some cities have sought a new recruit in their forever war against potholes: Waymo. </p>\n<p class=\"has-text-align-none\">Municipal officials in multiple cities where Waymo operates have reached out to the robotaxi operator for help in locating potholes on their streets, assuming that Waymo kept such data. Fortunately for them, Waymo does, and it has recently decided to launch a pilot program, along with Google's Waze, to share its pothole data with city officials.</p>\n<p class=\"has-text-align-none\">The mission is to make city streets safer to drive, which is desirable for both human and robot drivers. And it could help Waymo's broader effort to build positive relationships with cities, espe",
+  "full_text": "In recent months, some cities have sought a new recruit in their forever war against potholes: Waymo.\n\nMunicipal officials in multiple cities where Waymo operates have reached out to the robotaxi operator for help in locating potholes on their streets, assuming that Waymo kept such data. Fortunately for them, Waymo does, and it has recently decided to launch a pilot program, along with Google’s Waze, to share its pothole data with city officials.\n\nThe mission is to make city streets safer to drive, which is desirable for both human and robot drivers. And it could help Waymo’s broader effort to build positive relationships with cities, especially at a time when it finds itself at odds with some city governments over the future of its driverless cars.\n\n“We realized, hey, once we’re at scale, we can actually share this data with cities, which is something that they’ve asked for and something that we collect at scale,” said Arielle Fleisher, Waymo’s policy development and research manager. “And so we figured out a way to make that happen.”\n\n“We can actually share this data with cities.”— Arielle Fleisher, Waymo\n\nWaymo uses its perception hardware, including cameras and radar, as well as accelerometers and the vehicle’s physical feedback system, to log every pothole its vehicles encounter. These sensors detect physical changes to the road’s surface, such as tilt and movement when the vehicle encounters irregularities. Originally, Waymo knew it needed the ability to detect potholes so it could ensure that its vehicles slowed down to avoid damage or injury to the passenger. Later, the company realized this could be invaluable data for cities, too.\n\n“It’s totally automated,” Fleisher said. “It’s from our systems. When we were putting this together, we did quality control just as part of our effort to make sure that we’re providing robust, high-quality data to cities.”\n\nTo be sure, Waymo’s vehicles sometimes have their own pothole trouble. A local news broadcast last year captured a Waymo driving through a water-filled pothole in San Francisco, seemingly without slowing down. Waymo spokesperson Ethan Teicher said that experiences like that help improve the vehicle’s autonomous technology, which is then spread across the whole fleet.\n\nUnder the new pilot program, that data will now be made available to cities’ departments of transportation through a free-to-use Waze for Cities platform, which provides access to real-time, user-generated traffic data that officials can then use to make important decisions — such as pothole repair. The platform also allows for Waze users to validate pothole locations through their own observations, decreasing the chances that city officials will be led astray by false positives.\n\nCurrently, many cities rely on a patchwork of non-emergency 311 reports and manual inspections to address their pothole problems. Waymo developed this pilot program after collecting years of feedback from city officials about the state of their highways and surface streets.\n\nThe company is launching the new pilot in the San Francisco Bay Area, as well as Los Angeles, Phoenix, Austin, and Atlanta, where Waymo says it has already helped the city identify approximately 500 potholes. Fleisher said that Waymo would be open to expanding the project to other street maladies based on further feedback from officials. The company is eager to learn what other types of street condition or safety data might be valuable, she said.\n\nAnother goal of the project is to cast Waymo as a willing partner with cities, rather than as a scary technology company who is coming to eliminate human jobs. To be sure, Waymo has run into some roadblocks in some cities, especially Boston, New York, and Washington, DC, where union membership is still strong. Unions like the Teamsters oppose Waymo because of the probability that many human drivers will lose their jobs as a result of an influx of robotaxis. Waymo’s position is that it vehicles are safer than human drivers and will drive down traffic injuries and fatalities.\n\nBut if the company can point to evidence that its vehicles can also improve the quality of the street in addition to traffic safety, it could help bolster the case it’s trying to make to policymakers.\n\n“We want to be responsive to cities,” Fleisher said. “They are interested in safer streets and potholes are really a tough challenge for cities. So we really wanted to meet that need as part of our desire to be a good partner and to ultimately advance our goal for safer streets.”\n\nFollow topics and authors from this story to see more like this in your personalized homepage feed and to receive email updates.\nAndrew J. Hawkins\n\nAutonomous Cars\n\nNews\n\nTransportation\n\nWaymo",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "atlanta",
+      "austin",
+      "autonomous cars",
+      "boston",
+      "city",
+      "datum",
+      "fleisher",
+      "google’s waze",
+      "los angeles",
+      "new york",
+      "news",
+      "phoenix",
+      "pilot",
+      "pothole",
+      "safe",
+      "san francisco",
+      "street",
+      "transportation",
+      "vehicle",
+      "washington, dc",
+      "waymo"
+    ],
+    [
+      "autonomous cars",
+      "news"
+    ]
+  ]
+}

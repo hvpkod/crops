@@ -1,0 +1,37 @@
+{
+  "id": 10149,
+  "source": "DEV Community<",
+  "title": "Agentforce + External API: The Security Layer Nobody Warns You About",
+  "url": "https://dev.to/madalitsonyemba/agentforce-external-api-the-security-layer-nobody-warns-you-about-2j50",
+  "published_at": "2026-04-09T19:15:35Z",
+  "fetched_at": "2026-04-09T19:40:29.065752+00:00",
+  "author": "Madalitso Nyemba",
+  "summary": "<p>The Salesforce ecosystem has been buzzing about Agentforce for a while now. But there is a difference between knowing it exists and actually building with it. Having recently worked on an implementation that pushed Agentforce beyond out-of-the-box capabilities, I want to share something practical.</p>\n\n<h2>\n  \n  \n  The Real Work Starts When External Data Is Involved\n</h2>\n\n<p>In a recent Health Cloud implementation, we needed Agentforce to respond with data that lived outside Salesforce entirely. The requirement was straightforward on paper: expose an external API endpoint, let Agentforce hit it, get the data back, and respond to the user with it in context.<br />\nSimple enough until you think about security.</p>\n\n<h2>\n  \n  \n  AppLink\n</h2>\n\n<p>Opening an API endpoint that an AI agent can call freely is a risk most clients will not accept, and rightfully so. Anyone with the URL could potentially hit it. So we used AppLink with its service mesh to lock it down which meant the endpoin",
+  "full_text": "The Salesforce ecosystem has been buzzing about Agentforce for a while now. But there is a difference between knowing it exists and actually building with it. Having recently worked on an implementation that pushed Agentforce beyond out-of-the-box capabilities, I want to share something practical.\n\n \n \n The Real Work Starts When External Data Is Involved\n\nIn a recent Health Cloud implementation, we needed Agentforce to respond with data that lived outside Salesforce entirely. The requirement was straightforward on paper: expose an external API endpoint, let Agentforce hit it, get the data back, and respond to the user with it in context.\n\nSimple enough until you think about security.\n\n \n \n AppLink\n\nOpening an API endpoint that an AI agent can call freely is a risk most clients will not accept, and rightfully so. Anyone with the URL could potentially hit it. So we used AppLink with its service mesh to lock it down which meant the endpoint would only respond to requests originating from that specific Salesforce org. Hit it from anywhere else, you get nothing.\n\nThis is the kind of architectural decision that separates a rushed implementation from one that can actually go to production. The agent calls the external action, AppLink handles the tokens and origin verification, and the data flows back cleanly into the agent's response.\n\nIt worked. The agent responded with live external data, scoped correctly, secured properly.\n\n \n \n Why This Matters in 2026\n\nAgentforce without external data is a fancy bot within the Salesforce ecosystem. The real value, and what clients are starting to ask for, is agents that can reach into external systems, pull real information, and act on it. That means developers who understand both the Salesforce side and the integration and security layer are going to be in demand in a way that pure Salesforce admins simply won't be. This is also necessary because the heights at which Agentforce can act will be limitless since the data is not just confined to the one we have in Salesforce but we can easily connect with other systems via REST APIs with minimal effort yet making it very secure\n\n \n \n If You are a Consulting Partner\n\nI am a Senior Salesforce Developer and Solutions Architect, certified in Health Cloud, and JS Developer I, and also have experience with Experience Cloud and Marketing Cloud, currently working with international clients and open to remote subcontract engagements with consulting firms globally.\n\nIf your team is getting pulled into Salesforce work and you need certified remote capacity, let us connect on LinkedIn.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "agentforce",
+      "api",
+      "applink",
+      "applink\n\nopening",
+      "certify",
+      "client",
+      "consulting",
+      "consulting partner",
+      "data",
+      "external",
+      "health cloud",
+      "linkedin",
+      "respond",
+      "salesforce",
+      "security",
+      "webdev"
+    ],
+    [
+      "data",
+      "webdev"
+    ]
+  ]
+}

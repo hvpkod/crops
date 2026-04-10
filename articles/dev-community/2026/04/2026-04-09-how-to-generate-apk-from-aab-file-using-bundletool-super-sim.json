@@ -1,0 +1,38 @@
+{
+  "id": 10095,
+  "source": "DEV Community<",
+  "title": "How to Generate APK from AAB File Using Bundletool (Super Simple Guide)",
+  "url": "https://dev.to/rajen_trivedi/how-to-generate-apk-from-aab-file-using-bundletool-super-simple-guide-48ne",
+  "published_at": "2026-04-09T16:19:33Z",
+  "fetched_at": "2026-04-09T16:40:44.429977+00:00",
+  "author": "Rajen Trivedi",
+  "summary": "<p>Hey devs! 👋</p>\n\n<p>We all know Google Play now prefers <strong>Android App Bundles (AAB)</strong> for publishing because they generate optimized APKs for each device.</p>\n\n<p>But in real-world development, we often need a single <strong>APK</strong> for:</p>\n\n<ul>\n<li>Testing on physical devices</li>\n<li>Sharing with QA teams</li>\n<li>Quick installs without Play Store</li>\n</ul>\n\n<p>Here is the <strong>easiest and official way</strong> to convert your <code>.aab</code> file into an <code>.apk</code> using <strong>Google’s Bundletool</strong>.</p>\n\n\n\n\n<h2>\n  \n  \n  🛠️ Step 1: Download Bundletool\n</h2>\n\n<ol>\n<li><p>Go to the official GitHub releases:<br />\n👉 <a href=\"https://github.com/google/bundletool/releases/latest\" rel=\"noopener noreferrer\">https://github.com/google/bundletool/releases/latest</a></p></li>\n<li><p>Download the latest file:<br />\n</p></li>\n</ol>\n\n<div class=\"highlight js-code-highlight\">\n<pre class=\"highlight plaintext\"><code>   bundletool-all-x.x.x.jar\n</code></pre",
+  "full_text": "Hey devs! 👋\n\nWe all know Google Play now prefers Android App Bundles (AAB) for publishing because they generate optimized APKs for each device.\n\nBut in real-world development, we often need a single APK for:\n\nTesting on physical devices\n\nSharing with QA teams\n\nQuick installs without Play Store\n\nHere is the easiest and official way to convert your .aab file into an .apk using Google’s Bundletool.\n\n \n \n 🛠️ Step 1: Download Bundletool\n\nGo to the official GitHub releases:\n\n👉 https://github.com/google/bundletool/releases/latest\n\nDownload the latest file:\n\n bundletool-all-x.x.x.jar\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nPlace the .jar file:\n\nIn the same folder as your .aab file\n OR\n\nRemember its full path\n\n \n \n ⚙️ Step 2: Generate .apks File (Universal Mode)\n\nOpen Command Prompt (Windows) or Terminal (Mac/Linux) and run:\n\njava -jar bundletool-all-1.18.3.jar build-apks --bundle=app-release.aab --output=myapp.apks --mode=universal\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🔁 Replace:\n\nbundletool-all-1.18.3.jar → your actual jar filename\n\napp-release.aab → your AAB file path/name\n\n📦 Output:\n\nmyapp.apks\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nBy default, this is signed with a debug keystore.\n\n \n \n 📦 Step 3: Extract the APK\n\nRename the file:\n\n ren myapp.apks myapp.zip\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nExtract it using:\n\nWinRAR\n\n7-Zip\n\nDefault OS extractor\n\nInside, you’ll find:\n\n universal.apk\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n🎉 That’s your final APK!\n\nYou can rename it:\n\napp-release.apk\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🔐 Generate Signed APK (Recommended for QA)\n\nIf you want a release-signed APK, use your keystore:\n\njava -jar bundletool-all-1.18.3.jar build-apks \\\n --bundle=app-release.aab \\\n --output=myapp.apks \\\n --mode=universal \\\n --ks=your-keystore.jks \\\n --ks-key-alias=your_alias \\\n --ks-pass=pass:your_keystore_password \\\n --key-pass=pass:your_key_password\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n 🧠 Common Tips & Troubleshooting\n\n✅ Check Java installation:\n\n java -version\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n📁 Keep files in the same folder to avoid path issues\n\n📦 Universal APK is larger (contains all device configs)\n\n🚫 Not for Play Store — upload AAB only\n\n❌ Error: Unable to access jarfile\n\nCheck filename and path carefully\n\n \n \n 🏁 Conclusion\n\nThat’s it! 🎯\n\nIn less than 2 minutes, you can convert any .aab into an .apk using Bundletool — no GUI tools needed.\n\nIf you run into any issues, drop the error in the comments — happy to help! 😊",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "aab",
+      "android",
+      "apk",
+      "bundletool",
+      "bundletool-all-x.x.x.jar",
+      "enter",
+      "exit",
+      "extract",
+      "file",
+      "fullscreen",
+      "generate",
+      "google’s bundletool",
+      "java",
+      "mode",
+      "sign",
+      "terminal (mac/linux",
+      "universal apk",
+      "your_key_password"
+    ],
+    [
+      "aab"
+    ]
+  ]
+}

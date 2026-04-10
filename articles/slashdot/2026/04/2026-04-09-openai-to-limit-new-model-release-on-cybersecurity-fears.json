@@ -1,0 +1,32 @@
+{
+  "id": 10168,
+  "source": "Slashdot",
+  "title": "OpenAI To Limit New Model Release On Cybersecurity Fears",
+  "url": "https://it.slashdot.org/story/26/04/09/194221/openai-to-limit-new-model-release-on-cybersecurity-fears?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-09T20:00:00Z",
+  "fetched_at": "2026-04-09T20:40:24.706241+00:00",
+  "author": "BeauHD",
+  "summary": "OpenAI is reportedly preparing a new cybersecurity product for a small group of partners, out of concern that a broader rollout could wreak havoc if it were released more widely. If that move sounds familiar, it's because Anthropic took a similar limited-release approach with its Mythos model and Project Glasswing initiative. Axios reports: OpenAI introduced its \"Trusted Access for Cyber\" pilot program in February after rolling out GPT-5.3-Codex, the company's most cyber-capable reasoning model. Organizations in the invite-only program are given access to \"even more cyber capable or permissive models to accelerate legitimate defensive work,\" according to a blog post. At the time, OpenAI committed $10 million in API credits to participants. [...]\n \nRestricting the rollout of a new frontier model makes \"more sense\" if companies are concerned about models' ability to write new exploits -- rather than about their ability to find bugs in the first place, Stanislav Fort, CEO of security firm",
+  "full_text": "OpenAI is reportedly preparing a new cybersecurity product for a small group of partners\n\n, out of concern that a broader rollout could wreak havoc if it were released more widely. If that move sounds familiar, it's because Anthropic took a similar limited-release approach\n\n with its Mythos model and Project Glasswing initiative. Axios reports: OpenAI introduced its \"Trusted Access for Cyber\" pilot program in February after rolling out GPT-5.3-Codex, the company's most cyber-capable reasoning model. Organizations in the invite-only program are given access to \"even more cyber capable or permissive models to accelerate legitimate defensive work,\" according to a blog post. At the time, OpenAI committed $10 million in API credits to participants. [...]\n\n \n\nRestricting the rollout of a new frontier model makes \"more sense\" if companies are concerned about models' ability to write new exploits -- rather than about their ability to find bugs in the first place, Stanislav Fort, CEO of security firm Aisle, told Axios. Staggering the release of new AI models looks a lot like how cybersecurity vendors currently handle the disclosure of security flaws in software, Lee added. \"It's the same debate we've had for decades around responsible vulnerability disclosure,\" Lee said.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "ability",
+      "access",
+      "aisle",
+      "api",
+      "cybersecurity",
+      "model",
+      "mythos",
+      "openai",
+      "prepare",
+      "program",
+      "project glasswing",
+      "release",
+      "rollout",
+      "security"
+    ],
+    []
+  ]
+}

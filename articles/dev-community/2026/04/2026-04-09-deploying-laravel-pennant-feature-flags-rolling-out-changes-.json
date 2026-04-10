@@ -1,0 +1,36 @@
+{
+  "id": 9959,
+  "source": "DEV Community<",
+  "title": "Deploying Laravel Pennant Feature Flags: Rolling Out Changes Safely on Deploynix",
+  "url": "https://dev.to/deploynix/deploying-laravel-pennant-feature-flags-rolling-out-changes-safely-on-deploynix-1g5m",
+  "published_at": "2026-04-09T04:00:07Z",
+  "fetched_at": "2026-04-09T04:40:54.110921+00:00",
+  "author": "Deploynix",
+  "summary": "<p>Deploying new features to production is inherently risky. No matter how thoroughly you've tested, production has a way of surfacing issues that staging environments don't. A new checkout flow might work perfectly with test data but break with a specific payment gateway configuration. A redesigned dashboard might perform well with a few hundred records but crawl under the weight of a power user's 50,000 entries.</p>\n\n<p>Feature flags decouple deployment from release. You deploy your code with the feature hidden behind a flag, then gradually enable it for a subset of users, monitor for issues, and either expand the rollout or kill it instantly without redeploying. Laravel Pennant is the official first-party package for feature flags in Laravel, and it integrates naturally with the framework's ecosystem.</p>\n\n<p>This guide covers implementing Pennant for production deployments on Deploynix, from basic flag definitions through gradual rollouts, A/B testing, and the often-overlooked prac",
+  "full_text": "Deploying new features to production is inherently risky. No matter how thoroughly you've tested, production has a way of surfacing issues that staging environments don't. A new checkout flow might work perfectly with test data but break with a specific payment gateway configuration. A redesigned dashboard might perform well with a few hundred records but crawl under the weight of a power user's 50,000 entries.\n\nFeature flags decouple deployment from release. You deploy your code with the feature hidden behind a flag, then gradually enable it for a subset of users, monitor for issues, and either expand the rollout or kill it instantly without redeploying. Laravel Pennant is the official first-party package for feature flags in Laravel, and it integrates naturally with the framework's ecosystem.\n\nThis guide covers implementing Pennant for production deployments on Deploynix, from basic flag definitions through gradual rollouts, A/B testing, and the often-overlooked practice of cleaning up flags after they've served their purpose.\n\n \n \n Why Feature Flags Matter for Production Deployments\n\nWithout feature flags, your deployment options are binary: the feature is live for everyone, or it's not deployed at all. This creates several problems:\n\nBig-bang releases are risky. Deploying a major feature to 100% of users simultaneously means any issue affects every user. With feature flags, you can roll out to 1% of users, verify everything works, then scale up gradually.\n\nRollbacks are expensive. If a deployment introduces a bug, you need to revert the entire deployment, including any other changes that were part of it. With feature flags, you flip the flag off and the feature disappears instantly without touching your deployed code.\n\nLong-lived feature branches cause merge conflicts. When a feature takes weeks to build, maintaining a separate branch becomes painful. Feature flags let you merge incomplete features into your main branch behind a flag, keeping your branch strategy clean.\n\nTesting in production is undervalued. Staging environments never perfectly replicate production. Feature flags let you safely test with real data, real load, and real user behavior.\n\n \n \n Setting Up Laravel Pennant\n\n \n \n Installation\n\ncomposer require laravel/pennant\nphp artisan vendor:publish --provider=\"Laravel\\Pennant\\PennantServiceProvider\"\nphp artisan migrate\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis creates the features table that Pennant uses to store feature flag state when using the database driver.\n\n \n \n Defining Features\n\nPennant features are defined as classes. Create a new feature:\n\nphp artisan pennant:feature NewCheckoutFlow\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis generates a feature class in app/Features/:\n\nphp\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "artisan",
+      "branch",
+      "defining features",
+      "deploy",
+      "deployment",
+      "deploynix",
+      "deploynix deploying",
+      "feature",
+      "featureflags",
+      "flag",
+      "fullscreen",
+      "laravel",
+      "payments",
+      "pennant",
+      "production",
+      "rollout"
+    ],
+    [
+      "featureflags"
+    ]
+  ]
+}

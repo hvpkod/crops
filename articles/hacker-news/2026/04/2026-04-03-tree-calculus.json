@@ -1,0 +1,31 @@
+{
+  "id": 10033,
+  "source": "Hacker News",
+  "title": "Tree Calculus",
+  "url": "https://treecalcul.us/",
+  "published_at": "2026-04-03T09:42:05Z",
+  "fetched_at": "2026-04-09T12:40:27.935647+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47624763\">Comments</a>",
+  "full_text": "Tree Calculus was discovered by Barry Jay. Check out his book and blog!\n\nThe demos on this website were developed by Johannes Bader.\n\nSee here for more background, resources and contact info.\n\n \n\n \n\nMinimal\n \n\nThere is one operator △ that computes whenever it is acting on three values.\nGrammar: E ::= △ | E E\n\n \n\nVisually, △ is a tree node and the application of E1 to E2 attaches\nE2 to the root of E1 on the right. This forms trees like that in the picture above.\nValues are natural binary trees.\nWe call their nodes leaves, stems or forks.\n\n \n\nPractical consequences\n \n\n🚀 Demo: Trivial, safe interpreters on any platform.\n\n🚀 Demo: Good fit for cross-plat config generation.\n \n \n\n \n\nTuring-complete\n \n\nCombinatory logic with operators K and S is complete and we have:\n\n \n\n1. K=△ △\n\n \n\n2. S x=△ (△ x)\n\n \n\nUnlike λ-calculus, recursive functions can be represented as normal forms,\nusing fixpoint constructions like orange/brown in the picture above.\n \n \n\n \n\nReflective\n \n\ntriage{l,s,f}=△ (△ l s) f\nperforms case analysis on leafs, stems and forks.\n\n \n\nWe can represent natural number n as △n△.\nThe zero test is\ntriage{true,\nKfalse,\nK2false}.\n\n \n\nSince programs are also values, intensional programs can be self-applied, to achieve introspection and reflection.\nThe picture above shows program size, which computes its argument’s number of nodes.\nFor instance, size size evaluates to 168.\n\n \n\nPractical consequences\n \n\n🚀 Demo: Abillity to serialize programs.\n\n🚀 Demo: Simpler formulation of the halting problem.\n\n🚀 Demo: Program analysis/optimization as a function.\n\n🚀 Demo: Static vs dynamic typing? Just function calls.\n \n \n\n \n\nModular\n \n\nSub-terms are represented as sub-trees.\nThe size program pictured at the top of this page uses\ntriage\n{\n(+ 0),\nλu.\n(+ size u),\nλuv.\n(+ size u)\n∘\n(+ size v)\n}\n∘\n(+ 1)\nto count nodes recursively.\n\n \n\nPractical consequences\n \n\n🚀 Demo: Common functionality is easy to bootstrap.\n\n🚀 Demo: Powerful programs need not be large trees.\n \n \n\n \n\nDemocratizing functions\n \n\n \n\n \n\n \n \n\n \n\nDemocratizing metatheory",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "calculus",
+      "consequence",
+      "democratize",
+      "function",
+      "johannes bader",
+      "k and s",
+      "picture",
+      "practical",
+      "program",
+      "represent",
+      "size",
+      "tree",
+      "△ l s"
+    ],
+    []
+  ]
+}

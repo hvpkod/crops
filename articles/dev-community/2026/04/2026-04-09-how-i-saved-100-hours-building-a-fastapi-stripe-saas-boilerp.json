@@ -1,0 +1,37 @@
+{
+  "id": 10209,
+  "source": "DEV Community<",
+  "title": "How I Saved 100+ Hours Building a FastAPI & Stripe SaaS Boilerplate",
+  "url": "https://dev.to/hassan_derkaoui_1bad29e16/how-i-saved-100-hours-building-a-fastapi-stripe-saas-boilerplate-1bf8",
+  "published_at": "2026-04-09T22:09:59Z",
+  "fetched_at": "2026-04-09T22:40:41.506446+00:00",
+  "author": "hassan derkaoui",
+  "summary": "<p>Building a new SaaS project is exciting, until you realize you have to write the exact same infrastructure code <em>again</em>. </p>\n\n<p>Between tracking pending boxes, managing expedition reports during my daily internship tasks, and grinding through my weekend classes for my degree, my free time is virtually zero. Whenever I had a SaaS idea, I couldn't afford to waste weeks setting up the same database schemas, user authentication, and payment gateways. I needed to move fast.</p>\n\n<p>The repetitive setup is the #1 reason most developers abandon their side projects before even launching. </p>\n\n<p>So, I decided to fix this problem permanently. I spent my late nights building the ultimate, production-ready <strong>FastAPI + Stripe SaaS Boilerplate</strong>.</p>\n\n<h2>\n  \n  \n  🏗️ The Architecture That Saves Time\n</h2>\n\n<p>Instead of reinventing the wheel, I wanted a clean, scalable, enterprise-grade structure. Here is a look at the architecture I built to ensure the boilerplate is read",
+  "full_text": "Building a new SaaS project is exciting, until you realize you have to write the exact same infrastructure code again. \n\nBetween tracking pending boxes, managing expedition reports during my daily internship tasks, and grinding through my weekend classes for my degree, my free time is virtually zero. Whenever I had a SaaS idea, I couldn't afford to waste weeks setting up the same database schemas, user authentication, and payment gateways. I needed to move fast.\n\nThe repetitive setup is the #1 reason most developers abandon their side projects before even launching. \n\nSo, I decided to fix this problem permanently. I spent my late nights building the ultimate, production-ready FastAPI + Stripe SaaS Boilerplate.\n\n \n \n 🏗️ The Architecture That Saves Time\n\nInstead of reinventing the wheel, I wanted a clean, scalable, enterprise-grade structure. Here is a look at the architecture I built to ensure the boilerplate is ready for production:\n\n├── app/\n\n│ ├── api/\n\n│ │ ├── endpoints/ # API Routers (Auth, Users, Appointments, Stripe)\n\n│ │ └── dependencies.py # FastAPI Dependencies (e.g., get_db)\n\n│ ├── core/\n\n│ │ ├── security.py # JWT Authentication & Hashing\n\n│ ├── db/\n\n│ │ ├── models/ # SQLAlchemy Models\n\n│ │ └── session.py # Database Session Management\n\n│ ├── services/\n\n│ │ ├── stripe_api.py # Stripe Webhooks & Subscriptions\n\n│ │ └── booking.py # Appointment Logic\n\n│ ├── main.py # Application Entry Point\n\n├── tests/ # 100% Test Coverage (Pytest)\n\n├── alembic/ # Database Migrations\n\n└── docker-compose.yml # Ready for containerization\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n\n \n\n ✨ What’s Inside?\n\nI made sure this isn't just a basic tutorial repo, but a fully functional core for a real business:\n\n Stripe Fully Integrated: Subscriptions, checkout sessions, and secure webhook handling are already done.\n\n PostgreSQL & SQLAlchemy: Structured with Alembic migrations so you can upgrade your database painlessly.\n\n JWT Authentication: Secure login, registration, and password hashing out of the box.\n\n 100% Test Coverage: Core logic is backed by Pytest, ensuring reliability.\n\n \n \n 🚀 Skip the Boring Stuff\n\nIf you are a developer, an indie hacker, or a founder who wants to skip the 100+ hours of infrastructure coding and get straight to building your core product, I've made the full source code available.\n\n👉 Get the Complete Production-Ready Boilerplate Here\n\nStop building infrastructure. Start building your business! Let me know in the comments what you think of the tech stack or if you have any questions about FastAPI.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "boilerplate",
+      "build",
+      "core",
+      "database",
+      "fastapi",
+      "fully",
+      "hash",
+      "jwt authentication: secure",
+      "payments",
+      "postgresql & sqlalchemy",
+      "python",
+      "ready",
+      "saas",
+      "stripe",
+      "webdev",
+      "webhooks & subscriptions"
+    ],
+    [
+      "python",
+      "webdev"
+    ]
+  ]
+}

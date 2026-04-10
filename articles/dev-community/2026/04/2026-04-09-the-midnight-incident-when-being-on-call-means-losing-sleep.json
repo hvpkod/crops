@@ -1,0 +1,38 @@
+{
+  "id": 9925,
+  "source": "DEV Community<",
+  "title": "The Midnight Incident: When Being On-Call Means Losing Sleep",
+  "url": "https://dev.to/olivix/the-midnight-incident-when-being-on-call-means-losing-sleep-hme",
+  "published_at": "2026-04-09T00:48:36Z",
+  "fetched_at": "2026-04-09T01:40:57.761989+00:00",
+  "author": "Olivix",
+  "summary": "<p>It's 3:17 AM on a Wednesday.</p>\n\n<p>My phone buzzes. Then vibrates. Then buzzes again. The on-call alert I've been dreading since 5pm yesterday finally came through.</p>\n\n<p>I stumble out of bed, half-awake, and start the familiar dance: Slack, Grafana, CloudWatch, logs. Pieces scattered everywhere. No single view of what's actually happening.</p>\n\n<p>The message comes through: \"Site is down. Revenue is bleeding. Fix it now.\"</p>\n\n<p>So I do what I've done a hundred times before. I start connecting dots. A spike in API latency here. Memory usage there. A failed deployment from earlier today. Maybe that?</p>\n\n<p>It takes me 45 minutes to piece it together. The root cause was a database migration that ran too long, locked a critical table, and brought everything down. But I didn't realize that until I'd already checked 15 different things.</p>\n\n<p><strong>The cost of being on-call isn't just downtime—it's the exhaustion.</strong></p>\n\n<p>I fixed the issue by 4:30 AM. That should mean",
+  "full_text": "It's 3:17 AM on a Wednesday.\n\nMy phone buzzes. Then vibrates. Then buzzes again. The on-call alert I've been dreading since 5pm yesterday finally came through.\n\nI stumble out of bed, half-awake, and start the familiar dance: Slack, Grafana, CloudWatch, logs. Pieces scattered everywhere. No single view of what's actually happening.\n\nThe message comes through: \"Site is down. Revenue is bleeding. Fix it now.\"\n\nSo I do what I've done a hundred times before. I start connecting dots. A spike in API latency here. Memory usage there. A failed deployment from earlier today. Maybe that?\n\nIt takes me 45 minutes to piece it together. The root cause was a database migration that ran too long, locked a critical table, and brought everything down. But I didn't realize that until I'd already checked 15 different things.\n\nThe cost of being on-call isn't just downtime—it's the exhaustion.\n\nI fixed the issue by 4:30 AM. That should mean I could go back to sleep, right? Nope. My brain is running on adrenaline. Anxiety. The replaying of every second wondering if I missed something.\n\nI don't fall back asleep. I grab coffee at 5am and show up to work pretending everything's fine.\n\nBy 2pm, I'm exhausted. By 6pm, I'm making stupid mistakes in code review because my brain is fried. Tomorrow I'll do the postmortem, except I'm so tired I'll probably miss the actual root cause and just apply a band-aid.\n\nThis is the hidden cost of on-call culture.\n\nAnd here's what frustrates me most: we have all the data to understand what actually happened. Metrics. Logs. Traces. Deployment records. It's all there. But it's scattered across 5 different tools, and piecing it together requires hours of detective work—especially at 3am when you should be sleeping.\n\nWhat if there was a way to see the full incident context immediately? What if instead of being a detective, you could just... know what went wrong?\n\nThat's the vision we're working toward. Because on-call engineers deserve better than midnight guessing games.\n\nReal talk: Have you been there? That moment at 3am where you're just throwing spaghetti at the wall, hoping something sticks? What was the incident that made you want to pull your hair out?\n\nDrop your story in the comments — I think we'd all feel less alone knowing we've survived similar chaos.\n\nBuilt by: #olivix https://olivix.app/",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "aiops",
+      "api",
+      "brain",
+      "cause",
+      "cloudwatch",
+      "deployment",
+      "devops",
+      "different",
+      "incident",
+      "means",
+      "midnight",
+      "piece",
+      "root",
+      "scatter",
+      "sre",
+      "the midnight incident"
+    ],
+    [
+      "aiops",
+      "devops"
+    ]
+  ]
+}

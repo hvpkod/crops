@@ -1,0 +1,29 @@
+{
+  "id": 10173,
+  "source": "Hacker News",
+  "title": "Charcuterie – Visual similarity Unicode explorer",
+  "url": "https://charcuterie.elastiq.ch/",
+  "published_at": "2026-04-09T20:12:07Z",
+  "fetched_at": "2026-04-09T20:40:31.984715+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47709158\">Comments</a>",
+  "full_text": "Charcuterie\n \n\nA visual explorer for Unicode. Browse the character set, discover related glyphs, and learn more about the scripts, symbols, and shapes that make up the standard.\n \n\nTo power visual similarity, rendered glyphs are embedded with SigLIP 2 and compared in vector space.\n \n\nCharcuterie is still under active development, and feedback is always welcome. If you would like to support the project and help make more time for it, consider a donation.",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "active",
+      "charcuterie",
+      "compare",
+      "embed",
+      "explorer",
+      "glyph",
+      "relate",
+      "render",
+      "siglip",
+      "unicode",
+      "visual"
+    ],
+    []
+  ]
+}

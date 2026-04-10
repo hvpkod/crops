@@ -1,0 +1,31 @@
+{
+  "id": 9938,
+  "source": "Nautilus",
+  "title": "A Mathematical “Sniff Test” for Fish Freshness",
+  "url": "https://nautil.us/a-mathematical-sniff-test-for-fish-freshness-1279673/",
+  "published_at": "2026-04-08T21:30:00Z",
+  "fetched_at": "2026-04-09T02:40:20.770894+00:00",
+  "author": "Jake Currie",
+  "summary": "<p>How fresh is your fish?</p>\n<p>The post <a href=\"https://nautil.us/a-mathematical-sniff-test-for-fish-freshness-1279673/\">A Mathematical “Sniff Test” for Fish Freshness</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+  "full_text": "Once caught, a fish can travel thousands of miles before it reaches the grocery store. So how do you know if it’s fresh? The traditional test, employed by fish buyers and sellers alike, is the “sensory evaluation”—a scientific way to say “sniff test.” \n\nFor experienced fishmongers, who take into account a variety of other factors beyond aroma (including the firmness and color of flesh), this sensory evaluation can be an accurate metric for the freshness of whole fish. Unfortunately, it’s still vulnerable to human biases, and it’s not as useful for processed fish meat. \n\nThat’s why Japanese scientists developed a more scientific measure of fish freshness in the 1950s. The moment a fish dies, it stops producing ATP, the molecular currency of energy in all living things, which breaks down into other molecules. By measuring the levels of these chemical components, they came up with a score called the “K-value” that can be used to determine freshness.\n\nRead more: “How Fishing Could Change the Evolution of Fish” \n\nUnfortunately, measuring the K-value involves taking and processing samples, which isn’t exactly ideal. To get around the inconvenience, researchers from Hokkaido University recently developed a way to determine K-value using mathematics, and published their results in the Journal of Food Engineering. \n\n“When a fish dies, the ATP stored in its muscle tissue undergoes sequential decomposition, and we used this naturally occurring process to create a predictive mathematical model,” study author Naoto Tsubouchi explained in a statement.\n\nBy taking into account fish species, storage time, and temperature, the researchers were able to create a model that accurately predicts the K-value of fish at any point in time along their voyage. Testing the model across a variety of fish species revealed it closely matched K-values measured in a laboratory. “This research shows that a single model structure can be applied across multiple fish species, while maintaining predictive accuracy,” Tsubouchi said.\n\nIf it’s widely adopted, the model could provide another level of assurance for fish buyers. Until then, remember to keep your fish cold—and don’t forget to give it a sniff. \n\nEnjoying Nautilus? Subscribe to our free newsletter.\n\nLead image: Alexander Raths / Adobe Stock",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "atp",
+      "determine",
+      "develop",
+      "fish",
+      "freshness",
+      "hokkaido university",
+      "math",
+      "measure",
+      "model",
+      "predictive",
+      "researcher",
+      "take",
+      "tsubouchi"
+    ],
+    []
+  ]
+}

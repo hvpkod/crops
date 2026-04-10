@@ -1,0 +1,32 @@
+{
+  "id": 10205,
+  "source": "DEV Community<",
+  "title": "Neovim Keybindings and My Workflow",
+  "url": "https://dev.to/iampavel/neovim-keybindings-and-my-workflow-330o",
+  "published_at": "2026-04-09T22:22:12Z",
+  "fetched_at": "2026-04-09T22:40:33.621737+00:00",
+  "author": "Asaduzzaman Pavel",
+  "summary": "<p>I'm Asad, a backend software engineer always on the hunt for tools that can improve my productivity and make coding less tedious. Neovim has been one of those tools, and its keybindings have made a real difference in how I work.</p>\n\n<h2>\n  \n  \n  Neovim's Modal Editing\n</h2>\n\n<p>Neovim is a fork of Vim and uses something called \"modal editing.\" It feels strange at first, especially if you're used to regular text editors, but it becomes natural quickly. Neovim has different modes that define what your keystrokes do:</p>\n\n<p><strong>Normal Mode</strong></p>\n\n<p>This is your navigation mode, where you move through your code using single-key commands. <code>j</code> takes you down, <code>k</code> takes you up, and <code>w</code> jumps word to word, just to name a few.</p>\n\n<p><strong>Insert Mode</strong></p>\n\n<p>This is where you type, the standard text entry mode. Nothing fancy, just get your words down.</p>\n\n<p><strong>Visual Mode</strong></p>\n\n<p>Selecting text visually happens in th",
+  "full_text": "I'm Asad, a backend software engineer always on the hunt for tools that can improve my productivity and make coding less tedious. Neovim has been one of those tools, and its keybindings have made a real difference in how I work.\n\n \n \n Neovim's Modal Editing\n\nNeovim is a fork of Vim and uses something called \"modal editing.\" It feels strange at first, especially if you're used to regular text editors, but it becomes natural quickly. Neovim has different modes that define what your keystrokes do:\n\nNormal Mode\n\nThis is your navigation mode, where you move through your code using single-key commands. j takes you down, k takes you up, and w jumps word to word, just to name a few.\n\nInsert Mode\n\nThis is where you type, the standard text entry mode. Nothing fancy, just get your words down.\n\nVisual Mode\n\nSelecting text visually happens in this mode. Highlight, copy, cut, or do whatever you want with the selected text.\n\nCommand Mode\n\nYou can do searches, execute commands, and more in this mode. It's your way to access Neovim's deeper functionality.\n\n \n \n Keybindings I Actually Use\n\nHere's where the efficiency comes in. The keybindings in Neovim, especially in Normal Mode, become muscle memory once you learn them. Your fingers stay on the keyboard and your coding speed improves.\n\nSingle-key commands for moving around, deleting words (dw), copying (y), pasting (p), it's all designed for speed and precision.\n\nPress /, type what you're looking for, and let Neovim find it for you. n takes you to the next match, N takes you back.\n\nManaging tabs is simple. Open a new tab with :tabnew, switch between them with gt and gT, and close tabs with :q.\n\nNeovim opens up a world of customization. :map allows you to create your own shortcuts, tailoring Neovim to fit your workflow.\n\nNeed to view multiple files at once? :split and :vsplit split the window horizontally and vertically.\n\nJump to specific lines with ease. Prefix a line number with : and hit Enter. For example, :42 takes you to line 42.\n\nWant to swap out a specific word all over your current file? Use :%s/old/new/g to replace every instance of 'old' with 'new'.\n\nNeovim is all about making it your own. You can create custom shortcuts and functions to fit your style.\n\n \n \n How Neovim Changed My Workflow\n\nSince I started using Neovim, my productivity has improved noticeably. I can move through my codebase without reaching for the mouse, keeping my hands on the keyboard. Neovim bends to my will. Custom plugins and keybindings make it a good match for my needs.\n\n \n \n Useful Links",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "especially",
+      "keybinding",
+      "line",
+      "mode",
+      "neovim",
+      "normal mode",
+      "productivity",
+      "tab",
+      "take",
+      "text",
+      "word",
+      "workflow"
+    ],
+    [
+      "workflow"
+    ]
+  ]
+}

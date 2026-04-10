@@ -1,0 +1,33 @@
+{
+  "id": 10123,
+  "source": "Slashdot",
+  "title": "Waymo Is Offering To Help Cities Fix Their Potholes",
+  "url": "https://tech.slashdot.org/story/26/04/09/1644208/waymo-is-offering-to-help-cities-fix-their-potholes?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-09T17:00:00Z",
+  "fetched_at": "2026-04-09T18:00:20.924843+00:00",
+  "author": "BeauHD",
+  "summary": "Waymo is launching a pilot with cities and Google's Waze to share pothole data collected by its robotaxis, giving local transportation departments a new way to find and fix road damage more quickly. \"We realized, hey, once we're at scale, we can actually share this data with cities, which is something that they've asked for and something that we collect at scale,\" said Arielle Fleisher, Waymo's policy development and research manager. \"And so we figured out a way to make that happen.\" The Verge reports: Waymo uses its perception hardware, including cameras and radar, as well as accelerometers and the vehicle's physical feedback system, to log every pothole its vehicles encounter. These sensors detect physical changes to the road's surface, such as tilt and movement when the vehicle encounters irregularities. Originally, Waymo knew it needed the ability to detect potholes so it could ensure that its vehicles slowed down to avoid damage or injury to the passenger. Later, the company real",
+  "full_text": "Waymo is launching\n\n a pilot with cities and Google's Waze to share pothole data collected by its robotaxis\n\n, giving local transportation departments a new way to find and fix road damage more quickly. \"We realized, hey, once we're at scale, we can actually share this data with cities, which is something that they've asked for and something that we collect at scale,\" said Arielle Fleisher, Waymo's policy development and research manager. \"And so we figured out a way to make that happen.\" The Verge reports: Waymo uses its perception hardware, including cameras and radar, as well as accelerometers and the vehicle's physical feedback system, to log every pothole its vehicles encounter. These sensors detect physical changes to the road's surface, such as tilt and movement when the vehicle encounters irregularities. Originally, Waymo knew it needed the ability to detect potholes so it could ensure that its vehicles slowed down to avoid damage or injury to the passenger. Later, the company realized this could be invaluable data for cities, too.\n\n \n\nUnder the new pilot program, that data will now be made available to cities' departments of transportation through a free-to-use Waze for Cities platform, which provides access to real-time, user-generated traffic data that officials can then use to make important decisions -- such as pothole repair. The platform also allows for Waze users to validate pothole locations through their own observations, decreasing the chances that city officials will be led astray by false positives.\n\n \n\nCurrently, many cities rely on a patchwork of non-emergency 311 reports and manual inspections to address their pothole problems. Waymo developed this pilot program after collecting years of feedback from city officials about the state of their highways and surface streets. The company is launching the new pilot in the San Francisco Bay Area, as well as Los Angeles, Phoenix, Austin, and Atlanta, where Waymo says it has already helped the city identify approximately 500 potholes. Fleisher said that Waymo would be open to expanding the project to other street maladies based on further feedback from officials. The company is eager to learn what other types of street condition or safety data might be valuable, she said. \n\n \"We want to be responsive to cities,\" Fleisher said. \"They are interested in safer streets and potholes are really a tough challenge for cities. So we really wanted to meet that need as part of our desire to be a good partner and to ultimately advance our goal for safer streets.\"",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "atlanta",
+      "austin",
+      "city",
+      "datum",
+      "feedback",
+      "google",
+      "los angeles",
+      "official",
+      "phoenix",
+      "pilot",
+      "pothole",
+      "transportation",
+      "vehicle",
+      "waymo",
+      "waze"
+    ],
+    []
+  ]
+}

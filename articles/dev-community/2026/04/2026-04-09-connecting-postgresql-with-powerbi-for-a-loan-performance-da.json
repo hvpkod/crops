@@ -1,0 +1,46 @@
+{
+  "id": 10005,
+  "source": "DEV Community<",
+  "title": "CONNECTING POSTGRESQL WITH POWERBI (FOR A LOAN PERFORMANCE DASHBOARD)",
+  "url": "https://dev.to/john_analytics/-connecting-pstgresql-with-powerbi-for-a-loan-performance-dashboard-5cjg",
+  "published_at": "2026-04-09T10:23:23Z",
+  "fetched_at": "2026-04-09T10:40:32.323923+00:00",
+  "author": "John Wakaba",
+  "summary": "<h2>\n  \n  \n  INTRODUCTION\n</h2>\n\n<p>Power BI is one of the most widely used business intelligence tools out there. One of the most valuable skills for a data analyst is the ability to transform raw data into actionable insights. </p>\n\n<p>In practical financial institutions like banks, SACCOs, and fintech firms, loan-related data is produced on a daily basis. This encompasses details about borrowers, disbursed amounts, repayment histories, and indicators of loan performance. Left unanalyzed, all of this information sits dormant and serves no purpose.</p>\n\n<p>In this tutorial, we will develop a Loan Performance Dashboard by integrating PostgreSQL with Power BI. This project illustrates:</p>\n\n<ul>\n<li>How to store structured data within PostgreSQL.</li>\n<li>Establish a connection between PostgreSQL and Power BI</li>\n<li>Prepare data for reporting purposes, construct essential loan performance metrics, and design an interactive dashboard.</li>\n</ul>\n\n<h2>\n  \n  \n  Why Use PostgreSQL Togethe",
+  "full_text": "INTRODUCTION\n\nPower BI is one of the most widely used business intelligence tools out there. One of the most valuable skills for a data analyst is the ability to transform raw data into actionable insights. \n\nIn practical financial institutions like banks, SACCOs, and fintech firms, loan-related data is produced on a daily basis. This encompasses details about borrowers, disbursed amounts, repayment histories, and indicators of loan performance. Left unanalyzed, all of this information sits dormant and serves no purpose.\n\nIn this tutorial, we will develop a Loan Performance Dashboard by integrating PostgreSQL with Power BI. This project illustrates:\n\nHow to store structured data within PostgreSQL.\n\nEstablish a connection between PostgreSQL and Power BI\n\nPrepare data for reporting purposes, construct essential loan performance metrics, and design an interactive dashboard.\n\n \n \n Why Use PostgreSQL Together with Power BI?\n\nPostgreSQL ranks among the most widely used relational databases in the field of data analytics. It enables analysts to store structured datasets in an organized manner and carry out transformations through SQL. Power BI, on the other hand, is a business intelligence tool that empowers analysts to build dashboards and interactive reports.\n\nWhen combined, the two form a robust workflow: PostgreSQL handles data storage, SQL manages data preparation, and Power BI takes care of visualization and insight generation. This workflow finds broad application across financial analytics, credit risk analysis, fintech analytics, and business intelligence reporting.\n\n \n \n Project Overview\n\nI want to build a dashboard that answers questions such as:\n\nHow many loans have been issued?\n\nHow much money has been disbursed?\n\nHow much has been repaid?\n\nHow much is still outstanding?\n\nWhich counties have the highest borrowing levels?\n\nWhat percentage of loans are defaulted?\n\nHow does loan activity change over time?\n\nTo accomplish this, I will set up a simple relational database consisting of three tables — borrowers, loans, and repayments. \n\nI will work with a small sample dataset to keep the project straightforward and easy to follow. This dataset represents a simplified loan portfolio containing borrower information alongside repayment activity.\n\n \n \n Step 1: Create Tables in PostgreSQL\n\nCreate the borrowers table\n\nCREATE TABLE borrowers (\n borrower_id INT PRIMARY KEY,\n borrower_name VARCHAR(100),\n gender VARCHAR(20),\n county VARCHAR(50),\n employment_status VARCHAR(50)\n);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCreate the loans table\n\nCREATE TABLE loans (\n loan_id INT PRIMARY KEY,\n borrower_id INT,\n loan_amount NUMERIC(12,2),\n interest_rate NUMERIC(5,2),\n loan_term_months INT,\n issue_date DATE,\n loan_status VARCHAR(20),\n FOREIGN KEY (borrower_id) REFERENCES borrowers(borrower_id)\n);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nCreate the repayments table\n\nCREATE TABLE repayments (\n repayment_id INT PRIMARY KEY,\n loan_id INT,\n payment_amount NUMERIC(12,2),\n payment_date DATE,\n FOREIGN KEY (loan_id) REFERENCES loans(loan_id)\n);\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\n \n \n Step 2: Load Data Into PostgreSQL\n\nImport the CSV files into PostgreSQL using DBeaver or pgAdmin. Alternatively, insert the data manually using SQL INSERT statements.\n\n \n \n Step 3: Creating a Reporting View\n\nRather than connecting Power BI directly to raw tables, we build a view that brings together borrower, loan, and repayment data in one place. This makes the reporting process in Power BI significantly more straightforward.\n\nCREATE OR REPLACE VIEW vw_loan_dashboard AS\nSELECT\n l.loan_id,\n b.borrower_name,\n b.gender,\n b.county,\n b.employment_status,\n l.loan_amount,\n l.interest_rate,\n l.loan_term_months,\n l.issue_date,\n l.loan_status,\n COALESCE(SUM(r.payment_amount), 0) AS total_paid,\n l.loan_amount - COALESCE(SUM(r.payment_amount), 0) AS outstanding_balance\nFROM loans l\nJOIN borrowers b\n ON l.borrower_id = b.borrower_id\nLEFT JOIN repayments r\n ON l.loan_id = r.loan_id\nGROUP BY\n l.loan_id,\n b.borrower_name,\n b.gender,\n b.county,\n b.employment_status,\n l.loan_amount,\n l.interest_rate,\n l.loan_term_months,\n l.issue_date,\n l.loan_status;\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThis view provides a clean dataset ready for Power BI.\n\nThe vw_loan_dashboard view serves as the reporting layer for this project. It joins the loans, borrowers, and repayments tables into a single clean structure, pulling in borrower details alongside each loan record. A LEFT JOIN is used with the repayments table to ensure that loans with no repayment activity are still captured. From there, two calculated fields are derived — total_paid, which sums all repayments per loan, and outstanding_balance, which subtracts the total paid from the original loan amount. This consolidated view makes it straightforward to build meaningful metrics and visualizations in Power BI without managing complex joins on the reporting side.\n\n \n \n Step 4: Connect PostgreSQL to Power BI\n\nLaunch Power BI Desktop and navigate to Home, then Get Data, and select PostgreSQL Database. Enter your server name along with your database name, then load the following: \n\nborrowers\n\nloans\n\nrepayments\n\nvw_loan_dashboard\n\n \n \n Step 5: Create Power BI measures\n\nIn this step we create the following DAX measures\n\nTotal Loans\n\nTotal_Loans = COUNT('loans vw_loan_dashboard'[loan_id])\n\nTotal Disbursed Amount\n\nTotal_Disbursed_Amount = SUM('loans vw_loan_dashboard'[loan_amount])\n\nTotal Amount Paid\n\nTotal_Amount_Paid = SUM('loans vw_loan_dashboard'[total_paid])\n\nTotal Outstanding Balance\n\nTotal_Outstanding_Balance = SUM('loans vw_loan_dashboard'[outstanding_balance])\n\nAverage Loan Size\n\nAverage_Loan_Size = AVERAGE('loans vw_loan_dashboard'[loan_amount])\n\nDefaulted Loans\n\nDefaulted_Loans = CALCULATE(COUNT('loans vw_loan_dashboard'[loan_id]),'loans vw_loan_dashboard'[loan_status]=\"Defaulted\")\n\nDefault Rate\n\nDefault_Rate = DIVIDE([Defaulted_Loans], [Total_Loans], 0) * 100\n\nExpected Interest Revenue\n\nExpected_Interest_Revenue = SUMX('loans vw_loan_dashboard','loans vw_loan_dashboard'[loan_amount] * 'loans vw_loan_dashboard'[interest_rate])\n\n \n \n Step 6: Build The Dashboard\n\nDashboard Layout Example\n\n \n \n Conclusion\n\nConnecting PostgreSQL with Power BI allows analysts to transform structured financial data into meaningful insights.\n\nLoan performance dashboards help organizations understand portfolio health, monitor repayment behavior, and identify potential risks.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "bigdata",
+      "create",
+      "csv",
+      "dashboard",
+      "data",
+      "datum",
+      "dbeaver",
+      "int",
+      "int primary key",
+      "key",
+      "loan",
+      "payments",
+      "performance",
+      "postgres",
+      "postgresql",
+      "postgressql",
+      "power",
+      "power bi",
+      "powerbi",
+      "project overview",
+      "repayment",
+      "reporting",
+      "sql",
+      "table"
+    ],
+    [
+      "bigdata",
+      "data",
+      "postgressql"
+    ]
+  ]
+}

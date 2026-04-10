@@ -1,0 +1,40 @@
+{
+  "id": 9926,
+  "source": "DEV Community<",
+  "title": "I built a headless accounting API — REST, GraphQL & MCP for AI builders",
+  "url": "https://dev.to/lifeofjer/i-built-a-headless-accounting-api-rest-graphql-mcp-for-ai-builders-27kg",
+  "published_at": "2026-04-09T00:44:33Z",
+  "fetched_at": "2026-04-09T01:40:58.748370+00:00",
+  "author": "Jer Crane",
+  "summary": "<h2>\n  \n  \n  The problem\n</h2>\n\n<p>Every accounting system forces you into their UI. For developers building products, this is a non-starter. You can't embed QuickBooks into your app. You can't build a farming-specific accounting UI. You can't run consolidated financials across 20 LLCs with a tool designed for a single small business.</p>\n\n<h2>\n  \n  \n  What I built\n</h2>\n\n<p><a href=\"https://craneledger.ai\" rel=\"noopener noreferrer\">Crane Ledger</a> is a headless accounting API — a full double-entry accounting engine you access via REST, GraphQL, or MCP. No UI attached.</p>\n\n<h2>\n  \n  \n  Three protocols\n</h2>\n\n<p><strong>REST API</strong> — Traditional endpoints for accounting operations. CRUD for accounts, transactions, journal entries.</p>\n\n<p><strong>GraphQL</strong> — Flexible queries for complex financial reports. Pull exactly the data you need.</p>\n\n<p><strong>MCP Protocol</strong> — This is the fun one. Give Claude, Cursor, or any MCP-compatible AI assistant native access to you",
+  "full_text": "The problem\n\nEvery accounting system forces you into their UI. For developers building products, this is a non-starter. You can't embed QuickBooks into your app. You can't build a farming-specific accounting UI. You can't run consolidated financials across 20 LLCs with a tool designed for a single small business.\n\n \n \n What I built\n\nCrane Ledger is a headless accounting API — a full double-entry accounting engine you access via REST, GraphQL, or MCP. No UI attached.\n\n \n \n Three protocols\n\nREST API — Traditional endpoints for accounting operations. CRUD for accounts, transactions, journal entries.\n\nGraphQL — Flexible queries for complex financial reports. Pull exactly the data you need.\n\nMCP Protocol — This is the fun one. Give Claude, Cursor, or any MCP-compatible AI assistant native access to your accounting engine. Natural language accounting:\n\n\"Create a journal entry for the $5,000 rent payment\"\n\n\"Show me the P&L for Q1\"\n\n\"Run a consolidated balance sheet across all my entities\"\n\n \n \n Multi-entity support\n\nSub-organizations with master billing, private data isolation between orgs, and pass-through financials for owned entities. Run consolidated balance sheets and income statements at the top level.\n\n \n \n Who it's for\n\nDevelopers vibe-coding a product who need accounting without building it from scratch\n\nSaaS companies embedding financial features\n\nReal estate investors managing multiple LLCs\n\nAnyone building a niche accounting system (farming, construction, healthcare)\n\n \n \n Pricing\n\nCredit-based — you pay for what you use. No seat licenses.\n\n \n \n Docs\n\ncraneledger.ai/docs\n\nWould love feedback from anyone who's hit this problem before.",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "accounting",
+      "ai",
+      "api",
+      "api - rest",
+      "build",
+      "consolidated",
+      "crud",
+      "cursor",
+      "developers",
+      "financial",
+      "fintech",
+      "graphql",
+      "graphql & mcp",
+      "headless",
+      "llc",
+      "mcp",
+      "payments",
+      "quickbooks",
+      "sheet",
+      "webdev"
+    ],
+    [
+      "webdev"
+    ]
+  ]
+}

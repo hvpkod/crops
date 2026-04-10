@@ -1,0 +1,37 @@
+{
+  "id": 10174,
+  "source": "Hacker News",
+  "title": "OpenAI puts Stargate UK on ice, blames energy costs and red tape",
+  "url": "https://www.theregister.com/2026/04/09/openai_puts_stargate_uk_on/",
+  "published_at": "2026-04-09T19:29:59Z",
+  "fetched_at": "2026-04-09T20:40:32.549657+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47708593\">Comments</a>",
+  "full_text": "OpenAI is pausing its planned Stargate datacenter project in the UK just months after announcing it, citing the regulatory environment and cost of energy as reasons for putting it on hold.\n\nThe US large language model (LLM) pioneer unveiled its plans for Stargate UK last September, to coincide with a state visit by President Trump. It was hailed by the British government at the time as a boost for its own ambitions to make the country a world leader in AI.\n\nBut OpenAI has now got cold feet and put its infrastructure plans on hold, though it still intends to proceed when conditions are right, according to a statement it sent to The Register.\n\n \n\n\"We see huge potential for the UK's AI future. London is home to our largest international research hub, and we support the Government's ambition to be an AI leader,\" an OpenAI spokesperson said.\n\n \n\n \n\n\"AI compute is foundational to that goal - we continue to explore Stargate UK and will move forward when the right conditions such as regulation and the cost of energy enable long-term infrastructure investment. In the meantime, we are investing in talent and expanding our local presence, while also delivering on the commitments under our MOU with the Government to adopt frontier AI in UK public services.\"\n\nRising energy costs - likely exacerbated by President Trump's misadventures in the Middle East - may be a contributing factor, though the reference to regulation remains unclear. As part of one of the government's \"AI Growth Zones,\" the project should already benefit from streamlined planning and priority grid access. We asked OpenAI for clarification.\n\n \n\nStargate UK, if it goes ahead, will span multiple sites across the country, including Cobalt Park, a business park in North Tyneside. It is expected to form part of the newly designated AI Growth Zone for the North East.\n\nThe project also involves British rent-a-GPU biz Nscale, which was set to significantly grow its planned UK capacity for Stargate UK. We contacted Nscale to find out more, but the company declined to comment.\n\nAt the announcement, OpenAI said it expected to buy 8,000 Nvidia GPUs for the project, with the potential to scale to 31,000 over time. This will enable OpenAI's models to run on local, sovereign compute infrastructure for use cases such as critical public services, regulated industries like finance, research projects or national security partnerships, it claimed.\n\nAs an aside, we note that OpenAI not too long ago hired former UK Chancellor of the Exchequer George Osborne to head up its expansion of the Stargate project to other nations beyond the US.\n\nAs if that weren't enough, Nscale now has former deputy prime minister Sir Nick Clegg sitting on its board, meaning that Stargate UK is, in a way, bringing together two, er, shining lights of the British political scene. ®",
+  "tags": [
+    [
+      "2026",
+      "500-words",
+      "ai",
+      "british",
+      "cobalt park",
+      "energy",
+      "expect",
+      "government",
+      "infrastructure",
+      "london",
+      "mou",
+      "north tyneside",
+      "nscale",
+      "openai",
+      "plan",
+      "project",
+      "regulation",
+      "stargate",
+      "the middle east",
+      "the north east",
+      "the register"
+    ],
+    []
+  ]
+}

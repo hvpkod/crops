@@ -1,0 +1,37 @@
+{
+  "id": 10233,
+  "source": "Hacker News",
+  "title": "The Training Example Lie Bracket",
+  "url": "https://pbement.com/posts/lie_brackets/",
+  "published_at": "2026-04-09T21:59:28Z",
+  "fetched_at": "2026-04-09T23:21:04.238214+00:00",
+  "author": null,
+  "summary": "<a href=\"https://news.ycombinator.com/item?id=47710782\">Comments</a>",
+  "full_text": "Training Examples are Vector Fields and their Lie Brackets can be Computed\n\nskip to results\n\nAn ideal machine learning model would not care what order training examples appeared in its training process. From a Bayesian perspective, the training dataset is unordered data and all updates based on seeing one additional example should commute with each other. For neural nets trained by gradient descent, however, this is not the case. This webpage will explain how to compute the effects of swapping the order of two training examples on a per-parameter level, and show the results of computing these quantities for a simple convnet model.\n\nTo get started, we just need to recognize one simple mathematical fact:\n\nTraining Examples are Vector Fields\n\nIf we are training a neural network with parameters $\\theta \\in \\Theta = \\mathbb{R}^\\text{num params}$, then we can treat each training example as a vector field. In particular, if $x$ is a training example and $\\mathcal{L}^{(x)}$ is the per-example loss for the training example $x$, then this vector field is:\n\n$$\nv^{(x)}(\\theta) = -\\nabla_{\\theta} \\mathcal{L}^{(x)}\n$$\n\nIn other words, for a specific training example, the arrows of the resulting vector field point in the direction that the parameters should be updated.\n\nIn this view, a gradient update basically looks like moving in the direction of the vector field by the learning rate $\\epsilon$.\n\n$$\n\\theta' = \\theta + \\epsilon v^{(x)}(\\theta).\n$$\n\nThe Training Example Lie Bracket\n\nOne thing we can do with vector fields is to compute their Lie bracket. So if $x, y$ are training examples, we may compute:\n\n$$\n[v^{(x)}, v^{(y)}] = (v^{(x)}\\cdot \\nabla_\\theta) v^{(y)} - (v^{(y)}\\cdot \\nabla_\\theta) v^{(x)}\n$$\n\nWe can compute the Lie bracket of any two vector fields on $\\Theta$, and so we can certainly compute the Lie bracket of the vector fields arising from two training examples. The Lie bracket of two training examples tells us about the order dependence of training on those examples. The Lie bracket of a vector field is itself a vector field, and so just like a gradient, we get a Lie bracket tensor for each parameter tensor of the same shape as that parameter tensor.\n\nThe Lie Bracket Tells us About Order-Dependence\n\nWe can interpret this quantity as the difference between updating on $x$ before $y$ vs after. Let's Taylor expand to see this. If $\\epsilon$ is the learning rate, we'll want to expand to $O(\\epsilon^2)$:\n\n$$\\theta' = \\theta + \\epsilon v^{(x)}(\\theta)$$\n\n$$\n\\theta'' = \\theta' + \\epsilon v^{(y)}(\\theta')\n$$\n\n$$= \\theta + \\epsilon v^{(x)}(\\theta) + \\epsilon v^{(y)}(\\theta) + \\epsilon^2 (v^{(x)}(\\theta) \\cdot \\nabla_\\theta) v^{(y)}(\\theta)$$\n\nNow if we update $x,y$ in the other order, we get an $O(\\epsilon^2)$ difference in the resulting parameters $\\theta''$. Namely:\n\n$$\n\\Delta \\theta'' = \\epsilon^2 \\left( (v^{(x)}(\\theta) \\cdot \\nabla_\\theta) v^{(y)}(\\theta) - (v^{(y)}(\\theta) \\cdot \\nabla_\\theta) v^{(x)}(\\theta) \\right)\n$$\n\n$$\n\\Delta \\theta'' = \\epsilon^2 [v^{(x)}, v^{(y)}] (\\theta)\n$$\n\nSo here we can see the significance of the Lie bracket: It tells us the difference in where our parameters end up based on which order we show the training examples in.\n\nNote that by the linearity of the Lie bracket, swapping the order of two minibatches has an effect given by averaging over all pairs of examples.\n\nPrior Work\n\nWhen searching the literature for work on the Lie brackets of training examples, the earliest description we found was Dherin in 2023, who connects the bracket's ability to measure commutativity of updates to implicit biases in neural net training.\n\nWe go farther here by explicitly computing the bracket value at various checkpoints in the training of an actual convnet.\n\nExperiment Details\n\nWe replicate the MXResNet architecture (without attention layers) and train it on the CelebA dataset for 5000 steps at a batch size of 32, saving weight checkpoints from time to time. The optimizer is Adam, with the following parameters:\n\nlr = 5e-3\nbetas = (0.8, 0.999)\n\nThe CelebA dataset has 40 binary attributes (such as Male or Black_Hair) and the neural net is tasked with predicting each of these independently and simultaneously (averaged binary classification loss).\n\nWe evaluated each checkpoint of the model on a batch of 32 examples from the test set. We computed Lie brackets between only the first 6 of these test examples to limit disk space usage, as each individual Lie bracket has the same size as a full checkpoint of the model. For each of these brackets representing a swap of two examples, we show how all 40 logits for all 32 test examples in the batch are perturbed when the two examples are swapped.\n\nResults\n\nWe have some things to say about the results, but first try exploring them yourself! The slider controls which checkpoint from the training process we're examining, and you can click on the buttons to see data about particular Lie brackets. $[u_i, u_j] = -[u_j, u_i]$ so brackets across the diagonal from each other are just negatives of each other.",
+  "tags": [
+    [
+      "-[u_j",
+      "1000-words",
+      "2026",
+      "\\in",
+      "ai",
+      "bracket",
+      "checkpoint",
+      "compute",
+      "dherin",
+      "example",
+      "field",
+      "lie",
+      "neural",
+      "order",
+      "order-dependence",
+      "parameter",
+      "training",
+      "v^{(x)}(\\theta",
+      "v^{(x)}\\cdot \\nabla_\\theta",
+      "v^{(y)}(\\theta)$$",
+      "vector"
+    ],
+    []
+  ]
+}

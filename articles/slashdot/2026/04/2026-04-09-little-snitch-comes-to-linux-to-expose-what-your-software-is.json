@@ -1,0 +1,29 @@
+{
+  "id": 10075,
+  "source": "Slashdot",
+  "title": "Little Snitch Comes To Linux To Expose What Your Software Is Really Doing",
+  "url": "https://linux.slashdot.org/story/26/04/09/0617212/little-snitch-comes-to-linux-to-expose-what-your-software-is-really-doing?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+  "published_at": "2026-04-09T15:00:00Z",
+  "fetched_at": "2026-04-09T15:20:38.308707+00:00",
+  "author": "BeauHD",
+  "summary": "BrianFagioli writes: Little Snitch, the well known macOS tool that shows which applications are connecting to the internet, is now being developed for Linux. The developer says the project started after experimenting with Linux and realizing how strange it felt not knowing what connections the system was making. Existing tools like OpenSnitch and various command line utilities exist, but none provided the same simple experience of seeing which process is connecting where and blocking it with a click. The Linux version uses eBPF for kernel level traffic interception, with core components written in Rust and a web based interface that can even monitor remote Linux servers.\n \nDuring testing on Ubuntu, the developer noticed the system was relatively quiet on the network. Over the course of a week, only nine system processes made internet connections. By comparison, macOS reportedly showed more than one hundred processes communicating externally. Applications behave similarly across platfor",
+  "full_text": "It was pity stayed his hand.\n\"Pity I don't have any more bullets,\" thought Frito.\n-- _Bored_of_the_Rings_, a Harvard Lampoon parody of Tolkein",
+  "tags": [
+    [
+      "200-words",
+      "2026",
+      "come",
+      "do",
+      "expose",
+      "linux",
+      "little",
+      "privacy",
+      "really",
+      "snitch",
+      "software"
+    ],
+    [
+      "software"
+    ]
+  ]
+}

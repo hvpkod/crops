@@ -1,0 +1,36 @@
+{
+  "id": 10144,
+  "source": "DEV Community<",
+  "title": "Understanding Vector Pipelines: From Config Files to Data Flow",
+  "url": "https://dev.to/mohhddhassan/understanding-vector-pipelines-from-config-files-to-data-flow-i8k",
+  "published_at": "2026-04-09T19:29:55Z",
+  "fetched_at": "2026-04-09T19:40:21.698832+00:00",
+  "author": "Mohamed Hussain S",
+  "summary": "<p><em>Part 2 of a series on building a metrics pipeline into ClickHouse</em><br />\n<em><a href=\"https://dev.to/mohhddhassan/why-my-metrics-pipeline-with-telegraf-didnt-work-and-what-i-learned-4g6h\">Read Part 1: Why my metrics pipeline with Telegraf didn’t work</a></em></p>\n\n\n<h2>\n  \n  \n  Picking Up Where Things Broke\n</h2>\n\n<p>In the previous part, I talked about trying to build a metrics pipeline using Telegraf - and why that approach didn’t work for my use case.</p>\n\n<p>The biggest issue wasn’t just tooling.</p>\n\n<p>It was this:</p>\n\n<blockquote>\n<p>I didn’t have enough control over how data moved through the system.</p>\n</blockquote>\n\n<p>That’s what led me to explore a different approach.</p>\n\n\n<h2>\n  \n  \n  Why Vector\n</h2>\n\n<p>I came across Vector while looking for something more flexible.</p>\n\n<p>At a glance, it felt different.</p>\n\n<p>Instead of thinking in terms of plugins and configs, Vector is built around a <strong>pipeline model</strong>.</p>\n\n<p>And that changes everything",
+  "full_text": "Part 2 of a series on building a metrics pipeline into ClickHouse\n\nRead Part 1: Why my metrics pipeline with Telegraf didn’t work\n\n \n \n Picking Up Where Things Broke\n\nIn the previous part, I talked about trying to build a metrics pipeline using Telegraf - and why that approach didn’t work for my use case.\n\nThe biggest issue wasn’t just tooling.\n\nIt was this:\n\nI didn’t have enough control over how data moved through the system.\n\nThat’s what led me to explore a different approach.\n\n \n \n Why Vector\n\nI came across Vector while looking for something more flexible.\n\nAt a glance, it felt different.\n\nInstead of thinking in terms of plugins and configs, Vector is built around a pipeline model.\n\nAnd that changes everything.\n\n \n \n The Core Idea: Pipelines\n\nAt the center of Vector is a simple concept:\n\nSources → Transforms → Sinks\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThat’s it.\n\nBut this model makes the flow of data explicit.\n\nSources → where data comes from\n\nTransforms → how data is modified\n\nSinks → where data is sent\n\nCompared to my earlier approach, this immediately felt clearer.\n\n \n \n What This Actually Means\n\nInstead of writing a config and hoping everything connects correctly, you define:\n\nWhat data you are collecting\n\nHow that data should be shaped\n\nWhere that data should go\n\nThat shift sounds small - but it changes how you think about the system.\n\n \n \n From Config Files to Data Flow\n\nWith Telegraf, my thinking looked like this:\n\nWrite config → Run → Debug errors\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nWith Vector, it started becoming:\n\nCollect → Transform → Route → Store\n\n Enter fullscreen mode\n \n\n Exit fullscreen mode\n \n\nThe focus moved from:\n\n“What config do I write?”\n\nto:\n\n“How does data move through each stage?”\n\n \n \n The New Learning Curve\n\nOf course, switching tools didn’t magically solve everything.\n\nThere were new challenges.\n\nVector uses YAML for configuration, which was different from the TOML I was used to.\n\nAnd more importantly:\n\nThe pipeline only works if every stage is defined correctly.\n\nSome of the early issues I ran into:\n\nIncorrect source definitions\n\nMisconfigured sinks\n\nData not flowing as expected\n\nSilent failures when something didn’t connect properly\n\nAt times, it felt like nothing was happening-even though everything looked “correct.”\n\n \n \n First Realization: Everything Is Connected\n\nOne important thing I learned quickly:\n\nIf one stage breaks, the entire pipeline breaks.\n\nUnlike simpler setups, you can’t treat components independently.\n\nA bad transform can stop data entirely\n\nA misconfigured sink can drop everything silently\n\nA source that doesn’t emit correctly makes debugging harder\n\nThis forced me to start thinking in terms of end-to-end flow, not individual pieces.\n\n \n \n What Improved Immediately\n\nDespite the challenges, a few things became better compared to before:\n\nClear visibility into how data moves\n\nBetter control over transformations\n\nMore flexibility in shaping data before sending it to ClickHouse\n\nEven though things weren’t fully working yet, I finally felt like I was closer to solving the actual problem.\n\n \n \n What Was Still Missing\n\nAt this stage, the pipeline structure made sense.\n\nBut one part was still unclear-and turned out to be the hardest:\n\nHow to correctly transform the data so that ClickHouse would accept it.\n\nThis is where most of the complexity showed up.\n\n \n \n What’s Next\n\nIn the next part, I’ll dive into the most challenging part of this setup:\n\nWriting transforms using Vector Remap Language (VRL)\n\nHandling strict data types\n\nFixing timestamp issues\n\nAnd shaping metrics into a format that ClickHouse can actually ingest\n\n \n \n Series Overview\n\nThis post is part of a series:\n\n \n \n Final Thought\n\nSwitching tools didn’t solve the problem immediately.\n\nBut it did something more important:\n\nIt made the system visible.\n\nOnce I could see how data moved through each stage, debugging stopped being guesswork-and started becoming structured.",
+  "tags": [
+    [
+      "1000-words",
+      "2026",
+      "backend",
+      "clickhouse",
+      "config",
+      "dataengineering",
+      "datum",
+      "feel",
+      "move",
+      "observability",
+      "part",
+      "pipeline",
+      "run → debug",
+      "sink",
+      "toml",
+      "transform",
+      "vector"
+    ],
+    [
+      "dataengineering",
+      "observability"
+    ]
+  ]
+}
